@@ -8124,11 +8124,12 @@ function renderMember(){
 /* ══════════ member: book + one submission form ══════════ */
 function renderMore(){ window.__renderMore=renderMore;
   var el=document.getElementById('treemore'); if(!el) return;
-  var T=[['tree','The tree'],['book','As the book prints it'],['facts','Fun facts'],['submit','Submit a change']];
+  var T=[['tree','The tree'],['clans','The clans'],['book','As the book prints it'],['facts','Fun facts'],['submit','Submit a change']];
   var h='<div class="t2-tabs" style="margin-top:var(--s6)">'+T.map(function(x){
     return '<button class="t2-tab'+(S.mtab===x[0]?' is-on':'')+'" onclick="TREE.mtab(\''+x[0]+'\')">'+x[1]+'</button>';}).join('')+'</div>';
 
   if(S.mtab==='tree'){ h+=treeHtml(); }
+  else if(S.mtab==='clans'){ h+=clansHtml(); }
   else if(S.mtab==='facts'){ h+=factsHtml(); }
   else if(S.mtab==='book'){
     h+='<div class="grid grid--2"><div class="panel"><div class="panel__head"><div><h3>Your line, in the book&rsquo;s own format</h3><p>Same numbering, same entry shape &mdash; rendered by the same component the federation console uses</p></div></div><div class="panel__body">'+
@@ -9114,6 +9115,80 @@ window.LIVEGATE={
       : '<span class="c-pill c-pill--warn">signed out &middot; living people show name only</span>';
   }
 };
+})();
+</script>
+<style>
+/* ═══ clans ═══ */
+.cl-int{background:var(--surface-2,#faf7ee);border:1px solid rgba(43,36,22,.14);border-radius:12px;padding:15px 18px;margin-bottom:var(--s5)}
+.cl-int p{margin:0 0 8px;font-size:14px;line-height:1.62}
+.cl-int p:last-child{margin:0}
+.cl-tree{display:grid;gap:8px;margin:var(--s4) 0}
+.cl-row{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:start}
+.cl-k{font-size:11px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:#6b6350;padding-top:6px}
+.cl-pills{display:flex;flex-wrap:wrap;gap:6px}
+.cl-pill{font-size:12.6px;font-weight:750;border-radius:99px;padding:4px 11px;background:var(--green-50,#f0f3e2);
+  color:var(--green-800,#33430b);border:1px solid rgba(76,100,20,.22)}
+.cl-pill small{font-weight:600;opacity:.7;margin-left:5px}
+.cl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--s4)}
+.cl-c{background:#fff;border:1px solid rgba(43,36,22,.16);border-radius:11px;padding:12px 14px}
+.cl-c h5{margin:0 0 2px;font-size:13.6px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;color:var(--green-800,#33430b)}
+.cl-c .sub{font-size:11.2px;color:#6b6350;display:block;margin-bottom:8px}
+.cl-f{display:flex;flex-wrap:wrap;gap:4px}
+.cl-f span{font-size:11.6px;padding:2px 7px;border-radius:5px;background:var(--surface-sunken,#efe9d8);color:#4a4436}
+.cl-f span.multi{background:#f6efe2;color:#7a5a0a;font-weight:750;border:1px solid #e0cfae}
+.cl-f span.none{opacity:.45;font-style:italic}
+.cl-f b{font-weight:750;font-size:10.4px;opacity:.65;margin-left:3px}
+</style>
+<script>
+/* ═══ The clans — AFRP's own roster sheets, checked against the record ═══ */
+(function(){
+var CLANROSTER=[{"n": "AWAD", "code": "AWD", "people": 3549, "fams": [["Awad", 43, 0], ["Ayoub", 233, 0], ["Azat", 31, 0], ["Caddura", 48, 0], ["Danfora", 91, 0], ["Eadeh", 173, 0], ["Hadid", 189, 0], ["Hishmeh", 304, 0], ["Kash", 95, 0], ["Kassis", 182, 1], ["Michael", 17, 0], ["Odeh", 2, 0], ["Saah", 420, 0], ["Shayeb", 47, 0], ["Shihadeh", 117, 1], ["Zarou", 27, 1]]}, {"n": "SHARAKA", "code": "SHAR", "people": 3747, "fams": [["Araj", 100, 0], ["Balat", 54, 0], ["Baslamit", 0, 0], ["Cook", 37, 0], ["Dabis", 38, 0], ["Ghattas", 1, 0], ["Kawas", 31, 0], ["Kharsa", 58, 0], ["Mansoor", 35, 0], ["Mizirawi", 32, 0], ["Mogannam", 465, 0], ["Muhawelh", 0, 0], ["Muhawi", 125, 0], ["Nazal", 202, 0], ["Salameh", 174, 0], ["Shahla", 8, 0], ["Shatara", 273, 0], ["Sheheen", 0, 0], ["Totah", 664, 0], ["Zaghrout", 29, 0], ["Zarour", 95, 0]]}, {"n": "YOUSEF", "code": "YSF", "people": 4197, "fams": [["Ahwal", 166, 0], ["Amireh", 2, 0], ["Badran", 61, 0], ["Bedra", 0, 0], ["Boulus", 31, 0], ["Butros", 38, 0], ["Dughman", 117, 0], ["Elias", 28, 0], ["Farris", 10, 0], ["Freij", 42, 0], ["Habib", 30, 0], ["Harb", 720, 0], ["Jaber", 214, 0], ["Kaibni", 0, 0], ["Kashou", 80, 0], ["Katwan", 46, 0], ["Martha", 139, 0], ["Mousa", 60, 0], ["Saman", 0, 0], ["Sarsour", 62, 0], ["Shamieh", 322, 0], ["Shihadeh", 30, 1], ["Tawasha", 134, 0], ["Warra", 153, 0]]}, {"n": "JAGHAB", "code": "JAG", "people": 3486, "fams": [["Ajlouny", 413, 0], ["Azzouz", 0, 0], ["Elfar", 51, 0], ["Ganim", 68, 1], ["George", 79, 0], ["Ghanam", 9, 0], ["Hanna", 171, 1], ["Hawat", 69, 0], ["Jaghab", 209, 0], ["Jubran", 47, 1], ["Kassis", 78, 1], ["Kaywood", 0, 0], ["Khalil", 10, 0], ["Khashan", 58, 0], ["Milhim", 11, 0], ["Misleh", 203, 0], ["Nasir", 1, 0], ["Rabah", 35, 0], ["Rizkallah", 202, 0], ["Salah", 195, 1], ["Saleh", 195, 1], ["Sheik", 0, 0], ["Shukeireh", 56, 0], ["Tawfiq", 1, 0], ["Zarou", 174, 1]]}, {"n": "HASSAN", "code": "HAS", "people": 1073, "fams": [["Bajalia", 0, 0], ["Bakkar", 42, 0], ["Dudum", 133, 0], ["Hassan", 6, 0], ["Jadallah", 54, 0], ["Jajeh", 86, 0], ["Omran", 153, 0], ["Rukab", 168, 0]]}, {"n": "SHUKAIR", "code": "SHAK", "people": 3289, "fams": [["Ankar", 124, 0], ["Baba", 203, 0], ["Bandura", 10, 0], ["Bishara", 62, 0], ["Dabai", 0, 0], ["Dahu", 126, 0], ["Essa", 6, 1], ["Foteh", 146, 0], ["Ganim", 44, 1], ["Ghnaim", 2, 0], ["Hani", 51, 0], ["Hanna", 2, 1], ["Karoush", 81, 0], ["Khalaf", 325, 0], ["Khawaja", 169, 0], ["Khoury", 72, 1], ["Lussi", 30, 0], ["Nasra", 66, 0], ["Saadeh", 39, 0], ["Salti", 13, 0], ["Shanar", 9, 0], ["Zabak", 6, 0], ["Zanayed", 121, 0], ["Zayed", 265, 0]]}, {"n": "IBRAHIM", "code": "IBR", "people": 3734, "fams": [["Abdelnour", 25, 0], ["Abed", 39, 0], ["Akel", 323, 0], ["Ali", 92, 0], ["Ayyash", 31, 0], ["Bateh", 387, 0], ["Dirbas", 24, 0], ["Essa", 0, 1], ["Farah", 123, 0], ["Farhat", 153, 0], ["Farhoud", 15, 0], ["Fawal", 36, 0], ["Gazaleh", 80, 0], ["Hanania", 153, 0], ["Ibrahim", 7, 0], ["Isaac", 25, 0], ["Jubran", 35, 1], ["Kandah", 219, 0], ["Kassis", 104, 1], ["Khamis", 0, 0], ["Raya", 0, 0], ["Sahourieh", 58, 0], ["Salem", 72, 0], ["Sallah", 114, 1], ["Zaghlool", 30, 0], ["Ziadeh", 121, 0]]}, {"n": "JERIES", "code": "JIR", "people": 3399, "fams": [["Aneed", 57, 0], ["David", 12, 0], ["Eways", 88, 0], ["Farmand", 63, 0], ["Ghanayem", 278, 0], ["Iqal", 116, 0], ["Isais", 58, 0], ["Khoury", 29, 1], ["Mashni", 213, 0], ["Mkri", 0, 0], ["Mubarik", 0, 0], ["Mufarreh", 195, 0], ["Natour", 147, 0], ["Qatsha", 41, 0], ["Rayan", 0, 0], ["Saba", 58, 0], ["Sackleh", 130, 0], ["Shunnarah", 367, 0], ["Sihwail", 0, 0], ["Tawil", 88, 0]]}];
+function clansHtml(){
+  var totF=CLANROSTER.reduce(function(a,c){return a+c.fams.length;},0);
+  var hit=CLANROSTER.reduce(function(a,c){return a+c.fams.filter(function(f){return f[1]>0;}).length;},0);
+  var multi={}; CLANROSTER.forEach(function(c){c.fams.forEach(function(f){ if(f[2]) multi[f[0]]=(multi[f[0]]||[]).concat(c.n); });});
+  var h='<div class="cl-int">'+
+    '<p><b>The Ramallah Family Tree begins with Rashid Al-Haddad.</b> He had five sons &mdash; <b>Haddad, Hassan, Shukair, Ibrahim and Jeries</b>. Haddad in turn had five sons, four of whom produced very large clans of their own. Every Ramallah family known today sits under one of those founding sons.</p>'+
+    '<p class="why" style="margin:0">Transcribed from the Federation&rsquo;s own <i>Clan Family Roster</i> sheets. <b>'+hit+' of '+totF+' family names ('+Math.round(hit/totF*100)+'%) appear in the master genealogy under exactly the clan the roster assigns them</b> &mdash; an independent check on how the record codes people, run against a document the record did not come from.</p>'+
+    '<p class="why" style="margin-top:8px"><b>One caveat the check surfaced about our own tooling.</b> The roster prints <b>164</b> family names; the platform&rsquo;s surname folding sees <b>163</b>, because <b>Saleh</b> and <b>Salah</b> &mdash; listed as two separate families under Jaghab &mdash; collapse to the same key. That folding exists so transliteration variants meet (Kassees finds Kassis, Cadoura finds Qadoura), and here it reaches one step too far. It is right for <i>search</i> and wrong for <i>counting families</i>, so counts on this page are of names as printed.</p></div>';
+
+  h+='<div class="cl-tree">'+
+    '<div class="cl-row"><span class="cl-k">Rashid Al-Haddad</span><span class="cl-pills">'+
+      ['Haddad','Hassan','Shukair','Ibrahim','Jeries'].map(function(x){return '<span class="cl-pill">'+x+'</span>';}).join('')+
+    '</span></div>'+
+    '<div class="cl-row"><span class="cl-k">Haddad&rsquo;s line</span><span class="cl-pills">'+
+      CLANROSTER.slice(0,4).map(function(c){return '<span class="cl-pill">'+c.n.charAt(0)+c.n.slice(1).toLowerCase()+'<small>'+c.people.toLocaleString()+'</small></span>';}).join('')+
+    '</span></div></div>';
+
+  h+='<div class="cl-grid">'+CLANROSTER.map(function(c){
+    return '<div class="cl-c"><h5>'+c.n+'</h5><span class="sub">'+c.people.toLocaleString()+' people &middot; '+c.fams.length+' family names</span>'+
+      '<div class="cl-f">'+c.fams.map(function(f){
+        var cls=f[2]?'multi':(f[1]?'':'none');
+        return '<span class="'+cls+'" title="'+(f[1]?f[1]+' in the record':'not found in the record')+'">'+f[0]+(f[1]?'<b>'+f[1]+'</b>':'')+'</span>';
+      }).join('')+'</div></div>';
+  }).join('')+'</div>';
+
+  h+='<div class="grid grid--2" style="margin-top:var(--s5)">';
+  h+='<div class="panel"><div class="panel__head"><div><h3>A family name does not tell you the clan</h3>'+
+     '<p>Nine names on the roster appear under more than one founding son</p></div>'+
+     '<div class="panel__head__end"><span class="c-pill c-pill--warn">'+Object.keys(multi).length+' names</span></div></div><div class="panel__body">'+
+     '<div class="cl-f" style="margin-bottom:var(--s3)">'+Object.keys(multi).sort().map(function(k){
+       return '<span class="multi">'+k+'<b>'+multi[k].map(function(x){return x.charAt(0)+x.slice(1,3).toLowerCase();}).join(' · ')+'</b></span>';}).join('')+'</div>'+
+     '<p class="why" style="margin:0"><b>This is the Federation&rsquo;s own document saying it.</b> <b>Kassis</b> appears under Awad, Ibrahim <i>and</i> Jaghab; Zarou under Awad and Jaghab; Khoury under Shukair and Jeries. Two people sharing a surname may descend from different sons of Rashid and be no relation at all.</p>'+
+     '<p class="why">It is also why the platform assigns a clan from the <b>reference number and the male line</b>, never from the name &mdash; and why the kinship engine walks the graph rather than matching surnames. A name-based check would have put all three Kassis families in one clan and been wrong twice.</p>'+
+     '</div></div>';
+
+  h+='<div class="panel"><div class="panel__head"><div><h3>Azzouz &mdash; a clan, or a family?</h3></div>'+
+     '<div class="panel__head__end"><span class="c-pill c-pill--danger">two sources disagree</span></div></div><div class="panel__body">'+
+     '<div class="qrow"><div class="qrow__main"><b>The roster sheet</b><span>lists <b>Azzouz</b> as one of the twenty-five <i>family names</i> under <b>JAGHAB</b> &mdash; not as a founding son</span></div><div class="qrow__end"><span class="c-pill c-pill--info">family</span></div></div>'+
+     '<div class="qrow"><div class="qrow__main"><b>The genealogy database</b><span>issues <span class="mono">AZZ</span> reference numbers to <b>581 people</b> as though it were a clan register of its own</span></div><div class="qrow__end"><span class="c-pill c-pill--info">clan</span></div></div>'+
+     '<div class="qrow"><div class="qrow__main"><b>And the two barely overlap</b><span>only <b>95</b> people in the record carry the Azzouz surname at all &mdash; so most of those 581 <span class="mono">AZZ</span> numbers belong to people of other names</span></div><div class="qrow__end"><span class="c-pill c-pill--warn">95 of 581</span></div></div>'+
+     '<p class="why" style="margin-top:var(--s3)"><b>The platform does not resolve this.</b> Both are AFRP sources and the design team is not the body that decides which governs. The roster is shown as the Federation published it, the reference numbers are shown as the database issues them, and the disagreement is put on the screen rather than quietly settled in favour of whichever was read last.</p>'+
+     '<p class="why">Worth noting the roster&rsquo;s own wording: Haddad had five sons, <i>four</i> of whom produced very large clans. A fifth, much smaller line is exactly what a 581-person register would look like.</p>'+
+     '</div></div></div>';
+  return h;
+}
+window.clansHtml=clansHtml;
 })();
 </script>
 </body>
