@@ -51,6 +51,17 @@ def outside_person(sex, birth_year):
     return make_person(R.choice(NP.OUTSIDE_SURNAMES), sex, birth_year, outside=True)
 
 def rel(a, b, kind, **kw):
+    # A marriage or partnership cannot begin before both people were 18.  The first
+    # build drew `since` independently and produced 133 rows where a partner was
+    # under 16 at the date, 51 of them before a partner was born.
+    if kind in ('spouse', 'partner') and 'since' in kw:
+        floor = max(a['birthYear'], b['birthYear']) + 18
+        if kw['since'] < floor:
+            kw['since'] = min(floor, Y)
+            # A union cannot end before it began; push the end out rather than
+            # pulling the start back below the age floor.
+            if kw.get('endedYear') is not None and kw['endedYear'] < kw['since']:
+                kw['endedYear'] = min(kw['since'] + 1, Y)
     RELS.append(dict(id=nid('R'), a=a['id'], b=b['id'], kind=kind, **kw))
 
 def flag(subject_ids, key, note=''):
@@ -98,15 +109,33 @@ def build_household(club, struct, idx):
         p['householdId'] = hh['id']; p['club'] = club
         hh['adults'].append(p['id']); return p
 
+    def child_by(parents, lo, hi):
+        """A birth year for a child of these parents that respects the 18-year floor.
+           Several branches used to draw the child's age straight from a range and
+           produced parents thirteen years older than their children."""
+        floor = max((pp['birthYear'] for pp in parents), default=Y - 60) + 18
+        lo_by, hi_by = Y - hi, Y - lo
+        lo_by = max(lo_by, floor)
+        return R.randint(lo_by, hi_by) if lo_by <= hi_by else hi_by
+
     def minor(sex, by, family=None):
         p = make_person(family or fam, sex, by)
         p['householdId'] = hh['id']; p['club'] = club
         hh['minors'].append(p['id']); return p
 
-    def kids(parents, n, minor_ok=True):
+    def kids(parents, n, minor_ok=True, floor_from=None):
+        # A parent is at least 18 years older than a child.  The first build drew
+        # the child's birth year independently of the parents' and produced 45
+        # parent-child rows with a gap under 13 years, and birth-mother ages from
+        # 3 to 76.
         out = []
+        youngest_parent = max((pp['birthYear'] for pp in (floor_from or parents)),
+                              default=Y - 60)
         for _ in range(n):
-            by = R.randint(Y - 24, Y - 1) if minor_ok else R.randint(Y - 45, Y - 19)
+            lo_by, hi_by = (Y - 24, Y - 1) if minor_ok else (Y - 45, Y - 19)
+            lo_by = max(lo_by, youngest_parent + 18)
+            if lo_by > hi_by: continue
+            by = R.randint(lo_by, hi_by)
             s = R.choice('MF')
             p = (minor(s, by) if (Y - by) < 18 else adult(s, by))
             for par in parents:
@@ -130,9 +159,9 @@ def build_household(club, struct, idx):
 
     elif k == 'married-multigen':
         g = adult(R.choice('MF'), ab(68, 94))
-        a = adult('M', ab(38, 58)); b = adult('F', ab(36, 56), outside=True)
+        a = adult('M', max(ab(38, 58), g['birthYear'] + 18)); b = adult('F', ab(36, 56), outside=True)
         b['eligibilityBasis'] = 'marriage'
-        rel(g, a, 'parent-child', relation='birth')
+        rel(g, a, 'parent-child', relation='birth')  # grandparent -> parent
         rel(a, b, 'spouse', since=R.randint(1988, Y - 5), status='married')
         kids([a, b], R.randint(1, 3))
 
@@ -161,7 +190,7 @@ def build_household(club, struct, idx):
             ex['membershipNote'] = 'admitted by marriage, marriage ended'
             flag([ex['id']], 'eligibility-survives-divorce')
             hh['openQuestions'].append('eligibility-survives-divorce')
-            for c in kids([a], R.randint(1, 3)):
+            for c in kids([a], R.randint(1, 3), floor_from=[a, ex]):
                 rel(ex, c, 'parent-child', relation='birth')
         else:
             kids([a], R.randint(1, 2))
@@ -180,14 +209,14 @@ def build_household(club, struct, idx):
               approvals=[a['id'], new['id']], gate='two-approvals-required')
         shared = []
         for _ in range(R.randint(1, 2)):
-            c = minor(R.choice('MF'), ab(4, 17))
+            c = minor(R.choice('MF'), child_by([a, ex], 4, 17))
             rel(a, c, 'parent-child', relation='birth')
             rel(ex, c, 'parent-child', relation='birth')
             c['secondHouseholdClub'] = ex['club']
             c['twoHouseholds'] = True
             shared.append(c['id'])
         for _ in range(R.randint(0, 1)):
-            c = minor(R.choice('MF'), ab(1, 9))
+            c = minor(R.choice('MF'), child_by([a, new], 1, 9))
             rel(a, c, 'parent-child', relation='birth')
             rel(new, c, 'parent-child', relation='step')
         if shared:
@@ -208,7 +237,7 @@ def build_household(club, struct, idx):
         flag([a['id']], 'eligibility-survives-divorce',
              note='the descendant spouse is the one who departed')
         hh['openQuestions'].append('eligibility-survives-divorce')
-        for c in kids([a], R.randint(1, 2)):
+        for c in kids([a], R.randint(1, 2), floor_from=[a, ex]):
             rel(ex, c, 'parent-child', relation='birth')
             c['descentThrough'] = ex['id']
 
@@ -228,7 +257,7 @@ def build_household(club, struct, idx):
             hh['openQuestions'].append('samesex-married-to')
         if k == 'samesex-with-children':
             for _ in range(R.randint(1, 2)):
-                c = minor(R.choice('MF'), ab(1, 17))
+                c = minor(R.choice('MF'), child_by([a, b], 1, 17))
                 rel(a, c, 'parent-child', relation=R.choice(['birth', 'adoptive']))
                 rel(b, c, 'parent-child', relation='adoptive')
                 c['parentSlotsUndefined'] = True
@@ -251,7 +280,7 @@ def build_household(club, struct, idx):
         b['eligibilityBasis'] = 'marriage'
         rel(a, b, 'spouse', since=R.randint(1992, Y - 3), status='married')
         for _ in range(R.randint(1, 3)):
-            c = minor(R.choice('MF'), ab(2, 17))
+            c = minor(R.choice('MF'), child_by([a, b], 2, 17))
             rel(a, c, 'parent-child', relation='adoptive')
             rel(b, c, 'parent-child', relation='adoptive')
             c['descentBy'] = 'adoption'
@@ -259,14 +288,14 @@ def build_household(club, struct, idx):
     elif k == 'guardianship':
         g = adult(R.choice('MF'), ab(46, 78))
         for _ in range(R.randint(1, 2)):
-            c = minor(R.choice('MF'), ab(5, 17))
+            c = minor(R.choice('MF'), child_by([g], 5, 17))
             rel(g, c, 'guardian', legalBasis=None, relation='guardian')
         flag(list(hh['minors']), 'guardian-pickup-authority')
         hh['openQuestions'].append('guardian-pickup-authority')
 
     elif k == 'adult-child-at-home':
         a = adult(R.choice('MF'), ab(54, 82))
-        c = adult(R.choice('MF'), ab(19, 34))
+        c = adult(R.choice('MF'), max(ab(19, 34), a['birthYear'] + 18))
         rel(a, c, 'parent-child', relation='birth')
 
     elif k == 'senior-couple':
@@ -274,6 +303,12 @@ def build_household(club, struct, idx):
         rel(a, b, 'spouse', since=R.randint(1955, 1995), status='married')
         R.choice([a, b])['residence'] = 'assisted-living'
 
+    # A household cannot have joined before anyone in it was an adult.  53
+    # households claimed a join year earlier than the birth of every member.
+    born = [BY_ID[i]['birthYear'] for i in hh['adults'] + hh['minors'] if i in BY_ID]
+    if born:
+        hh['joinedYear'] = max(hh['joinedYear'], min(born) + 18)
+        hh['joinedYear'] = min(hh['joinedYear'], Y)
     HOUSEHOLDS.append(hh)
     return hh
 
@@ -294,6 +329,17 @@ def finish_person(p):
     if not ad:
         p['membership'] = None
         return
+    # DEATH ENDS EVERYTHING.  The first build let the deceased keep a current
+    # membership, a place on the certified roll, a directory listing and a
+    # marketing consent — 23 dead people were counted into the electorate that
+    # By-Law 9.1.3 turns into delegate weight.  Death is not a status flag on a
+    # live record; it terminates the record.
+    if not p['living']:
+        p['membership'] = None
+        p['directoryInclude'] = False
+        p['marketingConsent'] = False
+        p['consent'] = {c: False for c in CHANNELS}
+        return
     basis = p['eligibilityBasis']
     if p.get('proposedClass') == 'associate-4.2.1':
         cls, standing = 'associate-4.2.1', 'board-vote-pending'
@@ -305,33 +351,51 @@ def finish_person(p):
         cls = 'student-free'                                  # R9
     if R.random() < .11: standing = 'lapsed'
     elif R.random() < .06: standing = 'grace'
+    # A CLUB standing is only ever current / grace / lapsed.  'board-vote-pending' is a
+    # NATIONAL 4.2.1 state — the Board votes on national Associate admission, not on a
+    # club's own roster — so it must not leak into a club row.
+    def club_standing():
+        return R.choices(['current', 'grace', 'lapsed'], weights=[.84, .05, .11])[0]
+    cs = club_standing() if standing == 'board-vote-pending' else standing
     p['membership'] = dict(
         nationalClass=cls, standing=standing,
-        votingDuesPaidBy=('2026-04-30' if standing == 'current' and R.random() < .85 else None),
-        clubs=[dict(club=p['club'], standing=standing, duesPaid=standing == 'current')],
+        # By-Law 4.2.1: "Associate Members are ineligible to vote on any A.F.R.P.
+        # matter" — so an Associate never carries a voting-dues date.  A free
+        # student membership (R9) pays no dues, so it cannot evidence payment of
+        # them either.  Only a dues-paying Regular member can be certified.
+        votingDuesPaidBy=('2026-04-30'
+                          if standing == 'current' and cls == 'regular-4.1.1'
+                          and R.random() < .85 else None),
+        clubs=[dict(club=p['club'], standing=cs, duesPaid=cs == 'current')],
         clubOfRecord=p['club'],                               # R16 pointer, never a merge
     )
     # R2 multi-club: some members hold a second club membership with independent standing
     if R.random() < .09:
         other = R.choice([c['code'] for c in spec.CLUBS if c['code'] != p['club']])
-        p['membership']['clubs'].append(dict(
-            club=other, standing=R.choice(['current', 'lapsed']), duesPaid=R.random() < .6))
+        st2 = club_standing()
+        p['membership']['clubs'].append(dict(club=other, standing=st2, duesPaid=st2 == 'current'))
 
 # ── life moments ─────────────────────────────────────────────────────────────
 # Weighted, because a uniform draw produced 124 ordinations in a population of 1,537
 # — the kind of nonsense that makes a demo dataset unusable for judging a real screen.
-LIFE_W = [('new-job',.20), ('relocation',.14), ('marriage',.12), ('graduation',.11),
-          ('first-home',.10), ('birth',.09), ('bereavement',.07), ('illness',.06),
-          ('retirement',.05), ('award',.04), ('citizenship',.015), ('ordination',.005)]
+# 'marriage' is NOT in this list.  R34: a marriage names two people and therefore
+# needs two approvals.  Drawing it as a single-subject personal moment produced 189
+# one-sided marriages, 54 of them for children — one aged one year old.  Marriages
+# are emitted by the household builders, which know both parties.
+LIFE_W = [('new-job',.22), ('relocation',.16), ('graduation',.12),
+          ('first-home',.11), ('birth',.10), ('bereavement',.08), ('illness',.07),
+          ('retirement',.06), ('award',.05), ('citizenship',.02), ('ordination',.01)]
 LIFE = [k for k, _ in LIFE_W]
 _LW  = [w for _, w in LIFE_W]
 
 def life_moments():
+    ADULT_ONLY = {'new-job', 'first-home', 'citizenship', 'ordination', 'retirement'}
     for p in PEOPLE:
         if not p['living']: continue
         n = R.choices([0, 1, 2, 3], weights=[.34, .38, .20, .08])[0]
         for _ in range(n):
             k = R.choices(LIFE, weights=_LW)[0]
+            if k in ADULT_ONLY and p['age'] < 18: continue
             if k == 'retirement' and p['age'] < 60: continue
             if k == 'graduation' and not (16 <= p['age'] <= 30): continue
             if k == 'birth' and not (20 <= p['age'] <= 46): continue
@@ -355,7 +419,16 @@ def eligible(p, prog, rung=3):
     if not p['living']: return False
     if prog.get('women_only') and p['sex'] != 'F': return False
     if rung >= 4:
-        return p['age'] >= (25 if rung == 5 else 16)
+        # Correcting the band to allow adult leadership went too far and dropped
+        # every OTHER gate: 108 leadership rows were held by lapsed members, minors
+        # and people the UI itself flags "no 4.1.1 basis".  Giving or serving needs
+        # an adult in good standing; carrying a seat needs a member entitled to hold
+        # one.  The age floor was never the only rule.
+        if p['age'] < (25 if rung == 5 else 18): return False
+        m = p.get('membership')
+        if not m or m['standing'] == 'lapsed': return False
+        if rung == 5 and m['nationalClass'] == 'associate-4.2.1': return False
+        return True
     lo, hi = prog['band']
     if p['age'] < lo: return False
     if hi is not None and p['age'] > hi: return False
@@ -376,22 +449,42 @@ def engage_organic():
             if not eligible(p, prog, rung): continue
             add_engagement(p, prog, rung)
 
-def engage_fill():
-    """Guarantee every (program × club × rung) cell is populated — 19×4×5 = 380 cells.
-       Random generation cannot promise this; the fill pass does, and says so."""
+def engage_fill(floor=5):
+    """Guarantee coverage — and be honest about what guaranteeing it costs.
+
+    The first build asserted "380 of 380 cells filled" after a pass whose whole job
+    was to fill any empty cell.  That assertion is a tautology: it cannot fail.  It
+    also left 63 cells resting on a single person, which tests nothing and, on a
+    screen, publishes a count of one — under the platform's own S7 small-cell floor.
+
+    So: record what ORGANIC generation achieved (that number can fail), then top each
+    cell up toward a floor of five where the eligible pool allows, and record every
+    cell where it does not."""
     have = collections.Counter((g['program'], g['club'], g['rung']) for g in ENGAGE)
-    filled = 0
+    organic_filled = sum(1 for prog in spec.PROGRAMS for c in spec.CLUBS
+                         for r in (1, 2, 3, 4, 5) if have[(prog['key'], c['code'], r)])
+    added, short = 0, []
     for prog in spec.PROGRAMS:
         for c in spec.CLUBS:
             for rung in (1, 2, 3, 4, 5):
-                if have[(prog['key'], c['code'], rung)]: continue
+                key = (prog['key'], c['code'], rung)
                 pool = [p for p in PEOPLE
                         if p.get('club') == c['code'] and eligible(p, prog, rung)]
-                if not pool:
-                    continue
-                add_engagement(R.choice(pool), prog, rung, why='coverage-fill')
-                filled += 1
-    return filled
+                already = {g['person'] for g in ENGAGE
+                           if g['program'] == prog['key'] and g['club'] == c['code']
+                           and g['rung'] == rung}
+                pool = [p for p in pool if p['id'] not in already]
+                want = floor - have[key]
+                if want <= 0: continue
+                take = min(want, len(pool))
+                for p in R.sample(pool, take):
+                    add_engagement(p, prog, rung, why='coverage-fill')
+                    have[key] += 1; added += 1
+                if have[key] < floor:
+                    short.append(dict(program=prog['key'], club=c['code'], rung=rung,
+                                      n=have[key], eligiblePool=len(pool) + len(already)))
+    return dict(organicFilled=organic_filled, total=len(spec.PROGRAMS) * len(spec.CLUBS) * 5,
+                added=added, floor=floor, belowFloor=short)
 
 # ── money ────────────────────────────────────────────────────────────────────
 # R23: money routes by the event's HOST.  Class codes are attribution only.
@@ -417,6 +510,8 @@ TREATMENTS = {
 HOST_OF = {p['key']: p['host'] for p in spec.PROGRAMS}
 
 def pay(person, kind, cents, *, program=None, restriction=None):
+    if not person['living']:            # 77 payments were charged to the dead
+        return
     t = dict(TREATMENTS[kind])
     host = t['host']
     if kind == 'restricted-gift':
@@ -480,6 +575,6 @@ def build():
     R.shuffle(HOUSEHOLDS)
     life_moments()
     engage_organic()
-    filled = engage_fill()
+    cov = engage_fill()
     money()
-    return filled
+    return cov

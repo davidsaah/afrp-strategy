@@ -6,7 +6,7 @@ import sys, os, json, io, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import spec, gen
 
-filled = gen.build()
+cov = gen.build()
 P, H, RL, EV, EN, PY_, FL = (gen.PEOPLE, gen.HOUSEHOLDS, gen.RELS, gen.EVENTS,
                              gen.ENGAGE, gen.PAYMENTS, gen.FLAGS)
 CLUB_CODES = [c['code'] for c in spec.CLUBS]
@@ -29,6 +29,16 @@ want = [(pk, c, r) for pk in spec.PROGRAM_KEYS for c in CLUB_CODES for r in (1,2
 empty = [w for w in want if not cells[w]]
 check(f'all {len(want)} program x club x rung cells populated', not empty,
       f'{len(empty)} empty, e.g. {empty[:6]}')
+# The line above cannot fail once the fill pass has run — it is a tautology.  This
+# one can: it measures what ORGANIC generation reached before any cell was topped up.
+ORGANIC_TARGET = 325
+check(f'organic coverage reaches {ORGANIC_TARGET}+ cells before any fill '
+      f'(actual {cov["organicFilled"]}/{cov["total"]})',
+      cov['organicFilled'] >= ORGANIC_TARGET,
+      f'organic generation only reached {cov["organicFilled"]}')
+check(f'no cell is left below the S7 floor of {cov["floor"]} where the pool allowed it',
+      all(x['eligiblePool'] < cov['floor'] for x in cov['belowFloor']),
+      str([x for x in cov['belowFloor'] if x['eligiblePool'] >= cov['floor']][:4]))
 
 print('\n== coverage: every program x club (any rung) ==')
 pc = collections.Counter((g['program'], g['club']) for g in EN)
@@ -64,6 +74,79 @@ for k in spec.OPEN_QUESTIONS:
     check(f'open question raised: {k}', fk[k] > 0, '0 flags')
 check('no open question is marked decided', all(not f['decided'] for f in FL))
 
+print('\n== the record has no duplicates or orphans ==')
+import collections as _c
+_rk = _c.Counter((r['a'], r['b'], r['kind']) for r in RL)
+check('no relationship row is written twice', not [k for k, v in _rk.items() if v > 1],
+      str([k for k, v in _rk.items() if v > 1][:3]))
+_ids = {p['id'] for p in P}
+check('every relationship points at people who exist',
+      all(r['a'] in _ids and r['b'] in _ids for r in RL))
+check('every engagement points at a person who exists', all(g['person'] in _ids for g in EN))
+check('every payment points at a person who exists', all(x['person'] in _ids for x in PY_))
+check('every life-event subject exists', all(s in _ids for e in EV for s in e['subjects']))
+check('no person id is issued twice', len(_ids) == len(P))
+_hh = {h['id'] for h in H}
+check('every household member is listed in that household',
+      all(p['householdId'] in _hh for p in P if p.get('householdId')))
+
+print('\n== death ends the record ==')
+DEAD = [p for p in P if not p['living']]
+check('no deceased person holds a membership', all(p.get('membership') is None for p in DEAD))
+check('no deceased person is on the certified roll',
+      not [p for p in DEAD if p.get('membership') and p['membership'].get('votingDuesPaidBy')])
+check('no deceased person is in a directory', all(not p['directoryInclude'] for p in DEAD))
+check('no deceased person carries a marketing consent', all(not p['marketingConsent'] for p in DEAD))
+DY = {p['id']: p['deceasedYear'] for p in P if p['deceasedYear']}
+check('no payment is charged after death',
+      not [x for x in PY_ if x['person'] in DY and x['year'] > DY[x['person']]],
+      str([x['id'] for x in PY_ if x['person'] in DY and x['year'] > DY[x['person']]][:5]))
+check('no engagement is recorded after death',
+      not [g for g in EN if g['person'] in DY and g['year'] > DY[g['person']]])
+
+print('\n== By-Law 4.2.1 and the certified roll ==')
+CERT = [p for p in P if p.get('membership') and p['membership']['votingDuesPaidBy']]
+check('no Associate is certified to vote (4.2.1 makes them ineligible)',
+      not [p for p in CERT if p['membership']['nationalClass'] == 'associate-4.2.1'],
+      str(len([p for p in CERT if p['membership']['nationalClass'] == 'associate-4.2.1'])) + ' associates on the roll')
+check('no free-student membership evidences payment of dues it never paid',
+      not [p for p in CERT if p['membership']['nationalClass'] == 'student-free'])
+
+print('\n== ages and dates are possible ==')
+BYID = {p['id']: p for p in P}
+pc = [r for r in RL if r['kind'] == 'parent-child']
+badpc = [r for r in pc if BYID[r['b']]['birthYear'] - BYID[r['a']]['birthYear'] < 18]
+check('every parent is at least 18 years older than the child', not badpc,
+      f'{len(badpc)} rows, e.g. ' + str([(BYID[r['a']]['birthYear'], BYID[r['b']]['birthYear']) for r in badpc[:4]]))
+sp = [r for r in RL if r['kind'] in ('spouse', 'partner') and r.get('since')]
+badsp = [r for r in sp if r['since'] < max(BYID[r['a']]['birthYear'], BYID[r['b']]['birthYear']) + 18]
+check('no union begins before both people were 18', not badsp, f'{len(badsp)} rows')
+badhh = [h for h in H if h['joinedYear'] < min(
+    [BYID[i]['birthYear'] for i in h['adults'] + h['minors'] if i in BYID] or [0]) + 18]
+check('no household joined before anyone in it was an adult', not badhh, f'{len(badhh)} households')
+
+print('\n== a marriage names two people (R34) ==')
+MAR = [e for e in EV if e['kind'] == 'marriage']
+check('every marriage event names exactly two people',
+      all(len(e['subjects']) == 2 for e in MAR),
+      str(len([e for e in MAR if len(e['subjects']) != 2])) + ' name one')
+check('every marriage event carries two approvals',
+      all(len(e.get('approvals', [])) == 2 for e in MAR))
+check('no minor appears in a marriage event',
+      not [e for e in MAR for s in e['subjects'] if BYID[s]['age'] < 18])
+check('no life event is recorded for a person after their death',
+      not [e for e in EV for s in e['subjects']
+           if s in DY and e['year'] > DY[s] and e['kind'] != 'death'])
+
+print('\n== leadership rungs are held by people entitled to hold them ==')
+LEAD = [g for g in EN if g['rung'] >= 4]
+check('nobody under 18 gives, serves or leads', all(BYID[g['person']]['age'] >= 18 for g in LEAD))
+check('no lapsed member holds a leadership rung',
+      all((BYID[g['person']].get('membership') or {}).get('standing') != 'lapsed' for g in LEAD))
+check('no Associate holds a rung-5 seat',
+      all((BYID[g['person']].get('membership') or {}).get('nationalClass') != 'associate-4.2.1'
+          for g in EN if g['rung'] == 5))
+
 print('\n== rules the fixture must not break ==')
 check('R7 no minor is in a directory',
       all(not p['directoryInclude'] for p in P if p['age'] < 18))
@@ -84,6 +167,10 @@ check('R25 every restricted gift carries its restriction through',
       all(x['fundClass'] == x['restriction'] for x in PY_ if x['kind']=='restricted-gift'))
 check('R16 every member has exactly one club of record',
       all(isinstance(p['membership']['clubOfRecord'], str) for p in P if p.get('membership')))
+check('a club standing is never a national-only state',
+      all(x['standing'] in ('current','grace','lapsed')
+          for p in P if p.get('membership') for x in p['membership']['clubs']),
+      'board-vote-pending is a national 4.2.1 state and must not appear on a club row')
 check('R2 multi-club standings are independent',
       any(len({c['standing'] for c in p['membership']['clubs']}) > 1
           for p in P if p.get('membership') and len(p['membership']['clubs'])>1))
@@ -121,7 +208,8 @@ print(f"""
   adults / minors       {sum(1 for p in P if p['age']>=18)} / {sum(1 for p in P if p['age']<18)}
   relationships         {len(RL)}
   life events           {len(EV)}
-  engagements           {len(EN)}   ({filled} added by the coverage fill pass)
+  engagements           {len(EN)}   (organic {cov['organicFilled']}/{cov['total']} cells; {cov['added']} added to reach a floor of {cov['floor']})
+  cells still below {cov['floor']}    {len(cov['belowFloor'])}  (eligible pool too small — disclosed, not faked)
   payments              {len(PY_)}
   open questions raised {len(FL)} across {len(set(f['key'] for f in FL))} distinct by-law questions
 """)
@@ -139,7 +227,7 @@ out = dict(
                        'the 21,677 real (given, surname) pairs in the Ramallah GEDCOM and '
                        'resampled on collision, so no synthetic person carries a real name.'),
             clubSizesSource='Azeez Shaheen, Ramallah: Its History and Its Genealogies (1982), p.11',
-            coverageFillCount=filled),
+            coverage=cov),
   clubs=spec.CLUBS, programs=spec.PROGRAMS, rungs=spec.RUNGS,
   structures=spec.STRUCTURES, openQuestionCatalog=spec.OPEN_QUESTIONS,
   households=H, people=P, relationships=RL, lifeEvents=EV,

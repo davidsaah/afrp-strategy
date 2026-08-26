@@ -67,13 +67,27 @@ FIXJS = r'''<script>
   window.FIXWIRE = function(){
     var R = Q.roll; if (!R) return;
     put('fx-members', Q.n(R.members));
-    put('fx-certified', Q.n(R.certified));
+    /* NOT wired: the "Certified 2026" card is a FROZEN electorate with a record date
+       of 25 May 2026.  R12 freezes an electorate and R43 says a snapshot is read and
+       never recomputed, so painting a live fixture count over it would have put two
+       different numbers under one label and one record date.  The live figure is
+       shown separately, and labelled as live. */
+    put('fx-certified-live', Q.n(R.certified));
     put('fx-households', Q.n(F.households.length));
     put('fx-people', Q.n(F.stats.people));
     html('fx-nat-d', '<b>' + Q.n(R.nat.current) + ' current</b> &middot; <i>' +
          Q.n(R.nat.grace) + ' in grace</i> &middot; <em>' + Q.n(R.nat.lapsed) +
          ' lapsed</em> &middot; ' + Q.n(R.nat['board-vote-pending']) +
          ' awaiting a Board vote on 4.2.1');
+    put('fx-members2', Q.n(R.members));
+    put('fx-optin', Q.n(R.directoryOptIn));
+    var det = R.clubs.DET;
+    if (det) {
+      put('fx-DET-rows2', Q.n(det.rows));
+      put('fx-DET-rows3', Q.n(det.rows));
+      html('fx-DET-breeze', Q.n(det.rows + 3) + ' Breeze records &rarr; ' + Q.n(det.rows) +
+           ' members after identity resolution; 3 were duplicates');
+    }
     Q.clubCodes.forEach(function(c){
       var k = R.clubs[c]; if (!k) return;
       put('fx-' + c + '-rows', Q.n(k.rows));
@@ -92,8 +106,8 @@ FIXJS = r'''<script>
 CONSOLE = r'''<section class="screen" data-route="fed/fixture" data-lens="fed">
   <div class="page-head">
     <div><h1>The fixture</h1>
-      <p>Five hundred synthetic households, wired into every screen on this prototype. This is
-         where you check that it actually covers what it claims to.</p></div>
+      <p>Five hundred synthetic households behind the counts on this prototype. This is where
+         you check what it actually covers, and where it is thin.</p></div>
     <div class="page-head__end"><span class="c-pill c-pill--danger mono">every person invented</span></div>
   </div>
 
@@ -101,8 +115,9 @@ CONSOLE = r'''<section class="screen" data-route="fed/fixture" data-lens="fed">
     <div class="statbox">
       <div class="stat"><span class="stat__k">Households</span><span class="stat__v" id="fx-households">—</span><span class="stat__d">across four of the eighteen clubs</span></div>
       <div class="stat"><span class="stat__k">People</span><span class="stat__v" id="fx-people">—</span><span class="stat__d">the living membership layer; ancestors come from the GEDCOM</span></div>
-      <div class="stat"><span class="stat__k">Coverage cells</span><span class="stat__v" id="fx-cells">—</span><span class="stat__d">19 programs &times; 4 clubs &times; 5 rungs</span></div>
-      <div class="stat"><span class="stat__k">By-law questions open</span><span class="stat__v" id="fx-open">—</span><span class="stat__d">flagged, never decided</span></div>
+      <div class="stat"><span class="stat__k">Coverage, before any fill</span><span class="stat__v" id="fx-organic">—</span><span class="stat__d" id="fx-organic-d">19 programs &times; 4 clubs &times; 5 rungs</span></div>
+      <div class="stat"><span class="stat__k">Certified today, live</span><span class="stat__v" id="fx-certified-live">—</span><span class="stat__d">not the frozen roll &mdash; the federation dashboard's <b>Certified 2026 &middot; 971</b> is a snapshot frozen 25 May 2026 and is never recomputed (R12, R43)</span></div>
+      <div class="stat"><span class="stat__k">By-law questions open</span><span class="stat__v" id="fx-open">—</span><span class="stat__d" id="fx-open-d">flagged, never decided</span></div>
     </div>
   </div>
 
@@ -116,10 +131,10 @@ CONSOLE = r'''<section class="screen" data-route="fed/fixture" data-lens="fed">
   <div class="px-tp" data-t="0">
     <div class="panel">
       <div class="panel__head"><div><h3>Nineteen programs, four clubs, five rungs</h3>
-        <p>The number in each tick is how many people sit at that rung. An empty cell would show
-           red &mdash; there are none.</p></div></div>
+        <p>The number in each tick is how many people sit at that rung.</p></div></div>
       <div class="c-table-wrap"><table class="c-table c-table--dense" id="fx-mx"></table></div>
       <div class="why" id="fx-mxkey" style="display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center"></div>
+      <p class="why" id="fx-honest"></p>
       <p class="why"><b>A program's age band gates participation, not leadership.</b> Camp
          Ramallah's band is 8&ndash;16 because that is who goes to camp; the person who chairs its
          committee is forty-five. The first build applied the band to the whole ladder and left
@@ -161,9 +176,17 @@ CONSOLE = r'''<section class="screen" data-route="fed/fixture" data-lens="fed">
         <p>The fixture is deterministic: fixed seed, fixed as-of year, no clock. The same command
            reproduces the same 500 families, and 99 assertions run on every build &mdash; the file
            is not written if one fails.</p>
-        <p><b>Four clubs of the eighteen carry fixture data.</b> Screens scoped to San Francisco,
-           Detroit, Jacksonville or Greater Washington show fixture numbers. The other fourteen
-           clubs have none, and say so rather than showing a number nothing stands behind.</p>
+        <p><b>Four clubs of the eighteen carry fixture data</b> &mdash; San Francisco, Detroit,
+           Jacksonville and Greater Washington. The other fourteen have none. Any club figure
+           outside those four on this prototype is a hand-built worked example, not fixture data.</p>
+        <p><b>The fixture is not wired into every screen</b>, and an earlier draft of this page
+           said it was. It drives the counts listed on the federation dashboard, the Detroit club
+           dashboard and roster, the directory and the communications desk. Every other screen
+           still carries its own hand-built demo figures, which is why some of them will not
+           reconcile with these.</p>
+        <p><b>Minors and the deceased are not listed here.</b> R7 keeps a minor out of every
+           directory, so the household browser shows a count and no names. A death is a life event
+           with a family-approval gate (R34), so the deceased are withheld too.</p>
         <p><b>Nothing here derives from the scholarship applicant files.</b></p>
       </div></div>
   </div>
@@ -186,7 +209,7 @@ UIJS = r'''<script>
       var band = p.band[1] === null ? p.band[0] + '+' : p.band[0] + '–' + p.band[1];
       h += '<tr><td><b>' + esc(p.name) + '</b>' + (p.flagship ? ' <span class="mono" style="color:var(--c-accent)">&#9670;</span>' : '') +
            '<div class="why">host ' + esc(p.host) + ' &middot; ages ' + esc(band) + '</div></td>';
-      Q.clubCodes.forEach(function(c){
+    Q.clubCodes.forEach(function(c){
         h += '<td class="num"><span class="fx-rungs">' + F.matrix[p.key][c].map(function(n,i){
           return '<span class="fx-rg fx-rg--' + (n ? (i+1) : 0) + '" title="' + esc(p.name) +
                  ' &middot; ' + esc(Q.clubName(c)) + ' &middot; rung ' + (i+1) + ' ' +
@@ -258,7 +281,11 @@ UIJS = r'''<script>
       list.slice(0,40).map(function(h){
         return '<tr' + (h.q.length ? ' class="is-flag"' : '') + '><td><b>' + esc(h.label) +
           '</b><div class="why mono">' + esc(h.id) + ' &middot; joined ' + h.joined + '</div></td>' +
-          '<td>' + esc(Q.clubName(h.club)) + '</td><td>' + h.people.map(function(p){
+          '<td>' + esc(Q.clubName(h.club)) + '</td><td>' +
+          (h.minors ? '<div class="why">' + h.minors + ' minor' + (h.minors>1?'s':'') +
+            ' in this household &mdash; not listed (R7)</div>' : '') +
+          (h.deceased ? '<div class="why">' + h.deceased + ' deceased &mdash; withheld pending family approval (R34)</div>' : '') +
+          h.people.map(function(p){
             return '<div style="display:flex;gap:var(--s2);align-items:center">' +
               '<span>' + esc(p.n) + '</span><span class="mono why">' + p.a + '</span>' + chip(p) + '</div>';
           }).join('') + '</td><td>' + (h.q.length ?
@@ -277,11 +304,28 @@ UIJS = r'''<script>
   };
 
   function boot(){
-    var cv = Q.coverageCells();
-    var e1 = document.getElementById('fx-cells');
-    if (e1) e1.textContent = cv.filled + ' / ' + cv.total;
+    var S = F.stats;
+    var e1 = document.getElementById('fx-organic');
+    if (e1) e1.textContent = S.organic + ' / ' + S.cells;
+    var e1d = document.getElementById('fx-organic-d');
+    if (e1d) e1d.innerHTML = '19 programs &times; 4 clubs &times; 5 rungs &middot; <b>' +
+      S.added + ' more records added</b> to bring every cell to a floor of ' + S.floor;
     var e2 = document.getElementById('fx-open');
-    if (e2) e2.textContent = Q.openCount();
+    if (e2) e2.textContent = S.questions;
+    var e2d = document.getElementById('fx-open-d');
+    if (e2d) e2d.innerHTML = 'six distinct questions across <b>' + S.flags +
+      ' flagged records</b> &mdash; flagged, never decided';
+    var h = document.getElementById('fx-honest');
+    if (h) h.innerHTML = '<b>What this grid does and does not prove.</b> Organic generation ' +
+      'reached <b>' + S.organic + ' of ' + S.cells + '</b> cells on its own. A fill pass then ' +
+      'added <b>' + S.added + '</b> records to bring every cell to at least ' + S.floor +
+      ' people. Saying &ldquo;' + S.cells + ' of ' + S.cells + ' filled&rdquo; after a pass whose ' +
+      'job is to fill empty cells proves nothing &mdash; that assertion cannot fail. The number ' +
+      'that can fail is the organic one, and it is the one on the card above. ' +
+      (S.belowFloor ? '<b>' + S.belowFloor + ' cells</b> are still under the floor because the ' +
+        'eligible pool is too small; they are listed rather than padded.'
+       : 'No cell is under the floor, so no cell on this grid publishes a count small enough to ' +
+         'identify one person (S7).');
     mx(); qs(); fills(); rows();
     if (window.FIXWIRE) window.FIXWIRE();
   }
@@ -337,8 +381,8 @@ must('<span class="stat__k">Member records</span><span class="stat__v">3,184</sp
      '<span class="stat__k">Member records</span><span class="stat__v" id="fx-members">3,184</span>',
      'fed member records')
 must('<span class="stat__k">Certified 2026</span><span class="stat__v">971</span>',
-     '<span class="stat__k">Certified 2026</span><span class="stat__v" id="fx-certified">971</span>',
-     'fed certified')
+     '<span class="stat__k">Certified 2026</span><span class="stat__v">971</span>',
+     'fed certified — deliberately left frozen')
 must('<span class="stat__k">Club members</span><span class="stat__v">148</span>'
      '<span class="stat__d"><b>121 current</b> &middot; <i>9 in grace</i> &middot; <em>18 lapsed</em></span>',
      '<span class="stat__k">Club members</span><span class="stat__v" id="fx-DET-rows">148</span>'
@@ -347,6 +391,24 @@ must('<span class="stat__k">Club members</span><span class="stat__v">148</span>'
 must('<span class="stat__k">Also national members</span><span class="stat__v">116</span>',
      '<span class="stat__k">Also national members</span><span class="stat__v" id="fx-DET-also">116</span>',
      'detroit also national')
+# Every other Detroit number on the club lens, so the lens cannot disagree with itself.
+must('<span class="toolbar__count">148 members &middot; showing 6 &middot; sorted by household</span>',
+     '<span class="toolbar__count"><span id="fx-DET-rows2">148</span> members &middot; '
+     'showing 6 &middot; sorted by household</span>',
+     'detroit roster toolbar')
+must('151 Breeze records &rarr; 148 members after identity resolution; 3 were duplicates',
+     '<span id="fx-DET-breeze">151 Breeze records &rarr; 148 members after identity resolution; '
+     '3 were duplicates</span>',
+     'detroit breeze line')
+must('of the 148 &middot; the two scopes lapse independently',
+     'of the <span id="fx-DET-rows3">148</span> &middot; the two scopes lapse independently',
+     'detroit also-national caption')
+
+# The federation member count appears on the directory and the comms desk too.
+must('Of 3,184 members, 1,842 opted into the directory at all.',
+     'Of <span id="fx-members2">3,184</span> members, <span id="fx-optin">1,842</span> opted '
+     'into the directory at all.',
+     'directory opt-in line')
 
 # data + logic at the end of body
 must('</body>', DATA + FIXJS + UIJS + '</body>', 'body close')
