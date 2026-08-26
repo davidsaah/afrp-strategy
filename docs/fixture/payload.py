@@ -36,6 +36,11 @@ def _derived(d):
     return out
 
 
+def BYID_OK(pid):
+    q = P.get(pid)
+    return bool(q) and q['age'] >= 18            # R7: never a minor's name
+
+
 def label(pid):
     p = P[pid]; return f"{p['given']} {p['family']}"
 
@@ -90,6 +95,40 @@ out = dict(
   money=[dict(treatment=k, n=money[k], usd=moneyamt[k]/100, note=TREAT_NOTE[k])
          for k in sorted(money, key=lambda k: -money[k])],
   derived=_derived(d),
+  fieldDefs=[dict(key=f[0], label=f[1], indexed=f[2], filterable=f[3],
+                  memberControlled=f[4], default=f[5]) for f in d['fieldDefs']],
+  audiences=d['audiences'],
+  facets=d['facets'],
+  camp=dict(season=d['camp']['season'], ratio=d['camp']['ratio'],
+            cabins=d['camp']['cabins'], health=d['camp']['health'],
+            aid=dict(instruments=d['camp']['aid']['instruments'],
+                     remaining=d['camp']['aid']['remaining'],
+                     note=d['camp']['aid']['note'],
+                     awards=[dict(instrument=a['instrument'], basis=a['basis'],
+                                  awardedCents=a['awardedCents'], partial=a['partial'],
+                                  state=a['state']) for a in d['camp']['aid']['awards']]),
+            # R7: a camper is a minor. Never a name — a decision, a club, a reason.
+            applications=[dict(id=a['id'], club=a['club'], age=a['age'],
+                               firstTimer=a['firstTimer'], returner=a['returner'],
+                               decision=a['decision'], reasons=a['reasons'],
+                               aidRequested=a['aidRequested'],
+                               waitlistRank=a.get('waitlistRank'),
+                               offer=a.get('offer'))
+                          for a in d['camp']['applications']],
+            staff=[dict(id=x['id'], name=label(x['person']) if BYID_OK(x['person']) else '',
+                        role=x['role'], club=x['club'], paid=x['paid'],
+                        legalStatus=x.get('legalStatus'),
+                        parentVisibility=x.get('parentVisibility'),
+                        screening=x['screening'], supervision=x.get('supervision'),
+                        credentials=x['credentials'], rosterEligible=x['rosterEligible'])
+                   # A CIT is 16 or 17 — a minor. R7 again: no name.
+                   for x in d['camp']['staff']]),
+  jobs=d['jobs'],
+  asksOffers=[dict(id=a['id'], kind=a['kind'], club=a['club'], text=a['text'],
+                   postedOn=a['postedOn'], responses=a['responses'])
+              for a in d['asksOffers']],
+  professions=[dict(soc=x[0], title=x[1], industry=x[2]) for x in d['professions']],
+  industries=d['industries'],
   stats=dict(
     households=len(d['households']), people=len(d['people']),
     living=sum(1 for p in d['people'] if p['living']),
@@ -107,6 +146,20 @@ out = dict(
     belowFloor=len(d['meta']['coverage']['belowFloor']),
   ),
 )
+# ── the R7 guard at the export boundary ─────────────────────────────────────
+# The payload is what actually reaches a browser. Whatever the fixture holds, a
+# minor's name must not cross this line. The last red team found 487 of them
+# shipped into a page with no sign-in gate.
+_named = [x['name'] for x in out['camp']['staff'] if x['name']]
+_minors = {f"{q['given']} {q['family']}" for q in d['people'] if q['age'] < 18}
+assert not (set(_named) & _minors), 'a minor reached the payload by name'
+assert not any('person' in a or 'name' in a for a in out['camp']['applications']), \
+    'a camp applicant reached the payload identifiably'
+assert not [q for h in out['households'] for q in h['people'] if q['a'] < 18], \
+    'a minor reached the household browser'
+print(f"R7 guard: {len(_named)} adults named, 0 minors, "
+      f"{len(out['camp']['applications'])} camp applications carry no identity")
+
 io.open('payload.json','w').write(json.dumps(out, separators=(',',':')))
 print('payload bytes:', len(io.open('payload.json').read()))
 print('cells filled:', out['stats']['cellsFilled'], '/', out['stats']['cells'])

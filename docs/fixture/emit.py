@@ -247,6 +247,169 @@ check('every age-capped program still reaches rung 5 in every club',
       all(any(g['program']==p['key'] and g['club']==c and g['rung']==5 for g in EN)
           for p in CAPPED for c in CLUB_CODES))
 
+CAMP, JOBS, ASKS = gen.CAMP, gen.JOBS, gen.ASKS
+BYID2 = {p['id']: p for p in P}
+
+print('\n== the directory backbone ==')
+FD = {f[0]: f for f in spec.FIELD_DEFS}
+check('every field definition carries indexed, filterable and an audience independently',
+      all(len(f) == 6 for f in spec.FIELD_DEFS))
+check('a field can be indexed without being displayed (the coupling Novi and Wild Apricot ship)',
+      any(FD[k][2] and any(p['visibility'][k] == 'hidden' for p in P if 'visibility' in p)
+          for k in FD))
+LIVEM = [p for p in P if p.get('visibility')]
+check('name and club are never member-hidden — the screen promises they are always shown',
+      all(p['visibility']['name'] != 'hidden' and p['visibility']['club'] != 'hidden'
+          for p in LIVEM),
+      'this contradiction existed in the previous fixture')
+check('every visibility value is a rung on the audience ladder',
+      all(v in spec.AUDIENCES for p in LIVEM for v in p['visibility'].values()))
+check('a contact field can never be set to public, at any setting',
+      not [p for p in LIVEM for k in spec.NEVER_PUBLIC if p['visibility'].get(k) == 'public'],
+      'a logged-out directory has almost no protection against wholesale copying')
+check('display, contact and export are three separate consents',
+      all({'display','contact','export'} <= set(p['directoryConsent']) for p in LIVEM))
+check('nobody has consented to export, because nobody was asked',
+      all(p['directoryConsent']['export'] is False for p in LIVEM))
+check('consent to contact never exceeds consent to display',
+      all(not (p['directoryConsent']['contact'] and not p['directoryConsent']['display'])
+          for p in LIVEM))
+check('every consent record names the terms version it accepted',
+      all(p['directoryConsent']['acceptedTermsVersion'] for p in LIVEM))
+
+print('\n== the directory is searchable the way this community is named ==')
+check('members carry a city and a coarse geocode',
+      all(p.get('city') and p.get('geo') for p in LIVEM))
+check('no map pin is more precise than a city — a pin must not resolve to a house',
+      all(p['geo']['precision'] == 'city' and
+          round(p['geo']['lat'], 2) == p['geo']['lat'] for p in LIVEM))
+ALIAS = [p for p in LIVEM if p.get('alias')]
+check(f'transliteration aliases exist ({len(ALIAS)} members)', len(ALIAS) > 100)
+FORMER = [p for p in LIVEM if p.get('formerName')]
+check(f'former-name search is possible ({len(FORMER)} members)', len(FORMER) > 40)
+
+print('\n== the professional layer sits above the S7 floor ==')
+PROF = [p for p in LIVEM if p.get('profession')]
+byfacet = collections.Counter((p['profession']['soc'], p['club']) for p in PROF)
+thin = [k for k, v in byfacet.items() if 0 < v < 5]
+check(f'{len(PROF)} members carry a profession from a standard taxonomy (O*NET-SOC)', len(PROF) > 700)
+FACETS = gen.FACETS
+pubcells = [(r['soc'], c, n) for r in FACETS['professions']
+            for c, n in r['byClub'].items() if n is not None]
+check('every PUBLISHED profession x club cell clears the S7 floor',
+      not [x for x in pubcells if 0 < x[2] < FACETS['floor']],
+      str([x for x in pubcells if 0 < x[2] < FACETS['floor']][:4]))
+check(f'thin cells are suppressed rather than printed ({FACETS["suppressedCells"]} of them)',
+      FACETS['suppressedCells'] > 0,
+      'a mean above the floor does not keep the minimum above it')
+check('the federation-wide profession count is always shown, and always clears the floor',
+      all(r['total'] >= FACETS['floor'] for r in FACETS['professions'] if r['total'] > 0),
+      str([(r['soc'], r['total']) for r in FACETS['professions'] if 0 < r['total'] < FACETS['floor']]))
+check('open-to-work and willing-to-help both carry an expiry, because both decay',
+      all(p['openToWork'].get('expires') for p in LIVEM if p.get('openToWork')) and
+      all(p['willingToHelp'].get('expires') for p in LIVEM if p.get('willingToHelp')))
+
+print('\n== Camp Ramallah is a selection problem ==')
+APPS = CAMP['applications']
+SEL = [a for a in APPS if a['decision'] == 'selected']
+WAIT = [a for a in APPS if a['decision'] == 'waitlisted']
+check(f'the camp is oversubscribed ({len(APPS)} applicants for {spec.CAMP["seats"]} seats)',
+      len(APPS) > spec.CAMP['seats'])
+check('no more seats are given than exist', len(SEL) <= spec.CAMP['seats'])
+check('any seat the quota rule cannot allocate is DISCLOSED, not quietly handed out',
+      CAMP['season']['unallocatedByQuota'] == spec.CAMP['seats'] - CAMP['season']['quotaTotal']
+      and CAMP['season']['remainderNote'],
+      'rounded club shares sum to less than the seat count')
+check('every applicant is inside the age band',
+      all(spec.CAMP['ageLo'] <= a['age'] <= spec.CAMP['ageHi'] for a in APPS))
+check('EVERY decision records why it was made',
+      all(a.get('reasons') for a in APPS), 'a cohort assembled without a stated basis')
+check('every club is represented in the cohort',
+      {a['club'] for a in SEL} == {c['code'] for c in spec.CLUBS})
+fam = collections.Counter(a['family'] for a in SEL)
+check('no single family takes more than four of the fifty seats',
+      max(fam.values()) <= 4, str(fam.most_common(2)))
+check('the cohort mixes first-timers and returners',
+      0 < sum(1 for a in SEL if a['firstTimer']) < len(SEL))
+check('the waitlist is a queue, not a race — one ranked offer at a time',
+      all(a.get('waitlistRank') for a in WAIT) and
+      len({a['waitlistRank'] for a in WAIT}) == len(WAIT))
+check('every waitlist offer has a claim window that expires',
+      all(a['offer']['claimWindowHours'] > 0 for a in WAIT if a.get('offer')))
+
+print('\n== ratios, screening and the CIT ==')
+check('the ratio resolves to the STRICTEST authority, not the local one',
+      CAMP['ratio']['applied'] == min(r['ratio'] for r in spec.CAMP['ratios']))
+ST = CAMP['staff']
+check('no staff member with a lapsed screening is roster-eligible',
+      not [x for x in ST if x.get('rosterEligible') and x['screening']['state'] == 'expired'])
+check('screening is annual for everyone, paid and volunteer alike',
+      all(x['screening']['cadence'] == 'annual' for x in ST))
+check('the FCRA disclosure is stand-alone, never bundled into the application',
+      all(x['fcraDisclosure']['standalone'] for x in ST if 'fcraDisclosure' in x))
+CIT = [x for x in ST if x['role'] == 'CIT']
+check(f'{len(CIT)} CITs exist and none is counted toward a supervision ratio',
+      CIT and all(not x['supervision']['countsTowardRatio'] for x in CIT))
+check('no CIT is ever alone with minors',
+      all(not x['supervision']['aloneWithMinors'] for x in CIT))
+check('an under-18 CIT is marked structurally unscreenable, not merely unscreened',
+      all(x['screening'].get('unscreenableUnder18') for x in CIT))
+PAIDCIT = [x for x in CIT if x['paid']]
+check('a PAID CIT is an employee, and parent visibility is off',
+      all(x['legalStatus'] == 'employee' and x['parentVisibility'] is False for x in PAIDCIT),
+      f'{len(PAIDCIT)} paid CITs — employment confidentiality reaches parents too')
+check('an unpaid CIT is a volunteer, and a parent can still see the record',
+      all(x['legalStatus'] == 'volunteer' and x['parentVisibility'] is True
+          for x in CIT if not x['paid']))
+
+print('\n== camperships: two instruments, and no tax returns ==')
+AID = CAMP['aid']
+check('the two instruments are kept apart, not collapsed into one scholarship',
+      {i['basis'] for i in AID['instruments']} == {'need-blind', 'means-tested'})
+check('AFRP holds no financial document for any award',
+      all(a['financialDocumentsHeld'] is False for a in AID['awards']))
+check('means-tested aid is assessed by a third party',
+      all(a['assessedBy'] == 'third party' for a in AID['awards'] if a['basis'] == 'means-tested'))
+check('the pots are capped — no award is made from an empty fund',
+      all(v >= 0 for v in AID['remaining'].values()))
+check('rationing is visible: partial awards or an aid waitlist exist',
+      any(a['partial'] or a['state'] == 'aid waitlist' for a in AID['awards']))
+check('AFRP holds no camp health record — the seam is the design',
+      CAMP['health']['recordsHeldHere'] == 0)
+
+print('\n== the job board carries its legal obligation ==')
+LIVEJ = [j for j in JOBS if j['state'] in ('live', 'expired')]
+check(f'{len(LIVEJ)} published postings — an honest number, not a flattering one',
+      len(LIVEJ) < 20, 'a board of 200 would hide the emptiness the design must survive')
+check('every PUBLISHED posting carries a salary minimum and maximum',
+      all(j['salaryMinCents'] and j['salaryMaxCents'] for j in LIVEJ),
+      'CA, MN and NY all reach the third-party publisher, which this board is')
+check('no published posting has a minimum without a maximum',
+      not [j for j in LIVEJ if j['salaryMinCents'] and not j['salaryMaxCents']],
+      'open-ended ranges are prohibited in Washington and Minnesota')
+check('every published posting carries benefits and a closing date',
+      all(j['benefits'] and j['closesOn'] for j in LIVEJ))
+check('the refusal path is exercised, and names its rule',
+      all(j.get('rejectedReason') for j in JOBS if j['state'] == 'rejected'))
+check('every posting is publicly readable and its apply path needs no login',
+      all(j['publicPage'] and not j['applyNeedsLogin'] for j in LIVEJ),
+      'Google will not index a posting whose apply path demands a login')
+check('applicants stay behind the member wall',
+      all(j['applicantsMembersOnly'] for j in JOBS))
+check('an expired posting returns 410 rather than sitting live',
+      all(j.get('httpOnExpiry') == 410 for j in JOBS if j['state'] == 'expired'),
+      'leaving expired jobs live earns a Google manual action')
+check('no posting requires an EEO block — EO 11246 was revoked in January 2025',
+      all(j['eeoStatement'] is None for j in JOBS))
+check('every posting carries schema.org JobPosting markup',
+      all(j['schemaOrg'] == 'JobPosting' for j in JOBS))
+check('the only LinkedIn integration present is a share link',
+      all(j['shareLinkedInUrl'].startswith('https://www.linkedin.com/sharing/share-offsite/')
+          for j in JOBS))
+check(f'asks and offers ({len(ASKS)}) outnumber published postings ({len(LIVEJ)})',
+      len(ASKS) > len(LIVEJ),
+      'the surface that generates its own volume must be the busier one')
+
 living = [p for p in P if p['living']]
 print(f"""
 == the fixture ==
@@ -258,6 +421,9 @@ print(f"""
   engagements           {len(EN)}   (organic {cov['organicFilled']}/{cov['total']} cells; {cov['added']} added to reach a floor of {cov['floor']})
   cells still below {cov['floor']}    {len(cov['belowFloor'])}  (eligible pool too small — disclosed, not faked)
   payments              {len(PY_)}
+  camp applications     {len(CAMP['applications'])} for {spec.CAMP['seats']} seats  ({len([a for a in CAMP['applications'] if a['decision']=='selected'])} selected, {len([a for a in CAMP['applications'] if a['decision']=='waitlisted'])} waitlisted)
+  camp staff            {len(CAMP['staff'])}  ({len([x for x in CAMP['staff'] if x['role']=='CIT'])} CITs)
+  job postings          {len(JOBS)}  ({len([j for j in JOBS if j['state']=='live'])} live) · asks & offers {len(ASKS)}
   open questions raised {len(FL)} across {len(set(f['key'] for f in FL))} distinct by-law questions
 """)
 for c in spec.CLUBS:
@@ -279,6 +445,9 @@ out = dict(
   structures=spec.STRUCTURES, openQuestionCatalog=spec.OPEN_QUESTIONS,
   households=H, people=P, relationships=RL, lifeEvents=EV,
   engagements=EN, payments=PY_, openQuestions=FL,
+  fieldDefs=spec.FIELD_DEFS, audiences=spec.AUDIENCES,
+  professions=spec.PROFESSIONS, industries=spec.INDUSTRIES,
+  camp=CAMP, jobs=JOBS, asksOffers=ASKS, facets=gen.FACETS,
 )
 io.open('/home/claude/fixture/afrp-fixture.json','w').write(json.dumps(out, indent=1))
 print(f"\n{'ALL CHECKS PASS' if not fails else str(len(fails))+' CHECKS FAILED'}")

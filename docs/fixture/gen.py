@@ -374,6 +374,81 @@ def finish_person(p):
         other = R.choice([c['code'] for c in spec.CLUBS if c['code'] != p['club']])
         st2 = club_standing()
         p['membership']['clubs'].append(dict(club=other, standing=st2, duesPaid=st2 == 'current'))
+    profile(p)
+
+
+# ── the directory / network profile ──────────────────────────────────────────
+def profile(p):
+    """Everything the directory, the professional network and the print section
+       read.  One field registry, three surfaces."""
+    city, st, lat, lon = R.choice(spec.CITIES[p['club']])
+    p['city'], p['state'] = city, st
+    # Coarse coordinates ONLY, jittered to ~1km and rounded to 2dp. A directory
+    # map pin must never resolve to a house; 360Alumni caps zoom for the same
+    # reason, and for this community it is a safety control, not a nicety.
+    p['geo'] = dict(lat=round(lat + R.uniform(-.05, .05), 2),
+                    lon=round(lon + R.uniform(-.05, .05), 2), precision='city')
+
+    # Transliteration: an Arabic name reaches an English directory by several
+    # spellings. An explicit alias is what makes the search find them.
+    if R.random() < .28:
+        p['alias'] = R.choice([p['family'] + 'e', p['family'] + 'h', p['family'][:-1],
+                               p['family'].replace('ou', 'u'), p['family'].replace('i', 'ee')])
+    # A married woman's former name — Harvard carries it and it is how an older
+    # cohort is actually found.
+    if p['sex'] == 'F' and p['age'] > 30 and R.random() < .34:
+        p['formerName'] = R.choice(roster.ROSTER[R.choice(list(roster.ROSTER))])
+
+    if R.random() < .78:
+        code, title, sector = R.choice(spec.PROFESSIONS)
+        p['profession'] = dict(soc=code, title=title)
+        p['industry'] = dict(naics=sector, label=spec.INDUSTRIES[sector])
+        if p['age'] >= 62 and R.random() < .55:
+            p['profession']['retired'] = True
+
+    langs = ['English'] + (['Arabic'] if R.random() < .62 else [])
+    for _ in range(R.choices([0, 1, 2], weights=[.6, .3, .1])[0]):
+        l = R.choice(spec.LANGUAGES)
+        if l not in langs: langs.append(l)
+    p['languages'] = langs
+    p['interests'] = R.sample(spec.INTERESTS, R.choices([0,1,2,3], weights=[.28,.34,.24,.14])[0])
+
+    # Both flags decay, so both carry an expiry. LinkedIn's open-to-work has no
+    # API field at all, so ours is authoritative rather than a mirror of theirs.
+    if p['age'] < 70 and R.random() < .11:
+        p['openToWork'] = dict(since=f'{Y}-{R.randint(1,8):02d}-{R.randint(1,28):02d}',
+                               expires=f'{Y+1}-{R.randint(1,6):02d}-01',
+                               kinds=R.sample(['full time','part time','contract','board seat'],
+                                              R.randint(1, 2)))
+    if R.random() < .41:                      # Harvard/Stanford expose this as a top facet
+        p['willingToHelp'] = dict(kinds=R.sample(spec.HELP_KINDS, R.randint(1, 3)),
+                                  expires=f'{Y+1}-{R.randint(1,12):02d}-01')
+
+    # Visibility is an AUDIENCE, not a boolean — and name and club are not the
+    # member's to hide. The old model let fieldVisibility.name be false while the
+    # screen promised name is always shown.
+    vis = {}
+    for key, _lab, _idx, _flt, member_controlled, default in spec.FIELD_DEFS:
+        if key in spec.ALWAYS_SHOWN or not member_controlled:
+            vis[key] = default
+        elif key in spec.NEVER_PUBLIC:
+            # A contact field's ladder tops out at 'members'. Not a default the
+            # member can raise — a ceiling. A logged-out directory has almost no
+            # legal protection against wholesale copying (Feist, hiQ), so the
+            # control has to be that the data never reaches the logged-out page.
+            vis[key] = R.choices(['hidden', 'club', 'members'], weights=[.34, .20, .46])[0]
+        else:
+            vis[key] = R.choices(spec.AUDIENCES, weights=[.28, .18, .52, .02])[0]
+    p['visibility'] = vis
+    p['fieldVisibility'] = {k: (v != 'hidden') for k, v in vis.items()}   # legacy view
+    # Consent to DISPLAY is not consent to CONTACT is not consent to EXPORT.
+    # No membership product on the market separates these three.
+    p['directoryConsent'] = dict(
+        display=p['directoryInclude'],
+        contact=p['directoryInclude'] and R.random() < .81,
+        export=False,                     # nobody consents to export. Nobody is asked.
+        acceptedTermsVersion='directory-2026.1',
+        dated=f'{Y - R.randint(0,2)}-{R.randint(1,12):02d}-{R.randint(1,28):02d}')
 
 # ── life moments ─────────────────────────────────────────────────────────────
 # Weighted, because a uniform draw produced 124 ordinations in a population of 1,537
@@ -589,6 +664,281 @@ def money():
         for p in R.sample(donors, min(3, len(donors))):
             pay(p, 'club-gift-to-afrp-project', R.choice([50000, 150000]), program='camp')
 
+# ── Camp Ramallah ────────────────────────────────────────────────────────────
+CAMP = {}
+
+def build_camp():
+    """A selection problem, not an enrolment funnel: 76 applicants for 50 seats.
+
+    What this generates is a decision RECORD — who applied, who was selected, on
+    what stated basis, and who is on a waitlist that promotes one family at a
+    time. The market default notifies every waitlisted family at once, which is a
+    race rather than a queue."""
+    C = spec.CAMP
+    pool = [p for p in PEOPLE if p['living'] and C['ageLo'] <= p['age'] <= C['ageHi']]
+    R.shuffle(pool)
+    applicants = pool[:C['applicants']]
+    CAMP['season'] = dict(year=C['year'], seats=C['seats'], session=C['session'],
+                          applyOpens=C['applyOpens'], applyCloses=C['applyCloses'],
+                          ageBand=[C['ageLo'], C['ageHi']])
+
+    # Selection criteria, stated. A cohort assembled without a recorded basis is
+    # indefensible in a community where every applicant is somebody's cousin.
+    apps = []
+    for i, p in enumerate(applicants):
+        returner = R.random() < .38
+        apps.append(dict(
+            id=nid('CA'), person=p['id'], club=p['club'], age=p['age'], sex=p['sex'],
+            family=p['family'], clan=p['clan'], returner=returner,
+            firstTimer=not returner,
+            submitted=f"{C['year']}-{R.choice(['01','02','03'])}-{R.randint(1,28):02d}",
+            aidRequested=R.random() < .44,
+            siblingApplying=R.random() < .18,
+            householdId=p.get('householdId'),
+        ))
+    # Select for cohort SHAPE, not first-come: every club represented, a real mix
+    # of first-timers and returners, no single family dominating.
+    per_club = {c['code']: 0 for c in spec.CLUBS}
+    per_family = collections.Counter()
+    selected, wait = [], []
+    quota = {c['code']: max(4, round(C['seats'] * c['share'])) for c in spec.CLUBS}
+    for a in sorted(apps, key=lambda x: (x['submitted'], x['id'])):
+        room_club = per_club[a['club']] < quota[a['club']]
+        room_family = per_family[a['family']] < 4
+        if len(selected) < C['seats'] and room_club and room_family:
+            reasons = []
+            if a['firstTimer']: reasons.append('first-timer')
+            if a['returner']: reasons.append('returning camper')
+            reasons.append(f"club quota {per_club[a['club']] + 1}/{quota[a['club']]}")
+            if a['siblingApplying']: reasons.append('sibling applying')
+            a['decision'] = 'selected'; a['reasons'] = reasons
+            per_club[a['club']] += 1; per_family[a['family']] += 1
+            selected.append(a)
+        else:
+            why = ('club quota full' if not room_club else
+                   'four from this family already selected' if not room_family else
+                   'seats full')
+            a['decision'] = 'waitlisted'; a['reasons'] = [why]
+            wait.append(a)
+    # A sequential waitlist: ONE offer at a time, with a claim window that expires.
+    for rank, a in enumerate(wait, 1):
+        a['waitlistRank'] = rank
+        a['offer'] = (dict(madeOn=f"{C['year']}-04-02", claimWindowHours=72,
+                           state=R.choice(['claimed', 'expired', 'declined']))
+                      if rank <= 3 else None)
+    # Club quotas rounded from share sum to 49, not 50 — so one seat is
+    # unallocated by the rule rather than given to whoever applied first. A
+    # selection console must SHOW that remainder; silently handing it out is how
+    # a fair rule becomes an unaccountable one.
+    CAMP['season']['quota'] = quota
+    CAMP['season']['quotaTotal'] = sum(quota.values())
+    CAMP['season']['unallocatedByQuota'] = C['seats'] - sum(quota.values())
+    CAMP['season']['seatsFilled'] = len(selected)
+    CAMP['season']['remainderNote'] = (
+        'Club quotas are rounded from each club\'s share and sum to %d of %d seats. '
+        'The remaining %d is held, not awarded, until the committee decides where it '
+        'goes and records why.' % (sum(quota.values()), C['seats'],
+                                   C['seats'] - sum(quota.values())))
+    CAMP['applications'] = apps
+
+    # Cabins, and the ratio resolved to the strictest authority that applies.
+    strictest = min(r['ratio'] for r in C['ratios'])
+    cabins = []
+    for i, name in enumerate(C['cabins']):
+        members = [a['person'] for a in selected[i::len(C['cabins'])]]
+        cabins.append(dict(name=name, campers=members,
+                           counsellorsRequired=-(-len(members) // strictest)))
+    CAMP['cabins'] = cabins
+    CAMP['ratio'] = dict(applied=strictest, authorities=C['ratios'],
+                         resolvedFrom=[r['authority'] for r in C['ratios']
+                                       if r['ratio'] == strictest],
+                         note='ACA and Michigan disagree; the roster resolves to the stricter.')
+
+    # Staff. Screening is ANNUAL, and a lapsed date blocks a roster rather than
+    # warning about it.
+    staff = []
+    adults = [p for p in PEOPLE if p['living'] and 21 <= p['age'] <= 68 and p.get('membership')]
+    for role, n in [('director', C['directors']), ('nurse', C['nurse']),
+                    ('counsellor', C['counsellors'])]:
+        for p in R.sample(adults, n):
+            st = R.choices(spec.SCREEN_STATES, weights=[.02,.06,.08,.06,.68,.05,.05])[0]
+            checked = f"{C['year'] - (1 if st == 'expired' else 0)}-{R.randint(1,5):02d}-{R.randint(1,28):02d}"
+            creds = [dict(kind=k, expires=f"{C['year'] + R.choice([-1,0,1,1,2])}-{R.randint(1,12):02d}-01")
+                     for k in R.sample(spec.CREDENTIALS, R.randint(1, 3))]
+            staff.append(dict(id=nid('CS'), person=p['id'], role=role, club=p['club'],
+                              paid=(role != 'counsellor') or R.random() < .5,
+                              screening=dict(state=st, lastCheckedOn=checked,
+                                             cadence='annual', vendorAgnostic=True),
+                              credentials=creds,
+                              fcraDisclosure=dict(standalone=True, signedOn=checked),
+                              rosterEligible=(st == 'clear')))
+    # CITs. Three legal beings, not one badge — and the paid rung is an employee.
+    teens = [p for p in PEOPLE if p['living'] and 16 <= p['age'] <= 17]
+    for p in R.sample(teens, min(C['cits'], len(teens))):
+        paid = R.random() < .34
+        staff.append(dict(
+            id=nid('CS'), person=p['id'], role='CIT', club=p['club'], paid=paid,
+            # ACA's screening standard starts at 18, so an under-18 CIT is
+            # structurally unscreenable. The control is supervision, encoded.
+            screening=dict(state='not started', lastCheckedOn=None, cadence='annual',
+                           unscreenableUnder18=True),
+            supervision=dict(countsTowardRatio=False, aloneWithMinors=False,
+                             supervisedBy='counsellor'),
+            credentials=[],
+            # A paid CIT is an employee. Employment confidentiality then restricts
+            # disclosure to outside parties INCLUDING a parent.
+            legalStatus='employee' if paid else 'volunteer',
+            parentVisibility=not paid,
+            rosterEligible=True))
+    CAMP['staff'] = staff
+
+    # Camperships: two instruments, kept apart, with capped pots and rationing.
+    awards, pots = [], {a['key']: a['pot'] for a in C['aid']}
+    askers = [a for a in selected if a['aidRequested']]
+    for a in askers:
+        inst = next((x for x in C['aid'] if not x['firstTimersOnly'] or a['firstTimer']), None)
+        if a['firstTimer'] and R.random() < .6:
+            inst = C['aid'][0]
+        elif not a['firstTimer']:
+            inst = C['aid'][1]
+        want = R.randint(*inst['award'])
+        got = min(want, pots[inst['key']])
+        pots[inst['key']] -= got
+        awards.append(dict(id=nid('CW'), application=a['id'], instrument=inst['key'],
+                           basis=inst['basis'], requestedCents=want, awardedCents=got,
+                           partial=got < want, state='awarded' if got else 'aid waitlist',
+                           financialDocumentsHeld=False,
+                           assessedBy='third party' if inst['basis'] == 'means-tested' else None))
+    CAMP['aid'] = dict(instruments=C['aid'], awards=awards,
+                       remaining={k: v for k, v in pots.items()},
+                       note='AFRP holds the application, the award and the ledger. '
+                            'A third party holds the financial documents.')
+    # The health seam. AFRP owns "cleared to arrive"; it does not own the record.
+    CAMP['health'] = dict(
+        boundary='AFRP owns enrolment, clearance, ratios, incidents and parent notice. '
+                 'The health record itself — medications, doses, allergies, immunisation, '
+                 'the nurse\'s log — is held by a specialist vendor.',
+        clearedToArrive=sum(1 for _ in selected if R.random() < .84),
+        ofSelected=len(selected),
+        recordsHeldHere=0)
+    return CAMP
+
+
+def build_facets(floor=5):
+    """A mean above the small-cell floor does not keep the MINIMUM above it.
+
+    24 occupations across 1,049 members averages ~11 per club — and still leaves
+    a dozen profession x club cells holding one or two people, each of which
+    names an individual. So the profession facet is published federation-wide,
+    where every cell clears the floor, and the club cross-tab suppresses thin
+    cells rather than printing them. Same rule as the coverage matrix."""
+    prof = [p for p in PEOPLE if p.get('profession') and p.get('visibility', {}).get('profession')
+            not in (None, 'hidden')]
+    fed = collections.Counter(p['profession']['soc'] for p in prof)
+    cross = collections.Counter((p['profession']['soc'], p['club']) for p in prof)
+    published, suppressed = [], []
+    for soc, title, sector in spec.PROFESSIONS:
+        row = dict(soc=soc, title=title, industry=sector, total=fed[soc], byClub={})
+        for c in spec.CLUBS:
+            n = cross[(soc, c['code'])]
+            if 0 < n < floor:
+                row['byClub'][c['code']] = None          # suppressed, not zero
+                suppressed.append(dict(soc=soc, club=c['code'], n=n))
+            else:
+                row['byClub'][c['code']] = n
+        published.append(row)
+    return dict(floor=floor, professions=published, suppressedCells=len(suppressed),
+                note=('A profession x club cell holding fewer than %d people names an '
+                      'individual, so it is suppressed rather than printed. The '
+                      'federation-wide count is always shown.' % floor))
+
+
+FACETS = {}
+
+# ── the job board ────────────────────────────────────────────────────────────
+JOBS = []
+ASKS = []
+
+TITLES = [('Staff Accountant','52','Detroit, MI'), ('Registered Nurse','62','Jacksonville, FL'),
+          ('Software Engineer','54','San Francisco, CA'), ('Program Coordinator','54','Washington, DC'),
+          ('Dental Hygienist','62','Southfield, MI'), ('Warehouse Supervisor','48','Oakland, CA'),
+          ('Paralegal','54','Arlington, VA'), ('Line Cook','72','San Mateo, CA'),
+          ('Grant Writer','54','Silver Spring, MD'), ('Field Service Technician','44','Livonia, MI'),
+          ('Case Manager','62','Alexandria, VA'), ('Retail Store Manager','44','Ponte Vedra, FL'),
+          ('Civil Engineer','54','Troy, MI'), ('Marketing Associate','54','Daly City, CA'),
+          ('Pharmacy Technician','62','Bethesda, MD'), ('Truck Driver, Regional','48','Dearborn, MI'),
+          ('Executive Assistant','54','Falls Church, VA'), ('Substitute Teacher','61','Burlingame, CA'),
+          ('Construction Foreman','23','Orange Park, FL')]
+
+def build_jobs():
+    """Ten live postings, not two hundred.
+
+    A member-posted board serving three thousand people is empty — that is the
+    documented top cause of community job-board death. Generating a healthy-looking
+    board would hide the exact failure mode the design has to survive, which is why
+    the asks-and-offers surface carries more rows than the postings do."""
+    J = spec.JOBS
+    posters = [p for p in PEOPLE if p['living'] and p.get('membership') and p['age'] >= 25]
+    pool = list(TITLES); R.shuffle(pool)
+    def one(state, i):
+        title, sector, loc = pool[i % len(pool)]
+        lo = R.choice([48000, 55000, 62000, 71000, 84000, 96000, 112000])
+        hi = lo + R.choice([9000, 14000, 21000, 30000])
+        posted = f'{Y}-{R.randint(1,8):02d}-{R.randint(1,28):02d}'
+        closes = f'{Y}-{R.randint(9,12):02d}-{R.randint(1,28):02d}'
+        j = dict(id=nid('J'), title=title, employer=f'{title.split()[0]} employer {i+1}',
+                 location=loc, industry=sector, postedBy=R.choice(posters)['id'],
+                 postedOn=posted, closesOn=closes, state=state,
+                 # Required universally. CA/MN/NY reach the third-party publisher,
+                 # which is what this board is. A min without a max is rejected.
+                 salaryMinCents=lo * 100, salaryMaxCents=hi * 100, salaryPeriod='year',
+                 benefits='Health, dental, 401(k) with match, 15 days PTO',
+                 applyUrl='https://example.org/apply/' + str(i + 1),
+                 applyNeedsLogin=False,          # or Google will not index it
+                 schemaOrg='JobPosting',
+                 publicPage=True, applicantsMembersOnly=True,
+                 shareLinkedInUrl='https://www.linkedin.com/sharing/share-offsite/?url=…',
+                 reviewedBy='staff' if state in ('live', 'expired') else None,
+                 eeoStatement=None)             # optional: EO 11246 revoked Jan 2025
+        if state == 'expired':
+            j['closesOn'] = f'{Y}-0{R.randint(1,6)}-{R.randint(1,28):02d}'
+            j['httpOnExpiry'] = 410             # or Google issues a manual action
+        return j
+    i = 0
+    for state, n in [('live', J['live']), ('expired', J['expired']),
+                     ('pending review', J['pendingReview']), ('rejected', J['rejected'])]:
+        for _ in range(n):
+            JOBS.append(one(state, i)); i += 1
+    # One rejected posting exists precisely to exercise the refusal path.
+    JOBS[-1].update(salaryMaxCents=None, rejectedReason=(
+        'No maximum on the salary range. An open-ended range is prohibited in '
+        'Washington and Minnesota, and this board is the third-party publisher.'))
+    JOBS[-2].update(rejectedReason=(
+        'Salary given as "competitive, see our careers page". California requires '
+        'the pay scale in the posting body — no links, no QR codes.'),
+        salaryMinCents=None, salaryMaxCents=None)
+
+    # Asks and offers: the surface that actually generates volume.
+    kinds = [('ask', 'Looking for'), ('offer', 'Happy to')]
+    for k, n in [('ask', J['asks']), ('offer', J['offers'])]:
+        for _ in range(n):
+            p = R.choice(posters)
+            ASKS.append(dict(id=nid('AO'), kind=k, person=p['id'], club=p['club'],
+                             text=(R.choice(['an introduction at a hospital system',
+                                             'advice on switching into public health',
+                                             'a résumé review before an interview',
+                                             'a summer internship for my daughter',
+                                             'someone who has done an SBA loan'])
+                                   if k == 'ask' else
+                                   R.choice(['review a résumé', 'make an introduction',
+                                             'mentor a student this term',
+                                             'talk to anyone thinking about dentistry',
+                                             'host a visitor in my city'])),
+                             postedOn=f'{Y}-{R.randint(1,8):02d}-{R.randint(1,28):02d}',
+                             responses=R.randint(0, 5)))
+    return JOBS, ASKS
+
+
 # ── assemble ─────────────────────────────────────────────────────────────────
 def build():
     plan = club_plan(500)
@@ -611,4 +961,7 @@ def build():
     engage_organic()
     cov = engage_fill()
     money()
+    build_camp()
+    build_jobs()
+    FACETS.update(build_facets())
     return cov
