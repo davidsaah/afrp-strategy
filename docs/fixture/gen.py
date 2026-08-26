@@ -509,6 +509,8 @@ TREATMENTS = {
 }
 HOST_OF = {p['key']: p['host'] for p in spec.PROGRAMS}
 
+_DIM = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
 def pay(person, kind, cents, *, program=None, restriction=None):
     if not person['living']:            # 77 payments were charged to the dead
         return
@@ -516,16 +518,48 @@ def pay(person, kind, cents, *, program=None, restriction=None):
     host = t['host']
     if kind == 'restricted-gift':
         host = HOST_OF.get(program, 'AFRP')
-    if host == 'club':
+    club_money = (host == 'club')
+    if club_money:
         host = person['club']
     fee = max(30, round(cents * 0.029) + 30)          # R20: posts gross, fee is its own line
+
+    # A full date, because R22 keys the daily-close batch on date+fund+kind and R10
+    # sets an Apr 30 voting-dues deadline.  A year alone can construct neither.
+    yr = R.randint(Y - 3, Y)
+    mo = R.randint(1, 12) if yr < Y else R.randint(1, 8)
+    dy = R.randint(1, _DIM[mo - 1])
+    date = f'{yr:04d}-{mo:02d}-{dy:02d}'
+
+    # Custody is not ownership.  Club dues collected nationally are the CLUB's money
+    # (host) sitting on AFRP's books as a liability until remitted (custodian).  With
+    # only a host field the agency liability never landed in anyone's ledger.
+    custodian = 'AFRP' if t['treatment'] in ('agency-liability', 'conduit-11.1.5',
+                                             'agency-at-first-dollar') else host
+
+    # And somebody bears the card fee on money that is not theirs.  Under gross posting
+    # AFRP books the fee as its own expense; on agency money that is a subsidy unless it
+    # is deducted from the remittance.  Named either way rather than left implicit.
+    fee_borne_by = 'AFRP' if custodian == 'AFRP' else host
+    fee_note = ('deducted from the remittance to ' + host
+                if t['treatment'] == 'agency-liability' else None)
+
+    # A restriction rides the gift (R25).  The 11.1.5 conduit is club money passing
+    # through AFRP FOR A NAMED PROJECT — the purpose restricts the destination, so it
+    # must survive the crossing.  Twelve conduit gifts used to book as unrestricted.
+    if restriction is None and program and t['treatment'] == 'conduit-11.1.5':
+        restriction = program
+
     PAYMENTS.append(dict(
-        id=nid('$'), person=person['id'], kind=kind, year=R.randint(Y - 3, Y),
+        id=nid('$'), person=person['id'], kind=kind, date=date, year=yr,
         grossCents=cents, processingFeeCents=fee, netCents=cents - fee,
-        hostEntity=host, treatment=t['treatment'], note=t['note'],
+        hostEntity=host, custodianEntity=custodian,
+        feeBorneBy=fee_borne_by, feeNote=fee_note,
+        treatment=t['treatment'], note=t['note'],
         program=program, restriction=restriction,
         fundClass=(restriction or 'unrestricted'),      # drives restricted reporting
         clubClass=person['club'],                       # ATTRIBUTION ONLY — never routes money
+        # R22: the daily-close batch is idempotent on date + fund + kind
+        batchKey=f'{date}|{restriction or "unrestricted"}|{kind}',
         journalLines=['clearing', 'fee', 'revenue'],
     ))
 

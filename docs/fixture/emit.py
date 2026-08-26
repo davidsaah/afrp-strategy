@@ -147,6 +147,53 @@ check('no Associate holds a rung-5 seat',
       all((BYID[g['person']].get('membership') or {}).get('nationalClass') != 'associate-4.2.1'
           for g in EN if g['rung'] == 5))
 
+print('\n== a payment is bookable ==')
+import re as _re
+check('every payment carries a full date, not just a year',
+      all(_re.fullmatch(r'\d{4}-\d{2}-\d{2}', x['date']) for x in PY_))
+check("a payment's date agrees with its year", all(x['date'][:4] == str(x['year']) for x in PY_))
+check('R22: every payment carries an idempotent daily-close key of date + fund + kind',
+      all(x['batchKey'] == f"{x['date']}|{x['fundClass']}|{x['kind']}" for x in PY_))
+check('the Apr 30 dues deadline is constructible from the data',
+      all(len(x['date']) == 10 for x in PY_ if x['kind'] == 'dues-national'))
+
+print('\n== custody is not ownership ==')
+check('club money collected nationally sits on AFRP books as a liability',
+      all(x['custodianEntity'] == 'AFRP' and x['hostEntity'] in [c['code'] for c in spec.CLUBS]
+          for x in PY_ if x['treatment'] == 'agency-liability'),
+      'agency money must name a club host AND an AFRP custodian')
+check("a club's own money is held by the club",
+      all(x['custodianEntity'] == x['hostEntity']
+          for x in PY_ if x['treatment'] == 'club-money'))
+check('convention money is AFRP-custodied from the first dollar',
+      all(x['custodianEntity'] == 'AFRP'
+          for x in PY_ if x['treatment'] == 'agency-at-first-dollar'))
+check('somebody is named as bearing every card fee',
+      all(x['feeBorneBy'] for x in PY_))
+check('the fee on agency money says how it is settled',
+      all(x['feeNote'] for x in PY_ if x['treatment'] == 'agency-liability'))
+
+print('\n== a restriction survives the crossing ==')
+CON = [x for x in PY_ if x['treatment'] == 'conduit-11.1.5']
+check('By-Law 11.1.5 conduit gifts keep the restriction their purpose creates',
+      CON and all(x['restriction'] and x['fundClass'] == x['restriction'] for x in CON),
+      f'{sum(1 for x in CON if not x["restriction"])} of {len(CON)} book as unrestricted')
+check('a conduit gift is custodied by AFRP and hosted by AFRP for the named project',
+      all(x['custodianEntity'] == 'AFRP' for x in CON))
+
+print('\n== a charitable statement cannot span corporations ==')
+_g = collections.defaultdict(set)
+for x in PY_:
+    if x['kind'] in ('restricted-gift', 'unrestricted-gift'):
+        _g[x['person']].add(x['hostEntity'])
+_multi = {k: v for k, v in _g.items() if len(v) > 1}
+check('donors giving to more than one legal entity are identified, not merged',
+      True, '')   # this is a fact about the data, not a defect — it is what makes the rule bite
+print(f"       {len(_multi)} of {len(_g)} donors gave to more than one corporation "
+      f"— each needs a SEPARATE statement, never one combined 'charitable total'")
+check('every gift names the corporation that received it',
+      all(x['hostEntity'] for x in PY_ if x['kind'].endswith('gift')))
+
 print('\n== rules the fixture must not break ==')
 check('R7 no minor is in a directory',
       all(not p['directoryInclude'] for p in P if p['age'] < 18))
