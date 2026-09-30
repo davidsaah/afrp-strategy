@@ -476,6 +476,34 @@ is cited *for*; it does not lower what it is worth.**
 
 ---
 
+## Decision 42 — the Federation's strategic plan uses the four branches
+**Status: Adopted · David Saah, 30 September 2026**
+
+### The adopted wording
+> The refreshed Federation strategic plan is organised on Decision 38's four
+> branches — **Education · Leadership · Heritage · Care** — with the family tree
+> as the roots and the Convention as the junction.
+
+### What it settles
+- One four-part framework across the platform and the strategic plan. The
+  "rails (Education, Health, Legacy, Advocacy)" wording in the Strategic Planning
+  Committee's minutes of 10 September 2026 is superseded by this decision, and
+  so is the "Rails" paragraph of `AFRP-Delivery-Status.md`. "Rails" in
+  `AFRP-Program-Architecture.md` §2 keeps its separate meaning: the six shared
+  platform services.
+- Outcome metrics for donors are reported per branch, using the five-rung
+  ladder (D25) and stage-to-stage conversion.
+- `AFRP-Strategic-Plan-Crosswalk.md` maps every element of the existing
+  strategic plans onto the platform under this framework.
+
+### What it does not settle
+- Whether the Strategic Planning Committee and the Board adopt the framework
+  for the Federation. This decision governs the design record and the draft
+  that goes to the committee; the committee recommends and the Board decides.
+- Where Ramallah Works sits: it is on no register.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

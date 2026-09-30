@@ -34,7 +34,7 @@ network calls. Works on a phone.
 
 | Folder | What it holds | Published on the site? |
 |---|---|---|
-| [`design/`](design/) | **The design record.** The decisions register (D1–D41), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
+| [`design/`](design/) | **The design record.** The decisions register (D1–D42), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
 | [`plan/`](plan/) | **The build plan.** `MASTER-PLAN.md` (the slice queue AFRP-Hub takes work from), `QUESTIONS-FOR-DAVID.md` (answered questions, kept as provenance), the archived earlier plans, and the consolidation plan | No, it is in the repository only |
 | [`docs/`](docs/) | **The site.** The prototypes, the narrative pages, the design status page and the build board | Yes, GitHub Pages |
 | [`docs/fixture/`](docs/fixture/) | The 500-household synthetic population and its generator | Yes |

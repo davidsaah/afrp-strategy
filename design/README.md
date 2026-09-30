@@ -11,9 +11,10 @@ the prototype and narrative pages in `../docs/`, which evidence a *story* and ne
 
 | Start with | What it holds |
 |---|---|
-| `AFRP-Decisions-Register.md` | Every human decision the design waits on: the answer, the date, and who decided (D1–D41) |
+| `AFRP-Decisions-Register.md` | Every human decision the design waits on: the answer, the date, and who decided (D1–D42) |
 | `AFRP-Delivery-Status.md` | The running build record, updated by each Hub slice |
 | `AFRP-Rules-Register.md` | By-law parameters reconciled from source |
+| `AFRP-Strategic-Plan-Crosswalk.md` | Every element of the Federation's strategic plans (2019–2026) and what the platform does about each |
 | `ratification/` | The R6 decision memos and the packet that builds them |
 | `bylaws/` | AFRP Constitution & By-Laws 2024, ARFECF 2013, ARFHSN 2017 |
 | `hosting-gcp/` | The GCP deployment option, kept open on purpose (AFRP-Hub `ai-memory/08-OPEN-QUESTIONS.md`); the Hub runs on Render |

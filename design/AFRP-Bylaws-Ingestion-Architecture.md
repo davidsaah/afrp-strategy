@@ -122,7 +122,7 @@ Every motion in the system carries its franchise tag, and the ballot engine refu
 | Endowment Fund Policy Statement | **Cited, not on file** | — |
 | AFRP Board Rules & Regulations | **Cited, not on file** (source of the dues tier ladder) | — |
 | Convention Contract Guidelines | Referenced at 10.1.6; 2009 contract previously analyzed | — |
-| Strategic Planning Proposal (17.1.4) | **Cited, not on file** | — |
+| Strategic Planning Proposal (17.1.4) | **Located, not yet on file.** "2020-2021 Strategic Planning Committee Recommendations", revision 3 May 2021, presented at the 2021 virtual Mid-Year and put to the 2021 Jacksonville General Assembly; the Selection Committee is §G. Held in AFRP's Drive. Adoption at Jacksonville is not yet evidenced by minutes. Contains names of living people: cite, do not commit (30 Sep 2026; see `AFRP-Strategic-Plan-Crosswalk.md`) | — |
 | 26 chapter-club bylaws | Out of scope (David, 16 Aug 2026) | reserved |
 
 ---
