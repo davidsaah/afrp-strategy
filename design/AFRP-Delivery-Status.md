@@ -1141,3 +1141,19 @@ question.
 
 Round 46 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`. 1,573 tests green
 under both postures. Journey corpus: 393 runnable, 274 meet, 63 guarded, 16 open, 39 not built, 1 rated 0 — one row risen from 0.
+
+### Slice A1 — the abstraction pass (30 September 2026)
+
+Four of the six concepts the review found the platform implementing four to
+six times each, each collapsed to one primitive with its callers migrated
+and a rule that keeps a new module from writing the fault again: deciding
+from the database at the moment of decision (`core.decision`, thirteen rule
+sites including standing and the living guard), the register's refusal as a
+value that names who may set an unset parameter (and the scholarship's
+encumbrance warning found silencing itself), one small-cell floor, and every
+count the record states derived by the suite. The snapshot and the refusal
+object are deferred to A2 with reasons. The plan and the evaluation strategy
+were pushed first, and the round reports against them.
+
+Round 47 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`. 1,595 tests green
+under both postures. Journey corpus unchanged: 393 runnable, 274 meet, 63 guarded, 16 open, 39 not built, 1 rated 0.
