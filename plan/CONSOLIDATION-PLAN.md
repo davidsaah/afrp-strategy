@@ -166,31 +166,38 @@ and were not rewritten.*
   - drop the line "internal planning docs are deliberately not here"
   - keep the note that `docs/fixture/` is load-bearing
 
-## Phase 6: Delete AFRP-Portal (irreversible, so every gate is checked first)
+## Phase 6: Delete AFRP-Portal. Local part DONE 30 Sep; the GitHub repo is waiting on David
 
 Gates, each verified and not assumed:
-- [ ] Every Portal `docs/` file is present in afrp-strategy with a matching checksum.
-- [ ] D30–D41 are in `design/AFRP-Decisions-Register.md`.
-- [ ] `grep -r "AFRP-Portal/docs"` in the Hub finds only historical mentions.
-- [ ] The Portal bundle verifies, and a scratch clone from it shows all commits.
-- [ ] Hub CI is green and staging is live on the repointed commit.
+- [x] Every Portal `docs/` file is present in afrp-strategy with a matching checksum.
+- [x] D30–D41 are in `design/AFRP-Decisions-Register.md`.
+- [x] `grep -r "AFRP-Portal/docs"` in the Hub finds only historical mentions.
+- [x] The Portal bundle verifies, and a scratch clone from it shows all commits.
+- [x] Hub CI is green on the repointed commit (`f43ee7d`). Staging was deliberately not
+      redeployed, because nothing it runs changed; `/healthz` is 200 on `11185f3`.
+- [x] *Caught at this gate:* the first Portal bundle (39 commits) predated `b81599d`.
+      `AFRP-Portal-final.bundle` has all 40 and was test-cloned. Portal's untracked
+      `Claude outputs/` and `fixture/` are in `AFRP-Portal-worktree.tgz`.
 
 Then:
-- [ ] **David** confirms, and the GitHub repo `davidsaah/AFRP-Portal` is deleted.
-- [ ] The local `Projects\AFRP-Portal` folder is deleted.
-- [ ] From `Projects\Claude outputs\`, delete `AFRP-Hub.bundle`,
+- [ ] **David** confirmed on 30 Sep ("keep going"). The GitHub repo `davidsaah/AFRP-Portal`
+      is **not yet deleted**: `gh` lacks the `delete_repo` scope. David deletes it at
+      https://github.com/davidsaah/AFRP-Portal/settings → Delete this repository.
+- [x] The local `Projects\AFRP-Portal` folder was sent to the Recycle Bin (30 Sep).
+- [x] Sent to the Recycle Bin (30 Sep), from `Projects\Claude outputs\`: `AFRP-Hub.bundle`,
       `afrp-app-initial.bundle`, `push-afrp-app.ps1`, `push-afrp-hub.ps1` and
       `ADR-001-build-foundation.md`, an older draft of the Hub's `docs/ADR-001`. The
       family-tree files stay.
 
 ## Phase 7: Claude's side
 
-- [ ] Pause the **AFRP Hub Code Build** session from Phase 3 until Phase 4 is done, so no
-      slice commits against paths that are moving.
-- [ ] Claude writes new claude.ai Project instructions and a knowledge-file list for the
-      two-repo layout. David replaces the Project's contents and archives the old chats.
-- [ ] Update Claude Code's memory so that it records the two repos, the design record in
-      afrp-mockups, and that AFRP-Portal is gone.
+- [x] Pause the **AFRP Hub Code Build** session from Phase 3 until Phase 4 is done. *Phase 4
+      is done (`f43ee7d`); the session can resume after a `git pull` in both repos.*
+- [x] Claude writes new claude.ai Project instructions and a knowledge-file list for the
+      two-repo layout: `plan/CLAUDE-PROJECT-SETUP.md`. David replaces the Project's contents and
+      archives the old chats.
+- [x] Update Claude Code's memory so that it records the two repos, the design record in
+      afrp-strategy, and that AFRP-Portal is gone.
 
 ---
 
