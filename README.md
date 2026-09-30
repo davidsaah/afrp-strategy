@@ -1,53 +1,68 @@
-# AFRP Platform — design record and prototypes
+# AFRP Platform — strategy, design record and prototypes
 
-The public design record for the American Federation of Ramallah, Palestine
-member platform: the clickable prototypes, the narrative documents, and the
-synthetic fixture the build runs against.
+What to build for the American Federation of Ramallah, Palestine member
+platform, and why: the design record every module is cut from, the build plan,
+the clickable prototypes, and the synthetic fixture the build runs against.
+**[AFRP-Hub](https://github.com/davidsaah/AFRP-Hub)** (private) is the build
+itself.
 
-Everything here is a **design artefact**. The by-law citations are real; the
-people, club counts and money figures are fictional demo data.
+The by-law citations and the design record are real. The people, club counts
+and money figures in the prototypes and the fixture are fictional demo data.
 
 ## Start here
 
-**[Design Status](https://davidsaah.github.io/afrp-mockups/AFRP-Design-Status.html)**
+**[Design Status](https://davidsaah.github.io/afrp-strategy/AFRP-Design-Status.html)**
 — what has been decided, what is still open and who owns it, and how the design
-has changed. Thirty-nine recorded decisions, twelve open questions. **This page
-is current; where an older document on this site disagrees with it, it wins.**
+has changed. **This page is current; where an older page on this site
+disagrees with it, it wins.**
 
-**[The build board](https://davidsaah.github.io/afrp-mockups/AFRP-Analyst-Dashboard.html)**
-— the evaluation the build runs against itself: the slice track, all 374 catalogued journeys, and
-the verdict on the 271 walked so far, including the six it currently fails. AFRP-Hub is **not yet
-in service** — no DNS, no live payments, no real member data.
+**[The build board](https://davidsaah.github.io/afrp-strategy/AFRP-Analyst-Dashboard.html)**
+— the evaluation the build runs against itself: the slice track, all 393
+catalogued journeys and the verdict on each, including the ones it currently
+fails. AFRP-Hub is **not yet in service**: no DNS, no live payments, no real
+member data.
 
-**[The delivery hub](https://davidsaah.github.io/afrp-mockups/)** — everything
+**[The delivery hub](https://davidsaah.github.io/afrp-strategy/)** — everything
 else, grouped: use it · for the board · deep dives · read it · archive.
 
-**[The integrated prototype](https://davidsaah.github.io/afrp-mockups/prototype.html)**
+**[The integrated prototype](https://davidsaah.github.io/afrp-strategy/prototype.html)**
 — the platform, clickable, across **five** lenses: Front door, Member, Club,
-Program, Federation. One self-contained file — no build, no server, no network
-calls. Works on a phone.
+Program, Federation. One self-contained file with no build, no server and no
+network calls. Works on a phone.
 
-## The three repositories
+## What is where
 
-| Repo | What it holds |
-|---|---|
-| **`afrp-mockups`** (this one, public) | The prototypes, the narrative documents, the design status page, and `docs/fixture/` |
-| **`AFRP-Portal`** (private) | The design record: the decisions register, the rules register, the by-law source texts, the design documents each module is cut from |
-| **`AFRP-Hub`** (private) | The application — Django, server-rendered, passwordless |
+| Folder | What it holds | Published on the site? |
+|---|---|---|
+| [`design/`](design/) | **The design record.** The decisions register (D1–D41), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
+| [`plan/`](plan/) | **The build plan.** `MASTER-PLAN.md` (the slice queue AFRP-Hub takes work from), `QUESTIONS-FOR-DAVID.md` (answered questions, kept as provenance), the archived earlier plans, and the consolidation plan | No, it is in the repository only |
+| [`docs/`](docs/) | **The site.** The prototypes, the narrative pages, the design status page and the build board | Yes, GitHub Pages |
+| [`docs/fixture/`](docs/fixture/) | The 500-household synthetic population and its generator | Yes |
 
-## `docs/fixture/` is load-bearing — do not move it
+**Precedence (Decision 41), highest first:** the by-law texts · the decisions
+register and the named design documents · the prototype and narrative pages,
+which evidence a *story* and never a *rule* · AFRP-Hub's code, which is
+evidence of what *is* and never of what *should be*.
+
+**Until 29 September 2026 there were three repositories.** This one was
+`afrp-mockups`, and the design record lived in a private `AFRP-Portal`. They
+were consolidated into this one. The old site address
+`davidsaah.github.io/afrp-mockups/` no longer resolves.
+
+## `docs/fixture/` is load-bearing: do not move it
 
 `docs/fixture/afrp-fixture.json` is the 500-household synthetic population.
 **AFRP-Hub's CI checks this repository out and reads that exact path**:
 
 ```
-python manage.py seed_fixture ../afrp-mockups/docs/fixture/afrp-fixture.json
+python manage.py seed_fixture ../afrp-strategy/docs/fixture/afrp-fixture.json
 ```
 
-The journey corpus resolves its people as predicates over that fixture, so a run
-against an empty database evaluates nothing. Reorganise around this path; moving
-or renaming it silently stops another repository's evaluation from meaning
-anything.
+The journey corpus resolves its people as predicates over that fixture, so a
+run against an empty database evaluates nothing. Reorganise around this path:
+moving or renaming it silently stops another repository's evaluation from
+meaning anything. The same applies to `plan/MASTER-PLAN.md`, which AFRP-Hub's
+`journeys/workbench/build_page.py` reads to build the build board.
 
 ## Which by-laws are quoted
 
@@ -57,12 +72,12 @@ By-Laws** — held as versioned rulesets, with `bylaws-2012.2` in force and
 `bylaws-2024.1` running in parallel under 48 provisional overrides pending
 Board ratification.
 
-This repository is public, and quoting real by-law text here is deliberate and
-stated on the hub page. Internal planning documents — the by-laws
-reconciliation, the electronic-voting deliberation, the decisions register —
-are **not** here; they live in the private repositories above.
+**This repository is public, including the design record** (David, 29 Sep
+2026). The by-laws reconciliation, the electronic-voting design and the
+decisions register are here on purpose. Nothing about a real living person
+beyond what is already public, and never real member data.
 
-## The full set
+## The site's pages
 
 | File | What it is |
 |---|---|
@@ -80,15 +95,15 @@ are **not** here; they live in the private repositories above.
 | `AFRP-Institutions.html` | ARFECF and ARFHSN |
 | `AFRP-Ruleset-Workbench.html` | The by-law drafting workbench |
 | `AFRP-Convention.html` · `AFRP-Community-LifeEvents.html` | Convention; community and life events |
-| `AFRP-Design-System-v2.css` | The design system every prototype screen inlines byte-for-byte |
-| `AFRP-Alumni-*.html` · `AFRP-Desktop-v2.html` · `AFRP-Mobile-v2.html` · `AFRP-Governance-*.html` · `AFRP-Portal-Screens.html` · `AFRP-Portal-Build-Spec.html` | Archive — superseded iterations, kept rather than deleted |
+| `AFRP-Design-System-v2.css` | The design system every prototype screen inlines byte for byte |
+| `AFRP-Alumni-*.html` · `AFRP-Desktop-v2.html` · `AFRP-Mobile-v2.html` · `AFRP-Governance-*.html` · `AFRP-Portal-Screens.html` · `AFRP-Portal-Build-Spec.html` | Archive: superseded iterations, kept in place because live pages link to them |
 
 **Two design languages, on purpose.** The prototype screens inline
-`AFRP-Design-System-v2.css` so they look like the application. The documents —
-the hub, the platform map, design status — carry their own house style, because
+`AFRP-Design-System-v2.css` so they look like the application. The documents
+(the hub, the platform map, design status) carry their own house style, because
 they are documents about the platform rather than parts of it.
 
 ## Publishing
 
 GitHub Pages: Settings → Pages → Branch `main`, folder `/docs`.
-Live at **https://davidsaah.github.io/afrp-mockups/**
+Live at **https://davidsaah.github.io/afrp-strategy/**

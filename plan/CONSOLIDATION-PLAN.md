@@ -99,35 +99,41 @@ because GitHub does not redirect Pages sites.
 
 **Steps 1, 4 and 5 were dropped on 29 Sep 2026: the repo stays public (decision 1 revised).**
 
-## Phase 3: Move the design record and the plan into afrp-mockups
+## Phase 3: Move the design record and the plan into afrp-strategy. DONE 29 Sep, `f0d0cee`, every file md5-checked
 
-- [ ] `AFRP-Portal/docs/design/**` → `design/`, keeping the file names so every
+- [x] `AFRP-Portal/docs/design/**` → `design/`, keeping the file names so every
       citation keeps working by name.
-- [ ] `AFRP-Portal/docs/bylaws/*.pdf` → `design/bylaws/`.
-- [ ] `AFRP-Portal/deploy/` → `design/hosting-gcp/`.
-- [ ] `AFRP-Hub/docs/MASTER-PLAN.md`, `QUESTIONS-FOR-DAVID.md` and `docs/archive/*` →
+- [x] `AFRP-Portal/docs/bylaws/*.pdf` → `design/bylaws/`.
+- [x] `AFRP-Portal/deploy/` → `design/hosting-gcp/`.
+- [x] `AFRP-Hub/docs/MASTER-PLAN.md`, `QUESTIONS-FOR-DAVID.md` and `docs/archive/*` →
       `plan/`. Leave a superseded stub in the Hub for each, following the pattern already
       used for BUILD-PLAN.
-- [ ] Not carried over:
+- [x] Not carried over:
   - `docs/brand/AFRP_Logo.png`, which is byte-identical to `docs/assets/`
   - Portal's old `fixture/`, which is older than `docs/fixture/`
   - Portal's `Claude outputs/`, whose prompts duplicate the Hub's and whose catalogues
     are retired
-- [ ] Check every moved file by checksum against the Portal source. The commit message
+- [x] Check every moved file by checksum against the Portal source. The commit message
       names the Portal commit it was taken from.
 
-## Phase 4: Repoint and tidy the Hub (a normal slice: build, red-team, suite green in both postures, CI green)
+## Phase 4: Repoint and tidy the Hub. DONE 29 Sep, AFRP-Hub `f43ee7d`, 1,574 green, CI green (test + journeys)
 
-- [ ] Rewrite every `AFRP-Portal/docs/design/…` path and every "update
-      `AFRP-Delivery-Status.md` in AFRP-Portal" instruction to point at afrp-mockups.
+*Found on the way: `journeys/workbench/build_page.py` READ `docs/MASTER-PLAN.md`, and now reads
+`../afrp-strategy/plan/MASTER-PLAN.md`. `00-ORIENTATION`'s rule that the public repo must never
+hold deliberation was rewritten to David's decision, and its stale "five design documents
+are not on this machine" block was corrected. The `slice-*` prompts and ADR-001 are history
+and were not rewritten.*
+
+- [x] Rewrite every `AFRP-Portal/docs/design/…` path and every "update
+      `AFRP-Delivery-Status.md` in AFRP-Portal" instruction to point at afrp-strategy.
       This touches:
   - `CLAUDE.md`
   - `README.md`
   - `ai-memory/` files 00, 02, 08, 10 and the README
   - `prompts/build-a-slice.md` and the `slice-*` prompts
-- [ ] `ai-memory/06-ENVIRONMENT.md:56` points the fixture at the Portal copy. Point it
-      at `../afrp-mockups/docs/fixture/afrp-fixture.json`.
-- [ ] Code comments that credit ports from `AFRP-Portal/src/*.ts` stay as provenance.
+- [x] `ai-memory/06-ENVIRONMENT.md:56` points the fixture at the Portal copy. Point it
+      at `../afrp-strategy/docs/fixture/afrp-fixture.json`.
+- [x] Code comments that credit ports from `AFRP-Portal/src/*.ts` stay as provenance.
       `00-ORIENTATION` says once that AFRP-Portal was retired on the date it happens,
       and that its full history is in `Projects\_archive\2026-09-29\AFRP-Portal.bundle`.
       Applied migrations are never edited.
@@ -138,17 +144,23 @@ because GitHub does not redirect Pages sites.
       old bundle.
 - [x] Tag `scratch/slice-8-mutations` as `slice-8-mutation-proof`, then delete the
       branch.
-- [ ] Update `09-SESSION-LOG` and the README status.
+- [x] Update `09-SESSION-LOG` and the README status.
 
-## Phase 5: Tidy afrp-mockups
+## Phase 5: Tidy afrp-strategy. DONE 29 Sep
 
-- [ ] Remove the empty `Run` file.
-- [ ] Move the 8 superseded pages into `docs/archive/` and fix the links in `index.html`.
+- [x] Remove the empty `Run` file.
+- [ ] ~~Move the 8 superseded pages into `docs/archive/`~~ **Not done, on purpose:**
+      `AFRP-Portal-Build-Spec.html` is linked from 15 live pages including the prototype,
+      and a move breaks public URLs. They stay in place, filed as archive in the index and README.
       The superseded pages are Alumni Desktop and Mobile, Desktop-v2, Mobile-v2,
       Governance-Finance Desktop, Governance Mobile, Portal-Screens and Portal-Build-Spec.
-- [ ] Regenerate the Analyst Dashboard and Design Status from the Hub's current report.
-      They still show 1,226 tests; the suite has 1,573.
-- [ ] Rewrite the README:
+- [x] Regenerate the Analyst Dashboard and Design Status from the Hub's current report.
+      *Dashboard: the fresh data (report of 18 Sep, plan with A1) was swapped into the
+      published page, which keeps its hand-made public-view edits. Design Status: 1,574
+      tests, 393 walked (274 meet, 63 guarded, 16 open, 39 not built, 1 fails), 41 decided.
+      The open-question count keeps its 8 Sep date, because it was not recounted. Also: 13
+      Board Packet links to the dead `/afrp-mockups/` address repointed.*
+- [x] Rewrite the README:
   - two repositories, not three
   - the new `design/` and `plan/` folders
   - drop the line "internal planning docs are deliberately not here"
@@ -157,7 +169,7 @@ because GitHub does not redirect Pages sites.
 ## Phase 6: Delete AFRP-Portal (irreversible, so every gate is checked first)
 
 Gates, each verified and not assumed:
-- [ ] Every Portal `docs/` file is present in afrp-mockups with a matching checksum.
+- [ ] Every Portal `docs/` file is present in afrp-strategy with a matching checksum.
 - [ ] D30–D41 are in `design/AFRP-Decisions-Register.md`.
 - [ ] `grep -r "AFRP-Portal/docs"` in the Hub finds only historical mentions.
 - [ ] The Portal bundle verifies, and a scratch clone from it shows all commits.
