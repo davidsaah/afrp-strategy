@@ -1,0 +1,72 @@
+# The four branches, the roots and the junction (D38-D40, D42, D45).
+- key: education
+  name: Education
+  shape: A ladder by age
+  colour: "#9a720d"
+  summary: >-
+    From a teenager's first week at camp to a young adult's first leadership
+    course. A person moves up by age, and a milestone opens an invitation to the
+    next programme. The Arabic Program is the exception: it is open at any age.
+  outcomes:
+    - How many campers go on to Project Hope, the Scholarship or Leadership Ramallah
+    - How many past participants are members today
+    - Retention of first-year and returning campers
+- key: leadership
+  name: Leadership
+  shape: A ladder by capacity
+  colour: "#4c6414"
+  summary: >-
+    Service, advocacy and professional life. People enter at Emerging Leaders
+    and move by what they are ready to take on, not by age. The order is a
+    suggestion, never a prerequisite.
+  outcomes:
+    - How many Exchange Mission alumni join Congressional Outreach or the Day of Action
+    - How many RBPN members give or serve in another programme
+    - How many people reach the Lead rung and hold a committee seat
+- key: heritage
+  name: Heritage
+  shape: A cluster, used for life
+  colour: "#7a5a2e"
+  summary: >-
+    The Preservation Project, Hathihe Ramallah and the Bookstore. There is no
+    "next" here and no milestone invitations: people come and go all their
+    lives, and nobody graduates from the archive to the magazine.
+  outcomes:
+    - Contributions to the archive and the magazine
+    - Readers and subscribers
+    - Members who take part in more than one heritage activity
+- key: care
+  name: Care
+  shape: Destinations
+  colour: "#8c2f21"
+  summary: >-
+    The Medical Mission, Women to Women and Senior Living, with the Ramallah
+    Foundation and the Endowed Fund shown as funds that people give to and
+    cannot join. People arrive by choice or by capacity to give, never by
+    progression.
+  outcomes:
+    - Volunteers and donors per destination
+    - Restricted gifts received and spent on their stated purpose
+    - Donors who give again
+- key: roots
+  name: The family tree
+  shape: The roots beneath all four
+  colour: "#2b2416"
+  summary: >-
+    Every member has a node on the tree, and the branches grow from it. The tree
+    is evidence for decisions people make, never a decision itself, and a node
+    is never a claim of lineage.
+  outcomes:
+    - Corrections and life events resolved by the committee
+    - Members who have linked themselves to their family
+- key: junction
+  name: The Convention
+  shape: The junction where the branches meet
+  colour: "#6d7a19"
+  summary: >-
+    Once a year every branch meets at the Convention: the governance floor,
+    programme gatherings and the community. It belongs to no branch and is a
+    rung on none.
+  outcomes:
+    - Registrations and delegates by club
+    - First-time attendees who become members or join a programme

@@ -1,0 +1,844 @@
+# AFRP programmes: one record per programme, on the four branches (D38-D40, D45).
+# Generated from the design record; journeys computed from docs/AFRP-Analyst-Dashboard.html.
+# Public file: roles only, no living person named, no contact details, no internal budget figures.
+- key: "camp-ramallah"
+  name: "Camp Ramallah"
+  branch: "education"
+  order: 1
+  entity: "AFRP"
+  shape: "Cohort"
+  flagship: true
+  status: "Built"
+  summary: "A residential summer camp bringing young members from across the US together for Ramallah heritage, Palestinian history and culture, outdoors. For most people it is the first rung of the whole federation."
+  who: "Campers aged 13 to 17 from member households; about 50 seats. Counselors must be 19 or have finished a year of college, and must be Federation members in their own right."
+  year: "Aug-Oct: next summer's site booked. Jan-Mar: applications. Mar-Apr: offers, waitlist by club, counselor vetting. May: health forms and consents. June or July: camp week. Aug: cohort report."
+  rungs:
+    hear: "The household of an eligible-age child is told, through the household inbox; counts are banded per club, never a roster of children."
+    show_up: "One summer. Attending once is a complete outcome and nothing chases the camper afterwards."
+    take_part: "A returning camper, observed from the attendance record and never solicited."
+    give_serve: "A counselor, who must first join, consent and hold standing as themselves after turning 18."
+    lead: "A seat on the camp committee, which owns the curriculum. People can arrive here without ever having been campers."
+  organiser: "A programme coordinator with a camp committee appointed under By-Law 8.1.3 (President-appointed, one-year terms), whose members must meet 8.1.2. What it escalates is not stated."
+  money: "AFRP, fee-funded or general fund. The camp fee is not published; camperships are modelled in the build."
+  handoffs: "Fed by household records (age). Feeds Project Hope at 18 and, via counselors, Leadership Ramallah at 21. The retired HS Senior Award was the next rung; the gap is now open."
+  strategy_needs:
+  - "More campers from small communities (2025 SWOT)"
+  - "More age tiers (2025 SWOT)"
+  - "A camp site of its own (2025 SWOT)"
+  - "Named a refresh priority by the Strategic Planning Committee (2026)"
+  - "Part of the youth pipeline from childhood to professional life (2019 plan)"
+  platform_needs:
+  - "Enter the camp facts the record lacks: capacity, fee, selection criteria, committee"
+  - "Decide which state's camp regulation governs and whether AFRP seeks ACA accreditation"
+  - "A written counselor vetting and background-check policy before a screen"
+  - "JP-014 stays guarded by design: a paid CIT's record is closed to parents"
+  questions:
+  - "Must a camper be a member? afrp.org states it for counselors and is silent for campers"
+  - "May a club pay a first-year counselor's dues on their behalf (By-Law 8.12.4)?"
+  - "Camp Ramallah's current capacity, selection criteria, fee and committee"
+  - "Which state's camp regulation governs, and is AFRP ACA-accredited or does it want to be?"
+  journeys:
+    total: 15
+    meets: 14
+    guarded: 1
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/camp"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "docs/AFRP-Deep-Flagship-Programs.html Program 1"
+  - "design/AFRP-Camp-Directory-Network-Plan.md"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F2"
+  - "plan/MASTER-PLAN.md §2 slices 2, 2b"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "arabic-program"
+  name: "Arabic Program"
+  branch: "education"
+  order: 2
+  entity: "AFRP"
+  shape: "Cohort"
+  flagship: false
+  status: "Plan only"
+  summary: "Weekly virtual Arabic classes for adults, run with a Palestinian partner college: a conversational track in the Palestinian dialect and a traditional reading and writing track."
+  who: "AFRP members, with placement help for level and track. On the Education branch it is the one rung open at any age."
+  year: "Six-week virtual mini-courses on Saturdays, plus summer enrichment courses. Term dates are not stated in the record."
+  organiser: "The Arabic Program Committee, a standing committee joined through the Committee Interest Form. What it escalates is not stated."
+  money: "AFRP, fee-funded or general fund. Instructor costs go to the partner college; figures are not stated."
+  handoffs: "Open at any age, so no milestone invitation fires into it. The prototype links it to Camp, the Preservation Project and the magazine's Arabic pages."
+  strategy_needs:
+  - "Arabic classes named a refresh priority by the Strategic Planning Committee (2026)"
+  platform_needs:
+  - "Only a page, charter and plan exist; no enrolment or term calendar is built"
+  - "An extra station for term calendar and enrolment caps (Deep Programs)"
+  questions:
+  - "No open question is recorded for this programme"
+  journeys:
+    total: 2
+    meets: 2
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/arabic"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Family-Tree-Integration.md D39"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "docs/AFRP-Programs.html Programme 4"
+  - "docs/AFRP-Deep-Programs.html the rest of the nineteen"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §A A8"
+  - "design/AFRP-Delivery-Status.md Slice P1"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "ohss-award"
+  name: "Outstanding High School Senior Award"
+  branch: "education"
+  order: 3
+  entity: "Unconfirmed: the prototype says afrp.org attributes it to AFRP; Program Architecture says the site groups it under the Ramallah Foundation. Confirm."
+  shape: "Award"
+  flagship: false
+  status: "Retired"
+  summary: "An award recognising community service and leadership in graduating high-school seniors. The register retired it in August 2026 by Board resolution, though afrp.org still offered it when the Hub's plans were written."
+  who: "High-school seniors with a 3.5 GPA minimum, whose applicant and family were members in good standing."
+  year: "Applications due 31 May each year; awards announced at the Convention. Retired effective 31 August 2026."
+  organiser: "The Scholarship Committee, on an award track (prototype). What it escalates is not stated."
+  money: "Small fixed prizes as published on afrp.org: two first prizes of $1,000 and second and third of $500, as gift cards. Whose books is unconfirmed."
+  handoffs: "Was fed by Camp Ramallah and fed the Scholarship. Its retirement leaves a gap between Camp and the Scholarship on the Education ladder."
+  strategy_needs:
+  - "Part of the youth pipeline from childhood to professional life (2019 plan)"
+  platform_needs:
+  - "Kept on the register as retired, with recipients, criteria and history preserved"
+  - "A successor row is held as proposed; what replaces it is undecided"
+  questions:
+  - "What replaces the Award, keeping a reason for families to stay members while their youngest finishes high school?"
+  - "The Award's 'family in good standing': national dues, club dues, or both?"
+  journeys:
+    total: 2
+    meets: 2
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/award"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §0"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Program-Architecture.md §6"
+  - "design/AFRP-Program-Architecture.md §7"
+  - "docs/AFRP-Programs.html Programme 16"
+  - "design/AFRP-Delivery-Status.md Slice P1"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "scholarship"
+  name: "Scholarship"
+  branch: "education"
+  order: 4
+  entity: "ARFECF (Decision 3). afrp.org says the scholarship was established by the Ramallah Foundation and is run jointly with AFRP; the record follows the decision."
+  shape: "Award"
+  flagship: true
+  status: "Built"
+  summary: "Financial support for college students of Ramallah descent: up to four years of undergraduate support, extended through graduation for medical students, with named scholarships alongside the general fund."
+  who: "Students with direct lineage to the original Ramallah families, or sponsorship and approval; full-time at an accredited college; documented financial need; minimum 3.0 GPA."
+  year: "Jan-May: applications. 31 May: deadline. Jun-Jul: committee review and ranking. Jul: awards approved. Aug: disbursement. October and each year after: renewal reports."
+  rungs:
+    hear: "The household of a student in their final school years is told; lineage is checked once, through the family tree, and reused."
+    show_up: "An application. Trying is showing up, and the applicant can see what has been received and what is missing."
+    take_part: "A continuing recipient, renewed each year; a missed renewal after a bereavement is not lapsed by silence."
+    give_serve: "Giving back, from an alumni gift to a named scholarship; service and money rank the same."
+    lead: "A seat on the Scholarship Committee, where conflicts with relatives are disclosed on the record."
+  organiser: "The Scholarship Fund Committee under ARFECF; no designated officer may stand in for it (6.4.4). The committee enters its own award budget. Who approves the budget is an open question."
+  money: "ARFECF's Scholarship Fund, on ARFECF's books with ARFECF's receipts. The by-law's 5% cap is enforced; the 2015 Policy Statement's figures are shown inactive until the document is produced."
+  handoffs: "Fed by lineage on the family tree and formerly by the HS Senior Award. Recipients get a free student membership and feed Project Hope, Leadership Ramallah, RBPN and the alumni programme."
+  strategy_needs:
+  - "Scholarships (2019 plan)"
+  - "Part of the youth pipeline from childhood to professional life (2019 plan)"
+  - "Recruit 21-35 year-olds; programme alumni events at the Convention (2023 minutes)"
+  platform_needs:
+  - "JP-020 open: the 5% cap versus the Policy Statement's 4% plus 1% waits on that document"
+  - "JP-021 open: members elect a Scholarship Committee that no AFRP by-law constitutes"
+  - "The ARFECF determination letter, needed for a receipt's exempt-status claim"
+  - "Historic recipient import beyond the alumni match queue"
+  questions:
+  - "Who is the tax adviser who clears flagged disbursements?"
+  - "What is the actual rubric, and how many reviewers per application?"
+  - "How many named scholarships exist, and does each have written donor criteria?"
+  - "Does the free student membership have an age or enrolment limit?"
+  - "Who approves the budget: the committee within an envelope, or the Board?"
+  journeys:
+    total: 13
+    meets: 8
+    guarded: 3
+    open: 2
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/applications"
+  - "#/program/alumni"
+  - "#/program/endowment"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Scholarship-Program-Spec.md §2-§11"
+  - "docs/AFRP-Deep-Flagship-Programs.html Program 3"
+  - "docs/AFRP-Deep-Programs.html Educational"
+  - "design/AFRP-Decisions-Register.md Decisions 2-3"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F9"
+  - "design/AFRP-Delivery-Status.md Slices 4, 4b, 9"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "project-hope"
+  name: "Project Hope"
+  branch: "education"
+  order: 5
+  entity: "AFRP"
+  shape: "Mission"
+  flagship: false
+  status: "Plan only"
+  summary: "A two-week, hands-on programme in Palestine that connects young adults to their ancestral homeland through volunteer service and meetings with local organisations, officials and youth."
+  who: "Young adults aged 18 to 29, actively engaged in their community, able to commit to the whole trip, with a valid US passport."
+  year: "Two weeks in Palestine; applications open six months before departure. Departure dates are not stated in the record."
+  organiser: "A Project Hope organizing committee that reviews applications for community engagement and commitment. What it escalates is not stated."
+  money: "AFRP, supported by the Endowed Fund: ARFECF 6.3.1 names it, so it can receive an endowment distribution. Participant costs are not stated."
+  handoffs: "Fed by Camp Ramallah and scholarship recipients. Feeds Leadership Ramallah at 21 and the Day of Action."
+  strategy_needs:
+  - "Formal processes (2025 SWOT)"
+  - "Succession planning (2025 SWOT)"
+  - "One trip per person (2025 SWOT, programme flyer)"
+  platform_needs:
+  - "Only a page, charter and plan exist; no application or trip roster is built"
+  - "The one-trip-per-person rule is not in the rules register"
+  questions:
+  - "No open question is recorded beyond the one-trip rule"
+  journeys:
+    total: 1
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/hope"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "docs/AFRP-Programs.html Programme 6"
+  - "docs/AFRP-Deep-Programs.html the rest of the nineteen"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F3"
+  - "design/AFRP-Delivery-Status.md Slice P1"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "leadership-ramallah"
+  name: "Leadership Ramallah"
+  branch: "education"
+  order: 6
+  entity: "AFRP"
+  shape: "Cohort"
+  flagship: true
+  status: "Plan only"
+  summary: "A two-day summit for young Palestinian-American adults, held alongside the Mid-Year Meeting, with expert-led workshops on leadership, advocacy and cultural preservation."
+  who: "Active AFRP members aged 21 and over. Standing is By-Law 4.3.1 in full: national and club dues both current."
+  year: "Applications open each fall; the summit runs at the Mid-Year Meeting (February to March)."
+  rungs:
+    hear: "An invitation to former camp counselors reaching 21, naming what they already did. One-summer campers are not listed."
+    show_up: "The two-day summit; standing is checked at the door and a refusal names which dues lapsed."
+    take_part: "The cohort. It is too small to report on, so anything published is suppressed."
+    give_serve: "An alum who comes back to facilitate a session."
+    lead: "A seat won nearby: the summit sits beside the Mid-Year Meeting, where Member-at-Large candidacies are filed."
+  organiser: "The Leadership Ramallah Committee, a standing committee that runs the summit at the Mid-Year Meeting. What it escalates is not stated."
+  money: "AFRP, supported by the Endowed Fund: ARFECF 6.3.1 names it, so it can receive an endowment distribution. Cohort costs are not stated."
+  handoffs: "Fed by Camp counselors, Project Hope and scholarship recipients. Feeds the Day of Action, RBPN, and Board and committee seats."
+  strategy_needs:
+  - "Leadership Ramallah held with the Mid-Year (2019 plan)"
+  - "Part of the youth pipeline from childhood to professional life (2019 plan)"
+  platform_needs:
+  - "JP-054 not built: rung 5 at Camp should fire the rung-1 Leadership invitation"
+  - "Only a page, charter and plan exist; no application, cohort roster or alumni record is built"
+  - "The 18-21 gap: no programme exists between camp and this summit"
+  questions:
+  - "The teen gap, 18 to 21: what programme, if any, fills it?"
+  journeys:
+    total: 2
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 1
+    fails: 0
+  prototype:
+  - "#/program/prog/leadership"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Decisions-Register.md D45"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "docs/AFRP-Deep-Flagship-Programs.html Program 2"
+  - "docs/AFRP-Programs.html Programme 12"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F4"
+  - "design/AFRP-Delivery-Status.md Slice P1"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "emerging-leaders"
+  name: "Emerging Leaders Summit"
+  branch: "leadership"
+  order: 1
+  entity: "Not stated in the record."
+  shape: "other"
+  flagship: false
+  status: "Plan only"
+  summary: "The entry rung of the Leadership branch. afrp.org has no page for it, and the record states nothing beyond its age band and its place on the branch."
+  who: "Ages 16 to 24."
+  year: "Not stated in the record."
+  organiser: "Not stated in the record."
+  money: "Not stated in the record."
+  handoffs: "Entry to the Leadership branch; the order after it (RBPN, Congressional Outreach, Day of Action, exchange missions) is a suggestion, never a prerequisite."
+  strategy_needs:
+  - "Part of the youth pipeline from childhood to professional life (2019 plan)"
+  - "Youth leaders in each club (2023 minutes)"
+  platform_needs:
+  - "The Hub's plan says under every heading that the site has no page and the record is silent"
+  - "Content is needed from the Federation before anything more can be built"
+  questions:
+  - "What is the Emerging Leaders Summit, who runs it, and when does it meet?"
+  journeys:
+    total: 1
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Family-Tree-Integration.md D39"
+  - "design/AFRP-Program-Experience-Architecture.md §1.1"
+  - "plan/SITE-OVERHAUL-PLAN.md §3"
+  - "design/AFRP-Delivery-Status.md Slice P1"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "rbpn"
+  name: "Ramallah Business & Professional Network"
+  branch: "leadership"
+  order: 2
+  entity: "AFRP (a committee)"
+  shape: "other"
+  flagship: true
+  status: "Built"
+  summary: "A network for members in business and the professions: training courses, mentoring, networking events and a mixer at the Convention. It holds one voting seat on the AFRP Board."
+  who: "AFRP members at any career stage, in fields from healthcare and STEM to law and the arts."
+  year: "A mixer during Convention week, included in base registration. Other meeting cadence is not published."
+  rungs:
+    hear: "A consented professional field on the member record; every field is its own switch."
+    show_up: "The Convention mixer, included in registration; check-in is the evidence."
+    take_part: "Enrolment in the network and attendance at training courses. A directory entry alone is not rung 3."
+    give_serve: "Mentoring, teaching a session or sponsoring; a mentor sees only their own mentee, and only while paired."
+    lead: "The RBPN seat on the AFRP Board (By-Law 6.2.2), seated by motion."
+  organiser: "The RBPN Committee, which holds one voting seat on the AFRP Board. What it escalates is not stated."
+  money: "An AFRP committee. Income is listing subscriptions and sponsorships; paying for a listing on the platform is not decided, so the desk records payment and does not charge."
+  handoffs: "Fed by Leadership Ramallah, scholarship alumni and the Convention mixer. Feeds mentoring, Medical Mission recruiting and Board service."
+  strategy_needs:
+  - "A five-year plan: mentorship, ambassadors, conferences (2019 plan)"
+  - "Recruit 21-35 year-olds through RBPN (2023 minutes)"
+  platform_needs:
+  - "Sponsorship desk and job board are built (slice 10); mentoring pairs are designed, not built"
+  - "A joining mechanism for the network, needed for rung 3, is not published"
+  - "Live payments wait on slice 5 (gated on credentials)"
+  - "Ambassadors and conferences are not in the record"
+  questions:
+  - "Membership cost, joining mechanism and meeting cadence beyond the Convention mixer are not published"
+  - "Listing tiers and prices for the professional directory"
+  journeys:
+    total: 11
+    meets: 8
+    guarded: 3
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/rbpn"
+  - "#/member/rbpn"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "docs/AFRP-Deep-Flagship-Programs.html Program 5"
+  - "design/AFRP-Camp-Directory-Network-Plan.md"
+  - "docs/AFRP-Programs.html Programme 13"
+  - "design/AFRP-Magazine-Bookstore-Use-Cases.md §8"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F7, F11"
+  - "design/AFRP-Delivery-Status.md Slices 10, 10b"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "congressional-outreach"
+  name: "Congressional Outreach"
+  branch: "leadership"
+  order: 3
+  entity: "AFRP (Government Affairs Committee, By-Law 8.15.1)"
+  shape: "Committee"
+  flagship: false
+  status: "Plan only"
+  summary: "Year-round advocacy for Palestinian rights at every level of government and across party lines: members meet their own elected officials, and the committee briefs State Department and DHS officials."
+  who: "AFRP members; the committee arranges meetings with a member's own elected officials."
+  year: "Year-round. No annual cycle is stated in the record."
+  organiser: "The Government Affairs Committee. Advocacy positions are the Federation's, adopted through governance, not a committee's own."
+  money: "AFRP general fund. It may be the by-laws' 'Internships in Washington' Endowed Fund purpose; confirm."
+  handoffs: "Fed by exchange-mission alumni. Feeds and is fed by the Day of Action. Advocacy is organised by district, so it relies on the consented member directory."
+  strategy_needs:
+  - "Decide whether policy work fits the mission; settled in practice by its place on the Leadership branch (2019 plan)"
+  - "Elected-official relations and a stronger advocacy voice (2025 SWOT, subcommittee tasks)"
+  - "Government Affairs named a refresh priority (2026)"
+  platform_needs:
+  - "Only a page, charter and plan exist; relationship records are designed to stay tightly scoped"
+  - "Advocacy contact as one more consented, refusable channel is designed, not built"
+  questions:
+  - "Is Congressional Outreach the by-laws' 'Internships in Washington' Endowed Fund purpose, or separate money?"
+  journeys:
+    total: 1
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/congress"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §0"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Program-Architecture.md §4"
+  - "design/AFRP-Program-Architecture.md §7"
+  - "docs/AFRP-Deep-Programs.html Leadership"
+  - "docs/AFRP-Programs.html Programme 11"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §I"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "day-of-action"
+  name: "Day of Action"
+  branch: "leadership"
+  order: 4
+  entity: "AFRP"
+  shape: "other"
+  flagship: false
+  status: "Plan only"
+  summary: "A yearly advocacy summit on Capitol Hill: members meet their representatives and senators and attend advocacy-tools sessions with partner organisations."
+  who: "Adults. First-time attendees aged 21 to 35 who are members have registration, hotel and part of their travel covered; everyone else attends at their own expense."
+  year: "Annual, in Washington DC in November (afrp.org listed 15-18 November 2026)."
+  organiser: "The Day of Action Committee, a standing committee. What it escalates is not stated."
+  money: "AFRP, fee-funded or general fund. Summit budget figures are not stated."
+  handoffs: "Fed by Leadership Ramallah and Project Hope alumni and by Congressional Outreach. Its participants facilitate at Leadership Ramallah."
+  strategy_needs:
+  - "Elected-official relations and a stronger advocacy voice (2025 SWOT, subcommittee tasks)"
+  platform_needs:
+  - "Only a page, charter and plan exist; the summit would run on the shared event builder, which is not wired for it"
+  questions:
+  - "No open question is recorded for this programme"
+  journeys:
+    total: 1
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/action"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "docs/AFRP-Deep-Programs.html Leadership"
+  - "docs/AFRP-Programs.html Programme 10"
+  - "design/AFRP-Delivery-Status.md Slice P1"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "ecem"
+  name: "Educational & Cultural Exchange Mission"
+  branch: "leadership"
+  order: 5
+  entity: "AFRP, with partner organisations"
+  shape: "Cohort"
+  flagship: false
+  status: "Plan only"
+  summary: "Missions to Ramallah since 2015 for American journalists, educators, clergy and political leaders, plus graduate-student delegations, fellowships and cultural programming."
+  who: "Journalists, educators, clergy, political leaders and graduate cohorts. How participants are chosen is an open question."
+  year: "Not stated in the record. Missions have run since 2015 and include taking part in the olive harvest."
+  organiser: "The exchange-mission committee, which leads missions and administers the Palestine Fellowship grants. What it escalates is not stated."
+  money: "AFRP with partners; grant- and partner-funded. Figures are not stated."
+  handoffs: "Fed by scholarship graduates and young adults. Its alumni are the natural recruits for Congressional Outreach."
+  strategy_needs:
+  - "Missions, an alumni database, fellowships, an alumni newsletter (2019 plan, 2025 SWOT)"
+  platform_needs:
+  - "Only a page, charter and plan exist"
+  - "Fellowship applications are not in the record"
+  - "An alumni database for mission alumni is not built; the match queue built so far covers scholarship alumni"
+  - "Extra station for travel, and for minors abroad (Deep Programs)"
+  questions:
+  - "Does the exchange mission select participants, or take referrals from partners?"
+  journeys:
+    total: 1
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/exchange"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §0"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Program-Architecture.md §7"
+  - "docs/AFRP-Programs.html Programme 5"
+  - "docs/AFRP-Deep-Programs.html the rest of the nineteen"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F5"
+  - "design/AFRP-Delivery-Status.md Slice 9"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "preservation-project"
+  name: "Ramallah Preservation Project"
+  branch: "heritage"
+  order: 1
+  entity: "Unconfirmed: the prototype says AFRP; afrp.org groups it under the Ramallah Foundation. Program Architecture asks which entity operates it."
+  shape: "other"
+  flagship: false
+  status: "Plan only"
+  summary: "A digital archive of Ramallah's history, begun in 2020: photographs, documents, articles and oral histories with migrants and first-generation Americans, shown at convention exhibits and with a museum partner."
+  who: "Anyone with materials, stories or time; submissions and interviews are welcome."
+  year: "Not stated in the record. Exhibits appear at the Convention."
+  organiser: "The Preservation Project Committee, which gathers documents and builds exhibits. Who owns copyright and takedown decisions is open."
+  money: "Restricted gifts. Whose books is unconfirmed."
+  handoffs: "On the Heritage cluster: no 'next' step. It wraps the family tree (items attach to tree nodes) and uses magazine back issues as archive material."
+  strategy_needs:
+  - "Cultural preservation: digitisation and oral histories (2019 plan)"
+  platform_needs:
+  - "Only a page, charter and plan exist; the archive itself is not built"
+  - "Undecided whether the platform or a shared drive is the archive of record"
+  - "Archive ingests only consent-classed material; print consent is its own switch"
+  questions:
+  - "Which entity operates the Preservation Project?"
+  - "Who owns the archive's copyright and takedown decisions before member photographs go on a public site?"
+  journeys:
+    total: 2
+    meets: 2
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/preservation"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §0"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Program-Architecture.md §4"
+  - "design/AFRP-Program-Architecture.md §7"
+  - "docs/AFRP-Deep-Programs.html Cultural"
+  - "docs/AFRP-Programs.html Programme 8"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F8"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §C C4"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "magazine"
+  name: "Hathihe Ramallah"
+  branch: "heritage"
+  order: 2
+  entity: "AFRP, with its own independent board (By-Law 6.7.1)"
+  shape: "other"
+  flagship: false
+  status: "Built"
+  summary: "The Federation's magazine since 1952, in English and Arabic, carrying family news, recognition lists and statutory notices. On the platform its printed sections are generated from live data at a copy freeze."
+  who: "Subscribers and members; members appear through life events they record and consent to print."
+  year: "An issue cycle: window opens, copy freeze, proof, press, mail and archive. The number of issues a year is an open question."
+  organiser: "The magazine's own board and editor. The magazine's authority is its own and no federation grant confers it. Who the editor is (staff, committee or contractor) is open."
+  money: "Appropriated by AFRP, plus subscriptions and advertising. Magazine money is kept apart from Federation money on the ledger."
+  handoffs: "Fed by life events, the family tree's accepted lines, recognition tiers and RBPN listings. Feeds the Preservation archive and is the statutory notice channel for the Convention."
+  strategy_needs:
+  - "Hathihe Ramallah in the app (2020-21 app requirements)"
+  - "Magazine money kept apart from Federation money (2020 minutes)"
+  - "A newsletter on a fixed schedule (PR audit)"
+  platform_needs:
+  - "Magazine operations built (slices 7, 7b); five journeys are guarded refusals by design"
+  - "The ads desk's payment path refuses until paying for ads on the platform is decided"
+  - "The delivery allowance is unset, so the activities section refuses to compute"
+  - "Live payments wait on slice 5"
+  questions:
+  - "How many issues a year, and what are the real deadlines?"
+  - "Five auto sections or six? (the magazine committee's question)"
+  - "What page budget does each auto section get?"
+  - "Are back issues open to non-members, or a member benefit?"
+  journeys:
+    total: 15
+    meets: 10
+    guarded: 5
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/magazine"
+  - "#/member/magazine"
+  - "#/member/ads"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Magazine-Bookstore-Use-Cases.md §0-§3, §8"
+  - "docs/AFRP-Deep-Programs.html Cultural"
+  - "docs/AFRP-Programs.html Programme 9"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §D D18, D21"
+  - "design/AFRP-Delivery-Status.md Slices 7, 7b"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "bookstore"
+  name: "Bookstore"
+  branch: "heritage"
+  order: 3
+  entity: "AFRP (per the consolidated platform map)"
+  shape: "other"
+  flagship: false
+  status: "Built"
+  summary: "An online store for books, magazine back issues, clan books, merchandise and digital downloads, with member pricing for members in good standing."
+  who: "Members and the public; the member price applies only when signed in."
+  year: "Not stated in the record."
+  organiser: "Whoever holds the store:manage grant runs the catalogue and inventory. Who fulfils orders is an open question."
+  money: "Sales are exchange revenue, never a gift; sales tax collected is a liability. Register and collect in Michigan first and watch other states' thresholds. Payments are simulated until slice 5."
+  handoffs: "On the Heritage cluster: no 'next' step. Sells magazine back issues and clan books; a magazine mention can lead to it."
+  strategy_needs:
+  - "None in the strategy documents as summarised in the crosswalk"
+  platform_needs:
+  - "Catalogue, member pricing, orders and inventory are built; JF-066 is a guarded refusal by design"
+  - "Live payments wait on slice 5 (gated on credentials)"
+  - "A sales tax nexus monitor is designed; tax positions need a professional"
+  questions:
+  - "What is actually in the bookstore today, and what stock exists?"
+  - "Is there a fulfilment volunteer, or should print-on-demand be considered?"
+  - "Are digital downloads taxable in the states AFRP sells to?"
+  journeys:
+    total: 4
+    meets: 3
+    guarded: 1
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/bookstore"
+  - "#/member/bookstore"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Magazine-Bookstore-Use-Cases.md §4-§5, §8"
+  - "design/AFRP-Consolidated-Platform-Map.md"
+  - "plan/QUESTIONS-FOR-DAVID.md Q33"
+  - "plan/MASTER-PLAN.md §1a"
+  - "design/AFRP-Delivery-Status.md Slice P1"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "medical-mission"
+  name: "Medical Mission"
+  branch: "care"
+  order: 1
+  entity: "Unconfirmed: the deep dives and the prototype say ARFHSN (the Human Services Network); Program Architecture's money map still says AFRP or an entity to confirm."
+  shape: "Mission"
+  flagship: true
+  status: "Designed"
+  summary: "Volunteer physicians, specialists and health professionals from the US and Palestine building long-term health capacity in Palestine: prosthetics, eye and cancer screening, hospital equipment and workforce training."
+  who: "Health professionals as volunteers, and donors. Credential requirements for volunteers are not published."
+  year: "A report session at the Convention; credential expiry surfaced 90 days out; trustees report to the AFRP Board every six months. Mission dates are not stated."
+  rungs:
+    hear: "A health professional who consents to show their occupation to programme committees."
+    show_up: "The annual report session at the Convention; no follow-up is queued."
+    take_part: "Travelling on a mission, gated on current licence, cover and Ministry of Health authorisation."
+    give_serve: "Giving or serving, ranked equally: a gift receipted by ARFHSN, or hosting and teaching trainees. The most populated rung."
+    lead: "A seat on the ARFHSN Board of Trustees, elected by the AFRP Board."
+  organiser: "The Medical Mission Committee within ARFHSN; ARFHSN's 14-seat Board of Trustees is elected by the AFRP Board and reports to it every six months."
+  money: "Restricted gifts and a conduit routed through HQ (11.1.5). Gifts must be receipted in ARFHSN's name under a recorded inter-entity agreement."
+  handoffs: "Fed by RBPN's professional directory and the Convention. Project Hope delegations visit mission sites; Women to Women is its sister programme."
+  strategy_needs:
+  - "Medical Mission and human services (2019 plan)"
+  platform_needs:
+  - "JP-030 not built: Medical Mission operations carrying the entity banner"
+  - "JP-031 not built: human-services intake as a separate store under exact grants"
+  - "A written credential policy before a screen"
+  - "Patient data must never enter the platform: aggregate counts only"
+  questions:
+  - "What is verified for volunteers, by whom, and to what standard?"
+  - "Which entity's books hold Medical Mission money?"
+  journeys:
+    total: 3
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 2
+    fails: 0
+  prototype:
+  - "#/program/medops"
+  - "#/program/intake"
+  - "#/program/prog/medical"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "docs/AFRP-Deep-Flagship-Programs.html Program 4"
+  - "docs/AFRP-Deep-Programs.html Medical"
+  - "docs/AFRP-Programs.html Programme 1"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F10"
+  - "plan/MASTER-PLAN.md §1a"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "women-to-women"
+  name: "Women to Women"
+  branch: "care"
+  order: 2
+  entity: "Unconfirmed: the prototype says ARFHSN; afrp.org groups it under the Ramallah Foundation. Program Architecture asks which entity operates it."
+  shape: "Committee"
+  flagship: false
+  status: "Plan only"
+  summary: "Direct financial help to women in Ramallah and their families for basic needs and self-improvement. Projects are proposed in writing from Ramallah and approved by a committee."
+  who: "Members and non-members as donors and representatives; women in Ramallah as beneficiaries."
+  year: "Projects year-round; fundraising at the Mid-Year and Annual Conventions."
+  organiser: "The Women to Women Committee approves projects proposed in writing with a need justification and budget. What it escalates is not stated."
+  money: "Restricted gifts through a conduit; representatives give at least $100 a year (afrp.org). Whose books is unconfirmed."
+  handoffs: "Destination on the Care branch, entered by choice. Sister programme to the Medical Mission; fundraises at the Convention."
+  strategy_needs:
+  - "More projects (2025 SWOT)"
+  - "Reach younger women (2025 SWOT)"
+  - "A representative in each city (2025 SWOT)"
+  platform_needs:
+  - "Only a page, charter and plan exist; giving goes through the funds path"
+  - "Per-entity receipting for a conduit account needs the entity settled"
+  questions:
+  - "Which entity operates Women to Women: Ramallah Foundation, ARFECF, or AFRP?"
+  journeys:
+    total: 1
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  prototype:
+  - "#/program/prog/women"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §0"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Program-Architecture.md §7"
+  - "docs/AFRP-Programs.html Programme 2"
+  - "docs/AFRP-Deep-Programs.html Medical"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §F F6"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "senior-living"
+  name: "Senior Living Project"
+  branch: "care"
+  order: 3
+  entity: "Ramallah Foundation, Inc. (Program Architecture), raised through AFRP channels; Program Architecture still asks for confirmation."
+  shape: "Campaign"
+  flagship: false
+  status: "Designed"
+  summary: "A capital project for a new senior residence in Ramallah, replacing a 1970s facility: about 30,000 square feet for 50 or more residents. Ground was broken in October 2023 and the cornerstone laid in June 2024."
+  who: "Donors, and elders as possible residents. Resident eligibility is not stated in the record."
+  year: "Milestones rather than a yearly cycle: groundbreaking October 2023, cornerstone June 2024. Later milestones are not stated."
+  organiser: "Not stated in the record."
+  money: "A capital campaign with a published $5M goal, in a restricted fund that must never leak into operations; pledges tracked against cash."
+  handoffs: "Destination on the Care branch, entered by choice. Elders may live in or fund it; Legacy Giving leads here."
+  strategy_needs:
+  - "None in the strategy documents as summarised in the crosswalk"
+  platform_needs:
+  - "JP-032 not built: pledges against cash, restricted and ring-fenced"
+  - "A capital campaign module: multi-year pledges, naming opportunities, milestone communications"
+  questions:
+  - "Which entity operates the Senior Living campaign?"
+  journeys:
+    total: 2
+    meets: 1
+    guarded: 0
+    open: 0
+    not_built: 1
+    fails: 0
+  prototype:
+  - "#/program/senior"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Program-Architecture.md §0"
+  - "design/AFRP-Program-Architecture.md §3"
+  - "design/AFRP-Program-Architecture.md §6"
+  - "design/AFRP-Program-Architecture.md §7"
+  - "docs/AFRP-Deep-Programs.html the rest of the nineteen"
+  - "plan/MASTER-PLAN.md §1a"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "family-tree"
+  name: "Ramallah Family Tree"
+  branch: "roots"
+  order: 1
+  entity: "AFRP"
+  shape: "other"
+  flagship: false
+  status: "Built"
+  summary: "The genealogy of the original Ramallah clans and their descendants, more than 30,000 people. On the platform it is the roots beneath all four branches: every member has a node, and a node is never a lineage claim."
+  who: "Members; the whole tree is visible to signed-in members, while the living show no dates when signed out. Anyone may propose a change; the committee decides."
+  year: "Continuous: proposals, life events and imports queue to the committee. No annual cycle is stated."
+  organiser: "The Family Tree Committee decides every change; imports, exports and direct edits are audited. Undecided questions go to the Membership Committee."
+  money: "Not stated in the record."
+  handoffs: "Beneath every branch. Joining creates a node; life events flow to the household, the magazine and the heritage layer; the Scholarship reads lineage from it; Preservation items attach to its nodes."
+  strategy_needs:
+  - "Family tree in the app, with correction forms and GEDCOM updates (2020-21 app requirements)"
+  - "Family Tree named a refresh priority (2026)"
+  platform_needs:
+  - "JM-027 not built: photo consent held by the subject, not the uploader"
+  - "JM-028 not built: 'How am I related to another member?'"
+  - "Adoption has no decision; an adoptive link is recorded as non-lineage and nothing is inferred"
+  - "Seven journeys route open to the Membership Committee (lineage, spouse and divorce questions)"
+  questions:
+  - "Adoption: an adopted child's place on the tree has no decision"
+  - "By-Law 4.1.1's three spouse questions: a same-sex spouse, an unmarried partner, membership through a spouse after a divorce"
+  - "The club attachment of a minor in two households"
+  journeys:
+    total: 63
+    meets: 47
+    guarded: 7
+    open: 7
+    not_built: 2
+    fails: 0
+  prototype:
+  - "#/member/family"
+  - "#/fed/tree"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "design/AFRP-Decisions-Register.md Part 3"
+  - "docs/AFRP-Programs.html Programme 7"
+  - "docs/AFRP-Deep-Programs.html Cultural"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §D D22"
+  - "design/AFRP-Delivery-Status.md Slices T1a-T1c"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"
+- key: "convention"
+  name: "The Annual Convention"
+  branch: "junction"
+  order: 1
+  entity: "AFRP, run with the host club"
+  shape: "other"
+  flagship: true
+  status: "Designed"
+  summary: "The Federation's annual gathering, held since 1959: governance, the election and the Assembly floor, the banquet, youth events and every programme's moment. It sits on no branch and is reachable from all of them."
+  who: "AFRP members; membership is mandatory for every attendee, and non-members pay dues with registration. Voting needs dues received by 30 April and certification."
+  year: "A city bids at the Mid-Year two years ahead. Magazine notice at least 60 days before. Dues by 30 April for the vote. Convention in July. Host's final accounting within 120 days."
+  rungs:
+    hear: "The magazine notice at least 60 days ahead (By-Law 10.1.4), a statutory duty; digital notice is added, never substituted."
+    show_up: "Registering and attending; voting is separate, and the 30 April franchise cliff is surfaced in March."
+    take_part: "The delegation: weighted voting, from which any certified member may extract their own vote."
+    give_serve: "The host committee and desk volunteers, handling three kinds of money correctly."
+    lead: "The bid, two years out: a host club that bids, hosts and closes the books."
+  organiser: "The host club's convention committee with the Federation. A host needs 50 paid members for five consecutive years; it files a final accounting within 120 days."
+  money: "Platform-collected registration and Relief Fund gifts are Federation money from the first dollar. Off-platform receipts are receivables due at settlement; the host's own hafli is club money until remitted."
+  handoffs: "The junction: every branch leads here and none owns it. The RBPN mixer, Medical Mission report, Women to Women fundraising, award announcements and the alumni event happen here."
+  strategy_needs:
+  - "Convention guidelines (2021 strategic proposal, 2022 MOU)"
+  - "MOU terms: host two years ahead; registration data belongs to the Federation; Relief Fund per registration; 60-day settlement"
+  - "Online registration run with the host club (2021 strategic proposal)"
+  - "Registration and photographs in the app; a live itinerary with reminders (app requirements)"
+  - "A programme alumni event at the Convention (2023 minutes)"
+  platform_needs:
+  - "Nine journeys not built, including J05, J13 and JF-078 to JF-084"
+  - "Blocked until documents arrive; the Convention element is its own project"
+  - "A settlement statement is not in the record"
+  - "Mid-Year host bids need a design note (P8)"
+  questions:
+  - "Exhibitor and press credentials as non-attendee credentials: for the Board to confirm"
+  - "Convention deficit responsibility is read from the Convention Contract; where it is silent the screen says so"
+  journeys:
+    total: 11
+    meets: 2
+    guarded: 0
+    open: 0
+    not_built: 9
+    fails: 0
+  prototype:
+  - "#/convention"
+  sources:
+  - "design/AFRP-Family-Tree-Integration.md D38"
+  - "docs/AFRP-Deep-Flagship-Programs.html Program 6"
+  - "docs/AFRP-Deep-Convention.html"
+  - "docs/AFRP-Programs.html Programme 19"
+  - "design/AFRP-Decisions-Register.md board-confirmation items"
+  - "design/AFRP-Strategic-Plan-Crosswalk.md §G"
+  - "plan/MASTER-PLAN.md §2 blocked row"
+  - "docs/AFRP-Analyst-Dashboard.html (journey data)"

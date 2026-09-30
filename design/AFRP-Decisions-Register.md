@@ -504,6 +504,26 @@ is cited *for*; it does not lower what it is worth.**
 
 ---
 
+## Part 4 — the site as the staging area, 30 September 2026
+
+David approved `plan/SITE-OVERHAUL-PLAN.md` and its ten recommendations on
+30 September 2026 ("this all sounds great, push the plan and build").
+
+| # | Decision | Answer |
+|---|---|---|
+| 43 | Where discussion happens | **GitHub Discussions for the build team; the committee's Google Doc for the committee.** Each open question carries one Q-number used in both |
+| 44 | Which strategy text is canonical | **The committee's Google Doc until the committee adopts the plan**; the site shows the latest draft and links to it |
+| 45 | Leadership Ramallah's branch | **Education**, confirming D38 |
+| 46 | The six shared services | **Called "shared services" on the site now**, and in the design record at the site plan's Phase 7. "Rails" no longer means two things |
+| 47 | How site pages are written | **Markdown and data files in `site/`, rendered into `docs/` by `site/build.py`** |
+| 48 | The prototype's framing | **Explained on the Prototype section first; re-framed onto the branches later**, as its own step |
+| 49 | The 21 August Board Packet | **Kept as a dated record** in the Library |
+| 50 | Names on new site pages | **Roles only.** No living person is named on a new narrative page |
+| 51 | Internal history on public pages | **The lesson without figures or programme names** |
+| 52 | The eight strategic goals | **Published as "distilled from the Federation's documents, for the committee to confirm"**; the committee's wording replaces them when it comes |
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

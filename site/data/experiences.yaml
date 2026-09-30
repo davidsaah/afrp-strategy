@@ -1,0 +1,728 @@
+# Generated from the design record and the Analyst Dashboard journey data (2026-09-18T16:43:51).
+# Public repo: roles only, no living person named, no internal budget figures.
+- key: visitor
+  name: Visitor
+  lens: door
+  who: 'Someone not signed in: a prospective member, a relative or a member of the public reading about AFRP.'
+  needs:
+  - Understand what AFRP and its programmes are
+  - Find a way to join
+  - Browse the bookstore and reach the public giving door without signing in
+  platform:
+  - Public site and programme pages from the programme register
+  - One front door to join or sign in
+  - Public job postings with complete markup
+  privacy:
+  - Nothing about living people shows without sign-in (D28)
+  - Sign-in and recovery are existence-blind
+  - Living people in the public build are synthetic (D15)
+  journeys:
+  - id: J01
+    title: Join & first login
+  - id: J12
+    title: Donor & the endowment
+  catalogue:
+    filter: persona == visitor (all lenses)
+    personas:
+    - visitor
+    total: 47
+    meets: 33
+    guarded: 11
+    open: 3
+    not_built: 0
+    fails: 0
+  not_built: []
+  workflows:
+  - join-renew-dues
+  - giving-funds
+  - directory-consent
+  prototype:
+  - '#/door/landing'
+  - '#/door/join'
+  sources:
+  - design/AFRP-Decisions-Register.md §Part 2 Presentation and privacy
+  - docs/AFRP-Platform-Experience.html §J01
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: new-member
+  name: New member
+  lens: door
+  who: A person joining for the first time, alone, as a family, as a student or as a newlywed.
+  needs:
+  - A join that cannot be captured by a mistyped email
+  - Clear dues and what they buy
+  - A first login that says what to set up next
+  platform:
+  - Channel verification before any payment or PII (S1)
+  - A tree node on join, never a lineage claim (D30)
+  - The Associate route offered where the genealogy cannot reach
+  privacy:
+  - Consent at join is per field with its source recorded
+  - A minor's consent is held by the household and re-asked at eighteen
+  - No password can exist
+  journeys:
+  - id: J01
+    title: Join & first login
+  - id: J03
+    title: Household & the 18th birthday
+  catalogue:
+    filter: lens == door (all personas)
+    personas:
+    - member
+    - visitor
+    total: 28
+    meets: 16
+    guarded: 10
+    open: 2
+    not_built: 0
+    fails: 0
+  not_built: []
+  workflows:
+  - join-renew-dues
+  - tree-life-events
+  - directory-consent
+  prototype:
+  - '#/door/join'
+  - '#/door/login'
+  - '#/member/home'
+  sources:
+  - docs/AFRP-Platform-Experience.html §S1, §J01
+  - design/AFRP-Family-Tree-Integration.md §3
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: member
+  name: Member
+  lens: member
+  who: A signed-in member with a national membership and usually one or more club memberships.
+  needs:
+  - See each membership's standing and date
+  - Renew, give, register and vote
+  - Control what others see
+  platform:
+  - Home with an attention list and two standing pills
+  - 'Scoped standing: national and club lapse independently'
+  - Ballots with the reason when ineligible
+  - My branches and the next step on each
+  privacy:
+  - Display, contact and export are three separate consents (R27)
+  - A declined invitation is recorded nowhere a committee can see
+  - All members see the whole tree, a recorded choice (D17)
+  journeys:
+  - id: J02
+    title: Multi-club renewal
+  - id: J11
+    title: Directory & RBPN listing
+  - id: J15
+    title: How the directory works
+  - id: J16
+    title: The professional network, end to end
+  catalogue:
+    filter: lens == member and persona in {member, lapsed-member, grace-member}
+    personas:
+    - grace-member
+    - lapsed-member
+    - member
+    total: 104
+    meets: 81
+    guarded: 9
+    open: 5
+    not_built: 8
+    fails: 1
+  not_built:
+  - id: J10
+    title: Joining a committee
+  - id: JM-018
+    title: QR check-in at the door
+  - id: JM-027
+    title: 'Photos: per-item consent held by the SUBJECT, not the uploader'
+  - id: JM-028
+    title: How am I related to another member?
+  - id: JM-042
+    title: A suspension withholds the vote with its authority shown
+  - id: JM-065
+    title: Guided scenarios stay prototype-only and the Hub does not pretend otherwise
+  - id: JM-066
+    title: 'The four contributor moments: receipt, goal, transfer, fulfilment'
+  - id: JM-067
+    title: A restricted gift's surplus rule is printed BEFORE payment
+  - id: JM-068
+    title: A ticketed event is non-deductible entirely; the gift beyond it is receipted separately
+  workflows:
+  - join-renew-dues
+  - events
+  - elections-voting
+  - directory-consent
+  - magazine
+  - tree-life-events
+  prototype:
+  - '#/member/home'
+  - '#/member/membership'
+  - '#/member/pathway'
+  sources:
+  - design/AFRP-Four-Lens-Architecture.md §2
+  - docs/AFRP-Unified-Member.html
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: household-parent
+  name: Household parent or guardian
+  lens: member
+  who: 'An adult acting for minors in a household: registering, applying to camp, declaring births and naming who may collect
+    a child.'
+  needs:
+  - Act for a child without guesswork
+  - Apply to camp and register the family
+  - Know what a partner or step-parent may do
+  platform:
+  - R6's four authority paths and enumerated powers
+  - A release list writable only by a standing holder
+  - Life-event declarations queued to the committee
+  privacy:
+  - The more protective answer wins when holders disagree (D35)
+  - A step-parent holds nothing until named (D34)
+  - A child's announcement is withdrawable and re-asked at eighteen (D33)
+  journeys:
+  - id: J03
+    title: Household & the 18th birthday
+  - id: J07
+    title: Camp parent season
+  catalogue:
+    filter: persona == household-adult (all lenses)
+    personas:
+    - household-adult
+    total: 10
+    meets: 10
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  not_built: []
+  workflows:
+  - camp-application
+  - events
+  - tree-life-events
+  prototype:
+  - '#/member/household'
+  - '#/member/programs'
+  - '#/member/family'
+  sources:
+  - design/AFRP-R6-Minor-Authority.md §1–§5
+  - design/AFRP-Family-Tree-Integration.md §D34, §D35
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: young-person
+  name: Young person
+  lens: member
+  who: A minor in a member household, and the same person at eighteen when their consents become their own.
+  needs:
+  - Take part in camp and programmes safely
+  - At eighteen, own their channel and consents
+  platform:
+  - A refresh window before eighteen that asks them on their own channel
+  - Education-branch invitations at milestones, never enrolment
+  privacy:
+  - Minors never appear in any directory payload; no birth date means possible minor (R7)
+  - Camp cabins ship as counts and bands, never a minor's id
+  - Campers have no account; a CIT gets a limited one
+  journeys:
+  - id: J03
+    title: Household & the 18th birthday
+  - id: J07
+    title: Camp parent season
+  catalogue:
+    filter: persona == minor-in-household, plus rows JD-019, JD-020, JD-024, JM-047, JM-048, JM-087, JM-112, JP-065
+    personas:
+    - member
+    - minor-in-household
+    - staff
+    - visitor
+    total: 9
+    meets: 9
+    guarded: 0
+    open: 0
+    not_built: 0
+    fails: 0
+  not_built: []
+  workflows:
+  - camp-application
+  - directory-consent
+  - join-renew-dues
+  prototype:
+  - '#/door/refresh'
+  - '#/member/household'
+  sources:
+  - docs/AFRP-Platform-Experience.html §J03
+  - design/AFRP-Rules-Register.md §Identity, minors and the directory
+  - design/AFRP-Camp-Directory-Network-Plan.md §Decisions taken
+- key: donor
+  name: Donor
+  lens: member
+  who: A member or friend of AFRP giving to a cause or fund, including restricted appeals and the endowment.
+  needs:
+  - Know where the money goes before paying
+  - A correct receipt from the right entity
+  - Hear what the gift did
+  platform:
+  - Named funds by entity
+  - Ticket and gift receipted separately (D9; designed, not built)
+  - Four contributor moments then an annual statement (D10; designed, not built)
+  privacy:
+  - Money on Member 360 shows only with giving:read at the exact scope
+  - Restriction comes only from donor designation (S6)
+  journeys:
+  - id: J12
+    title: Donor & the endowment
+  catalogue:
+    filter: explicit row set, giving, fund and endowment rows
+    row_ids:
+    - J12
+    - JM-066
+    - JM-067
+    - JM-068
+    - JC-015
+    - JF-003
+    - JF-058
+    - JF-085
+    - JF-086
+    - JF-087
+    - JF-088
+    - JP-032
+    - JP-033
+    - JP-034
+    - JP-080
+    - JP-081
+    personas:
+    - member
+    - officer
+    - staff
+    - visitor
+    total: 16
+    meets: 3
+    guarded: 4
+    open: 2
+    not_built: 7
+    fails: 0
+  not_built:
+  - id: JM-066
+    title: 'The four contributor moments: receipt, goal, transfer, fulfilment'
+  - id: JM-067
+    title: A restricted gift's surplus rule is printed BEFORE payment
+  - id: JM-068
+    title: A ticketed event is non-deductible entirely; the gift beyond it is receipted separately
+  - id: JF-085
+    title: 'Raising in another entity''s name: catalogue purposes one-click, new purposes to its board'
+  - id: JF-088
+    title: A money-taking event cannot publish without its surplus and shortfall rules on the ticket
+  - id: JP-032
+    title: 'Senior Living: pledges vs cash, restricted and ring-fenced'
+  - id: JP-034
+    title: Endowment expenditure authority is the Fund Committee's ALONE
+  workflows:
+  - giving-funds
+  - remittance-ledger
+  prototype:
+  - '#/member/payments'
+  - '#/program/endowment'
+  sources:
+  - design/AFRP-Decisions-Register.md §Part 2 Money
+  - docs/AFRP-Platform-Experience.html §J12
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: delegate-voter
+  name: Delegate and voter
+  lens: member
+  who: A member voting in federation elections, and a delegate carrying a club's weighted vote at convention.
+  needs:
+  - Know whether they can vote and why not
+  - Cast a secret ballot and verify it
+  - Vote through a delegate or extract to vote directly
+  platform:
+  - A frozen electorate at the record date (R12)
+  - An inclusion receipt shown once
+  - Weights fixed when voting opens (S4)
+  privacy:
+  - The voter-to-token link is never stored
+  - A lost receipt cannot be reissued, and the screen says so first
+  - Dues count for voting only when paid from the member's own funds
+  journeys:
+  - id: J05
+    title: Convention end-to-end
+  - id: J02
+    title: Multi-club renewal
+  catalogue:
+    filter: explicit row set, ballot, franchise, roll and floor rows
+    row_ids:
+    - J02
+    - J05
+    - JM-005
+    - JM-035
+    - JM-036
+    - JM-037
+    - JM-038
+    - JM-039
+    - JM-040
+    - JM-041
+    - JM-042
+    - JM-062
+    - JM-076
+    - JF-004
+    - JF-005
+    - JF-006
+    - JF-007
+    - JF-008
+    - JF-009
+    - JF-010
+    - JF-011
+    - JF-012
+    - JF-013
+    - JF-014
+    - JF-015
+    - JF-016
+    - JF-017
+    - JF-053
+    - JF-079
+    - JF-090
+    - JF-091
+    - JF-092
+    personas:
+    - grace-member
+    - lapsed-member
+    - member
+    - staff
+    total: 32
+    meets: 19
+    guarded: 7
+    open: 2
+    not_built: 3
+    fails: 1
+  not_built:
+  - id: J05
+    title: Convention end-to-end
+  - id: JM-042
+    title: A suspension withholds the vote with its authority shown
+  - id: JF-011
+    title: The mailed CPA ballot - the transitional channel - is designed, not built
+  - id: JF-079
+    title: 'Credentialing: the delegate roll certifies against standing'
+  workflows:
+  - elections-voting
+  - convention
+  - bylaws-rules
+  prototype:
+  - '#/ballot'
+  - '#/election'
+  - '#/fed/floor'
+  sources:
+  - design/AFRP-Electronic-Voting.md §2, §4
+  - design/AFRP-Four-Lens-Architecture.md §7
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: club-officer
+  name: Club officer
+  lens: club
+  who: A president, secretary or other officer of one chapter club.
+  needs:
+  - Know who their people are and whether the club is healthy
+  - Reach members lawfully
+  - Run meetings, events and the officer year
+  platform:
+  - Roster with national and club status side by side
+  - Groups, follow-ups and club events with check-in
+  - Federation context as counts
+  privacy:
+  - A club officer cannot read another club's roster
+  - Bulk export refuses the officer as it refuses everyone
+  - Club and programme scopes are siblings; neither implies the other
+  journeys:
+  - id: J08
+    title: Club treasurer's year — Houston
+  - id: J14
+    title: Federation club management
+  catalogue:
+    filter: lens == club and persona in {officer, member-no-role}
+    personas:
+    - member-no-role
+    - officer
+    total: 36
+    meets: 27
+    guarded: 6
+    open: 1
+    not_built: 2
+    fails: 0
+  not_built:
+  - id: JC-022
+    title: The membership secretary's queue
+  - id: JC-027
+    title: The condolence surface releases on verification, not review
+  workflows:
+  - club-management
+  - events
+  - communications
+  prototype:
+  - '#/club/dashboard'
+  - '#/club/roster'
+  - '#/club/officers'
+  sources:
+  - design/AFRP-Four-Lens-Architecture.md §3, §6
+  - design/AFRP-Breeze-Club-Parity.md §2
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: club-treasurer
+  name: Club treasurer
+  lens: club
+  who: The officer who collects dues and club money and remits AFRP's share.
+  needs:
+  - Collect, close, remit and reconcile each month
+  - Keep AFRP money and club money apart
+  platform:
+  - Split at capture of national and club dues
+  - A remittance statement with carry-forward
+  - Chargebacks after remittance handled as a receivable
+  privacy:
+  - Collected AFRP dues are custodial on the club's books, never revenue (D1)
+  - The treasurer reads only their own club's dues
+  journeys:
+  - id: J08
+    title: Club treasurer's year — Houston
+  catalogue:
+    filter: lens == club and title matches dues|remit|receipt|cash|collect|chargeback|treasurer|hafli|conduit|custodial|payment|split
+    personas:
+    - officer
+    - staff
+    total: 14
+    meets: 13
+    guarded: 0
+    open: 0
+    not_built: 1
+    fails: 0
+  not_built:
+  - id: JC-034
+    title: A remittance variance opens a queue item with an owner and a clock
+  workflows:
+  - remittance-ledger
+  - club-management
+  - join-renew-dues
+  prototype:
+  - '#/club/dashboard'
+  - '#/money'
+  sources:
+  - design/AFRP-Decisions-Register.md §Decision 1
+  - design/AFRP-Multi-Entity-Ledger.md §3
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: programme-organiser
+  name: Programme organiser
+  lens: program
+  who: A programme chair, reviewer, editor or staff member whose scope crosses every club for one programme.
+  needs:
+  - See who is in the programme across the federation
+  - Run applications and selection
+  - Report outcomes without naming people
+  platform:
+  - Programme plans on the record, every section sourced
+  - The five-rung ladder per programme
+  - Suppressed pipeline counts
+  privacy:
+  - A programme scope stops at everything else
+  - Cohort names only with roster:read at that programme
+  - No engagement score exists
+  journeys:
+  - id: J06
+    title: Scholarship — application to award
+  - id: J07
+    title: Camp parent season
+  - id: J09
+    title: Magazine correspondent cycle
+  catalogue:
+    filter: lens == program and persona in {staff, programme-reviewer, magazine-editor, officer}
+    personas:
+    - magazine-editor
+    - officer
+    - programme-reviewer
+    - staff
+    total: 53
+    meets: 37
+    guarded: 6
+    open: 3
+    not_built: 7
+    fails: 0
+  not_built:
+  - id: JP-006
+    title: A stall signal is SUPPRESSED, invisibly, where a life event is on record
+  - id: JP-030
+    title: Medical Mission operations carry the entity banner
+  - id: JP-031
+    title: Human-services intake is a separate store under exact grants only
+  - id: JP-032
+    title: 'Senior Living: pledges vs cash, restricted and ring-fenced'
+  - id: JP-034
+    title: Endowment expenditure authority is the Fund Committee's ALONE
+  - id: JP-056
+    title: 'Intake: the seven-station shape receives an application'
+  - id: JP-063
+    title: 'Programme money: budget line vs remitted club ledger, per the builder'
+  workflows:
+  - scholarship-cycle
+  - camp-application
+  - magazine
+  - alumni-recruiting
+  - reporting
+  prototype:
+  - '#/program/overview'
+  - '#/program/registry'
+  - '#/program/lifecycle'
+  sources:
+  - design/AFRP-Four-Lens-Architecture.md §4
+  - design/AFRP-Program-Experience-Architecture.md Part 3, Part 4
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: committee-member
+  name: Committee member
+  lens: federation
+  who: A member serving on a committee such as the Family Tree, Scholarship or Membership Committee.
+  needs:
+  - A queue of decisions with evidence
+  - Conflicts disclosed on the record
+  - Authority that is theirs alone where the by-laws say so
+  platform:
+  - The tree committee queue, triaged
+  - Scholarship review with median ranking
+  - Open questions routed by name (R40)
+  privacy:
+  - Refusals name the rule, not the relatives (S6)
+  - A declined invitation is never visible to a committee
+  - Fund committees hold exclusive expenditure authority
+  journeys:
+  - id: J10
+    title: Joining a committee
+  - id: J06
+    title: Scholarship — application to award
+  - id: J04
+    title: A death in the family
+  catalogue:
+    filter: explicit row set, committee queue, review and fund-committee rows
+    row_ids:
+    - J06
+    - J10
+    - JD-009
+    - JM-025
+    - JM-026
+    - JF-068
+    - JF-069
+    - JF-072
+    - JF-073
+    - JF-086
+    - JF-103
+    - JF-106
+    - JF-107
+    - JP-018
+    - JP-020
+    - JP-021
+    - JP-034
+    - JP-058
+    - JP-071
+    personas:
+    - member
+    - staff
+    - visitor
+    total: 19
+    meets: 9
+    guarded: 2
+    open: 4
+    not_built: 4
+    fails: 0
+  not_built:
+  - id: J10
+    title: Joining a committee
+  - id: JF-072
+    title: The board workspace has no design document, and nothing was invented
+  - id: JF-073
+    title: The seven committees wait on their design note
+  - id: JP-034
+    title: Endowment expenditure authority is the Fund Committee's ALONE
+  workflows:
+  - tree-life-events
+  - scholarship-cycle
+  - bylaws-rules
+  prototype:
+  - '#/fed/tree'
+  - '#/program/applications'
+  sources:
+  - design/AFRP-Decisions-Register.md §Part 2 family tree
+  - design/AFRP-Scholarship-Program-Spec.md §3
+  - plan/MASTER-PLAN.md §2 row SP0
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: federation-staff
+  name: Federation staff and officers
+  lens: federation
+  who: National officers and staff running membership, money, governance and the registries.
+  needs:
+  - Know whether the federation is healthy and governed properly
+  - Close the books
+  - Run elections and the convention
+  platform:
+  - Dashboard, Member 360 and the merge queue
+  - Daily close and remittance runs
+  - Elections console, floor and ruleset workbench
+  privacy:
+  - 'Sensitive permissions need an exact-scope grant: PII read, export, unseal, post, grant'
+  - 'Deleting a person never happens: closed as merged or deceased'
+  - Federation scope does not read the ARFHSN store (R39)
+  journeys:
+  - id: J13
+    title: Convention — running the element
+  - id: J14
+    title: Federation club management
+  catalogue:
+    filter: lens == federation and persona == staff
+    personas:
+    - staff
+    total: 106
+    meets: 63
+    guarded: 22
+    open: 3
+    not_built: 18
+    fails: 0
+  not_built:
+  - id: J13
+    title: Convention — running the element
+  - id: JF-011
+    title: The mailed CPA ballot - the transitional channel - is designed, not built
+  - id: JF-057
+    title: 'Chartering a fifth institution: the wizard and the nine-tab record'
+  - id: JF-072
+    title: The board workspace has no design document, and nothing was invented
+  - id: JF-073
+    title: The seven committees wait on their design note
+  - id: JF-074
+    title: The support desk tab
+  - id: JF-075
+    title: QuickBooks connection and controls
+  - id: JF-076
+    title: The federation's five queues each have an owner and a clock
+  - id: JF-077
+    title: The appeals path
+  - id: JF-078
+    title: Convention registration desk
+  - id: JF-079
+    title: 'Credentialing: the delegate roll certifies against standing'
+  - id: JF-080
+    title: The room block and the governance calendar
+  - id: JF-081
+    title: 'The memorial service and the wifi outage: the hour-by-hour on-site run'
+  - id: JF-082
+    title: Convention money is federation money at the first dollar
+  - id: JF-083
+    title: Exhibitor and press are NON-ATTENDEE credentials; membership stays mandatory
+  - id: JF-084
+    title: Convention deficit responsibility reads from the Contract; silence is said plainly
+  - id: JF-085
+    title: 'Raising in another entity''s name: catalogue purposes one-click, new purposes to its board'
+  - id: JF-088
+    title: A money-taking event cannot publish without its surplus and shortfall rules on the ticket
+  workflows:
+  - remittance-ledger
+  - elections-voting
+  - bylaws-rules
+  - reporting
+  - convention
+  - communications
+  prototype:
+  - '#/fed/dashboard'
+  - '#/fed/crm'
+  - '#/fed/roles'
+  - '#/fed/workbench'
+  sources:
+  - design/AFRP-Four-Lens-Architecture.md §5, §6
+  - docs/AFRP-Deep-Federation.html
+  - docs/AFRP-Analyst-Dashboard.html (journey data)

@@ -11,32 +11,30 @@ and money figures in the prototypes and the fixture are fictional demo data.
 
 ## Start here
 
-**[Design Status](https://davidsaah.github.io/afrp-strategy/AFRP-Design-Status.html)**
-— what has been decided, what is still open and who owns it, and how the design
-has changed. **This page is current; where an older page on this site
-disagrees with it, it wins.**
+**[The site](https://davidsaah.github.io/afrp-strategy/)** lays the Federation's
+strategy and the member platform side by side, on the four branches (Education,
+Leadership, Heritage, Care), with the family tree as the roots and the
+Convention as the junction. Seven sections:
 
-**[The build board](https://davidsaah.github.io/afrp-strategy/AFRP-Analyst-Dashboard.html)**
-— the evaluation the build runs against itself: the slice track, all 393
-catalogued journeys and the verdict on each, including the ones it currently
-fails. AFRP-Hub is **not yet in service**: no DNS, no live payments, no real
-member data.
+1. **[AFRP Strategy](https://davidsaah.github.io/afrp-strategy/strategy/index.html)**: the Federation's current strategy, eight goals, and how the Hub implements each on the CRM.
+2. **[Evolution](https://davidsaah.github.io/afrp-strategy/history/index.html)**: how the strategy got here, what still has to be developed, and the [open questions](https://davidsaah.github.io/afrp-strategy/history/questions.html).
+3. **[Branches & programmes](https://davidsaah.github.io/afrp-strategy/programmes/index.html)**: the nineteen programmes and what each needs.
+4. **[People](https://davidsaah.github.io/afrp-strategy/experiences/index.html)**: who uses the platform and what they need.
+5. **[Workflows](https://davidsaah.github.io/afrp-strategy/workflows/index.html)**: how the work moves and hands off.
+6. **[Prototype](https://davidsaah.github.io/afrp-strategy/prototype/index.html)**: the integrated prototype, with guided tours.
+7. **[Development status](https://davidsaah.github.io/afrp-strategy/status/index.html)**: decisions, questions, the build track and the journeys.
 
-**[The delivery hub](https://davidsaah.github.io/afrp-strategy/)** — everything
-else, grouped: use it · for the board · deep dives · read it · archive.
-
-**[The integrated prototype](https://davidsaah.github.io/afrp-strategy/prototype.html)**
-— the platform, clickable, across **five** lenses: Front door, Member, Club,
-Program, Federation. One self-contained file with no build, no server and no
-network calls. Works on a phone.
+The site is generated from `site/` (D47); see [`site/README.md`](site/README.md).
+AFRP-Hub is **not yet in service**: no DNS, no live payments, no real member data.
 
 ## What is where
 
 | Folder | What it holds | Published on the site? |
 |---|---|---|
-| [`design/`](design/) | **The design record.** The decisions register (D1–D42), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
+| [`design/`](design/) | **The design record.** The decisions register (D1–D52), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
 | [`plan/`](plan/) | **The build plan.** `MASTER-PLAN.md` (the slice queue AFRP-Hub takes work from), `QUESTIONS-FOR-DAVID.md` (answered questions, kept as provenance), the archived earlier plans, and the consolidation plan | No, it is in the repository only |
-| [`docs/`](docs/) | **The site.** The prototypes, the narrative pages, the design status page and the build board | Yes, GitHub Pages |
+| [`site/`](site/) | **The site's sources**: prose, data files, template, build and checks (D47) | Generates `docs/` |
+| [`docs/`](docs/) | **The site.** Generated section pages, the prototype, the build board, the Library | Yes, GitHub Pages |
 | [`docs/fixture/`](docs/fixture/) | The 500-household synthetic population and its generator | Yes |
 
 **Precedence (Decision 41), highest first:** the by-law texts · the decisions

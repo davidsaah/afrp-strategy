@@ -1,0 +1,144 @@
+# Open questions, one Q-number each (D43). The same number is used in GitHub
+# Discussions and in the committee's Google Doc. When a question is answered it
+# moves to the Decisions Register and its row here gets `decided: D-n`.
+# goal: a key from goals.yaml; branch: a key from branches.yaml or "all".
+- id: Q-1
+  title: The two By-Law 9.1.3 amendment drafts
+  detail: Decision 5 was reopened on 21 August after being recorded in error. Whether either draft goes to the floor is undecided; both are two-thirds delegate votes, so 9.1.3's weighted voting applies to the amendments that fix it.
+  owner: Board · Constitution Committee
+  goal: governance
+  branch: junction
+  source: Decisions Register D5
+- id: Q-2
+  title: Five governing documents, cited and never produced
+  detail: The Endowment Fund Policy Statement; the 2015 Scholarship Fund Policy Statement (it settles the 4% floor against the 5% cap); ARFECF's exempt-status letter; the Board Rules & Regulations (the authority for the dues tiers); a clean ARFECF 2013 text and the ARFHSN trustee roster.
+  owner: AFRP · ARFECF
+  goal: funding
+  branch: all
+  source: Decisions Register, "What is actually left"
+- id: Q-3
+  title: The CPA's countersignature on the agency treatment of club dues
+  detail: Decision 1 treats club dues AFRP collects as held for the clubs. A named officer now approves each remittance run; the CPA's answer still decides whether the treatment is defensible on the books.
+  owner: CPA
+  goal: funding
+  branch: all
+  source: Decisions Register D1; AFRP-Adviser-Brief.md
+- id: Q-4
+  title: Does a same-sex spouse qualify under By-Law 4.1.1?
+  detail: The text admits a person "married to one having such origin". It is gender-neutral and names no restriction.
+  owner: Membership Committee
+  goal: members
+  branch: roots
+  source: Design Status
+- id: Q-5
+  title: Which pedigree slot carries which parent, where two parents are the same sex?
+  detail: The family-tree file format assumes a father slot and a mother slot. Does a child inherit descent through either?
+  owner: Family Tree Committee · Membership Committee
+  goal: heritage
+  branch: roots
+  source: Design Status
+- id: Q-6
+  title: A long-term unmarried partner is not "married to"
+  detail: Is the 4.2.1 associate route, for "special circumstances", the intended home?
+  owner: Membership Committee, then the Board
+  goal: members
+  branch: roots
+  source: Design Status
+- id: Q-7
+  title: Does a membership survive the divorce it was admitted through?
+  detail: A member admitted as "married to one having such origin" divorces that spouse. The by-laws are silent.
+  owner: Membership Committee
+  goal: members
+  branch: roots
+  source: Design Status
+- id: Q-8
+  title: Which club does a child in two households belong to?
+  detail: Pickup and directory choices are answered. Club attachment is ratified as staying open, because it carries dues and voting consequences and By-Law 4.3.1 is silent.
+  owner: Membership Committee
+  goal: members
+  branch: education
+  source: Design Status; AFRP-R6-Minor-Authority.md
+- id: Q-9
+  title: Adoption
+  detail: An adopted child may be wholly family socially and not a descendant genealogically. Until this is answered the platform records an adoptive link as non-lineage and infers nothing.
+  owner: Membership Committee · Family Tree Committee
+  goal: heritage
+  branch: roots
+  source: Design Status
+- id: Q-10
+  title: Does a suspension recorded after certification withhold the ballot?
+  detail: The voter roll is frozen so nobody can be disenfranchised after it. A member suspended on the morning of the poll still holds a roll entry; both readings are defensible.
+  owner: Board · Elections Committee
+  goal: governance
+  branch: junction
+  source: Design Status
+- id: Q-11
+  title: A Scholarship Committee no by-law constitutes
+  detail: Members are certified to vote for a Scholarship Committee that no AFRP by-law creates. With ARFECF as the scholarship's home this is a cross-entity election, which works but must be written down.
+  owner: Constitution Committee
+  goal: governance
+  branch: education
+  source: Design Status; D3
+- id: Q-12
+  title: Ramallah Works
+  detail: Named as a priority at the committee's 10 September 2026 meeting, and on no programme register or design document. What is it, and which branch does it belong on?
+  owner: Strategic Planning Committee
+  goal: next-generation
+  branch: all
+  source: Crosswalk A8; D42
+- id: Q-13
+  title: The Presidential Advisory Council
+  detail: Proposed in the 2021 Recommendations. Was it adopted? It is not in the 2024 by-laws analysis.
+  owner: Strategic Planning Committee · Board
+  goal: governance
+  branch: all
+  source: Crosswalk B6
+- id: Q-14
+  title: The Strategic Plan Committee's composition
+  detail: By-Law 7.3.3 has the Deputy President chair the committee with four members the Deputy President appoints and the Board approves. Does the current roster follow it?
+  owner: Strategic Planning Committee · Board
+  goal: governance
+  branch: all
+  source: Crosswalk B14
+- id: Q-15
+  title: Who maintains and pays for the platform after launch?
+  detail: No document names a maintainer or an annual budget line. The previous system could not be maintained once its contractor left.
+  owner: Board
+  goal: members
+  branch: all
+  source: Crosswalk D12
+- id: Q-16
+  title: The archive of record
+  detail: Is it the platform, a shared drive, or both, and who owns it?
+  owner: Strategic Planning Committee
+  goal: heritage
+  branch: heritage
+  source: Crosswalk C4
+- id: Q-17
+  title: Which revision of the 2021 Recommendations was adopted?
+  detail: By-Law 17.1.4 incorporates the "Strategic Planning Proposal". The 3 May 2021 revision is located but not yet shown by minutes to be the one voted at Jacksonville.
+  owner: Strategic Planning Committee
+  goal: governance
+  branch: all
+  source: AFRP-Bylaws-Ingestion-Architecture.md
+- id: Q-18
+  title: Which entity runs Women to Women, Preservation and Project Hope?
+  detail: afrp.org groups some of them under the Ramallah Foundation; the prototype and the money map disagree. It decides whose books, board and tax return carry them.
+  owner: Board
+  goal: funding
+  branch: care
+  source: AFRP-Program-Architecture.md §0
+- id: Q-19
+  title: How are outcomes measured for each branch?
+  detail: Decision 42 asks for outcome reporting per branch so donors can see a return. Which measures, and which are published, is not yet defined.
+  owner: Strategic Planning Committee
+  goal: funding
+  branch: all
+  source: D42
+- id: Q-20
+  title: A successor to the High School Senior Award
+  detail: The award was retired by the Board on 31 August 2026, leaving a gap between Camp Ramallah and the Scholarship.
+  owner: Board
+  goal: next-generation
+  branch: education
+  source: AFRP-Program-Architecture.md §6

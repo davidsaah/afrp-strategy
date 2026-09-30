@@ -1,0 +1,159 @@
+# The eight strategic goals (D52): distilled from the Federation's documents,
+# for the Strategic Planning Committee to confirm. `rows` are crosswalk IDs from
+# design/AFRP-Strategic-Plan-Crosswalk.md; every row belongs to exactly one goal
+# (A1 belongs to the mission and is shown on the strategy home page).
+- key: members
+  n: 1
+  name: Know and serve every member
+  branches: [all]
+  committed: >-
+    One member database, online dues including the Manara tier, member
+    demographics and retention. The 2018 SWOT named the gap plainly: "No
+    database/CRM". The 2019 plan made a CRM the first IT goal; the committee
+    returned to it in 2020, 2021 and 2023.
+  open: >-
+    The platform exists but is not yet in service. Nobody has yet been named to
+    maintain it after launch, and no budget line pays for it.
+  hub: >-
+    This goal is the CRM itself: one record for each person, their household,
+    their clubs, their standing and every payment, in one ledger. Every other
+    goal builds on it.
+  outside: >-
+    Deciding who maintains the system, funding it every year, and moving
+    members onto it.
+  rows: [D1, D3, D4, D5, D6, D9, C5, D12]
+- key: clubs
+  n: 2
+  name: Connect the clubs and the Federation
+  branches: [all]
+  committed: >-
+    Services for local clubs and connections between them (2019); club
+    presidents as the welcome contact, a buddy system, and care for dormant and
+    new clubs (2021); clubs driving national sign-ups and families referring
+    families (2023).
+  open: >-
+    Club giving, the import from each club's Breeze account, texting and forms
+    are still to come. Family referral has no design yet.
+  hub: >-
+    Clubs work on the same records as the Federation: the club lens, rosters,
+    club groups and follow-ups, club events with check-in, and the remittance
+    ledger that moves dues between them.
+  outside: >-
+    Each club's decision to move onto the platform, and the monthly
+    club-president calls.
+  rows: [D2, D7, D10, D11, B11]
+- key: next-generation
+  n: 3
+  name: Bring in and keep the next generation
+  branches: [education, leadership]
+  committed: >-
+    "Attract and retain young adults, the next generation of Ramallah
+    leadership" (2021). A youth pipeline from childhood to professional life
+    (2019); young people on every committee (2020); a successor in every
+    programme (2025).
+  open: >-
+    Several programmes on the Education and Leadership branches exist only as a
+    plan. The invitation from one programme's top rung to the next programme is
+    not yet built.
+  hub: >-
+    Each person's place on the branches and on each programme's five rungs sits
+    on their record. The platform can therefore count how many campers became
+    members, instead of guessing.
+  outside: >-
+    Recruiting young leaders into committee seats, and changing the by-laws to
+    require them.
+  rows: [F1, F2, F3, F4, F5, F7, F9, F11, F12, B12, E4]
+- key: governance
+  n: 4
+  name: Govern well, and be seen to
+  branches: [all]
+  committed: >-
+    A constitutional review (2019); job descriptions, the Selection Committee,
+    committee reporting and enforcement of good standing (2020-2021); the 2024
+    by-laws adopted part of this.
+  open: >-
+    Committees have no workspace yet (it waits on design note P1). The Selection
+    Committee's workflow waits on the 2021 proposal being filed. The
+    four-amendment package is not yet calendared.
+  hub: >-
+    The by-laws held as rules, standing computed from the CRM, and elections and
+    digital voting on a frozen electorate. Committee reports and records are
+    proposed next.
+  outside: >-
+    The Board's and the General Assembly's votes, and the amendments themselves.
+  rows: [A2, A3, A5, A7, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B13, B14]
+- key: voice
+  n: 5
+  name: Speak with one voice
+  branches: [heritage, leadership]
+  committed: >-
+    A communications strategy, a fixed newsletter date, a press-release
+    process, a consistent brand and paid communications staff (2018-2022), and
+    advocacy with elected officials.
+  open: >-
+    The email provider is not yet connected. The press workflow and the
+    volunteer roster have no design yet. A Communications Coordinator has not
+    been hired.
+  hub: >-
+    Messages sent from the CRM to the people who consented to receive them, the
+    comms and website desks, the magazine's operations, and the public site.
+  outside: >-
+    The communications strategy itself, the staff role, and relationships with
+    the media and elected officials.
+  rows: [C3, D13, D14, D16, D17, D18, D19, D20, E1, E2, E3, E5, E6, E7, E8, E9, E10, I1, I2]
+- key: funding
+  n: 6
+  name: Fund the mission, and show the return
+  branches: [care]
+  committed: >-
+    A budget for each programme and giving that is acknowledged (2019); an
+    endowment campaign and outcome metrics that show donors a return (2026).
+  open: >-
+    The endowment waits on its Policy Statement. The contributor moments are
+    designed but not built. How outcomes are measured for each branch is not yet
+    defined.
+  hub: >-
+    Funds and restricted purposes on one ledger across AFRP, ARFECF and ARFHSN,
+    one door for every payment, and outcome reporting for each branch drawn
+    from the same records.
+  outside: >-
+    Fundraising, grant writing, the endowment campaign itself, and the Policy
+    Statement.
+  rows: [A6, D8, D15, D21, F6, F10, H1, H2, H3, H4, H5, H6]
+- key: heritage
+  n: 7
+  name: Keep the heritage and the memory
+  branches: [heritage, roots]
+  committed: >-
+    The Cultural Preservation Project and the family tree (2019); archives,
+    after "No archives" in the 2018 SWOT; a central repository (2026).
+  open: >-
+    Nobody has decided whether the platform or a shared drive holds the archive
+    of record. Adoption, and three spouse questions under By-Law 4.1.1, are open
+    for the tree.
+  hub: >-
+    The family tree is the CRM's spine: every member has a node, and a node is
+    never a lineage claim. The magazine archive and the document registries sit
+    alongside it.
+  outside: >-
+    The Family Tree Committee's judgements, collecting oral histories, and the
+    decision about the archive of record.
+  rows: [A8, C4, D22, F8]
+- key: operations
+  n: 8
+  name: Run the Federation professionally
+  branches: [junction]
+  committed: >-
+    An Executive Director (planned since 2019), staff, standards for the Mid-Year
+    and the Convention (2021), and the Convention agreement (2022).
+  open: >-
+    The Executive Director has not been hired. The Convention element is
+    designed and not built. Mid-Year host bids have no design yet.
+  hub: >-
+    Roles and access for staff, the Convention element (registration,
+    credentials checked against the remittance ledger, the store, settlement),
+    and events.
+  outside: >-
+    Hiring the Executive Director, which the 2024 by-laws require to live in the
+    headquarters area.
+  rows: [A4, C1, C2, C6, C7, G1, G2, G3, G4, G5]

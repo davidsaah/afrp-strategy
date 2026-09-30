@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My AFRP — Mobile Screens v2 · Life events, family tree, directories, clubs</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   MY AFRP — DESIGN SYSTEM v2
+   Supersedes the v1.1 tokens in AFRP-Portal-Build-Spec.html.
+
+   What changed from v1.1 and why:
+     • Warmer neutrals. v1's greys were blue-cast and read cold next to the
+       AFRP green. These are neutral-warm, which suits a heritage organisation.
+     • Real elevation scale (3 levels) instead of one shadow.
+     • Fluid type via clamp() — one scale that works phone to desktop.
+     • Motion tokens + prefers-reduced-motion.
+     • Dark mode.
+     • Desktop shell primitives: sidebar app frame, split view, data table.
+     • New components the life-event / directory / club modules need:
+       avatar, tabs, stepper, chip, search, empty state, timeline, sheet,
+       announcement card, tree node.
+
+   Brand colours remain sampled from afrp.org and are unchanged.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root{
+  /* ── brand ───────────────────────────────────────────────────────────── */
+  --green-900:#013a1a; --green-800:#014f23; --green-700:#02682e;
+  --green:#038c3e;     --green-400:#3aa864; --green-200:#a5d9ba;
+  --green-100:#c9e8d6; --green-50:#e8f5ee;
+  --red-700:#a5121a;   --red:#ed1c24;       --red-100:#fbd0d2; --red-50:#fdeaeb;
+
+  /* ── neutrals: warm, not blue ─────────────────────────────────────────── */
+  --n-950:#14140f; --n-900:#1c1c17; --n-800:#2e2e28; --n-700:#454540;
+  --n-600:#5f5f58; --n-500:#7d7d75; --n-400:#a3a39b; --n-300:#c9c9c1;
+  --n-200:#e2e2db; --n-100:#eeeee9; --n-50:#f7f7f4; --n-0:#ffffff;
+
+  /* ── status ───────────────────────────────────────────────────────────── */
+  --amber-700:#8a4f08; --amber:#b4690e; --amber-50:#fdf3e3;
+  --blue-700:#0e4680;  --blue:#1257a5;  --blue-50:#e9f1fa;
+  --violet:#6b4ba8;    --violet-50:#f0ecf9;
+
+  /* ── semantic ─────────────────────────────────────────────────────────── */
+  --bg:var(--n-50);
+  --surface:var(--n-0);
+  --surface-2:var(--n-50);
+  --surface-sunken:var(--n-100);
+  --ink:var(--n-900);
+  --ink-2:var(--n-700);
+  --ink-3:var(--n-500);
+  --line:var(--n-200);
+  --line-2:var(--n-100);
+  --accent:var(--green);
+  --accent-ink:var(--green-800);
+  --focus:var(--green-200);
+
+  /* ── fluid type ───────────────────────────────────────────────────────── */
+  --fs-display:clamp(26px, 2.2vw + 20px, 34px);
+  --fs-h1:clamp(21px, 1.1vw + 18px, 26px);
+  --fs-h2:clamp(17px, .5vw + 15px, 19px);
+  --fs-h3:16px;
+  --fs-body:16px;          /* HARD FLOOR on inputs — below this iOS zooms */
+  --fs-sm:14px;
+  --fs-xs:12.5px;
+  --fs-micro:11px;
+  --lh-tight:1.2; --lh-snug:1.35; --lh-body:1.55;
+  --tracking-tight:-.02em; --tracking-wide:.06em;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  /* Tabular figures everywhere money or dates are compared down a column. */
+  --num:"tnum" 1,"lnum" 1;
+
+  /* ── space (4px base) ─────────────────────────────────────────────────── */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px; --s6:24px;
+  --s7:28px; --s8:32px; --s10:40px; --s12:48px; --s16:64px;
+
+  /* ── radius ───────────────────────────────────────────────────────────── */
+  --r-xs:6px; --r-sm:8px; --r:12px; --r-lg:16px; --r-xl:22px; --r-pill:999px;
+
+  /* ── elevation ────────────────────────────────────────────────────────── */
+  --e1:0 1px 2px rgba(20,20,15,.05), 0 1px 1px rgba(20,20,15,.04);
+  --e2:0 1px 2px rgba(20,20,15,.06), 0 6px 16px -4px rgba(20,20,15,.08);
+  --e3:0 2px 4px rgba(20,20,15,.06), 0 16px 32px -8px rgba(20,20,15,.14);
+  --ring:0 0 0 3px var(--focus);
+
+  /* ── motion ───────────────────────────────────────────────────────────── */
+  --dur-1:120ms; --dur-2:200ms; --dur-3:320ms;
+  --ease:cubic-bezier(.2,.8,.3,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+
+  /* ── touch & layout ───────────────────────────────────────────────────── */
+  --touch:48px;            /* target; 44px is the WCAG 2.2 AA floor */
+  --gutter:16px;
+  --read-max:640px;        /* forms & prose never exceed this */
+  --shell-max:1320px;
+  --sidebar-w:248px;
+}
+
+@media (min-width:900px){ :root{ --gutter:24px; } }
+
+/* ── dark mode ───────────────────────────────────────────────────────────
+   Opt-in via [data-theme="dark"] as well as system preference, so the
+   mockups can show both without changing OS settings. */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:var(--n-950); --surface:var(--n-900); --surface-2:#232320;
+    --surface-sunken:#111110;
+    --ink:#f2f2ee; --ink-2:#cfcfc8; --ink-3:#9a9a92;
+    --line:#33332d; --line-2:#26261f;
+    --accent:var(--green-400); --accent-ink:var(--green-200);
+    --focus:rgba(58,168,100,.4);
+    --e1:0 1px 2px rgba(0,0,0,.5);
+    --e2:0 1px 2px rgba(0,0,0,.5), 0 6px 16px -4px rgba(0,0,0,.6);
+    --e3:0 2px 4px rgba(0,0,0,.5), 0 16px 32px -8px rgba(0,0,0,.7);
+  }
+}
+[data-theme="dark"]{
+  --bg:var(--n-950); --surface:var(--n-900); --surface-2:#232320;
+  --surface-sunken:#111110;
+  --ink:#f2f2ee; --ink-2:#cfcfc8; --ink-3:#9a9a92;
+  --line:#33332d; --line-2:#26261f;
+  --accent:var(--green-400); --accent-ink:var(--green-200);
+  --focus:rgba(58,168,100,.4);
+  --e1:0 1px 2px rgba(0,0,0,.5);
+  --e2:0 1px 2px rgba(0,0,0,.5), 0 6px 16px -4px rgba(0,0,0,.6);
+  --e3:0 2px 4px rgba(0,0,0,.5), 0 16px 32px -8px rgba(0,0,0,.7);
+}
+
+/* ═══ RESET — the three rules that fix the reported overflow defect ═══ */
+*,*::before,*::after{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,video,table,pre{max-width:100%}
+
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-body)/var(--lh-body) var(--font);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  padding-top:env(safe-area-inset-top);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+h1,h2,h3,h4{margin:0;font-weight:650;line-height:var(--lh-tight);
+  letter-spacing:var(--tracking-tight)}
+a{color:var(--accent-ink);text-underline-offset:2px}
+:where(button,a,input,select,textarea):focus-visible{
+  outline:0;box-shadow:var(--ring);border-radius:var(--r-xs)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;
+    transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── buttons ─────────────────────────────────────────────────────────────── */
+.c-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  min-height:var(--touch);padding:0 var(--s5);
+  background:var(--accent);color:#fff;border:0;border-radius:var(--r-sm);
+  font:600 var(--fs-body)/1 var(--font);cursor:pointer;text-decoration:none;
+  transition:background var(--dur-1) var(--ease), transform var(--dur-1) var(--ease);
+}
+.c-btn:hover{background:var(--green-700)}
+.c-btn:active{transform:translateY(1px)}
+.c-btn[disabled]{background:var(--n-300);color:var(--n-600);cursor:not-allowed}
+.c-btn--secondary{background:var(--surface);color:var(--ink-2);border:1px solid var(--line)}
+.c-btn--secondary:hover{background:var(--surface-2)}
+.c-btn--ghost{background:transparent;color:var(--accent-ink)}
+.c-btn--ghost:hover{background:var(--green-50)}
+.c-btn--danger{background:var(--red)}
+.c-btn--danger:hover{background:var(--red-700)}
+.c-btn--block{display:flex;width:100%}
+/* 44px, not 40 — the WCAG 2.2 AA floor. Padding and type shrink, target doesn't. */
+.c-btn--sm{min-height:44px;padding:0 var(--s4);font-size:var(--fs-sm)}
+
+/* ── fields (the overflow fix) ───────────────────────────────────────────── */
+.c-field{margin-bottom:var(--s5);max-width:100%}
+.c-field__label{display:block;font-size:var(--fs-sm);font-weight:640;
+  color:var(--ink-2);margin-bottom:var(--s2)}
+.c-field__hint{font-size:var(--fs-xs);color:var(--ink-3);margin-top:var(--s2)}
+.c-input,.c-select,.c-textarea{
+  display:block;width:100%;max-width:100%;min-width:0;   /* min-width:0 is the one people miss */
+  min-height:var(--touch);padding:var(--s3) var(--s4);
+  font:var(--fs-body)/1.4 var(--font);color:var(--ink);
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);
+  transition:border-color var(--dur-1) var(--ease), box-shadow var(--dur-1) var(--ease);
+}
+.c-input:focus,.c-select:focus,.c-textarea:focus{border-color:var(--accent);box-shadow:var(--ring)}
+.c-textarea{min-height:104px;resize:vertical}
+.c-field-row{display:grid;grid-template-columns:1fr;gap:var(--s4)}
+@media(min-width:560px){
+  .c-field-row--2{grid-template-columns:1fr 1fr}
+  .c-field-row--city{grid-template-columns:2fr 1fr 1fr}
+}
+
+/* ── surfaces ────────────────────────────────────────────────────────────── */
+.c-card{background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r);padding:var(--s5);box-shadow:var(--e1)}
+.c-card--raised{box-shadow:var(--e2);border-color:transparent}
+.c-card__title{font-size:var(--fs-h2)}
+.c-card__sub{color:var(--ink-3);font-size:var(--fs-xs);margin-top:2px}
+
+/* ── avatar ──────────────────────────────────────────────────────────────── */
+.c-avatar{display:grid;place-items:center;flex:0 0 auto;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--green-50);color:var(--green-800);
+  font-weight:700;font-size:var(--fs-sm);letter-spacing:.02em}
+.c-avatar--sm{width:32px;height:32px;font-size:var(--fs-xs)}
+.c-avatar--lg{width:64px;height:64px;font-size:20px}
+.c-avatar--stack{border:2px solid var(--surface);margin-left:-10px}
+
+/* ── pills & chips ───────────────────────────────────────────────────────── */
+.c-pill{display:inline-flex;align-items:center;gap:5px;font-size:var(--fs-micro);
+  font-weight:700;padding:4px 10px;border-radius:var(--r-pill);white-space:nowrap}
+.c-pill--ok{background:var(--green-50);color:var(--green-800)}
+.c-pill--warn{background:var(--amber-50);color:var(--amber-700)}
+.c-pill--danger{background:var(--red-50);color:var(--red-700)}
+.c-pill--info{background:var(--blue-50);color:var(--blue-700)}
+.c-pill--new{background:var(--violet-50);color:var(--violet)}
+.c-pill--muted{background:var(--surface-sunken);color:var(--ink-3)}
+
+/* Selectable chip — filters, cause pickers, amount pickers */
+.c-chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;
+  padding:0 var(--s4);border:1px solid var(--line);border-radius:var(--r-pill);
+  background:var(--surface);color:var(--ink-2);font:600 var(--fs-sm)/1 var(--font);
+  cursor:pointer;transition:all var(--dur-1) var(--ease)}
+.c-chip:hover{border-color:var(--green-200)}
+.c-chip.is-on{background:var(--green-50);border-color:var(--accent);color:var(--green-800)}
+
+/* ── tabs ────────────────────────────────────────────────────────────────── */
+.c-tabs{display:flex;gap:var(--s1);border-bottom:1px solid var(--line);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.c-tabs::-webkit-scrollbar{display:none}
+.c-tab{flex:0 0 auto;min-height:44px;padding:0 var(--s4);border:0;background:none;
+  color:var(--ink-3);font:640 var(--fs-sm)/44px var(--font);cursor:pointer;
+  border-bottom:2px solid transparent;white-space:nowrap}
+.c-tab.is-on{color:var(--accent-ink);border-bottom-color:var(--accent)}
+
+/* ── stepper ─────────────────────────────────────────────────────────────── */
+.c-steps{display:flex;align-items:center;gap:var(--s2);font-size:var(--fs-xs)}
+.c-steps__dot{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  background:var(--surface-sunken);color:var(--ink-3);font-weight:700;font-size:var(--fs-micro)}
+.c-steps__dot.is-on{background:var(--accent);color:#fff}
+.c-steps__dot.is-done{background:var(--green-100);color:var(--green-800)}
+.c-steps__bar{flex:1;height:2px;background:var(--line)}
+.c-steps__bar.is-done{background:var(--accent)}
+
+/* ── rows & definition lists ─────────────────────────────────────────────── */
+.c-row{display:flex;align-items:center;gap:var(--s3);min-height:var(--touch);
+  padding:var(--s3) 0;border-bottom:1px solid var(--line-2)}
+.c-row:last-child{border-bottom:0}
+.c-row__main{min-width:0}
+.c-row__main b{display:block;font-size:var(--fs-body);font-weight:620}
+.c-row__main span{display:block;font-size:var(--fs-xs);color:var(--ink-3);
+  overflow-wrap:anywhere}
+.c-row__end{margin-left:auto;text-align:right;flex:0 0 auto}
+
+.c-dl__row{display:grid;grid-template-columns:minmax(96px,38%) 1fr;gap:var(--s3);
+  padding:var(--s3) 0;border-bottom:1px solid var(--line-2)}
+.c-dl__row:last-child{border-bottom:0}
+.c-dl__k{font-size:var(--fs-sm);color:var(--ink-3)}
+.c-dl__v{font-size:var(--fs-sm);font-weight:600;text-align:right;
+  overflow-wrap:anywhere;min-width:0;font-variant-numeric:var(--num)}
+
+/* ── tiles ───────────────────────────────────────────────────────────────── */
+.c-tiles{display:grid;gap:var(--s3);
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.c-tile{display:flex;flex-direction:column;gap:var(--s3);min-height:112px;
+  padding:var(--s4);background:var(--green-50);border:1px solid transparent;
+  border-radius:var(--r);color:var(--green-800);text-decoration:none;
+  font-weight:640;font-size:var(--fs-sm);
+  transition:background var(--dur-1) var(--ease), border-color var(--dur-1) var(--ease)}
+.c-tile:hover{background:var(--green-100);border-color:var(--green-200)}
+.c-tile__label{margin-top:auto;overflow-wrap:anywhere}
+
+/* ── alerts ──────────────────────────────────────────────────────────────── */
+.c-alert{display:flex;gap:var(--s3);padding:var(--s4);border-radius:var(--r-sm);
+  font-size:var(--fs-sm);border-left:3px solid}
+.c-alert b{display:block;margin-bottom:2px}
+.c-alert--ok{background:var(--green-50);border-color:var(--accent);color:var(--green-800)}
+.c-alert--warn{background:var(--amber-50);border-color:var(--amber);color:var(--amber-700)}
+.c-alert--danger{background:var(--red-50);border-color:var(--red);color:var(--red-700)}
+.c-alert--info{background:var(--blue-50);border-color:var(--blue);color:var(--blue-700)}
+
+/* ── empty state ─────────────────────────────────────────────────────────── */
+.c-empty{text-align:center;padding:var(--s10) var(--s5);color:var(--ink-3)}
+.c-empty__icon{font-size:32px;opacity:.4;margin-bottom:var(--s3)}
+.c-empty h4{font-size:var(--fs-h3);color:var(--ink);margin-bottom:var(--s2)}
+.c-empty p{margin:0 auto var(--s4);font-size:var(--fs-sm);max-width:36ch}
+
+/* ── search ──────────────────────────────────────────────────────────────── */
+.c-search{display:flex;align-items:center;gap:var(--s3);min-height:var(--touch);
+  padding:0 var(--s4);background:var(--surface-sunken);border-radius:var(--r-pill);
+  border:1px solid transparent}
+.c-search:focus-within{background:var(--surface);border-color:var(--accent);box-shadow:var(--ring)}
+.c-search input{flex:1;min-width:0;border:0;background:none;outline:0;
+  font:var(--fs-body)/1 var(--font);color:var(--ink)}
+
+/* ── timeline (life events, audit, activity) ─────────────────────────────── */
+.c-timeline{position:relative;padding-left:var(--s6)}
+.c-timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;
+  width:2px;background:var(--line)}
+.c-tl-item{position:relative;padding-bottom:var(--s5)}
+.c-tl-item::before{content:"";position:absolute;left:calc(-1 * var(--s6) + 2px);top:5px;
+  width:12px;height:12px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 3px var(--surface)}
+.c-tl-item--muted::before{background:var(--n-300)}
+.c-tl-item__when{font-size:var(--fs-micro);color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:var(--tracking-wide);font-weight:650}
+
+/* ── announcement card (weddings, births) ────────────────────────────────── */
+.c-ann{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+  background:var(--surface);box-shadow:var(--e1)}
+.c-ann__banner{padding:var(--s5);color:#fff;
+  background:linear-gradient(135deg,var(--green-700),var(--green));
+  position:relative;overflow:hidden}
+.c-ann__banner--birth{background:linear-gradient(135deg,var(--violet),#8a6cc4)}
+.c-ann__banner::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.18),transparent 55%)}
+.c-ann__kind{font-size:var(--fs-micro);text-transform:uppercase;
+  letter-spacing:var(--tracking-wide);font-weight:700;opacity:.9}
+.c-ann__title{font-size:var(--fs-h2);margin-top:var(--s1);position:relative}
+.c-ann__body{padding:var(--s5)}
+
+/* ── family tree node ────────────────────────────────────────────────────── */
+.c-tnode{display:flex;align-items:center;gap:var(--s3);padding:var(--s3);
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm)}
+.c-tnode--me{background:var(--green-50);border-color:var(--green-200)}
+.c-tnode--provisional{border-style:dashed;border-color:var(--amber);
+  background:var(--amber-50)}
+.c-tnode__name{font-weight:640;font-size:var(--fs-sm)}
+.c-tnode__meta{font-size:var(--fs-xs);color:var(--ink-3);font-variant-numeric:var(--num)}
+
+/* ── data table (desktop) ────────────────────────────────────────────────── */
+.c-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;
+  border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.c-table{width:100%;border-collapse:collapse;font-size:var(--fs-sm)}
+.c-table th{position:sticky;top:0;z-index:1;background:var(--surface-2);
+  text-align:left;font-size:var(--fs-micro);text-transform:uppercase;
+  letter-spacing:var(--tracking-wide);color:var(--ink-3);font-weight:700;
+  padding:var(--s3) var(--s4);border-bottom:1px solid var(--line);white-space:nowrap}
+.c-table td{padding:var(--s3) var(--s4);border-bottom:1px solid var(--line-2);
+  vertical-align:middle}
+.c-table tbody tr:hover{background:var(--surface-2)}
+.c-table tr:last-child td{border-bottom:0}
+.c-table .num{text-align:right;font-variant-numeric:var(--num)}
+
+/* ── switch ──────────────────────────────────────────────────────────────── */
+.c-switch{display:flex;align-items:center;justify-content:space-between;
+  gap:var(--s4);min-height:var(--touch);padding:var(--s2) 0}
+.c-switch__track{flex:0 0 52px;width:52px;height:31px;border-radius:var(--r-pill);
+  background:var(--n-300);position:relative;transition:background var(--dur-2) var(--ease)}
+.c-switch__track::after{content:"";position:absolute;top:2px;left:2px;
+  width:27px;height:27px;border-radius:50%;background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform var(--dur-2) var(--ease-out)}
+.c-switch.is-on .c-switch__track{background:var(--accent)}
+.c-switch.is-on .c-switch__track::after{transform:translateX(21px)}
+
+.c-choice{display:flex;align-items:flex-start;gap:var(--s3);
+  min-height:var(--touch);padding:var(--s2) 0;cursor:pointer}
+.c-choice input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--accent);flex:0 0 22px}
+.c-choice__text small{display:block;color:var(--ink-3);font-size:var(--fs-xs)}
+
+/* ── sticky action bar ───────────────────────────────────────────────────── */
+.c-actionbar{position:sticky;bottom:0;background:var(--surface);
+  border-top:1px solid var(--line);display:flex;gap:var(--s3);
+  padding:var(--s3) var(--gutter);
+  padding-bottom:calc(var(--s3) + env(safe-area-inset-bottom))}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESKTOP SHELL — new in v2. The club portal, directories, tree explorer and
+   moderation queues all need real desktop layouts, not stretched phone screens.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.l-shell{display:grid;grid-template-columns:1fr;min-height:100vh}
+@media(min-width:900px){
+  .l-shell{grid-template-columns:var(--sidebar-w) 1fr}
+}
+.l-sidebar{display:none;background:var(--surface);border-right:1px solid var(--line);
+  padding:var(--s4) var(--s3);position:sticky;top:0;height:100vh;overflow-y:auto}
+@media(min-width:900px){ .l-sidebar{display:block} }
+.l-nav-group{font-size:var(--fs-micro);text-transform:uppercase;
+  letter-spacing:var(--tracking-wide);color:var(--ink-3);font-weight:700;
+  padding:var(--s4) var(--s3) var(--s2)}
+.l-nav-item{display:flex;align-items:center;gap:var(--s3);min-height:42px;
+  padding:0 var(--s3);border-radius:var(--r-sm);color:var(--ink-2);
+  font-size:var(--fs-sm);font-weight:600;text-decoration:none}
+.l-nav-item:hover{background:var(--surface-2)}
+.l-nav-item.is-on{background:var(--green-50);color:var(--green-800)}
+.l-nav-item__badge{margin-left:auto;font-size:var(--fs-micro);font-weight:700;
+  background:var(--amber-50);color:var(--amber-700);padding:2px 7px;border-radius:var(--r-pill)}
+
+.l-main{min-width:0;padding:var(--s6) var(--gutter) var(--s16)}
+.l-main__inner{max-width:var(--shell-max);margin:0 auto}
+.l-page-head{display:flex;align-items:flex-start;gap:var(--s4);
+  flex-wrap:wrap;margin-bottom:var(--s6)}
+.l-page-head h1{font-size:var(--fs-h1)}
+.l-page-head p{margin:var(--s1) 0 0;color:var(--ink-3);font-size:var(--fs-sm);max-width:70ch}
+.l-page-head__actions{margin-left:auto;display:flex;gap:var(--s2);flex-wrap:wrap}
+
+/* Split view — list on the left, detail on the right. Directories, tree,
+   moderation queues. Collapses to a single column on phones. */
+.l-split{display:grid;grid-template-columns:1fr;gap:var(--s5)}
+@media(min-width:1000px){ .l-split{grid-template-columns:minmax(280px,360px) 1fr} }
+
+.l-grid{display:grid;gap:var(--s5);grid-template-columns:1fr}
+@media(min-width:700px){ .l-grid--2{grid-template-columns:1fr 1fr} }
+@media(min-width:1000px){
+  .l-grid--3{grid-template-columns:repeat(3,1fr)}
+  .l-grid--4{grid-template-columns:repeat(4,1fr)}
+}
+.l-prose{max-width:var(--read-max)}
+
+/* Mobile bottom tab bar — hidden once the sidebar appears */
+.l-tabbar{position:sticky;bottom:0;display:flex;background:var(--surface);
+  border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom)}
+@media(min-width:900px){ .l-tabbar{display:none} }
+.l-tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;
+  gap:3px;padding:var(--s2) 0;min-height:var(--touch);
+  color:var(--ink-3);font-size:var(--fs-micro);font-weight:640;text-decoration:none}
+.l-tabbar a.is-on{color:var(--accent-ink)}
+
+.u-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.u-num{font-variant-numeric:var(--num)}
+.u-truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DOCUMENT CHROME — phone frames, annotations, captions.
+   Presentation for THIS document only. Built entirely from the v2 tokens
+   above; it adds no colours, sizes or fonts of its own.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.doc{max-width:1660px;margin:0 auto;padding:0 var(--gutter) 96px}
+
+/* --- masthead --- */
+.masthead{background:var(--n-950);color:#fff;padding:var(--s8) var(--gutter) var(--s7);
+  margin-bottom:var(--s7);border-bottom:3px solid var(--green)}
+.masthead .in{max-width:1660px;margin:0 auto}
+.masthead .kicker{font-size:var(--fs-micro);letter-spacing:var(--tracking-wide);
+  text-transform:uppercase;font-weight:750;color:var(--green-200);margin-bottom:var(--s3)}
+.masthead h1{font-size:var(--fs-display);color:#fff}
+.masthead p{margin:var(--s4) 0 0;color:#b3b3aa;font-size:var(--fs-sm);
+  max-width:80ch;line-height:var(--lh-body)}
+.masthead p b{color:#e8e8e1;font-weight:640}
+.tagrow{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s5)}
+.tag{background:rgba(255,255,255,.10);color:#e2e2db;font-size:var(--fs-micro);
+  padding:4px 10px;border-radius:var(--r-pill);font-weight:700;
+  letter-spacing:.04em;border:1px solid rgba(255,255,255,.10)}
+.tag--green{background:var(--green);color:#fff;border-color:transparent}
+.tag--red{background:var(--red);color:#fff;border-color:transparent}
+
+/* --- document sections --- */
+.sect{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:var(--s6);margin-bottom:var(--s6);box-shadow:var(--e1)}
+.sect > h2{font-size:var(--fs-h1)}
+.sect > .lede{color:var(--ink-3);font-size:var(--fs-sm);margin:var(--s2) 0 var(--s5);max-width:80ch}
+.sect h3.sub{font-size:var(--fs-h2);margin:var(--s6) 0 var(--s3)}
+
+/* --- legend --- */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));
+  gap:var(--s4) var(--s5)}
+.legend__item{display:flex;gap:var(--s3);align-items:flex-start;font-size:var(--fs-xs);
+  color:var(--ink-2);line-height:1.5;min-width:0}
+.legend__item b{display:block;color:var(--ink);font-size:var(--fs-sm);margin-bottom:1px}
+.legend__item > :first-child{flex:0 0 auto;margin-top:2px;white-space:nowrap}
+.legend__item > span:last-child{min-width:0}
+.swatch-hl{width:26px;height:17px;border-radius:4px;background:var(--green-50);
+  outline:2px dashed var(--accent);outline-offset:3px;display:block}
+
+/* --- decision strip --- */
+.decisions{display:grid;gap:var(--s3);grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.decision{border:1px solid var(--line);border-left:3px solid var(--accent);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;padding:var(--s4);background:var(--surface-2)}
+.decision b{display:block;font-size:var(--fs-sm);margin-bottom:var(--s1)}
+.decision span{font-size:var(--fs-xs);color:var(--ink-2);line-height:1.5;display:block}
+.decision em{font-style:normal;display:block;font-size:var(--fs-micro);font-weight:750;
+  letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--ink-3);margin-bottom:var(--s2)}
+
+/* --- group headings --- */
+.grouphead{display:flex;align-items:baseline;gap:var(--s3);flex-wrap:wrap;
+  margin:var(--s12) 0 var(--s6);padding-bottom:var(--s3);border-bottom:2px solid var(--ink)}
+.grouphead h2{font-size:var(--fs-h1)}
+.grouphead .n{font-size:var(--fs-micro);font-weight:750;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+.grouphead p{margin:0;font-size:var(--fs-xs);color:var(--ink-3);flex:1 1 260px;min-width:0}
+
+/* --- frame grid --- */
+.frames{display:grid;gap:var(--s10) var(--s6);align-items:start;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,358px),1fr))}
+.fig{margin:0;min-width:0;display:flex;flex-direction:column;align-items:center}
+
+/* --- device --- */
+.device{width:100%;max-width:375px;background:#0a0a08;border-radius:46px;padding:11px;
+  position:relative;box-shadow:0 2px 4px rgba(20,20,15,.16),0 22px 48px -10px rgba(20,20,15,.28),
+  inset 0 0 0 1.5px rgba(255,255,255,.10)}
+.device::before,.device::after{content:"";position:absolute;left:-2px;width:3px;
+  background:#3a3a33;border-radius:2px}
+.device::before{top:136px;height:54px}
+.device::after{top:204px;height:54px}
+.screen{position:relative;background:var(--bg);border-radius:35px;overflow:hidden;
+  min-height:812px;display:flex;flex-direction:column;container-type:inline-size}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:126px;height:27px;
+  background:#0a0a08;border-radius:0 0 16px 16px;z-index:6}
+
+/* --- status bar (safe-area inset made visible) --- */
+.sb{flex:0 0 auto;height:47px;display:flex;align-items:flex-end;justify-content:space-between;
+  padding:0 22px 7px;font-size:13px;font-weight:680;position:relative;z-index:5;
+  font-variant-numeric:var(--num)}
+.sb__r{display:flex;align-items:center;gap:5px}
+.sb__bars{display:flex;align-items:flex-end;gap:2px;height:11px}
+.sb__bars i{width:3px;border-radius:1px;background:currentColor;display:block}
+.sb__bars i:nth-child(1){height:4px}.sb__bars i:nth-child(2){height:6px}
+.sb__bars i:nth-child(3){height:8px}.sb__bars i:nth-child(4){height:11px}
+.sb__bat{width:24px;height:12px;border:1.4px solid currentColor;border-radius:3px;
+  position:relative;padding:1.6px}
+.sb__bat span{display:block;height:100%;width:74%;background:currentColor;border-radius:1px}
+.sb__bat::after{content:"";position:absolute;right:-3.4px;top:3.4px;width:2px;height:4px;
+  background:currentColor;border-radius:0 1px 1px 0}
+
+/* --- app header --- */
+.chrome{flex:0 0 auto;background:var(--surface);color:var(--ink);border-bottom:1px solid var(--line)}
+.chrome--green{background:var(--green-800);color:#fff;border-bottom:0;
+  background-image:linear-gradient(160deg,var(--green-700),var(--green-900))}
+.chrome--ink{background:var(--n-900);color:#fff;border-bottom:0}
+.hdr{display:flex;align-items:center;gap:var(--s2);padding:var(--s1) var(--s3) var(--s3);
+  min-height:52px}
+.hdr__t{font-size:var(--fs-h1);font-weight:660;letter-spacing:var(--tracking-tight);
+  min-width:0;overflow-wrap:anywhere;flex:1}
+.hdr__sub{font-size:var(--fs-xs);color:var(--ink-3);font-weight:500;letter-spacing:0;
+  display:block;margin-top:3px;line-height:1.35}
+.chrome--green .hdr__sub,.chrome--ink .hdr__sub{color:rgba(255,255,255,.72)}
+.hdr__b{flex:0 0 auto;width:44px;height:44px;display:flex;align-items:center;
+  justify-content:center;border-radius:var(--r-pill);background:transparent;border:0;
+  font-size:22px;line-height:1;color:inherit;cursor:pointer;font-family:inherit}
+.hdr__b:hover{background:rgba(20,20,15,.06)}
+.chrome--green .hdr__b:hover,.chrome--ink .hdr__b:hover{background:rgba(255,255,255,.14)}
+.hdr__tabs{padding:0 var(--s2)}
+.chrome--green .c-tabs,.chrome--ink .c-tabs{border-bottom-color:rgba(255,255,255,.16)}
+.chrome--green .c-tab,.chrome--ink .c-tab{color:rgba(255,255,255,.66)}
+.chrome--green .c-tab.is-on,.chrome--ink .c-tab.is-on{color:#fff;border-bottom-color:#fff}
+
+/* --- scroll area --- */
+.scrollwrap{position:relative;flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+.scroll{flex:1 1 auto;min-height:0;overflow:hidden;
+  padding:var(--s4) var(--gutter) var(--s8);display:flex;flex-direction:column;gap:var(--s4)}
+.scroll > *{min-width:0}
+.sect-h{font-size:var(--fs-micro);text-transform:uppercase;letter-spacing:var(--tracking-wide);
+  font-weight:750;color:var(--ink-3);margin:var(--s2) 0 calc(-1 * var(--s2) + 2px)}
+.sect-h .r{float:right;text-transform:none;letter-spacing:0;font-weight:640;color:var(--accent-ink)}
+
+/* --- bottom tab bar --- */
+.tabs{flex:0 0 auto;display:flex;background:var(--surface);border-top:1px solid var(--line);
+  padding:6px 4px 26px;position:relative;z-index:4}
+.tabs__i{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;min-height:48px;text-decoration:none;color:var(--ink-3);
+  font-size:10.5px;font-weight:650;padding:2px 1px;border-radius:var(--r-sm)}
+.tabs__i svg{display:block}
+.tabs__i.is-on{color:var(--accent-ink)}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  width:126px;height:5px;border-radius:3px;background:rgba(20,20,15,.26);z-index:7}
+.screen .c-actionbar{z-index:4;padding-bottom:calc(var(--s3) + 22px)}
+
+/* --- annotation callout --- */
+.hl{position:relative;outline:2px dashed var(--accent);outline-offset:5px;
+  border-radius:var(--r-sm)}
+.hl::after{content:attr(data-hl);position:absolute;top:-10px;right:0;
+  background:var(--accent);color:#fff;font-size:9.5px;font-weight:750;letter-spacing:.05em;
+  text-transform:uppercase;padding:2px 7px;border-radius:var(--r-pill);white-space:nowrap;
+  max-width:94%;overflow:hidden;text-overflow:ellipsis;z-index:4}
+.hl--amber{outline-color:var(--amber)}
+.hl--amber::after{background:var(--amber)}
+.hl--w{outline-color:rgba(255,255,255,.85);outline-offset:3px}
+.hl--w::after{background:#fff;color:var(--green-800);top:-4px}
+
+/* --- caption --- */
+.cap{width:100%;max-width:375px;margin-top:var(--s5)}
+.cap__top{display:flex;gap:var(--s3);align-items:baseline}
+.cap__n{flex:0 0 auto;font-size:var(--fs-micro);font-weight:750;letter-spacing:.06em;
+  color:#fff;background:var(--n-950);border-radius:var(--r-pill);padding:3px 9px}
+.cap h3{font-size:var(--fs-h2);flex:1;min-width:0;overflow-wrap:anywhere}
+.cap p{margin:var(--s2) 0 0;font-size:var(--fs-xs);color:var(--ink-2);line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:var(--s3)}
+.dchip{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:var(--r-pill);
+  background:var(--green-50);color:var(--green-800);border:1px solid var(--green-100);
+  overflow-wrap:anywhere}
+.dchip--dec{background:var(--blue-50);color:var(--blue-700);border-color:#cfe1f4}
+.dchip--prov{background:var(--amber-50);color:var(--amber-700);border-color:#f2ddb9}
+.dchip--priv{background:var(--violet-50);color:var(--violet);border-color:#ddd3f0}
+
+/* ═══ in-screen helpers, all built from tokens ═══ */
+.screen input,.screen select,.screen textarea{font-size:16px;font-family:inherit}
+.screen .c-btn--sm{min-height:44px}
+.stack{display:flex;flex-direction:column;gap:var(--s3)}
+.stack--sm{gap:var(--s2)}
+.stack--xs{gap:var(--s1)}
+.between{display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+.between > *{min-width:0}
+.tiny{font-size:var(--fs-xs);color:var(--ink-3);line-height:1.5}
+.tiny b{color:var(--ink-2)}
+.muted{color:var(--ink-3)}
+.num{font-variant-numeric:var(--num)}
+.divider{height:1px;background:var(--line-2)}
+.linkbtn{display:inline-flex;align-items:center;white-space:nowrap;background:none;border:0;padding:0;
+  font:inherit;font-size:var(--fs-xs);font-weight:700;color:var(--accent-ink);
+  text-decoration:underline;text-underline-offset:2px;cursor:pointer;min-height:44px}
+.rowbtns{display:flex;gap:var(--s2);flex-wrap:wrap}
+.rowbtns > *{flex:1 1 120px}
+
+/* segmented control — real radios, real labels */
+.seg{display:grid;gap:5px;grid-auto-flow:column;grid-auto-columns:1fr;
+  background:var(--surface-sunken);border-radius:var(--r-sm);padding:4px}
+.seg--wrap{grid-auto-flow:row;grid-template-columns:repeat(auto-fit,minmax(76px,1fr));
+  grid-auto-columns:auto}
+.seg input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.seg label{display:flex;align-items:center;justify-content:center;min-height:44px;
+  padding:0 var(--s2);border-radius:var(--r-xs);font-size:var(--fs-sm);font-weight:640;
+  color:var(--ink-2);cursor:pointer;text-align:center;line-height:1.2}
+.seg input:checked + label{background:var(--surface);color:var(--green-800);box-shadow:var(--e1)}
+.seg input:focus-visible + label{box-shadow:var(--ring)}
+
+/* switches driven by a real checkbox */
+.c-switch{cursor:pointer}
+.c-switch:has(input:checked) .c-switch__track{background:var(--accent)}
+.c-switch:has(input:checked) .c-switch__track::after{transform:translateX(21px)}
+.c-switch:focus-within .c-switch__track{box-shadow:var(--ring)}
+.c-switch__lab{min-width:0;font-size:var(--fs-sm);font-weight:640}
+.c-switch__lab small{display:block;font-weight:500;font-size:var(--fs-xs);color:var(--ink-3);
+  line-height:1.45}
+.c-switch--locked .c-switch__track{background:var(--green-200)}
+.c-switch--locked .c-switch__track::after{transform:translateX(21px)}
+
+/* upload dropzone */
+.drop{display:flex;flex-direction:column;align-items:center;gap:var(--s2);
+  min-height:112px;justify-content:center;padding:var(--s4);text-align:center;
+  border:1.5px dashed var(--n-300);border-radius:var(--r);background:var(--surface-2);
+  color:var(--ink-3);font-size:var(--fs-xs);cursor:pointer}
+.drop:hover{border-color:var(--accent);background:var(--green-50);color:var(--green-800)}
+.drop b{display:block;font-size:var(--fs-sm);color:var(--ink);margin-bottom:2px}
+.drop:hover b{color:var(--green-800)}
+
+/* meter */
+.meter{height:6px;border-radius:3px;background:var(--surface-sunken);overflow:hidden}
+.meter i{display:block;height:100%;border-radius:3px;background:var(--accent)}
+.meter i.amber{background:var(--amber)}
+.meter i.blue{background:var(--blue)}
+
+/* stat tiles */
+.stats{display:grid;gap:var(--s2);grid-template-columns:repeat(auto-fit,minmax(min(100%,132px),1fr))}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:var(--s3) 10px;min-width:0}
+.stat b{display:block;font-size:var(--fs-h2);font-variant-numeric:var(--num);line-height:1.15}
+.stat span{display:block;font-size:var(--fs-micro);color:var(--ink-3);margin-top:3px;
+  text-transform:uppercase;letter-spacing:.02em;font-weight:650;overflow-wrap:anywhere}
+.stat--accent{background:var(--green-50);border-color:var(--green-100);color:var(--green-800)}
+
+/* clan / lineage helpers */
+.gen{font-size:var(--fs-micro);font-weight:750;letter-spacing:var(--tracking-wide);
+  text-transform:uppercase;color:var(--ink-3)}
+.collapsed{display:flex;align-items:center;gap:var(--s2);min-height:44px;padding:0 var(--s3);
+  border:1px dashed var(--line);border-radius:var(--r-sm);background:var(--surface-2);
+  color:var(--ink-3);font-size:var(--fs-xs);font-weight:640;cursor:pointer;width:100%;
+  font-family:inherit;text-align:left}
+.lock{display:inline-grid;place-items:center;flex:0 0 auto;width:40px;height:40px;
+  border-radius:50%;background:var(--surface-sunken);color:var(--ink-3)}
+
+/* share destinations */
+.dests{display:grid;gap:var(--s2);grid-template-columns:repeat(auto-fit,minmax(72px,1fr))}
+.dest{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  min-height:76px;padding:var(--s2);border:1px solid var(--line);border-radius:var(--r);
+  background:var(--surface);font-size:var(--fs-micro);font-weight:650;color:var(--ink-2);
+  cursor:pointer;font-family:inherit;text-align:center;line-height:1.2}
+.dest:hover{border-color:var(--green-200);background:var(--green-50)}
+.dest.is-on{border-color:var(--accent);background:var(--green-50);color:var(--green-800);
+  box-shadow:inset 0 0 0 1px var(--accent)}
+.dest i{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;
+  font-style:normal;font-size:15px;font-weight:800;color:#fff}
+.dest i.fb{background:var(--blue)}
+.dest i.ig{background:linear-gradient(135deg,var(--violet),var(--red))}
+.dest i.x{background:var(--n-900)}
+.dest i.li{background:var(--blue-700)}
+.dest i.cp{background:var(--n-500)}
+
+/* generated share card preview */
+.shcard{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.shcard__img{padding:var(--s5) var(--s4);color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--green-700),var(--green));min-height:132px;
+  display:flex;flex-direction:column;justify-content:flex-end}
+.shcard__img::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 82% 18%,rgba(255,255,255,.20),transparent 58%)}
+.shcard__mark{position:absolute;top:var(--s3);left:var(--s4);font-size:var(--fs-micro);
+  font-weight:800;letter-spacing:.14em;opacity:.85;z-index:1}
+.shcard__t{font-size:var(--fs-h2);font-weight:680;position:relative;z-index:1}
+.shcard__s{font-size:var(--fs-xs);opacity:.9;margin-top:3px;position:relative;z-index:1}
+.shcard__meta{padding:var(--s3) var(--s4);font-size:var(--fs-micro);color:var(--ink-3);
+  background:var(--surface-2);overflow-wrap:anywhere}
+
+/* app icon / doc thumb */
+.pico{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+  color:#fff;font-size:15px;font-weight:750;
+  background:linear-gradient(150deg,var(--green),var(--green-800))}
+.pico--v{background:linear-gradient(150deg,var(--violet),#8a6cc4)}
+.pico--b{background:linear-gradient(150deg,#2f7fd1,var(--blue-700))}
+.pico--a{background:linear-gradient(150deg,#d08a20,var(--amber-700))}
+.pico--m{background:var(--surface-sunken);color:var(--ink-3)}
+.datechip{flex:0 0 auto;width:44px;border-radius:var(--r-sm);overflow:hidden;text-align:center;
+  border:1px solid var(--line);background:var(--surface)}
+.datechip b{display:block;background:var(--green-800);color:#fff;font-size:9.5px;font-weight:750;
+  letter-spacing:.08em;padding:2px 0}
+.datechip span{display:block;font-size:17px;font-weight:700;padding:2px 0 3px;
+  font-variant-numeric:var(--num)}
+
+/* the phone is a container: field rows behave like a phone inside the frame.
+   min-width:0 on the grid item is required — date/time inputs carry a wide
+   intrinsic min-content size and will otherwise push the column past the frame. */
+.c-field-row > .c-field{min-width:0}
+@container (max-width:559px){
+  .screen .c-field-row--2{grid-template-columns:1fr 1fr;gap:var(--s3)}
+  .screen .c-field-row--city{grid-template-columns:1fr 1fr;gap:var(--s3)}
+  .screen .c-field-row--city > .c-field:first-child{grid-column:1 / -1}
+}
+@container (max-width:300px){
+  .screen .c-field-row--2{grid-template-columns:1fr}
+}
+.c-card--flush{padding:var(--s4)}
+/* Inside a frame the fluid type must resolve at its PHONE end, not at the end the
+   document viewport happens to sit at. These are the lower bounds of the v2 clamps. */
+.screen{--fs-display:26px;--fs-h1:21px;--fs-h2:17px;--gutter:16px}
+/* Icons are flex items in rows, alerts and buttons; they must not be squeezed. */
+.screen svg{flex:0 0 auto}
+.c-alert > svg{margin-top:2px}
+.c-alert strong{font-weight:700}
+/* .c-tnode carries two stacked spans; a flex column blockifies them. */
+.tnode-txt{min-width:0;flex:1 1 140px;display:flex;flex-direction:column;gap:1px}
+/* If the trailing status pill will not fit beside the name, it drops to its own
+   line rather than shredding the name into three wrapped fragments. */
+.c-tnode{flex-wrap:wrap}
+.c-tnode > .c-pill{margin-left:auto}
+.iconbtn{display:grid;place-items:center;flex:0 0 auto;width:44px;height:44px;
+  border-radius:var(--r-sm);border:1px solid var(--line);background:var(--surface);
+  color:var(--ink-2);cursor:pointer;font-family:inherit}
+.iconbtn:hover{background:var(--green-50);border-color:var(--green-200);color:var(--green-800)}
+code{font:13px/1.5 var(--font-mono);background:var(--surface-sunken);
+  padding:1px 5px;border-radius:var(--r-xs);overflow-wrap:anywhere}
+.c-tile--sm{min-height:92px}
+.c-ann__body{padding:var(--s4)}
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="in">
+    <div class="kicker">American Federation of Ramallah, Palestine &middot; founded 1952</div>
+    <h1>My AFRP — Mobile Screens v2</h1>
+    <p>Eighteen annotated phone screens for the next phase of the <b>My AFRP</b> member portal:
+       <b>life events</b>, the <b>500-year family tree</b>, the two <b>member directories</b>, the
+       <b>local club portal</b> that replaces Breeze&nbsp;ChMS at the 18 clubs, and the
+       <b>social and program integrations</b> around them. Every colour, size, component and
+       interaction on this page comes from <b>AFRP Design System v2</b>, inlined here verbatim —
+       this document adds only device frames and annotations on top of it. The screens are real
+       375&nbsp;px renderings, not drawings: resize this page and they reflow exactly as the
+       portal will.</p>
+    <div class="tagrow">
+      <span class="tag tag--green">PHASE 2 · SCREENS</span>
+      <span class="tag">18 frames · 5 modules</span>
+      <span class="tag">Design System v2</span>
+      <span class="tag">375 × 812 · iPhone</span>
+      <span class="tag">Authorize.Net</span>
+      <span class="tag">WCAG 2.2 AA · 16px inputs · 44px targets</span>
+      <span class="tag tag--red">FICTIONAL DEMO DATA</span>
+    </div>
+  </div>
+</header>
+
+<div class="doc">
+
+<section class="sect">
+  <h2>How to read these screens</h2>
+  <p class="lede">Each frame is a live 375&nbsp;px-wide rendering using only the
+     <code>.c-*</code> classes and <code>--*</code> tokens of Design System v2. The markup inside every
+     phone is the markup a developer should ship. Nothing on these screens uses a colour, radius, or
+     type size that is not in the token set.</p>
+  <div class="legend">
+    <div class="legend__item">
+      <span class="cap__n">07</span>
+      <span><b>Frame number</b>Screens are numbered in the order a member meets them, grouped
+        Life&nbsp;events → Tree → Directories → Club → Integrations.</span>
+    </div>
+    <div class="legend__item">
+      <span class="swatch-hl"></span>
+      <span><b>Dashed green outline</b>An annotation, not shipped UI. It marks the element carrying
+        the decision named on the label.</span>
+    </div>
+    <div class="legend__item">
+      <span class="c-pill c-pill--warn">Unverified</span>
+      <span><b>Amber, dashed, unverified</b>A provisional record or edit. It is visible immediately
+        and is excluded from the canonical tree until a clan moderator confirms it.</span>
+    </div>
+    <div class="legend__item">
+      <span class="dchip dchip--dec">Decision</span>
+      <span><b>Blue chip</b>Implements one of the four product decisions below.</span>
+    </div>
+    <div class="legend__item">
+      <span class="dchip">&#10003; new</span>
+      <span><b>Green chip</b>A capability the current portal does not have at all.</span>
+    </div>
+    <div class="legend__item">
+      <span class="c-pill c-pill--muted">375 &#215; 812</span>
+      <span><b>Phone geometry</b>Every screen is laid out on a 375&nbsp;&#215;&nbsp;812 iPhone with the
+        status bar, safe areas and tab bar in place. Frames extend past 812&nbsp;px so the whole
+        scrolling screen is visible at once rather than cropped at the fold.</span>
+    </div>
+    <div class="legend__item">
+      <span class="dchip dchip--priv">Privacy</span>
+      <span><b>Violet chip</b>A place where the screen restricts, hides, or asks consent before
+        anything is exposed.</span>
+    </div>
+  </div>
+
+  <h3 class="sub">The four decisions these screens build to</h3>
+  <div class="decisions">
+    <div class="decision"><em>Decision 1</em><b>A wedding upgrades the couple to Family tier, free for
+      year one</b><span>Then it renews at the standard Family rate, on the anniversary of the wedding
+      date. Frames 01, 02.</span></div>
+    <div class="decision"><em>Decision 2</em><b>Life events write to the tree as provisional
+      records</b><span>Visible at once, marked unverified, out of the canonical tree until a genealogy
+      moderator confirms. Frames 02, 05, 06, 08, 09.</span></div>
+    <div class="decision"><em>Decision 3</em><b>The club portal replaces Breeze ChMS</b><span>So club
+      tooling is first-class and works on an officer's phone, and migration state stays visible.
+      Frames 13, 14, 15.</span></div>
+    <div class="decision"><em>Decision 4</em><b>Directories are members-only, per-field
+      opt-in</b><span>Nothing is published unless the member switches it on, and hidden fields render
+      as an explicit state. Frames 10, 11, 12.</span></div>
+  </div>
+
+  <h3 class="sub">Demo data</h3>
+  <p class="lede" style="margin-bottom:0">The Khoury household (Marwan 52, Nadia 55, Tarek 21,
+     Basim 20, Layla 14), the Detroit Club officers, member numbers, dates, citations and
+     figures on these screens are <b>fictional</b>. The organisation, the eight clans, the eleven
+     programs, the 18 clubs, the membership tiers and the Authorize.Net payment stack are real.</p>
+</section>
+
+<div class="grouphead"><span class="n">Frames 01&ndash;05</span><h2>Life events</h2><p>Weddings and births as a first-class module: the benefit that comes with a wedding, the protection that comes with a birth, the community feed both feed into, and the exact moment a life event becomes genealogy.</p></div>
+<div class="frames">
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome chrome--green"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Announce a wedding<span class="hdr__sub">Step 1 of 3 &middot; Tarek Khoury</span></span><button class="hdr__b" type="button" aria-label="Close">&#215;</button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-steps" aria-hidden="true"><span class="c-steps__dot is-on">1</span><span class="c-steps__bar"></span><span class="c-steps__dot ">2</span><span class="c-steps__bar"></span><span class="c-steps__dot ">3</span></div><div class="c-alert c-alert--ok hl" data-hl="Benefit stated up front"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.2s-5.8-3.6-5.8-7.4a3.3 3.3 0 0 1 5.8-2.2 3.3 3.3 0 0 1 5.8 2.2c0 3.8-5.8 7.4-5.8 7.4Z"/></svg><div><b>Your wedding upgrades you to Family membership</b>You and your spouse move to the <strong>Family</strong> tier for your first year at no cost. It renews at the Family rate one year after your wedding date.</div></div><div class="c-field"><label class="c-field__label" for="w-name">Spouse&rsquo;s full name</label><input class="c-input" id="w-name" type="text" value="Dina Yousef Mogannam" autocomplete="off"><div class="c-field__hint">As it should appear in the announcement and the family tree.</div></div><div class="c-field"><label class="c-field__label" for="w-date">Wedding date</label><input class="c-input" id="w-date" type="date" value="2026-09-12"><div class="c-field__hint">Your free Family year runs from this date &mdash; 12 Sep 2026 to 12 Sep 2027.</div></div><div class="c-field"><span class="c-field__label" id="w-mem-l">Is your spouse already an AFRP member?</span><div class="seg seg--wrap hl" data-hl="Decides link vs create" role="group" aria-labelledby="w-mem-l"><input type="radio" name="w-mem" id="w-m1" checked><label for="w-m1">Yes</label><input type="radio" name="w-mem" id="w-m2"><label for="w-m2">No</label><input type="radio" name="w-mem" id="w-m3"><label for="w-m3">Not sure</label></div></div><div class="c-field"><label class="c-field__label" for="w-num">Spouse&rsquo;s member number</label><input class="c-input" id="w-num" type="text" inputmode="numeric" value="10 964"><div class="c-field__hint">Matched: <b>D. Mogannam</b> &middot; Chicago Club &middot; Individual tier.</div></div><div class="c-field"><label class="c-field__label" for="w-place">Where</label><input class="c-input" id="w-place" type="text" value="St George Church, Southfield MI"></div><div class="c-field"><span class="c-field__label">Photo</span><label class="drop" for="w-photo"><svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.4A1.4 1.4 0 0 1 4.4 6h1.9l1-1.8h5.4l1 1.8h1.9A1.4 1.4 0 0 1 17 7.4v7.2a1.4 1.4 0 0 1-1.4 1.4H4.4A1.4 1.4 0 0 1 3 14.6Z"/><circle cx="10" cy="10.8" r="2.7"/></svg><b>Add a wedding photo</b>JPG or PNG, up to 10 MB. Optional.</label><input class="u-sr" type="file" id="w-photo" accept="image/*"></div><div class="c-card c-card--flush"><label class="c-choice" for="w-pub"><input type="checkbox" id="w-pub" checked><span class="c-choice__text">Post to the announcements feed<small>Visible to members only. You can remove it at any time.</small></span></label></div></div></div>
+<div class="c-actionbar"><button class="c-btn c-btn--secondary c-btn--sm" type="button">Save draft</button><button class="c-btn c-btn--block" type="button">Continue</button></div>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">01</span><h3>Announce a wedding</h3></div><p>Four questions and a photo. The Family-tier benefit is stated <em>before</em> the form, not discovered at checkout, and the "is your spouse already a member?" answer is what decides whether AFRP creates a new person record or links an existing one. The date field drives eligibility: the free year runs from the wedding date, not the submission date.</p><div class="chips"><span class="dchip dchip--dec">Decision 1 &middot; Family tier, free year one</span><span class="dchip">&#10003; new life-event module</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome chrome--green"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Membership updated</span><button class="hdr__b" type="button" aria-label="Share"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="15" cy="5" r="2.2"/><circle cx="5" cy="10" r="2.2"/><circle cx="15" cy="15" r="2.2"/><path d="m7 8.9 6-2.8M7 11.1l6 2.8"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-card c-card--raised" style="text-align:center;background:var(--green-50);border:1px solid var(--green-100)"><span class="c-avatar c-avatar--lg" style="margin:0 auto;background:var(--accent);color:#fff"><svg width="30" height="30" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg></span><h3 class="c-card__title" style="margin-top:var(--s4)">You&rsquo;re on Family membership</h3><p class="tiny" style="margin:var(--s2) 0 0;color:var(--green-800)">Free until <b class="num">12 September 2027</b><br>Tarek Khoury &amp; Dina Mogannam &middot; Detroit Club</p><div class="c-pill c-pill--ok" style="margin-top:var(--s4)">&#9679; Active &middot; $0.00 charged today</div></div><h4 class="sect-h">What Family covers</h4><div class="c-card c-card--flush"><div class="c-dl"><div class="c-dl__row"><span class="c-dl__k">Both spouses</span><span class="c-dl__v">Full member rights</span></div><div class="c-dl__row"><span class="c-dl__k">Children</span><span class="c-dl__v">Included, any age, same household</span></div><div class="c-dl__row"><span class="c-dl__k">Convention</span><span class="c-dl__v">Family rate registration</span></div><div class="c-dl__row"><span class="c-dl__k">Camp Ramallah</span><span class="c-dl__v">Member priority window</span></div><div class="c-dl__row"><span class="c-dl__k">Directories</span><span class="c-dl__v">Member + RBPN access</span></div><div class="c-dl__row"><span class="c-dl__k">Voting</span><span class="c-dl__v">One vote each</span></div></div></div><div class="c-alert c-alert--info hl" data-hl="No surprise at renewal"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4.6" width="13.2" height="12" rx="2"/><path d="M3.4 8.4h13.2M7 3v3M13 3v3"/></svg><div><b>On 12 Sep 2027 this renews at $250 / year</b>That is the standard Family rate, replacing the two Individual memberships you held ($90 + $90). We will email both of you 30 days before. Auto-renew is off until you turn it on.</div></div><h4 class="sect-h">Records created in the family tree</h4><div class="stack stack--sm hl hl--amber" data-hl="Unverified until reviewed"><div class="c-tnode c-tnode--provisional"><span class="c-avatar c-avatar--sm" style="background:var(--amber-50);color:var(--amber-700)">DM</span><span class="tnode-txt"><span class="c-tnode__name">Dina Yousef Mogannam</span><span class="c-tnode__meta">New person &middot; Mogannam clan &middot; b. 2003</span></span><span class="c-pill c-pill--warn" style="margin-left:auto">Unverified</span></div><div class="c-tnode c-tnode--provisional"><span class="c-avatar c-avatar--sm" style="background:var(--amber-50);color:var(--amber-700)"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.6" cy="11" r="4.4"/><circle cx="12.4" cy="11" r="4.4"/></svg></span><span class="tnode-txt"><span class="c-tnode__name">Marriage &middot; Tarek &amp; Dina</span><span class="c-tnode__meta">12 Sep 2026 &middot; Southfield MI</span></span><span class="c-pill c-pill--warn" style="margin-left:auto">Unverified</span></div></div><p class="tiny">Both appear in your tree now, clearly marked. A Haddad-clan genealogy moderator confirms them into the canonical tree &mdash; usually within 10 days.</p><div class="rowbtns"><button class="c-btn c-btn--secondary c-btn--sm" type="button">View in tree</button><button class="c-btn c-btn--sm" type="button">Share the news</button></div></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">02</span><h3>Wedding benefit confirmation</h3></div><p>The upgrade is stated as a fact with a date, not a promise. Three things a member actually asks are answered on one screen: what the tier covers, what happens in twelve months and at what price, and what this did to their family tree. The renewal line is deliberately unambiguous &mdash; no silent price change a year later.</p><div class="chips"><span class="dchip dchip--dec">Decision 1 &middot; renews at Family rate</span><span class="dchip dchip--prov">2 provisional tree records</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome chrome--green"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Announce a birth<span class="hdr__sub">Step 1 of 2 &middot; Rana Ajluni</span></span><button class="hdr__b" type="button" aria-label="Close">&#215;</button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-steps" aria-hidden="true"><span class="c-steps__dot is-on">1</span><span class="c-steps__bar"></span><span class="c-steps__dot ">2</span></div><div class="c-field-row c-field-row--2"><div class="c-field" style="margin-bottom:0"><label class="c-field__label" for="b-first">Child&rsquo;s first name</label><input class="c-input" id="b-first" type="text" value="Zayn"></div><div class="c-field" style="margin-bottom:0"><label class="c-field__label" for="b-last">Family name</label><input class="c-input" id="b-last" type="text" value="Ajluni"></div></div><div class="c-field" style="margin-top:var(--s5)"><label class="c-field__label" for="b-dob">Date of birth</label><input class="c-input" id="b-dob" type="date" value="2026-08-03"></div><div class="c-field"><label class="c-field__label" for="b-place">Place of birth</label><input class="c-input" id="b-place" type="text" value="Evanston IL"></div><h4 class="sect-h">Parents</h4><div class="c-card c-card--flush"><div class="c-row"><span class="c-avatar">RA</span><span class="c-row__main"><b>Rana Ajluni</b><span>You &middot; Chicago Club &middot; #11207</span></span><span class="c-row__end"><span class="c-pill c-pill--muted">Parent 1</span></span></div><div class="c-row" style="border-bottom:0"><span class="c-avatar">KA</span><span class="c-row__main"><b>Karim Ajluni</b><span>Member #11208 &middot; linked from your household</span></span><span class="c-row__end"><span class="c-pill c-pill--muted">Parent 2</span></span></div></div><button class="linkbtn" type="button">Change or add a parent</button><div class="c-alert c-alert--warn hl hl--amber" data-hl="Minor protection"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg><div><b>Zayn is a minor, so this record is restricted</b>Not listed in the member or RBPN directory. Not returned by tree search. Visible only to verified relatives inside your line. No photo is published. At 18, Zayn decides what to open up &mdash; nothing unlocks on its own.</div></div><div class="c-card c-card--flush"><label class="c-choice" for="b-ack" style="align-items:flex-start"><input type="checkbox" id="b-ack" checked><span class="c-choice__text" style="font-size:var(--fs-sm)">I understand and I am a parent or guardian<small>Required. Only a parent or guardian may create a record for a child.</small></span></label></div><div class="c-card c-card--flush"><label class="c-choice" for="b-pub"><input type="checkbox" id="b-pub" checked><span class="c-choice__text" style="font-size:var(--fs-sm)">Post to the announcements feed<small>Name and date only &mdash; never a photo of a minor.</small></span></label></div></div></div>
+<div class="c-actionbar"><button class="c-btn c-btn--secondary c-btn--sm" type="button">Cancel</button><button class="c-btn c-btn--block" type="button">Continue</button></div>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">03</span><h3>Announce a birth</h3></div><p>Same shape as the wedding form, one critical difference: the minor notice is a blocking, acknowledged statement rather than fine print. A child&rsquo;s record is created restricted &mdash; out of both directories, out of search, visible only to verified relatives &mdash; and the restriction does not lift automatically at 18; the person has to consent.</p><div class="chips"><span class="dchip dchip--priv">Minor record restricted by default</span><span class="dchip">&#10003; new life-event module</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><span class="hdr__t">Announcements<span class="hdr__sub">Detroit Club &middot; national feed</span></span><button class="hdr__b" type="button" aria-label="Notifications"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.6a4.6 4.6 0 0 0-4.6 4.6c0 4-1.5 5.2-1.5 5.2h12.2s-1.5-1.2-1.5-5.2A4.6 4.6 0 0 0 10 2.6Z"/><path d="M11.4 15.6a1.6 1.6 0 0 1-2.8 0"/></svg></button></div><div class="hdr__tabs"><div class="c-tabs" role="tablist"><button class="c-tab is-on" role="tab" aria-selected="true">All</button><button class="c-tab" role="tab" aria-selected="false">Weddings</button><button class="c-tab" role="tab" aria-selected="false">Births</button><button class="c-tab" role="tab" aria-selected="false">Milestones</button><button class="c-tab" role="tab" aria-selected="false">In memoriam</button></div></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="hl" data-hl=".c-ann &middot; wedding"><article class="c-ann"><div class="c-ann__banner"><div class="c-ann__kind" style="position:relative">Wedding</div><h3 class="c-ann__title">Tarek Khoury &amp; Dina Mogannam</h3><div style="position:relative;font-size:var(--fs-xs);opacity:.92;margin-top:var(--s1)" class="num">12 Sep 2026 &middot; Southfield MI</div></div><div class="c-ann__body"><p class="tiny" style="margin:0 0 var(--s3)">Married at St George Church. Tarek is the son of Marwan and Nadia Khoury of the Detroit Club; Dina joins from the Chicago Club.</p><div class="between"><div style="display:flex;align-items:center"><span class="c-avatar c-avatar--sm">NK</span><span class="c-avatar c-avatar--sm c-avatar--stack">SM</span><span class="c-avatar c-avatar--sm c-avatar--stack">HS</span><span class="tiny" style="margin-left:var(--s3)">48 congratulated</span></div></div><button class="c-btn c-btn--sm c-btn--block" type="button" style="margin-top:var(--s3)"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.2s-5.8-3.6-5.8-7.4a3.3 3.3 0 0 1 5.8-2.2 3.3 3.3 0 0 1 5.8 2.2c0 3.8-5.8 7.4-5.8 7.4Z"/></svg>Congratulate</button></div></article></div><article class="c-ann"><div class="c-ann__banner c-ann__banner--birth"><div class="c-ann__kind" style="position:relative">Birth</div><h3 class="c-ann__title">Zayn Ajluni</h3><div style="position:relative;font-size:var(--fs-xs);opacity:.92;margin-top:var(--s1)" class="num">3 Aug 2026 &middot; Evanston IL</div></div><div class="c-ann__body"><p class="tiny" style="margin:0 0 var(--s3)">Born to Rana and Karim Ajluni of the Chicago Club. Fourth generation of the Ajluni clan in Illinois.</p><div class="between"><span class="c-pill c-pill--muted"><svg width="12" height="12" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg> No photo &middot; minor</span><button class="c-btn c-btn--sm c-btn--secondary" type="button"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.2s-5.8-3.6-5.8-7.4a3.3 3.3 0 0 1 5.8-2.2 3.3 3.3 0 0 1 5.8 2.2c0 3.8-5.8 7.4-5.8 7.4Z"/></svg>Congratulate</button></div></div></article><article class="c-card"><div class="between" style="align-items:flex-start"><div style="min-width:0"><span class="c-pill c-pill--new">Milestone</span><h3 class="c-card__title" style="margin-top:var(--s2)">Dr Hala Shaheen &mdash; 25 years on Medical Mission</h3><div class="c-card__sub">Recognised at the Cleveland Club dinner &middot; 28 Jul 2026</div></div></div><p class="tiny" style="margin:var(--s3) 0 0">Twenty-five consecutive years of service, including nine missions to Ramallah and the founding of the paediatric clinic rotation.</p><div class="between" style="margin-top:var(--s3)"><span class="tiny">31 congratulated</span><button class="c-btn c-btn--sm c-btn--secondary" type="button"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.2s-5.8-3.6-5.8-7.4a3.3 3.3 0 0 1 5.8-2.2 3.3 3.3 0 0 1 5.8 2.2c0 3.8-5.8 7.4-5.8 7.4Z"/></svg>Congratulate</button></div></article></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">04</span><h3>Announcements feed</h3></div><p>The community pulse: weddings, births, milestones and memorials in one feed built from <code>.c-ann</code> cards, colour-coded by kind. Congratulating is one tap and it reaches the family as a notification, not a comment thread. Birth cards carry no photograph, by policy.</p><div class="chips"><span class="dchip">&#10003; community feed</span><span class="dchip dchip--priv">Members only, no photo on minors</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Added to your tree<span class="hdr__sub">Wedding &middot; 12 Sep 2026</span></span><button class="hdr__b" type="button" aria-label="More"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.3" fill="currentColor" stroke="none"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-alert c-alert--ok"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg><div><b>2 provisional records created</b>They are in your tree now. They are not yet part of the canonical AFRP tree.</div></div><h4 class="sect-h">What was created</h4><div class="stack stack--sm"><div class="c-tnode c-tnode--provisional"><span class="c-avatar c-avatar--sm" style="background:var(--amber-50);color:var(--amber-700)">DM</span><span class="tnode-txt"><span class="c-tnode__name">Dina Yousef Mogannam</span><span class="c-tnode__meta">Person &middot; spouse of Tarek Khoury</span></span><span class="c-pill c-pill--warn" style="margin-left:auto">Unverified</span></div><div class="c-tnode c-tnode--provisional"><span class="c-avatar c-avatar--sm" style="background:var(--amber-50);color:var(--amber-700)"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.6" cy="11" r="4.4"/><circle cx="12.4" cy="11" r="4.4"/></svg></span><span class="tnode-txt"><span class="c-tnode__name">Marriage union</span><span class="c-tnode__meta">Gen 16 &middot; Haddad &#215; Mogannam</span></span><span class="c-pill c-pill--warn" style="margin-left:auto">Unverified</span></div></div><div class="c-alert c-alert--warn hl hl--amber" data-hl="What unverified means"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg><div><b>A moderator will confirm this</b>Until then these records are visible to you and to Dina, are marked unverified everywhere they appear, and are left out of tree exports, statistics and public lineage paths. Nothing you submitted is deleted if it is queried &mdash; you will be asked for a source.</div></div><h4 class="sect-h">Where it is now</h4><div class="c-card c-card--flush"><div class="c-timeline"><div class="c-tl-item"><div class="c-tl-item__when">12 Sep 2026 &middot; 9:41</div><b style="font-size:var(--fs-sm)">Submitted by Tarek Khoury</b><div class="tiny">Wedding announcement, with photo</div></div><div class="c-tl-item"><div class="c-tl-item__when">Today</div><b style="font-size:var(--fs-sm)">In the Haddad clan queue</b><div class="tiny">Position 4 of 11 &middot; moderator: N. Jaghab</div></div><div class="c-tl-item c-tl-item--muted" style="padding-bottom:0"><div class="c-tl-item__when">Expected</div><b style="font-size:var(--fs-sm);color:var(--ink-3)">Confirmed into the canonical tree</b><div class="tiny">Typically 5&ndash;10 days. You will be notified either way.</div></div></div></div><div class="c-card c-card--flush"><div class="between"><span class="tiny"><b>Speed this up.</b> A source citation &mdash; a church record, a licence number &mdash; lets a moderator confirm without writing to you.</span></div><button class="c-btn c-btn--sm c-btn--secondary c-btn--block" type="button" style="margin-top:var(--s3)"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg>Add a source</button></div></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">05</span><h3>Life event &rarr; tree confirmation</h3></div><p>The bridge between the member-facing life event and the genealogy database. Provisional records appear <em>immediately</em> &mdash; the member is not left wondering whether anything happened &mdash; but they are dashed, amber, and labelled unverified, and they are excluded from the canonical tree, from exports and from search until a clan moderator confirms. The queue position is shown honestly.</p><div class="chips"><span class="dchip dchip--dec">Decision 2 &middot; provisional records</span><span class="dchip dchip--prov">Excluded from canonical tree</span></div></figcaption>
+</figure>
+</div>
+<div class="grouphead"><span class="n">Frames 06&ndash;09</span><h2>Family tree</h2><p>Thirty thousand people and five centuries, opened on a phone at the one place a member cares about &mdash; their own line &mdash; with living people protected and every claim sourced.</p></div>
+<div class="frames">
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome chrome--green"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><span class="hdr__t">Family tree<span class="hdr__sub">29,847 people &middot; 8 clans &middot; 17 generations</span></span><button class="hdr__b" type="button" aria-label="Filter"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5h13M6 10h8M8.5 14.5h3"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-search"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5.2"/><path d="m13 13 3.4 3.4"/></svg><label class="u-sr" for="t-q">Search</label><input id="t-q" type="search" placeholder="Search 29,847 people"></div><div class="stats hl" data-hl="Scale, stated plainly"><div class="stat stat--accent"><b class="num">29,847</b><span>People</span></div><div class="stat"><b class="num">8</b><span>Clans</span></div><div class="stat"><b class="num">17</b><span>Generations</span></div><div class="stat"><b class="num">509</b><span>Years</span></div></div><h4 class="sect-h">Clans<span class="r">See all 8</span></h4><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="c-chip is-on" type="button">Haddad <span class="muted num">6,120</span></button><button class="c-chip" type="button">Yacoub <span class="muted num">4,880</span></button><button class="c-chip" type="button">Shaheen <span class="muted num">4,410</span></button><button class="c-chip" type="button">Ajluni <span class="muted num">3,905</span></button><button class="c-chip" type="button">Zarou <span class="muted num">3,240</span></button><button class="c-chip" type="button">Kassis</button><button class="c-chip" type="button">Jaghab</button><button class="c-chip" type="button">Salameh</button></div><h4 class="sect-h">My line<span class="r">Haddad clan</span></h4><div class="c-card c-card--flush"><div class="c-timeline"><div class="c-tl-item"><div class="c-tl-item__when">Generation 1</div><div class="c-tnode" style="margin-top:5px;background:var(--green-50);border-color:var(--green-200)"><span class="c-avatar c-avatar--sm" style="background:var(--green-800);color:#fff">R</span><span class="tnode-txt"><span class="c-tnode__name">Rashed El-Haddadeen</span><span class="c-tnode__meta">c. 1517 &ndash; 1583 &middot; Ramallah</span></span></div></div><div class="c-tl-item"><div class="c-tl-item__when">Generation 2</div><div class="c-tnode" style="margin-top:5px"><span class="c-avatar c-avatar--sm">HR</span><span class="tnode-txt"><span class="c-tnode__name">Haddad Rashed</span><span class="c-tnode__meta">c. 1549 &ndash; 1620 &middot; clan founder</span></span></div></div><div class="c-tl-item c-tl-item--muted"><button class="collapsed" type="button">&#8942;&nbsp; 11 generations collapsed &mdash; tap to expand<span style="margin-left:auto">&#9662;</span></button></div><div class="c-tl-item"><div class="c-tl-item__when">Generation 14</div><div class="c-tnode" style="margin-top:5px"><span class="c-avatar c-avatar--sm">FK</span><span class="tnode-txt"><span class="c-tnode__name">Fuad Elias Khoury</span><span class="c-tnode__meta">1932 &ndash; 2011 &middot; Ramallah &rarr; Detroit MI</span></span></div></div><div class="c-tl-item"><div class="c-tl-item__when">Generation 15 &middot; you</div><div class="c-tnode c-tnode--me" style="margin-top:5px"><span class="c-avatar c-avatar--sm" style="background:var(--accent);color:#fff">MK</span><span class="tnode-txt"><span class="c-tnode__name">Marwan Fuad Khoury</span><span class="c-tnode__meta">b. 1974 &middot; Detroit Club &middot; #10428</span></span><span class="c-pill c-pill--ok" style="margin-left:auto">You</span></div></div><div class="c-tl-item" style="padding-bottom:0"><div class="c-tl-item__when">Generation 16</div><div class="stack stack--xs" style="margin-top:5px"><div class="c-tnode"><span class="c-avatar c-avatar--sm">TK</span><span class="tnode-txt"><span class="c-tnode__name">Tarek Khoury</span><span class="c-tnode__meta">b. 2005 &middot; m. Dina Mogannam 2026</span></span></div><div class="c-tnode c-tnode--provisional"><span class="c-avatar c-avatar--sm" style="background:var(--amber-50);color:var(--amber-700)">DM</span><span class="tnode-txt"><span class="c-tnode__name">Dina Mogannam</span><span class="c-tnode__meta">Spouse of Tarek &middot; pending</span></span><span class="c-pill c-pill--warn" style="margin-left:auto">Unverified</span></div><div class="c-tnode"><span class="c-avatar c-avatar--sm">BK</span><span class="tnode-txt"><span class="c-tnode__name">Basim Khoury</span><span class="c-tnode__meta">b. 2006 &middot; Detroit Club</span></span></div><div class="c-tnode"><span class="c-avatar c-avatar--sm"><svg width="13" height="13" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg></span><span class="tnode-txt"><span class="c-tnode__name">Layla Khoury</span><span class="c-tnode__meta">b. 2012 &middot; restricted &mdash; minor</span></span></div></div></div></div></div></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">06</span><h3>Tree home &mdash; my lineage</h3></div><p>The 500-year tree opened where every member wants it opened: on themselves, with an unbroken line back to Rashed El-Haddadeen. Middle generations collapse into a single tappable row so the path stays legible on a phone. Clan chips filter the whole tree; the four statistics give the collection a size a member can hold in their head.</p><div class="chips"><span class="dchip">&#10003; 500-year tree, mobile-first</span><span class="dchip dchip--prov">1 provisional node in line</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Shaheen<span class="hdr__sub">412 results across 3 clans</span></span><button class="hdr__b" type="button" aria-label="Filter"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5h13M6 10h8M8.5 14.5h3"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-search"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5.2"/><path d="m13 13 3.4 3.4"/></svg><label class="u-sr" for="t-q2">Search</label><input id="t-q2" type="search" placeholder="Shaheen"></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="c-chip is-on" type="button">All clans</button><button class="c-chip" type="button">Shaheen <span class="muted num">361</span></button><button class="c-chip" type="button">Yacoub <span class="muted num">39</span></button><button class="c-chip" type="button">Haddad <span class="muted num">12</span></button></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="c-chip is-on" type="button"><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg>Deceased <span class="muted num">287</span></button><button class="c-chip" type="button">Living <span class="muted num">125</span></button><button class="c-chip" type="button">Has sources</button></div><h4 class="sect-h">Deceased &mdash; full record<span class="r">287</span></h4><div class="c-card c-card--flush"><div class="stack stack--sm"><a class="c-tnode" href="#" style="text-decoration:none;color:inherit"><span class="c-avatar c-avatar--sm">KS</span><span class="tnode-txt"><span class="c-tnode__name">Khalil Yacoub Shaheen</span><span class="c-tnode__meta">1898 &ndash; 1974 &middot; Ramallah &rarr; Detroit MI &middot; Gen 12</span></span><span class="c-pill c-pill--info" style="margin-left:auto">3 sources</span></a><a class="c-tnode" href="#" style="text-decoration:none;color:inherit"><span class="c-avatar c-avatar--sm">MS</span><span class="tnode-txt"><span class="c-tnode__name">Miriam Kassis Shaheen</span><span class="c-tnode__meta">1903 &ndash; 1988 &middot; Ramallah &middot; Gen 12</span></span><span class="c-pill c-pill--info" style="margin-left:auto">2 sources</span></a><a class="c-tnode" href="#" style="text-decoration:none;color:inherit"><span class="c-avatar c-avatar--sm">AS</span><span class="tnode-txt"><span class="c-tnode__name">Anton Khalil Shaheen</span><span class="c-tnode__meta">1926 &ndash; 2004 &middot; Detroit MI &middot; Gen 13</span></span><span class="c-pill c-pill--muted" style="margin-left:auto">1 source</span></a><a class="c-tnode c-tnode--provisional" href="#" style="text-decoration:none;color:inherit"><span class="c-avatar c-avatar--sm" style="background:var(--amber-50);color:var(--amber-700)">JS</span><span class="tnode-txt"><span class="c-tnode__name">Jamil Anton Shaheen</span><span class="c-tnode__meta">1949 &ndash; 2019 &middot; death date proposed</span></span><span class="c-pill c-pill--warn" style="margin-left:auto">Unverified</span></a></div></div><h4 class="sect-h">Living &mdash; restricted<span class="r">125</span></h4><div class="c-card c-card--flush hl hl--amber" data-hl="Name + clan only"><div class="stack stack--sm"><div class="c-tnode"><span class="lock" style="width:32px;height:32px"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg></span><span class="tnode-txt"><span class="c-tnode__name">Hala Shaheen</span><span class="c-tnode__meta">Living &middot; Shaheen clan &middot; details restricted</span></span><button class="linkbtn" style="margin-left:auto" type="button">Request</button></div><div class="c-tnode"><span class="lock" style="width:32px;height:32px"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg></span><span class="tnode-txt"><span class="c-tnode__name">George Shaheen</span><span class="c-tnode__meta">Living &middot; Shaheen clan &middot; details restricted</span></span><button class="linkbtn" style="margin-left:auto" type="button">Request</button></div><div class="c-tnode" style="background:var(--green-50);border-color:var(--green-200)"><span class="c-avatar c-avatar--sm">NS</span><span class="tnode-txt"><span class="c-tnode__name">Nadia Shaheen Khoury</span><span class="c-tnode__meta">b. 1971 &middot; Detroit Club &middot; your spouse</span></span><span class="c-pill c-pill--ok" style="margin-left:auto">Relative</span></div></div></div><p class="tiny"><b>Why two treatments.</b> Living people are shown by name and clan so the tree stays navigable, but dates, places and relationships open only to verified relatives. Requests go to the person, not to a moderator.</p></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">07</span><h3>Tree search results</h3></div><p>A surname search runs across all eight clans at once. The design carries one hard rule visibly: deceased records show dates, places and sources; living people show a name, a clan and nothing else unless you are a verified relative. The restricted rows are not errors and are not hidden &mdash; they are labelled, with an honest route to request access.</p><div class="chips"><span class="dchip dchip--priv">Living records restricted</span><span class="dchip">&#10003; cross-clan search</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Khalil Yacoub Shaheen<span class="hdr__sub">Generation 12 &middot; Shaheen clan</span></span><button class="hdr__b" type="button" aria-label="More"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.3" fill="currentColor" stroke="none"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-card" style="text-align:center"><span class="c-avatar c-avatar--lg" style="margin:0 auto">KS</span><h3 class="c-card__title" style="margin-top:var(--s3)">Khalil Yacoub Shaheen</h3><div class="c-card__sub num">1898 &ndash; 1974 &middot; lived 76 years</div><div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:var(--s3)"><span class="c-pill c-pill--ok">Shaheen clan</span><span class="c-pill c-pill--muted">Gen 12</span><span class="c-pill c-pill--info">3 sources</span></div></div><div class="c-alert c-alert--warn hl hl--amber" data-hl="Contested field"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg><div><b>1 provisional edit pending</b>Place of death: <s>Ramallah</s> &rarr; <strong>Detroit MI</strong>. Submitted by N. Khoury, 4 Aug 2026, citing a Wayne County death certificate. Awaiting the Shaheen moderator.</div></div><h4 class="sect-h">Facts</h4><div class="c-card c-card--flush"><div class="c-dl"><div class="c-dl__row"><span class="c-dl__k">Born</span><span class="c-dl__v">14 Mar 1898 &middot; Ramallah</span></div><div class="c-dl__row"><span class="c-dl__k">Died</span><span class="c-dl__v">2 Nov 1974 &middot; Ramallah <span class="c-pill c-pill--warn">edit</span></span></div><div class="c-dl__row"><span class="c-dl__k">Emigrated</span><span class="c-dl__v">1921 &middot; via Marseille</span></div><div class="c-dl__row"><span class="c-dl__k">Occupation</span><span class="c-dl__v">Grocer, Michigan Ave</span></div><div class="c-dl__row"><span class="c-dl__k">Children</span><span class="c-dl__v">6 recorded</span></div></div></div><h4 class="sect-h">Relationships</h4><div class="c-card c-card--flush"><div class="stack stack--sm"><div class="c-tnode"><span class="c-avatar c-avatar--sm">MS</span><span class="tnode-txt"><span class="c-tnode__name">Miriam Kassis Shaheen</span><span class="c-tnode__meta">Spouse &middot; m. 1922 &middot; 1903&ndash;1988</span></span></div><div class="c-tnode"><span class="c-avatar c-avatar--sm">YS</span><span class="tnode-txt"><span class="c-tnode__name">Yacoub Ibrahim Shaheen</span><span class="c-tnode__meta">Father &middot; 1871&ndash;1939</span></span></div><div class="c-tnode"><span class="c-avatar c-avatar--sm">SZ</span><span class="tnode-txt"><span class="c-tnode__name">Sara Zarou</span><span class="c-tnode__meta">Mother &middot; 1876&ndash;1951</span></span></div><button class="collapsed" type="button">&#8942;&nbsp; 6 children and 19 grandchildren<span style="margin-left:auto">&#9662;</span></button></div></div><h4 class="sect-h">Sources</h4><div class="c-card c-card--flush"><div class="c-row"><span class="pico pico--m"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">Shaheen 1982, p.&nbsp;214</b><span><i>The Shaheen Family of Ramallah</i> &middot; birth, marriage, children</span></span></div><div class="c-row"><span class="pico pico--m"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">St George Parish register, 1898</b><span>Ramallah &middot; baptism, 22 Mar 1898</span></span></div><div class="c-row" style="border-bottom:0"><span class="pico pico--m"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">US Census 1940</b><span>Wayne County MI &middot; household of 8</span></span></div></div><div class="rowbtns"><button class="c-btn c-btn--secondary c-btn--sm" type="button">View in tree</button><button class="c-btn c-btn--sm" type="button">Suggest a correction</button></div></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">08</span><h3>Person detail</h3></div><p>One ancestor, with the evidence attached. Sources are first-class content, cited the way the genealogy community actually cites them, because an unsourced assertion is what a moderator will reject. Any provisional edit sitting against this person is shown at the top &mdash; you always know whether what you are reading is contested.</p><div class="chips"><span class="dchip">&#10003; sources as first-class data</span><span class="dchip dchip--prov">Pending edit surfaced</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Suggest a correction<span class="hdr__sub">Khalil Yacoub Shaheen &middot; Gen 12</span></span><button class="hdr__b" type="button" aria-label="Close">&#215;</button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-field"><label class="c-field__label" for="c-field">Which fact is wrong?</label><select class="c-select" id="c-field"><option>Place of death</option><option>Date of death</option><option>Date of birth</option><option>Name spelling</option><option>Spouse</option><option>Parent</option><option>Occupation</option></select></div><div class="hl" data-hl="Before &rarr; after, side by side"><div class="c-field" style="margin-bottom:var(--s3)"><span class="c-field__label">Currently recorded</span><div style="min-height:var(--touch);display:flex;align-items:center;padding:var(--s3) var(--s4);background:var(--surface-sunken);border:1px solid var(--line);border-radius:var(--r-sm);color:var(--ink-3);text-decoration:line-through">Ramallah</div><div class="c-field__hint">Source: Shaheen 1982, p.&nbsp;214</div></div><div class="c-field"><label class="c-field__label" for="c-new">Should be</label><input class="c-input" id="c-new" type="text" value="Detroit, Michigan, USA"></div></div><div class="c-field"><label class="c-field__label" for="c-src">Source citation <span style="color:var(--red-700)">*</span></label><textarea class="c-textarea" id="c-src">Certificate of Death, Wayne County MI, file no. 74-118440, registered 5 Nov 1974. Copy held by the family.</textarea><div class="c-field__hint">Book and page, register, certificate number, or archive reference. Corrections without a source are returned unreviewed &mdash; moderators are volunteers.</div></div><div class="c-field"><span class="c-field__label">Supporting document</span><div class="c-row" style="padding:var(--s2) 0;border-bottom:0"><span class="pico pico--m"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">death-cert-1974.pdf</b><span class="num">1.2 MB &middot; uploaded just now</span></span><span class="c-row__end"><button class="linkbtn" type="button">Remove</button></span></div><label class="drop" for="c-file" style="min-height:76px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4.5v11M4.5 10h11"/></svg><b>Add another file</b>PDF or image, up to 10 MB</label><input class="u-sr" type="file" id="c-file"></div><div class="c-field"><label class="c-field__label" for="c-note">Note to the moderator</label><textarea class="c-textarea" id="c-note" style="min-height:76px">He returned to Detroit in 1969 and did not travel again. The 1982 book has this wrong.</textarea></div><div class="c-alert c-alert--info"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg><div><b>What happens next</b>Your change shows on his record as a provisional edit straight away, marked unverified and attributed to you. The Shaheen clan moderator confirms, queries or declines it &mdash; typically within 10 days. The canonical value does not change until then.</div></div></div></div>
+<div class="c-actionbar"><button class="c-btn c-btn--secondary c-btn--sm" type="button">Cancel</button><button class="c-btn c-btn--block" type="button">Submit correction</button></div>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">09</span><h3>Submit a correction</h3></div><p>Corrections are structured, not free text: pick the field, see the current value beside the proposed one, and cite a source. The citation field is required and says why &mdash; unsourced corrections are the single biggest cost to a volunteer moderator. The screen closes by restating what happens next, so no one expects an instant change.</p><div class="chips"><span class="dchip dchip--dec">Decision 2 &middot; provisional until confirmed</span><span class="dchip">&#10003; source required</span></div></figcaption>
+</figure>
+</div>
+<div class="grouphead"><span class="n">Frames 10&ndash;12</span><h2>Directories</h2><p>Two directories, one privacy model. Members only, every field opt-in, and a preview that renders from the same data the directory does.</p></div>
+<div class="frames">
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><span class="hdr__t">Member directory<span class="hdr__sub">1,284 of 8,610 shown</span></span><button class="hdr__b" type="button" aria-label="Filter"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5.5h13M6 10h8M8.5 14.5h3"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-alert c-alert--info"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg><div><b>Members only</b>This directory is behind sign-in, is not indexed by search engines, and cannot be exported. Bulk contact is not available to members.</div></div><div class="c-search"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5.2"/><path d="m13 13 3.4 3.4"/></svg><label class="u-sr" for="d-q">Search</label><input id="d-q" type="search" placeholder="Name, club, city"></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="c-chip is-on" type="button">Detroit Club</button><button class="c-chip" type="button">All 18 clubs</button><button class="c-chip" type="button">Haddad</button><button class="c-chip" type="button">Shaheen</button><button class="c-chip" type="button">Ajluni</button></div><div class="c-card c-card--flush hl" data-hl="Per-field opt-in, visible"><div class="c-row"><span class="c-avatar">NK</span><span class="c-row__main"><b>Nadia Shaheen Khoury</b><span>Detroit Club &middot; Shaheen &middot; Bloomfield Hills MI</span><span>nadia.khoury@example.org</span></span><span class="c-row__end"><button class="iconbtn" type="button" aria-label="Message this member"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.8" width="14" height="10.4" rx="2"/><path d="m3.6 6 6.4 4.6L16.4 6"/></svg></button></span></div><div class="c-row"><span class="c-avatar">SM</span><span class="c-row__main"><b>Samir Mogannam</b><span>Detroit Club &middot; Yacoub &middot; Dearborn MI</span><span class="muted">Contact details hidden by this member</span></span><span class="c-row__end"><button class="iconbtn" type="button" aria-label="Message this member"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.8" width="14" height="10.4" rx="2"/><path d="m3.6 6 6.4 4.6L16.4 6"/></svg></button></span></div><div class="c-row"><span class="c-avatar">HS</span><span class="c-row__main"><b>Dr Hala Shaheen</b><span>Detroit Club &middot; Shaheen &middot; Detroit MI</span><span>hala.shaheen@example.org</span></span><span class="c-row__end"><button class="iconbtn" type="button" aria-label="Message this member"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.8" width="14" height="10.4" rx="2"/><path d="m3.6 6 6.4 4.6L16.4 6"/></svg></button></span></div><div class="c-row"><span class="c-avatar">GZ</span><span class="c-row__main"><b>George Zarou</b><span>Detroit Club &middot; Zarou &middot; Sterling Heights MI</span><span class="muted">Email hidden &middot; mobile hidden</span></span><span class="c-row__end"><button class="iconbtn" type="button" aria-label="Message this member"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.8" width="14" height="10.4" rx="2"/><path d="m3.6 6 6.4 4.6L16.4 6"/></svg></button></span></div><div class="c-row"><span class="c-avatar">RJ</span><span class="c-row__main"><b>Rula Jaghab</b><span>Detroit Club &middot; Jaghab &middot; Troy MI</span><span>rula.jaghab@example.org</span></span><span class="c-row__end"><button class="iconbtn" type="button" aria-label="Message this member"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.8" width="14" height="10.4" rx="2"/><path d="m3.6 6 6.4 4.6L16.4 6"/></svg></button></span></div><div class="c-row" style="border-bottom:0"><span class="c-avatar">MK</span><span class="c-row__main"><b>Marwan Fuad Khoury</b><span>Detroit Club &middot; Haddad &middot; Bloomfield Hills MI</span><span>marwan.khoury@example.org</span></span><span class="c-row__end"><span class="c-pill c-pill--ok">You</span></span></div></div><p class="tiny">Showing 6 of 412 Detroit Club members. <button class="linkbtn" type="button">Change what others see about you</button></p></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">10</span><h3>Member directory</h3></div><p>Members only, and it says so at the top rather than burying it in a policy page. Every row renders exactly the fields that member chose to publish &mdash; a hidden email is shown as an explicit state, never as a blank line, and never as a broken link. Filters cover the two axes members actually think in: their club and their clan.</p><div class="chips"><span class="dchip dchip--dec">Decision 4 &middot; members-only, per-field opt-in</span><span class="dchip dchip--priv">Hidden fields render as a state</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">RBPN<span class="hdr__sub">Ramallah Business Professionals Network</span></span><button class="hdr__b" type="button" aria-label="Search"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5.2"/><path d="m13 13 3.4 3.4"/></svg></button></div><div class="hdr__tabs"><div class="c-tabs" role="tablist"><button class="c-tab is-on" role="tab" aria-selected="true">All</button><button class="c-tab" role="tab" aria-selected="false">Medicine</button><button class="c-tab" role="tab" aria-selected="false">Law</button><button class="c-tab" role="tab" aria-selected="false">Engineering</button><button class="c-tab" role="tab" aria-selected="false">Finance</button><button class="c-tab" role="tab" aria-selected="false">Technology</button><button class="c-tab" role="tab" aria-selected="false">Real estate</button></div></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="between"><span class="tiny"><b class="num">1,940</b> professionals &middot; 22 industries</span><button class="linkbtn" type="button">Add my business</button></div><article class="c-card hl" data-hl="Introduction, not an email address"><div style="display:flex;gap:var(--s3);align-items:flex-start"><span class="c-avatar c-avatar--lg">HS</span><div style="min-width:0;flex:1"><h3 class="c-card__title">Dr Hala Shaheen</h3><div class="c-card__sub">Interventional cardiologist</div><div class="tiny" style="margin-top:var(--s2)"><b>Henry Ford Health</b><br>Detroit, Michigan</div></div></div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:var(--s3)"><span class="c-pill c-pill--info">Medicine</span><span class="c-pill c-pill--muted">RBPN since 2019</span><span class="c-pill c-pill--ok">Mentors students</span></div><div class="between" style="margin-top:var(--s4)"><span class="tiny">2 shared connections</span></div><button class="c-btn c-btn--sm c-btn--block" type="button" style="margin-top:var(--s3)">Request introduction</button></article><article class="c-card"><div style="display:flex;gap:var(--s3);align-items:flex-start"><span class="c-avatar c-avatar--lg">SJ</span><div style="min-width:0;flex:1"><h3 class="c-card__title">Sami Jaghab</h3><div class="c-card__sub">Managing partner, immigration law</div><div class="tiny" style="margin-top:var(--s2)"><b>Jaghab &amp; Associates LLP</b><br>Chicago, Illinois</div></div></div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:var(--s3)"><span class="c-pill c-pill--info">Law</span><span class="c-pill c-pill--muted">RBPN since 2014</span><span class="c-pill c-pill--new">Hiring</span></div><div class="between" style="margin-top:var(--s4)"><span class="tiny">1 shared connection</span></div><button class="c-btn c-btn--sm c-btn--block" type="button" style="margin-top:var(--s3)">Request introduction</button></article><article class="c-card"><div style="display:flex;gap:var(--s3);align-items:flex-start"><span class="c-avatar c-avatar--lg">LZ</span><div style="min-width:0;flex:1"><h3 class="c-card__title">Layla Zarou</h3><div class="c-card__sub">Principal structural engineer</div><div class="tiny" style="margin-top:var(--s2)"><b>Zarou Structural</b><br>San Francisco, California</div></div></div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:var(--s3)"><span class="c-pill c-pill--info">Engineering</span><span class="c-pill c-pill--muted">RBPN since 2021</span></div><div class="between" style="margin-top:var(--s4)"><span class="tiny">Bay Area Club</span></div><button class="c-btn c-btn--sm c-btn--block" type="button" style="margin-top:var(--s3)">Request introduction</button></article><article class="c-card"><div style="display:flex;gap:var(--s3);align-items:flex-start"><span class="c-avatar c-avatar--lg">NK</span><div style="min-width:0;flex:1"><h3 class="c-card__title">Nabil Kassis</h3><div class="c-card__sub">Managing director, commercial real estate</div><div class="tiny" style="margin-top:var(--s2)"><b>Kassis Property Group</b><br>Jacksonville, Florida</div></div></div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:var(--s3)"><span class="c-pill c-pill--info">Real estate</span><span class="c-pill c-pill--muted">RBPN since 2009</span></div><div class="between" style="margin-top:var(--s4)"><span class="tiny">Jacksonville Club</span></div><button class="c-btn c-btn--sm c-btn--block" type="button" style="margin-top:var(--s3)">Request introduction</button></article></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">11</span><h3>Professional directory (RBPN)</h3></div><p>The Ramallah Business Professionals Network as a browse-by-industry card deck. The action is &ldquo;request an introduction&rdquo;, not a raw email address: the request routes through the platform, shows the shared connection it is based on, and the recipient can decline without ever exposing their contact details. That is what makes a members-only network safe to open up.</p><div class="chips"><span class="dchip dchip--dec">Decision 4 &middot; opt-in professional fields</span><span class="dchip">&#10003; brokered introductions</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Directory privacy<span class="hdr__sub">Marwan Khoury &middot; #10428</span></span></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-alert c-alert--info"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg><div><b>Nothing here is on unless you turn it on</b>These settings apply to the member directory and to RBPN. They never apply to the public website.</div></div><h4 class="sect-h">Always visible to members</h4><div class="c-card c-card--flush"><label class="c-switch c-switch--locked" for="p-name"><span class="c-switch__lab">Name and clan<small>Required &mdash; the directory is a member roster.</small></span><input class="u-sr" type="checkbox" id="p-name" disabled><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch c-switch--locked" for="p-club"><span class="c-switch__lab">Local club<small>Your club officers can always see this.</small></span><input class="u-sr" type="checkbox" id="p-club" disabled><span class="c-switch__track" aria-hidden="true"></span></label></div><h4 class="sect-h">Your choice</h4><div class="c-card c-card--flush hl" data-hl="Field by field"><label class="c-switch" for="p-photo"><span class="c-switch__lab">Profile photo</span><input class="u-sr" type="checkbox" id="p-photo" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="p-city"><span class="c-switch__lab">City and state<small>Never your street address.</small></span><input class="u-sr" type="checkbox" id="p-city" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="p-email"><span class="c-switch__lab">Email address</span><input class="u-sr" type="checkbox" id="p-email" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="p-mob"><span class="c-switch__lab">Mobile number</span><input class="u-sr" type="checkbox" id="p-mob"><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="p-job"><span class="c-switch__lab">Profession and employer<small>Also publishes you to RBPN.</small></span><input class="u-sr" type="checkbox" id="p-job" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="p-tree"><span class="c-switch__lab">Link to my family-tree record</span><input class="u-sr" type="checkbox" id="p-tree" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="p-bday"><span class="c-switch__lab">Birthday (day and month only)</span><input class="u-sr" type="checkbox" id="p-bday"><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="p-tier"><span class="c-switch__lab">Membership tier</span><input class="u-sr" type="checkbox" id="p-tier"><span class="c-switch__track" aria-hidden="true"></span></label></div><h4 class="sect-h">How your card looks to others</h4><div class="c-card c-card--raised hl" data-hl="Same renderer as the directory" style="background:var(--surface-2)"><div class="c-row" style="border-bottom:0;padding:0"><span class="c-avatar c-avatar--lg">MK</span><span class="c-row__main" style="margin-left:var(--s3)"><b>Marwan Fuad Khoury</b><span>Detroit Club &middot; Haddad clan</span><span>Bloomfield Hills MI</span><span>marwan.khoury@example.org</span><span>Principal &middot; Khoury Dental Group</span></span></div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:var(--s3)"><span class="c-pill c-pill--ok">View family tree</span><span class="c-pill c-pill--info">RBPN &middot; Medicine</span></div><p class="tiny" style="margin:var(--s3) 0 0">Hidden: mobile number, birthday, membership tier.</p></div><p class="tiny">Turning off <b>Profession and employer</b> also removes you from RBPN. Club officers always see your name, club and whether your dues are current.</p></div></div>
+<div class="c-actionbar"><button class="c-btn c-btn--block" type="button">Save privacy settings</button></div>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">12</span><h3>My directory privacy</h3></div><p>The control surface behind the two directories. Every publishable field is an individual switch, all off unless turned on, and the card preview updates from the same data the directory renders &mdash; so there is no gap between what a member thinks they published and what other members see. The two things AFRP cannot hide are stated rather than silently enforced.</p><div class="chips"><span class="dchip dchip--dec">Decision 4 &middot; per-field opt-in</span><span class="dchip dchip--priv">Off by default</span><span class="dchip">&#10003; live preview</span></div></figcaption>
+</figure>
+</div>
+<div class="grouphead"><span class="n">Frames 13&ndash;15</span><h2>Local club portal</h2><p>The club tooling that has to be better than Breeze on the day it replaces it &mdash; run from a volunteer officer&rsquo;s phone, not a laptop in a back office.</p></div>
+<div class="frames">
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome chrome--green"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Detroit Club<span class="hdr__sub">Founded 1954 &middot; 412 members</span></span><button class="hdr__b" type="button" aria-label="More"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.3" fill="currentColor" stroke="none"/></svg></button></div><div class="hdr__tabs"><div class="c-tabs" role="tablist"><button class="c-tab is-on" role="tab" aria-selected="true">Feed</button><button class="c-tab" role="tab" aria-selected="false">Events</button><button class="c-tab" role="tab" aria-selected="false">Officers</button><button class="c-tab" role="tab" aria-selected="false">About</button></div></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-card c-card--flush"><div class="between"><div style="min-width:0"><b style="font-size:var(--fs-sm)">You are a member</b><div class="tiny">Since 2001 &middot; dues current to 13 Mar 2027</div></div><span class="c-pill c-pill--ok">&#9679; Joined</span></div><div class="rowbtns" style="margin-top:var(--s3)"><button class="c-btn c-btn--sm c-btn--secondary" type="button">Join another club</button><button class="c-btn c-btn--sm c-btn--secondary" type="button">Leave</button></div></div><div class="stats"><div class="stat stat--accent"><b class="num">412</b><span>Members</span></div><div class="stat"><b class="num">11</b><span>Events this year</span></div><div class="stat"><b class="num">2nd</b><span>Thu monthly</span></div><div class="stat"><b class="num">7</b><span>Officers</span></div></div><h4 class="sect-h">Upcoming<span class="r">See all</span></h4><div class="c-card c-card--flush"><div class="c-row"><span class="datechip"><b>SEP</b><span>18</span></span><span class="c-row__main"><b>Fall General Meeting</b><span>7:00 pm &middot; Ramallah Club Hall, Livonia MI</span></span><span class="c-row__end"><button class="c-btn c-btn--sm" type="button">RSVP</button></span></div><div class="c-row"><span class="datechip"><b>OCT</b><span>04</span></span><span class="c-row__main"><b>Leadership Ramallah cohort 9 opens</b><span>Ann Arbor MI &middot; 24 places</span></span><span class="c-row__end"><span class="c-pill c-pill--info">Applied</span></span></div><div class="c-row" style="border-bottom:0"><span class="datechip"><b>NOV</b><span>22</span></span><span class="c-row__main"><b>Day of Action &mdash; Detroit</b><span>9:00 am &middot; Gleaners Food Bank</span></span><span class="c-row__end"><button class="c-btn c-btn--sm c-btn--secondary" type="button">Details</button></span></div></div><h4 class="sect-h">From the club</h4><div class="c-card c-card--flush"><div class="c-timeline"><div class="c-tl-item"><div class="c-tl-item__when">2 days ago</div><b style="font-size:var(--fs-sm)">Iftar dinner raised $2,840 for Project Hope</b><div class="tiny">142 attended. Thank you to the Mogannam family for the hall.</div></div><div class="c-tl-item" style="padding-bottom:0"><div class="c-tl-item__when">1 week ago</div><b style="font-size:var(--fs-sm)">Arabic Course &mdash; autumn term enrolment open</b><div class="tiny">Tuesdays 6:30 pm, beginner and intermediate. 9 places left.</div></div></div></div><h4 class="sect-h">Officers</h4><div class="c-card c-card--flush hl" data-hl="Long emails wrap, never overflow"><div class="c-row"><span class="c-avatar">SM</span><span class="c-row__main"><b>Samir Mogannam</b><span>President</span><span>samir.mogannam@detroit.afrp.example.org</span></span></div><div class="c-row"><span class="c-avatar">RJ</span><span class="c-row__main"><b>Rula Jaghab</b><span>Vice president</span><span>rula.jaghab@detroit.afrp.example.org</span></span></div><div class="c-row" style="border-bottom:0"><span class="c-avatar">GZ</span><span class="c-row__main"><b>George Zarou</b><span>Treasurer</span><span>george.zarou@detroit.afrp.example.org</span></span></div></div></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">13</span><h3>My club &mdash; Detroit</h3></div><p>The club as a real destination rather than a contact card: what is happening, what is coming, who runs it, and one honest membership control. Officer emails wrap inside their rows instead of forcing the card wider than the phone. Joining a second club is self-serve &mdash; today that is a phone call to headquarters.</p><div class="chips"><span class="dchip dchip--dec">Decision 3 &middot; club portal is first-class</span><span class="dchip">&#10003; self-serve join / leave</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome chrome--ink"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">New event<span class="hdr__sub">Detroit Club &middot; officer</span></span><button class="hdr__b" type="button" aria-label="Close">&#215;</button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-steps" aria-hidden="true"><span class="c-steps__dot is-done"><svg width="11" height="11" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg></span><span class="c-steps__bar is-done"></span><span class="c-steps__dot is-on">2</span><span class="c-steps__bar"></span><span class="c-steps__dot ">3</span></div><div class="c-field"><label class="c-field__label" for="e-title">Event title</label><input class="c-input" id="e-title" type="text" value="Fall General Meeting &amp; Dinner"></div><div class="c-field-row c-field-row--2"><div class="c-field" style="margin-bottom:0"><label class="c-field__label" for="e-date">Date</label><input class="c-input" id="e-date" type="date" value="2026-09-18"></div><div class="c-field" style="margin-bottom:0"><label class="c-field__label" for="e-start">Start</label><input class="c-input" id="e-start" type="time" value="19:00"></div></div><div class="c-field-row c-field-row--2" style="margin-top:var(--s5)"><div class="c-field" style="margin-bottom:0"><label class="c-field__label" for="e-end">End</label><input class="c-input" id="e-end" type="time" value="22:00"></div><div class="c-field" style="margin-bottom:0"><label class="c-field__label" for="e-cap">Capacity</label><input class="c-input num" id="e-cap" type="number" inputmode="numeric" value="180"></div></div><div class="c-field" style="margin-top:var(--s5)"><label class="c-field__label" for="e-venue">Venue</label><input class="c-input" id="e-venue" type="text" value="Ramallah Club Hall"></div><div class="c-field"><label class="c-field__label" for="e-addr">Address</label><input class="c-input" id="e-addr" type="text" value="29200 Plymouth Rd, Livonia MI 48150"></div><div class="c-field"><label class="c-field__label" for="e-price">Ticket price</label><input class="c-input num" id="e-price" type="text" inputmode="decimal" value="$35.00"><div class="c-field__hint">Charged through Authorize.Net to the Detroit Club account. Enter $0.00 for a free event.</div></div><div class="c-field"><label class="c-field__label" for="e-who">Who can register</label><select class="c-select" id="e-who"><option>Detroit Club members only</option><option selected>Detroit Club members and their guests</option><option>Any AFRP member</option><option>Any AFRP member and guests</option><option>Open to the public</option></select></div><div class="c-card c-card--flush hl" data-hl="Honest about the review step"><label class="c-switch" for="e-nat"><span class="c-switch__lab">Publish to the national calendar<small>Sends to headquarters for review before it appears.</small></span><input class="u-sr" type="checkbox" id="e-nat" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="e-wait"><span class="c-switch__lab">Waiting list when full</span><input class="u-sr" type="checkbox" id="e-wait" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="e-rsvp"><span class="c-switch__lab">Close registration 3 days before</span><input class="u-sr" type="checkbox" id="e-rsvp"><span class="c-switch__track" aria-hidden="true"></span></label></div><div class="c-alert c-alert--info"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4.6" width="13.2" height="12" rx="2"/><path d="M3.4 8.4h13.2M7 3v3M13 3v3"/></svg><div><b>National review is usually same-day</b>Your club calendar shows it immediately. The national calendar shows it once headquarters approves. You do not need to do anything.</div></div></div></div>
+<div class="c-actionbar"><button class="c-btn c-btn--secondary c-btn--sm" type="button">Save draft</button><button class="c-btn c-btn--block" type="button">Publish event</button></div>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">14</span><h3>Club officer &mdash; create event</h3></div><p>The screen a volunteer officer uses on a phone, in a hall, the week before an event. Everything Breeze made them do on a laptop: capacity, price, who may register, and whether it goes to the national calendar. The national toggle is honest about the review step instead of failing silently two days later.</p><div class="chips"><span class="dchip dchip--dec">Decision 3 &middot; replaces Breeze events</span><span class="dchip">&#10003; officer tools on mobile</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome chrome--ink"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Club dashboard<span class="hdr__sub">Detroit Club &middot; G. Zarou, Treasurer</span></span><button class="hdr__b" type="button" aria-label="Export"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="stats"><div class="stat stat--accent"><b class="num">412</b><span>Members</span></div><div class="stat"><b class="num">+18</b><span>Joined YTD</span></div><div class="stat"><b class="num">87%</b><span>Dues current</span></div><div class="stat"><b class="num">96</b><span>Avg attendance</span></div></div><div class="c-card c-card--flush hl hl--amber" data-hl="Migration never goes quiet"><div class="between" style="align-items:flex-start"><div style="min-width:0"><b style="font-size:var(--fs-sm)">Migrated from Breeze</b><div class="tiny">Cutover 12 Mar 2026 &middot; Breeze account closed 31 Mar</div></div><span class="c-pill c-pill--warn">5 to review</span></div><div class="meter" style="margin-top:var(--s3)"><i style="width:98.8%"></i></div><div class="between" style="margin-top:var(--s2)"><span class="tiny num">407 of 412 records matched automatically</span><button class="linkbtn" type="button">Review 5</button></div></div><h4 class="sect-h">Dues</h4><div class="c-card c-card--flush"><div class="c-row"><span class="pico"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg></span><span class="c-row__main"><b>Paid &amp; current</b><span>Through the next renewal date</span></span><span class="c-row__end"><b class="num" style="font-size:var(--fs-h2)">358</b></span></div><div class="c-row"><span class="pico pico--a"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4.6" width="13.2" height="12" rx="2"/><path d="M3.4 8.4h13.2M7 3v3M13 3v3"/></svg></span><span class="c-row__main"><b>Due within 30 days</b><span>Reminders sent 8 Aug</span></span><span class="c-row__end"><b class="num" style="font-size:var(--fs-h2)">32</b></span></div><div class="c-row" style="border-bottom:0"><span class="pico pico--m"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.6a4.6 4.6 0 0 0-4.6 4.6c0 4-1.5 5.2-1.5 5.2h12.2s-1.5-1.2-1.5-5.2A4.6 4.6 0 0 0 10 2.6Z"/><path d="M11.4 15.6a1.6 1.6 0 0 1-2.8 0"/></svg></span><span class="c-row__main"><b>Lapsed over 90 days</b><span>Officer follow-up needed</span></span><span class="c-row__end"><b class="num" style="font-size:var(--fs-h2)">22</b></span></div></div><h4 class="sect-h">Event performance<span class="r">2026</span></h4><div class="c-card c-card--flush"><div class="stack"><div><div class="between"><b style="font-size:var(--fs-sm)">Iftar Dinner</b><span class="tiny num">142 / 160 &middot; $2,840</span></div><div class="meter" style="margin-top:6px"><i style="width:89%"></i></div></div><div><div class="between"><b style="font-size:var(--fs-sm)">Youth Night</b><span class="tiny num">63 / 80 &middot; $0</span></div><div class="meter" style="margin-top:6px"><i class="blue" style="width:79%"></i></div></div><div><div class="between"><b style="font-size:var(--fs-sm)">Arabic Course &mdash; spring</b><span class="tiny num">21 / 30 &middot; $3,150</span></div><div class="meter" style="margin-top:6px"><i class="amber" style="width:70%"></i></div></div><div><div class="between"><b style="font-size:var(--fs-sm)">Day of Action</b><span class="tiny num">88 / 100 &middot; volunteer</span></div><div class="meter" style="margin-top:6px"><i style="width:88%"></i></div></div></div></div><div class="c-tiles"><button class="c-tile c-tile--sm" type="button" style="border:0;cursor:pointer;text-align:left"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg><span class="c-tile__label">Roster &amp; export</span></button><button class="c-tile c-tile--sm" type="button" style="border:0;cursor:pointer;text-align:left"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4.5v11M4.5 10h11"/></svg><span class="c-tile__label">Create event</span></button><button class="c-tile c-tile--sm" type="button" style="border:0;cursor:pointer;text-align:left"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.6a4.6 4.6 0 0 0-4.6 4.6c0 4-1.5 5.2-1.5 5.2h12.2s-1.5-1.2-1.5-5.2A4.6 4.6 0 0 0 10 2.6Z"/><path d="M11.4 15.6a1.6 1.6 0 0 1-2.8 0"/></svg><span class="c-tile__label">Message members</span></button><button class="c-tile c-tile--sm" type="button" style="border:0;cursor:pointer;text-align:left"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg><span class="c-tile__label">Dues report</span></button></div></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">15</span><h3>Club officer &mdash; dashboard</h3></div><p>The screen that has to be better than Breeze to win the clubs over. Roster health, dues, attendance and event economics in one view, plus the migration state made permanent and visible &mdash; five unmatched records from the 12 Mar cutover are still five unmatched records until an officer clears them, and the dashboard will keep saying so.</p><div class="chips"><span class="dchip dchip--dec">Decision 3 &middot; replacing Breeze ChMS</span><span class="dchip">&#10003; migration state made visible</span></div></figcaption>
+</figure>
+</div>
+<div class="grouphead"><span class="n">Frames 16&ndash;18</span><h2>Integrations</h2><p>Where the platform meets the outside world: consented social sharing, and the eleven AFRP programs behind one application list.</p></div>
+<div class="frames">
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Share<span class="hdr__sub">Wedding &middot; Tarek &amp; Dina</span></span><button class="hdr__b" type="button" aria-label="Close">&#215;</button></div></div>
+<div class="scrollwrap"><div class="scroll"><h4 class="sect-h">Preview</h4><div class="hl" data-hl="Exactly what will post"><div class="shcard"><div class="shcard__img"><span class="shcard__mark">AFRP &middot; SINCE 1952</span><div class="shcard__t">Tarek Khoury &amp; Dina Mogannam</div><div class="shcard__s num">Married 12 September 2026 &middot; Southfield, Michigan</div></div><div class="shcard__meta">my.afrp.org/a/tk-dm-2026 &mdash; American Federation of Ramallah, Palestine</div></div></div><h4 class="sect-h">Share to</h4><div class="dests"><button class="dest is-on" type="button"><i class="fb">f</i>Facebook</button><button class="dest" type="button"><i class="ig">&#9673;</i>Instagram</button><button class="dest" type="button"><i class="x">&#120;</i>X</button><button class="dest" type="button"><i class="li">in</i>LinkedIn</button><button class="dest" type="button"><i class="cp"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 0 0-4.8-4.8l-1.1 1.1"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 0 0 4.8 4.8l1.1-1.1"/></svg></i>Copy link</button></div><h4 class="sect-h">What gets shared</h4><div class="c-card c-card--flush hl" data-hl="Every element is a switch"><label class="c-switch" for="s-photo"><span class="c-switch__lab">The wedding photo</span><input class="u-sr" type="checkbox" id="s-photo"><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="s-names"><span class="c-switch__lab">Both full names<small>Dina has approved her name being used.</small></span><input class="u-sr" type="checkbox" id="s-names" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="s-date"><span class="c-switch__lab">Date and city</span><input class="u-sr" type="checkbox" id="s-date" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="s-club"><span class="c-switch__lab">Detroit Club</span><input class="u-sr" type="checkbox" id="s-club" checked><span class="c-switch__track" aria-hidden="true"></span></label><div class="divider"></div><label class="c-switch" for="s-link"><span class="c-switch__lab">Link back to the announcement<small>Non-members see a join page, not a locked screen.</small></span><input class="u-sr" type="checkbox" id="s-link" checked><span class="c-switch__track" aria-hidden="true"></span></label></div><div class="c-alert c-alert--warn"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg><div><b>Only what is switched on leaves AFRP</b>We never post on your behalf and never grant a social network access to the directory, the family tree, or any other member&rsquo;s data. Facebook will ask you to sign in; AFRP does not store that password.</div></div><div class="c-card c-card--flush"><label class="c-choice" for="s-consent" style="align-items:flex-start"><input type="checkbox" id="s-consent" checked><span class="c-choice__text" style="font-size:var(--fs-sm)">Dina agreed to this being shared publicly<small>Required when an announcement names someone else.</small></span></label></div></div></div>
+<div class="c-actionbar"><button class="c-btn c-btn--secondary c-btn--sm" type="button">Cancel</button><button class="c-btn c-btn--block" type="button">Share to Facebook</button></div>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">16</span><h3>Social sharing</h3></div><p>Sharing outward is where a members-only platform leaks. So the generated card is rendered before anything leaves, each element of it is a switch, and the link a non-member follows lands on a join page rather than a locked screen. AFRP never posts on a member&rsquo;s behalf: every share passes through this screen.</p><div class="chips"><span class="dchip dchip--priv">Explicit consent per element</span><span class="dchip">&#10003; preview before it leaves</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><span class="hdr__t">Applications<span class="hdr__sub">4 across your household</span></span><button class="hdr__b" type="button" aria-label="New application"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4.5v11M4.5 10h11"/></svg></button></div><div class="hdr__tabs"><div class="c-tabs" role="tablist"><button class="c-tab is-on" role="tab" aria-selected="true">All</button><button class="c-tab" role="tab" aria-selected="false">In progress</button><button class="c-tab" role="tab" aria-selected="false">Submitted</button><button class="c-tab" role="tab" aria-selected="false">Decided</button></div></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-card hl" data-hl="Draft &middot; deadline is the message"><div class="between" style="align-items:flex-start"><div style="min-width:0;display:flex;gap:var(--s3)"><span class="pico">CR</span><div style="min-width:0"><b style="font-size:var(--fs-sm)">Camp Ramallah 2027</b><div class="tiny">Layla Khoury &middot; age 14</div></div></div><span class="c-pill c-pill--muted">Draft</span></div><div class="meter" style="margin-top:var(--s4)"><i class="amber" style="width:40%"></i></div><div class="between" style="margin-top:var(--s2)"><span class="tiny num">2 of 5 sections &middot; saved 11 Aug</span><span class="c-pill c-pill--warn">Due 15 Jan</span></div><button class="c-btn c-btn--sm c-btn--block" type="button" style="margin-top:var(--s3)">Continue application</button></div><div class="c-card"><div class="between" style="align-items:flex-start"><div style="min-width:0;display:flex;gap:var(--s3)"><span class="pico pico--b">SP</span><div style="min-width:0"><b style="font-size:var(--fs-sm)">Scholarship Program 2026&ndash;27</b><div class="tiny">Basim Khoury &middot; undergraduate</div></div></div><span class="c-pill c-pill--info">Under review</span></div><div class="c-card__sub" style="margin-top:var(--s3)">Submitted 2 Aug &middot; committee meets 14 Sep. All documents received.</div><button class="c-btn c-btn--sm c-btn--secondary c-btn--block" type="button" style="margin-top:var(--s3)">View submission</button></div><div class="c-card"><div class="between" style="align-items:flex-start"><div style="min-width:0;display:flex;gap:var(--s3)"><span class="pico pico--v">LR</span><div style="min-width:0"><b style="font-size:var(--fs-sm)">Leadership Ramallah &middot; cohort 9</b><div class="tiny">Tarek Khoury</div></div></div><span class="c-pill c-pill--ok">Accepted</span></div><div class="c-card__sub" style="margin-top:var(--s3)">Starts 4 Oct 2026, Ann Arbor MI. Confirm your place by 12 Sep.</div><div class="rowbtns" style="margin-top:var(--s3)"><button class="c-btn c-btn--sm c-btn--secondary" type="button">Details</button><button class="c-btn c-btn--sm" type="button">Confirm place</button></div></div><div class="c-card"><div class="between" style="align-items:flex-start"><div style="min-width:0;display:flex;gap:var(--s3)"><span class="pico pico--a">PH</span><div style="min-width:0"><b style="font-size:var(--fs-sm)">Project Hope &mdash; volunteer</b><div class="tiny">Marwan Khoury</div></div></div><span class="c-pill c-pill--new">Submitted</span></div><div class="c-card__sub" style="margin-top:var(--s3)">Submitted 28 Jul &middot; awaiting programme office. Typical response 3 weeks.</div></div><h4 class="sect-h">Open for application</h4><div class="c-card c-card--flush"><div class="c-row"><span class="pico pico--m">MM</span><span class="c-row__main"><b>Medical Mission 2027</b><span>Clinicians &middot; closes 30 Nov</span></span><span class="c-row__end"><button class="c-btn c-btn--sm c-btn--secondary" type="button">Start</button></span></div><div class="c-row" style="border-bottom:0"><span class="pico pico--m">WW</span><span class="c-row__main"><b>Women to Women 2027</b><span>Delegates &middot; closes 15 Dec</span></span><span class="c-row__end"><button class="c-btn c-btn--sm c-btn--secondary" type="button">Start</button></span></div></div></div></div>
+<nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.2 10 3.6l7 5.6V16a1 1 0 0 1-1 1h-3.6v-4.6H7.6V17H4a1 1 0 0 1-1-1Z"/></svg>Home</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="12" rx="2"/><path d="M6 8h8M6 11h5"/></svg>Feed</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="4.6" r="2"/><circle cx="5" cy="15.4" r="2"/><circle cx="15" cy="15.4" r="2"/><path d="M10 6.6v3.2M5 13.4v-1.8h10v1.8"/></svg>Tree</a><a class="tabs__i" href="#"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.6"/><path d="M3.4 16.2a4.8 4.8 0 0 1 9.2 0"/><path d="M13.6 5.1a2.6 2.6 0 0 1 0 3.9M15.2 16.2a4.6 4.6 0 0 0-1.5-3"/></svg>People</a><a class="tabs__i is-on" href="#" aria-current="page"><svg width="21" height="21" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6h13M3.5 10h13M3.5 14h9"/></svg>More</a></nav>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">17</span><h3>Program applications</h3></div><p>Eleven programs, one application list. Whoever the applicant is &mdash; the member, their spouse, their child &mdash; every application in the household appears here with a single status vocabulary: draft, submitted, under review, accepted, declined. Drafts carry a progress bar and the real deadline, which is the only thing that moves people.</p><div class="chips"><span class="dchip">&#10003; one list across all programs</span><span class="dchip">&#10003; household-wide view</span></div></figcaption>
+</figure>
+<figure class="fig">
+<div class="device">
+<div class="screen">
+<div class="notch" aria-hidden="true"></div>
+<div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Camp Ramallah 2027<span class="hdr__sub">Layla Khoury &middot; draft</span></span><button class="hdr__b" type="button" aria-label="More"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="10" cy="10" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1.3" fill="currentColor" stroke="none"/></svg></button></div></div>
+<div class="scrollwrap"><div class="scroll"><div class="c-card c-card--flush hl" data-hl="Where you are"><div class="c-steps" aria-hidden="true"><span class="c-steps__dot is-done"><svg width="11" height="11" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg></span><span class="c-steps__bar is-done"></span><span class="c-steps__dot is-done"><svg width="11" height="11" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg></span><span class="c-steps__bar is-done"></span><span class="c-steps__dot is-on">3</span><span class="c-steps__bar"></span><span class="c-steps__dot ">4</span><span class="c-steps__bar"></span><span class="c-steps__dot ">5</span></div><div class="between" style="margin-top:var(--s3)"><span class="tiny"><b>Step 3 of 5</b> &middot; Consents</span><span class="c-pill c-pill--warn">Due 15 Jan 2027</span></div></div><div class="c-alert c-alert--warn"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.6a4.6 4.6 0 0 0-4.6 4.6c0 4-1.5 5.2-1.5 5.2h12.2s-1.5-1.2-1.5-5.2A4.6 4.6 0 0 0 10 2.6Z"/><path d="M11.4 15.6a1.6 1.6 0 0 1-2.8 0"/></svg><div><b>3 items outstanding</b>Two consents and one document. Nothing is submitted to the camp office until all five sections are complete.</div></div><h4 class="sect-h">Sections</h4><div class="c-card c-card--flush"><div class="c-row"><span class="c-avatar c-avatar--sm" style="background:var(--green-100);color:var(--green-800)"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg></span><span class="c-row__main"><b>1. Camper details</b><span>Saved 4 Aug &middot; 9 fields</span></span><span class="c-row__end"><button class="linkbtn" type="button">Edit</button></span></div><div class="c-row"><span class="c-avatar c-avatar--sm" style="background:var(--green-100);color:var(--green-800)"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5 8.2 14l7.3-8"/></svg></span><span class="c-row__main"><b>2. Health &amp; dietary</b><span>Saved 11 Aug &middot; allergies noted</span></span><span class="c-row__end"><button class="linkbtn" type="button">Edit</button></span></div><div class="c-row" style="background:var(--green-50);border-radius:var(--r-xs);padding-left:var(--s2);padding-right:var(--s2)"><span class="c-avatar c-avatar--sm" style="background:var(--accent);color:#fff">3</span><span class="c-row__main"><b>3. Consents</b><span>2 of 4 signed &middot; guardian required</span></span><span class="c-row__end"><span class="c-pill c-pill--warn">Now</span></span></div><div class="c-row"><span class="c-avatar c-avatar--sm c-avatar--sm" style="background:var(--surface-sunken);color:var(--ink-3)">4</span><span class="c-row__main"><b>4. Documents</b><span>3 of 4 uploaded</span></span><span class="c-row__end"><span class="c-pill c-pill--muted">Next</span></span></div><div class="c-row" style="border-bottom:0"><span class="c-avatar c-avatar--sm" style="background:var(--surface-sunken);color:var(--ink-3)">5</span><span class="c-row__main"><b>5. Review &amp; submit</b><span>Locked until 1&ndash;4 are complete</span></span><span class="c-row__end"><span class="c-pill c-pill--muted">Locked</span></span></div></div><h4 class="sect-h">Required documents</h4><div class="c-card c-card--flush"><div class="c-row"><span class="pico pico--m"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">Birth certificate</b><span class="num">layla-bc.pdf &middot; 840 KB</span></span><span class="c-row__end"><span class="c-pill c-pill--ok">Received</span></span></div><div class="c-row"><span class="pico pico--m"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">Passport photo</b><span class="num">layla-photo.jpg &middot; 1.4 MB</span></span><span class="c-row__end"><span class="c-pill c-pill--ok">Received</span></span></div><div class="c-row"><span class="pico pico--a"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">Immunisation record</b><span>Not yet uploaded</span></span><span class="c-row__end"><button class="c-btn c-btn--sm" type="button">Upload</button></span></div><div class="c-row" style="border-bottom:0"><span class="pico pico--a"><svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.8H6.2a1.6 1.6 0 0 0-1.6 1.6v11.2a1.6 1.6 0 0 0 1.6 1.6h7.6a1.6 1.6 0 0 0 1.6-1.6V6.8Z"/><path d="M11.4 2.8v4h4"/></svg></span><span class="c-row__main"><b style="font-size:var(--fs-sm)">Guardian consent form</b><span>Downloaded &middot; needs a signature</span></span><span class="c-row__end"><button class="c-btn c-btn--sm c-btn--secondary" type="button">Sign</button></span></div></div><p class="tiny">Camp Ramallah gives priority to members in good standing. The Khoury household is <b>Patron</b> tier, current to 13 Mar 2027.</p></div></div>
+<div class="c-actionbar"><button class="c-btn c-btn--secondary c-btn--sm" type="button">Save &amp; exit</button><button class="c-btn c-btn--block" type="button">Continue to consents</button></div>
+<div class="homebar" aria-hidden="true"></div>
+</div>
+</div>
+<figcaption class="cap"><div class="cap__top"><span class="cap__n">18</span><h3>Program application detail</h3></div><p>One application, resumable. The <code>.c-steps</code> stepper carries position; sections save independently and say when they last saved, so a parent filling this in over three evenings never loses work. Documents are their own tracked list because they are what actually holds an application up &mdash; and a form needing a wet signature says so plainly.</p><div class="chips"><span class="dchip">&#10003; <code>.c-steps</code> + section autosave</span><span class="dchip dchip--priv">Minor applicant &middot; guardian required</span></div></figcaption>
+</figure>
+</div>
+
+<section class="sect" style="margin-top:var(--s12)">
+  <h2>What these eighteen screens commit to</h2>
+  <div class="decisions">
+    <div class="decision"><em>Accessibility</em><b>Nothing below the floor</b><span>Every input is
+      16&nbsp;px so iOS never zooms on focus. Every tappable element is at least 44&nbsp;px, most are
+      48&nbsp;px. Every input has a real <code>&lt;label for&gt;</code>. Colour is never the only carrier
+      of a state — provisional records are amber <em>and</em> dashed <em>and</em> labelled.</span></div>
+    <div class="decision"><em>Layout</em><b>No horizontal overflow at any width</b><span>Every field
+      is <code>width:100%</code> with <code>min-width:0</code>; every grid is
+      <code>auto-fill</code>/<code>auto-fit</code>, never a fixed column count. Long emails and citations
+      wrap inside their cell. Verified at 1600, 390 and 320&nbsp;px.</span></div>
+    <div class="decision"><em>Privacy</em><b>Restriction is a visible state</b><span>Minors, living
+      people in the tree, and unpublished directory fields all render as an explicit, labelled state —
+      never as a blank line, a broken link, or a silent omission.</span></div>
+    <div class="decision"><em>Genealogy</em><b>Evidence, not assertion</b><span>Sources are first-class
+      records with real citations. Corrections require one. Contested facts show the pending edit
+      beside the current value rather than quietly overwriting it.</span></div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

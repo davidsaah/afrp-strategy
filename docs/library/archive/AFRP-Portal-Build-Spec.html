@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My AFRP — Portal Build Spec</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   AFRP PORTAL DESIGN TOKENS
+   Copy this :root block verbatim into the Power Pages theme.
+   Colours sampled from afrp.org.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  /* brand */
+  --afrp-green:#038c3e;
+  --afrp-green-700:#02682e;
+  --afrp-green-800:#014f23;
+  --afrp-green-50:#e8f5ee;
+  --afrp-green-100:#c9e8d6;
+  --afrp-red:#ed1c24;
+  --afrp-red-700:#b8151c;
+  --afrp-red-50:#fdeaeb;
+
+  /* neutrals */
+  --ink:#14171a;
+  --ink-2:#3f4750;
+  --ink-3:#6b7683;
+  --line:#e3e7eb;
+  --line-2:#f0f3f5;
+  --bg:#f5f7f8;
+  --surface:#ffffff;
+
+  /* status */
+  --amber:#b4690e;  --amber-50:#fdf3e3;
+  --blue:#1257a5;   --blue-50:#e8f1fb;
+
+  /* type — 16px base is the MINIMUM on inputs. Below it iOS auto-zooms
+     on focus, which is a root cause of the reported layout breakage. */
+  --fs-display:26px; --fs-h1:21px; --fs-h2:17px; --fs-body:16px;
+  --fs-sm:14px;      --fs-xs:12.5px; --fs-micro:11px;
+  --lh-tight:1.25;   --lh-body:1.5;
+
+  /* spacing — 4px base scale */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px;
+  --s6:24px; --s8:32px; --s10:40px; --s12:48px;
+
+  /* radius, elevation */
+  --r-sm:8px; --r:12px; --r-lg:16px; --r-pill:999px;
+  --shadow:0 1px 2px rgba(20,23,26,.06), 0 4px 14px rgba(20,23,26,.05);
+
+  /* touch — 48px min. AFRP's membership skews older; 44px is the floor,
+     48px is the target. */
+  --touch:48px;
+
+  /* layout */
+  --page-max:640px;      /* single column reading width */
+  --shell-max:1120px;    /* desktop shell */
+  --gutter:16px;
+}
+
+/* ═══ RESET — the three rules that fix the reported overflow defect ═══ */
+*,*::before,*::after{box-sizing:border-box}          /* 1. padding inside width */
+html,body{max-width:100%;overflow-x:hidden}          /* 2. nothing escapes the viewport */
+img,svg,video,table,pre{max-width:100%}              /* 3. media cannot push wider */
+
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-body)/var(--lh-body) -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  /* iOS safe areas — fixes the "title under the status bar" defect */
+  padding-top:env(safe-area-inset-top);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+h1,h2,h3,h4{margin:0;font-weight:650;letter-spacing:-.015em;line-height:var(--lh-tight)}
+a{color:var(--afrp-green-700)}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+  background:#eef1f4;padding:1px 5px;border-radius:5px}
+
+/* ═══ DOC CHROME (spec page only — not part of the design system) ═══ */
+.doc{max-width:var(--shell-max);margin:0 auto;padding:0 var(--gutter) 80px}
+.masthead{background:var(--ink);color:#fff;padding:var(--s6) var(--gutter);margin-bottom:var(--s6)}
+.masthead .in{max-width:var(--shell-max);margin:0 auto}
+.masthead h1{font-size:24px;color:#fff}
+.masthead p{margin:var(--s2) 0 0;color:#b9c2cc;font-size:var(--fs-sm);max-width:70ch}
+.tagrow{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4)}
+.tag{background:rgba(255,255,255,.12);color:#e6ebf0;font-size:var(--fs-micro);
+  padding:3px 9px;border-radius:var(--r-pill);font-weight:650;letter-spacing:.04em}
+.tag.red{background:var(--afrp-red);color:#fff}
+
+section{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:var(--s6);margin-bottom:var(--s5);box-shadow:var(--shadow)}
+section > h2{font-size:var(--fs-h1);margin-bottom:var(--s1)}
+section > .lede{color:var(--ink-3);font-size:var(--fs-sm);margin:0 0 var(--s5);max-width:75ch}
+h3.sub{font-size:var(--fs-h2);margin:var(--s6) 0 var(--s3);padding-top:var(--s5);
+  border-top:1px solid var(--line-2)}
+h3.sub:first-of-type{border-top:0;padding-top:0;margin-top:var(--s4)}
+
+table.spec{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin:var(--s3) 0}
+table.spec th{text-align:left;font-size:var(--fs-micro);text-transform:uppercase;
+  letter-spacing:.07em;color:var(--ink-3);font-weight:650;padding:0 var(--s3) var(--s2);
+  border-bottom:1px solid var(--line)}
+table.spec td{padding:var(--s3);border-bottom:1px solid var(--line-2);vertical-align:top}
+table.spec tr:last-child td{border-bottom:0}
+.wrap-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s3)}
+.sw{border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden}
+.sw .chip{height:56px}
+.sw .meta{padding:var(--s2) var(--s3);font-size:var(--fs-xs)}
+.sw .meta b{display:block;font-size:var(--fs-sm)}
+.sw .meta code{background:none;padding:0;color:var(--ink-3)}
+
+.bad,.good{border-left:3px solid;padding:var(--s3) var(--s4);border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:var(--fs-sm);margin:var(--s3) 0}
+.bad{border-color:var(--afrp-red);background:var(--afrp-red-50);color:#7a0f14}
+.good{border-color:var(--afrp-green);background:var(--afrp-green-50);color:var(--afrp-green-800)}
+.bad b,.good b{display:block;margin-bottom:2px}
+.note{border-left:3px solid var(--amber);background:var(--amber-50);color:#7a4a08;
+  padding:var(--s3) var(--s4);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:var(--fs-sm);margin:var(--s3) 0}
+
+pre.code{background:#14171a;color:#e6ebf0;padding:var(--s4);border-radius:var(--r-sm);
+  overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin:var(--s3) 0}
+pre.code .c{color:#8b97a3}
+pre.code .k{color:#7fd493}
+pre.code .v{color:#9ecbff}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5)}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENT LIBRARY — everything below `.c-` is the actual design system.
+   Live examples; copy the CSS as-is.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.demo{background:var(--bg);border:1px dashed var(--line);border-radius:var(--r-sm);
+  padding:var(--s5);margin:var(--s3) 0}
+.demo + .demo{margin-top:var(--s3)}
+.demo-label{font-size:var(--fs-micro);text-transform:uppercase;letter-spacing:.07em;
+  color:var(--ink-3);font-weight:650;margin-bottom:var(--s3)}
+
+/* --- buttons --- */
+.c-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  min-height:var(--touch);padding:0 var(--s5);
+  background:var(--afrp-green);color:#fff;border:0;border-radius:var(--r-sm);
+  font:600 var(--fs-body)/1 inherit;font-family:inherit;cursor:pointer;
+  text-decoration:none;width:auto;
+}
+.c-btn:hover{background:var(--afrp-green-700)}
+.c-btn:focus-visible{outline:3px solid var(--afrp-green-100);outline-offset:2px}
+.c-btn[disabled]{background:#c3cbd3;cursor:not-allowed}
+.c-btn--secondary{background:var(--surface);color:var(--ink-2);border:1px solid var(--line)}
+.c-btn--secondary:hover{background:#f6f8f9}
+.c-btn--danger{background:var(--afrp-red)}
+.c-btn--danger:hover{background:var(--afrp-red-700)}
+.c-btn--block{display:flex;width:100%}
+/* v1.1 — was 40px, which falls below the WCAG 2.2 AA 44px floor once it
+   carries a real action. Only the padding and type shrink; the target does not. */
+.c-btn--sm{min-height:44px;padding:0 var(--s4);font-size:var(--fs-sm)}
+
+/* --- form fields: THE fix for the reported overflow --- */
+.c-field{margin-bottom:var(--s5);max-width:100%}
+.c-field__label{display:block;font-size:var(--fs-sm);font-weight:640;
+  color:var(--ink-2);margin-bottom:var(--s2)}
+.c-field__hint{font-size:var(--fs-xs);color:var(--ink-3);margin-top:var(--s2)}
+.c-field__error{font-size:var(--fs-xs);color:var(--afrp-red-700);margin-top:var(--s2);font-weight:600}
+.c-input,.c-select,.c-textarea{
+  display:block;
+  width:100%;              /* NOT a px width. This is the whole fix. */
+  max-width:100%;
+  min-width:0;             /* lets it shrink inside a flex/grid parent */
+  min-height:var(--touch);
+  padding:var(--s3) var(--s4);
+  font-size:var(--fs-body);/* 16px — below this iOS zooms on focus */
+  font-family:inherit;color:var(--ink);
+  background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-sm);
+}
+.c-input:focus,.c-select:focus,.c-textarea:focus{
+  outline:0;border-color:var(--afrp-green);box-shadow:0 0 0 3px var(--afrp-green-100)}
+.c-input[aria-invalid="true"]{border-color:var(--afrp-red)}
+.c-textarea{min-height:96px;resize:vertical}
+
+/* Field rows: stack on mobile, share a line only when there is room. */
+.c-field-row{display:grid;grid-template-columns:1fr;gap:var(--s4)}
+@media(min-width:560px){
+  .c-field-row--2{grid-template-columns:1fr 1fr}
+  .c-field-row--city{grid-template-columns:2fr 1fr 1fr}
+}
+
+/* --- choice controls --- */
+.c-choice{display:flex;align-items:flex-start;gap:var(--s3);
+  min-height:var(--touch);padding:var(--s2) 0;cursor:pointer}
+.c-choice input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--afrp-green);flex:0 0 22px}
+.c-choice__text{font-size:var(--fs-body)}
+.c-choice__text small{display:block;color:var(--ink-3);font-size:var(--fs-xs)}
+
+.c-switch{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);
+  min-height:var(--touch);padding:var(--s2) 0}
+.c-switch__track{flex:0 0 52px;width:52px;height:31px;border-radius:var(--r-pill);
+  background:#cdd4db;position:relative;transition:background .15s}
+.c-switch__track::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;
+  border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .15s}
+.c-switch.is-on .c-switch__track{background:var(--afrp-green)}
+.c-switch.is-on .c-switch__track::after{transform:translateX(21px)}
+
+/* --- cards, tiles, rows --- */
+.c-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:var(--s5);box-shadow:var(--shadow)}
+.c-card__title{font-size:var(--fs-h2);margin-bottom:var(--s1)}
+.c-card__sub{color:var(--ink-3);font-size:var(--fs-xs);margin-bottom:var(--s4)}
+
+/* Tile grid — auto-fill, never a fixed 2 columns. Fixes the clipped grid. */
+.c-tiles{display:grid;gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.c-tile{display:flex;flex-direction:column;gap:var(--s3);
+  min-height:112px;padding:var(--s4);
+  background:var(--afrp-green-50);border:1px solid transparent;border-radius:var(--r);
+  color:var(--afrp-green-800);text-decoration:none;font-weight:640;font-size:var(--fs-sm)}
+.c-tile:hover{border-color:var(--afrp-green-100);background:#dcefe4}
+.c-tile__icon{font-size:20px;line-height:1}
+.c-tile__label{margin-top:auto;overflow-wrap:anywhere}  /* long titles wrap, never clip */
+
+.c-row{display:flex;align-items:center;gap:var(--s3);
+  min-height:var(--touch);padding:var(--s3) 0;border-bottom:1px solid var(--line-2)}
+.c-row:last-child{border-bottom:0}
+.c-row__main{min-width:0}   /* required or long values push the row wide */
+.c-row__main b{display:block;font-size:var(--fs-body);font-weight:620}
+.c-row__main span{display:block;font-size:var(--fs-xs);color:var(--ink-3);overflow-wrap:anywhere}
+.c-row__end{margin-left:auto;text-align:right;flex:0 0 auto}
+
+/* Definition rows — long emails must wrap, not overflow. */
+.c-dl{margin:0}
+.c-dl__row{display:grid;grid-template-columns:minmax(96px,38%) 1fr;gap:var(--s3);
+  padding:var(--s3) 0;border-bottom:1px solid var(--line-2)}
+.c-dl__row:last-child{border-bottom:0}
+.c-dl__k{font-size:var(--fs-sm);color:var(--ink-3)}
+.c-dl__v{font-size:var(--fs-sm);font-weight:600;text-align:right;
+  overflow-wrap:anywhere;word-break:break-word;min-width:0}
+
+/* --- pills --- */
+.c-pill{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-micro);
+  font-weight:700;padding:4px 10px;border-radius:var(--r-pill);white-space:nowrap}
+.c-pill--ok{background:var(--afrp-green-50);color:var(--afrp-green-800)}
+.c-pill--warn{background:var(--amber-50);color:var(--amber)}
+.c-pill--danger{background:var(--afrp-red-50);color:var(--afrp-red-700)}
+.c-pill--info{background:var(--blue-50);color:var(--blue)}
+.c-pill--muted{background:#eef1f4;color:var(--ink-3)}
+
+/* --- alerts --- */
+.c-alert{display:flex;gap:var(--s3);padding:var(--s4);border-radius:var(--r-sm);
+  font-size:var(--fs-sm);border-left:3px solid}
+.c-alert--warn{background:var(--amber-50);border-color:var(--amber);color:#7a4a08}
+.c-alert--danger{background:var(--afrp-red-50);border-color:var(--afrp-red);color:#7a0f14}
+.c-alert--ok{background:var(--afrp-green-50);border-color:var(--afrp-green);color:var(--afrp-green-800)}
+.c-alert b{display:block;margin-bottom:2px}
+
+/* --- sticky action bar (safe-area aware) --- */
+.c-actionbar{position:sticky;bottom:0;background:var(--surface);
+  border-top:1px solid var(--line);padding:var(--s3) var(--gutter);
+  padding-bottom:calc(var(--s3) + env(safe-area-inset-bottom));
+  display:flex;gap:var(--s3)}
+
+.a11y{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="in">
+    <h1>My AFRP — Portal Build Spec</h1>
+    <p>Design tokens, component library, and layout rules for rebuilding the
+       member portal mobile-first. Written to be implemented from: every value
+       here is a real CSS custom property, and every component below is live on
+       this page rather than drawn.</p>
+    <div class="tagrow">
+      <span class="tag red">BUILD SPEC</span>
+      <span class="tag">Power Pages / Dynamics 365</span>
+      <span class="tag">Mobile-first</span>
+      <span class="tag">WCAG 2.2 AA</span>
+      <span class="tag">v1.1 · Aug 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="doc">
+
+<!-- ══════════════════════════════════════════════ 1. WHAT THIS FIXES ═══ -->
+<section>
+  <h2>1. What this fixes</h2>
+  <p class="lede">Six defects observed on the live portal on iOS. Each one maps
+     to a specific rule in this spec, so the fix is verifiable rather than
+     aspirational.</p>
+
+  <div class="wrap-x">
+  <table class="spec">
+    <tr><th>Defect</th><th>Cause</th><th>Rule that fixes it</th><th>§</th></tr>
+    <tr>
+      <td><b>Form fields overflow the viewport</b><br><span style="color:var(--ink-3)">Address, City, State, ZIP all cut off</span></td>
+      <td>Fixed/min pixel widths on inputs and their container</td>
+      <td><code>width:100%</code> + <code>min-width:0</code> + <code>max-width:100%</code>; never a px width on an input</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <td><b>Tile grid clipped on the right</b></td>
+      <td>Hard 2-column grid wider than small viewports</td>
+      <td><code>repeat(auto-fill,minmax(150px,1fr))</code></td>
+      <td>3.4</td>
+    </tr>
+    <tr>
+      <td><b>Titles collide with the status bar</b></td>
+      <td>Safe-area insets not applied</td>
+      <td><code>viewport-fit=cover</code> + <code>env(safe-area-inset-*)</code></td>
+      <td>3.1</td>
+    </tr>
+    <tr>
+      <td><b>Zoom-on-focus jumps the layout</b></td>
+      <td>Input font-size below 16px triggers iOS auto-zoom</td>
+      <td><code>--fs-body:16px</code> is the floor on all inputs</td>
+      <td>2.2</td>
+    </tr>
+    <tr>
+      <td><b>Fax offered, SMS missing</b></td>
+      <td>Dynamics default field set, unedited</td>
+      <td>Channel list is Email / SMS / Phone / Mail. Nothing pre-checked</td>
+      <td>4.3</td>
+    </tr>
+    <tr>
+      <td><b>Long emails push rows wide</b></td>
+      <td>No wrapping rule on value cells</td>
+      <td><code>overflow-wrap:anywhere</code> + <code>min-width:0</code> on <code>.c-dl__v</code></td>
+      <td>3.3</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="note">
+    <b>Scope note</b>
+    This is a re-skin and re-layout of the existing Power Pages portal, not a
+    replacement. Module names, URLs, and the Dynamics data model stay as they
+    are — except the household model, which needs a schema change (§6).
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ 2. TOKENS ═══ -->
+<section>
+  <h2>2. Tokens</h2>
+  <p class="lede">Copy the <code>:root</code> block from this file's stylesheet
+     verbatim. Do not introduce values outside it — one-off hex codes are how
+     the current portal's typography drifted between screens.</p>
+
+  <h3 class="sub">2.1 Colour</h3>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#038c3e"></div>
+      <div class="meta"><b>Green 500</b><code>--afrp-green · #038c3e</code></div></div>
+    <div class="sw"><div class="chip" style="background:#02682e"></div>
+      <div class="meta"><b>Green 700</b><code>--afrp-green-700 · #02682e</code></div></div>
+    <div class="sw"><div class="chip" style="background:#e8f5ee"></div>
+      <div class="meta"><b>Green 50</b><code>--afrp-green-50 · #e8f5ee</code></div></div>
+    <div class="sw"><div class="chip" style="background:#ed1c24"></div>
+      <div class="meta"><b>Red 500</b><code>--afrp-red · #ed1c24</code></div></div>
+    <div class="sw"><div class="chip" style="background:#14171a"></div>
+      <div class="meta"><b>Ink</b><code>--ink · #14171a</code></div></div>
+    <div class="sw"><div class="chip" style="background:#6b7683"></div>
+      <div class="meta"><b>Ink 3</b><code>--ink-3 · #6b7683</code></div></div>
+    <div class="sw"><div class="chip" style="background:#e3e7eb"></div>
+      <div class="meta"><b>Line</b><code>--line · #e3e7eb</code></div></div>
+    <div class="sw"><div class="chip" style="background:#f5f7f8"></div>
+      <div class="meta"><b>Background</b><code>--bg · #f5f7f8</code></div></div>
+  </div>
+
+  <div class="note">
+    <b>Red is for destructive and error states only.</b>
+    On the current portal red is used for a neutral dropdown affordance on the
+    Household screen, which reads as "danger" for an ordinary action. Green is
+    the action colour; red means something is wrong or about to be deleted.
+  </div>
+
+  <h3 class="sub">2.2 Type</h3>
+  <div class="wrap-x">
+  <table class="spec">
+    <tr><th>Token</th><th>Size</th><th>Use</th><th>Notes</th></tr>
+    <tr><td><code>--fs-display</code></td><td>26px</td><td>Page title on a landing screen</td><td>One per screen, maximum</td></tr>
+    <tr><td><code>--fs-h1</code></td><td>21px</td><td>Screen title</td><td>Replaces the ~40px titles currently rendering</td></tr>
+    <tr><td><code>--fs-h2</code></td><td>17px</td><td>Card and section titles</td><td></td></tr>
+    <tr><td><code>--fs-body</code></td><td><b>16px</b></td><td>Body, and <b>all inputs</b></td><td><b>Hard floor on inputs</b> — below this iOS zooms on focus and the layout jumps</td></tr>
+    <tr><td><code>--fs-sm</code></td><td>14px</td><td>Secondary text, table cells</td><td></td></tr>
+    <tr><td><code>--fs-xs</code></td><td>12.5px</td><td>Hints, metadata</td><td>Never for anything a member must act on</td></tr>
+    <tr><td><code>--fs-micro</code></td><td>11px</td><td>Pills, eyebrow labels</td><td>Uppercase + letter-spacing only</td></tr>
+  </table>
+  </div>
+
+  <h3 class="sub">2.3 Spacing and touch</h3>
+  <p class="lede" style="margin-bottom:var(--s3)">4px base scale:
+     <code>--s1</code> 4 · <code>--s2</code> 8 · <code>--s3</code> 12 ·
+     <code>--s4</code> 16 · <code>--s5</code> 20 · <code>--s6</code> 24 ·
+     <code>--s8</code> 32 · <code>--s10</code> 40 · <code>--s12</code> 48</p>
+  <div class="good">
+    <b>Touch target minimum is 48&nbsp;px (<code>--touch</code>)</b>
+    WCAG 2.2 AA requires 24&nbsp;px; Apple and Google recommend 44. AFRP's
+    membership skews older, so 48 is the target and 44 the absolute floor.
+    Every button, input, switch, and tappable row in this spec is at least 48.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ 3. LAYOUT RULES ═══ -->
+<section>
+  <h2>3. Layout rules</h2>
+  <p class="lede">These five rules are the substance of the fix. Everything else
+     is styling.</p>
+
+  <h3 class="sub">3.1 Page shell and safe areas</h3>
+<pre class="code"><span class="c">&lt;!-- viewport-fit=cover is required for env() to resolve --&gt;</span>
+&lt;meta name="viewport"
+      content="<span class="v">width=device-width, initial-scale=1, viewport-fit=cover</span>"&gt;
+
+<span class="c">/* Fixes: page titles rendering underneath the iOS status bar */</span>
+body{
+  <span class="k">padding-top</span>: env(safe-area-inset-top);
+  <span class="k">padding-bottom</span>: env(safe-area-inset-bottom);
+}
+.app-header{ <span class="k">padding-top</span>: calc(var(--s3) + env(safe-area-inset-top)); }
+.c-actionbar{ <span class="k">padding-bottom</span>: calc(var(--s3) + env(safe-area-inset-bottom)); }</pre>
+
+  <h3 class="sub">3.2 The overflow fix</h3>
+  <div class="two">
+    <div>
+      <div class="bad">
+        <b>Current behaviour</b>
+        A container with a fixed width (or a min-width from a desktop grid)
+        forces inputs wider than the viewport. The member cannot see the end of
+        their own street address while typing it.
+      </div>
+<pre class="code"><span class="c">/* what produces the defect */</span>
+.form-container{ <span class="k">width</span>: <span class="v">720px</span>; }
+input{ <span class="k">width</span>: <span class="v">680px</span>; <span class="k">font-size</span>: <span class="v">14px</span>; }</pre>
+    </div>
+    <div>
+      <div class="good">
+        <b>Required behaviour</b>
+        Inputs are fluid and can shrink. The page can never scroll sideways.
+      </div>
+<pre class="code"><span class="c">/* the fix — three rules */</span>
+*,*::before,*::after{ <span class="k">box-sizing</span>: border-box; }
+html,body{ <span class="k">max-width</span>:100%; <span class="k">overflow-x</span>:hidden; }
+
+.c-input{
+  <span class="k">width</span>: <span class="v">100%</span>;      <span class="c">/* never px */</span>
+  <span class="k">max-width</span>: 100%;
+  <span class="k">min-width</span>: <span class="v">0</span>;        <span class="c">/* shrink inside flex/grid */</span>
+  <span class="k">font-size</span>: <span class="v">16px</span>;    <span class="c">/* no iOS zoom */</span>
+}</pre>
+    </div>
+  </div>
+  <div class="note">
+    <b><code>min-width:0</code> is the one people miss.</b>
+    Flex and grid items default to <code>min-width:auto</code>, which refuses to
+    shrink below content size. Without it, one long email address in a row makes
+    the whole page scroll sideways — which is exactly what the Household screen
+    does today.
+  </div>
+
+  <h3 class="sub">3.3 Live example — profile address form</h3>
+  <div class="demo">
+    <div class="demo-label">Resize this window — nothing clips, nothing scrolls sideways</div>
+    <div class="c-field">
+      <label class="c-field__label" for="a1">Address line 1</label>
+      <input class="c-input" id="a1" value="2529 Yolanda Ct">
+    </div>
+    <div class="c-field">
+      <label class="c-field__label" for="a2">Address line 2</label>
+      <input class="c-input" id="a2" placeholder="Apartment, suite, unit">
+    </div>
+    <div class="c-field-row c-field-row--city">
+      <div class="c-field">
+        <label class="c-field__label" for="ct">City</label>
+        <input class="c-input" id="ct" value="Pleasanton">
+      </div>
+      <div class="c-field">
+        <label class="c-field__label" for="st">State</label>
+        <select class="c-select" id="st"><option>CA</option><option>MI</option></select>
+      </div>
+      <div class="c-field">
+        <label class="c-field__label" for="zp">ZIP</label>
+        <input class="c-input" id="zp" inputmode="numeric" value="94566">
+      </div>
+    </div>
+    <button class="c-btn c-btn--block">Save changes</button>
+  </div>
+
+  <h3 class="sub">3.4 Tile grid</h3>
+  <div class="demo">
+    <div class="demo-label">auto-fill — reflows to 1, 2, 3+ columns; long labels wrap</div>
+    <div class="c-tiles">
+      <a class="c-tile" href="#"><span class="c-tile__icon">♡</span><span class="c-tile__label">Donations</span></a>
+      <a class="c-tile" href="#"><span class="c-tile__icon">▤</span><span class="c-tile__label">Transaction History</span></a>
+      <a class="c-tile" href="#"><span class="c-tile__icon">◫</span><span class="c-tile__label">Manage My Household</span></a>
+      <a class="c-tile" href="#"><span class="c-tile__icon">＋</span><span class="c-tile__label">Become a Member</span></a>
+      <a class="c-tile" href="#"><span class="c-tile__icon">▦</span><span class="c-tile__label">Event Registration</span></a>
+      <a class="c-tile" href="#"><span class="c-tile__icon">☆</span><span class="c-tile__label">Local Club Details</span></a>
+      <a class="c-tile" href="#"><span class="c-tile__icon">▥</span><span class="c-tile__label">Hathihe Ramallah Magazine</span></a>
+      <a class="c-tile" href="#"><span class="c-tile__icon">▢</span><span class="c-tile__label">AFRP Digital Store</span></a>
+    </div>
+  </div>
+
+  <h3 class="sub">3.5 Breakpoints</h3>
+  <div class="wrap-x">
+  <table class="spec">
+    <tr><th>Range</th><th>Layout</th><th>Notes</th></tr>
+    <tr><td><b>&lt; 560px</b> (base)</td><td>Single column. Field rows stack. Tiles 1–2 up. Bottom tab bar</td><td><b>Design here first.</b> The majority of AFRP portal traffic is phone</td></tr>
+    <tr><td><b>560–899px</b></td><td>Field rows pair up. Tiles 3 up. Still single content column</td><td>Large phones, small tablets</td></tr>
+    <tr><td><b>900–1119px</b></td><td>Persistent left nav replaces the tab bar. Content max 640px</td><td>Tablet landscape, small laptop</td></tr>
+    <tr><td><b>≥ 1120px</b></td><td>Shell capped at <code>--shell-max</code>. Two-column on dashboards only</td><td>Never let forms exceed 640px — long line lengths hurt readability</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ 4. COMPONENTS ═══ -->
+<section>
+  <h2>4. Component library</h2>
+  <p class="lede">Live components. Inspect the markup on this page — the class
+     names are the contract.</p>
+
+  <h3 class="sub">4.1 Buttons</h3>
+  <div class="demo">
+    <div class="demo-label">.c-btn — 48px min height, never below</div>
+    <div style="display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center">
+      <button class="c-btn">Primary</button>
+      <button class="c-btn c-btn--secondary">Secondary</button>
+      <button class="c-btn c-btn--danger">Remove card</button>
+      <button class="c-btn c-btn--sm c-btn--secondary">Small</button>
+      <button class="c-btn" disabled>Disabled</button>
+    </div>
+    <div style="margin-top:var(--s4)"><button class="c-btn c-btn--block">Block — the default on mobile</button></div>
+    <div class="note" style="margin-top:var(--s4)">
+      <b>v1.1 correction</b>
+      <code>.c-btn--sm</code> was specified at 40px in v1. That is below the
+      WCAG 2.2 AA 44px floor for a control carrying a real action, so it is now
+      44px — only the padding and type size shrink, never the target.
+    </div>
+  </div>
+
+  <h3 class="sub">4.2 Definition rows</h3>
+  <div class="demo">
+    <div class="demo-label">.c-dl — long values wrap instead of overflowing</div>
+    <div class="c-card">
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Full name</span><span class="c-dl__v">Example Member</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Relationship</span><span class="c-dl__v">Son</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Date of birth</span><span class="c-dl__v">9 Sep 2003</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Email</span><span class="c-dl__v">a.very.long.example.address@some-long-domain.example.com</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="note">
+    <b>Empty rows are hidden, not rendered blank.</b>
+    The current Household cards show "Cell Phone" with no value. If a field is
+    empty, omit the row and surface it as an "Add phone number" action instead.
+  </div>
+
+  <h3 class="sub">4.3 Contact preferences</h3>
+  <div class="two">
+    <div>
+      <div class="bad">
+        <b>Current</b>
+        Email / <b>Fax</b> / Phone / Mail — all four pre-checked, no SMS.
+        Fax is a Dynamics default nobody chose. Pre-checked boxes are not consent.
+      </div>
+    </div>
+    <div>
+      <div class="good">
+        <b>Required</b>
+        Email / <b>SMS</b> / Phone / Mail — nothing pre-checked, SMS captures
+        evidence (wording version, timestamp, IP).
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div class="demo-label">.c-choice — 48px rows, 22px controls</div>
+    <fieldset style="border:0;padding:0;margin:0">
+      <legend class="c-field__label" style="padding:0">How may we contact you?</legend>
+      <label class="c-choice"><input type="checkbox" checked>
+        <span class="c-choice__text">Email<small>Newsletters, receipts, event confirmations</small></span></label>
+      <label class="c-choice"><input type="checkbox">
+        <span class="c-choice__text">Text message (SMS)<small>Convention alerts and last-minute changes. Message and data rates may apply. Reply STOP to opt out.</small></span></label>
+      <label class="c-choice"><input type="checkbox">
+        <span class="c-choice__text">Phone<small>Occasional calls from your local club</small></span></label>
+      <label class="c-choice"><input type="checkbox" checked>
+        <span class="c-choice__text">Mail<small>Hathihe Ramallah and the annual report</small></span></label>
+    </fieldset>
+    <div class="c-alert c-alert--warn" style="margin-top:var(--s4)">
+      <div><b>Consent must be recorded, not implied</b>
+      Store channel, granted, wording version, source, IP, and timestamp.
+      TCPA damages are $500–$1,500 <em>per message</em>.</div>
+    </div>
+  </div>
+
+  <h3 class="sub">4.4 Pills, alerts, switches</h3>
+  <div class="demo">
+    <div class="demo-label">Status vocabulary — use these, do not invent more</div>
+    <div style="display:flex;gap:var(--s2);flex-wrap:wrap">
+      <span class="c-pill c-pill--ok">● Active</span>
+      <span class="c-pill c-pill--warn">● Expires soon</span>
+      <span class="c-pill c-pill--danger">● Lapsed</span>
+      <span class="c-pill c-pill--info">● Pending</span>
+      <span class="c-pill c-pill--muted">Household</span>
+    </div>
+    <div class="c-alert c-alert--danger" style="margin-top:var(--s4)">
+      <div><b>Your card ending 8059 expires this month</b>
+      Your Patron membership renews 13 Mar 2027 and will fail unless you update it.</div>
+    </div>
+    <div style="margin-top:var(--s4);max-width:420px">
+      <div class="c-switch is-on"><span>Auto-renew my membership</span><span class="c-switch__track"></span></div>
+      <div class="c-switch"><span>Show me in the member directory</span><span class="c-switch__track"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ 5. HOUSEHOLD ═══ -->
+<section>
+  <h2>5. Household — the structural change</h2>
+  <p class="lede">The only part of this spec that needs a Dynamics schema change
+     rather than CSS. It is also the highest-value change in the document.</p>
+
+  <div class="bad">
+    <b>Current rule, quoted from the portal</b>
+    "Only couples and their children under the age of 18 should be added to the
+    household. All young adults (18+) must be in their own household, even if
+    they still live in the same physical home."
+  </div>
+
+  <p style="font-size:var(--fs-sm);color:var(--ink-2);max-width:75ch">
+    That sentence collapses three independent facts into one field. The result:
+    a member is ejected from their family on their eighteenth birthday and a
+    parent loses the ability to register them — while everyone still lives in
+    the same house. In this community, parents routinely register adult children
+    for convention.</p>
+
+  <div class="wrap-x">
+  <table class="spec">
+    <tr><th>Question</th><th>Kind of fact</th><th>Belongs in</th></tr>
+    <tr><td>Who lives together?</td><td>Address</td><td><code>household</code></td></tr>
+    <tr><td>Who may register / pay / consent for whom?</td><td><b>Authority</b></td><td><code>household_member.can_transact_for</code></td></tr>
+    <tr><td>Who does a family tier cover?</td><td><b>Benefit</b></td><td><code>membership_coverage</code></td></tr>
+  </table>
+  </div>
+
+  <div class="good">
+    <b>Rule: age sets the default, never the rule</b>
+    Adding a 12-year-old grants a parent authority automatically. Adding a
+    20-year-old does not — but the adult can grant it. Turning 18 prompts a
+    consent refresh, not an ejection. An adult in a household is not an error;
+    a minor with <em>no</em> authorised guardian is.
+  </div>
+
+  <div class="demo">
+    <div class="demo-label">Household member row — authority is visible and editable</div>
+    <div class="c-card">
+      <h3 class="c-card__title">Khoury Household</h3>
+      <div class="c-card__sub">Detroit Club · 5 members</div>
+
+      <div class="c-row">
+        <div class="c-row__main"><b>Marwan Khoury</b><span>Head · 52</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Can manage all</span></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Nadia Khoury</b><span>Spouse · 55</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Can manage all</span></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Tarek Khoury</b><span>Son · 21 · adult</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--info">Delegated to parents</span></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Basim Khoury</b><span>Son · 20 · adult</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--muted">Manages own account</span></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Layla Khoury</b><span>Daughter · 14 · minor</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Parents manage</span></div>
+      </div>
+
+      <div class="c-alert c-alert--warn" style="margin-top:var(--s4)">
+        <div><b>Tarek turned 18</b>
+        He can now manage his own account. He has chosen to let his parents
+        continue registering him — he can change this any time in his profile.</div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:var(--s4)">
+      <b>Under the current model</b> Tarek (21) and Basim (20) would both be
+      forced out of this household entirely, and Marwan would lose the ability
+      to register either of them for convention.
+    </div>
+  </div>
+
+  <h3 class="sub">5.1 Invitation flow — six steps becomes two</h3>
+  <div class="two">
+    <div class="bad">
+      <b>Current</b>
+      Fill details → they get an email → they claim the account → <em>or</em>
+      open the red dropdown → Send Invitation → but only if never registered →
+      email mandatory → if no email, add one via "View Details" in the same
+      dropdown. Six steps, three conditional branches, explained in a wall of prose.
+    </div>
+    <div class="good">
+      <b>Required</b>
+      <b>1.</b> Add member (name, DOB, relationship — email optional).
+      <b>2.</b> Optionally invite. The system decides whether that means a claim
+      link or an account link. The member never runs the decision tree.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ 6. A11Y & QA ═══ -->
+<section>
+  <h2>6. Accessibility and QA gate</h2>
+  <p class="lede">AFRP's membership includes many members over 70. These are not
+     nice-to-haves.</p>
+
+  <div class="wrap-x">
+  <table class="spec">
+    <tr><th>Requirement</th><th>Standard</th><th>How to check</th></tr>
+    <tr><td>Text contrast ≥ 4.5:1</td><td>WCAG 2.2 AA 1.4.3</td><td>Green 500 on white is 4.6:1 — passes for text ≥16px. <b>Do not use it for 12px text</b></td></tr>
+    <tr><td>Touch targets ≥ 44px</td><td>WCAG 2.2 AA 2.5.8</td><td>Spec targets 48px</td></tr>
+    <tr><td>Every input has a real <code>&lt;label for&gt;</code></td><td>1.3.1</td><td>Placeholder is not a label</td></tr>
+    <tr><td>Visible focus ring</td><td>2.4.7</td><td><code>:focus-visible</code> on every interactive element</td></tr>
+    <tr><td>Zoom to 200% without loss</td><td>1.4.4</td><td>Manual, at 320px width</td></tr>
+    <tr><td>No horizontal scroll at 320px</td><td>1.4.10</td><td><b>Automated — add to CI</b></td></tr>
+    <tr><td>Errors identified in text</td><td>3.3.1</td><td>Never colour alone</td></tr>
+  </table>
+  </div>
+
+  <h3 class="sub">6.1 The regression test that matters</h3>
+  <p class="lede" style="margin-bottom:var(--s3)">The overflow defect will come
+     back the first time someone adds a desktop-width component, unless a test
+     catches it. Run this against every portal route:</p>
+<pre class="code"><span class="c">// Fails if any page can scroll sideways at iPhone SE width.</span>
+<span class="c">// This single assertion prevents the most damaging defect on the list.</span>
+<span class="k">for</span> (<span class="k">const</span> route <span class="k">of</span> ROUTES) {
+  <span class="k">await</span> page.setViewportSize({ width: <span class="v">320</span>, height: <span class="v">640</span> })
+  <span class="k">await</span> page.goto(BASE + route)
+  <span class="k">const</span> overflows = <span class="k">await</span> page.evaluate(() =&gt;
+    document.documentElement.scrollWidth &gt; window.innerWidth + <span class="v">1</span>)
+  expect(overflows, <span class="v">`${route} scrolls horizontally`</span>).toBe(<span class="v">false</span>)
+}</pre>
+</section>
+
+<!-- ═══════════════════════════════════════════ 7. DELIVERY ═══ -->
+<section>
+  <h2>7. Delivery order</h2>
+  <div class="wrap-x">
+  <table class="spec">
+    <tr><th>#</th><th>Work</th><th>Effort</th><th>Needs</th></tr>
+    <tr><td>1</td><td>Tokens + reset + overflow fix, applied globally</td><td>3–5 days</td><td>Power Pages theme access</td></tr>
+    <tr><td>2</td><td>Safe areas, header, tab bar / nav</td><td>2–3 days</td><td>—</td></tr>
+    <tr><td>3</td><td>Form components across all edit screens</td><td>4–6 days</td><td>—</td></tr>
+    <tr><td>4</td><td>Tile grid, cards, list rows</td><td>3–4 days</td><td>—</td></tr>
+    <tr><td>5</td><td>Contact preferences: drop Fax, add SMS + consent capture</td><td>3–4 days</td><td><b>Dynamics field change</b></td></tr>
+    <tr><td>6</td><td>Expiring-card alerts</td><td>2 days</td><td>Authorize.Net CIM read</td></tr>
+    <tr><td>7</td><td>Horizontal-overflow test in CI</td><td>1 day</td><td>CI access</td></tr>
+    <tr><td>8</td><td><b>Household redesign</b></td><td>3–4 weeks</td><td><b>Dynamics schema change + board sign-off on the 18+ policy</b></td></tr>
+  </table>
+  </div>
+  <div class="good">
+    <b>Items 1–7 are about three weeks</b> and need no new platform, no
+    migration, and no vendor change. Item 8 is separate and larger, and it is
+    a governance decision before it is an engineering one — someone has to
+    confirm whether the 18+ rule was policy or a workaround.
+  </div>
+</section>
+
+<p style="color:var(--ink-3);font-size:var(--fs-xs);text-align:center;padding:var(--s6) 0">
+  My AFRP Portal Build Spec v1.1 · August 2026 · companion to
+  <em>AFRP Portal Mobile UX Review</em> and the screens mockup.<br>
+  Colours sampled from afrp.org. Demo data is fictional.
+</p>
+
+</div>
+</body>
+</html>

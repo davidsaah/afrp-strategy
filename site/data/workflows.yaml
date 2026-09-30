@@ -1,0 +1,946 @@
+# Generated from the design record and the Analyst Dashboard journey data (2026-09-18T16:43:51).
+# Public repo: roles only, no living person named, no internal budget figures.
+- key: join-renew-dues
+  name: Join, renew and pay dues
+  summary: 'A person joins through one front door, then renews national and club memberships that lapse independently. Standing
+    is always scoped: national or a named club, never "in good standing" alone.'
+  steps:
+  - step: Verify an email and mobile channel by code before anything is stored beyond a draft
+    who: Applicant
+  - step: Choose a membership path (individual, family, student, newlywed) and any club memberships
+    who: Applicant
+  - step: Set consents per field and per channel; the source of each consent is recorded
+    who: Applicant
+  - step: Pay once at checkout; a payment carrying national and club dues splits at capture
+    who: Applicant; platform posts
+  - step: Receive AFRP's receipt and a first-login checklist (household, consent, directory, tree)
+    who: Platform
+  - step: Renew each scope on its own clock; grace is shown as grace, never rounded to current
+    who: Member
+  - step: Record dues collected by a club; standing starts at collection, not remittance
+    who: Club treasurer
+  branches:
+  - all
+  programmes: []
+  services:
+  - membership-standing
+  - funds-ledger
+  - directory-comms
+  - family-tree
+  decisions:
+  - D1
+  - D6
+  - D30
+  - S1
+  - S3
+  - R20
+  - R21
+  status: Partly built
+  status_note: Join wizard, sign-in, recovery, renewal and scoped standing are built. The card processor is simulated and
+    email uses a console backend; real payments and email wait on credentials (slice 5, gated).
+  hands_to:
+  - tree-life-events
+  - remittance-ledger
+  - directory-consent
+  - communications
+  handoff_notes:
+  - 'join → tree: the join creates the member''s tree node, which is never a lineage claim (D30)'
+  - 'join → ledger: national dues are AFRP''s money at the first dollar; club dues are held for the club (D1, R21)'
+  - 'join → directory: per-field consent set at join governs what the directory shows (JD-023)'
+  - 'join → comms: consent defaults bind to the verified channel (S1)'
+  open:
+  - Whether the wedding benefit should cover club dues or national only (Four-Lens §12).
+  - Whether someone can be a national member with no club; the at-large roll is still open (D5).
+  - Whether the free student membership has an age or enrolment limit (Scholarship spec §11).
+  deep_dive:
+  - AFRP-Platform-Experience.html
+  - AFRP-Unified-Member.html
+  prototype:
+  - '#/door/landing'
+  - '#/door/join'
+  - '#/door/login'
+  - '#/door/recovery'
+  - '#/member/membership'
+  - '#/member/payments'
+  sources:
+  - design/AFRP-Decisions-Register.md §Decision 1
+  - design/AFRP-Decisions-Register.md §Decision 6
+  - design/AFRP-Four-Lens-Architecture.md §1.1
+  - plan/MASTER-PLAN.md §1a
+  - docs/AFRP-Platform-Experience.html §J01, §J02
+- key: remittance-ledger
+  name: Club remittance and the ledger
+  summary: National collects once and remits club money on a periodic run. The ledger posts gross, closes daily as an idempotent
+    batch, and books reversals as their own entries.
+  steps:
+  - step: 'Attest each collection event: member, amount, date, channel, collector'
+    who: Club treasurer
+  - step: Post the daily close by fund and kind; fees post as an expense, revenue stays gross
+    who: Platform; national treasurer
+  - step: Hold club dues as a liability to the club; post a receivable from the club for unremitted AFRP dues
+    who: Platform
+  - step: Produce the remittance run as a statement with carry-forward
+    who: Platform
+  - step: Approve the run by name
+    who: Executive Committee officer
+  - step: Handle a reversal as a new entry; after remittance it becomes a receivable (S3)
+    who: National treasurer
+  - step: Reconcile collections to remittance; a variance opens a queue item with an owner and a clock
+    who: National staff
+  branches:
+  - all
+  programmes: []
+  services:
+  - funds-ledger
+  - membership-standing
+  decisions:
+  - D1
+  - D6
+  - S3
+  - R20
+  - R21
+  - R22
+  - R24
+  - R25
+  status: Partly built
+  status_note: Daily close, receivables, reversals and the remittance statement are built; approval completes on a named officer
+    (14 Sep 2026). The variance queue and the QuickBooks connection are not built.
+  hands_to:
+  - reporting
+  - elections-voting
+  - convention
+  handoff_notes:
+  - 'ledger → reporting: the daily close feeds giving and fund views on the federation dashboard'
+  - 'ledger → voting: standing keys to the collection date, so a slow-remitting club cannot disenfranchise members (D1-D)'
+  - 'ledger → convention: delegate standing is verified against the club remittance ledger, not self-attested'
+  open:
+  - The CPA's written answer on agency versus revenue informs each club's treatment; it is not yet on file.
+  - Who bears the processing fee, and the remittance cadence and minimum (Multi-Entity Ledger §8).
+  - How many clubs keep books, and on what (Multi-Entity Ledger §8).
+  deep_dive:
+  - AFRP-Unified-Operations.html
+  - AFRP-Deep-Club-Management.html
+  - AFRP-Governance-Finance-Desktop.html
+  prototype:
+  - '#/money'
+  - '#/club/dashboard'
+  sources:
+  - design/AFRP-Decisions-Register.md §Decision 1
+  - design/AFRP-Multi-Entity-Ledger.md §1, §5, §8
+  - design/AFRP-Rules-Register.md §Money and the multi-entity ledger
+  - design/AFRP-Delivery-Status.md §Slice D1
+  - design/AFRP-QuickBooks-Integration-Spec.md
+- key: giving-funds
+  name: Giving, restricted funds and the endowment
+  summary: Gifts land in named funds held by the right entity, with restriction set only by donor designation. Funds such
+    as the Endowed Fund are shown on the Care branch and cannot be joined.
+  steps:
+  - step: Choose a cause or fund, an amount and a frequency
+    who: Donor
+  - step: Read the surplus and shortfall rule on the page before paying (D7)
+    who: Donor
+  - step: Receipt a ticket as a purchase and any gift beyond it as a deductible gift, by the receiving entity (D9)
+    who: Platform
+  - step: Authorise raising in another entity's name from a purpose catalogue; a new purpose goes to that entity's board (D8)
+    who: Entity officer or board
+  - step: Authorise Endowment or Scholarship Fund spending
+    who: The fund's own committee (ARFECF 6.3.4 / 6.4.4)
+  - step: 'Tell the contributor at four moments: receipt, goal reached, funds transferred, purpose fulfilled (D10)'
+    who: Platform
+  branches:
+  - care
+  - education
+  programmes:
+  - scholarship
+  - medical-mission
+  - women-to-women
+  - senior-living
+  - preservation-project
+  services:
+  - funds-ledger
+  - directory-comms
+  decisions:
+  - D2
+  - D3
+  - D7
+  - D8
+  - D9
+  - D10
+  - D40
+  - S3
+  - R25
+  status: Partly built
+  status_note: The public giving door (J12) and ARFECF fund boundaries are built. Rows for the four contributor moments, surplus-before-payment,
+    the purpose catalogue, Senior Living pledges and club giving (B3, gated) are not built.
+  hands_to:
+  - remittance-ledger
+  - communications
+  - reporting
+  handoff_notes:
+  - 'giving → ledger: gifts post gross by fund; reversals run through receivables (R20, R25, S3)'
+  - 'giving → comms: the four contributor moments, then an annual statement (D10)'
+  - 'giving → reporting: lapsed donors surface as a report that asks for a call (JF-003)'
+  open:
+  - The Endowment Fund Policy Statement and the 2015 Scholarship Fund Policy Statement are not on file; the cap-versus-floor
+    spend rule is unsettled.
+  - ARFECF's exempt-status determination letter is not on file; exempt-status claims on receipts wait on it.
+  - Whether clubs take gifts through the platform onto their own books (Breeze Parity §5 q3).
+  deep_dive:
+  - AFRP-Unified-Member.html
+  - AFRP-Unified-Operations.html
+  - AFRP-Institutions.html
+  prototype:
+  - '#/program/endowment'
+  - '#/money'
+  - '#/member/payments'
+  - '#/institutions'
+  sources:
+  - design/AFRP-Decisions-Register.md §Decision 2, §Decision 3, §Part 2 Money
+  - design/AFRP-Family-Tree-Integration.md §D40
+  - design/AFRP-Program-Architecture.md §3
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: events
+  name: Events and registration
+  summary: One event row seen by the member, the club, the programme and the federation. Each event carries one scope; its
+    money routes by host.
+  steps:
+  - step: Create and publish an event with one scope; cross-listing never moves the money
+    who: Club officer, programme organiser or federation staff
+  - step: Register self or household, with RSVP and waitlist
+    who: Member or household adult
+  - step: Collect a ticket price; a money-taking event must print its surplus and shortfall rules first (D7)
+    who: Organiser
+  - step: Check in at the door; a minor leaves only with a standing holder or someone on the release list
+    who: Club check-in role
+  - step: Record attendance; "missed the last N" raises a follow-up by name
+    who: Club officer
+  branches:
+  - all
+  programmes: []
+  services:
+  - events
+  - membership-standing
+  - funds-ledger
+  - directory-comms
+  decisions:
+  - D7
+  - R6
+  - R23
+  - R26
+  - S3
+  status: Partly built
+  status_note: Member registration, household registration and club events with door check-in and attendance (B2) are built.
+    Member QR check-in, banquet seats as inventory and volunteer roles (B2b) are not built.
+  hands_to:
+  - remittance-ledger
+  - club-management
+  - giving-funds
+  handoff_notes:
+  - 'events → ledger: event money routes by the event''s host; the class code is attribution only (R23)'
+  - 'events → clubs: attendance gaps raise follow-ups on an officer''s desk (B2)'
+  - 'events → giving: a fundraising ticket is non-deductible; a gift beyond it is receipted separately (D9)'
+  open:
+  - Whether any club uses printed child security codes today (Breeze Parity §5 q5).
+  deep_dive:
+  - AFRP-Deep-Club-Activities.html
+  - AFRP-Unified-Member.html
+  prototype:
+  - '#/events'
+  - '#/event'
+  - '#/member/household'
+  sources:
+  - design/AFRP-Four-Lens-Architecture.md §0, §2
+  - design/AFRP-Breeze-Club-Parity.md §3
+  - design/AFRP-Delivery-Status.md §Slice B2
+  - design/AFRP-Rules-Register.md §Money and the multi-entity ledger
+- key: convention
+  name: The Convention
+  summary: 'The junction where all four branches meet once a year: registration, credentialing, the governance floor, the
+    participant layer and the financial close.'
+  steps:
+  - step: Register self and household; membership is mandatory for attendees
+    who: Member
+  - step: Select delegates and file the club roster by live feed or dated manual roster
+    who: Club officer
+  - step: Credential delegates against standing on the remittance ledger and freeze the roll
+    who: Credentials committee (time-boxed grant)
+  - step: Run the floor with weighted delegation; weights freeze when voting opens on a motion (S4)
+    who: Presiding officer; elections officer
+  - step: Post stamped announcements and answer the help desk, owned and clocked
+    who: Convention organisers
+  - step: Sell store items and banquet seats; post gross under the convention class
+    who: Convention organisers
+  - step: Close the books; deficit responsibility reads from the Convention Contract
+    who: Federation treasurer
+  branches:
+  - junction
+  programmes:
+  - convention
+  services:
+  - events
+  - membership-standing
+  - funds-ledger
+  - directory-comms
+  decisions:
+  - D1
+  - D4
+  - D5
+  - D38
+  - S4
+  - R12
+  - R26
+  status: Designed
+  status_note: The floor and election consoles exist; the Convention element (registration desk, credentialing, room block,
+    on-site run, money) is not built and is scheduled as its own project.
+  hands_to:
+  - elections-voting
+  - remittance-ledger
+  - magazine
+  handoff_notes:
+  - 'convention → voting: the certified roll frozen at record date drives delegate weight (R12)'
+  - 'convention → ledger: convention money is federation money at the first dollar (D1-G)'
+  - 'convention → magazine: statutory notices are computed back from the convention date'
+  open:
+  - Which convention is the target date for registration and check-in (Four-Lens §12 q8).
+  - Exhibitor and press as non-attendee credentials, and deficit responsibility, await board confirmation.
+  - 'Decision 5 (the two 9.1.3 drafts: weights fix at opening; the at-large roll) is open.'
+  deep_dive:
+  - AFRP-Deep-Convention.html
+  - AFRP-Convention.html
+  - AFRP-Platform-Experience.html
+  prototype:
+  - '#/convention'
+  - '#/fed/floor'
+  sources:
+  - design/AFRP-Consolidated-Platform-Map.md §3
+  - design/AFRP-Four-Lens-Architecture.md §8
+  - design/AFRP-Decisions-Register.md §Two items for board confirmation
+  - plan/MASTER-PLAN.md §2 (blocked row)
+  - design/AFRP-Family-Tree-Integration.md §D38
+- key: elections-voting
+  name: Elections and voting
+  summary: Secret ballots with a one-time inclusion receipt and recorded ballots for motions, on one engine. The electorate
+    is frozen at a record date and never recomputed.
+  steps:
+  - step: Draft the election and freeze the certified roll at the record date
+    who: Elections officer
+  - step: Clear the merge queue as a gate on certification
+    who: Federation staff
+  - step: Offer eligible members candidates and a real blank; show the ineligible the refusal and its by-law
+    who: Platform
+  - step: Cast and seal; show the receipt once, warning it cannot be reissued
+    who: Member
+  - step: Honour a paper request by closing the electronic ballot for that voter
+    who: Elections officer
+  - step: Count with two key-holder shares after close; no interim count exists
+    who: Key-holders
+  - step: Certify the result against a hash
+    who: Named certifying officer
+  branches:
+  - all
+  programmes: []
+  services:
+  - membership-standing
+  decisions:
+  - D4
+  - D5
+  - S4
+  - R12
+  - R14
+  - R43
+  status: Partly built
+  status_note: The elections console, digital ballots, receipts, the live floor and frozen rolls are built. The mailed CPA
+    ballot and club elections (no club electorate) are not built; the suspension refusal fails to name its rule (JM-042).
+  hands_to:
+  - bylaws-rules
+  - reporting
+  handoff_notes:
+  - 'voting → rules: quorum, thresholds and eligibility are read from the versioned ruleset'
+  - 'voting → reporting: certified results and turnout are recorded; voter-to-token links are never stored'
+  open:
+  - By-Law 9.2 amendment for digital voting awaits ratification; the 2024 mailed process is still the law (D4).
+  - 'Decision 5 is open: when extraction stops, and where at-large members are counted.'
+  - Proxy voting and tie-breaking rules (Four-Lens §7.5).
+  deep_dive:
+  - AFRP-Unified-Operations.html
+  - AFRP-Governance-Mobile.html
+  - AFRP-Governance-Finance-Desktop.html
+  prototype:
+  - '#/election'
+  - '#/ballot'
+  - '#/governance'
+  - '#/fed/floor'
+  - '#/club/voting'
+  sources:
+  - design/AFRP-Electronic-Voting.md §0, §3, §4
+  - design/AFRP-Four-Lens-Architecture.md §7
+  - design/AFRP-Decisions-Register.md §Decision 4, §Decision 5
+  - design/AFRP-Rules-Register.md §Governance, franchise and reporting
+- key: bylaws-rules
+  name: By-laws and the rules register
+  summary: By-law parameters, mechanisms and thresholds are versioned data per entity. Where the text is silent the platform
+    refuses by citation and routes the question to a named committee.
+  steps:
+  - step: Upload a governing document and draft its ruleset
+    who: Constitution Committee or federation staff
+  - step: Verify the extraction blind to the draft, then ratify with a person and a date
+    who: Verifier; ratifying body
+  - step: Set a parameter with its authority; rows are never edited in place
+    who: Holder of rules:set
+  - step: Carry overrides per entity lineage, and phantom rules visibly inactive
+    who: Platform
+  - step: Flag silent or ambiguous text OPEN and route it to the named committee (R40)
+    who: Platform; named committee
+  branches:
+  - all
+  programmes: []
+  services:
+  - membership-standing
+  decisions:
+  - D4
+  - D5
+  - D41
+  - R40
+  status: Built
+  status_note: The ruleset workbench, overrides, parameters and refusals by citation are built. Ratifying the four-amendment
+    package is a convention-floor matter, not build work.
+  hands_to:
+  - elections-voting
+  - join-renew-dues
+  handoff_notes:
+  - 'rules → voting: apportionment, quorum and thresholds become configuration'
+  - 'rules → dues: the dues schedule is versioned; pricing before a schedule exists refuses'
+  open:
+  - Decision 5 (the two 9.1.3 drafts) needs an answer.
+  - Four of the six "who counts as family" questions under By-Law 4.1.1 are unanswered.
+  - Board Rules & Regulations (the dues-ladder authority) are not on file.
+  deep_dive:
+  - AFRP-Ruleset-Workbench.html
+  - AFRP-Institutions.html
+  prototype:
+  - '#/fed/workbench'
+  - '#/institutions'
+  sources:
+  - design/AFRP-Bylaw-Flexibility.md §1, §4, §5
+  - design/AFRP-Rules-Register.md §The register, §The six open questions
+  - design/AFRP-Decisions-Register.md §The conforming-amendment package
+- key: tree-life-events
+  name: Family tree and life events
+  summary: 'The tree is the roots: every member has a node and the platform resolves people through it. Births, marriages,
+    graduations and deaths queue for the Family Tree Committee before anything changes.'
+  steps:
+  - step: Find a line by the oldest ancestor you can name; propose any change
+    who: Member
+  - step: Declare a life event; R6 decides who may declare about a minor
+    who: Member or household adult
+  - step: Queue the declaration; the queue triages itself, unsourced structural claims first
+    who: Platform
+  - step: Decide, send back for information, or reject; only then does the record change
+    who: Family Tree Committee
+  - step: 'Fan out on acceptance: node, household, offers, magazine hold, heritage layer'
+    who: Platform
+  - step: Import a GEDCOM only after its diff preview; an import never deletes anyone
+    who: Genealogy moderator
+  branches:
+  - roots
+  programmes:
+  - family-tree
+  services:
+  - family-tree
+  - membership-standing
+  - magazine
+  decisions:
+  - D11
+  - D12
+  - D14
+  - D16
+  - D17
+  - D22
+  - D28
+  - D30
+  - D31
+  - D32
+  - D33
+  - D35
+  - D36
+  - D37
+  - R6
+  - R34
+  - S2
+  status: Partly built
+  status_note: Node, hourglass, committee queue, life-event pipeline and mailings are built (slices T1a–T1c). Per-subject
+    photo consent and "how am I related" are not built; the death approval gate is not in the Hub.
+  hands_to:
+  - magazine
+  - join-renew-dues
+  - directory-consent
+  - scholarship-cycle
+  handoff_notes:
+  - 'tree → magazine: a birth announcement runs on household consent; a death is held until the family approves (D33)'
+  - 'tree → membership: a death terminates memberships at save; incentives are offered, never auto-granted'
+  - 'tree → directory: the deceased are withheld; living people show no dates signed out (R34, D28)'
+  - 'tree → scholarship: relationships the tree can see are disclosed with their degree on review'
+  open:
+  - Adoption has no decision; an adoptive link is recorded as non-lineage and nothing is inferred.
+  - Three By-Law 4.1.1 spouse questions and the club attachment of a minor in two households are open.
+  deep_dive:
+  - AFRP-Community-LifeEvents.html
+  - AFRP-Unified-Member.html
+  - AFRP-Platform-Experience.html
+  prototype:
+  - '#/member/family'
+  - '#/fed/tree'
+  sources:
+  - design/AFRP-Family-Tree-Integration.md §2, §3, §6
+  - design/AFRP-Decisions-Register.md §Part 2 family tree, §Part 3
+  - design/AFRP-R6-Minor-Authority.md §1
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: scholarship-cycle
+  name: Scholarship cycle
+  summary: Application to award for the Scholarship held by ARFECF. Median ranking, relationships disclosed on the record,
+    encumbrance against the committee's budget, and disbursement gated on enrolment.
+  steps:
+  - step: Apply with transcripts, need documents and a lineage or sponsorship path
+    who: Applicant
+  - step: Review and score; relationships the tree sees are disclosed with their degree
+    who: Scholarship committee reviewer
+  - step: Rank by median; wide spreads are flagged, ties left tied
+    who: Scholarship committee
+  - step: Enter the award budget from the committee's report with a source and date
+    who: Scholarship committee
+  - step: Match named awards most-constrained first; encumber forward commitments
+    who: Scholarship committee
+  - step: Verify enrolment each term before disbursement
+    who: Committee; staff
+  - step: Issue award receipts as ARFECF's
+    who: Platform
+  branches:
+  - education
+  programmes:
+  - scholarship
+  services:
+  - membership-standing
+  - family-tree
+  - funds-ledger
+  - magazine
+  decisions:
+  - D2
+  - D3
+  - D16
+  - D18
+  status: Built
+  status_note: The committee engine is built (slices 4, 4b). Applicant material never enters the Hub. The spend rule and the
+    committee's constitution route OPEN by design.
+  hands_to:
+  - alumni-recruiting
+  - join-renew-dues
+  - giving-funds
+  handoff_notes:
+  - 'scholarship → alumni: award history becomes the alumni register'
+  - 'scholarship → membership: a scholar receives a free student membership (J06 step 6)'
+  - 'scholarship → funds: awards draw on the ARFECF Scholarship Fund under its committee''s authority'
+  open:
+  - Members vote for a Scholarship Committee no AFRP by-law constitutes; a conforming amendment is needed (D3).
+  - The rubric and reviewers per application are the committee's to set (spec §11).
+  - Who approves the budget, and who is the tax adviser for flagged disbursements (spec §11).
+  deep_dive:
+  - AFRP-Deep-Flagship-Programs.html
+  - AFRP-Deep-Programs.html
+  - AFRP-Unified-Operations.html
+  prototype:
+  - '#/program/applications'
+  - '#/program/overview'
+  sources:
+  - design/AFRP-Scholarship-Program-Spec.md §2, §3, §4, §11
+  - design/AFRP-Decisions-Register.md §Decision 3
+  - design/AFRP-Delivery-Status.md §Slice 4
+  - plan/MASTER-PLAN.md §2 row 4b
+- key: camp-application
+  name: Camp Ramallah application and season
+  summary: Camp is a selection problem, not an enrolment funnel. A parent applies under the household; selection is by quota
+    with disclosed odds; minor authority runs on the ratified R6.
+  steps:
+  - step: Apply for a camper seat under the household
+    who: Parent or guardian with standing
+  - step: Select by quota with per-club odds disclosed; a four-per-family cap bounds first-come
+    who: Camp Ramallah committee
+  - step: Offer a freed seat one rank at a time in serialized windows
+    who: Platform
+  - step: Gate arrival on the health form; the health record itself is a bought system
+    who: Parent; camp staff
+  - step: Screen staff on the check and credential expiry; a paid CIT is an employee
+    who: Camp staff lead
+  - step: Release a camper only to a standing holder or someone on the release list
+    who: Camp staff
+  - step: Publish photos per camper consent; report retention at k≥3
+    who: Camp staff; platform
+  branches:
+  - education
+  programmes:
+  - camp-ramallah
+  services:
+  - membership-standing
+  - events
+  - funds-ledger
+  - directory-comms
+  - family-tree
+  decisions:
+  - D13
+  - D22
+  - D34
+  - D35
+  - R6
+  - R7
+  - R40
+  status: Built
+  status_note: Camp screens and household authority (slices 2, 2b) are built. The rung-5 camp milestone inviting into Leadership
+    is not built (JP-054).
+  hands_to:
+  - communications
+  - reporting
+  handoff_notes:
+  - 'camp → comms: a milestone fires a programme invitation, never an enrolment'
+  - 'camp → reporting: first-year and veteran retention report separately, suppressed below k=3'
+  open:
+  - Camp capacity, selection criteria, fee and committee are unconfirmed (Camp plan §Still unknown).
+  - Which state's camp regulation governs, and whether AFRP is or wants to be ACA-accredited.
+  deep_dive:
+  - AFRP-Deep-Flagship-Programs.html
+  - AFRP-Deep-Programs.html
+  - AFRP-Platform-Experience.html
+  prototype:
+  - '#/program/prog/camp'
+  - '#/member/household'
+  - '#/member/programs'
+  sources:
+  - design/AFRP-Camp-Directory-Network-Plan.md §Decisions taken, §The four findings, §Still unknown
+  - design/AFRP-R6-Minor-Authority.md §1–§6
+  - plan/MASTER-PLAN.md §2 rows 2, 2b
+- key: magazine
+  name: Hathihe Ramallah and the bookstore
+  summary: The magazine issue runs plan, copy freeze, proof, press and archive, with auto sections snapshotted at the freeze.
+    The bookstore sells at member price and posts revenue to the ledger.
+  steps:
+  - step: Plan the issue; statutory notices print against their clock
+    who: Magazine editor
+  - step: File copy against the freeze
+    who: Correspondent
+  - step: Snapshot the auto sections at the copy freeze; late entries roll forward
+    who: Platform
+  - step: Proof your own entry; approving confirms the record, not the sentence
+    who: Member
+  - step: Hold a death until the family approves
+    who: Magazine editor
+  - step: Press, publish and archive
+    who: Magazine editor
+  - step: Browse and order at member price; fulfil and post revenue
+    who: Member; store manager
+  branches:
+  - heritage
+  programmes:
+  - magazine
+  - bookstore
+  services:
+  - magazine
+  - family-tree
+  - directory-comms
+  - funds-ledger
+  decisions:
+  - D33
+  - S5
+  - R27
+  status: Built
+  status_note: Magazine operations and the review corrections (slices 7, 7b) and the bookstore are built. The desk refuses
+    non-editorial federation roles because the magazine has its own board.
+  hands_to:
+  - tree-life-events
+  - remittance-ledger
+  handoff_notes:
+  - 'magazine → tree: the archive is genealogy source material (JM-078)'
+  - 'bookstore → ledger: a sale is never a gift; revenue posts to the ledger (UC-11)'
+  open:
+  - Issues per year and real deadlines, page budgets and listing tiers (Magazine use cases §8).
+  - Who the editor is, whether back issues are open to non-members, and the bookstore's stock (§8).
+  - The five-versus-six section count sits with the magazine committee.
+  deep_dive:
+  - AFRP-Deep-Programs.html
+  - AFRP-Unified-Operations.html
+  prototype:
+  - '#/member/magazine'
+  - '#/program/magazine'
+  - '#/member/bookstore'
+  - '#/program/bookstore'
+  sources:
+  - design/AFRP-Magazine-Bookstore-Use-Cases.md §2, §3, §4, §8
+  - plan/MASTER-PLAN.md §2 row 7b
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: communications
+  name: Communications and consent
+  summary: Two senders, club and federation, on one consent model. Consent is checked when the audience is built, and the
+    withheld are stored by name.
+  steps:
+  - step: Build the audience from a segment, group or roster
+    who: Club officer or federation staff
+  - step: Remove no-consent and no-verified-address recipients before composing
+    who: Platform
+  - step: 'Compose with a class: operational, marketing or programme invitation'
+    who: Sender
+  - step: Send, gated on message:send
+    who: Sender with the grant
+  - step: Show undeliverable as not tracked, never as zero
+    who: Platform
+  - step: Mute or change consent per channel; each change is a dated row
+    who: Member
+  branches:
+  - all
+  programmes: []
+  services:
+  - directory-comms
+  decisions:
+  - D10
+  - D36
+  - S1
+  - R27
+  status: Partly built
+  status_note: Consent-filtered audiences, classes and the withheld list are built for clubs and federation. Real email waits
+    on a provider (slice 5); texting waits on a provider, budget and 10DLC registration (B5).
+  hands_to:
+  - reporting
+  handoff_notes:
+  - 'comms → reporting: sends and exclusions are recorded; undeliverable is reported as not tracked'
+  open:
+  - Which email provider, and which texting provider, budget and brand registrant (Breeze Parity §5 q1).
+  - Printed directory and labels are refused by design; whether the Board wants a consented print purpose (§5 q7).
+  deep_dive:
+  - AFRP-Unified-Operations.html
+  - AFRP-Unified-Member.html
+  prototype:
+  - '#/club/comms'
+  - '#/fed/comms'
+  - '#/member/inbox'
+  sources:
+  - design/AFRP-Four-Lens-Architecture.md §9
+  - design/AFRP-Breeze-Club-Parity.md §3, §5
+  - plan/MASTER-PLAN.md §2 rows 5, B5
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: club-management
+  name: Running a club
+  summary: 'The club lens replaces Breeze: roster with dual status, groups, follow-ups, events, dues and the officer year.
+    The Federation sees counts, never names.'
+  steps:
+  - step: Read the roster with national and club status side by side, sorted by household
+    who: Club officer
+  - step: Make groups and raise follow-ups with due dates
+    who: Club secretary or officer
+  - step: 'Run the treasurer''s month: collect, close, remit, reconcile'
+    who: Club treasurer
+  - step: File officers and the affiliation by the By-Law 3.2 deadline
+    who: Club president or secretary
+  - step: Select the delegation for convention
+    who: Club officers
+  - step: Hand over grants at the end of the officer year
+    who: Outgoing and incoming officers
+  - step: See a club's groups, events and follow-ups as counts under the floor
+    who: Federation staff
+  branches:
+  - all
+  programmes: []
+  services:
+  - membership-standing
+  - events
+  - funds-ledger
+  - directory-comms
+  decisions:
+  - D1
+  - D6
+  - R6
+  - R16
+  - S7
+  status: Partly built
+  status_note: Roster, officers, households, dues and remittance, groups, follow-ups and club events are built (B1, B2). The
+    secretary's queue, condolence surface, club migration, club giving (B3) and the Breeze import (B4) are not built.
+  hands_to:
+  - remittance-ledger
+  - communications
+  - convention
+  - reporting
+  handoff_notes:
+  - 'club → ledger: collections are attested and remitted on the run (D1)'
+  - 'club → comms: a club mailing reaches only its own roster, consent-filtered'
+  - 'club → convention: the delegation is selected and credentialed against standing'
+  - 'club → reporting: the Federation roll-up shows counts, never names'
+  open:
+  - Which club goes first for the Breeze import, and who holds its key (Breeze Parity §5 q4).
+  - Whether the club register holds 17, 18 or 19 clubs (§5 q8).
+  - The affiliation form's content is not held.
+  deep_dive:
+  - AFRP-Deep-Club-Management.html
+  - AFRP-Deep-Club-Activities.html
+  - AFRP-Unified-Operations.html
+  prototype:
+  - '#/club/dashboard'
+  - '#/club/roster'
+  - '#/club/households'
+  - '#/club/officers'
+  - '#/clubs'
+  sources:
+  - design/AFRP-Breeze-Club-Parity.md §2, §3, §5
+  - design/AFRP-Addendum-2-Breeze-Replacement.md §3
+  - design/AFRP-Four-Lens-Architecture.md §3
+  - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: alumni-recruiting
+  name: Alumni and recruiting
+  summary: Historic scholarship recipients are resolved to people on the register and reconnected with consent. Nothing links
+    itself; every link is recorded and reversible.
+  steps:
+  - step: Import a historic recipient list
+    who: Programme staff
+  - step: Resolve imported recipients through the matcher; review the band by hand
+    who: Match-queue reviewer
+  - step: Trace an unreachable alumnus through the family tree
+    who: Programme staff
+  - step: Segment and run a reconnection campaign, consent-filtered
+    who: Programme staff
+  - step: Claim the record and join
+    who: Alumnus
+  - step: Ask not to be contacted; every path closes
+    who: Alumnus
+  branches:
+  - education
+  - leadership
+  programmes:
+  - scholarship
+  - rbpn
+  services:
+  - membership-standing
+  - family-tree
+  - directory-comms
+  decisions:
+  - D36
+  - S7
+  status: Partly built
+  status_note: The match queue is built (slice 9). Import, tree tracing, campaigns and the claim path are later slices.
+  hands_to:
+  - join-renew-dues
+  - communications
+  handoff_notes:
+  - 'alumni → join: an alumnus who claims their record can join (UC-7)'
+  - 'alumni → comms: reconnection runs through the consent filter like every send'
+  open:
+  - Who reviews the match queue (Alumni use cases §6 q4).
+  - Whether a joining-fee waiver for alumni is acceptable, and whether award history shows in the directory (§6).
+  deep_dive:
+  - AFRP-Alumni-Desktop.html
+  - AFRP-Alumni-Mobile.html
+  - AFRP-Unified-Operations.html
+  prototype:
+  - '#/program/alumni'
+  sources:
+  - design/AFRP-Alumni-Recruiting-Use-Cases.md §1, §3, §6
+  - design/AFRP-Delivery-Status.md §Slice 9
+- key: directory-consent
+  name: Directory, RBPN and consent
+  summary: A members-only directory where display, contact and export are three separate consents. No minor appears in any
+    payload, and nothing about the living shows signed out.
+  steps:
+  - step: Set per-field visibility; the ceiling is members, never public
+    who: Member
+  - step: Search with transliteration folding and aliases
+    who: Member
+  - step: Contact through the broker; the address itself never ships
+    who: Member
+  - step: Publish an RBPN profession listing; request a promoted business listing
+    who: Member
+  - step: Verify membership and ownership before a listing exists
+    who: RBPN desk
+  - step: Drop a lapsed member after the grace window
+    who: Platform
+  branches:
+  - leadership
+  - all
+  programmes:
+  - rbpn
+  services:
+  - directory-comms
+  - membership-standing
+  decisions:
+  - D6
+  - D17
+  - D28
+  - R7
+  - R27
+  status: Built
+  status_note: Directory, consents, the broker, RBPN listings and the job board are built (slice 10). Bulk export refuses
+    for everyone.
+  hands_to:
+  - communications
+  - magazine
+  handoff_notes:
+  - 'directory → comms: contact runs through the broker, never an exported address'
+  - 'directory → magazine: a lapsed listing drops out of the magazine''s professional directory'
+  open:
+  - Paying for a listing on the platform is not decided.
+  deep_dive:
+  - AFRP-Platform-Experience.html
+  - AFRP-Unified-Member.html
+  prototype:
+  - '#/directory'
+  - '#/member/rbpn'
+  - '#/program/rbpn'
+  sources:
+  - design/AFRP-Camp-Directory-Network-Plan.md §Decisions taken
+  - design/AFRP-Decisions-Register.md §Decision 6, §Part 2
+  - design/AFRP-Delivery-Status.md §Slice 10, §Slice D1
+  - design/AFRP-Rules-Register.md §Identity, minors and the directory
+- key: reporting
+  name: Reporting and oversight
+  summary: Federation, club and programme views built from counts, not rows. Every aggregate carries complementary suppression
+    so no arithmetic across reports names a person.
+  steps:
+  - step: Read membership health, giving by fund and open items on the dashboard
+    who: Federation staff
+  - step: Call lapsed donors from the report
+    who: Federation staff
+  - step: Benchmark a club against federation aggregates
+    who: Club officer
+  - step: Read programme pipeline counts, suppressed under the floor
+    who: Programme organiser
+  - step: Publish the cross-programme funnel annually as a frozen snapshot
+    who: Executive director's office (data custodian)
+  branches:
+  - all
+  programmes: []
+  services:
+  - membership-standing
+  - funds-ledger
+  - events
+  - directory-comms
+  decisions:
+  - D42
+  - S7
+  - R43
+  status: Partly built
+  status_note: Federation dashboard, lapsed donors, club roll-up and programme pipeline counts are built. The board workspace
+    and committee reporting wait on a design note; QuickBooks and 990 support are not built.
+  hands_to:
+  - club-management
+  handoff_notes:
+  - 'reporting → clubs: federation context (a club''s rate against the median) returns to the club lens as counts'
+  open:
+  - The committee workspace and reporting design note (P1) is not yet written.
+  - Per-branch donor outcome metrics use the five-rung ladder (D42); their definitions are not stated in the record.
+  deep_dive:
+  - AFRP-Deep-Federation.html
+  - AFRP-Unified-Operations.html
+  - AFRP-Board-Packet.html
+  prototype:
+  - '#/fed/dashboard'
+  - '#/fed/crm'
+  - '#/program/overview'
+  - '#/program/lifecycle'
+  sources:
+  - design/AFRP-Four-Lens-Architecture.md §5
+  - docs/AFRP-Platform-Experience.html §S7
+  - design/AFRP-Decisions-Register.md §Decision 42
+  - plan/MASTER-PLAN.md §2 row SP0
+  - docs/AFRP-Analyst-Dashboard.html (journey data)

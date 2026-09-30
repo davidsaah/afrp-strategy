@@ -1,0 +1,57 @@
+# Two strands that meet: the Federation's strategy, and the platform's design.
+- date: "2018"
+  strand: federation
+  title: The Federation's SWOT
+  text: The Strategic Planning Committee's analysis names the problems every later plan returns to. There is no database or CRM and no archives, the culture does not feel welcoming, and members leave over "perceived disorganisation".
+- date: "May 2019"
+  strand: federation
+  title: Strategic Plan 2018–2023
+  text: A five-year plan with six pillars (constitutional review, administration, information technology, communications, programming and government relations). It commits to a CRM, a Program Coordinator, an Executive Director, and a youth pipeline from camp to professional life.
+- date: "2020"
+  strand: federation
+  title: The committee sets its priorities
+  text: Accountability reporting from every committee, programme evaluation, recruiting younger members, hiring an Executive Director and "implement the new CRM".
+- date: "May 2021"
+  strand: federation
+  title: Federation 2.0, the 2020–21 Recommendations
+  text: Communications, Mid-Year and Convention guidelines, and administrative infrastructure. This includes the Selection Committee, job descriptions and reporting templates, plus the first requirements for an AFRP app. The stated goal is to attract and retain young adults. The 2024 by-laws later incorporate its Selection Committee.
+- date: "Oct 2022"
+  strand: federation
+  title: The Convention agreement
+  text: Hosting, money and records rules for every Convention. Registration records belong to the Federation.
+- date: "2023"
+  strand: federation
+  title: A CRM goes live
+  text: The committee wants the database ready for the Convention. By September it is live, but getting members registered is hard. In 2024 it runs over budget, and once its contractor leaves nobody can maintain it.
+- date: "Jul 2024"
+  strand: federation
+  title: New Constitution and By-Laws
+  text: Adopted at Jacksonville, including the Selection Committee (Article XVII).
+- date: "Mar 2025"
+  strand: federation
+  title: Every committee asked for a SWOT
+  text: The Deputy President's survey asks every committee for its purpose, what worked, its goals and its budget. Succession and younger members come back in almost every answer.
+- date: "Aug 2026"
+  strand: platform
+  title: The platform is designed
+  text: Architecture, the member experience, programmes and money are designed. The Board's blocking decisions (D1–D6) are answered on 20 August, twenty more follow the next day, and thirteen red-team rounds attack the design.
+- date: "4 Sep 2026"
+  strand: platform
+  title: The build starts
+  text: AFRP-Hub is built as a plain, long-lived Django application, chosen for "who maintains this in 2031".
+- date: "8 Sep 2026"
+  strand: platform
+  title: The family tree becomes the spine
+  text: Decisions D30–D41 make every member a node on the tree, and set the four branches (Education, Leadership, Heritage, Care) with the tree as the roots and the Convention as the junction.
+- date: "10 Sep 2026"
+  strand: federation
+  title: The Strategic Planning Committee restarts
+  text: It asks for a data-driven, outcome-based plan, an endowment campaign, an Executive Director and a central archive.
+- date: "29 Sep 2026"
+  strand: platform
+  title: One public design record
+  text: The design record and the prototypes move into this public repository.
+- date: "30 Sep 2026"
+  strand: both
+  title: The two strands meet
+  text: The Federation's plans are mapped element by element onto the platform (the crosswalk). The strategy is framed on the four branches (D42), and this site becomes the place where the strategy is discussed and its implementation shown (D43–D52).

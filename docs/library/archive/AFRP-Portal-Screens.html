@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My AFRP — Portal Screens</title>
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   AFRP PORTAL DESIGN TOKENS
+   Copy this :root block verbatim into the Power Pages theme.
+   Colours sampled from afrp.org.
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root{
+  /* brand */
+  --afrp-green:#038c3e;
+  --afrp-green-700:#02682e;
+  --afrp-green-800:#014f23;
+  --afrp-green-50:#e8f5ee;
+  --afrp-green-100:#c9e8d6;
+  --afrp-red:#ed1c24;
+  --afrp-red-700:#b8151c;
+  --afrp-red-50:#fdeaeb;
+
+  /* neutrals */
+  --ink:#14171a;
+  --ink-2:#3f4750;
+  --ink-3:#6b7683;
+  --line:#e3e7eb;
+  --line-2:#f0f3f5;
+  --bg:#f5f7f8;
+  --surface:#ffffff;
+
+  /* status */
+  --amber:#b4690e;  --amber-50:#fdf3e3;
+  --blue:#1257a5;   --blue-50:#e8f1fb;
+
+  /* type — 16px base is the MINIMUM on inputs. Below it iOS auto-zooms
+     on focus, which is a root cause of the reported layout breakage. */
+  --fs-display:26px; --fs-h1:21px; --fs-h2:17px; --fs-body:16px;
+  --fs-sm:14px;      --fs-xs:12.5px; --fs-micro:11px;
+  --lh-tight:1.25;   --lh-body:1.5;
+
+  /* spacing — 4px base scale */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px;
+  --s6:24px; --s8:32px; --s10:40px; --s12:48px;
+
+  /* radius, elevation */
+  --r-sm:8px; --r:12px; --r-lg:16px; --r-pill:999px;
+  --shadow:0 1px 2px rgba(20,23,26,.06), 0 4px 14px rgba(20,23,26,.05);
+
+  /* touch — 48px min. AFRP's membership skews older; 44px is the floor,
+     48px is the target. */
+  --touch:48px;
+
+  /* layout */
+  --page-max:640px;      /* single column reading width */
+  --shell-max:1120px;    /* desktop shell */
+  --gutter:16px;
+}
+
+/* ═══ RESET — the three rules that fix the reported overflow defect ═══ */
+*,*::before,*::after{box-sizing:border-box}          /* 1. padding inside width */
+html,body{max-width:100%;overflow-x:hidden}          /* 2. nothing escapes the viewport */
+img,svg,video,table,pre{max-width:100%}              /* 3. media cannot push wider */
+
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font:var(--fs-body)/var(--lh-body) -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  /* iOS safe areas — fixes the "title under the status bar" defect */
+  padding-top:env(safe-area-inset-top);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+h1,h2,h3,h4{margin:0;font-weight:650;letter-spacing:-.015em;line-height:var(--lh-tight)}
+a{color:var(--afrp-green-700)}
+code{font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+  background:#eef1f4;padding:1px 5px;border-radius:5px}
+
+/* ═══ DOC CHROME (spec page only — not part of the design system) ═══ */
+.doc{max-width:var(--shell-max);margin:0 auto;padding:0 var(--gutter) 80px}
+.masthead{background:var(--ink);color:#fff;padding:var(--s6) var(--gutter);margin-bottom:var(--s6)}
+.masthead .in{max-width:var(--shell-max);margin:0 auto}
+.masthead h1{font-size:24px;color:#fff}
+.masthead p{margin:var(--s2) 0 0;color:#b9c2cc;font-size:var(--fs-sm);max-width:70ch}
+.tagrow{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4)}
+.tag{background:rgba(255,255,255,.12);color:#e6ebf0;font-size:var(--fs-micro);
+  padding:3px 9px;border-radius:var(--r-pill);font-weight:650;letter-spacing:.04em}
+.tag.red{background:var(--afrp-red);color:#fff}
+
+section{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:var(--s6);margin-bottom:var(--s5);box-shadow:var(--shadow)}
+section > h2{font-size:var(--fs-h1);margin-bottom:var(--s1)}
+section > .lede{color:var(--ink-3);font-size:var(--fs-sm);margin:0 0 var(--s5);max-width:75ch}
+h3.sub{font-size:var(--fs-h2);margin:var(--s6) 0 var(--s3);padding-top:var(--s5);
+  border-top:1px solid var(--line-2)}
+h3.sub:first-of-type{border-top:0;padding-top:0;margin-top:var(--s4)}
+
+table.spec{width:100%;border-collapse:collapse;font-size:var(--fs-sm);margin:var(--s3) 0}
+table.spec th{text-align:left;font-size:var(--fs-micro);text-transform:uppercase;
+  letter-spacing:.07em;color:var(--ink-3);font-weight:650;padding:0 var(--s3) var(--s2);
+  border-bottom:1px solid var(--line)}
+table.spec td{padding:var(--s3);border-bottom:1px solid var(--line-2);vertical-align:top}
+table.spec tr:last-child td{border-bottom:0}
+.wrap-x{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s3)}
+.sw{border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden}
+.sw .chip{height:56px}
+.sw .meta{padding:var(--s2) var(--s3);font-size:var(--fs-xs)}
+.sw .meta b{display:block;font-size:var(--fs-sm)}
+.sw .meta code{background:none;padding:0;color:var(--ink-3)}
+
+.bad,.good{border-left:3px solid;padding:var(--s3) var(--s4);border-radius:0 var(--r-sm) var(--r-sm) 0;
+  font-size:var(--fs-sm);margin:var(--s3) 0}
+.bad{border-color:var(--afrp-red);background:var(--afrp-red-50);color:#7a0f14}
+.good{border-color:var(--afrp-green);background:var(--afrp-green-50);color:var(--afrp-green-800)}
+.bad b,.good b{display:block;margin-bottom:2px}
+.note{border-left:3px solid var(--amber);background:var(--amber-50);color:#7a4a08;
+  padding:var(--s3) var(--s4);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:var(--fs-sm);margin:var(--s3) 0}
+
+pre.code{background:#14171a;color:#e6ebf0;padding:var(--s4);border-radius:var(--r-sm);
+  overflow-x:auto;font:12.5px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;margin:var(--s3) 0}
+pre.code .c{color:#8b97a3}
+pre.code .k{color:#7fd493}
+pre.code .v{color:#9ecbff}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5)}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENT LIBRARY — everything below `.c-` is the actual design system.
+   Live examples; copy the CSS as-is.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.demo{background:var(--bg);border:1px dashed var(--line);border-radius:var(--r-sm);
+  padding:var(--s5);margin:var(--s3) 0}
+.demo + .demo{margin-top:var(--s3)}
+.demo-label{font-size:var(--fs-micro);text-transform:uppercase;letter-spacing:.07em;
+  color:var(--ink-3);font-weight:650;margin-bottom:var(--s3)}
+
+/* --- buttons --- */
+.c-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);
+  min-height:var(--touch);padding:0 var(--s5);
+  background:var(--afrp-green);color:#fff;border:0;border-radius:var(--r-sm);
+  font:600 var(--fs-body)/1 inherit;font-family:inherit;cursor:pointer;
+  text-decoration:none;width:auto;
+}
+.c-btn:hover{background:var(--afrp-green-700)}
+.c-btn:focus-visible{outline:3px solid var(--afrp-green-100);outline-offset:2px}
+.c-btn[disabled]{background:#c3cbd3;cursor:not-allowed}
+.c-btn--secondary{background:var(--surface);color:var(--ink-2);border:1px solid var(--line)}
+.c-btn--secondary:hover{background:#f6f8f9}
+.c-btn--danger{background:var(--afrp-red)}
+.c-btn--danger:hover{background:var(--afrp-red-700)}
+.c-btn--block{display:flex;width:100%}
+.c-btn--sm{min-height:40px;padding:0 var(--s4);font-size:var(--fs-sm)}
+
+/* --- form fields: THE fix for the reported overflow --- */
+.c-field{margin-bottom:var(--s5);max-width:100%}
+.c-field__label{display:block;font-size:var(--fs-sm);font-weight:640;
+  color:var(--ink-2);margin-bottom:var(--s2)}
+.c-field__hint{font-size:var(--fs-xs);color:var(--ink-3);margin-top:var(--s2)}
+.c-field__error{font-size:var(--fs-xs);color:var(--afrp-red-700);margin-top:var(--s2);font-weight:600}
+.c-input,.c-select,.c-textarea{
+  display:block;
+  width:100%;              /* NOT a px width. This is the whole fix. */
+  max-width:100%;
+  min-width:0;             /* lets it shrink inside a flex/grid parent */
+  min-height:var(--touch);
+  padding:var(--s3) var(--s4);
+  font-size:var(--fs-body);/* 16px — below this iOS zooms on focus */
+  font-family:inherit;color:var(--ink);
+  background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-sm);
+}
+.c-input:focus,.c-select:focus,.c-textarea:focus{
+  outline:0;border-color:var(--afrp-green);box-shadow:0 0 0 3px var(--afrp-green-100)}
+.c-input[aria-invalid="true"]{border-color:var(--afrp-red)}
+.c-textarea{min-height:96px;resize:vertical}
+
+/* Field rows: stack on mobile, share a line only when there is room. */
+.c-field-row{display:grid;grid-template-columns:1fr;gap:var(--s4)}
+@media(min-width:560px){
+  .c-field-row--2{grid-template-columns:1fr 1fr}
+  .c-field-row--city{grid-template-columns:2fr 1fr 1fr}
+}
+
+/* --- choice controls --- */
+.c-choice{display:flex;align-items:flex-start;gap:var(--s3);
+  min-height:var(--touch);padding:var(--s2) 0;cursor:pointer}
+.c-choice input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--afrp-green);flex:0 0 22px}
+.c-choice__text{font-size:var(--fs-body)}
+.c-choice__text small{display:block;color:var(--ink-3);font-size:var(--fs-xs)}
+
+.c-switch{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);
+  min-height:var(--touch);padding:var(--s2) 0}
+.c-switch__track{flex:0 0 52px;width:52px;height:31px;border-radius:var(--r-pill);
+  background:#cdd4db;position:relative;transition:background .15s}
+.c-switch__track::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;
+  border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .15s}
+.c-switch.is-on .c-switch__track{background:var(--afrp-green)}
+.c-switch.is-on .c-switch__track::after{transform:translateX(21px)}
+
+/* --- cards, tiles, rows --- */
+.c-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:var(--s5);box-shadow:var(--shadow)}
+.c-card__title{font-size:var(--fs-h2);margin-bottom:var(--s1)}
+.c-card__sub{color:var(--ink-3);font-size:var(--fs-xs);margin-bottom:var(--s4)}
+
+/* Tile grid — auto-fill, never a fixed 2 columns. Fixes the clipped grid. */
+.c-tiles{display:grid;gap:var(--s3);grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.c-tile{display:flex;flex-direction:column;gap:var(--s3);
+  min-height:112px;padding:var(--s4);
+  background:var(--afrp-green-50);border:1px solid transparent;border-radius:var(--r);
+  color:var(--afrp-green-800);text-decoration:none;font-weight:640;font-size:var(--fs-sm)}
+.c-tile:hover{border-color:var(--afrp-green-100);background:#dcefe4}
+.c-tile__icon{font-size:20px;line-height:1}
+.c-tile__label{margin-top:auto;overflow-wrap:anywhere}  /* long titles wrap, never clip */
+
+.c-row{display:flex;align-items:center;gap:var(--s3);
+  min-height:var(--touch);padding:var(--s3) 0;border-bottom:1px solid var(--line-2)}
+.c-row:last-child{border-bottom:0}
+.c-row__main{min-width:0}   /* required or long values push the row wide */
+.c-row__main b{display:block;font-size:var(--fs-body);font-weight:620}
+.c-row__main span{display:block;font-size:var(--fs-xs);color:var(--ink-3);overflow-wrap:anywhere}
+.c-row__end{margin-left:auto;text-align:right;flex:0 0 auto}
+
+/* Definition rows — long emails must wrap, not overflow. */
+.c-dl{margin:0}
+.c-dl__row{display:grid;grid-template-columns:minmax(96px,38%) 1fr;gap:var(--s3);
+  padding:var(--s3) 0;border-bottom:1px solid var(--line-2)}
+.c-dl__row:last-child{border-bottom:0}
+.c-dl__k{font-size:var(--fs-sm);color:var(--ink-3)}
+.c-dl__v{font-size:var(--fs-sm);font-weight:600;text-align:right;
+  overflow-wrap:anywhere;word-break:break-word;min-width:0}
+
+/* --- pills --- */
+.c-pill{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-micro);
+  font-weight:700;padding:4px 10px;border-radius:var(--r-pill);white-space:nowrap}
+.c-pill--ok{background:var(--afrp-green-50);color:var(--afrp-green-800)}
+.c-pill--warn{background:var(--amber-50);color:var(--amber)}
+.c-pill--danger{background:var(--afrp-red-50);color:var(--afrp-red-700)}
+.c-pill--info{background:var(--blue-50);color:var(--blue)}
+.c-pill--muted{background:#eef1f4;color:var(--ink-3)}
+
+/* --- alerts --- */
+.c-alert{display:flex;gap:var(--s3);padding:var(--s4);border-radius:var(--r-sm);
+  font-size:var(--fs-sm);border-left:3px solid}
+.c-alert--warn{background:var(--amber-50);border-color:var(--amber);color:#7a4a08}
+.c-alert--danger{background:var(--afrp-red-50);border-color:var(--afrp-red);color:#7a0f14}
+.c-alert--ok{background:var(--afrp-green-50);border-color:var(--afrp-green);color:var(--afrp-green-800)}
+.c-alert b{display:block;margin-bottom:2px}
+
+/* --- sticky action bar (safe-area aware) --- */
+.c-actionbar{position:sticky;bottom:0;background:var(--surface);
+  border-top:1px solid var(--line);padding:var(--s3) var(--gutter);
+  padding-bottom:calc(var(--s3) + env(safe-area-inset-bottom));
+  display:flex;gap:var(--s3)}
+
+.a11y{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCREENS PAGE CHROME — everything below is presentation for THIS document
+   only (device frames, annotation callouts). It is not part of the portal
+   design system; the portal itself uses only the tokens and .c-* classes
+   copied verbatim above.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.doc{max-width:1640px}
+.masthead .in{max-width:1640px}
+
+/* --- legend --- */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--s4)}
+.legend__item{display:flex;gap:var(--s3);align-items:flex-start;font-size:var(--fs-xs);
+  color:var(--ink-2);line-height:1.45}
+.legend__item b{display:block;color:var(--ink);font-size:var(--fs-sm)}
+.legend__item > .dchip,.legend__item > .cap__n{flex:0 0 auto;white-space:nowrap}
+.legend__item > span:last-child{min-width:0}
+
+/* --- group headings --- */
+.grouphead{display:flex;align-items:baseline;gap:var(--s3);flex-wrap:wrap;
+  margin:var(--s10) 0 var(--s5);padding-bottom:var(--s3);border-bottom:2px solid var(--ink)}
+.grouphead h2{font-size:var(--fs-h1)}
+.grouphead .n{font-size:var(--fs-micro);font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3)}
+.grouphead p{margin:0;font-size:var(--fs-xs);color:var(--ink-3);flex:1 1 240px}
+
+/* --- frame grid --- */
+.frames{display:grid;gap:var(--s6) var(--s6);align-items:start;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))}
+.fig{margin:0;min-width:0;display:flex;flex-direction:column;align-items:center}
+
+/* --- device --- */
+.device{width:100%;max-width:375px;background:#0b0d0f;border-radius:44px;
+  padding:11px;box-shadow:0 2px 4px rgba(20,23,26,.18),0 18px 40px rgba(20,23,26,.20);
+  position:relative}
+.device::before,.device::after{content:"";position:absolute;left:-2px;width:3px;
+  background:#2a2f34;border-radius:2px}
+.device::before{top:132px;height:56px}
+.device::after{top:200px;height:56px}
+.screen{position:relative;background:var(--bg);border-radius:34px;overflow:hidden;
+  min-height:812px;display:flex;flex-direction:column;container-type:inline-size}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:128px;height:27px;
+  background:#0b0d0f;border-radius:0 0 16px 16px;z-index:6}
+
+/* --- status bar: the safe-area inset made visible (fixes D3) --- */
+.sb{flex:0 0 auto;height:47px;display:flex;align-items:flex-end;justify-content:space-between;
+  padding:0 22px 7px;font-size:13px;font-weight:680;letter-spacing:.01em;position:relative;z-index:5}
+.sb__r{display:flex;align-items:center;gap:5px}
+.sb__bars{display:flex;align-items:flex-end;gap:2px;height:11px}
+.sb__bars i{width:3px;border-radius:1px;background:currentColor;display:block}
+.sb__bars i:nth-child(1){height:4px}.sb__bars i:nth-child(2){height:6px}
+.sb__bars i:nth-child(3){height:8px}.sb__bars i:nth-child(4){height:11px}
+.sb__bat{width:24px;height:12px;border:1.4px solid currentColor;border-radius:3px;
+  position:relative;padding:1.6px}
+.sb__bat span{display:block;height:100%;width:72%;background:currentColor;border-radius:1px}
+.sb__bat::after{content:"";position:absolute;right:-3.4px;top:3.4px;width:2px;height:4px;
+  background:currentColor;border-radius:0 1px 1px 0}
+
+/* --- app header --- */
+.hdr{flex:0 0 auto;display:flex;align-items:center;gap:var(--s2);
+  padding:var(--s2) var(--s3) var(--s3);min-height:52px}
+.hdr__t{font-size:var(--fs-h1);font-weight:660;letter-spacing:-.015em;min-width:0;
+  overflow-wrap:anywhere;flex:1}
+.hdr__b{flex:0 0 auto;width:44px;height:44px;display:flex;align-items:center;
+  justify-content:center;border-radius:var(--r-pill);background:transparent;border:0;
+  font-size:20px;line-height:1;color:inherit;cursor:pointer;font-family:inherit}
+.hdr__b:hover{background:rgba(20,23,26,.06)}
+.chrome{background:var(--surface);color:var(--ink);border-bottom:1px solid var(--line)}
+.chrome--green{background:var(--afrp-green);color:#fff;border-bottom:0}
+.chrome--green .hdr__b:hover{background:rgba(255,255,255,.16)}
+.chrome--green .hdr__sub{color:#cdeeda}
+.hdr__sub{font-size:var(--fs-xs);color:var(--ink-3);font-weight:500;letter-spacing:0;
+  display:block;margin-top:2px}
+
+/* --- scroll area --- */
+.scroll{flex:1 1 auto;min-height:0;overflow:hidden;padding:var(--s4) var(--gutter) var(--s6);
+  display:flex;flex-direction:column;gap:var(--s4)}
+.scroll > *{min-width:0}
+.sect-h{font-size:var(--fs-micro);text-transform:uppercase;letter-spacing:.08em;
+  font-weight:700;color:var(--ink-3);margin:var(--s2) 0 calc(var(--s2) * -1 + 4px)}
+
+/* --- tab bar --- */
+.tabs{flex:0 0 auto;display:flex;background:var(--surface);border-top:1px solid var(--line);
+  padding:6px 4px calc(6px + 20px)}
+.tabs__i{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;min-height:48px;text-decoration:none;color:var(--ink-3);
+  font-size:10.5px;font-weight:640;letter-spacing:.01em;padding:2px 1px;border-radius:var(--r-sm)}
+.tabs__i em{font-style:normal;font-size:18px;line-height:1}
+.tabs__i.is-on{color:var(--afrp-green-700)}
+.homebar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  width:126px;height:5px;border-radius:3px;background:rgba(20,23,26,.28);z-index:6}
+
+/* --- annotation callout on a screen element --- */
+.hl{position:relative;outline:2px dashed var(--afrp-green);outline-offset:5px;
+  border-radius:var(--r-sm)}
+.hl::after{content:attr(data-hl);position:absolute;top:-9px;right:0;
+  background:var(--afrp-green);color:#fff;font-size:9.5px;font-weight:750;
+  letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:var(--r-pill);
+  white-space:nowrap;max-width:92%;overflow:hidden;text-overflow:ellipsis;z-index:4}
+.hl--red{outline-color:var(--afrp-red)}
+.hl--red::after{background:var(--afrp-red)}
+.hl--w{outline-color:rgba(255,255,255,.9);outline-offset:2px}
+.hl--w::after{background:#fff;color:var(--afrp-green-800);top:-3px}
+
+/* --- caption under each frame --- */
+.cap{width:100%;max-width:375px;margin-top:var(--s4)}
+.cap__top{display:flex;gap:var(--s2);align-items:baseline}
+.cap__n{flex:0 0 auto;font-size:var(--fs-micro);font-weight:750;letter-spacing:.06em;
+  color:#fff;background:var(--ink);border-radius:var(--r-pill);padding:2px 8px}
+.cap h3{font-size:var(--fs-h2);flex:1;min-width:0;overflow-wrap:anywhere}
+.cap p{margin:var(--s2) 0 0;font-size:var(--fs-xs);color:var(--ink-2);line-height:1.5}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:var(--s3)}
+.dchip{font-size:10.5px;font-weight:700;letter-spacing:.02em;padding:3px 8px;
+  border-radius:var(--r-pill);background:var(--afrp-red-50);color:var(--afrp-red-700);
+  border:1px solid #f7ccce;overflow-wrap:anywhere}
+.dchip--new{background:var(--afrp-green-50);color:var(--afrp-green-800);border-color:var(--afrp-green-100)}
+
+/* ═══ small in-screen helpers, all built from tokens ═══ */
+.screen input,.screen select,.screen textarea{font-size:16px}
+
+/* segmented control / choice chips (real radios, real labels) */
+.seg{display:grid;gap:6px;grid-auto-flow:column;grid-auto-columns:1fr;
+  background:#e9edf0;border-radius:var(--r-sm);padding:4px}
+.seg--wrap{grid-auto-flow:row;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));
+  grid-auto-columns:auto}
+.seg input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.seg label{display:flex;align-items:center;justify-content:center;min-height:44px;
+  padding:0 var(--s2);border-radius:6px;font-size:var(--fs-sm);font-weight:640;
+  color:var(--ink-2);cursor:pointer;text-align:center;overflow-wrap:normal}
+.seg input:checked + label{background:var(--surface);color:var(--afrp-green-800);
+  box-shadow:0 1px 2px rgba(20,23,26,.12)}
+.seg input:focus-visible + label{outline:3px solid var(--afrp-green-100);outline-offset:2px}
+
+.amt{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:var(--s2)}
+.amt input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.amt label{display:flex;align-items:center;justify-content:center;min-height:48px;
+  border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);
+  font-size:var(--fs-body);font-weight:640;cursor:pointer;color:var(--ink-2)}
+.amt input:checked + label{border-color:var(--afrp-green);background:var(--afrp-green-50);
+  color:var(--afrp-green-800);box-shadow:inset 0 0 0 1px var(--afrp-green)}
+.amt input:focus-visible + label{outline:3px solid var(--afrp-green-100);outline-offset:2px}
+
+/* avatar + brand marks */
+.av{flex:0 0 auto;width:38px;height:38px;border-radius:var(--r-pill);display:flex;
+  align-items:center;justify-content:center;font-size:13.5px;font-weight:700;
+  background:var(--afrp-green-50);color:var(--afrp-green-800)}
+.av--lg{width:56px;height:56px;font-size:19px}
+.av--muted{background:#eef1f4;color:var(--ink-3)}
+.av--w{background:rgba(255,255,255,.18);color:#fff}
+.brand{flex:0 0 auto;width:42px;height:28px;border-radius:5px;border:1px solid var(--line);
+  background:var(--surface);display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:800;letter-spacing:.04em;color:#1a1f71}
+.brand--mc{position:relative;color:transparent}
+.brand--mc::before,.brand--mc::after{content:"";position:absolute;top:7px;width:14px;height:14px;
+  border-radius:50%}
+.brand--mc::before{left:8px;background:#eb001b}
+.brand--mc::after{right:8px;background:#f79e1b;mix-blend-mode:multiply}
+
+/* list thumbnails for publications / store */
+.thumb{flex:0 0 auto;width:52px;height:62px;border-radius:4px;display:flex;
+  align-items:flex-end;padding:5px;font-size:7px;font-weight:750;color:#fff;line-height:1.2;
+  letter-spacing:-.01em;
+  background:linear-gradient(150deg,var(--afrp-green),var(--afrp-green-800));
+  overflow:hidden}
+.thumb--red{background:linear-gradient(150deg,var(--afrp-red),#8c0f14)}
+.thumb--ink{background:linear-gradient(150deg,#39424c,#14171a)}
+.thumb--sq{height:52px;align-items:center;justify-content:center;font-size:17px}
+
+/* misc */
+.stack{display:flex;flex-direction:column;gap:var(--s3)}
+.stack--sm{gap:var(--s2)}
+.between{display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+.money{font-variant-numeric:tabular-nums;font-weight:680;white-space:nowrap}
+.muted{color:var(--ink-3)}
+.tiny{font-size:var(--fs-xs);color:var(--ink-3);line-height:1.45}
+.linkbtn{display:inline-flex;align-items:center;background:none;border:0;padding:0;
+  font:inherit;font-size:var(--fs-xs);font-weight:680;color:var(--afrp-green-700);
+  text-decoration:underline;cursor:pointer;min-height:44px}
+
+/* Correction to build spec §4.1: .c-btn--sm is 40px there, which drops below the
+   44px WCAG 2.2 floor once it carries a real action. Inside these screens every
+   tappable element is at least 48px. Fold this back into the spec. */
+.screen .c-btn--sm{min-height:48px}
+.steps{display:flex;align-items:center;gap:var(--s2);font-size:var(--fs-micro);
+  font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.steps i{flex:1 1 0;height:4px;border-radius:2px;background:var(--line);font-style:normal}
+.steps i.on{background:var(--afrp-green)}
+.divider{height:1px;background:var(--line-2);margin:var(--s1) 0}
+
+/* the address form: City / State / ZIP behave like a phone inside the frame,
+   and like the spec's 3-column rule on a real ≥560px viewport */
+@container (max-width:559px){
+  .screen .c-field-row--2{grid-template-columns:1fr 1fr;gap:var(--s3)}
+  .screen .c-field-row--city{grid-template-columns:1fr 1fr;gap:var(--s3)}
+  .screen .c-field-row--city > .c-field:first-child{grid-column:1 / -1}
+}
+/* switches driven by a real checkbox rather than a state class */
+.c-switch:has(input:checked) .c-switch__track{background:var(--afrp-green)}
+.c-switch:has(input:checked) .c-switch__track::after{transform:translateX(21px)}
+.c-switch:focus-within .c-switch__track{outline:3px solid var(--afrp-green-100);outline-offset:2px}
+.c-switch{cursor:pointer}
+.c-switch__lab{min-width:0;font-size:var(--fs-sm);font-weight:620}
+.c-switch__lab small{display:block;font-weight:500;font-size:var(--fs-xs);color:var(--ink-3)}
+.c-card--flush{padding:var(--s4)}
+.c-tile--sm{min-height:96px}
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="in">
+    <h1>My AFRP — Portal Screens</h1>
+    <p>A mobile-first redesign of every module of the existing
+       <b>my.afrp.org</b> member portal — the Power&nbsp;Pages / Dynamics&nbsp;365
+       site currently in production — presented as sixteen annotated screens.
+       This is the screen-level companion to the
+       <b>My AFRP Portal Build Spec</b>: every colour, size, and component on this
+       page comes from that document's <code>:root</code> tokens and
+       <code>.c-*</code> classes, copied verbatim. Nothing here is a new platform.
+       It is the same portal, the same modules, the same Authorize.Net payment
+       stack — laid out so it works on a phone.</p>
+    <div class="tagrow">
+      <span class="tag red">BUILD SPEC · SCREENS</span>
+      <span class="tag">16 screens · 14 modules</span>
+      <span class="tag">Power Pages / Dynamics 365</span>
+      <span class="tag">Authorize.Net</span>
+      <span class="tag">375 × 812 · iPhone</span>
+      <span class="tag">WCAG 2.2 AA</span>
+      <span class="tag">v1 · Aug 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="doc">
+
+<section>
+  <h2>How to read these screens</h2>
+  <p class="lede">Each frame is a real 375&nbsp;px-wide rendering, not a drawing —
+     the markup inside every phone is the markup a developer should ship, using
+     only the classes defined in the build spec. Resize this page and the screens
+     reflow exactly as the portal will.</p>
+  <div class="legend">
+    <div class="legend__item">
+      <span class="cap__n" style="margin-top:2px">01</span>
+      <span><b>Frame number</b>Screens are numbered in the order a member meets
+        them, grouped Core → Household → Money → Community → Account.</span>
+    </div>
+    <div class="legend__item">
+      <span class="dchip" style="margin-top:3px">D4 example</span>
+      <span><b>Red chip — defect fixed</b>Maps to one of the nine defects logged
+        against the live portal. The number is the defect; the words are the
+        symptom a member reported.</span>
+    </div>
+    <div class="legend__item">
+      <span class="dchip dchip--new" style="margin-top:3px">&#10003; example</span>
+      <span><b>Green chip — new capability</b>Something the current portal cannot
+        do at all, rather than something it does badly.</span>
+    </div>
+    <div class="legend__item">
+      <span style="flex:0 0 auto;margin-top:2px;outline:2px dashed var(--afrp-green);
+        outline-offset:3px;border-radius:4px;width:24px;height:16px;
+        background:var(--afrp-green-50)"></span>
+      <span><b>Dashed outline on a screen</b>Marks the exact element that carries
+        the fix, labelled with the rule it applies. These outlines are annotation
+        only — they are not shipped.</span>
+    </div>
+  </div>
+
+  <h3 class="sub">The nine defects</h3>
+  <div class="wrap-x">
+  <table class="spec">
+    <tr><th>#</th><th>Defect on the live portal</th><th>Fixed on frame</th></tr>
+    <tr><td><b>D1</b></td><td>Form fields overflow the viewport — address fields cut off at the right edge</td><td>03, 06, 10, 16</td></tr>
+    <tr><td><b>D2</b></td><td>Tile grid clipped on the right</td><td>01, 08, 11, 12, 14, 15</td></tr>
+    <tr><td><b>D3</b></td><td>Page titles collide with the iOS status bar — no safe-area insets</td><td>01, and every frame's status bar</td></tr>
+    <tr><td><b>D4</b></td><td>Inputs under 16&nbsp;px cause iOS zoom-on-focus</td><td>03, 10, 16</td></tr>
+    <tr><td><b>D5</b></td><td>"Fax" offered as a contact preference; SMS missing despite being promoted</td><td>04</td></tr>
+    <tr><td><b>D6</b></td><td>Long email values push rows wider than the screen</td><td>02, 09, 11, 13, 15</td></tr>
+    <tr><td><b>D7</b></td><td>Household rule ejects members at 18 — "all young adults (18+) must be in their own household, even if they still live in the same physical home"</td><td>05, 07, 12, 14</td></tr>
+    <tr><td><b>D8</b></td><td>Household invitation flow is 6 steps with 3 conditional branches</td><td>06</td></tr>
+    <tr><td><b>D9</b></td><td>Empty field rows render blank — "Cell Phone" with no value</td><td>02, 05, 07, 13</td></tr>
+  </table>
+  </div>
+
+  <div class="note">
+    <b>Demo data is fictional.</b>
+    The Khoury household, the Detroit Club officers, member numbers, card
+    fragments, and receipt numbers on these screens are invented for the
+    walkthrough. Module names, the payment stack, and the household rule quoted
+    on frame&nbsp;05 are real.
+  </div>
+</section>
+
+
+<div class="grouphead">
+  <span class="n">Frames 01–04</span>
+  <h2>Core</h2>
+  <p>Landing, identity, and the two screens where the current portal breaks hardest on a phone.</p>
+</div>
+<div class="frames">
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome chrome--green"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr hl hl--w" data-hl="Title clears the status bar"><span class="hdr__t"><span style="font-size:var(--fs-sm);font-weight:600;opacity:.85">Marhaba</span><span style="display:block">Marwan Khoury</span><span class="hdr__sub">Detroit Club &middot; Member #10428</span></span><button class="hdr__b" type="button" aria-label="Notifications"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.6a4.6 4.6 0 0 0-4.6 4.6c0 4-1.5 5.2-1.5 5.2h12.2s-1.5-1.2-1.5-5.2A4.6 4.6 0 0 0 10 2.6Z"/><path d="M11.4 15.6a1.6 1.6 0 0 1-2.8 0"/></svg></button><span class="av av--w" aria-hidden="true">MK</span></div></div>
+      <div class="scroll">
+    <div class="c-card hl" data-hl="Status, then the one problem">
+      <div class="between">
+        <div style="min-width:0">
+          <h3 class="c-card__title">Patron membership</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Renews 13 Mar 2027 &middot; $500 / year</div>
+        </div>
+        <span class="c-pill c-pill--ok">&#9679; Active</span>
+      </div>
+      <div class="divider" style="margin:var(--s4) 0"></div>
+      <div class="between">
+        <span class="tiny">Auto-renew is on &middot; Visa &bull;&bull;&bull;&bull;9410</span>
+        <a class="linkbtn" href="#">Manage</a>
+      </div>
+    </div>
+
+    <div class="c-alert c-alert--danger">
+      <div><b>Visa &bull;&bull;&bull;&bull;8059 expires this month</b>
+      It is the backup card on your Camp Ramallah pledge. Update it before 31&nbsp;Aug.
+      <div style="margin-top:var(--s3)"><a class="c-btn c-btn--sm c-btn--danger" href="#">Update card</a></div></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card__sub" style="margin-bottom:var(--s3)">YOUR NEXT EVENT</div>
+      <div class="c-row" style="border-bottom:0;padding-top:0">
+        <div class="av" aria-hidden="true">JUL<br>2</div>
+        <div class="c-row__main"><b>68th Annual Convention</b>
+          <span>2&ndash;5 Jul 2026 &middot; Renaissance Center, Detroit MI</span></div>
+      </div>
+      <div class="between" style="margin-top:var(--s2)">
+        <span class="c-pill c-pill--ok">&#9679; 4 of 5 registered</span>
+        <a class="linkbtn" href="#">View registration</a>
+      </div>
+    </div>
+
+    <h4 class="sect-h">All modules</h4>
+    <div class="c-tiles hl" data-hl="auto-fill, never fixed columns"><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9825;</span><span class="c-tile__label">Donations</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9636;</span><span class="c-tile__label">Transaction History</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9707;</span><span class="c-tile__label">Manage My Household</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#65291;</span><span class="c-tile__label">Become a Member</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9638;</span><span class="c-tile__label">Event Registration</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9734;</span><span class="c-tile__label">Local Club Details</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9637;</span><span class="c-tile__label">Hathihe Ramallah Magazine</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9634;</span><span class="c-tile__label">Hathihe Ramallah Online</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9635;</span><span class="c-tile__label">Publications</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9633;</span><span class="c-tile__label">AFRP Digital Store</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#8635;</span><span class="c-tile__label">My Subscriptions</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9707;</span><span class="c-tile__label">My Payment Methods</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true">&#9673;</span><span class="c-tile__label">Profile</span></a><a class="c-tile" href="#"><span class="c-tile__icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.2" y="8.6" width="11.6" height="8.2" rx="2"/><path d="M7 8.6V6.4a3 3 0 0 1 6 0v2.2"/></svg></span><span class="c-tile__label">Security</span></a></div>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">01</span><h3>Home dashboard</h3></div>
+    <p>Greeting, membership state, the one thing needing attention, the next event, then all fourteen modules in a single <code>.c-tiles</code> auto-fill grid that reflows from one column at 320&nbsp;px to four on a tablet. The old grid was hard-coded to two columns and clipped the right-hand column on any phone narrower than an iPhone 14 Plus.</p>
+    <div class="chips"><span class="dchip">D2 tile grid clipped</span><span class="dchip">D3 status-bar collision</span><span class="dchip dchip--new">&#10003; attention-first ordering</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Profile</span><button class="hdr__b" type="button" aria-label="Edit profile">&#9998;</button></div></div>
+      <div class="scroll">
+    <div class="c-card">
+      <div class="c-row" style="border-bottom:0;padding-top:0">
+        <span class="av av--lg" aria-hidden="true">MK</span>
+        <div class="c-row__main"><b style="font-size:var(--fs-h2)">Marwan Khoury</b>
+          <span>Patron member since 1996 &middot; Detroit Club</span></div>
+      </div>
+    </div>
+
+    <div class="c-card hl" data-hl="wraps, does not stretch">
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Member number</span>
+          <span class="c-dl__v">10428</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Date of birth</span>
+          <span class="c-dl__v">4 Feb 1974</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Email</span>
+          <span class="c-dl__v">marwan.khoury.detroit@ramallah-federation-example.org</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Mobile</span>
+          <span class="c-dl__v">+1 313 555 0148</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Address</span>
+          <span class="c-dl__v">2529 Yolanda Ct<br>Dearborn, MI 48124</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Local club</span>
+          <span class="c-dl__v">Detroit</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Household</span>
+          <span class="c-dl__v">Khoury &middot; head of household</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Family name in Ramallah</span>
+          <span class="c-dl__v">Khoury</span></div>
+      </div>
+    </div>
+
+    <div class="c-card hl" data-hl="No blank rows">
+      <div class="c-card__sub" style="margin-bottom:var(--s2)">NOT ON FILE</div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Home phone</b><span>Optional &mdash; used only by your club</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm c-btn--secondary" href="#">Add</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Photo</b><span>Shown in the member directory</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm c-btn--secondary" href="#">Add</a></div>
+      </div>
+    </div>
+
+    <div class="stack stack--sm">
+      <a class="c-btn c-btn--block" href="#">Edit profile</a>
+      <a class="c-btn c-btn--block c-btn--secondary" href="#">Contact preferences</a>
+    </div>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">02</span><h3>Profile</h3></div>
+    <p>The member record as <code>.c-dl</code> rows. The long federation email wraps inside its cell instead of stretching the row past the viewport, and a missing home phone renders as an <em>action</em> rather than a blank "Cell Phone" label with nothing after it.</p>
+    <div class="chips"><span class="dchip">D6 long email overflow</span><span class="dchip">D9 blank field rows</span><span class="dchip dchip--new">&#10003; empty state as an action</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Edit address<span class="hdr__sub">Marwan Khoury &middot; #10428</span></span></div></div>
+      <div class="scroll">
+    <form>
+    <div class="c-card hl" data-hl="width:100%, min-width:0">
+      <div class="c-field">
+        <label class="c-field__label" for="p3-a1">Address line 1</label>
+        <input class="c-input" id="p3-a1" name="a1" autocomplete="address-line1" value="2529 Yolanda Ct">
+      </div>
+      <div class="c-field">
+        <label class="c-field__label" for="p3-a2">Address line 2</label>
+        <input class="c-input" id="p3-a2" name="a2" autocomplete="address-line2" placeholder="Apartment, suite, unit">
+        <div class="c-field__hint">Optional</div>
+      </div>
+      <div class="c-field-row c-field-row--city" style="margin-bottom:var(--s5)">
+        <div class="c-field" style="margin-bottom:0">
+          <label class="c-field__label" for="p3-city">City</label>
+          <input class="c-input" id="p3-city" name="city" autocomplete="address-level2" value="Dearborn">
+        </div>
+        <div class="c-field" style="margin-bottom:0">
+          <label class="c-field__label" for="p3-state">State</label>
+          <select class="c-select" id="p3-state" name="state" autocomplete="address-level1">
+            <option>MI</option><option>OH</option><option>CA</option><option>IL</option>
+          </select>
+        </div>
+        <div class="c-field" style="margin-bottom:0">
+          <label class="c-field__label" for="p3-zip">ZIP</label>
+          <input class="c-input" id="p3-zip" name="zip" inputmode="numeric" autocomplete="postal-code" value="48124">
+        </div>
+      </div>
+      <div class="c-field" style="margin-bottom:0">
+        <label class="c-field__label" for="p3-country">Country</label>
+        <select class="c-select" id="p3-country" name="country" autocomplete="country">
+          <option>United States</option><option>Canada</option><option>Jordan</option><option>Palestine</option>
+        </select>
+      </div>
+    </div>
+
+    <label class="c-switch">
+      <span class="c-switch__lab">Apply to my whole household
+        <small>4 other members share this address</small></span>
+      <input class="a11y" type="checkbox" id="p3-hh" checked>
+      <span class="c-switch__track" aria-hidden="true"></span>
+    </label>
+
+    <div class="c-alert c-alert--warn">
+      <div><b>Hathihe Ramallah mailing</b>
+      Address changes reach the magazine list within one business day.</div>
+    </div>
+    </form>
+    </div>
+      <div class="c-actionbar" style="padding-bottom:calc(var(--s3) + 20px)"><button class="c-btn c-btn--secondary" type="button" style="flex:0 0 auto">Cancel</button><button class="c-btn" type="submit" style="flex:1 1 auto">Save changes</button></div>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">03</span><h3>Edit profile &mdash; address</h3></div>
+    <p>The screen that overflows today. Every control is <code>width:100%</code> with <code>min-width:0</code>, so nothing can exceed the viewport; the <code>.c-field-row--city</code> grid puts City on its own line with State and ZIP paired beneath at phone width, and becomes <code>2fr&nbsp;1fr&nbsp;1fr</code> on one line at 560&nbsp;px and up. All inputs are 16&nbsp;px, so iOS does not zoom and shove the layout sideways on focus.</p>
+    <div class="chips"><span class="dchip">D1 fields cut off at the right edge</span><span class="dchip">D4 iOS zoom-on-focus</span><span class="dchip dchip--new">&#10003; one class, two layouts</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Contact preferences</span></div></div>
+      <div class="scroll">
+    <form>
+    <div class="c-card hl" data-hl="No Fax. SMS added.">
+      <fieldset style="border:0;padding:0;margin:0;min-width:0">
+        <legend class="c-field__label" style="padding:0">How may we contact you?</legend>
+        <p class="tiny" style="margin:0 0 var(--s2)">Choose any. You can change these at any time.</p>
+
+        <div class="c-choice">
+          <input type="checkbox" id="p4-email" name="ch" value="email">
+          <label class="c-choice__text" for="p4-email">Email
+            <small>Receipts, event confirmations, the monthly bulletin.</small></label>
+        </div>
+        <div class="c-choice">
+          <input type="checkbox" id="p4-sms" name="ch" value="sms">
+          <label class="c-choice__text" for="p4-sms">Text message (SMS)
+            <small>By checking this box you agree to receive automated text messages
+            from the American Federation of Ramallah, Palestine at +1&nbsp;313&nbsp;555&nbsp;0148.
+            Consent is not a condition of membership or of any purchase. Message
+            frequency varies. Message and data rates may apply. Reply STOP to
+            unsubscribe or HELP for help. See Terms and Privacy Policy.</small></label>
+        </div>
+        <div class="c-choice">
+          <input type="checkbox" id="p4-phone" name="ch" value="phone">
+          <label class="c-choice__text" for="p4-phone">Phone call
+            <small>Occasional calls from the Detroit Club. Never automated.</small></label>
+        </div>
+        <div class="c-choice">
+          <input type="checkbox" id="p4-mail" name="ch" value="mail">
+          <label class="c-choice__text" for="p4-mail">Postal mail
+            <small>Hathihe Ramallah and the annual report.</small></label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="c-card">
+      <h3 class="c-card__title">What each channel is used for</h3>
+      <div class="c-card__sub">Transactional receipts are always sent by email.</div>
+      <div class="c-choice">
+        <input type="checkbox" id="p4-conv" name="topic" checked>
+        <label class="c-choice__text" for="p4-conv">Convention &amp; event news</label>
+      </div>
+      <div class="c-choice">
+        <input type="checkbox" id="p4-club" name="topic" checked>
+        <label class="c-choice__text" for="p4-club">Detroit Club announcements</label>
+      </div>
+      <div class="c-choice">
+        <input type="checkbox" id="p4-appeal" name="topic">
+        <label class="c-choice__text" for="p4-appeal">Fundraising appeals</label>
+      </div>
+    </div>
+
+    <div class="c-alert c-alert--warn">
+      <div><b>Consent is recorded, not implied</b>
+      Saving writes channel, granted&nbsp;=&nbsp;true/false, disclosure wording
+      <code>v2026-08</code>, source <code>portal/prefs</code>, IP and UTC timestamp
+      to the consent log. TCPA exposure is $500&ndash;$1,500 per message.</div>
+    </div>
+    </form>
+    </div>
+      <div class="c-actionbar" style="padding-bottom:calc(var(--s3) + 20px)"><button class="c-btn c-btn--block" type="submit">Save preferences</button></div>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">04</span><h3>Contact preferences</h3></div>
+    <p>Fax is gone; SMS is in, with the full TCPA disclosure attached to the control that grants it rather than buried in a footer. Nothing is pre-checked &mdash; a pre-ticked box is not consent &mdash; and the evidence record that has to be written on save is stated on the screen.</p>
+    <div class="chips"><span class="dchip">D5 Fax offered, SMS missing</span><span class="dchip dchip--new">&#10003; unchecked by default</span><span class="dchip dchip--new">&#10003; consent evidence</span></div>
+  </figcaption>
+</figure></div>
+<div class="grouphead">
+  <span class="n">Frames 05–07</span>
+  <h2>Household</h2>
+  <p>The structural change: age sets a default, it does not set the rule. Nobody is ejected from their family on their birthday.</p>
+</div>
+<div class="frames">
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Manage My Household</span><button class="hdr__b" type="button" aria-label="Household settings">&#9881;</button></div></div>
+      <div class="scroll">
+    <div class="c-card">
+      <div class="between">
+        <div style="min-width:0">
+          <h3 class="c-card__title">Khoury Household</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Detroit Club &middot; 5 members &middot; Dearborn, MI</div>
+        </div>
+        <span class="c-pill c-pill--muted">Family tier</span>
+      </div>
+      <div class="divider" style="margin:var(--s4) 0 0"></div>
+
+      <div class="c-row">
+        <div class="c-row__main"><b>Marwan Khoury</b><span>Head &middot; 52</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Can manage all</span></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Nadia Khoury</b><span>Spouse &middot; 55</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Can manage all</span></div>
+      </div>
+      <div class="c-row hl" data-hl="21 and still family">
+        <div class="c-row__main"><b>Tarek Khoury</b><span>Son &middot; 21 &middot; adult</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--info">Delegated to parents</span></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Basim Khoury</b><span>Son &middot; 20 &middot; adult</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--muted">Manages own account</span></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Layla Khoury</b><span>Daughter &middot; 14 &middot; minor</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Parents manage</span></div>
+      </div>
+    </div>
+
+    <div class="c-alert c-alert--warn">
+      <div><b>Tarek turned 18</b>
+      He can now manage his own account. He has chosen to let his parents keep
+      registering and paying for him &mdash; he can change this at any time in his profile.
+      <div style="margin-top:var(--s3);display:flex;gap:var(--s2);flex-wrap:wrap">
+        <a class="c-btn c-btn--sm c-btn--secondary" href="#">Review authority</a>
+        <a class="c-btn c-btn--sm c-btn--secondary" href="#">Dismiss</a>
+      </div></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Address</span>
+          <span class="c-dl__v">2529 Yolanda Ct, Dearborn, MI 48124</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Tier covers</span>
+          <span class="c-dl__v">4 of 5 members</span></div>
+      </div>
+    </div>
+
+    <a class="c-btn c-btn--block" href="#">Add household member</a>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">05</span><h3>Manage My Household</h3></div>
+    <p>Tarek (21) and Basim (20) are still in the household. Under the current rule both would have been forced out and Marwan would have lost the ability to register either of them. Authority is shown as a pill on every row and is editable; turning 18 raises a consent refresh rather than an eviction.</p>
+    <div class="chips"><span class="dchip">D7 members ejected at 18</span><span class="dchip">D9 blank field rows</span><span class="dchip dchip--new">&#10003; authority visible per row</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Add household member<span class="hdr__sub">Khoury Household</span></span></div></div>
+      <div class="scroll">
+    <form>
+    <div class="steps"><span>Step 1 of 2</span><i class="on"></i><i></i></div>
+
+    <div class="c-card">
+      <h3 class="c-card__title">Who are you adding?</h3>
+      <div class="c-card__sub">Details only. Nothing is sent yet.</div>
+      <div class="c-field-row c-field-row--2" style="margin-bottom:var(--s5)">
+        <div class="c-field" style="margin-bottom:0">
+          <label class="c-field__label" for="p6-fn">First name</label>
+          <input class="c-input" id="p6-fn" name="fn" autocomplete="given-name" value="Rania">
+        </div>
+        <div class="c-field" style="margin-bottom:0">
+          <label class="c-field__label" for="p6-ln">Last name</label>
+          <input class="c-input" id="p6-ln" name="ln" autocomplete="family-name" value="Khoury">
+        </div>
+      </div>
+      <div class="c-field">
+        <label class="c-field__label" for="p6-rel">Relationship to you</label>
+        <select class="c-select" id="p6-rel" name="rel">
+          <option>Daughter</option><option>Son</option><option>Spouse</option>
+          <option>Parent</option><option>Grandchild</option><option>Other relative</option>
+        </select>
+      </div>
+      <div class="c-field">
+        <label class="c-field__label" for="p6-dob">Date of birth</label>
+        <input class="c-input" id="p6-dob" name="dob" type="date" value="2009-06-14">
+        <div class="c-field__hint">Sets the default authority. Under 18, you manage
+          their account; 18 and over, they are asked first.</div>
+      </div>
+      <div class="c-field" style="margin-bottom:0">
+        <label class="c-field__label" for="p6-em">Email <span class="muted" style="font-weight:500">&mdash; optional</span></label>
+        <input class="c-input" id="p6-em" name="em" type="email" inputmode="email"
+               autocomplete="email" placeholder="Optional">
+        <div class="c-field__hint">You can add this later and invite them then.</div>
+      </div>
+    </div>
+
+    <div class="c-card hl" data-hl="Step 2, and it is optional">
+      <div class="steps" style="margin-bottom:var(--s4)"><span>Step 2 of 2</span><i class="on"></i><i></i></div>
+      <label class="c-switch" style="padding-top:0">
+        <span class="c-switch__lab">Invite Rania to the portal
+          <small>We work out whether that is a claim link or a link to an
+          account she already has. You do not have to.</small></span>
+        <input class="a11y" type="checkbox" id="p6-inv">
+        <span class="c-switch__track" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <div class="c-alert c-alert--ok">
+      <div><b>That is the whole flow</b>
+      Add, then optionally invite. The old path had six steps and three branches
+      explained in prose above the form.</div>
+    </div>
+    </form>
+    </div>
+      <div class="c-actionbar" style="padding-bottom:calc(var(--s3) + 20px)"><button class="c-btn c-btn--secondary" type="button" style="flex:0 0 auto">Cancel</button><button class="c-btn" type="submit" style="flex:1 1 auto">Add to household</button></div>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">06</span><h3>Add household member</h3></div>
+    <p>Six steps and three conditional branches become two steps. Email is optional, because requiring it was what forced members down the "View Details &rarr; add an email &rarr; come back &rarr; Send Invitation" detour. Whether an invitation is a claim link or a link to an existing account is decided by the system, not by the member.</p>
+    <div class="chips"><span class="dchip">D8 6-step invite flow</span><span class="dchip">D1 field overflow</span><span class="dchip dchip--new">&#10003; email now optional</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Tarek Khoury<span class="hdr__sub">Khoury Household</span></span></div></div>
+      <div class="scroll">
+    <div class="c-card">
+      <div class="c-row" style="border-bottom:0;padding-top:0">
+        <span class="av av--lg" aria-hidden="true">TK</span>
+        <div class="c-row__main"><b style="font-size:var(--fs-h2)">Tarek Khoury</b>
+          <span>Son &middot; 21 &middot; covered by the Family tier</span></div>
+      </div>
+      <div style="margin-top:var(--s2)"><span class="c-pill c-pill--info">&#9679; Delegated to parents</span></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Relationship</span>
+          <span class="c-dl__v">Son of Marwan &amp; Nadia</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Date of birth</span>
+          <span class="c-dl__v">11 Mar 2005</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Email</span>
+          <span class="c-dl__v">tarek.khoury.2005@student-mail-example.edu</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Mobile</span>
+          <span class="c-dl__v">+1 313 555 0192</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Portal account</span>
+          <span class="c-dl__v">Claimed 4 Apr 2023</span></div>
+      </div>
+    </div>
+
+    <div class="c-card hl" data-hl="Authority, not age">
+      <h3 class="c-card__title">Who may act for Tarek</h3>
+      <div class="c-card__sub">He granted this himself on 11 Mar 2023 and can revoke it.</div>
+      <label class="c-switch">
+        <span class="c-switch__lab">Marwan may register &amp; pay for him</span>
+        <input class="a11y" type="checkbox" id="p7-m" checked>
+        <span class="c-switch__track" aria-hidden="true"></span>
+      </label>
+      <label class="c-switch">
+        <span class="c-switch__lab">Nadia may register &amp; pay for him</span>
+        <input class="a11y" type="checkbox" id="p7-n" checked>
+        <span class="c-switch__track" aria-hidden="true"></span>
+      </label>
+      <label class="c-switch">
+        <span class="c-switch__lab">Show him in the member directory</span>
+        <input class="a11y" type="checkbox" id="p7-d">
+        <span class="c-switch__track" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card__sub" style="margin-bottom:var(--s2)">NOT ON FILE</div>
+      <div class="c-row" style="border-bottom:0">
+        <div class="c-row__main"><b>Home phone</b><span>Not required</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm c-btn--secondary" href="#">Add</a></div>
+      </div>
+    </div>
+
+    <div class="stack stack--sm">
+      <a class="c-btn c-btn--block c-btn--secondary" href="#">Edit details</a>
+      <button class="c-btn c-btn--block c-btn--danger" type="button">Remove from household</button>
+    </div>
+    <p class="tiny">Removing Tarek does not delete his AFRP account or his
+      membership history. He keeps both.</p>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">07</span><h3>Household member detail</h3></div>
+    <p>One member's record with the authority grant as an explicit, reversible control instead of an implicit consequence of age. Empty fields are offered as "add" actions. Removing someone from a household is destructive and is the only red control on the screen.</p>
+    <div class="chips"><span class="dchip">D7 members ejected at 18</span><span class="dchip">D9 blank field rows</span><span class="dchip dchip--new">&#10003; authority is editable</span></div>
+  </figcaption>
+</figure></div>
+<div class="grouphead">
+  <span class="n">Frames 08–11</span>
+  <h2>Money</h2>
+  <p>Authorize.Net stored cards and recurring subscriptions, giving, and the receipt trail members ask the office for every February.</p>
+</div>
+<div class="frames">
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">My Payment Methods</span></div></div>
+      <div class="scroll">
+    <div class="c-alert c-alert--danger hl hl--red" data-hl="Consequence, not just colour">
+      <div><b>Visa &bull;&bull;&bull;&bull;8059 expires 08/26</b>
+      Your Camp Ramallah monthly gift of $25 draws on this card and will fail on
+      1&nbsp;Sep 2026 unless you replace it.
+      <div style="margin-top:var(--s3)"><a class="c-btn c-btn--sm c-btn--danger" href="#">Replace this card</a></div></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card__sub" style="margin-bottom:var(--s2)">SAVED CARDS &middot; 3</div>
+
+      <div class="c-row">
+        <span class="brand" aria-hidden="true">VISA</span>
+        <div class="c-row__main"><b>Visa &bull;&bull;&bull;&bull;9410</b>
+          <span>Expires 10/27 &middot; Marwan Khoury</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Default</span></div>
+      </div>
+      <div class="c-row">
+        <span class="brand brand--mc" aria-hidden="true">MC</span>
+        <div class="c-row__main"><b>MasterCard &bull;&bull;&bull;&bull;7046</b>
+          <span>Expires 10/27 &middot; Nadia Khoury</span></div>
+        <div class="c-row__end"><button class="linkbtn" type="button">Set default</button></div>
+      </div>
+      <div class="c-row">
+        <span class="brand" aria-hidden="true">VISA</span>
+        <div class="c-row__main"><b>Visa &bull;&bull;&bull;&bull;8059</b>
+          <span>Expires 08/26 &middot; Marwan Khoury</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--danger">Expiring</span></div>
+      </div>
+    </div>
+
+    <div class="c-card">
+      <h3 class="c-card__title">What each card pays for</h3>
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Visa &bull;&bull;&bull;&bull;9410</span>
+          <span class="c-dl__v">Patron dues &middot; $500/yr</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Visa &bull;&bull;&bull;&bull;8059</span>
+          <span class="c-dl__v">Camp Ramallah &middot; $25/mo</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">MasterCard &bull;&bull;&bull;&bull;7046</span>
+          <span class="c-dl__v">Not in use</span></div>
+      </div>
+    </div>
+
+    <a class="c-btn c-btn--block" href="#">&#65291;&nbsp; Add payment method</a>
+    <p class="tiny">Cards are stored by Authorize.Net (CIM). AFRP holds a token
+      and the last four digits only &mdash; never a full card number.</p>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">08</span><h3>My Payment Methods</h3></div>
+    <p>Three tokenised Authorize.Net cards. The expiring one is called out at the top with the consequence stated &mdash; which subscription fails, and when &mdash; not just a red border. Card rows are 48&nbsp;px tall with the brand mark drawn in CSS, so there is no image request and nothing to clip.</p>
+    <div class="chips"><span class="dchip">D2 grid clipping</span><span class="dchip dchip--new">&#10003; expiry warned with consequence</span><span class="dchip dchip--new">&#10003; PCI: token only</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">My Subscriptions</span></div></div>
+      <div class="scroll">
+    <div class="c-card">
+      <div class="between">
+        <div style="min-width:0">
+          <h3 class="c-card__title">Patron membership</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Annual &middot; Detroit Club</div>
+        </div>
+        <span class="c-pill c-pill--ok">&#9679; Active</span>
+      </div>
+      <div class="divider" style="margin:var(--s4) 0"></div>
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Amount</span>
+          <span class="c-dl__v money">$500.00 / year</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Next charge</span>
+          <span class="c-dl__v">13 Mar 2027</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Draws on</span>
+          <span class="c-dl__v">Visa &bull;&bull;&bull;&bull;9410 &middot; exp 10/27</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Started</span>
+          <span class="c-dl__v">13 Mar 2019</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Covers</span>
+          <span class="c-dl__v">Marwan, Nadia, Tarek, Layla</span></div>
+      </div>
+      <label class="c-switch hl" data-hl="Auto-renew is reversible">
+        <span class="c-switch__lab">Renew automatically
+          <small>We email you 30 days before each charge.</small></span>
+        <input class="a11y" type="checkbox" id="p9-auto" checked>
+        <span class="c-switch__track" aria-hidden="true"></span>
+      </label>
+      <div style="display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s3)">
+        <a class="c-btn c-btn--sm c-btn--secondary" href="#">Change card</a>
+        <a class="c-btn c-btn--sm c-btn--secondary" href="#">Change tier</a>
+        <button class="c-btn c-btn--sm c-btn--secondary" type="button">Cancel</button>
+      </div>
+    </div>
+
+    <div class="c-card">
+      <div class="between">
+        <div style="min-width:0">
+          <h3 class="c-card__title">Camp Ramallah</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Monthly gift &middot; recurring donation</div>
+        </div>
+        <span class="c-pill c-pill--danger">&#9679; Card expiring</span>
+      </div>
+      <div class="divider" style="margin:var(--s4) 0"></div>
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Amount</span>
+          <span class="c-dl__v money">$25.00 / month</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Next charge</span>
+          <span class="c-dl__v">1 Sep 2026</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Draws on</span>
+          <span class="c-dl__v">Visa &bull;&bull;&bull;&bull;8059 &middot; exp 08/26</span></div>
+      </div>
+      <a class="c-btn c-btn--block c-btn--danger c-btn--sm" href="#"
+         style="margin-top:var(--s3)">Update card before 1 Sep</a>
+    </div>
+
+    <div class="c-card">
+      <div class="c-card__sub" style="margin-bottom:var(--s2)">ENDED</div>
+      <div class="c-row" style="border-bottom:0">
+        <div class="c-row__main"><b>Hathihe Ramallah print</b>
+          <span>Cancelled 2 Jan 2025 &middot; now included with membership</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--muted">Closed</span></div>
+      </div>
+    </div>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">09</span><h3>My Subscriptions</h3></div>
+    <p>Every recurring charge on one screen, each showing the amount, the next date, and the card it will actually draw on &mdash; the three facts members phone the office about. Auto-renew is a switch, and cancelling is available without an email to the office.</p>
+    <div class="chips"><span class="dchip dchip--new">&#10003; next charge + card shown</span><span class="dchip dchip--new">&#10003; self-serve cancel</span><span class="dchip">D6 long value wrapping</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Donations</span></div></div>
+      <div class="scroll">
+    <form>
+    <div class="c-card">
+      <div class="c-field">
+        <label class="c-field__label" for="p10-cause">Choose a cause</label>
+        <select class="c-select" id="p10-cause" name="cause">
+          <option>Endowed Fund</option>
+          <option selected>Scholarship Program</option>
+          <option>Medical Mission</option>
+          <option>Project Hope</option>
+          <option>Camp Ramallah</option>
+          <option>General Fund</option>
+        </select>
+        <div class="c-field__hint">Scholarship Program &mdash; tuition grants for
+          students of Ramallah descent. 100% of gifts are granted.</div>
+      </div>
+
+      <div class="c-field">
+        <span class="c-field__label" id="p10-amtlab">Amount</span>
+        <div class="amt hl" data-hl="48px targets" role="group" aria-labelledby="p10-amtlab">
+          <input type="radio" name="amt" id="p10-a50"><label for="p10-a50">$50</label>
+          <input type="radio" name="amt" id="p10-a100"><label for="p10-a100">$100</label>
+          <input type="radio" name="amt" id="p10-a250" checked><label for="p10-a250">$250</label>
+          <input type="radio" name="amt" id="p10-a500"><label for="p10-a500">$500</label>
+          <input type="radio" name="amt" id="p10-a1000"><label for="p10-a1000">$1,000</label>
+          <input type="radio" name="amt" id="p10-aoth"><label for="p10-aoth">Other</label>
+        </div>
+      </div>
+
+      <div class="c-field">
+        <label class="c-field__label" for="p10-custom">Or enter an amount</label>
+        <input class="c-input" id="p10-custom" name="custom" inputmode="decimal"
+               placeholder="$0.00">
+      </div>
+
+      <div class="c-field" style="margin-bottom:0">
+        <span class="c-field__label" id="p10-freqlab">How often</span>
+        <div class="seg" role="group" aria-labelledby="p10-freqlab">
+          <input type="radio" name="freq" id="p10-once" checked><label for="p10-once">One-time</label>
+          <input type="radio" name="freq" id="p10-mon"><label for="p10-mon">Monthly</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-field" style="margin-bottom:var(--s4)">
+        <label class="c-field__label" for="p10-card">Pay with</label>
+        <select class="c-select" id="p10-card" name="card">
+          <option>Visa &bull;&bull;&bull;&bull;9410 &middot; default</option>
+          <option>MasterCard &bull;&bull;&bull;&bull;7046</option>
+          <option>Visa &bull;&bull;&bull;&bull;8059 &middot; expiring</option>
+          <option>Use a new card&hellip;</option>
+        </select>
+      </div>
+      <div class="c-choice">
+        <input type="checkbox" id="p10-tribute">
+        <label class="c-choice__text" for="p10-tribute">Give in honour or memory of someone
+          <small>We will send a card to the family.</small></label>
+      </div>
+      <div class="c-choice">
+        <input type="checkbox" id="p10-anon">
+        <label class="c-choice__text" for="p10-anon">List me as Anonymous in the annual report</label>
+      </div>
+    </div>
+
+    <div class="c-alert c-alert--ok">
+      <div><b>Tax deductible</b>
+      AFRP is a 501(c)(3). Your receipt is emailed immediately and appears in
+      Transaction History.</div>
+    </div>
+    </form>
+    </div>
+      <div class="c-actionbar" style="padding-bottom:calc(var(--s3) + 20px)"><button class="c-btn c-btn--block" type="submit">Give $250 to Scholarship Program</button></div>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">10</span><h3>Donations</h3></div>
+    <p>Cause first, then amount, then frequency, then card &mdash; the order members actually decide in. Amount chips are 48&nbsp;px radio targets, the custom-amount field is 16&nbsp;px so iOS does not zoom, and the total is restated on the button so nobody submits an amount they cannot see.</p>
+    <div class="chips"><span class="dchip">D4 iOS zoom-on-focus</span><span class="dchip">D1 field overflow</span><span class="dchip dchip--new">&#10003; amount restated on submit</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Transaction History</span><button class="hdr__b" type="button" aria-label="Filter">&#9776;</button></div></div>
+      <div class="scroll">
+    <div class="c-card">
+      <div class="between">
+        <div style="min-width:0">
+          <div class="c-card__sub" style="margin-bottom:2px">TAX YEAR 2026</div>
+          <h3 class="c-card__title money">$1,124.00 deductible</h3>
+        </div>
+        <span class="c-pill c-pill--info">6 items</span>
+      </div>
+      <a class="c-btn c-btn--block c-btn--secondary c-btn--sm" href="#"
+         style="margin-top:var(--s4)">&#8615;&nbsp; Download 2026 tax receipt (PDF)</a>
+    </div>
+
+    <div class="seg" role="group" aria-label="Filter transactions">
+      <input type="radio" name="txf" id="p11-all" checked><label for="p11-all">All</label>
+      <input type="radio" name="txf" id="p11-dues"><label for="p11-dues">Dues</label>
+      <input type="radio" name="txf" id="p11-don"><label for="p11-don">Gifts</label>
+      <input type="radio" name="txf" id="p11-ord"><label for="p11-ord">Orders</label>
+    </div>
+
+    <h4 class="sect-h">2026</h4>
+    <div class="c-card c-card--flush hl" data-hl="Designation on every row">
+      <div class="c-row">
+        <div class="c-row__main"><b>Monthly gift &mdash; Camp Ramallah</b>
+          <span>1 Aug 2026 &middot; Visa &bull;&bull;&bull;&bull;8059 &middot; Receipt&nbsp;#R-26-4471</span></div>
+        <div class="c-row__end"><span class="money">$25.00</span><br>
+          <a class="linkbtn" href="#">Receipt</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>AFRP Digital Store order</b>
+          <span>3 Jun 2026 &middot; Cookbook + 2 lapel pins &middot; Order&nbsp;#S-8812</span></div>
+        <div class="c-row__end"><span class="money">$64.00</span><br>
+          <a class="linkbtn" href="#">Receipt</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>68th Annual Convention</b>
+          <span>20 May 2026 &middot; 4 registrations &middot; Not deductible</span></div>
+        <div class="c-row__end"><span class="money">$310.00</span><br>
+          <a class="linkbtn" href="#">Receipt</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Donation &mdash; Scholarship Program</b>
+          <span>2 May 2026 &middot; Visa &bull;&bull;&bull;&bull;9410 &middot; Receipt&nbsp;#R-26-3190</span></div>
+        <div class="c-row__end"><span class="money">$250.00</span><br>
+          <a class="linkbtn" href="#">Receipt</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Patron membership dues</b>
+          <span>13 Mar 2026 &middot; Household of 4 &middot; Receipt&nbsp;#R-26-0902</span></div>
+        <div class="c-row__end"><span class="money">$500.00</span><br>
+          <a class="linkbtn" href="#">Receipt</a></div>
+      </div>
+    </div>
+
+    <h4 class="sect-h">2025</h4>
+    <div class="c-card c-card--flush">
+      <div class="c-row">
+        <div class="c-row__main"><b>Donation &mdash; Medical Mission</b>
+          <span>14 Nov 2025 &middot; In memory of Salim Ajluni</span></div>
+        <div class="c-row__end"><span class="money">$150.00</span><br>
+          <a class="linkbtn" href="#">Receipt</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Patron membership dues</b>
+          <span>13 Mar 2025 &middot; Household of 4</span></div>
+        <div class="c-row__end"><span class="money">$500.00</span><br>
+          <a class="linkbtn" href="#">Receipt</a></div>
+      </div>
+    </div>
+    <button class="c-btn c-btn--block c-btn--secondary" type="button">Show 2024 and earlier</button>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">11</span><h3>Transaction History</h3></div>
+    <p>Dues, donations, event fees, and store orders in one list grouped by year, each row carrying its designation and its receipt. The year total and the tax receipt download sit at the top, because that is the request the office fields most in January and February.</p>
+    <div class="chips"><span class="dchip">D6 long values overflow</span><span class="dchip">D2 clipped content</span><span class="dchip dchip--new">&#10003; one list, all money</span></div>
+  </figcaption>
+</figure></div>
+<div class="grouphead">
+  <span class="n">Frames 12–15</span>
+  <h2>Community</h2>
+  <p>Events, the local club, joining, and everything AFRP publishes or sells.</p>
+</div>
+<div class="frames">
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Event Registration</span></div></div>
+      <div class="scroll">
+    <div class="seg" role="group" aria-label="Filter events">
+      <input type="radio" name="evf" id="p12-up" checked><label for="p12-up">Upcoming</label>
+      <input type="radio" name="evf" id="p12-mine"><label for="p12-mine">Mine</label>
+      <input type="radio" name="evf" id="p12-past"><label for="p12-past">Past</label>
+    </div>
+
+    <div class="c-card">
+      <div class="c-row" style="border-bottom:0;padding-top:0">
+        <span class="av" aria-hidden="true">JUL<br>2</span>
+        <div class="c-row__main"><b>68th Annual Convention</b>
+          <span>2&ndash;5 Jul 2026 &middot; Detroit, MI &middot; from $85</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Registered</span></div>
+      </div>
+      <a class="c-btn c-btn--block c-btn--secondary c-btn--sm" href="#"
+         style="margin-top:var(--s3)">View your 4 registrations</a>
+    </div>
+
+    <div class="c-card hl" data-hl="Household register, inline">
+      <div class="c-row" style="border-bottom:0;padding-top:0">
+        <span class="av" aria-hidden="true">AUG<br>9</span>
+        <div class="c-row__main"><b>Camp Ramallah 2026</b>
+          <span>9&ndash;16 Aug 2026 &middot; Kalamazoo, MI &middot; $340 per camper</span></div>
+      </div>
+      <fieldset style="border:0;padding:0;margin:var(--s2) 0 0;min-width:0">
+        <legend class="c-field__label" style="padding:0">Who are you registering?</legend>
+        <div class="c-choice">
+          <input type="checkbox" id="p12-layla" checked>
+          <label class="c-choice__text" for="p12-layla">Layla Khoury
+            <small>Daughter &middot; 14 &middot; you manage her account</small></label>
+        </div>
+        <div class="c-choice">
+          <input type="checkbox" id="p12-tarek" checked>
+          <label class="c-choice__text" for="p12-tarek">Tarek Khoury
+            <small>Son &middot; 21 &middot; delegated to you &mdash; counsellor rate</small></label>
+        </div>
+        <div class="c-choice" style="opacity:.55">
+          <input type="checkbox" id="p12-basim" disabled>
+          <label class="c-choice__text" for="p12-basim">Basim Khoury
+            <small>Son &middot; 20 &middot; manages his own account &mdash; send him a link instead</small></label>
+        </div>
+      </fieldset>
+      <a class="c-btn c-btn--block" href="#" style="margin-top:var(--s3)">Register 2 &mdash; $680</a>
+    </div>
+
+    <div class="c-card c-card--flush">
+      <div class="c-row">
+        <span class="av av--muted" aria-hidden="true">OCT<br>17</span>
+        <div class="c-row__main"><b>Mid-Year Meeting</b>
+          <span>17 Oct 2026 &middot; Cleveland, OH &middot; $60</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm" href="#">Register</a></div>
+      </div>
+      <div class="c-row">
+        <span class="av av--muted" aria-hidden="true">SEP<br>4</span>
+        <div class="c-row__main"><b>Town Hall &mdash; Taybeh</b>
+          <span>4 Sep 2026 &middot; Online &middot; Free</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm" href="#">Register</a></div>
+      </div>
+      <div class="c-row">
+        <span class="av av--muted" aria-hidden="true">SEP<br>20</span>
+        <div class="c-row__main"><b>Day of Action</b>
+          <span>20 Sep 2026 &middot; Washington, DC &middot; Free</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm" href="#">Register</a></div>
+      </div>
+      <div class="c-row">
+        <span class="av av--muted" aria-hidden="true">NOV<br>8</span>
+        <div class="c-row__main"><b>Detroit Club Annual Dinner</b>
+          <span>8 Nov 2026 &middot; Dearborn, MI &middot; $75 &middot; Your club</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm" href="#">Register</a></div>
+      </div>
+    </div>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">12</span><h3>Event Registration</h3></div>
+    <p>Registration state is on the row, so nobody re-registers by accident. On Camp Ramallah the household appears as checkboxes &mdash; the direct product of the authority model: Marwan can tick Tarek at 21 because Tarek granted it, and Basim is shown but disabled because he manages his own account.</p>
+    <div class="chips"><span class="dchip">D7 parents lose adult children</span><span class="dchip">D2 grid clipping</span><span class="dchip dchip--new">&#10003; register the household inline</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Local Club Details<span class="hdr__sub">Detroit Club</span></span></div></div>
+      <div class="scroll">
+    <div class="c-card">
+      <div class="between">
+        <div style="min-width:0">
+          <h3 class="c-card__title">Detroit Club</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Chartered 1959 &middot; 412 members</div>
+        </div>
+        <span class="c-pill c-pill--ok">&#9679; Your club</span>
+      </div>
+    </div>
+
+    <div class="c-card">
+      <h3 class="c-card__title">Officers</h3>
+      <div class="c-card__sub">2026&ndash;2027 term</div>
+      <div class="c-row">
+        <span class="av" aria-hidden="true">NS</span>
+        <div class="c-row__main"><b>Nadia Salameh</b><span>President</span></div>
+      </div>
+      <div class="c-row">
+        <span class="av" aria-hidden="true">GA</span>
+        <div class="c-row__main"><b>George Ajluni</b><span>Vice President</span></div>
+      </div>
+      <div class="c-row">
+        <span class="av" aria-hidden="true">RM</span>
+        <div class="c-row__main"><b>Rima Mogannam</b><span>Secretary</span></div>
+      </div>
+      <div class="c-row">
+        <span class="av" aria-hidden="true">FZ</span>
+        <div class="c-row__main"><b>Fouad Zarou</b><span>Treasurer</span></div>
+      </div>
+    </div>
+
+    <div class="c-card hl" data-hl="Long email wraps in cell">
+      <div class="c-dl">
+        <div class="c-dl__row"><span class="c-dl__k">Club email</span>
+          <span class="c-dl__v">detroit.club.secretary@ramallah-federation-example.org</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Phone</span>
+          <span class="c-dl__v">+1 313 555 0110</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Meets</span>
+          <span class="c-dl__v">2nd Sunday, 4pm</span></div>
+        <div class="c-dl__row"><span class="c-dl__k">Hall</span>
+          <span class="c-dl__v">18410 Ford Rd, Dearborn, MI 48124</span></div>
+      </div>
+    </div>
+
+    <div class="c-card c-card--flush">
+      <div class="c-card__sub" style="margin:var(--s1) 0 var(--s2)">UPCOMING LOCALLY</div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Annual Dinner</b><span>8 Nov 2026 &middot; $75</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm" href="#">Register</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Scholarship Brunch</b><span>12 Sep 2026 &middot; Free</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm" href="#">Register</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-row__main"><b>Youth Dabke Practice</b><span>Every Thursday, 6pm</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--muted">Open</span></div>
+      </div>
+    </div>
+
+    <div class="stack stack--sm">
+      <a class="c-btn c-btn--block c-btn--secondary" href="#">Member directory (412)</a>
+      <a class="c-btn c-btn--block c-btn--secondary" href="#">Change my club</a>
+    </div>
+    <p class="tiny">Your club is set by the address on your profile. Changing it moves
+      your dues share and your Hathihe Ramallah delivery.</p>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">13</span><h3>Local Club Details</h3></div>
+    <p>Who runs the Detroit Club, how to reach them, and what is happening locally. Officer emails wrap inside their cells rather than forcing the card wider than the screen, and changing clubs &mdash; a request the office handles by phone today &mdash; is a self-serve action.</p>
+    <div class="chips"><span class="dchip">D6 long email overflow</span><span class="dchip">D9 blank field rows</span><span class="dchip dchip--new">&#10003; self-serve club change</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Become a Member</span></div></div>
+      <div class="scroll">
+    <div class="c-alert c-alert--ok">
+      <div><b>You are a Patron member</b>
+      Renews 13 Mar 2027. Tiers below are shown so you can compare or change.</div>
+    </div>
+
+    <div class="c-card c-card--flush">
+      <div class="between" style="align-items:flex-start">
+        <div style="min-width:0"><h3 class="c-card__title">Student</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Full-time students, 25 and under</div></div>
+        <span class="money">$35<span class="tiny">/yr</span></span>
+      </div>
+      <p class="tiny" style="margin:var(--s3) 0 0">Voting rights &middot; Hathihe Ramallah digital
+        &middot; Convention at the student rate</p>
+      <a class="c-btn c-btn--block c-btn--secondary c-btn--sm" href="#" style="margin-top:var(--s3)">Choose Student</a>
+    </div>
+
+    <div class="c-card c-card--flush">
+      <div class="between" style="align-items:flex-start">
+        <div style="min-width:0"><h3 class="c-card__title">Individual</h3>
+          <div class="c-card__sub" style="margin-bottom:0">One adult</div></div>
+        <span class="money">$125<span class="tiny">/yr</span></span>
+      </div>
+      <p class="tiny" style="margin:var(--s3) 0 0">Voting rights &middot; Hathihe Ramallah print
+        &amp; digital &middot; Member convention rate</p>
+      <a class="c-btn c-btn--block c-btn--secondary c-btn--sm" href="#" style="margin-top:var(--s3)">Choose Individual</a>
+    </div>
+
+    <div class="c-card c-card--flush hl" data-hl="Who it covers, spelled out">
+      <div class="between" style="align-items:flex-start">
+        <div style="min-width:0"><h3 class="c-card__title">Family</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Most popular</div></div>
+        <span class="money">$250<span class="tiny">/yr</span></span>
+      </div>
+      <div class="c-card__sub" style="margin:var(--s4) 0 var(--s2)">COVERS EVERYONE IN YOUR HOUSEHOLD</div>
+      <div class="c-row" style="min-height:36px;padding:6px 0">
+        <div class="c-row__main"><b style="font-size:var(--fs-sm)">Two adults</b>
+          <span>Head of household and spouse &mdash; both vote</span></div>
+      </div>
+      <div class="c-row" style="min-height:36px;padding:6px 0">
+        <div class="c-row__main"><b style="font-size:var(--fs-sm)">Children under 18</b>
+          <span>Automatically included</span></div>
+      </div>
+      <div class="c-row" style="min-height:36px;padding:6px 0">
+        <div class="c-row__main"><b style="font-size:var(--fs-sm)">Adult children under 26</b>
+          <span>If they are still in the household &mdash; they keep their own account
+            and their own vote</span></div>
+      </div>
+      <a class="c-btn c-btn--block c-btn--sm" href="#" style="margin-top:var(--s3)">Choose Family</a>
+    </div>
+
+    <div class="c-card c-card--flush">
+      <div class="between" style="align-items:flex-start">
+        <div style="min-width:0"><h3 class="c-card__title">Sustaining</h3>
+          <div class="c-card__sub" style="margin-bottom:0">Family benefits, plus support</div></div>
+        <span class="money">$300<span class="tiny">/yr</span></span>
+      </div>
+      <p class="tiny" style="margin:var(--s3) 0 0">Everything in Family &middot; Annual report listing
+        &middot; Convention hospitality</p>
+      <a class="c-btn c-btn--block c-btn--secondary c-btn--sm" href="#" style="margin-top:var(--s3)">Choose Sustaining</a>
+    </div>
+
+    <div class="c-card c-card--flush" style="border-color:var(--afrp-green)">
+      <div class="between" style="align-items:flex-start">
+        <div style="min-width:0"><h3 class="c-card__title">Patron</h3>
+          <div class="c-card__sub" style="margin-bottom:0">
+            <span class="c-pill c-pill--ok">&#9679; Your tier</span></div></div>
+        <span class="money">$500<span class="tiny">/yr</span></span>
+      </div>
+      <p class="tiny" style="margin:var(--s3) 0 0">Everything in Sustaining &middot; Patron reception
+        at Convention &middot; Endowed Fund briefing</p>
+      <button class="c-btn c-btn--block c-btn--sm" type="button" disabled style="margin-top:var(--s3)">Current tier</button>
+    </div>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">14</span><h3>Become a Member</h3></div>
+    <p>Five tiers as stacked cards rather than a table that has to scroll sideways on a phone. The Family tier names exactly who it covers, using the new household model &mdash; adult children in the household are included, which the old 18+ rule made impossible to express.</p>
+    <div class="chips"><span class="dchip">D2 table clipped on the right</span><span class="dchip">D7 18+ ejection</span><span class="dchip dchip--new">&#10003; coverage stated, not implied</span></div>
+  </figcaption>
+</figure>
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Publications &amp; Store</span><button class="hdr__b" type="button" aria-label="Basket">&#9634;</button></div></div>
+      <div class="scroll">
+    <div class="seg" role="group" aria-label="Browse">
+      <input type="radio" name="stf" id="p15-mag" checked><label for="p15-mag">Magazine</label>
+      <input type="radio" name="stf" id="p15-pub"><label for="p15-pub">Books</label>
+      <input type="radio" name="stf" id="p15-store"><label for="p15-store">Store</label>
+    </div>
+
+    <div class="c-alert c-alert--ok">
+      <div><b>Included with your Patron membership</b>
+      Every Hathihe Ramallah issue, print and online, at no charge.</div>
+    </div>
+
+    <h4 class="sect-h">Hathihe Ramallah &mdash; recent issues</h4>
+    <div class="c-card c-card--flush">
+      <div class="c-row">
+        <span class="thumb" aria-hidden="true">HATHIHE<br>RAMALLAH</span>
+        <div class="c-row__main"><b>Vol 61 No 2 &mdash; Summer 2026</b>
+          <span>Convention preview &middot; Taybeh at 100 &middot; 68 pp</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Included</span><br>
+          <a class="linkbtn" href="#">Read online</a></div>
+      </div>
+      <div class="c-row">
+        <span class="thumb thumb--red" aria-hidden="true">HATHIHE<br>RAMALLAH</span>
+        <div class="c-row__main"><b>Vol 61 No 1 &mdash; Spring 2026</b>
+          <span>Scholarship recipients &middot; Medical Mission report</span></div>
+        <div class="c-row__end"><span class="c-pill c-pill--ok">Included</span><br>
+          <a class="linkbtn" href="#">Read online</a></div>
+      </div>
+      <div class="c-row">
+        <span class="thumb thumb--ink" aria-hidden="true">HATHIHE<br>RAMALLAH</span>
+        <div class="c-row__main"><b>Vol 60 No 4 &mdash; Winter 2025</b>
+          <span>Back issue &middot; print copies available</span></div>
+        <div class="c-row__end"><span class="money">$8.00</span><br>
+          <a class="linkbtn" href="#">Add</a></div>
+      </div>
+    </div>
+
+    <h4 class="sect-h">Publications</h4>
+    <div class="c-card c-card--flush hl" data-hl="Titles wrap, prices align">
+      <div class="c-row">
+        <span class="thumb" aria-hidden="true">BOOK</span>
+        <div class="c-row__main"><b>Ramallah: The Story of a City &mdash; Revised Centenary Edition</b>
+          <span>Hardcover &middot; 384 pp &middot; Yacoub &amp; Haddad</span></div>
+        <div class="c-row__end"><span class="money">$28.00</span><br>
+          <a class="linkbtn" href="#">Add</a></div>
+      </div>
+      <div class="c-row">
+        <span class="thumb thumb--red" aria-hidden="true">BOOK</span>
+        <div class="c-row__main"><b>The Ramallah Cookbook</b>
+          <span>Recipes from federation families &middot; 2nd printing</span></div>
+        <div class="c-row__end"><span class="money">$32.00</span><br>
+          <a class="linkbtn" href="#">Add</a></div>
+      </div>
+      <div class="c-row">
+        <span class="thumb thumb--ink" aria-hidden="true">DIR</span>
+        <div class="c-row__main"><b>Membership Directory 2026</b>
+          <span>Members only &middot; printed annually</span></div>
+        <div class="c-row__end"><span class="money">$20.00</span><br>
+          <a class="linkbtn" href="#">Add</a></div>
+      </div>
+    </div>
+
+    <h4 class="sect-h">AFRP Digital Store</h4>
+    <div class="c-card c-card--flush">
+      <div class="c-row">
+        <span class="thumb thumb--sq" aria-hidden="true">&#9733;</span>
+        <div class="c-row__main"><b>AFRP lapel pin</b><span>Enamel &middot; 20 mm</span></div>
+        <div class="c-row__end"><span class="money">$12.00</span><br>
+          <a class="linkbtn" href="#">Add</a></div>
+      </div>
+      <div class="c-row">
+        <span class="thumb thumb--sq thumb--red" aria-hidden="true">&#9635;</span>
+        <div class="c-row__main"><b>Convention tote bag</b><span>Canvas &middot; 68th Annual</span></div>
+        <div class="c-row__end"><span class="money">$22.00</span><br>
+          <a class="linkbtn" href="#">Add</a></div>
+      </div>
+    </div>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">15</span><h3>Publications &amp; AFRP Digital Store</h3></div>
+    <p>Hathihe Ramallah issues, books, and store goods in one browsable list. Covers are CSS, not images, so nothing waits on a request or overflows its column; prices are tabular and right-aligned, and titles wrap with <code>overflow-wrap:anywhere</code> instead of pushing the row past the screen.</p>
+    <div class="chips"><span class="dchip">D2 grid clipped on the right</span><span class="dchip">D6 long titles overflow</span><span class="dchip dchip--new">&#10003; no image dependencies</span></div>
+  </figcaption>
+</figure></div>
+<div class="grouphead">
+  <span class="n">Frame 16</span>
+  <h2>Account</h2>
+  <p>Credentials, linked identities, and getting out.</p>
+</div>
+<div class="frames">
+<figure class="fig">
+  <div class="device">
+    <div class="screen">
+      <div class="notch" aria-hidden="true"></div>
+      <div class="chrome"><div class="sb"><span>9:41</span><span class="sb__r"><span class="sb__bars"><i></i><i></i><i></i><i></i></span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 10.6 6.1 8.5a2.8 2.8 0 0 1 3.8 0L8 10.6Z" fill="currentColor"/><path d="M3.6 6.1a6.4 6.4 0 0 1 8.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M1.1 3.4a10 10 0 0 1 13.8 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg><span class="sb__bat"><span></span></span></span></div><div class="hdr"><button class="hdr__b" type="button" aria-label="Back">&#8249;</button><span class="hdr__t">Security</span></div></div>
+      <div class="scroll">
+    <form>
+    <div class="c-card">
+      <h3 class="c-card__title">Change password</h3>
+      <div class="c-card__sub">Last changed 2 Feb 2026</div>
+      <div class="c-field">
+        <label class="c-field__label" for="p16-cur">Current password</label>
+        <input class="c-input" id="p16-cur" name="cur" type="password" autocomplete="current-password">
+      </div>
+      <div class="c-field">
+        <label class="c-field__label" for="p16-new">New password</label>
+        <input class="c-input" id="p16-new" name="new" type="password" autocomplete="new-password">
+        <div class="c-field__hint">At least 12 characters. A passphrase of three
+          unrelated words is fine.</div>
+      </div>
+      <div class="c-field" style="margin-bottom:var(--s4)">
+        <label class="c-field__label" for="p16-conf">Confirm new password</label>
+        <input class="c-input" id="p16-conf" name="conf" type="password" autocomplete="new-password">
+      </div>
+      <button class="c-btn c-btn--block" type="submit">Update password</button>
+    </div>
+
+    <div class="c-card hl" data-hl="16px + real labels">
+      <h3 class="c-card__title">Change email</h3>
+      <div class="c-card__sub" style="overflow-wrap:anywhere">
+        Currently marwan.khoury.detroit@ramallah-federation-example.org</div>
+      <div class="c-field" style="margin-bottom:var(--s4)">
+        <label class="c-field__label" for="p16-em">New email address</label>
+        <input class="c-input" id="p16-em" name="em" type="email" inputmode="email" autocomplete="email">
+        <div class="c-field__hint">We send a confirmation link to the new address.
+          Your sign-in does not change until you follow it.</div>
+      </div>
+      <button class="c-btn c-btn--block c-btn--secondary" type="submit">Send confirmation link</button>
+    </div>
+
+    <div class="c-card">
+      <h3 class="c-card__title">Linked sign-in</h3>
+      <div class="c-card__sub">Use these instead of a password.</div>
+      <div class="c-row">
+        <span class="brand" aria-hidden="true" style="color:#4285f4;font-size:13px">G</span>
+        <div class="c-row__main"><b>Google</b><span>Linked 9 Jan 2024</span></div>
+        <div class="c-row__end"><button class="linkbtn" type="button">Unlink</button></div>
+      </div>
+      <div class="c-row">
+        <span class="brand" aria-hidden="true" style="color:#00a4ef;font-size:13px">&#9635;</span>
+        <div class="c-row__main"><b>Microsoft</b><span>Not linked</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm c-btn--secondary" href="#">Link</a></div>
+      </div>
+      <div class="c-row">
+        <span class="brand" aria-hidden="true" style="color:#1877f2;font-size:13px">f</span>
+        <div class="c-row__main"><b>Facebook</b><span>Not linked</span></div>
+        <div class="c-row__end"><a class="c-btn c-btn--sm c-btn--secondary" href="#">Link</a></div>
+      </div>
+      <label class="c-switch">
+        <span class="c-switch__lab">Two-step verification by SMS
+          <small>Sent to +1 313 555 0148 when we see a new device.</small></span>
+        <input class="a11y" type="checkbox" id="p16-2fa" checked>
+        <span class="c-switch__track" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <div class="c-card c-card--flush">
+      <div class="c-row" style="border-bottom:0">
+        <div class="c-row__main"><b>Signed in on 2 devices</b>
+          <span>iPhone &middot; Dearborn, MI &middot; now<br>Windows &middot; Detroit, MI &middot; 3 days ago</span></div>
+        <div class="c-row__end"><button class="linkbtn" type="button">Sign out all</button></div>
+      </div>
+    </div>
+
+    <button class="c-btn c-btn--block c-btn--secondary" type="button">Sign out</button>
+    </form>
+    </div>
+      <nav class="tabs" aria-label="Main"><a class="tabs__i" href="#"><em aria-hidden="true">&#8962;</em>Home</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9825;</em>Give</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9636;</em>Activity</a><a class="tabs__i" href="#"><em aria-hidden="true">&#9707;</em>Household</a><a class="tabs__i is-on" href="#" aria-current="page"><em aria-hidden="true">&#9776;</em>More</a></nav>
+      <div class="homebar" aria-hidden="true"></div>
+    </div>
+  </div>
+  <figcaption class="cap">
+    <div class="cap__top"><span class="cap__n">16</span><h3>Security</h3></div>
+    <p>Change password, change email, and linked sign-in providers on one screen instead of three unlabelled Power Pages sub-pages. Every field is a real <code>&lt;label for&gt;</code> at 16&nbsp;px with the right <code>autocomplete</code> token, so password managers fill it and iOS does not zoom.</p>
+    <div class="chips"><span class="dchip">D4 iOS zoom-on-focus</span><span class="dchip">D1 field overflow</span><span class="dchip dchip--new">&#10003; one screen, not three</span></div>
+  </figcaption>
+</figure></div>
+
+<section style="margin-top:var(--s10)">
+  <h2>Build notes</h2>
+  <div class="two">
+    <div>
+      <h3 class="sub" style="margin-top:0">What is reused, not invented</h3>
+      <p class="lede" style="margin-bottom:var(--s3)">Everything inside the phone
+        frames uses the build spec's classes unchanged:
+        <code>.c-btn</code>, <code>.c-input</code>, <code>.c-field</code>,
+        <code>.c-card</code>, <code>.c-tiles</code>, <code>.c-tile</code>,
+        <code>.c-row</code>, <code>.c-dl</code>, <code>.c-pill</code>,
+        <code>.c-alert</code>, <code>.c-switch</code>, <code>.c-choice</code>,
+        <code>.c-actionbar</code>. The only additions are the device frames and
+        annotation chrome on this page, plus three small in-screen helpers
+        (<code>.seg</code>, <code>.amt</code>, <code>.av</code>) built entirely
+        from the same tokens. One correction runs the other way: the spec's
+        <code>.c-btn--sm</code> is 40&nbsp;px, which falls below the 44&nbsp;px
+        WCAG&nbsp;2.2 floor as soon as it carries a real action, so it is 48&nbsp;px
+        inside these screens. Fold that back into §4.1.</p>
+      <div class="good">
+        <b>One system, two documents</b>
+        If a value on this page differs from the build spec, the build spec wins
+        and this page is wrong.
+      </div>
+    </div>
+    <div>
+      <h3 class="sub" style="margin-top:0">Acceptance criteria for these screens</h3>
+      <div class="wrap-x">
+      <table class="spec">
+        <tr><th>Check</th><th>Threshold</th></tr>
+        <tr><td>Horizontal scroll</td><td>None at 320 px, 375 px, 390 px, or any width</td></tr>
+        <tr><td>Input font-size</td><td>≥ 16 px, every field, no exceptions</td></tr>
+        <tr><td>Touch targets</td><td>≥ 48 px on buttons, rows, switches, chips</td></tr>
+        <tr><td>Labels</td><td>A real <code>&lt;label for&gt;</code> on every input</td></tr>
+        <tr><td>Safe areas</td><td><code>env(safe-area-inset-*)</code> top and bottom</td></tr>
+        <tr><td>Images</td><td>Zero. Icons and covers are CSS, SVG, or Unicode</td></tr>
+        <tr><td>Empty values</td><td>Row omitted and offered as an "Add" action</td></tr>
+      </table>
+      </div>
+      <div class="note">
+        <b>Frames 05, 06, 07, 12 and 14 depend on the household schema change.</b>
+        The other eleven are CSS and markup only and can ship inside the
+        three-week window in §7 of the build spec.
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

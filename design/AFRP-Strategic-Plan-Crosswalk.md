@@ -42,6 +42,7 @@ a baseline outline of the existing plans; this crosswalk is its platform half.
 | **Built** | In AFRP-Hub and tested. Nothing is in service yet: no DNS, no live payments, no real member data |
 | **Partly built** | Core objects exist; part of the element is design-only |
 | **Designed** | In this design record, not built |
+| **Plan only** | In the Hub as a register row and a programme plan (slice P1), with no working surface |
 | **Queued** | A slice in `plan/MASTER-PLAN.md` |
 | **Proposed** | Not in the record. Needs a design note before a build session may touch it |
 | **Outside** | Not a platform job: a hire, a policy, a by-law, or money |
@@ -126,7 +127,7 @@ a baseline outline of the existing plans; this crosswalk is its platform half.
 |---|---|---|---|---|
 | E1 | One consistent message across every channel | PR, FED2 §A | Partly built | Comms desk and website desk; the strategy itself is outside |
 | E2 | A newsletter on a fixed schedule | PR audit, FED2 §A | Proposed | A cadence on the comms desk (after slice 5) |
-| E3 | A clearer website | PR audit | Built | Public site rebuilt on the design system; content review is David's |
+| E3 | A clearer website | PR audit | Built | Public site rebuilt on the design system; its content review is pending |
 | E4 | Website handed to emerging leaders | SP19 SWOT | Outside | — |
 | E5 | Social media metrics | PR audit | Outside | A scheduling tool, not the platform |
 | E6 | Press releases: proactive and reactive, a 24-hour clock, a media list | PR | Proposed | Press workflow (P6) |
@@ -140,12 +141,12 @@ a baseline outline of the existing plans; this crosswalk is its platform half.
 | # | Element | Source | Platform | How the platform fulfils it |
 |---|---|---|---|---|
 | F1 | A youth pipeline from childhood to professional life | SP19, FED2 | Built | Education (ladder by age) and Leadership (ladder by capacity) branches |
-| F2 | Camp Ramallah: more campers from small communities, more age tiers, a site of its own | SWOT25 | Queued | Camp engine built; screens are slice 2 and 2b |
+| F2 | Camp Ramallah: more campers from small communities, more age tiers, a site of its own | SWOT25 | Built | Camp application, selection, roster and camperships (slices 2 and 2b); the age tiers and a site are Federation decisions |
 | F3 | Project Hope: formal processes, succession, one trip per person | SWOT25, flyer | Partly built · Proposed | Programme template built; one-trip rule not in the rules register |
-| F4 | Leadership Ramallah with the Mid-Year | SP19 | Built | Programme template |
-| F5 | Exchange Mission: missions, alumni database, fellowships, alumni newsletter | SP19, SWOT25 | Queued · Proposed | Alumni matching (slice 9); fellowship applications not in the record |
+| F4 | Leadership Ramallah with the Mid-Year | SP19 | Plan only | Register row and programme plan (slice P1); the Mid-Year pairing is not modelled |
+| F5 | Exchange Mission: missions, alumni database, fellowships, alumni newsletter | SP19, SWOT25 | Partly built · Proposed | Alumni match queue built (slice 9); fellowship applications not in the record |
 | F6 | Women to Women: projects, younger women, a representative per city | SWOT25 | Partly built | Care branch; giving through funds. Which entity runs it is open (`AFRP-Program-Architecture.md` §0) |
-| F7 | RBPN five-year plan: mentorship, ambassadors, conferences | SP19 | Queued | Slice 10 |
+| F7 | RBPN five-year plan: mentorship, ambassadors, conferences | SP19 | Built | Sponsorship desk and job board (slices 10, 10b); mentorship not in the record |
 | F8 | Cultural Preservation: digitisation, oral histories | SP19 | Designed | Heritage branch |
 | F9 | Scholarships | SP19, flyer | Built | Scholarship committee engine (slice 4) |
 | F10 | Medical Mission and human services | SP19 | Designed | ARFHSN roadmap |

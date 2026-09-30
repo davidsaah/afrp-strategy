@@ -1157,3 +1157,21 @@ were pushed first, and the round reports against them.
 
 Round 47 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`. 1,595 tests green
 under both postures. Journey corpus unchanged: 393 runnable, 274 meet, 63 guarded, 16 open, 39 not built, 1 rated 0.
+
+### Site S1 — the site becomes the staging area (30 September 2026)
+
+`plan/SITE-OVERHAUL-PLAN.md` approved and recorded as D43–D52. The site is now
+generated from `site/` by `site/build.py`: a new home page on the four
+branches; **AFRP Strategy** (the Federation's current strategy, eight goals,
+building on the CRM, the crosswalk); **Evolution** (timeline, what's next, twenty
+open questions with Q-numbers); **Branches & programmes** (four branch pages and
+nineteen programme pages); **People** (twelve); **Workflows** (sixteen, with the
+hand-offs and the six shared services); **Prototype** (tours by branch and by
+person); **Development status** (replacing Design Status, which now redirects);
+and the **Library**, with the eight archive pages moved under it behind
+redirects. Every count is computed from its source; `site/check.py` checks links,
+privacy (D50) and framing, and the `site` workflow fails if `docs/` is stale.
+The crosswalk's programme rows F2, F4, F5 and F7 were corrected to the build.
+Not done: re-framing `prototype.html` onto the branches (D48) and the design
+record's old "rails" wording (plan Phase 7).
+
