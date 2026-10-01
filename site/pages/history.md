@@ -35,9 +35,10 @@ rather than tidied away.
   re-cut as the four branches and each given a shape, because only one of them
   is truly a sequence (D38, D39). The committee's 10 September wording
   (Education, Health, Legacy, Advocacy) was folded into the same four (D42).
-- **The family tree stopped being a programme.** It was one of nineteen. It is
-  now the roots: every member has a node on it, and the Convention came off the
-  branches to become the junction (D30, D38).
+- **The family tree moved twice.** It was one programme among nineteen; then
+  the roots beneath all four branches, with a node for every member (D30, D38);
+  and on 30 September it joined the Heritage branch, keeping every member's node
+  (D53). The Convention came off the branches to become the junction (D38).
 - **The tree stopped being able to decide anything.** It is evidence for the
   people who decide, never a verdict, and a node is never a claim of lineage
   (D16, D30, D32).

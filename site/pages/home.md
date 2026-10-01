@@ -22,11 +22,12 @@ This site puts the strategy and the platform on the same pages, so that the
 committee, the Board and the people building the Hub are working from one
 picture.
 
-## Four branches, one tree
+## Four branches, one meeting place
 
 Everything here is organised the same way. The Federation's work grows on four
-branches, **Education, Leadership, Heritage and Care**. The **family tree** is
-the roots beneath all four, and the **Convention** is where they meet each year.
+branches, **Education, Leadership, Heritage and Care**. The **family tree** sits
+on Heritage, and every member has a place on it. The **Convention** is where the
+branches meet each year.
 
 <!--TREE-->
 

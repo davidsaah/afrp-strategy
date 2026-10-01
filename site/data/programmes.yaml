@@ -748,18 +748,18 @@
   - "docs/AFRP-Analyst-Dashboard.html (journey data)"
 - key: "family-tree"
   name: "Ramallah Family Tree"
-  branch: "roots"
-  order: 1
+  branch: "heritage"
+  order: 0
   entity: "AFRP"
   shape: "other"
   flagship: false
   status: "Built"
-  summary: "The genealogy of the original Ramallah clans and their descendants, more than 30,000 people. On the platform it is the roots beneath all four branches: every member has a node, and a node is never a lineage claim."
+  summary: "The genealogy of the original Ramallah clans and their descendants, more than 30,000 people. It sits on the Heritage branch (D53). Every member still has a node on it, and a node is never a lineage claim (D30)."
   who: "Members; the whole tree is visible to signed-in members, while the living show no dates when signed out. Anyone may propose a change; the committee decides."
   year: "Continuous: proposals, life events and imports queue to the committee. No annual cycle is stated."
   organiser: "The Family Tree Committee decides every change; imports, exports and direct edits are audited. Undecided questions go to the Membership Committee."
   money: "Not stated in the record."
-  handoffs: "Beneath every branch. Joining creates a node; life events flow to the household, the magazine and the heritage layer; the Scholarship reads lineage from it; Preservation items attach to its nodes."
+  handoffs: "On Heritage, with the Preservation Project, the magazine and the bookstore. Joining creates a node; life events flow to the household, the magazine and the heritage layer; the Scholarship reads lineage from it; Preservation items attach to its nodes."
   strategy_needs:
   - "Family tree in the app, with correction forms and GEDCOM updates (2020-21 app requirements)"
   - "Family Tree named a refresh priority (2026)"
@@ -783,8 +783,8 @@
   - "#/member/family"
   - "#/fed/tree"
   sources:
+  - "design/AFRP-Decisions-Register.md D53"
   - "design/AFRP-Family-Tree-Integration.md D38"
-  - "design/AFRP-Decisions-Register.md Part 3"
   - "docs/AFRP-Programs.html Programme 7"
   - "docs/AFRP-Deep-Programs.html Cultural"
   - "design/AFRP-Strategic-Plan-Crosswalk.md §D D22"

@@ -15,7 +15,7 @@ python site/check.py      # links, privacy (D50), framing (D42, D46)
 | `data/goals.yaml` | The eight strategic goals and the crosswalk rows under each (D52) |
 | `data/questions.yaml` | Open questions with their Q-numbers (D43) |
 | `data/programmes.yaml` | The nineteen programmes on the four branches |
-| `data/branches.yaml` | The branches, the roots and the junction |
+| `data/branches.yaml` | The four branches and the junction |
 | `data/workflows.yaml`, `data/experiences.yaml` | Workflows and the people who use the platform |
 | `data/timeline.yaml` | The evolution timeline |
 | `data/library.yaml` | Reference documents and the archive |

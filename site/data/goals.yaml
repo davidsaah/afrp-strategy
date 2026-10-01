@@ -123,7 +123,7 @@
 - key: heritage
   n: 7
   name: Keep the heritage and the memory
-  branches: [heritage, roots]
+  branches: [heritage]
   committed: >-
     The Cultural Preservation Project and the family tree (2019); archives,
     after "No archives" in the 2018 SWOT; a central repository (2026).

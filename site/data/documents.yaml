@@ -1,0 +1,342 @@
+# The Federation's strategy documents. Each links to the file in AFRP's shared
+# drive, which opens only for people with AFRP drive access; the public site
+# carries a summary and never the text (several documents name living people).
+# Titles are written here rather than copied from file names. `code` is the
+# short name used in the crosswalk. `kind` is "doc" (Google Doc) or "file".
+groups:
+  - key: plans
+    name: The plans
+    intro: The Federation's strategic plans, from the 2018 analysis to the 2026 draft.
+    docs:
+      - title: Strategic Planning SWOT analysis
+        date: "2018"
+        code: SP19
+        status: Record
+        id: 1BiVtI7omR_CqslwSNABBvukMTX6Xv4x_
+        kind: file
+        summary: Strengths, weaknesses, opportunities and threats for the Federation. Names the problems later plans return to, including no database, no archives, a culture that does not feel welcoming and "perceived disorganization".
+        goals: [members, heritage, governance]
+      - title: Strategic Plan 2018–2023, February 2019 draft
+        date: Feb 2019
+        code: SP19
+        status: Draft
+        id: 1Nv8N2yumSvRdIWgUq8m2e-auakZHTm4e
+        kind: file
+        summary: An earlier revision of the five-year plan.
+        goals: []
+      - title: Strategic Plan 2018–2023, final version
+        date: May 2019
+        code: SP19
+        status: Presented at the July 2019 Convention
+        id: 1HH6lFL9eDIVrloKc5oRJdJ2R9kNxIssi
+        kind: file
+        summary: The five-year plan. Six pillars (constitutional review, administration, IT, communications, programming and government relations), committee and programme plans with budgets, the CRM, the youth pipeline and an Executive Director.
+        goals: [members, clubs, next-generation, governance, voice, funding, heritage, operations]
+      - title: 2020–21 Strategic Planning proposal, overview
+        date: Jan 2021
+        code: FED2
+        status: Draft
+        id: 1aUQIe8R-f_ZJIo1oI-xOnZ_nF_TI1a0H
+        kind: file
+        summary: The introduction and rationale for "Federation 2.0".
+        goals: [governance]
+      - title: Strategic Plan Phase 2, working draft
+        date: Mar 2021
+        code: FED2
+        status: Draft
+        id: 1JZ0TKtm6osj6dgrAZZMP8O9elg8eNs42
+        kind: file
+        summary: The earliest full draft of the 2020–21 Recommendations, with the committee's working notes still in it.
+        goals: []
+      - title: 2020–21 Recommendations ("Federation 2.0"), as approved
+        date: 3 May 2021
+        code: FED2
+        status: Put to the 2021 Jacksonville Convention
+        id: 1vG4nE6RJF_OT1PQqnZrrsjwnwatBgqhr
+        kind: file
+        summary: The 73-page Phase 2 recommendations. Communications (with the app requirements), Mid-Year and Convention guidelines, and administrative infrastructure including the Selection Committee, job descriptions and reporting templates. By-Law 17.1.4 incorporates it.
+        goals: [members, next-generation, governance, voice, operations]
+      - title: 2020–21 Recommendations, table of contents
+        date: 2021
+        code: FED2
+        status: Record
+        id: 1dntb-VnreW4YgIse_fsWK4wsiyGh-jEz
+        kind: file
+        summary: Cover and contents. The best evidence that the proposal was voted on at Jacksonville in 2021.
+        goals: [governance]
+      - title: 2020–21 Recommendations, executive summary
+        date: 2021
+        code: FED2
+        status: Record
+        id: 17BqX2kXyr0rIaND4BAc4r6eCRyOu2cUj
+        kind: file
+        summary: The two-page summary put to the General Assembly. The main goal is "to attract and retain young adults".
+        goals: [next-generation]
+      - title: "Federation 2.0: AFRP Strategic Planning"
+        date: 2021 (file dated 2023)
+        code: FED2
+        status: Draft
+        id: 1HVZaffnV3maqUyZDFrD84COQBMqybioM
+        kind: file
+        summary: A pre-final copy of the 2020–21 Recommendations. Its 2023 file date is not a new plan.
+        goals: []
+      - title: The Selection Committee (section G of the Recommendations)
+        date: 2021
+        code: FED2
+        status: Incorporated by By-Law 17.1.4
+        id: 172ccsZr89YhV_ibjuD7AYxQf43hTS-kQ
+        kind: file
+        summary: Merges the Nominations, Credentials and Elections committees into one Selection Committee, with its membership, terms, process and job descriptions.
+        goals: [governance]
+      - title: Tasks for the Strategic Planning subcommittees
+        date: After July 2021
+        code: TASKS
+        status: Record
+        id: 1h8tGGmcCbH9iN20OBJD6eakj48BY_lVY
+        kind: file
+        summary: The implementation list for the approved Recommendations, by subcommittee, with Mid-Year and Convention deadlines.
+        goals: [voice, governance, operations]
+      - title: Convention Memorandum of Understanding
+        date: Oct 2022
+        code: MOU
+        status: Approved
+        id: 1kWL45gTmtbNTLZg5LkQpkxoqUcrrzPi6
+        kind: file
+        summary: Hosting, money and records rules for every Convention. Registration records belong to the Federation, and dues are folded into non-member registration.
+        goals: [operations, funding]
+      - title: AFRP Strategic Plan 2026 Refresh, committee draft
+        date: Sep 2026
+        code: SP26
+        status: Draft, the text of record until adopted (D44)
+        id: 18qn5gvNncs8gsdp2cwgVhLrl6_xwAossVExG1e2euXw
+        kind: doc
+        summary: The refresh for the committee to edit. The four branches, what repeated across every plan, priorities for 2026–27, the element-by-element crosswalk and the questions for the committee.
+        goals: [members, clubs, next-generation, governance, voice, funding, heritage, operations]
+  - key: papers
+    name: Working papers behind the 2020–21 Recommendations
+    intro: Drafted by the communications and welcome-package subcommittees in 2020 and 2021.
+    docs:
+      - title: AFRP App requirements
+        date: 2020–21
+        code: APP
+        status: Working paper
+        id: 1XAhEWuxk3TDLrOQI-v-a1vYtBtFUW9pT
+        kind: file
+        summary: What an AFRP app should do. It covers events with reminders, programme sign-ups, a donate button, the magazine, news and resources, and how dues could be paid without the app-store cut. Two later versions add the family tree.
+        goals: [voice, members, heritage]
+      - title: Media and Public Relations Committee business plan
+        date: May 2018
+        code: PR
+        status: Working paper
+        id: 1hKrcyCusJa_yOUcAjM4Iku9JW-wGO8xh
+        kind: file
+        summary: Vision, mission and six goals for the Federation's media work. It covers experts, spokespersons, storytellers, young social-media volunteers, partnerships and funding.
+        goals: [voice]
+      - title: Proposal for press releases
+        date: 2020
+        code: PR
+        status: Working paper
+        id: 13yuuDzPvIwHSbqIHgySMeTPhlwjcFJ64
+        kind: file
+        summary: How to make press releases proactive and reactive. It sets a 24-hour approval clock, assigns trained volunteers a month each, and builds local media relations.
+        goals: [voice]
+      - title: Social media audit
+        date: 2020
+        code: PR
+        status: Working paper
+        id: 1jHBop4J-e8MSQg_DVJOxahsgq6jmCwO8
+        kind: file
+        summary: Followers, posting frequency and engagement on each platform, with recommendations. These include a fixed newsletter date, one consistent voice, and different posts for each platform.
+        goals: [voice]
+      - title: Communications management
+        date: 2020
+        code: PR
+        status: Working paper (slides)
+        id: 1yXfdHc2Yt5X5yl4Md4qCGPXsa0WyL_CM
+        kind: file
+        summary: The case for one communications manager across every AFRP channel, supported by a social-media management tool.
+        goals: [voice]
+      - title: Communications intern description
+        date: 2021
+        code: PR
+        status: Working paper
+        id: 1jbcBO-Q_8ruQ3kpdTrDv6Fr7BIZjjMId
+        kind: file
+        summary: A part-time, remote role supporting the communications strategy, the website, press releases, the newsletter and social media.
+        goals: [voice, operations]
+      - title: Mid-Year Meeting guidelines
+        date: 2021
+        code: FED2
+        status: Part of the Recommendations
+        id: 1wYP8Mq5MCAippTH5sJoJWiS3oqINB7iU
+        kind: file
+        summary: Host bids, the schedule, room blocks, registration and fees for the Mid-Year Meeting.
+        goals: [operations]
+      - title: Letter for new Federation members
+        date: 2021
+        code: FED2
+        status: Template
+        id: 1U9DEvp5PHGiyrqrc67fzFjkVFlNzmZNd
+        kind: file
+        summary: The welcome letter for a new member, pointing them to their local club, the newsletter and social media.
+        goals: [members, clubs]
+      - title: Letter for membership renewal
+        date: 2021
+        code: FED2
+        status: Template
+        id: 1Q2Q0lG6zZy7iJWA1KclA5tHC7zQUXg74
+        kind: file
+        summary: The renewal letter, with an optional invitation to join the local club.
+        goals: [members, clubs]
+      - title: AFRP programmes flyer
+        date: 2021
+        code: SP19
+        status: Published
+        id: 1RfJ3suLgW_1DiQRwRQwz-M7mGB_7wozj
+        kind: file
+        summary: The Federation's goal in one paragraph and its programmes on one page.
+        goals: [next-generation, funding]
+      - title: Committee and programme report template
+        date: 2020
+        code: FED2
+        status: Template
+        id: 176Hmw-90KkIpYlM9VZkq3TS-PolZzRAm
+        kind: file
+        summary: Mission, goals, current projects, meetings and challenges for each committee or programme.
+        goals: [governance]
+      - title: Quarterly committee report template
+        date: 2020
+        code: FED2
+        status: Template
+        id: 1NB2nVQp3QTBPEdELUyL954SJA24ia3h1
+        kind: file
+        summary: Meetings and attendance, projects, and income and expense against budget, each quarter.
+        goals: [governance, funding]
+  - key: minutes
+    name: The committee's minutes
+    intro: What the Strategic Planning Committee discussed and decided, 2020 to 2026.
+    docs:
+      - title: Committee meeting, January 2020
+        date: Jan 2020
+        code: MIN
+        status: Minutes
+        id: 1NftGvW0tM2aLUPPSobSWqmSqWzhcOYc6
+        kind: file
+        summary: A yearly action plan, committee reporting with measurable deliverables, a youth-focused communication strategy and a retreat on mission and vision.
+        goals: [governance, next-generation]
+      - title: Committee meeting, February 2020
+        date: Feb 2020
+        code: MIN
+        status: Minutes
+        id: 1nr8j9XMPemn2V0sw7rrobJqqG-A8b_hi
+        kind: file
+        summary: Board eligibility enforcement, a fiscal-year proposal, welcome packages, and priorities including programme evaluation, an Executive Director and the new CRM.
+        goals: [governance, members, operations]
+      - title: Mid-Year meeting, March 2020
+        date: Mar 2020
+        code: MIN
+        status: Minutes
+        id: 1YUL48t0tjZkPwGfFTEBdZqSFi0R-G0e7
+        kind: file
+        summary: Letters to board members out of compliance, contact with every committee chair, and young people on each committee.
+        goals: [governance, next-generation]
+      - title: Committee meeting notes, spring 2020
+        date: Apr–May 2020
+        code: MIN
+        status: Notes
+        id: 1Mv-il5xhbNMtKBzMtBPqIHLgww-f1KI7
+        kind: file
+        summary: Working notes from the spring 2020 sessions.
+        goals: []
+      - title: Second quarterly meeting
+        date: Dec 2020
+        code: MIN
+        status: Minutes
+        id: 1O3heDj4jpmyT0KohzTqR6i5ZDMmt2-kO
+        kind: file
+        summary: Reviews of the subcommittees' papers. It covers how app payments would work, press-release recommendations, the annual report, Mid-Year guidelines and welcome packages.
+        goals: [voice, governance, members]
+      - title: Committee meeting, May 2022
+        date: May 2022
+        code: MIN
+        status: Minutes
+        id: 1tRCYXvodaDhUTDP0wlCRLw4FAY28eA8p
+        kind: file
+        summary: Staffing options, a communications intern, a shared drive and documents due by year end.
+        goals: [operations, voice, heritage]
+      - title: Committee meeting, March 2023
+        date: Mar 2023
+        code: MIN
+        status: Minutes
+        id: 1-ddkQrabgNj91C-arzakT6n1VyJVHSfR
+        kind: file
+        summary: The CRM due before the Convention, training for local clubs, recruiting 21–35 year-olds, and questions about the Executive Director.
+        goals: [members, clubs, next-generation, operations]
+      - title: Committee meeting, September 2023
+        date: Sep 2023
+        code: MIN
+        status: Minutes
+        id: 1-fhSXdxKfTYkkclPztH175mHBogW60Ww
+        kind: file
+        summary: The new CRM is live but registration is slow. It covers benefits for long-time members, clubs driving national membership, and the Executive Director search.
+        goals: [members, clubs, operations]
+      - title: Strategic Planning meeting, 10 September 2026
+        date: 10 Sep 2026
+        code: SP26
+        status: Minutes
+        id: 1ux3nnjUfjSkdRWgWV5j7Lbsn9tYT2pWGrcv-uhJhaao
+        kind: doc
+        summary: The committee restarts. It calls for an outcome-based plan, an endowment campaign, an Executive Director, a central archive and refreshed priorities.
+        goals: [funding, operations, heritage]
+  - key: swot25
+    name: The 2025 committee survey
+    intro: The Deputy President asked every committee and programme for its purpose, what worked, its goals, its budget and a SWOT.
+    docs:
+      - title: The value of strategic planning, the survey form
+        date: Mar 2025
+        code: SWOT25
+        status: Template
+        id: 1dqRXW8JAhE4HjBt855h-2dp0dCtft7aw
+        kind: file
+        summary: The questions every committee was asked.
+        goals: [governance]
+      - title: Educational and Cultural Exchange Mission response
+        date: Mar 2025
+        code: SWOT25
+        status: Committee response
+        id: 1jPToUtLs5pjYmQcBQaBt_FDvScM4k58c
+        kind: file
+        summary: The programme's evolution from travel missions to supporting university treks and fellowships, a call for new leadership, and its budget allocation.
+        goals: [next-generation, funding]
+      - title: Camp Ramallah response
+        date: Mar 2025
+        code: SWOT25
+        status: Committee response
+        id: 1Q9ySA29p68EukTgPt1qLWMOY8ZzHSjXi
+        kind: file
+        summary: More campers from smaller communities, more age tiers, and a camp site of its own.
+        goals: [next-generation]
+      - title: Project Hope response
+        date: Mar 2025
+        code: SWOT25
+        status: Committee response
+        id: 1saUh6HmmdiQNnRpVVzsQ7VIQadNZ7iFW
+        kind: file
+        summary: The need to formalise processes, bring in more diverse voices and plan for succession.
+        goals: [next-generation, governance]
+      - title: Women to Women response
+        date: Mar 2025
+        code: SWOT25
+        status: Committee response
+        id: 13m6RdKfnMEf0vG9Kxim35pvoVdn3cZpD
+        kind: file
+        summary: Projects funded by women's contributions, the need to involve younger women, and a representative in every city.
+        goals: [funding, next-generation]
+      - title: Selection Committee response
+        date: Mar 2025
+        code: SWOT25
+        status: Committee response
+        id: 1A0Krlax7-e3SO5rJCzGWRvwQiUlUe2Mx
+        kind: file
+        summary: Filling seats when too few people volunteer, and widening participation beyond committee seats.
+        goals: [governance]

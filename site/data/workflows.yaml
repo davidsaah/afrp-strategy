@@ -426,7 +426,7 @@
   - design/AFRP-Decisions-Register.md §The conforming-amendment package
 - key: tree-life-events
   name: Family tree and life events
-  summary: 'The tree is the roots: every member has a node and the platform resolves people through it. Births, marriages,
+  summary: 'The tree sits on the Heritage branch, and every member has a node on it and the platform resolves people through it. Births, marriages,
     graduations and deaths queue for the Family Tree Committee before anything changes.'
   steps:
   - step: Find a line by the oldest ancestor you can name; propose any change
@@ -442,7 +442,7 @@
   - step: Import a GEDCOM only after its diff preview; an import never deletes anyone
     who: Genealogy moderator
   branches:
-  - roots
+  - heritage
   programmes:
   - family-tree
   services:

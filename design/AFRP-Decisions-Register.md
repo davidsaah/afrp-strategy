@@ -524,6 +524,31 @@ David approved `plan/SITE-OVERHAUL-PLAN.md` and its ten recommendations on
 
 ---
 
+## Decision 53 — the family tree joins the Heritage branch
+**Status: Adopted · David Saah, 30 September 2026**
+
+### The adopted wording
+> The family tree is part of Heritage.
+
+### What it settles
+- The Ramallah Family Tree sits on the **Heritage** branch, with the
+  Preservation Project, Hathihe Ramallah and the Bookstore. It takes Heritage's
+  shape, a cluster: no "next" step and no milestone invitations.
+- This supersedes D38's placement of the tree as the **roots** beneath all four
+  branches. The Convention stays the junction (D38).
+- **D30 is unchanged**: every member still has a node on the tree, a node is
+  never a lineage claim, and no membership decision reads it. Education,
+  Leadership and Care keep drawing on the tree through that node; only the
+  tree's place in the programme frame changes.
+- D42's framing of the strategic plan follows: four branches and the junction.
+
+### What it does not settle
+- Nothing about lineage, eligibility or the tree committee's authority changes.
+- AFRP-Hub's `programs/branches.py` still lifts the tree out as the roots; slice
+  T1d in `plan/MASTER-PLAN.md` moves it.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

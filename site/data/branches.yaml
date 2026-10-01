@@ -1,4 +1,4 @@
-# The four branches, the roots and the junction (D38-D40, D42, D45).
+# The four branches and the junction (D38-D40, D42, D45, D53).
 - key: education
   name: Education
   shape: A ladder by age
@@ -28,10 +28,14 @@
   shape: A cluster, used for life
   colour: "#7a5a2e"
   summary: >-
-    The Preservation Project, Hathihe Ramallah and the Bookstore. There is no
-    "next" here and no milestone invitations: people come and go all their
-    lives, and nobody graduates from the archive to the magazine.
+    The Ramallah Family Tree, the Preservation Project, Hathihe Ramallah and
+    the Bookstore. There is no "next" here and no milestone invitations: people
+    come and go all their lives, and nobody graduates from the archive to the
+    magazine. The tree also holds every member's node, so the other branches
+    draw on it too (D30, D53).
   outcomes:
+    - Corrections and life events resolved by the Family Tree Committee
+    - Members who have linked themselves to their family
     - Contributions to the archive and the magazine
     - Readers and subscribers
     - Members who take part in more than one heritage activity
@@ -48,17 +52,6 @@
     - Volunteers and donors per destination
     - Restricted gifts received and spent on their stated purpose
     - Donors who give again
-- key: roots
-  name: The family tree
-  shape: The roots beneath all four
-  colour: "#2b2416"
-  summary: >-
-    Every member has a node on the tree, and the branches grow from it. The tree
-    is evidence for decisions people make, never a decision itself, and a node
-    is never a claim of lineage.
-  outcomes:
-    - Corrections and life events resolved by the committee
-    - Members who have linked themselves to their family
 - key: junction
   name: The Convention
   shape: The junction where the branches meet

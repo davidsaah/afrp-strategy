@@ -26,8 +26,8 @@ as it was rather than quietly edited to agree (D48). It will be re-framed later.
 - **Its Programme lens groups programmes the old way** (Medical, Cultural,
   Leadership, Educational, Camp, Convention), not by branch. The tours below
   regroup them by branch.
-- **The family tree appears as one programme among nineteen.** It is now the
-  roots beneath all four branches (D30, D38).
+- **The family tree appears as a programme in the Cultural group.** It now sits
+  on the Heritage branch, with a node for every member (D30, D53).
 
 ## Guided tours
 

@@ -61,6 +61,7 @@ prototype/index.html
 site/site.css
 status/index.html
 strategy/crosswalk.html
+strategy/documents.html
 strategy/goals/clubs.html
 strategy/goals/funding.html
 strategy/goals/governance.html

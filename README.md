@@ -31,7 +31,7 @@ AFRP-Hub is **not yet in service**: no DNS, no live payments, no real member dat
 
 | Folder | What it holds | Published on the site? |
 |---|---|---|
-| [`design/`](design/) | **The design record.** The decisions register (D1–D52), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
+| [`design/`](design/) | **The design record.** The decisions register (D1–D53), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
 | [`plan/`](plan/) | **The build plan.** `MASTER-PLAN.md` (the slice queue AFRP-Hub takes work from), `QUESTIONS-FOR-DAVID.md` (answered questions, kept as provenance), the archived earlier plans, and the consolidation plan | No, it is in the repository only |
 | [`site/`](site/) | **The site's sources**: prose, data files, template, build and checks (D47) | Generates `docs/` |
 | [`docs/`](docs/) | **The site.** Generated section pages, the prototype, the build board, the Library | Yes, GitHub Pages |

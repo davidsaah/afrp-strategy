@@ -1175,3 +1175,10 @@ The crosswalk's programme rows F2, F4, F5 and F7 were corrected to the build.
 Not done: re-framing `prototype.html` onto the branches (D48) and the design
 record's old "rails" wording (plan Phase 7).
 
+### Site S2 — the family tree joins Heritage (30 September 2026)
+
+D53 recorded: the tree moves from the roots beneath the four branches onto the
+Heritage branch; every member keeps a node on it (D30). The site was rebuilt on
+that frame (home diagram, Heritage page, the tree's programme page, timeline,
+questions). AFRP-Hub follows in slice T1d.
+

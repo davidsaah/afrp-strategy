@@ -39,7 +39,7 @@ SECTIONS = [
 env = Environment(loader=FileSystemLoader(str(SITE / "templates")),
                   autoescape=select_autoescape(enabled_extensions=()))
 MD = lambda text: markdown.markdown(text, extensions=["tables", "fenced_code", "attr_list", "md_in_html", "sane_lists"])
-E = html.escape
+E = lambda x: html.escape(str(x))
 WRITTEN = []
 
 
@@ -216,6 +216,8 @@ def main():
     exps = load("experiences.yaml")
     timeline = load("timeline.yaml")
     library = load("library.yaml")
+    documents = load("documents.yaml")
+    alldocs = [d for g in documents["groups"] for d in g["docs"]]
     rows, notes = parse_crosswalk()
     R = {r["id"]: r for r in rows}
     decisions = parse_decisions()
@@ -265,7 +267,7 @@ def main():
         return f'<a class="br" style="--c:{bcolour(k)};text-decoration:none" href="{{root}}programmes/{branch_href(k)}">{E(B[k]["name"])}</a>'
 
     def branch_href(k):
-        return {"roots": "family-tree.html", "junction": "convention.html"}.get(k, f"{k}.html")
+        return {"junction": "convention.html"}.get(k, f"{k}.html")
 
     def plink(k):
         return f'<a href="{{root}}programmes/{k}.html">{E(P[k]["name"])}</a>' if k in P else E(k)
@@ -275,6 +277,13 @@ def main():
 
     def glink(k):
         return f'<a href="{{root}}strategy/goals/{k}.html">{G[k]["n"]}. {E(G[k]["name"])}</a>' if k in G else "The mission"
+
+    def durl(d):
+        return (f"https://docs.google.com/document/d/{d['id']}/edit" if d["kind"] == "doc"
+                else f"https://drive.google.com/file/d/{d['id']}/view")
+
+    def dlink(d):
+        return f'<a href="{durl(d)}">{E(d["title"])}</a>'
 
     def qlink(q):
         return f'<a href="{{root}}history/questions.html#{q["id"]}">{q["id"]}</a>'
@@ -300,9 +309,9 @@ def main():
             return (f'<a href="{href}"><circle cx="{x}" cy="{y}" r="9" fill="{b["colour"]}"/>'
                     f'<text x="{x}" y="{y-34}" text-anchor="{anchor}" font-size="17" font-weight="700" fill="{b["colour"]}">{E(b["name"])}</text>'
                     f'<text x="{x}" y="{y-16}" text-anchor="{anchor}" font-size="12.5" fill="#57503f">{E(b["shape"])}</text></a>')
-        s = ['<svg viewBox="0 0 720 380" role="img" aria-label="The four branches grow from the family tree and meet at the Convention">',
+        s = ['<svg viewBox="0 0 720 340" role="img" aria-label="The four branches, Education, Leadership, Heritage and Care, meet at the Convention">',
              '<path d="M360 330 C360 280 360 250 360 215" stroke="#2b2416" stroke-width="10" fill="none" stroke-linecap="round"/>',
-             '<path d="M360 330 C330 350 290 356 250 360 M360 330 C390 350 430 356 470 360 M360 330 L360 362" stroke="#2b2416" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7"/>']
+             ]
         for (x, y) in [(120, 100), (270, 75), (450, 75), (600, 100)]:
             s.append(f'<path d="M360 215 C360 150 {x} {y+60} {x} {y}" stroke="#57503f" stroke-width="4" fill="none" opacity=".45"/>')
         s.append(node(120, 100, "education"))
@@ -312,7 +321,7 @@ def main():
         s.append('<a href="{root}programmes/convention.html"><circle cx="360" cy="200" r="15" fill="#6d7a19" stroke="#fffdf6" stroke-width="3"/>'
                  '<text x="385" y="197" font-size="15" font-weight="700" fill="#6d7a19">The Convention</text>'
                  '<text x="385" y="214" font-size="12" fill="#57503f">the junction where the branches meet</text></a>')
-        s.append('<a href="{root}programmes/family-tree.html"><text x="360" y="376" text-anchor="middle" font-size="15" font-weight="700" fill="#2b2416">The family tree: the roots</text></a>')
+        s.append('<a href="{root}programmes/family-tree.html"><text x="450" y="20" text-anchor="middle" font-size="12.5" font-weight="600" fill="#7a5a2e">with the family tree</text></a>')
         s.append("</svg>")
         return '<div class="tree">' + "".join(s) + "</div>"
 
@@ -321,7 +330,7 @@ def main():
     cards = [
         ("strategy/index.html", "1 · AFRP Strategy", "The Federation's current strategy, and how the Hub implements it on the CRM.", f"8 <small>goals</small>"),
         ("history/index.html", "2 · Evolution", "How the strategy got here since 2018, what is still to develop, and the open questions.", f"{len(open_q)} <small>open questions</small>"),
-        ("programmes/index.html", "3 · Branches & programmes", "Education, Leadership, Heritage, Care, the roots and the junction; nineteen programmes and what each needs.", f"{len(progs)} <small>programmes</small>"),
+        ("programmes/index.html", "3 · Branches & programmes", "Education, Leadership, Heritage and Care, and the Convention where they meet; nineteen programmes and what each needs.", f"{len(progs)} <small>programmes</small>"),
         ("experiences/index.html", "4 · People & experiences", "Who uses the platform and what each of them needs.", f"{len(exps)} <small>kinds of people</small>"),
         ("workflows/index.html", "5 · Workflows", "How the work moves, and how the pieces hand off to each other.", f"{len(workflows)} <small>workflows</small>"),
         ("prototype/index.html", "6 · Prototype", "The integrated prototype: five lenses, with guided tours by branch and by journey.", "5 <small>lenses</small>"),
@@ -365,11 +374,25 @@ def main():
                 f'<p class="small muted">{", ".join(f"{v} {k}" for k, v in c.most_common())}. Sources are the Federation\'s documents, abbreviated as on the <a href="{{root}}strategy/crosswalk.html">crosswalk</a>.</p>'
                 + table(["#", "Element", "Source", "Platform", "How the platform fulfils it"],
                         [[r["id"], inline(r["element"]), E(r["source"]), status_tag(r["status"]), inline(r["how"])] for r in grows]))
+        gd = [d for d in alldocs if g["key"] in d.get("goals", [])]
+        if gd:
+            body += ('<h2>The Federation\'s documents behind this goal</h2><p class="small muted">Links open in the Federation\'s shared drive, for people with access.</p>'
+                     + ulist(gd, lambda d: f'{dlink(d)} <span class="muted small">({E(d["date"])} · {E(d["status"])})</span>'))
         qs = [q for q in open_q if q["goal"] == g["key"]]
         if qs:
             body += "<h2>Open questions</h2>" + ulist(qs, lambda q: f'{qlink(q)} {E(q["title"])} <span class="muted small">({E(q["owner"])})</span>')
         write(f"strategy/goals/{g['key']}.html", f"{g['n']}. {g['name']}", body, "strategy", kicker="Strategic goal",
               crumbs=[("Home", "index.html"), ("AFRP Strategy", "strategy/index.html")], lede=f"Goal {g['n']} of eight, distilled from the Federation's documents: what was committed, what is open, and how the Hub carries it out.")
+
+    meta, body = md_page("documents.md")
+    dbody = MD(body) + "<p class=\"small\"><b>Goals:</b> " + " · ".join(f'{g["n"]} {E(g["name"])}' for g in goals) + "</p>"
+    for g in documents["groups"]:
+        dbody += f'<h2 id="{g["key"]}">{E(g["name"])}</h2><p>{E(g["intro"])}</p>' + table(
+            ["Document", "Date", "Status", "What it holds", "Goals"],
+            [[f'<b>{dlink(d)}</b><br><span class="tag">{E(d["code"])}</span>', E(d["date"]), E(d["status"]), E(d["summary"]),
+              " ".join(f'<a class="tag" title="{E(G[k]["name"])}" href="{{root}}strategy/goals/{k}.html">{G[k]["n"]}</a>' for k in d.get("goals", [])) or '<span class="muted">—</span>'] for d in g["docs"]])
+    write("strategy/documents.html", meta["title"], dbody, "strategy", kicker=meta["kicker"], lede=meta["lede"],
+          crumbs=[("Home", "index.html"), ("AFRP Strategy", "strategy/index.html")], chips=[f"{len(alldocs)} documents"])
 
     meta, body = md_page("on-the-crm.md")
     write("strategy/on-the-crm.html", meta["title"], MD(body), "strategy", kicker=meta["kicker"], lede=meta["lede"],
@@ -443,7 +466,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
           chips=[f"{v} {k}" for k, v in prog_status.most_common()])
 
     for b in branches:
-        if b["key"] in ("roots", "junction"):
+        if b["key"] == "junction":
             continue
         ps = [p for p in progs if p["branch"] == b["key"]]
         jj = jstats(lambda r, k=b["key"]: prog_branch(r["program"]) == k)
@@ -469,8 +492,6 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
     for p in progs:
         b = B[p["branch"]]
         extra = ""
-        if p["branch"] == "roots":
-            extra = f'<div class="note green"><p><b>The roots.</b> {E(b["summary"])}</p></div>'
         if p["branch"] == "junction":
             extra = f'<div class="note green"><p><b>The junction.</b> {E(b["summary"])}</p></div>'
         rung = (table(["Rung", "For this programme"], [[n, E(p["rungs"][k])] for k, n in RUNG if k in p["rungs"]])
@@ -495,7 +516,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
                 f'<h2>In the prototype</h2><p>{proto(p.get("prototype")) or "<span class=muted>No screen of its own.</span>"}</p>'
                 f'<h2>Sources</h2>{ulist(p.get("sources"), src_link)}')
         write(f"programmes/{p['key']}.html", p["name"], body, "programmes", kicker=b["name"] + " · programme", lede=p["summary"],
-              crumbs=[("Home", "index.html"), ("Branches & programmes", "programmes/index.html"), (b["name"], "programmes/" + (branch_href(p["branch"]) if p["branch"] not in ("roots", "junction") else "index.html"))])
+              crumbs=[("Home", "index.html"), ("Branches & programmes", "programmes/index.html"), (b["name"], "programmes/" + (branch_href(p["branch"]) if p["branch"] != "junction" else "index.html"))])
 
     # ------------------------------------------------------------- EXPERIENCES
     LENS = {"door": "Front door", "member": "Member", "club": "Club", "program": "Programme", "federation": "Federation"}

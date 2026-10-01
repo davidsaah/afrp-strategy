@@ -28,28 +28,28 @@
   detail: The text admits a person "married to one having such origin". It is gender-neutral and names no restriction.
   owner: Membership Committee
   goal: members
-  branch: roots
+  branch: heritage
   source: Design Status
 - id: Q-5
   title: Which pedigree slot carries which parent, where two parents are the same sex?
   detail: The family-tree file format assumes a father slot and a mother slot. Does a child inherit descent through either?
   owner: Family Tree Committee · Membership Committee
   goal: heritage
-  branch: roots
+  branch: heritage
   source: Design Status
 - id: Q-6
   title: A long-term unmarried partner is not "married to"
   detail: Is the 4.2.1 associate route, for "special circumstances", the intended home?
   owner: Membership Committee, then the Board
   goal: members
-  branch: roots
+  branch: heritage
   source: Design Status
 - id: Q-7
   title: Does a membership survive the divorce it was admitted through?
   detail: A member admitted as "married to one having such origin" divorces that spouse. The by-laws are silent.
   owner: Membership Committee
   goal: members
-  branch: roots
+  branch: heritage
   source: Design Status
 - id: Q-8
   title: Which club does a child in two households belong to?
@@ -63,7 +63,7 @@
   detail: An adopted child may be wholly family socially and not a descendant genealogically. Until this is answered the platform records an adoptive link as non-lineage and infers nothing.
   owner: Membership Committee · Family Tree Committee
   goal: heritage
-  branch: roots
+  branch: heritage
   source: Design Status
 - id: Q-10
   title: Does a suspension recorded after certification withhold the ballot?

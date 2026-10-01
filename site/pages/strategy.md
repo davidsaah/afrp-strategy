@@ -28,7 +28,7 @@ which.
    this site shows it and links to it.
 
 <div class="note">
-<p><b>Sources.</b> The 2018 SWOT; the Strategic Plan 2018–2023 (May 2019); the 2020–21 Recommendations (3 May 2021) and their working papers; the subcommittee task list; the Convention agreement (October 2022); the committee's minutes from 2020 to 2023; the committee SWOT responses (March 2025); the minutes of 10 September 2026; and the committee's 2026 working draft. They are held in the Federation's shared drive and are cited here, not reproduced, because several name living people.</p>
+<p><b>Sources.</b> The 2018 SWOT; the Strategic Plan 2018–2023 (May 2019); the 2020–21 Recommendations (3 May 2021) and their working papers; the subcommittee task list; the Convention agreement (October 2022); the committee's minutes from 2020 to 2026; the committee SWOT responses (March 2025); and the committee's 2026 working draft. <a href="documents.html">All of them are listed, with links, on the strategy documents page</a>.</p>
 </div>
 
 ## Eight strategic goals
@@ -48,6 +48,12 @@ one database, with their household, their clubs, their standing and their
 payments. That database is the CRM, and it is the first layer of the Hub.
 [How the Hub builds on the CRM](on-the-crm.html) explains the layers and the
 order they are built in.
+
+## The documents
+
+[The strategy documents](documents.html) lists every document the strategy is
+built from, with a summary of each and a link to it in the Federation's shared
+drive.
 
 ## Every element, one table
 
