@@ -631,8 +631,9 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
         WRITTEN.append("library/archive/" + d["file"])
 
     DOCS.joinpath("site").mkdir(exist_ok=True)
-    shutil.copyfile(SITE / "static/site.css", DOCS / "site/site.css")
-    WRITTEN.append("site/site.css")
+    for f in ("site.css", "afrp-logo-white.png"):
+        shutil.copyfile(SITE / "static" / f, DOCS / "site" / f)
+        WRITTEN.append("site/" + f)
     (SITE / "MANIFEST.txt").write_text("\n".join(sorted(set(WRITTEN))) + "\n", encoding="utf-8")
     print(f"built {len(set(WRITTEN))} files; {n_dec} decisions, {len(open_q)} questions, {len(progs)} programmes, "
           f"{len(workflows)} workflows, {len(exps)} experiences, {len(rows)} crosswalk rows")

@@ -58,6 +58,7 @@ programmes/scholarship.html
 programmes/senior-living.html
 programmes/women-to-women.html
 prototype/index.html
+site/afrp-logo-white.png
 site/site.css
 status/index.html
 strategy/crosswalk.html
