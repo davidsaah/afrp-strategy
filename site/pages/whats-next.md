@@ -17,9 +17,13 @@ share and settlement, Care grants and partner agreements, the selection
 programmes and the Arabic term, host agreements, advocacy, incident response and
 data retention, the Executive Director as the first staff role, and AFRPWorks.
 
-One note is written: P18, the club experience plan, which carries the club
-share and settlement (P10) inside it and gives the Hub six club slices (C1–C6)
-with their gates.
+Three notes are written. P18, the club experience plan, carries the club share
+and settlement (P10) inside it and gives the Hub six club slices (C1–C6) with
+their gates; a deep read of Breeze on 1 October 2026 then adjusted the
+migration path and the gates on club giving and texting. P19, the directory in
+three formats, gives the Hub three more (DIR1–DIR3). P20, the club journeys,
+is the corpus of fifty-two tests the clubs component is built from, each starting
+from what a club officer does in Breeze today.
 
 <!--NOTES-->
 

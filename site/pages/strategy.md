@@ -87,7 +87,16 @@ does about it, is in [section J of the crosswalk](crosswalk.html).
 **The club experience.** How a chapter club lives on the platform, from the
 officers form to the move from Breeze, is written for the Council of Chapter
 Club Presidents on [For club presidents](for-clubs.html), and for build
-sessions in the club experience plan (design note P18).
+sessions in the club experience plan (design note P18). Breeze, which about
+ten clubs run today, was read module by module on 1 October 2026; what it can
+and cannot do, and what that changes in the plan, is in the Breeze parity note.
+
+**The directory.** The Ramallah directory the Federation once printed returns
+in three formats behind sign-in: the members' directory with membership and
+club shown, at Federation and club scale; the professional services directory;
+and the leadership directory of every seat and whether it votes, Federation
+and club together (design note P19). Nothing is printed or exported; a member
+is reached through the platform, a seat through its office channel.
 
 ## The documents
 

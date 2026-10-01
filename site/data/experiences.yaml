@@ -101,6 +101,7 @@
   - 'Scoped standing: national and club lapse independently'
   - Ballots with the reason when ineligible
   - My branches and the next step on each
+  - The directory in three formats, signed in: members with membership and club shown, professional services, and the leadership seats with their votes (design note P19)
   privacy:
   - Display, contact and export are three separate consents (R27)
   - A declined invitation is recorded nowhere a committee can see
@@ -421,6 +422,7 @@
   - Keep the roster true as people join, lapse, move house or move clubs
   platform:
   - Roster with national and club status side by side
+  - The members' directory filtered to the club, which shows only consenting members; the roster shows all and never leaves the club lens
   - Groups, follow-ups and club events with check-in
   - The acting panel on any filtered set (mail it, group it, follow it up)
   - The secretary's queue of things that need a person (a join naming this club, a household split, a move between clubs, a reported death)
@@ -480,6 +482,7 @@
   - design/AFRP-Four-Lens-Architecture.md §3, §6
   - design/AFRP-Breeze-Club-Parity.md §2, §4
   - design/AFRP-Club-Experience-Plan.md §3.2
+  - design/AFRP-Club-Journeys.md (the club corpus)
   - docs/AFRP-Analyst-Dashboard.html (journey data)
 - key: club-treasurer
   name: Club treasurer
@@ -540,6 +543,7 @@
   - design/AFRP-Decisions-Register.md §Decision 1, §Decision 57
   - design/AFRP-Multi-Entity-Ledger.md §2.1, §3
   - design/AFRP-Club-Experience-Plan.md §3.3, §5
+  - design/AFRP-Club-Journeys.md (the club corpus)
   - docs/AFRP-Analyst-Dashboard.html (journey data)
 - key: club-president
   name: Club president
@@ -588,6 +592,7 @@
   sources:
   - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 3.1, 3.2, 6.2.2, 6.2.3, 6.4.1, 8.12.1, 9.1.3, 10.5.1)
   - design/AFRP-Club-Experience-Plan.md §3.1
+  - design/AFRP-Club-Journeys.md (the club corpus)
 - key: club-ambassador
   name: Club ambassador in a programme
   lens: club
@@ -620,6 +625,7 @@
   - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Law 6.2.3)
   - design/AFRP-Four-Lens-Architecture.md §6
   - design/AFRP-Club-Experience-Plan.md §3.4
+  - design/AFRP-Club-Journeys.md (the club corpus)
 - key: club-member-view
   name: A member, seen from the club
   lens: club
@@ -661,6 +667,7 @@
   sources:
   - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 3.1, 4.3.1, 9.1.3)
   - design/AFRP-Club-Experience-Plan.md §3.5
+  - design/AFRP-Club-Journeys.md (the club corpus)
 - key: programme-organiser
   name: Programme organiser
   lens: program
@@ -738,6 +745,7 @@
   - The tree committee queue, triaged
   - Scholarship review with median ranking
   - Open questions routed by name (R40)
+  - Their seat on the leadership directory, with its dates, whether it votes, and a seat channel instead of personal contact details (P19)
   privacy:
   - Refusals name the rule, not the relatives (S6)
   - A declined invitation is never visible to a committee

@@ -294,8 +294,10 @@
   - R26
   - S3
   status: Partly built
-  status_note: Member registration, household registration and club events with door check-in and attendance (B2) are built.
-    Member QR check-in, banquet seats as inventory and volunteer roles (B2b) are not built.
+  status_note: 'Member registration, household registration and club events with door check-in and attendance (B2) are built.
+    Member QR check-in, banquet seats as inventory and volunteer roles (B2b) are not built; the deep read of Breeze (1 October
+    2026) adds to B2b a self check-in kiosk, check-out times, an anonymous headcount beside named attendance, volunteer
+    reminders and the volunteer''s own blockout dates (Breeze Parity §1a).'
   hands_to:
   - remittance-ledger
   - club-management
@@ -879,8 +881,9 @@
   - R6
   status: Partly built
   status_note: Consent-filtered audiences, classes and the withheld list are built for clubs and federation. Real email waits
-    on a provider (slice 5); texting waits on a provider, budget and 10DLC registration (B5); when it exists, each club texts
-    under its own sender name on the one account (Club Experience Plan §4.5).
+    on a provider (slice 5); texting waits on a provider, budget and either a registered brand on a long code or a shared
+    short code through a provider, which is what the clubs have in Breeze today (B5); when it exists, each club texts under
+    its own sender name on the one account where the route allows it (Club Experience Plan §4.5; Breeze Parity §1a).
   hands_to:
   - reporting
   handoff_notes:
@@ -1069,19 +1072,32 @@
   - None found
 - key: directory-consent
   name: Directory, RBPN and consent
-  summary: A members-only directory where display, contact and export are three separate consents. No minor appears in any
-    payload, and nothing about the living shows signed out.
+  summary: 'A members-only directory in three formats - the members'' directory with membership and club identified, at
+    Federation and club scale; the professional services directory; the leadership directory of seats and their votes -
+    where display, contact and export are three separate consents. No minor appears in any payload, nothing about the
+    living shows signed out, and nothing is printed or exported.'
   steps:
   - step: Set per-field visibility; the ceiling is members, never public
+    who: Member
+  - step: 'Browse the members'' directory, where presence means membership in good standing or within the grace, with the
+      club or clubs shown as the Federation''s fact; filter it to one club from the club''s page'
     who: Member
   - step: Search with transliteration folding and aliases
     who: Member
   - step: Contact through the broker; the address itself never ships
     who: Member
-  - step: Publish an RBPN profession listing; request a promoted business listing
+  - step: Publish an RBPN profession listing with the place of business as listing data, never the home address; request a
+      promoted business listing (the professional services directory, members only)
     who: Member
-  - step: Verify membership and ownership before a listing exists
+  - step: Verify membership and ownership before a listing exists; a licence is never verified and the listing says so
     who: RBPN desk
+  - step: 'Read the leadership directory: every seat on the Executive Committee, the Board (By-Law 6.2.2), the Council, the
+      committees and each club''s officers, with whether the seat carries a vote under the text that composes the body, and a
+      seat channel for contact; never the holder''s personal details or their own franchise'
+    who: Member; the Board and the Council on the same page
+  - step: Keep the seats true from the officers form, the election results and a dated committee register until the committee
+      workspace exists (the crosswalk's design note P1)
+    who: Federation office
   - step: Drop a lapsed member after the grace window
     who: Platform
   branches:
@@ -1098,9 +1114,11 @@
   - D28
   - R7
   - R27
-  status: Built
-  status_note: Directory, consents, the broker, RBPN listings and the job board are built (slice 10). Bulk export refuses
-    for everyone.
+  status: Partly built
+  status_note: 'Directory, consents, the broker, RBPN listings and the job board are built (slice 10); the 90-day grace is
+    attested (slice D1). The membership mark and club filter (DIR1), the leadership directory of seats (DIR2) and any
+    "near me" axis (DIR3, gated on Q-48) are not built (design note P19, AFRP-Directory-Formats.md). Bulk export refuses for
+    everyone; on David''s direction of 1 October 2026 no format is printed or exported.'
   hands_to:
   - communications
   - magazine
@@ -1109,6 +1127,9 @@
   - 'directory → magazine: a lapsed listing drops out of the magazine''s professional directory'
   open:
   - Paying for a listing on the platform is not decided.
+  - '"Near me": by metro area from what is already displayed, or by distance from a stored address, a new purpose (Q-48).'
+  - Community contacts for places without a chapter club, which the printed Committee Directory listed and no seat holds (Q-49).
+  - Committee seats depend on the committee workspace note (P1); an office register carries them until then.
   deep_dive:
   - AFRP-Platform-Experience.html
   - AFRP-Unified-Member.html
@@ -1117,19 +1138,23 @@
   - '#/member/rbpn'
   - '#/program/rbpn'
   sources:
+  - design/AFRP-Directory-Formats.md
   - design/AFRP-Camp-Directory-Network-Plan.md §Decisions taken
   - design/AFRP-Decisions-Register.md §Decision 6, §Part 2
   - design/AFRP-Delivery-Status.md §Slice 10, §Slice D1
   - design/AFRP-Rules-Register.md §Identity, minors and the directory
-  owner: Federation — a members-only directory; listings verified by the RBPN desk
+  owner: Federation — a members-only directory in three formats; listings verified by the RBPN desk; seats kept by the office
   could_share: AFRPWorks beside the RBPN job board (D64)
   trigger: A member sets visibility, searches or lists a profession
   frequency: On demand; lapsed members drop after the grace window
-  records: Per-field visibility and contact consents, brokered contacts, RBPN listings and their verification
+  records: Per-field visibility and contact consents, brokered contacts, RBPN listings and their verification, seats with their
+    dates, votes and channels
   money: None (paying for a listing is not decided)
-  module: memberdir, network
+  module: memberdir, network, authority, clubs
   rule_vs_practice:
-  - None found
+  - The Federation printed and sold a membership directory and printed an annual Committee Directory with contact details
+    (the officer archive, 2009–2026); the platform prints neither (David, 1 October 2026) and the Magazine's professional
+    directory is the one print surface, on print consent.
 - key: reporting
   name: Reporting and oversight
   summary: Federation, club and programme views built from counts, not rows. Every aggregate carries complementary suppression
@@ -1703,9 +1728,11 @@
   - step: Choose the club and name its owner on each side
     who: Federation staff with the club president
   - step: Give read-only API access; the key is held as a secret, never in the repo
-    who: The club's Breeze administrator
-  - step: 'Extract people, families, tags, events, attendance, giving and the custom fields as found into staging rows;
-      report which custom fields the club used'
+    who: The club's Breeze Account Owner, the only holder of the key
+  - step: 'Extract people, families, tags, events, attendance, form entries, volunteer roles, the custom fields and the
+      consent flags as found into staging rows, through the vendor''s API at its rate limit (attendance is not in the account
+      export) with the account export as the fallback; report which custom fields and forms the club used and what will
+      not move (notes, files, photos, recurring gifts)'
     who: Platform
   - step: Resolve identities against the register; send the review band to the merge queue
     who: Match-queue reviewer, then the club secretary
@@ -1714,7 +1741,8 @@
     who: The club's officers
   - step: Sign off and cut over as a dated decision; writes move to the platform and Breeze becomes read-only
     who: Club president and treasurer
-  - step: Keep the final export on the drive (D66); the club cancels its own subscription
+  - step: Keep the final export on the drive (D66); the club cancels its own subscription only after the export is verified,
+      because the vendor queues the account for deletion on cancellation
     who: Federation staff; the club
   - step: A club not on Breeze follows the same path from a spreadsheet upload
     who: The club's officers
@@ -1744,7 +1772,8 @@
     never as a national member (Article IV)'
   open:
   - Which club goes first, and who holds its key (Breeze Parity §5 q4); the plan asks for one that does not take gifts or text
-    in Breeze.
+    in Breeze. Only the club's Account Owner holds the key; a club whose owner has left recovers ownership by the vendor's
+    paper process first.
   - Whether the clubs accept what the platform refuses by design (export, printed directories and labels, free-text notes,
     deleting a person) (Breeze Parity §5 q7).
   - What the clubs recorded in Breeze custom fields; answered per club at the extract step (§5 q2).
@@ -1754,7 +1783,7 @@
   prototype: []
   sources:
   - design/AFRP-Addendum-2-Breeze-Replacement.md §3.3, §3.4
-  - design/AFRP-Breeze-Club-Parity.md §3 (B4), §5
+  - design/AFRP-Breeze-Club-Parity.md §1a, §3 (B4), §5
   - design/AFRP-Club-Experience-Plan.md §4.4, §8
   - The Federation's club records and the club presidents' meeting notes (2020–2026)
   owner: shared — the Federation runs the path; each club owns its data and its sign-off

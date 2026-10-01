@@ -99,3 +99,15 @@
   strand: platform
   title: The club experience plan
   text: 'Design note P18 written in fourteen sprints: the people of a club, the officer year, the club statement, the club''s seat in each programme, the move from Breeze club by club, and a page for club presidents; questions Q-40 to Q-47 raised.'
+- date: "1 Oct 2026"
+  strand: platform
+  title: Breeze read in depth
+  text: 'About a hundred and ninety support articles, the API and the vendor''s terms read through the intake process: no membership object, a printed and unchecked child-pickup code, an export without attendance, an unsupported API held by each club''s account owner, texting from a shared short code. The club plan, the migration workflow and the Hub''s slices adjusted (Breeze Parity §1a).'
+- date: "1 Oct 2026"
+  strand: platform
+  title: The directory in three formats
+  text: 'Design note P19: the members'' directory with membership and club shown at Federation and club scale, the professional services directory, and the leadership directory of seats and their votes; all behind sign-in, nothing printed; Q-48 and Q-49 raised.'
+- date: "1 Oct 2026"
+  strand: platform
+  title: The club journeys
+  text: 'Design note P20: fifty-two tests of the clubs component, each starting from what a club officer does in Breeze today and ending in the rule tested, the refusal expected and the slice that builds it.'

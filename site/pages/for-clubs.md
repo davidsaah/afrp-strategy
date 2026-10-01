@@ -24,10 +24,13 @@ then three things Breeze cannot give them.
    is on its move from Breeze. That is what the Council sees too.
 
 Beside those: groups and follow-ups, club events with door check-in and
-attendance, a release list instead of a printed code for children, the
-officers form filed once a year that seats every Federation list, and a
+attendance, a release list instead of a printed code for children (Breeze
+prints a pick-up code on both tags, and no article read describes it being
+checked), the officers form filed once a year that seats every Federation list, a
 secretary's queue for the things that need a person (a join that names the
-club, a household that splits, a member who moves clubs).
+club, a household that splits, a member who moves clubs), and the members'
+directory filtered to the club, which shows only members who chose to be shown
+while the roster shows all.
 
 ## What a club gives up
 
@@ -64,12 +67,17 @@ and the calendar carry to the new officers. The full account is in
 
 ## Moving from Breeze
 
-One club at a time, with a named owner on each side. Read-only access; an
-extract; identity matching with every doubtful pair sent to a human; a
+One club at a time, with a named owner on each side. Read-only access through
+the club's Breeze account owner, who is the only person who holds the key (a
+club whose owner has moved on recovers ownership from Breeze first); an
+extract, with attendance taken first because Breeze's own export leaves it out;
+identity matching with every doubtful pair sent to a human; a
 parallel run of two to four weeks in which the club's officers verify their
 own roster on the platform's screens; a dated sign-off by the president and
-treasurer; then the final export goes to the drive and the subscription is the
-club's to cancel. Nothing is ever written to Breeze. A club that is not on
+treasurer; then the final export goes to the drive and, only once it is
+verified there, the subscription is the club's to cancel, because Breeze
+queues an account for deletion the moment it is cancelled. Nothing is ever
+written to Breeze. A club that is not on
 Breeze follows the same path from a spreadsheet. The order of clubs: one pilot
 that uses Breeze for roster, groups and events and not for giving or texting;
 then any club whose Breeze is failing, as its president reports; clubs on no system in parallel;

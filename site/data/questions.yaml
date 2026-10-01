@@ -357,3 +357,17 @@
   goal: clubs
   branch: all
   source: design/AFRP-Multi-Entity-Ledger.md §8; camp committee records; Convention Innovation Committee minutes (2025–2026); Club Experience Plan §5.5
+- id: Q-48
+  title: Finding members "near me"
+  detail: The directory places members by city, a field shown under the member's own consent. A metro area derived from the city or postcode already displayed is one answer; a radius search on a stored address is a new purpose nobody has consented to and would reveal distance even when the address is withheld. The record's browse axes do not include distance.
+  owner: Membership Committee · Legal Advisor
+  goal: members
+  branch: all
+  source: design/AFRP-Camp-Directory-Network-Plan.md (browse axes); design/AFRP-Directory-Formats.md §2
+- id: Q-49
+  title: Community contacts for places without a chapter club
+  detail: The Federation's printed Committee Directory listed a contact person for each community with no chapter club. No by-law names such a seat and the platform has none; the Membership Committee's composition (By-Law 8.12.1) reaches only communities with a chapter. Whether the Federation appoints community contacts, who appoints them, and what the leadership directory shows them as is not written.
+  owner: AFRP Board · Membership Committee
+  goal: clubs
+  branch: junction
+  source: Committee Directory 2017–18 (the officer archive, structure only; later editions listed, not read); By-Laws 2024 (8.12.1); design/AFRP-Directory-Formats.md §2

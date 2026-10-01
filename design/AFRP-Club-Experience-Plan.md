@@ -42,7 +42,7 @@ This note is the hand-off for everything a club does on the platform. It joins w
 | AFRP Constitution and By-Laws 2024 (`bylaws/`) | Chapter clubs, delegates, By-Law 3.2 (officers and affiliation), the club presidents on the Board, the host-city rotation | text |
 | ARFECF By-Laws revised 2015 and the two fund policies (`bylaws/ARFECF-2015-and-the-fund-policies.md`) | Region seats on the ARFECF Board defined by lists of clubs; the four-member overlap cap | text |
 | Decisions Register | D1 (club-collected national dues are custodial, remitted on the run), D6, D57 (one club-share statement; club attribution on any gift), D59 (the host agreement is the convention rule), D61 (historical records), D66 (the drive is the archive), R6 (minors' authority), S7 | register |
-| `AFRP-Breeze-Club-Parity.md` | Breeze as it reads; the crosswalk; slices B1–B6; the rules the club objects obey; eight questions for David | design |
+| `AFRP-Breeze-Club-Parity.md` | Breeze as it reads (§1, and the deep read of 1 October 2026 in §1a); the crosswalk; slices B1–B6; the rules the club objects obey; eight questions for David | design |
 | `AFRP-Addendum-2-Breeze-Replacement.md` §3 | The parity matrix; the three hard things (texting, child check-in, twenty-odd migrations each a relationship); the six-step migration path per club | design |
 | `AFRP-Four-Lens-Architecture.md` §3, §6 | The club lens as one of four; club and programme scopes are siblings | design |
 | `AFRP-Multi-Entity-Ledger.md` §2.1, §3 | The club's ledger profile; agency against revenue treatment | design |
@@ -196,6 +196,8 @@ The question (Breeze Parity §5 q3; §3.3 above): whether a gift to a club's own
 
 If yes: the club's purposes are a caller of the one payment door, no fifth door (Payments architecture); the treasurer's giving desk; the member's statement per club; the club ledger profile's agency-against-revenue treatment applied; a purpose outside the club's entity refuses by name; pledges deferred to the campaign template. The receipt names the club and its own tax status, which the platform must hold per club (the SOP suggests 501(c)(7); some clubs are pursuing 501(c)(3)); a club with no status on file gets no receipt text, and the platform says so.
 
+A yes has two shapes (Breeze Parity §1a, Giving). Breeze gives each club its own processor account under the club's own EIN and bank account. The one-door design can either (a) take the club's gifts on the Federation's account and hold and remit them as the club's, as D1 treatment 3 already does for platform-collected club event receipts, or (b) carry a per-club merchant account under the club's EIN, which the payments architecture does not contemplate and which would put each club's processor credentials and tax status in the platform. Shape (a) passes every club gift through a Federation account first and needs the CPA's view (Q-3); shape (b) is a design change. *Neither is chosen here.*
+
 If no: the platform records club attributions on gifts to the Federation and the affiliates (D57, J8) and nothing of the club's own giving; the club statement (§5) is the only money object between them.
 
 Either way By-Law 11.1.4 applies: a club's appeal for a project the Federation has already undertaken needs the Board's and Executive Committee's authority. The platform can list the Federation's active projects beside a club's appeal; who checks is not written.
@@ -205,7 +207,7 @@ Either way By-Law 11.1.4 applies: a club's appeal for a project the Federation h
 Written as `club-migration` in the site's workflows, from Addendum 2 §3.4 and Breeze Parity B4, with the intakes' finding that about ten clubs are on Breeze and the rest use other tools or none:
 
 1. **Choose the club and name its owner** (Federation staff with the club president). One club at a time; a named owner on each side; the order of clubs in §8.
-2. **Connect** (the club's Breeze administrator gives read-only API access; the key is a secret held by the platform, never in the repo).
+2. **Connect** (the club's Breeze Account Owner, the only holder of the key, gives read-only API access; the key is a secret held by the platform, never in the repo).
 3. **Extract** (platform): people, families, tags, events, attendance, giving, and the custom fields as found, into staging rows. Nothing is written to Breeze. The extract reports which custom fields the club used (Breeze Parity §5 q2 is answered per club here, not in advance).
 4. **Reconcile** (match-queue reviewer, then the club's secretary): identity resolution against the register; the review band goes to the merge queue; no pair is merged by software.
 5. **Parallel run** (the club's officers; two to four weeks): both systems live, the platform read-only for the club; officers verify their own roster, groups and events and record what the resolution could not see.
@@ -218,11 +220,11 @@ A club that is not on Breeze follows the same path from a spreadsheet: steps 3 t
 
 ### 4.5 Texting (B5) — gated
 
-Part of `communications`, not a workflow of its own. The consent model is built per channel; the provider, the budget, and who registers the Federation's brand for carrier registration are David's (Breeze Parity §5 q1). The presidents' meeting asked that texts be branded locally; that is a per-club sender name on one provider account, which the design can hold once a provider exists. Until then the platform refuses to text and says why.
+Part of `communications`, not a workflow of its own. The consent model is built per channel; the provider, the budget, and who registers the Federation's brand for carrier registration are David's (Breeze Parity §5 q1). The presidents' meeting asked that texts be branded locally; that is a per-club sender name on one provider account, which the design can hold once a provider exists. Until then the platform refuses to text and says why. Breeze itself texts one way from a shared short code with no sender branding (Breeze Parity §1a, Communications), so a shared short code through a provider is the second route beside a registered brand on a long code, and whether either carries a per-club sender name is a question for the provider; the clubs' texting consent statuses (Enrolled, Blocked, Do Not Text) are consent evidence per channel and move with the club (§8.3).
 
 ### 4.6 Forms (B6) — a question, not a slice
 
-What clubs built in Breeze forms beyond an event signup, a join and an application (Breeze Parity §5 q6) is unknown until the extract (§4.4 step 3) reports it club by club. Each form found is classified against the existing doors (event, join, application, consent, volunteer interest) and only a real remainder opens B6.
+What clubs built in Breeze forms beyond an event signup, a join and an application (Breeze Parity §5 q6) is unknown until the extract (§4.4 step 3) reports it club by club. Each form found is classified against the existing doors (event, join, application, consent, volunteer interest) and only a real remainder opens B6. The deep read of 1 October (Breeze Parity §1a, Forms) narrows the question: Breeze's own documented uses are event sign-ups, interest and join forms, and elections run on a form with no electorate. The first two are existing doors; a club vote belongs to the voting module, whose electorate is certified (By-Law 9.1.4; D4 for the channel), and never to a form.
 
 ### 4.7 What sprint 3 changes in the site's data
 
@@ -401,14 +403,14 @@ Addendum 2 §3.3 said the hard half is not the code: each migration is a relatio
 | Readiness item | State on 1 October 2026 | Who closes it |
 |---|---|---|
 | Parity for what the club uses daily: roster, households, groups, follow-ups, events, check-in, attendance | Built (B1, B2) | — |
-| Volunteer roles per event (B2b) | Not built | build session |
+| The second half of B2 (B2b): volunteer roles with assign, invite, reminders and blockout dates; kiosk self check-in; check-out times; headcount | Not built | build session |
 | Email to a club's list through a real provider | Waits on slice 5 (provider) | David |
 | Texting (B5) | Gated: provider, budget, carrier registration | David |
 | Club giving (B3) | Gated: David's answer; needed only if the first club takes gifts in Breeze | David |
 | The import path: connector, extract, staging, identity resolution, merge queue | Connector and extract from the Portal era; staging, resolution and the parallel-run report not built (B4) | build session |
 | The secretary's queue (JC-022) | Not built | build session |
 | The club's officers on the officers form (§4.1 step 1) | Not built (P18-1) | build session |
-| A named owner on each side, and the club's Breeze key in the platform's secret store | — | David with the club president |
+| A named owner on each side, and the club's Breeze key in the platform's secret store; only the club's Breeze Account Owner holds the key, and a club whose owner has left recovers ownership first by Breeze's paper process | — | David with the club president |
 
 Nothing texts, nothing takes a gift, and no club should be asked to leave a system that does either until the gates above are answered. The first club should therefore be one whose Breeze use is roster, groups, events and email, and whose giving runs elsewhere.
 
@@ -428,18 +430,21 @@ One club at a time in each stream; two streams at most. Each club gets a named F
 
 | Breeze object | Enters as | Rule |
 |---|---|---|
-| People | A match to a person on the register, or a new club member or contact record as the officers decide | Never a national member by import: membership is the Federation's to grant (Article IV). The register's identity resolution proposes; the merge queue and the officers decide; no pair is merged by software. |
-| Families | Household proposals | A household on the register is a stronger object than Breeze's (R4); the proposal is confirmed by the officers; a minor in two households stays OPEN (Rules Register R4). |
+| People | A match to a person on the register, or a new club member or contact record as the officers decide | Never a national member by import: membership is the Federation's to grant (Article IV). The register's identity resolution proposes; the merge queue and the officers decide; no pair is merged by software. Breeze has no membership object: a "Status" or "expires" custom field is evidence for a standing proposal, never a standing. An archived person enters as an ended club membership, not as an absence. |
+| Families | Household proposals | A household on the register is a stronger object than Breeze's (R4); the proposal is confirmed by the officers; a minor in two households stays OPEN (Rules Register R4). Breeze's "Child" role is not an age: the register's minor test is the birthdate under R6; a Breeze family is one per person and its data is the head's. |
 | Custom fields | Reported per club at the extract; each field classified as standing, family, consent, a group, or a remainder | Standing, family and consent map to what the register holds; a list-like field becomes a group; anything that is a note about a person is **not imported** (no free-text notes, Breeze Parity §4 r2); a remainder is a question on the parallel-run report, not a new field. |
-| Tags | Club groups (B1), with their folders | A tag whose name carries a leader's name loses the name (the leader seat is a field); a tag that is really a programme roster (the dabke troupe) becomes a group now and may become a programme seat later (§7). |
-| Events and attendance | Club events and attendance records (B2) | History enters as the club's record; the member sees their own attendance. |
+| Tags | Club groups (B1), with their folders | A tag whose name carries a leader's name loses the name (the leader seat is a field); a tag that is really a programme roster (the dabke troupe) becomes a group now and may become a programme seat later (§7). A Smart Tag (derived hourly from profile fields) imports as the filter that defined it, noted on the group, not as a frozen list; a locked tag that stood for "active members" is standing the register already holds. |
+| Events and attendance | Club events and attendance records (B2) | History enters as the club's record; the member sees their own attendance. Attendance is not in Breeze's account export and moves only through the API per event or per-series reports, taken before anyone edits a series (an edit wipes future check-in data); anonymous headcounts enter as counts on the event, never as people. |
 | Check-in security codes | Not imported | The release list under R6 replaces them. |
 | Follow-ups | Open follow-ups enter as open follow-ups with their option and assignee; completed ones enter closed | A follow-up's free-text note is kept only if it is the completion note; nothing else. |
 | Forms and entries | Reported per club; each form classified against the existing doors (§4.6) | Entries that are event signups or joins enter through those doors; a remainder is a question. |
 | Giving | Only if B3 is answered yes, and then as the club's own giving history on the club's books | Never onto a Federation or affiliate ledger; never attributed after the fact. |
-| Online Directory tag and member access settings | Consent proposals, defaulting to **no** | A Breeze directory opt-in is evidence of a choice, not the choice; the member confirms display, contact and export separately (R27) the first time they sign in. |
-| Users and roles | Officer seats on the officers form | Admin, Standard, Limited and Check-In map to president or treasurer, secretary, read-only officer, and the `club_checkin` role; nothing maps to a Federation grant. |
+| Online Directory tag, opt field, private flags, Do Not Email / Do Not Text, texting status | Consent proposals, defaulting to **no** | A Breeze directory opt-in (the tag or the Yes/No field) is evidence of a display choice; a private flag on a phone or email is evidence of a contact choice for that item; a texting status of Enrolled is evidence for the text channel. Each imports unconfirmed and the member confirms display, contact and export separately (R27) on first sign-in. **Blocked (texted STOP), Do Not Email and Do Not Text import as a hard no** for that channel and are not reopened by sign-in. |
+| Users and roles | Officer seats on the officers form | Admin, Standard, Limited and Check-In map to president or treasurer, secretary, read-only officer, and the `club_checkin` role; nothing maps to a Federation grant. The Account Owner is a contractual role, not a seat; it is recorded on the club's register row as the person who held the key. |
 | Children | Under R6 or not at all | A child enters only through a household with an adult who holds authority; a child with no such adult in the extract is listed on the parallel-run report for the officers, never imported alone. |
+| Notes, files, photos, email history, forms' structures, recurring gifts | Not imported | Notes are a case file the record has not decided to keep (Breeze Parity, refusals); files and photos stay with the archived export on the drive (D66); a recurring gift is re-authorised by the donor, never copied; the parallel-run report counts each so the officers know what will not move. |
+
+The rows above that cite no decision — the hard noes for Blocked, Do Not Email and Do Not Text; the Account Owner recorded on the register row; headcounts as counts; a recurring gift re-authorised rather than copied; an archived person as an ended membership — are design choices of this note, each labelled so a build session can see it; none changes who a member is or what a member owes.
 
 ### 8.4 The parallel run
 
@@ -447,7 +452,7 @@ Two to four weeks, the platform read-only for the club. The club's officers rece
 
 ### 8.5 Cutover and after
 
-Cutover is a dated decision by the club president and treasurer recorded on the club's register row. From that day writes go to the platform; Breeze is read-only to the club for a period the club chooses, then archived (the final export on the drive, D66). The club's statement (§5) opens with the dues position carried from the last remittance; nothing else carries a balance. The Federation owner closes the migration with a one-page note on the drive: what moved, what did not, what remains as a question. The Council sees one more club in the "cut over" count.
+Cutover is a dated decision by the club president and treasurer recorded on the club's register row. From that day writes go to the platform; Breeze is read-only to the club for a period the club chooses, then archived (the final export on the drive, D66). The club cancels its subscription only after the export is verified on the drive, because the vendor queues the account for deletion on cancellation (Breeze Parity §1a, Data policies). The club's statement (§5) opens with the dues position carried from the last remittance; nothing else carries a balance. The Federation owner closes the migration with a one-page note on the drive: what moved, what did not, what remains as a question. The Council sees one more club in the "cut over" count.
 
 ### 8.6 What a club gives up, and what it gets
 
@@ -532,6 +537,8 @@ The site's audience includes the club presidents (David, 1 October 2026). A page
 - `workflows.yaml`: `reporting` gains the clubs page's columns as a step.
 
 ## 11. Journeys for the club lens (sprint 10)
+
+*Superseded in detail on 1 October 2026 by `AFRP-Club-Journeys.md` (P20), which starts each journey from what the officer does in Breeze today and absorbs the twenty below (its §M maps them). The use cases in §11.1 stand.*
 
 The Hub tests itself with journeys: short stories rated meets, guarded, open, not built or fails, kept in `journeys/catalog.yaml` and run on CI. The club lens has two canonical journeys (J08, the treasurer's year; J14, Federation club management) and some thirty-six catalogue rows. This section derives the use cases §3–§10 imply and the journeys that would test them, as proposals for the Hub's workbench queue (the afrp-test rule: proposals, never direct edits to the catalogue). Each names the rule it tests and the class it must reach; a journey with no rule behind it is not proposed.
 
