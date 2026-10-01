@@ -174,12 +174,19 @@ def journey_bar(j):
             f'{j.get("not_built",0)} not built · {j.get("fails",0)} fail</span>')
 
 
+def asset_version():
+    """Short content hash of the stylesheet, so browsers fetch the new copy after each change."""
+    import hashlib
+    # The stylesheet only: a PNG can be re-encoded in transit, which would make the hash unstable.
+    return hashlib.sha1((SITE / "static/site.css").read_bytes()).hexdigest()[:8]
+
+
 def write(rel, title, body, section, **kw):
     depth = rel.count("/")
     root = "../" * depth
     page = env.get_template("base.html").render(
         title=title, body=body.replace("{root}", root), section=section, root=root,
-        sections=SECTIONS, built=BUILT, description=kw.pop("description", kw.get("lede", "") or title), **kw)
+        sections=SECTIONS, built=BUILT, v=asset_version(), description=kw.pop("description", kw.get("lede", "") or title), **kw)
     out = DOCS / rel
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
