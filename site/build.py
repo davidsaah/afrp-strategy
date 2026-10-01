@@ -266,9 +266,11 @@ def main():
     def bcolour(k):
         return B[k]["colour"] if k in B else "#7a7260"
 
-    def btag(k):
+    def btag(k, link=True):
         if k == "all":
             return '<span class="br" style="--c:#7a7260">All branches</span>'
+        if not link:  # inside a card, which is itself a link: no nested <a>
+            return f'<span class="br" style="--c:{bcolour(k)}">{E(B[k]["name"])}</span>'
         return f'<a class="br" style="--c:{bcolour(k)};text-decoration:none" href="{{root}}programmes/{branch_href(k)}">{E(B[k]["name"])}</a>'
 
     def branch_href(k):
@@ -362,7 +364,7 @@ def main():
     gcards = '<div class="grid two">' + "".join(
         f'<a class="card stripe" style="--c:{bcolour(g["branches"][0]) if g["branches"][0] in B else "#4c6414"}" href="{{root}}strategy/goals/{g["key"]}.html">'
         f'<b>{g["n"]}. {E(g["name"])}</b><p>{E(g["hub"])}</p>'
-        f'<div class="meta">{" ".join(btag(b) for b in g["branches"])} <span class="tag">{len(g["rows"])} elements</span></div></a>' for g in goals) + "</div>"
+        f'<div class="meta">{" ".join(btag(b, link=False) for b in g["branches"])} <span class="tag">{len(g["rows"])} elements</span></div></a>' for g in goals) + "</div>"
     write("strategy/index.html", "AFRP Strategy", MD(body).replace("<!--GOALS-->", gcards), "strategy",
           kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html")])
 

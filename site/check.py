@@ -6,6 +6,7 @@
    hashed deny-list (hashed so this public file does not itself list names).
 3. Framing (D42, D46): "rails" and "pathway" appear only where a page explains
    that they were replaced.
+4. No link inside a link: browsers break the card apart.
 Exit code 1 if anything fails.
 """
 import hashlib, re, sys
@@ -90,6 +91,12 @@ def main():
                 tp = cache.setdefault(trel, parse(tpath))
                 if frag not in tp.ids:
                     problems.append(f"{rel}: missing anchor {href}")
+        depth = 0
+        for m in re.finditer(r"<a\b|</a>", path.read_text(encoding="utf-8", errors="ignore")):
+            depth += -1 if m.group(0) == "</a>" else 1
+            if depth > 1:
+                problems.append(f"{rel}: a link inside a link (breaks the card layout)")
+                break
         text = " ".join(p.text)
         if re.search(r"[\w.+-]+@[\w-]+\.[\w.]+", text):
             problems.append(f"{rel}: email address")
