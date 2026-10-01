@@ -7,7 +7,10 @@ AFRP-Governance-Mobile.html
 AFRP-Mobile-v2.html
 AFRP-Portal-Build-Spec.html
 AFRP-Portal-Screens.html
+experiences/club-ambassador.html
+experiences/club-member-view.html
 experiences/club-officer.html
+experiences/club-president.html
 experiences/club-treasurer.html
 experiences/committee-member.html
 experiences/delegate-voter.html
@@ -33,6 +36,7 @@ library/archive/AFRP-Mobile-v2.html
 library/archive/AFRP-Portal-Build-Spec.html
 library/archive/AFRP-Portal-Screens.html
 library/index.html
+programmes/afrp-works.html
 programmes/arabic-program.html
 programmes/bookstore.html
 programmes/camp-ramallah.html
@@ -54,6 +58,7 @@ programmes/ohss-award.html
 programmes/preservation-project.html
 programmes/project-hope.html
 programmes/rbpn.html
+programmes/relief-fund.html
 programmes/scholarship.html
 programmes/senior-living.html
 programmes/women-to-women.html
@@ -63,6 +68,7 @@ site/site.css
 status/index.html
 strategy/crosswalk.html
 strategy/documents.html
+strategy/for-clubs.html
 strategy/goals/clubs.html
 strategy/goals/funding.html
 strategy/goals/governance.html
@@ -73,10 +79,15 @@ strategy/goals/operations.html
 strategy/goals/voice.html
 strategy/index.html
 strategy/on-the-crm.html
+workflows/advocacy.html
 workflows/alumni-recruiting.html
+workflows/arabic-term.html
 workflows/bylaws-rules.html
 workflows/camp-application.html
+workflows/care-grants.html
 workflows/club-management.html
+workflows/club-migration.html
+workflows/club-share.html
 workflows/communications.html
 workflows/convention.html
 workflows/directory-consent.html
@@ -86,7 +97,9 @@ workflows/giving-funds.html
 workflows/index.html
 workflows/join-renew-dues.html
 workflows/magazine.html
+workflows/partner-agreements.html
 workflows/remittance-ledger.html
 workflows/reporting.html
 workflows/scholarship-cycle.html
+workflows/selection-programmes.html
 workflows/tree-life-events.html

@@ -4,6 +4,9 @@
 # Titles are written here rather than copied from file names. `code` is the
 # short name used in the crosswalk. `kind` is "doc" (Google Doc) or "file".
 codes:
+  ECBL15: "https://drive.google.com/file/d/1GGyfOyPolrN4D2uHwR6_ea1316nc8-WS/view"
+  EFPS: "https://drive.google.com/file/d/1s57QXR9D_88InUKYN9KKwnAqR2DaavPV/view"
+  SFPS: "https://drive.google.com/file/d/1LeJT54oqQ35FGHNyRGMZhZcdxDGF9G2k/view"
   SP19: "https://drive.google.com/file/d/1HH6lFL9eDIVrloKc5oRJdJ2R9kNxIssi/view"
   FED2: "https://drive.google.com/file/d/1vG4nE6RJF_OT1PQqnZrrsjwnwatBgqhr/view"
   TASKS: "https://drive.google.com/file/d/1h8tGGmcCbH9iN20OBJD6eakj48BY_lVY/view"
@@ -13,6 +16,7 @@ codes:
   PR: "https://drive.google.com/drive/folders/1g2xb06r8ik9aE2N83AhVZ7vn38ftjlpV"
   SWOT25: "https://drive.google.com/drive/folders/1AjFFC7P6gaGndOJBJSNGmFijQzAO7t1a"
   SP26: "https://docs.google.com/document/d/1ux3nnjUfjSkdRWgWV5j7Lbsn9tYT2pWGrcv-uhJhaao/edit"
+  INTAKE26: "https://drive.google.com/drive/folders/1mlUdsgoW-vTI2Ugk-xxmJGb-mGKUq8JW"
 folders:
   - name: "The Strategic Planning folder"
     url: "https://drive.google.com/drive/folders/14bkSAWf37yzBG_Cvb0xWJu0xLOa5onn-"
@@ -24,6 +28,14 @@ folders:
     url: "https://drive.google.com/drive/folders/1AjFFC7P6gaGndOJBJSNGmFijQzAO7t1a"
   - name: "Archive (2020–21 working papers)"
     url: "https://drive.google.com/drive/folders/1N0MFqoTZBZh-4fZpMifzNsbSoUKe0Hs6"
+  - name: "The Federation's own folder"
+    url: "https://drive.google.com/drive/folders/1mlUdsgoW-vTI2Ugk-xxmJGb-mGKUq8JW"
+  - name: "The education and charitable fund's folder (ARFECF)"
+    url: "https://drive.google.com/drive/folders/1PE5VpkEegK8oTBJeSVMMNI0kvFzVs9Sq"
+  - name: "The human services network's folder (ARFHSN)"
+    url: "https://drive.google.com/drive/folders/10hyszLx3CbhQOdJCjqKs2uu2cRR9BCcM"
+  - name: "The Federation's officer archive, 2009–2026"
+    url: "https://drive.google.com/drive/folders/1NR1pvBo8keyJiDpkgap7l3YY1W3wA1g7"
 groups:
   - key: plans
     name: The plans
@@ -361,3 +373,31 @@ groups:
         kind: file
         summary: Filling seats when too few people volunteer, and widening participation beyond committee seats.
         goals: [governance]
+  - key: governing
+    name: Governing texts found in October 2026
+    intro: The by-law and policy texts the record had listed as missing, found in the Federation's drive during the October 2026 review of its working files. Each outranks the design record (D41). The extract by rule is in the repository at design/bylaws/ARFECF-2015-and-the-fund-policies.md.
+    docs:
+      - title: ARFECF By-Laws, revised at the 2015 Convention
+        date: "2015"
+        code: ECBL15
+        status: In force
+        id: 1GGyfOyPolrN4D2uHwR6_ea1316nc8-WS
+        kind: file
+        summary: The education and charitable fund's by-laws as last revised. Fifteen Board seats across three regions defined by clubs; a cap on directors who also sit on the AFRP Board; each fund's committee the only body that authorises its spending.
+        goals: [governance, funding]
+      - title: Endowment Fund Policy Statement and Guidelines
+        date: Aug 2012
+        code: EFPS
+        status: In force
+        id: 1s57QXR9D_88InUKYN9KKwnAqR2DaavPV
+        kind: file
+        summary: Makes an annual distribution mandatory, part to programmes and part to the Federation for administration; an emergency transfer; the committee's make-up and reporting.
+        goals: [funding]
+      - title: Scholarship Fund Policy Statement and Guidelines, revised 2015
+        date: "2015"
+        code: SFPS
+        status: In force
+        id: 1LeJT54oqQ35FGHNyRGMZhZcdxDGF9G2k
+        kind: file
+        summary: The same mandatory distribution for the Scholarship Fund; a committee with three members elected at the Convention; published application guidelines and follow-up on students' standing.
+        goals: [funding, next-generation]

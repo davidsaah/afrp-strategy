@@ -14,3 +14,16 @@ name the [crosswalk](crosswalk.html) uses for it.
 
 Committee rosters and contact lists are kept in the same drive and are
 deliberately not listed here.
+
+Four more folders were read in September and October 2026, through the intake
+process (D54). The crosswalk cites them together as **INTAKE26**. The
+Federation's own folder holds its constitution, conventions, Mid-Year meetings,
+local club files, budgets and government affairs work. The education and
+charitable fund's folder (ARFECF) holds its by-laws, audits and the programme
+committees' files. The human services network's folder (ARFHSN) holds its
+minutes, its finances and the Medical Mission. The officer archive holds the
+Federation's year-by-year working files from 2009 to 2026: constitutions, fund
+policies, minutes, budgets, convention contracts and reports. These folders
+hold personal data, including records about minors, so they are listed below
+by folder only, and the site carries summaries of what was found, never the
+documents themselves.

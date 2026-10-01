@@ -1,6 +1,6 @@
 ---
 kicker: Section 2 · Evolution
-lede: Two histories that met in September 2026. One is the Federation's own planning since 2018, the other is the design and build of the platform.
+lede: Two histories that met in September 2026. One is the Federation's own planning, traced back to 2009, the other is the design and build of the platform.
 ---
 
 ## The timeline
@@ -25,6 +25,17 @@ got.
 - **Committee accountability.** Reporting templates were written in 2020–2021;
   there is no record they were used.
 
+The officer archive, read in October 2026, shows that the Federation and its
+affiliates have worked as one arrangement for far longer than any plan says.
+Since 2012 the education and charitable fund has paid the Federation each year
+for administering it, under its two fund policies, and the Federation's staff
+have run the fund day to day. Clubs have raised money for the affiliates'
+projects, and the Federation has made grants to clubs. What was never written
+down, in seventeen years of by-laws, budgets and minutes, is the rule for
+collecting club dues and passing them to the clubs ([Q-36](questions.html#Q-36)).
+The [One Federation](../strategy/index.html) part of the strategy asks for this
+arrangement to be written down and recorded in one place.
+
 ## How the platform's design changed
 
 The design went through its own changes of mind, and they are kept visible
@@ -35,7 +46,7 @@ rather than tidied away.
   re-cut as the four branches and each given a shape, because only one of them
   is truly a sequence (D38, D39). The committee's 10 September wording
   (Education, Health, Legacy, Advocacy) was folded into the same four (D42).
-- **The family tree moved twice.** It was one programme among nineteen; then
+- **The family tree moved twice.** It was one programme among the others; then
   the roots beneath all four branches, with a node for every member (D30, D38);
   and on 30 September it joined the Heritage branch, keeping every member's node
   (D53). The Convention came off the branches to become the junction (D38).

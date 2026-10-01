@@ -25,10 +25,12 @@ which.
    Federation's work on four branches (Education, Leadership, Heritage and Care)
    and proposes priorities for 2026–27. It is not yet adopted. Until the
    committee adopts it, the committee's own draft is the text of record (D44);
-   this site shows it and links to it.
+   this site shows it and links to it. The draft is being kept in step with this
+   site, so that what the committee reads and what the site shows do not drift
+   apart.
 
 <div class="note">
-<p><b>Sources.</b> The 2018 SWOT; the Strategic Plan 2018–2023 (May 2019); the 2020–21 Recommendations (3 May 2021) and their working papers; the subcommittee task list; the Convention agreement (October 2022); the committee's minutes from 2020 to 2026; the committee SWOT responses (March 2025); and the committee's 2026 working draft. <a href="documents.html">All of them are listed, with links, on the strategy documents page</a>.</p>
+<p><b>Sources.</b> The 2018 SWOT; the Strategic Plan 2018–2023 (May 2019); the 2020–21 Recommendations (3 May 2021) and their working papers; the subcommittee task list; the Convention agreement (October 2022); the committee's minutes from 2020 to 2026; the committee SWOT responses (March 2025); the committee's 2026 working draft; and four folders of the Federation's and the affiliates' working files, read in September and October 2026 (the Federation's own folder, ARFECF's, ARFHSN's and the officer archive, 2009–2026). <a href="documents.html">All of them are listed, with links, on the strategy documents page</a>.</p>
 </div>
 
 ## Eight strategic goals
@@ -49,6 +51,44 @@ payments. That database is the CRM, and it is the first layer of the Hub.
 [How the Hub builds on the CRM](on-the-crm.html) explains the layers and the
 order they are built in.
 
+## One Federation
+
+The goal, in the project owner's words: **clubs, the Federation and the affiliates share
+programmes, initiatives and the four core functions.** The working files read in
+September and October 2026 show that much of this sharing already happens. What
+is missing is a shared record of it.
+
+**Shared services that exist today.** The member database and online
+registration; the giving pages; the newsletter and the Magazine; templates,
+including by-law templates for clubs; and the monthly meeting of club
+presidents. Clubs still keep their own books and mailing tools beside them.
+
+**Shared services proposed.** One statement per club for every amount it pays or
+receives through a Federation or affiliate programme (D57); a single way for
+Care money to leave, approved by the holding entity's Board and closed only on
+delivery (D63); a register of partner agreements with their renewal dates; and
+a host agreement as the rule for every Convention, with the settlement statement
+produced from it (D59).
+
+**Where money crosses between clubs, the Federation and the affiliates.** Six
+places, each handled separately today:
+
+1. dues;
+2. the convention settlement with the host club;
+3. ad-book sales;
+4. Mid-Year sponsorship;
+5. grants to clubs;
+6. event amounts due to a club.
+
+Camp rebates, Leadership Ramallah travel shares and club gifts to Care work
+cross the same line through the affiliates. Each element, and what the platform
+does about it, is in [section J of the crosswalk](crosswalk.html).
+
+**The club experience.** How a chapter club lives on the platform, from the
+officers form to the move from Breeze, is written for the Council of Chapter
+Club Presidents on [For club presidents](for-clubs.html), and for build
+sessions in the club experience plan (design note P18).
+
 ## The documents
 
 [The strategy documents](documents.html) lists every document the strategy is
@@ -58,7 +98,7 @@ drive.
 ## Every element, one table
 
 The [crosswalk](crosswalk.html) lists every element of the Federation's plans
-(about eighty-five of them) with what the platform does about each. You can
+(about a hundred of them) with what the platform does about each. You can
 filter it by goal, by status and by section.
 
 ## What this section does not do

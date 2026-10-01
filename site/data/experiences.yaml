@@ -418,14 +418,20 @@
   - Know who their people are and whether the club is healthy
   - Reach members lawfully
   - Run meetings, events and the officer year
+  - Keep the roster true as people join, lapse, move house or move clubs
   platform:
   - Roster with national and club status side by side
   - Groups, follow-ups and club events with check-in
+  - The acting panel on any filtered set (mail it, group it, follow it up)
+  - The secretary's queue of things that need a person (a join naming this club, a household split, a move between clubs, a reported death)
+  - A lapse raises a follow-up only if the club switched that rule on, and names the rule
   - Federation context as counts
   privacy:
   - A club officer cannot read another club's roster
   - Bulk export refuses the officer as it refuses everyone
   - Club and programme scopes are siblings; neither implies the other
+  - A follow-up is a task about a person, closed and never deleted; there is no free-text note on a person anywhere in the club lens except a follow-up's one completion note
+  - Minutes and club documents stay on the drive, the archive of record (D66); the platform links to them
   journeys:
   - id: J08
     title: Club treasurer's year — Houston
@@ -447,17 +453,33 @@
     title: The membership secretary's queue
   - id: JC-027
     title: The condolence surface releases on verification, not review
+  - id: P18-J04
+    title: The secretary's queue
+  - id: P18-J05
+    title: No free-text note anywhere in the club lens
+  - id: P18-J15
+    title: The parallel run on the platform's screens
+  - id: P18-J18
+    title: A child never enters alone
+  - id: P18-J19
+    title: Refused by design, with the reason
+  - id: P18-J17
+    title: Evidence is not consent
+  - id: P18-J20
+    title: Texting under the club's name
   workflows:
   - club-management
   - events
   - communications
+  - club-migration
   prototype:
   - '#/club/dashboard'
   - '#/club/roster'
   - '#/club/officers'
   sources:
   - design/AFRP-Four-Lens-Architecture.md §3, §6
-  - design/AFRP-Breeze-Club-Parity.md §2
+  - design/AFRP-Breeze-Club-Parity.md §2, §4
+  - design/AFRP-Club-Experience-Plan.md §3.2
   - docs/AFRP-Analyst-Dashboard.html (journey data)
 - key: club-treasurer
   name: Club treasurer
@@ -466,13 +488,22 @@
   needs:
   - Collect, close, remit and reconcile each month
   - Keep AFRP money and club money apart
+  - See on one statement what the club is owed and what it owes across every programme
+  - Take the club's own income without a second system
+  - Hand the books to a successor at the end of the officer year
   platform:
   - Split at capture of national and club dues
   - A remittance statement with carry-forward
   - Chargebacks after remittance handled as a receivable
+  - The club-share statement (D57) with a line per programme term and a dated close
+  - The club's ledger profile, agency against revenue
+  - 'Club giving through the one payment door onto the club''s books: proposed (B3), waiting on David''s answer'
+  - The year-end hand-over as a dated change of seat with the balance carried, never a copy of the data
   privacy:
   - Collected AFRP dues are custodial on the club's books, never revenue (D1)
   - The treasurer reads only their own club's dues
+  - A gift to a club lands on the club's books and the member's statement for that club; a purpose outside the club's entity refuses by name
+  - The Executive Director's access to Chapter Club records (By-Law 7.9.3) needs a named purpose and an audit line; the Federation otherwise reads counts
   journeys:
   - id: J08
     title: Club treasurer's year — Houston
@@ -490,17 +521,146 @@
   not_built:
   - id: JC-034
     title: A remittance variance opens a queue item with an owner and a clock
+  - id: P18-J06
+    title: The club statement per entity
+  - id: P18-J07
+    title: A line with no entity cannot settle
+  - id: P18-J08
+    title: The year-end hand-over
   workflows:
   - remittance-ledger
+  - club-share
   - club-management
+  - club-migration
   - join-renew-dues
   prototype:
   - '#/club/dashboard'
   - '#/money'
   sources:
-  - design/AFRP-Decisions-Register.md §Decision 1
-  - design/AFRP-Multi-Entity-Ledger.md §3
+  - design/AFRP-Decisions-Register.md §Decision 1, §Decision 57
+  - design/AFRP-Multi-Entity-Ledger.md §2.1, §3
+  - design/AFRP-Club-Experience-Plan.md §3.3, §5
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+- key: club-president
+  name: Club president
+  lens: club
+  who: The president of a chapter club, who files the officers each year, sits on the Council of Chapter Club Presidents and the Federation Board, and brings the delegation to the Convention.
+  needs:
+  - Know the club is affiliated and in good standing for the year
+  - File the officers once and have every Federation list read from it
+  - See the club's health as the Federation will see it
+  - Bring the delegation to the Convention credentialed
+  - Bid to host a Mid-Year or a Convention
+  platform:
+  - One officers form a year, started from last year's, which is the By-Law 3.2 filing and the source of the Council, Board and Membership Committee seats that derive from it
+  - A standing pill for the club (affiliated for the year, filed on, approved on)
+  - The club dashboard as the first screen (roster counts, dues position, open follow-ups, next events, the club-share balance)
+  - The delegation selected from certified members (By-Laws 9.1.3, 9.1.4) and handed to the convention workflow
+  - The host-bid form and the host agreement on the event (D59)
+  privacy:
+  - The president must be in good standing of club and Federation, because every compliant president sits on the Board (By-Laws 6.2.2, 6.2.3, 4.3.1); the president's seat is refused to a lapsed member by name; other seats follow the club's own laws (3.1) and are shown, not refused
+  - The president reads the whole club and nothing of any other club
+  - The officers' contact details on the form are the office's and the Council's, never the directory's (R27)
+  journeys:
+  - id: J14
+    title: Federation club management
+  catalogue: {}
+  not_built:
+  - id: P18-J01
+    title: The officers form is the By-Law 3.2 filing
+  - id: P18-J02
+    title: The president's seat is refused to a lapsed member by name
+  - id: P18-J03
+    title: The delegation is computed, not typed
+  - id: P18-J08
+    title: The year-end hand-over
+  - id: P18-J16
+    title: Cutover is one dated act
+  workflows:
+  - club-management
+  - club-migration
+  - convention
+  - elections-voting
+  - bylaws-rules
+  prototype:
+  - '#/club/dashboard'
+  - '#/club/officers'
+  sources:
+  - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 3.1, 3.2, 6.2.2, 6.2.3, 6.4.1, 8.12.1, 9.1.3, 10.5.1)
+  - design/AFRP-Club-Experience-Plan.md §3.1
+- key: club-ambassador
+  name: Club ambassador in a programme
+  lens: club
+  who: The club's seat in one programme — the camp liaison, the scholarship outreach contact, the Day of Action travel coordinator, the Arabic volunteers' lead, the dabke lead, the Mid-Year sponsor-outreach lead.
+  needs:
+  - See the programme from the club's side (this club's families, scholars, travellers, volunteers)
+  - See what the club owes or is owed for them
+  - Pass news both ways between the club and the programme
+  platform:
+  - A programme seat scoped to one club, appointed on the officers form or after it, dated, expiring with the officer year
+  - The programme's roster filtered to the ambassador's own club
+  - The club's lines on the club-share statement for that programme (D57)
+  privacy:
+  - A programme seat does not grant the club lens, and a club seat does not grant the programme lens
+  - Minors in a programme are a count to the ambassador unless the R6 authority model names them
+  - The ambassador sees nothing of other clubs in the same programme
+  journeys: []
+  catalogue: {}
+  not_built:
+  - id: P18-J09
+    title: The ambassador sees one club in one programme
+  workflows:
+  - club-share
+  - camp-application
+  - selection-programmes
+  - advocacy
+  prototype:
+  - '#/club/dashboard'
+  sources:
+  - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Law 6.2.3)
+  - design/AFRP-Four-Lens-Architecture.md §6
+  - design/AFRP-Club-Experience-Plan.md §3.4
+- key: club-member-view
+  name: A member, seen from the club
+  lens: club
+  who: An ordinary member of a chapter club — what the club lens shows them of themselves, and what it never shows of anyone else.
+  needs:
+  - See their own club standing beside their national standing
+  - See their own groups, attendance and statement with the club
+  - Control what the club may send them
+  - Move clubs or leave one
+  platform:
+  - Scoped standing on the member's home (built)
+  - The member's own groups (B1) and own attendance (B2) on their record
+  - 'The member''s statement with the club: proposed with B3'
+  - A request to move clubs opens a secretary's-queue item in both clubs
+  privacy:
+  - Display, contact and export are three separate consents (R27); a club mailing honours the contact consent
+  - A follow-up about a member is the club's record, not shown to the member; whether the member may know one exists is a question for the Legal Advisor
+  - The member never sees another member's groups, follow-ups or attendance
+  - A certified member may vote independently at the Convention and the vote is deducted from the club's delegation (By-Law 9.1.3)
+  journeys:
+  - id: J02
+    title: Multi-club renewal
+  catalogue: {}
+  not_built:
+  - id: P18-J10
+    title: The member's club view
+  - id: P18-J11
+    title: Mute the club, keep the renewal notice
+  - id: P18-J17
+    title: Evidence is not consent
+  workflows:
+  - join-renew-dues
+  - club-management
+  - directory-consent
+  - events
+  prototype:
+  - '#/member/home'
+  - '#/member/membership'
+  sources:
+  - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 3.1, 4.3.1, 9.1.3)
+  - design/AFRP-Club-Experience-Plan.md §3.5
 - key: programme-organiser
   name: Programme organiser
   lens: program

@@ -9,7 +9,11 @@ source column uses short names: **SP19** the Strategic Plan 2018–2023, **FED2*
 the 2020–21 Recommendations, **TASKS** the subcommittee task list, **MOU** the
 Convention agreement, **MIN** the committee's minutes 2020–2023, **APP** the app
 requirements, **PR** the communications papers, **SWOT25** the 2025 committee
-responses, and **SP26** the minutes of 10 September 2026.
+responses, **SP26** the minutes of 10 September 2026, and **INTAKE26** the
+Federation's and the affiliates' working files, read in September and October
+2026 (summaries only; the files stay in the Federation's drive). Section J, "One
+Federation", collects what clubs, the Federation and the affiliates already
+share.
 
 The platform column says how far the Hub has got. **Built** means built and
 tested, though nothing is in service yet. **Plan only** means a register row and

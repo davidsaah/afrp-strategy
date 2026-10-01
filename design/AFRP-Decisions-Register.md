@@ -98,6 +98,8 @@ and the first ledger tables change with them.
 ## Decision 2 — The Endowment Fund sits in ARFECF
 **Status: Partially resolved · entity decided by David Saah, 20 Aug 2026 · Policy Statement outstanding**
 
+> **Challenged, 1 October 2026.** A 2025 "AFRP Endowed Fund Investment and Distribution Guide" (an undated draft, approver blank) describes the fund as held across AFRP's and ARFECF's investment accounts, with distribution capped at a share of a three-year average and a share of every restricted gift to operations. It is not adopted; an investment policy statement goes to both boards on 4 November 2026. Until then this decision stands and the 2012 Endowment Fund Policy Statement governs the rule (Q-35).
+
 ### The adopted wording
 > The Endowed Fund is held by **ARFECF** — the American Ramallah Federation Education & Charitable
 > Fund — and is governed by ARFECF's by-laws and its Endowment Fund Committee.
@@ -174,6 +176,12 @@ The 2015 Scholarship Fund Policy Statement is understood to make 4% plus 1% **ma
 a floor are different instruments and cannot both be enforced by the same control. Until the Policy
 Statement is produced, the platform enforces the by-law cap and shows the Policy Statement figures
 as unsourced and inactive.
+
+---
+
+### Status note, 1 October 2026
+- **The Scholarship Fund Policy Statement (revised 2015) is found**, with the 2012 Endowment Fund Policy Statement. Both make a 4% programme distribution and a 1% transfer to AFRP **mandatory** each fiscal year: together they equal the by-laws' 5% limit, so the "floor versus cap" framing above is withdrawn. The policies fix the distribution at the cap, split 4 + 1, measured on the 31 May valuation. Still open: who may waive or carry it over. Extract in `design/bylaws/ARFECF-2015-and-the-fund-policies.md`.
+- **The committee's make-up conflicts with this decision.** The 2015 policy sets the Scholarship Fund Committee as a chairman, the executive director, at-large members chosen by the ARFECF Board and three members elected at the Convention. It names no Ramallah Foundation seats. The committee's current overview lists three Foundation representatives among its members (Q-29). Recorded here as a conflict for the ARFECF Board; nothing in the platform seats them until it is resolved.
 
 ---
 
@@ -546,6 +554,180 @@ David approved `plan/SITE-OVERHAUL-PLAN.md` and its ten recommendations on
 - Nothing about lineage, eligibility or the tree committee's authority changes.
 - AFRP-Hub's `programs/branches.py` still lifts the tree out as the roots; slice
   T1d in `plan/MASTER-PLAN.md` moves it.
+
+---
+
+## Decision 54 — how outside sources are taken in
+**Status: Adopted · David Saah, 30 September 2026**
+
+### The adopted wording
+> Every source the project owner hands over (a drive folder, a document set, a website, a repository) goes through one intake process: inventory; one card per document; workflows written out step by step, with roles; a map against this record (match, extends, gap, conflict, answers, record against source) and the four branches; a report. The full report, with names and figures, is kept privately in the planning Project, outside this repository. Only role-level, figure-free changes that the project owner approves are written here. An intake proposes changes and never decides them: a new rule enters only as a decision in this register.
+
+### What it settles
+- The first intakes were ARFHSN (30 September 2026), ARFECF, the Federation's own folder and the officer archive (1 October 2026). Their corrections are in `AFRP-Delivery-Status.md` under "Site S3"; D55–D67 below are the decisions taken on their findings.
+- A source folder named after a living person is cited by description, never by title.
+
+---
+
+## Decision 55 — a programme's holding entity is the fund that budgets it
+**Status: Adopted · David Saah, 1 October 2026 · pending confirmation by the AFRP and ARFECF Boards**
+
+### The adopted wording
+> Until a Board says otherwise, each programme's holding entity is the fund that carries it in the Federation's approved budget. For 2026–27: Camp Ramallah, the Arabic Program, Project Hope, the Educational and Cultural Exchange Mission and the Scholarship are ARFECF's (the Educational Fund); the Magazine's assets and the camp land account are ARFECF's; Government Affairs, Congressional Outreach and the Day of Action are AFRP's (the General Fund); Women to Women is a sub-fund of ARFHSN; the Medical Mission is ARFHSN's (D62).
+
+### What it settles
+- Q-27 and Q-18. The "confirm" flags on programme plans cite the budget as their evidence.
+- Receipts, books and the tax return for each programme follow its holding entity (D9).
+
+### What it does not settle
+- The Boards may move a programme; the register follows the next approved budget.
+
+---
+
+## Decision 56 — ARFHSN receipts the gifts it holds; AFRP collects as its agent
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> Gifts to the Medical Mission and the Human Services Network funds are ARFHSN's. ARFHSN is the receipting entity under D9; the Federation's giving pages collect such gifts as ARFHSN's agent and forward them without delay.
+
+### What it settles
+- Q-21. The receipt a donor gets names ARFHSN, the 501(c)(3), with its exempt-status language.
+- The CPA's answer to Q-3 covers the same agency treatment for club dues; the two are to be put to the CPA together.
+
+---
+
+## Decision 57 — one club-share statement
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> Every amount a club pays or receives through a Federation or affiliate programme is recorded against the club on one statement: dues remitted (D1), camp rebates, Leadership Ramallah travel shares, event reimbursements, convention and Mid-Year settlements, grants to clubs, and co-funding of Care grants. Each programme sets its own terms. Every gift, from anyone, may carry a club attribution, and a co-funded grant lists each club's share.
+
+### What it settles
+- Q-30 and Q-25. One shared service on the funds ledger, not a rule per programme.
+- Q-36 stays D1: the dues remittance rule is unchanged; the statement is where it shows.
+
+### What it does not settle
+- Whether clubs take gifts to their own purposes through the platform (B3) is still David's answer to give.
+
+---
+
+## Decision 58 — D3 amended: the Ramallah Foundation may hold seats on the Scholarship Committee
+**Status: Adopted · David Saah, 1 October 2026 · conditional on the ARFECF Board amending the 2015 Scholarship Fund Policy**
+
+### The adopted wording
+> Decision 3 is amended: the Ramallah Foundation's role in the scholarship may include seats on the Scholarship Fund Committee. The seats exist only once the ARFECF Board amends the Scholarship Fund Policy Statement (2015) to provide them, by two-thirds of the Board as the policy requires. Until then the platform seats the committee as the 2015 policy reads: a chairman, the executive director, members chosen by the ARFECF Board and three members elected at the Annual Convention.
+
+### What it settles
+- Q-29. The conflict recorded under D3 on 1 October is resolved by amendment, not by refusal.
+- Q-11. The members' vote for Scholarship Committee seats has its basis in the 2015 policy's three elected seats; the AFRP by-laws should still name what they elect (a drafting item for the Constitution Committee).
+
+---
+
+## Decision 59 — the host agreement is the rule for every Convention
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> Each Convention runs under a host agreement signed by the Federation and the host club before the Convention, recording the Federation's share, the holdback, the settlement date and each side's obligations. The platform records those terms on the event and produces the settlement statement. A change to the share goes from the Convention Innovation Committee to the Board; it does not happen on the floor.
+
+### What it settles
+- Q-34, and the source for the convention workflow's close step.
+- The same shape serves the Mid-Year.
+
+---
+
+## Decision 60 — non-members may buy an Arabic class
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> A person who is not a member may register for an Arabic class at the public rate. The platform keeps a contact record for them (name, verified channel, consent) and not a membership. Members pay the member rate.
+
+### What it settles
+- Q-31, carrying the programme committee's decision of August 2026 into the platform.
+- A non-member purchase is a new caller of the one payment door; the design note for the Arabic term covers it as a design change, not a parameter.
+
+---
+
+## Decision 61 — what historical programme records the platform takes
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> Camp Ramallah: past seasons come in as camper records (camper, household, club, year, attended) so retention and alumni reporting work; applications, consent forms, medical forms and travel forms never enter the platform, for past seasons or future ones. The health record stays a bought system outside the platform, as the camp workflow already says, and the platform holds only whether the form is on file. The Scholarship: past recipients only, as alumni records through the match queue (slice 9); applicant data and documents never enter (binding rule 2). Project Hope: past participants as alumni records (name, year, club); applications, consents and passports stay out and are deleted from the drive on the committee's rule. Leadership Ramallah and the Day of Action: past participants as programme alumni; applications, essays and résumés never enter. Future cycles of every programme apply in the platform.
+
+### What it settles
+- Q-32. The import plan per programme.
+
+### What it does not settle
+- How long the camp's paper and drive copies of past forms are kept, and who deletes them: a retention rule for the committee and the Board, outside the platform.
+- **Amended the same day.** The first wording admitted camp documents under a retention rule; the project owner withdrew it: no medical, consent or travel document of a minor is stored in the platform.
+
+---
+
+## Decision 62 — the Medical Mission is a programme of ARFHSN
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> The Medical Mission is a programme of ARFHSN. ARFHSN's Board appoints the committee's chair and approves its spending. The Federation President convenes.
+
+### What it settles
+- Q-22, and the entity on the Medical Mission's register entry.
+
+---
+
+## Decision 63 — Care grants: how money leaves
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> A grant or partner project paid from a Care fund is approved by the holding entity's Board with a spending ceiling, paid on delivery with two signatories, and closed only when the receiving partner's signed agreement, a delivery confirmation and an inventory of any equipment are on record. No approval tiers apply until ARFHSN adopts a finance manual written for a volunteer board. The platform produces ARFHSN's six-monthly financial and operational report to the AFRP Board from the ledger and the grants register.
+
+### What it settles
+- Q-23, Q-24 and Q-26. The outbound side of giving, which the record did not hold.
+
+---
+
+## Decision 64 — AFRPWorks is on the Leadership branch
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> AFRPWorks, the Ramallah Jobs Initiative, is a programme on the Leadership branch beside the RBPN job board, held by AFRP.
+
+### What it settles
+- Q-39 and Q-12 ("Ramallah Works" in crosswalk row A8).
+
+### What it does not settle
+- Its owning committee and fee model, which the working group names.
+
+---
+
+## Decision 65 — AFRP carries advocacy; the affiliates never do
+**Status: Adopted · David Saah, 1 October 2026 · the Legal Advisor to confirm the 501(c)(4) limits**
+
+### The adopted wording
+> Government Affairs, Congressional Outreach, the Day of Action and the Federation's public statements are AFRP General Fund activity. The platform refuses to charge any of it to ARFECF or ARFHSN.
+
+### What it settles
+- Q-38.
+
+---
+
+## Decision 66 — the shared drive is the archive of record
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> The Federation's shared drive is the archive of record. The platform holds its own registers and links to the drive for documents; it does not become the archive.
+
+### What it settles
+- Q-16 and crosswalk row C4.
+
+---
+
+## Decision 67 — a year-one baseline for outcomes
+**Status: Adopted · David Saah, 1 October 2026**
+
+### The adopted wording
+> Each branch reports, for its first year, two or three counts that exist today: for example campers per club per year, scholars by track, mission volunteers, grants made and delivered, members by level. The five-rung ladder measures (D25, D42) follow from the first full year of platform data.
+
+### What it settles
+- Q-19. The first outcome report is not empty.
 
 ---
 

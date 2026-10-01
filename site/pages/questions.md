@@ -17,5 +17,5 @@ discussed (D43).
 
 When a question is answered, the answer is written into the
 [Decisions Register](https://github.com/davidsaah/afrp-strategy/blob/main/design/AFRP-Decisions-Register.md)
-as a D-number, and the question leaves this page. Questions are kept in
+as a D-number, and the question moves to the **Answered** list at the end of this page, keeping its number. Questions are kept in
 [`site/data/questions.yaml`](https://github.com/davidsaah/afrp-strategy/blob/main/site/data/questions.yaml).

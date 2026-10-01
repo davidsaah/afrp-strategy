@@ -10,6 +10,10 @@ lede: What has been decided, what is still open, how far the build has got, and 
 AFRP-Hub is **not yet in service**. It has no public address, it takes no live
 payments and it holds no real member data.
 
+<div class="note">
+<p><b>Which constitution the record is built on.</b> The design and the Hub follow the Federation's <b>2024</b> Constitution and By-Laws. A restated constitution prepared in 2026 (a smaller Board, advisory Convention votes, standing on Federation dues alone) is deferred and under Board review as of October 2026. If it is adopted it outranks every decision built on the 2024 text, so work that depends on the governance articles waits on the Board's outcome (<a href="../history/questions.html#Q-33">Q-33</a>).</p>
+</div>
+
 ## Journeys by lens
 
 <!--LENSES-->

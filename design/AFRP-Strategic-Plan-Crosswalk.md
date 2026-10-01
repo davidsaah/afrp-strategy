@@ -1,7 +1,7 @@
 # AFRP strategic plan crosswalk
 ### Every element of the Federation's strategic plans, and what the platform does about each
 
-**Date:** 30 September 2026
+**Date:** 30 September 2026; section J, rows F13–F17 and notes P9–P17 added 1 October 2026
 **Status:** design record. This document **proposes** the design notes the
 proposed elements need; it does not by itself make any of them buildable.
 **Decision 42** (the Decisions Register) settles the framework used here.
@@ -13,7 +13,7 @@ proposed elements need; it does not by itself make any of them buildable.
 The Federation has run a Strategic Planning Committee since at least 2018. Its
 record is a set of documents held in AFRP's Drive, not in this repository:
 
-The links open the Federation's shared drive and work only for people with AFRP drive access. All of them are in [the Strategic Planning folder](https://drive.google.com/drive/folders/14bkSAWf37yzBG_Cvb0xWJu0xLOa5onn-).
+The links open the Federation's shared drive and work only for people with AFRP drive access. All of them except INTAKE26 are in [the Strategic Planning folder](https://drive.google.com/drive/folders/14bkSAWf37yzBG_Cvb0xWJu0xLOa5onn-).
 
 | Short name | Document | Date | Status |
 |---|---|---|---|
@@ -26,6 +26,7 @@ The links open the Federation's shared drive and work only for people with AFRP 
 | **[PR](https://drive.google.com/drive/folders/1g2xb06r8ik9aE2N83AhVZ7vn38ftjlpV)** | Media and PR Committee business plan; press-release proposal; social media audit; communications-management deck | 2018–2021 | Working papers behind FED2 §A |
 | **[SWOT25](https://drive.google.com/drive/folders/1AjFFC7P6gaGndOJBJSNGmFijQzAO7t1a)** | Committee and programme SWOT responses to the Deputy President's survey | March 2025 | Record |
 | **[SP26](https://docs.google.com/document/d/1ux3nnjUfjSkdRWgWV5j7Lbsn9tYT2pWGrcv-uhJhaao/edit)** | Strategic Planning Committee minutes | 10 September 2026 | Record; the committee restarting |
+| **[INTAKE26](https://drive.google.com/drive/folders/1mlUdsgoW-vTI2Ugk-xxmJGb-mGKUq8JW)** | The Federation's and the affiliates' working files: the Federation's own folder, ARFECF's folder, ARFHSN's folder and the officer archive, 2009–2026 | Read September–October 2026 | Working files in the Federation's drive, read through the intake process (D54). They name living people and hold figures, so the public record carries role-only summaries and folder-level links only |
 
 **FED2 matters to this repository directly.** By-Law 17.1.4 (2024) says "review
 the Strategic Planning Proposal for the full details of the committee's
@@ -63,7 +64,7 @@ a baseline outline of the existing plans; this crosswalk is its platform half.
 | A5 | Evaluate programmes; review or retire those that do not contribute | MIN Feb 2020 | Designed | Five-rung engagement ladder (D25) and stage-to-stage conversion (`AFRP-Program-Architecture.md` §1) |
 | A6 | Outcome-based metrics per area, to show donors a return and support an endowment campaign | SP26 | Partly built | The four branches are built (D38–D40, slice T1a); the conversion metric is designed |
 | A7 | A yearly survey of every committee: purpose, what worked, SWOT, 3–5 year goals, budget | SWOT25 | Proposed | Annual planning form (P2) |
-| A8 | Refresh priorities: Camp Ramallah, Government Affairs, Arabic classes, Ramallah Works, Family Tree | SP26 | Partly built · **Gap** | All but Ramallah Works are on the branches. **Ramallah Works is on no register and in no design document** |
+| A8 | Refresh priorities: Camp Ramallah, Government Affairs, Arabic classes, Ramallah Works, Family Tree | SP26 | Partly built · Proposed | All five are on the branches. **Ramallah Works** is AFRPWorks, the Ramallah Jobs Initiative, placed on the Leadership branch under AFRP (D64); a prototype with a pilot planned; its owner and fee model are the working group's |
 
 ## B. Governance and constitution
 
@@ -91,7 +92,7 @@ a baseline outline of the existing plans; this crosswalk is its platform half.
 | C1 | Executive Director | SP19, MIN 2020–23, SP26 | Outside | The ED is a role with grants. By-law: must reside in the HQ metro area (Const. V §3, 7.9.7) |
 | C2 | Program Coordinator | SP19 | Outside | Hired in 2019 |
 | C3 | Communications Coordinator, manager or intern | FED2 §A, PR | Outside | The comms desk is the tool that role would use |
-| C4 | File organisation and archives; a central document repository | SP19, SP26 | Partly built · Proposed | Registries and the magazine archive are built. Committee and strategic-plan records are proposed (P1). **Undecided:** the platform or a shared drive as the archive of record |
+| C4 | File organisation and archives; a central document repository | SP19, SP26 | Partly built · Proposed | Registries and the magazine archive are built. Committee and strategic-plan records are proposed (P1). **Decided (D66):** the shared drive is the archive of record; the platform links to it |
 | C5 | Every membership payment recorded and cross-referenced by family and Manara | FED2 §C | Built | One ledger with daily close |
 | C6 | Welcome packages for Board and committee members | MIN 2020, FED2 §C | Proposed | Letters (P3) |
 | C7 | Staffing in Ramallah, the US, or both | MIN 2022 | Outside | — |
@@ -150,10 +151,15 @@ a baseline outline of the existing plans; this crosswalk is its platform half.
 | F6 | Women to Women: projects, younger women, a representative per city | SWOT25 | Partly built | Care branch; giving through funds. Which entity runs it is open (`AFRP-Program-Architecture.md` §0) |
 | F7 | RBPN five-year plan: mentorship, ambassadors, conferences | SP19 | Built | Sponsorship desk and job board (slices 10, 10b); mentorship not in the record |
 | F8 | Cultural Preservation: digitisation, oral histories | SP19 | Designed | Heritage branch |
-| F9 | Scholarships | SP19, flyer | Built | Scholarship committee engine (slice 4) |
-| F10 | Medical Mission and human services | SP19 | Designed | ARFHSN roadmap |
+| F9 | Scholarships | SP19, flyer | Built | Scholarship committee engine (slice 4). The 2015 policy statement is found (Q-2); the committee's Foundation seats conflict with D3 (Q-29) |
+| F10 | Medical Mission and human services | SP19 | Designed | ARFHSN roadmap. Intake of ARFHSN's records (Sep 2026) found grant-making, partner agreements and mission workflows the record does not hold; Q-21 to Q-26 |
 | F11 | Recruit 21–35 year-olds through RBPN; youth leaders in each club | MIN Mar 2023 | Partly built | Leadership branch; age-band reporting designed |
 | F12 | Programme alumni event at the Convention | MIN Mar 2023 | Proposed | An event type fed by alumni segments |
+| F13 | Care grant-making: a request with quotes, a Board vote with a ceiling, payment on delivery, delivery confirmed | INTAKE26 | Proposed | D63 sets the rule: the holding entity's Board approves with a ceiling, two signatories pay on delivery, and a grant closes only with the partner's signed agreement, a delivery confirmation and an inventory of equipment. The grants register is design note P11; it also produces ARFHSN's six-monthly report to the AFRP Board |
+| F14 | Partner agreements with renewal dates | INTAKE26 | Proposed | An agreements register with renewal reminders, serving every programme with an outside partner; a signed agreement is required before a Care grant closes (D63). Design note P11 |
+| F15 | The Relief Fund: monthly support to families in Ramallah since 2020, run by the Federation beside ARFHSN's own funds | INTAKE26, MOU | Proposed | A fund on the funds ledger. Its holding entity and its transfer rule are Not stated in the record; the Federation's approved budget (2026–27) and a programme entry would state them. The per-registration Convention amount for it is in G3 |
+| F16 | The receipting entity for affiliate gifts | INTAKE26 | Designed | ARFHSN receipts the Medical Mission and Human Services Network gifts it holds; the Federation's giving pages collect them as its agent (D56, settling Q-21). Each programme's holding entity follows the approved budget (D55) |
+| F17 | Safeguarding funds and equipment delivered in Ramallah | INTAKE26 | Proposed | An inventory of any equipment is on record before a Care grant closes (D63). Inspections and a local committee, proposed since 2023, are outside the platform (Q-24). Design note P11 |
 
 ## G. Events and the Convention
 
@@ -182,6 +188,28 @@ a baseline outline of the existing plans; this crosswalk is its platform half.
 |---|---|---|---|---|
 | I1 | Decide whether policy work fits the mission | SP19 | Built | Settled in practice: Congressional Outreach sits on the Leadership branch; Government Affairs Committee is By-Law 8.15.1 |
 | I2 | Elected-official relations; a stronger advocacy voice | TASKS, SWOT25 | Outside | — |
+
+## J. One Federation
+
+The goal, in the project owner's words: clubs, the Federation and the affiliates
+share programmes, initiatives and the four core functions. These rows are what
+the Federation's and the affiliates' working files (INTAKE26) show of that
+sharing today.
+
+| # | Element | Source | Platform | How the platform fulfils it |
+|---|---|---|---|---|
+| J1 | Clubs co-fund Care work: a club's yearly gift to a Care programme, club appeals passed through ARFHSN, a club or committee fund held in ARFHSN's books | INTAKE26 | Designed · Proposed | Co-funding of Care grants is a line on the club's statement, and a co-funded grant lists each club's share (D57). The money sits with the holding entity (D55, D56). The grants register itself is design note P11 |
+| J2 | One club cost-share rule across programmes: camp rebates, Leadership Ramallah travel shares, RBPN event reimbursements, Arabic volunteers | INTAKE26, SWOT25 | Designed | One club-share statement on the funds ledger; each programme sets its own terms (D57, settling Q-30). Design note P10 |
+| J3 | Club–Federation money on one statement: dues, convention settlement, ad-book share, Mid-Year sponsorship, grants to clubs, event amounts due to a club | INTAKE26, MOU | Partly built · Designed | The remittance ledger for dues is built (D1). The single statement per club is decided (D57) and designed: one account per club per holding entity, sixteen line types each tied to a programme term, a run with a query hold and an immutable close (`AFRP-Club-Experience-Plan.md` §5). The terms no committee has written are Q-47 |
+| J4 | Clubs in the affiliates' governance: ARFECF's Board seats spread over three regions defined by lists of clubs (2015) | INTAKE26 | Designed · Outside | The ARFECF Board-composition check reads the regional seats (`design/bylaws/ARFECF-2015-and-the-fund-policies.md`). The club lists are out of date and are the ARFECF Board's to bring current. The clubs' place in the Federation's own governance waits on the 2026 restatement (Q-33) |
+| J5 | Named shared services, and what each club gives up for them: the member database and registration, video calls, the newsletter and the Magazine, by-law templates, the monthly club presidents' meeting | SP19, FED2, INTAKE26 | Partly built · Proposed | The member database, registration, the comms desk and the magazine are built; the club tools replacing Breeze are built in part (B1–B2) and queued (B3–B6). Which club tools each shared service replaces is not in the record. Club governance features wait on Q-33 |
+| J6 | The dues rule: who collects club dues, whether a member may opt out, and when they pass to the club | INTAKE26, MIN | Built · Outside | Club-collected AFRP dues are held as agent and remitted on the ledger (D1). No Federation document in seventeen years writes the rule down (Q-36); D57 keeps D1 and shows it on the club's statement. The CPA's confirmation of the agency treatment is outside (Q-3) |
+| J7 | The convention host agreement as the shared rule between the Federation and a host club | MOU, INTAKE26 | Designed · Proposed | Every Convention runs under a signed host agreement; its terms sit on the event and the platform produces the settlement statement; the same shape serves the Mid-Year (D59, settling Q-34). Design note P13 |
+| J8 | A club attribution on every gift | INTAKE26 | Designed · Proposed | Every gift, from anyone, may carry a club attribution (D57). Today nothing records which club raised or co-funded what (Q-25). Design note P10 |
+| J9 | The officer year: the affiliation form by 1 August, the Council and Board seats that derive from it, the hand-over | BL24, INTAKE26 | Designed | The officers form is the By-Law 3.2 filing and the source of every seat derived from it; a dated hand-over carries the balance and the open items (`AFRP-Club-Experience-Plan.md` §4.1, §6.2). No affiliation form is on file for any year; who approves affiliation is Q-40. Under the Q-33 gate |
+| J10 | The club's seat in each programme: the camp liaison, the RBPN ambassador, the travel coordinator, the magazine correspondent | INTAKE26 | Designed · Proposed | A programme seat scoped to one club, appointed on the officers form or by the committee, each appointment naming who made it (Club Experience Plan §3.4, §7). Only RBPN names such a seat with a term today; who appoints is Q-45 |
+| J11 | Moving each club off Breeze, and the clubs on no system onto the platform | INTAKE26, ADD2 | Designed · Proposed | One club at a time with a named owner on each side; read-only access; identity resolution with a human on every doubtful pair; a parallel run on the platform's screens; a dated cutover (Club Experience Plan §8; workflow `club-migration`). Which club goes first is David's (Breeze Parity §5 q4) |
+| J12 | The Federation's view of its clubs: every club as counts, and the year-one baseline per club | INTAKE26, SP19 | Partly built · Designed | The clubs page in the Federation lens: standing, membership, club life, the Federation's work in the club, the statement balance, the migration state, every cell under the floor (Club Experience Plan §10; D67). The first version of the roll-up is built (B1) |
 
 ---
 
@@ -222,13 +250,23 @@ The rows in `plan/MASTER-PLAN.md` §2 say so.
 | P6 | Press-release workflow | E6 | Yes |
 | P7 | Volunteer interests and rosters | E7 | Yes |
 | P8 | Mid-Year host bids | G1 | Yes |
+| P9 | Fund rules as found: the annual distribution on the 31 May valuation, the emergency transfer, restricted gifts, the entity for each fund | H3, H5, F16 | **Yes.** Both policy statements and the 2015 by-laws are on file (`design/bylaws/ARFECF-2015-and-the-fund-policies.md`); the endowment's holding entity waits on the November 2026 boards (Q-35) |
+| P10 | Club share and settlement: one statement per club on the funds ledger | J1, J2, J3, J6, J8 | **Written** as `AFRP-Club-Experience-Plan.md` §5 (1 Oct 2026): one account per club per entity, the line types, the run and the close. D57 and D1 |
+| P11 | Care grants and partner agreements | F13, F14, F15, F17, J1 | **Yes.** D63, D56; approval tiers wait on ARFHSN's finance manual (Q-23); the Relief Fund's entity is not stated |
+| P12 | Selection programmes and the Arabic term | A8, F3, F4, F5 | **Yes.** The 2020 selection procedure is on file; non-members settled (D60); historical records settled (D61) |
+| P13 | Host agreements for the Convention and the Mid-Year | G1, G3, J7 | **Yes.** D59 |
+| P14 | Advocacy and the Day of Action | I1, I2 | **Yes.** D65; the Legal Advisor confirms the 501(c)(4) limits |
+| P15 | Incident response and data retention | C4, D4 | Retention: yes (D61, D66). Incident response: no policy exists in any document; the note can draft one for the Board |
+| P16 | The Executive Director as staff | C1 | **Yes.** The hire is under way; the role's scope comes from the Board-approved job description (2026) |
+| P17 | AFRPWorks | A8 | A programme page only (D64); its owning committee and fee model wait on the working group |
+| P18 | The club experience plan: the people of a club, the club workflows, the club–Federation statement, the migration from Breeze club by club | J1–J12, D7, G1, G3 | **In progress** (`AFRP-Club-Experience-Plan.md`, opened 1 Oct 2026, fourteen sprints). Rests on D1, D57, D59, D61, D66 and the Breeze parity note; B3–B6 stay gated on Breeze Parity §5 |
 
 ## Gaps the record cannot close alone
 
-1. **Ramallah Works** (A8): named as a priority in SP26 and on no register.
+1. **Ramallah Works** (A8). **Done (D64):** identified as AFRPWorks and placed on the Leadership branch.
 2. **The Presidential Advisory Council** (B6): proposed in FED2; adoption unknown.
 3. **Strategic Plan Committee composition** (B14) against By-Law 7.3.3.
 4. **Who maintains and pays for the platform** (D12).
-5. **The archive of record** (C4): the platform, a shared drive, or both.
+5. **The archive of record** (C4). **Done (D66):** the shared drive is the archive of record.
 6. **FED2 itself**: which revision was adopted at Jacksonville in 2021. It names
    living people, so it is cited here and not committed.

@@ -32,16 +32,24 @@
     new clubs (2021); clubs driving national sign-ups and families referring
     families (2023).
   open: >-
-    Club giving, the import from each club's Breeze account, texting and forms
-    are still to come. Family referral has no design yet.
+    Club giving, texting and forms wait on David's answers (Breeze Parity §5).
+    Family referral has no design yet. Who approves a club's affiliation,
+    whether a member may hold two clubs, who appoints a club's programme seats
+    and the statement's unwritten terms are Q-40 to Q-47; how local dues are
+    passed on has never been written down (Q-36).
   hub: >-
     Clubs work on the same records as the Federation: the club lens, rosters,
     club groups and follow-ups, club events with check-in, and the remittance
-    ledger that moves dues between them.
+    ledger that moves dues between them. The club experience plan (design note
+    P18) designs the rest: the officer year from the 1 August form to the
+    hand-over, one statement per club per holding entity (D57), the club's seat
+    in each programme, the move from Breeze club by club, and the Federation's
+    clubs page as counts under the floor. The crosswalk's One Federation rows
+    say where money and work cross today.
   outside: >-
     Each club's decision to move onto the platform, and the monthly
     club-president calls.
-  rows: [D2, D7, D10, D11, B11]
+  rows: [D2, D7, D10, D11, B11, J1, J2, J3, J4, J5, J6, J7, J8, J9, J10, J11, J12]
 - key: next-generation
   n: 3
   name: Bring in and keep the next generation
@@ -119,7 +127,7 @@
   outside: >-
     Fundraising, grant writing, the endowment campaign itself, and the Policy
     Statement.
-  rows: [A6, D8, D15, D21, F6, F10, H1, H2, H3, H4, H5, H6]
+  rows: [A6, D8, D15, D21, F6, F10, H1, H2, H3, H4, H5, H6, F13, F14, F15, F16, F17]
 - key: heritage
   n: 7
   name: Keep the heritage and the memory
@@ -128,16 +136,16 @@
     The Cultural Preservation Project and the family tree (2019); archives,
     after "No archives" in the 2018 SWOT; a central repository (2026).
   open: >-
-    Nobody has decided whether the platform or a shared drive holds the archive
-    of record. Adoption, and three spouse questions under By-Law 4.1.1, are open
+    The shared drive is the archive of record and the platform links to it
+    (D66). Adoption, and three spouse questions under By-Law 4.1.1, are open
     for the tree.
   hub: >-
     The family tree is the CRM's spine: every member has a node, and a node is
     never a lineage claim. The magazine archive and the document registries sit
     alongside it.
   outside: >-
-    The Family Tree Committee's judgements, collecting oral histories, and the
-    decision about the archive of record.
+    The Family Tree Committee's judgements, collecting oral histories, and
+    keeping the shared drive in order as the archive of record (D66).
   rows: [A8, C4, D22, F8]
 - key: operations
   n: 8

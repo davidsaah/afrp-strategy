@@ -62,14 +62,14 @@ def parse_crosswalk():
     text = (ROOT / "design/AFRP-Strategic-Plan-Crosswalk.md").read_text(encoding="utf-8")
     rows, section = [], None
     for line in text.splitlines():
-        m = re.match(r"^## ([A-I])\. (.+)$", line)
+        m = re.match(r"^## ([A-J])\. (.+)$", line)
         if m:
             section = (m.group(1), m.group(2))
-        m = re.match(r"^\| ([A-I]\d+) \| (.+?) \| (.+?) \| (.+?) \| (.+?) \|$", line)
+        m = re.match(r"^\| ([A-J]\d+) \| (.+?) \| (.+?) \| (.+?) \| (.+?) \|$", line)
         if m and section:
             rows.append(dict(id=m.group(1), element=m.group(2), source=m.group(3),
                              status=m.group(4), how=m.group(5), section=section[1], letter=section[0]))
-    notes = re.findall(r"^\| (P\d) \| (.+?) \| (.+?) \| (.+?) \|$", text, re.M)
+    notes = re.findall(r"^\| (P\d+) \| (.+?) \| (.+?) \| (.+?) \|$", text, re.M)
     return rows, [dict(id=a, note=b, covers=c, ready=d) for a, b, c, d in notes]
 
 
@@ -180,6 +180,36 @@ def asset_version():
     # The stylesheet only: a PNG can be re-encoded in transit, which would make the hash unstable.
     return hashlib.sha1((SITE / "static/site.css").read_bytes()).hexdigest()[:8]
 
+
+
+def today_section(p):
+    """How the programme runs today, from the committee's own records (the six intake fields and the use cases)."""
+    def lst(key):
+        v = p.get(key)
+        if not v:
+            return '<p class="muted">Not stated.</p>'
+        if isinstance(v, str):
+            return f'<p>{E(v)}</p>'
+        return ulist(v, E)
+    agr = p.get("agreements") or []
+    agr_html = (table(["Partner", "Term", "Renewal", "What each side owes"],
+                      [[E(a.get("partner", "")), E(a.get("term", "")), E(a.get("renewal", "")), E(a.get("obligations", ""))] for a in agr])
+                if agr else '<p class="muted">No partner agreement on record.</p>')
+    dec = p.get("committee_decisions") or []
+    dec_html = (table(["When", "What the committee decided to do"], [[E(d.get("date", "")), E(d.get("decision", ""))] for d in dec])
+                if dec else '<p class="muted">None recorded. A committee\'s decision is practice; a platform rule is a decision in the register.</p>')
+    uc = p.get("use_cases") or []
+    uc_html = (table(["Who", "Wants to", "So that", "Rule", "Lens"],
+                     [[E(u.get("who", "")), E(u.get("wants", "")), E(u.get("so_that", "")), E(u.get("rule", "")), f'<span class="tag">{E(u.get("lens", ""))}</span>'] for u in uc])
+               if uc else '<p class="muted">Not yet written.</p>')
+    return (f'<h2>How it runs today</h2><p class="small muted">From the programme\'s own records, read in September and October 2026 (D54). Practice, not rules: a rule is a decision in the register.</p>'
+            f'<dl class="kv"><dt>Entity, evidence</dt><dd>{E(p.get("entity_evidence") or "Not stated")}</dd></dl>'
+            f'<h3>The clubs\' part</h3>{lst("club_role")}'
+            f'<h3>Partner agreements</h3>{agr_html}'
+            f'<h3>Where its records live now</h3>{lst("systems_today")}'
+            f'<h3>Sensitive data it handles</h3>{lst("data_classes")}'
+            f'<h3>What its committee has decided</h3>{dec_html}'
+            f'<h2>Use cases</h2><p class="small muted">Each names the lens that walks it; the experiences and the journeys are checked against these.</p>{uc_html}')
 
 def write(rel, title, body, section, **kw):
     depth = rel.count("/")
@@ -344,7 +374,7 @@ def main():
     cards = [
         ("strategy/index.html", "1 · AFRP Strategy", "The Federation's current strategy, and how the Hub implements it on the CRM.", f"8 <small>goals</small>"),
         ("history/index.html", "2 · Evolution", "How the strategy got here since 2018, what is still to develop, and the open questions.", f"{len(open_q)} <small>open questions</small>"),
-        ("programmes/index.html", "3 · Branches & programmes", "Education, Leadership, Heritage and Care, and the Convention where they meet; nineteen programmes and what each needs.", f"{len(progs)} <small>programmes</small>"),
+        ("programmes/index.html", "3 · Branches & programmes", "Education, Leadership, Heritage and Care, and the Convention where they meet; every programme and what each needs.", f"{len(progs)} <small>programmes</small>"),
         ("experiences/index.html", "4 · People & experiences", "Who uses the platform and what each of them needs.", f"{len(exps)} <small>kinds of people</small>"),
         ("workflows/index.html", "5 · Workflows", "How the work moves, and how the pieces hand off to each other.", f"{len(workflows)} <small>workflows</small>"),
         ("prototype/index.html", "6 · Prototype", "The integrated prototype: five lenses, with guided tours by branch and by journey.", "5 <small>lenses</small>"),
@@ -412,6 +442,10 @@ def main():
     write("strategy/on-the-crm.html", meta["title"], MD(body), "strategy", kicker=meta["kicker"], lede=meta["lede"],
           crumbs=[("Home", "index.html"), ("AFRP Strategy", "strategy/index.html")])
 
+    meta, body = md_page("for-clubs.md")
+    write("strategy/for-clubs.html", meta["title"], MD(body), "strategy", kicker=meta["kicker"], lede=meta["lede"],
+          crumbs=[("Home", "index.html"), ("AFRP Strategy", "strategy/index.html")])
+
     # crosswalk
     sts = sorted({status_key(r["status"]) for r in rows})
     trs = "".join(
@@ -458,8 +492,14 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
              '</select><select id="qb"><option value="">Every branch</option><option value="all">All branches</option>' +
              "".join(f'<option value="{b["key"]}">{E(b["name"])}</option>' for b in branches) + '</select></div>')
     qscript = """<script>(function(){var g=document.getElementById('qg'),b=document.getElementById('qb');function f(){document.querySelectorAll('#qt tbody tr').forEach(function(r){r.style.display=(!g.value||r.dataset.goal==g.value)&&(!b.value||r.dataset.branch==b.value)?'':'none'})}g.onchange=f;b.onchange=f;})();</script>"""
+    decided_q = [q for q in questions if q.get("decided")]
+    drows = "".join(
+        f'<tr id="{q["id"]}"><td><b>{q["id"]}</b></td><td><b>{E(q["title"])}</b><br><span class="small">{E(q["detail"])}</span></td>'
+        f'<td class="small">{E(str(q["decided"]))}</td></tr>' for q in decided_q)
+    dsect = (f'<h2 id="decided">Answered</h2><p>Questions that have been answered stay here with their number, so a link to them keeps working. The answer is in the Decisions Register or, where a by-law text settled it, in the text itself.</p>'
+             f'<div class="tw"><table><thead><tr><th>ID</th><th>Question</th><th>Answered by</th></tr></thead><tbody>{drows}</tbody></table></div>') if decided_q else ""
     write("history/questions.html", meta["title"], MD(body) + qfilt +
-          f'<div class="tw" id="qt"><table><thead><tr><th>ID</th><th>Question</th><th>Owner</th><th>Goal · branch</th><th>Source · discuss</th></tr></thead><tbody>{qrows}</tbody></table></div>' + qscript,
+          f'<div class="tw" id="qt"><table><thead><tr><th>ID</th><th>Question</th><th>Owner</th><th>Goal · branch</th><th>Source · discuss</th></tr></thead><tbody>{qrows}</tbody></table></div>' + qscript + dsect,
           "history", kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html"), ("Evolution", "history/index.html")])
 
     # ------------------------------------------------------------- PROGRAMMES
@@ -494,7 +534,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
                     "care": "People arrive by choice or by capacity to give. The Ramallah Foundation and the Endowed Fund are funds: shown here, not joined."}[b["key"]] +
                 ' Inside every programme, people move through the same five rungs: <b>hear · show up · take part · give or serve · lead</b> (D25).</p>'
                 f'<h2>Outcomes this branch reports</h2>{ulist(b["outcomes"], E)}'
-                f'<p class="small muted">How outcomes are measured for each branch is itself an open question ({qlink(next(q for q in questions if q["id"]=="Q-19"))}).</p>'
+                f'<p class="small muted">For the first year each branch reports two or three counts that exist today; the ladder measures follow from the first full year of platform data (D67; {qlink(next(q for q in questions if q["id"]=="Q-19"))}).</p>'
                 f'<h2>How its journeys fare</h2>{journey_bar(jj)}'
                 f'<h2>Workflows it uses</h2>{ulist([w["key"] for w in wfs], wlink)}')
         if qs:
@@ -515,13 +555,15 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
                 f'<dt>Branch</dt><dd>{btag(p["branch"])} · {E(b["shape"])}</dd>'
                 f'<dt>Owning entity</dt><dd>{E(p["entity"])}</dd>'
                 f'<dt>Shape</dt><dd>{E(p["shape"])}{" · flagship" if p.get("flagship") else ""}</dd>'
-                f'<dt>Built in the Hub</dt><dd>{status_tag(p["status"])}</dd></dl>'
+                f'<dt>Built in the Hub</dt><dd>{status_tag(p["status"])}</dd>'
+                f'<dt>In service today</dt><dd>{E(p.get("in_service") or "Not stated")}</dd></dl>'
                 f'<h2>Who it\'s for</h2><p>{E(p["who"])}</p>'
                 f'<h2>The operating year</h2><p>{E(p["year"])}</p>'
                 f'<h2>The five rungs</h2>{rung}'
                 f'<h2>Who runs it</h2><p>{E(p["organiser"])}</p>'
                 f'<h2>Money</h2><p>{E(p["money"])}</p>'
                 f'<h2>Hand-offs</h2><p>{E(p["handoffs"])}</p>'
+                + today_section(p) +
                 f'<h2>What it needs</h2><div class="grid two"><div class="card"><b>From the Federation\'s strategy</b>{ulist(p.get("strategy_needs"), E)}</div>'
                 f'<div class="card"><b>From the platform</b>{ulist(p.get("platform_needs"), E)}</div></div>'
                 f'<h2>Open questions</h2>{ulist(p.get("questions"), E)}'
@@ -573,8 +615,14 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
         body = (f'<dl class="kv"><dt>Built in the Hub</dt><dd>{status_tag(w["status"])} <span class="small">{E(w.get("status_note",""))}</span></dd>'
                 f'<dt>Branches</dt><dd>{" ".join(btag(b) for b in w.get("branches", []))}</dd>'
                 f'<dt>Shared services</dt><dd>{E(", ".join(svc.get(s, s) for s in w.get("services", [])))}</dd>'
-                f'<dt>Governed by</dt><dd>{dlinks(w.get("decisions", []))}</dd></dl>'
+                f'<dt>Governed by</dt><dd>{dlinks(w.get("decisions", []))}</dd>'
+                f'<dt>Owner today</dt><dd>{E(w.get("owner") or "Not stated")}</dd>'
+                f'<dt>Could share it</dt><dd>{E(w.get("could_share") or "Not stated")}</dd>'
+                f'<dt>Hub module</dt><dd>{E(", ".join(w["module"]) if isinstance(w.get("module"), list) else (w.get("module") or "none yet"))}</dd></dl>'
                 f'<h2>Steps</h2>{steps}'
+                f'<h2>Trigger, frequency, records, money</h2><dl class="kv"><dt>Trigger</dt><dd>{E(w.get("trigger") or "Not stated")}</dd><dt>Frequency</dt><dd>{E(w.get("frequency") or "Not stated")}</dd>'
+                f'<dt>Records</dt><dd>{E(w.get("records") or "Not stated")}</dd><dt>Money</dt><dd>{E(w.get("money") or "None")}</dd></dl>'
+                f'<h2>Rule against practice</h2>{ulist(w.get("rule_vs_practice") or ["None found"], E)}'
                 f'<h2>Hands off to</h2>{ulist(w.get("handoff_notes"), E)}'
                 f'<h2>Programmes that use it</h2><p>{" · ".join(plink(k) for k in w.get("programmes", [])) or "<span class=muted>All, through the shared services.</span>"}</p>'
                 f'<h2>Open</h2>{ulist(w.get("open"), E)}'
@@ -603,7 +651,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
     lens_rows = [[LENS[k], journey_bar(jstats(lambda r, k=k: r["lens"] == k))] for k in LENS]
     br_rows = [[B[k]["name"], journey_bar(jstats(lambda r, k=k: prog_branch(r["program"]) == k))] for k in B] + \
               [["Across the platform", journey_bar(jstats(lambda r: r["program"] not in P))]]
-    pg = table(["Programme", "Branch", "Status", "Journeys"], [[plink(p["key"]), btag(p["branch"]), status_tag(p["status"]), journey_bar(p.get("journeys", {}))] for p in progs])
+    pg = table(["Programme", "Branch", "In the Hub", "In service today", "Journeys"], [[plink(p["key"]), btag(p["branch"]), status_tag(p["status"]), f'<span class="small">{E(p.get("in_service") or "Not stated")}</span>', journey_bar(p.get("journeys", {}))] for p in progs])
     blockers = ulist([re.sub(r"\bDavid('s)?\b", lambda m: "the project owner" + ("'s" if m.group(1) else ""), b) for b in board.get("blockers", [])], inline)
     st = (MD(body)
           .replace("<!--FACTS-->", table(["Measure", "Now", "Source"], [
