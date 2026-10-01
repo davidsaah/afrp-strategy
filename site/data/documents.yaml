@@ -3,6 +3,27 @@
 # carries a summary and never the text (several documents name living people).
 # Titles are written here rather than copied from file names. `code` is the
 # short name used in the crosswalk. `kind` is "doc" (Google Doc) or "file".
+codes:
+  SP19: "https://drive.google.com/file/d/1HH6lFL9eDIVrloKc5oRJdJ2R9kNxIssi/view"
+  FED2: "https://drive.google.com/file/d/1vG4nE6RJF_OT1PQqnZrrsjwnwatBgqhr/view"
+  TASKS: "https://drive.google.com/file/d/1h8tGGmcCbH9iN20OBJD6eakj48BY_lVY/view"
+  MOU: "https://drive.google.com/file/d/1kWL45gTmtbNTLZg5LkQpkxoqUcrrzPi6/view"
+  MIN: "https://drive.google.com/drive/folders/1t12CvhoRPqwVNqf3SZI_iIG-ym3WMPB5"
+  APP: "https://drive.google.com/file/d/1XAhEWuxk3TDLrOQI-v-a1vYtBtFUW9pT/view"
+  PR: "https://drive.google.com/drive/folders/1g2xb06r8ik9aE2N83AhVZ7vn38ftjlpV"
+  SWOT25: "https://drive.google.com/drive/folders/1AjFFC7P6gaGndOJBJSNGmFijQzAO7t1a"
+  SP26: "https://docs.google.com/document/d/1ux3nnjUfjSkdRWgWV5j7Lbsn9tYT2pWGrcv-uhJhaao/edit"
+folders:
+  - name: "The Strategic Planning folder"
+    url: "https://drive.google.com/drive/folders/14bkSAWf37yzBG_Cvb0xWJu0xLOa5onn-"
+  - name: "Strategic Plan"
+    url: "https://drive.google.com/drive/folders/1_h8XZZ7AHOkFWEtlPqoYYEgqsc6XLvuE"
+  - name: "Meeting Minutes"
+    url: "https://drive.google.com/drive/folders/1t12CvhoRPqwVNqf3SZI_iIG-ym3WMPB5"
+  - name: "Committee Outreach (2025 survey)"
+    url: "https://drive.google.com/drive/folders/1AjFFC7P6gaGndOJBJSNGmFijQzAO7t1a"
+  - name: "Archive (2020–21 working papers)"
+    url: "https://drive.google.com/drive/folders/1N0MFqoTZBZh-4fZpMifzNsbSoUKe0Hs6"
 groups:
   - key: plans
     name: The plans

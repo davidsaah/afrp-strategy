@@ -218,6 +218,11 @@ def main():
     library = load("library.yaml")
     documents = load("documents.yaml")
     alldocs = [d for g in documents["groups"] for d in g["docs"]]
+    CODES = documents.get("codes", {})
+
+    def srclinks(text):
+        return re.sub(r"\b(" + "|".join(sorted(CODES, key=len, reverse=True)) + r")\b",
+                      lambda m: f'<a href="{CODES[m.group(1)]}">{m.group(1)}</a>', E(text)) if CODES else E(text)
     rows, notes = parse_crosswalk()
     R = {r["id"]: r for r in rows}
     decisions = parse_decisions()
@@ -373,7 +378,7 @@ def main():
                 f'<h2>Every element of the strategy under this goal</h2>'
                 f'<p class="small muted">{", ".join(f"{v} {k}" for k, v in c.most_common())}. Sources are the Federation\'s documents, abbreviated as on the <a href="{{root}}strategy/crosswalk.html">crosswalk</a>.</p>'
                 + table(["#", "Element", "Source", "Platform", "How the platform fulfils it"],
-                        [[r["id"], inline(r["element"]), E(r["source"]), status_tag(r["status"]), inline(r["how"])] for r in grows]))
+                        [[r["id"], inline(r["element"]), srclinks(r["source"]), status_tag(r["status"]), inline(r["how"])] for r in grows]))
         gd = [d for d in alldocs if g["key"] in d.get("goals", [])]
         if gd:
             body += ('<h2>The Federation\'s documents behind this goal</h2><p class="small muted">Links open in the Federation\'s shared drive, for people with access.</p>'
@@ -385,11 +390,11 @@ def main():
               crumbs=[("Home", "index.html"), ("AFRP Strategy", "strategy/index.html")], lede=f"Goal {g['n']} of eight, distilled from the Federation's documents: what was committed, what is open, and how the Hub carries it out.")
 
     meta, body = md_page("documents.md")
-    dbody = MD(body) + "<p class=\"small\"><b>Goals:</b> " + " · ".join(f'{g["n"]} {E(g["name"])}' for g in goals) + "</p>"
+    dbody = MD(body) + "<h2>The folders</h2><ul>" + "".join(f'<li><a href="{f["url"]}">{E(f["name"])}</a></li>' for f in documents.get("folders", [])) + "</ul>" + "<p class=\"small\"><b>Goals:</b> " + " · ".join(f'{g["n"]} {E(g["name"])}' for g in goals) + "</p>"
     for g in documents["groups"]:
         dbody += f'<h2 id="{g["key"]}">{E(g["name"])}</h2><p>{E(g["intro"])}</p>' + table(
             ["Document", "Date", "Status", "What it holds", "Goals"],
-            [[f'<b>{dlink(d)}</b><br><span class="tag">{E(d["code"])}</span>', E(d["date"]), E(d["status"]), E(d["summary"]),
+            [[f'<b>{dlink(d)}</b><br><span class="tag">{srclinks(d["code"])}</span>', E(d["date"]), E(d["status"]), E(d["summary"]),
               " ".join(f'<a class="tag" title="{E(G[k]["name"])}" href="{{root}}strategy/goals/{k}.html">{G[k]["n"]}</a>' for k in d.get("goals", [])) or '<span class="muted">—</span>'] for d in g["docs"]])
     write("strategy/documents.html", meta["title"], dbody, "strategy", kicker=meta["kicker"], lede=meta["lede"],
           crumbs=[("Home", "index.html"), ("AFRP Strategy", "strategy/index.html")], chips=[f"{len(alldocs)} documents"])
@@ -402,7 +407,7 @@ def main():
     sts = sorted({status_key(r["status"]) for r in rows})
     trs = "".join(
         f'<tr data-goal="{r["goal"]}" data-status="{status_key(r["status"])}" data-sec="{r["letter"]}"><td>{r["id"]}</td><td>{inline(r["element"])}</td>'
-        f'<td>{E(r["source"])}</td><td>{status_tag(r["status"])}</td><td>{inline(r["how"])}</td><td class="small">{glink(r["goal"]) if r["goal"] in G else "Mission"}</td></tr>'
+        f'<td>{srclinks(r["source"])}</td><td>{status_tag(r["status"])}</td><td>{inline(r["how"])}</td><td class="small">{glink(r["goal"]) if r["goal"] in G else "Mission"}</td></tr>'
         for r in rows)
     filt = ('<div class="filters"><select id="fg"><option value="">Every goal</option>' +
             "".join(f'<option value="{g["key"]}">{g["n"]}. {E(g["name"])}</option>' for g in goals) +

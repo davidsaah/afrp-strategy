@@ -13,17 +13,19 @@ proposed elements need; it does not by itself make any of them buildable.
 The Federation has run a Strategic Planning Committee since at least 2018. Its
 record is a set of documents held in AFRP's Drive, not in this repository:
 
+The links open the Federation's shared drive and work only for people with AFRP drive access. All of them are in [the Strategic Planning folder](https://drive.google.com/drive/folders/14bkSAWf37yzBG_Cvb0xWJu0xLOa5onn-).
+
 | Short name | Document | Date | Status |
 |---|---|---|---|
-| **SP19** | AFRP Strategic Plan 2018–2023, revision "0509919" | May 2019 | Presented at the July 2019 Convention |
-| **FED2** | 2020–2021 Strategic Planning Committee Recommendations ("Federation 2.0", Phase 2), 73 pages | Revision 3 May 2021 | Presented at the 2021 virtual Mid-Year; its table of contents says voted on at the 2021 Jacksonville Convention. No minutes of the vote are on file |
-| **TASKS** | Tasks for SP Subcommittees | after July 2021 | Implementation list for FED2 |
-| **MOU** | Approved Convention Memorandum of Understanding | October 2022 | Approved |
-| **MIN** | Committee minutes, 2020–2023 | 2020–2023 | Record |
-| **APP** | AFRP App Requirements, three drafts | 2020–2021 | Working papers behind FED2 §A |
-| **PR** | Media and PR Committee business plan; press-release proposal; social media audit; communications-management deck | 2018–2021 | Working papers behind FED2 §A |
-| **SWOT25** | Committee and programme SWOT responses to the Deputy President's survey | March 2025 | Record |
-| **SP26** | Strategic Planning Committee minutes | 10 September 2026 | Record; the committee restarting |
+| **[SP19](https://drive.google.com/file/d/1HH6lFL9eDIVrloKc5oRJdJ2R9kNxIssi/view)** | AFRP Strategic Plan 2018–2023, revision "0509919" | May 2019 | Presented at the July 2019 Convention |
+| **[FED2](https://drive.google.com/file/d/1vG4nE6RJF_OT1PQqnZrrsjwnwatBgqhr/view)** | 2020–2021 Strategic Planning Committee Recommendations ("Federation 2.0", Phase 2), 73 pages | Revision 3 May 2021 | Presented at the 2021 virtual Mid-Year; its table of contents says voted on at the 2021 Jacksonville Convention. No minutes of the vote are on file |
+| **[TASKS](https://drive.google.com/file/d/1h8tGGmcCbH9iN20OBJD6eakj48BY_lVY/view)** | Tasks for SP Subcommittees | after July 2021 | Implementation list for FED2 |
+| **[MOU](https://drive.google.com/file/d/1kWL45gTmtbNTLZg5LkQpkxoqUcrrzPi6/view)** | Approved Convention Memorandum of Understanding | October 2022 | Approved |
+| **[MIN](https://drive.google.com/drive/folders/1t12CvhoRPqwVNqf3SZI_iIG-ym3WMPB5)** | Committee minutes, 2020–2023 | 2020–2023 | Record |
+| **[APP](https://drive.google.com/file/d/1XAhEWuxk3TDLrOQI-v-a1vYtBtFUW9pT/view)** | AFRP App Requirements, three drafts | 2020–2021 | Working papers behind FED2 §A |
+| **[PR](https://drive.google.com/drive/folders/1g2xb06r8ik9aE2N83AhVZ7vn38ftjlpV)** | Media and PR Committee business plan; press-release proposal; social media audit; communications-management deck | 2018–2021 | Working papers behind FED2 §A |
+| **[SWOT25](https://drive.google.com/drive/folders/1AjFFC7P6gaGndOJBJSNGmFijQzAO7t1a)** | Committee and programme SWOT responses to the Deputy President's survey | March 2025 | Record |
+| **[SP26](https://docs.google.com/document/d/1ux3nnjUfjSkdRWgWV5j7Lbsn9tYT2pWGrcv-uhJhaao/edit)** | Strategic Planning Committee minutes | 10 September 2026 | Record; the committee restarting |
 
 **FED2 matters to this repository directly.** By-Law 17.1.4 (2024) says "review
 the Strategic Planning Proposal for the full details of the committee's
