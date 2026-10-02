@@ -56,7 +56,7 @@ EEO blocks are optional template text, never a required field.
 - **ACA standards text is proprietary** and the whole set was renumbered in Nov 2025. Store a
   standard reference as editable data with an edition field, never as shipped copy.
 - **FCRA disclosure must be stand-alone** — bundling it into the volunteer application is the
-  most-litigated defect in this area.
+  most-litigated defect in this area (whether unpaid volunteer screening is "employment purposes" is not confirmed — P7 Q-86).
 - **California AB 506 binds youth-service organisations**, not just licensed camps. A club running a
   youth programme in CA is in scope with no camp licence.
 - **HIPAA and FERPA are red herrings** for a camp. Building to them spends budget on the wrong

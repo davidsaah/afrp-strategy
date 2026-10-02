@@ -331,7 +331,7 @@ groups:
         status: Template
         id: 1dqRXW8JAhE4HjBt855h-2dp0dCtft7aw
         kind: file
-        summary: The questions every committee was asked.
+        summary: The eight questions every committee was asked (no SWOT grid on the form itself).
         goals: [governance]
       - title: Educational and Cultural Exchange Mission response
         date: Mar 2025

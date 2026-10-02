@@ -15,6 +15,7 @@ the prototype and narrative pages in `../docs/`, which evidence a *story* and ne
 | `AFRP-Delivery-Status.md` | The running build record, updated by each Hub slice |
 | `AFRP-Rules-Register.md` | By-law parameters reconciled from source |
 | `AFRP-Strategic-Plan-Crosswalk.md` | Every element of the Federation's strategic plans (2019–2026) and what the platform does about each |
+| The design notes P1–P20 (`AFRP-Committee-Workspace.md` … `AFRP-Club-Journeys.md`) | What the Hub builds for each element of the strategy the crosswalk lists; the crosswalk's *Design notes* table is the index, and every one is readable at https://davidsaah.github.io/afrp-strategy/notes/ |
 | `ratification/` | The R6 decision memos and the packet that builds them |
 | `bylaws/` | AFRP Constitution & By-Laws 2024, ARFECF 2013, ARFHSN 2017 |
 | `hosting-gcp/` | The GCP deployment option, kept open on purpose (AFRP-Hub `ai-memory/08-OPEN-QUESTIONS.md`); the Hub runs on Render |

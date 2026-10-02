@@ -1,0 +1,177 @@
+# Letters and onboarding
+
+### Every letter the platform sends or prints, as a named template with its class, its trigger, its signatory seat and the consent it honours; the renewal sequence; the out-of-compliance notice; the new member's welcome and the welcome package for a new Board or committee member
+
+**Design note P3 · 1 October 2026 · for the Hub's `comms`, `dues`, `member`, `committees` (CW1) and `events` modules**
+
+This note answers crosswalk rows B2 (enforce Board eligibility; letters to members out of compliance), C6 (welcome packages for Board and committee members) and G4 (a welcome session for new members at special events). It rests on the 2024 Constitution and By-Laws (8.12.2's renewal notices, 4.3.1, 5.1, 5.3, 6.2.3, 8.1.2, 13.2, 7.9.3); on the Decisions Register (D1, D6, D10, D36, D54, D66); on the communications workflow's three message classes and consent model (R27, S1); on the committee workspace note (P1, `AFRP-Committee-Workspace.md`), which seats the people this note writes to; and on the Federation's own letters as the intakes found them (D54; role-level only). The Strategic Planning Committee's minutes of 2020 (MIN Feb–Mar 2020 and Dec 2020) are cited as the crosswalk carries them; the minutes themselves were not read for this note.
+
+**Precedence (D41).** Where this note and a by-law text disagree, the text wins. Where it and the Decisions Register disagree, the register wins. FED2's welcome letters and packages are a Board-adopted guideline (P1's reading), not a by-law. The prototype's `#/member/inbox` and `#/fed/comms` evidence a story, never a rule. The Hub's `comms` module shows what is built and never what should be. Where the record is silent this note says so and raises a question; it picks no default. In particular: **no letter's wording is approved by this note**. Every template below carries approved-wording status *open* until the seat that owns it adopts a text (Q-62).
+
+**Public-repo rule.** No living person is named; letters are described by their role and year; no dues figure or tier price appears.
+
+---
+
+## 1. What the record already holds
+
+**Built (the Hub; Delivery Status).** The join wizard with channel verification before anything is stored (S1), consents per field and per channel set at join with their source recorded, one payment splitting at capture, AFRP's receipt and a first-login checklist (household, consent, directory, tree) on join (workflow `join-renew-dues`, status note); renewal per scope on its own clock with grace shown as grace (the same); scoped standing, national and club, with D1's collection-date rule and D6's dormancy override; the 90-day directory grace attested on the register and run by the directory (D6's parameter; Delivery Status "Slice D1"); the comms desk with consent-filtered audiences, the three classes (operational, marketing, programme invitation) and the withheld list by name, for clubs and the Federation (workflow `communications`, status note); receipts issued in the receipting entity's name (D1 consequence E; D9; D56), a receipt's exempt-status claim waiting on the determination letter; the three print consents on the member's disclosure screen, off until dated, read when the magazine's freeze fires (slice 7b). Real email and texting wait on a provider (slice 5; B5). **Not attested as built:** any scheduled renewal notice; any lapse or grace notice; auto-renewal; a template register; any Board or committee letter (CW1 is not built); a print channel for letters.
+
+**Decided.** D1 consequence E: the receipt is AFRP's, in AFRP's name, whichever channel collected. D6: prepaid dues stay valid when a club goes dormant; the directory grace is 90 days (attested). D10: contributor communications are four moments — receipt, goal reached, funds transferred, purpose fulfilled — then an annual statement. D36: the tree is not a mailing list; the platform never initiates contact with a person in the file who is not a member. D66: the drive is the archive; a letter's adopted text lives there and the platform links to it. The committee workspace (P1) rule 3: a Board seat refuses on 6.2.3 and a committee seat on 8.1.2 at appointment; a lapse after appointment is shown and raised as a follow-up and the seat is never ended by the platform (13.1 and 13.2 are human acts). The club plan §9.2 (a design choice under Q-46): a member with no consent rows is treated as *yes* for operational messages they must receive and *no* for marketing and programme invitations.
+
+**In the by-laws.** "All current members shall receive annual renewal of membership notices" (8.12.2) — the one letter the text requires. The membership year is 1 January to 31 December (5.1). Dues received or postmarked by 30 April carry the vote for Deputy President, Members at Large, the Scholarship Committee and the Executive Committee that year (5.3; 8.12.5), and only dues paid from the applicant's own funds count for voting (8.12.4). Good standing is adherence to the Constitution and By-Laws and payment of AFRP and Local Club dues for the current year (4.3.1). A Board member must be in good standing of the Federation and of the Chapter Club if one exists in their locality, and is deemed an ambassador who encourages membership (6.2.3); every committee member must have been in good standing in the year before appointment and remain so, with their club if any (8.1.2); an elected officer who loses standing "shall be removed and replaced by one appointed by the President" (13.2); any officer, director or member may be removed for failing their duties (13.1). The President compiles the Past Presidents' active list each year and it is printed in the Annual Committee Directory (6.3.1). The Executive Director coordinates "all official approved A.F.R.P. communication that will be disseminated from the A.F.R.P. office" and runs the biweekly online newsletter (7.9.3). A letter with enough information to identify the applicant and their household, signed, is accepted as a membership application (8.12.2).
+
+**Historically (the intakes, role-level).** The renewal letter is sent each autumn (October in the latest year read; a December mailer in an earlier one) signed by the Membership Committee chair and the President, with a household-specific reply form and a code to the portal, offering renewal in the portal from October for the next year and an opt-in automatic renewal; it says nothing about club dues. The 2020–21 online drive plan segmented current, lapsed and non-members, planned a four-email sequence around a renewal day, a thank-you email with a welcome pack, suppression of renewed members from the campaign, handwritten letters from the chair to prospective recognition-tier members, and a personal call in place of mail for those prospects. A phone script asked which household members should receive correspondence. The Deputy President wrote to every club president in 2020 setting working expectations (Board membership, attendance at the monthly presidents' meeting and at Board meetings, an event a quarter). FED2's administrative-infrastructure part includes a Board welcome letter and welcome packages for Board and committee members, with job descriptions and an attendance expectation (P1 §1). The September 2026 Board minuted that a number of Board members had lost voting status under an attendance reading and would be put to reinstatement votes, and recorded "the tone of notices" as an open issue for the by-law review. Programmes write their own letters (camp acceptance and parents' letters, scholarship award and rejection letters, Leadership Ramallah acceptance and denial letters, an Arabic class welcome letter, donor thank-you letters within forty-eight hours under the two ARFECF fund policies); those belong to their programme notes and are listed in §2 only so the register is complete.
+
+**What is missing, against that.** A register of templates with an owner per letter; the renewal sequence as dated operational notices rather than a yearly mail-merge; the lapse and grace notices the 90-day parameter implies; the out-of-compliance notice as the human-facing half of P1's lapse follow-up; the new member's welcome beyond the receipt and checklist; the Board and committee welcome package as an object the seating act produces; the welcome session as an event type; and a decision on whether post is a channel of the platform at all.
+
+---
+
+## 2. The template register
+
+Every letter the platform sends or prints is a row on one register, under the comms desk, with: an id; a name; the **class** (operational, marketing, programme invitation — the workflow's three); the **trigger** (a dated event in the platform, never a person's initiative except where the row says "on demand"); the **signatory seat** (a seat on P1's register, never a person; the letter prints the seat's holder on the day it is produced); the **approved-wording status** (*open* until a text is adopted, with the adopting body and date, and the drive link to the adopted text, D66); the **record it reads** (the fields merged in, each a field the member already sees on their own record); the **consent it honours** (R27 per channel; the operational class under the club plan §9.2 reading; the message-class rules); the **channel** (email; text when B5 lands; post, §6); and the **entity** whose name it goes out under (AFRP, ARFECF or ARFHSN; D9, D55, D56). A letter with no row does not go out. A row with wording *open* produces a draft the signatory seat sees and nothing else.
+
+| Id | Letter | Class | Trigger | Signatory seat | Reads | Consent | Wording |
+|---|---|---|---|---|---|---|---|
+| LT-W1 | New member's welcome | operational | A join completes (national scope created) | Membership Committee chair and President (the renewal letter's practice; *open*, Q-63) | Member name, household, scopes and dates, club named, the first-login checklist, the member's own consent summary | A member must receive it (§9.2 reading); the verified channel of the join (S1) | open |
+| LT-W2 | The club's welcome | operational | The rule-named follow-up "new club membership" opens (P20-G1; C2) | The club president, or the seat the club names on its officers form | The club scope, the club's next events, the club's seat channel | Contact consent for the club's channel; the club sees the withheld | the club's own; open at Federation level |
+| LT-W3 | Household correspondence choice | operational | First login of a household head; on demand | The office (the Executive Assistant's seat, 7.10.2) | The household's adult members and which receive correspondence (the phone script's question, made a field) | — (a question, not a send) | open |
+| LT-R1 | Annual renewal notice | operational | A date the Membership Committee sets each year (practice: October, when next year's renewal opens) | Membership Committee chair and President | Scopes expiring on 31 December, the member's level, the club named, the magazine's print option, how to renew | 8.12.2: every current member; the §9.2 reading | open |
+| LT-R2 | Renewal reminders | operational | Dates after LT-R1, to members whose scope is still unrenewed; the count and spacing are a parameter (Q-64) | the same | the same | the same; a renewed member drops out of the sequence at renewal (the 2020–21 plan's suppression rule) | open |
+| LT-R3 | Franchise notice | operational | A date before 30 April to members with unpaid dues for the year | Membership Committee chair (the committee certifies, 8.12.6) | 5.3 and 8.12.5 cited with the date; 8.12.4 (own funds) stated | the §9.2 reading | open |
+| LT-R4 | Lapse notice | operational | 1 January, to a member whose national scope was not renewed | Membership Committee chair | The lapsed scope, that the member stays in the directory for the grace window, how to renew | the §9.2 reading | open |
+| LT-R5 | Directory-grace notice | operational | A set number of days before the 90-day grace ends (a parameter; Q-64) | Membership Committee chair | The date the directory row drops (D6, Slice D1) | the §9.2 reading | open |
+| LT-R6 | Pre-charge notice for automatic renewal | operational | A set number of days before a stored authorisation is charged | General Treasurer | The amount, the date, how to cancel | the authorisation itself | *gated*: automatic renewal is not in the Hub record (crosswalk D5 for the recognition tier; slice 5 for payments) |
+| LT-R7 | Receipt | operational | A payment is captured | The receipting entity's treasurer (AFRP's General Treasurer for dues, D1 E; ARFECF's or ARFHSN's for their gifts, D56) | The payment, the purpose, the entity's exempt-status language where the determination letter is on file | built | built; the exempt-status claim waits on the letter |
+| LT-R8 | Renewal campaign to lapsed members past the grace, and to non-members | marketing | A campaign the Membership Committee opens | Membership Committee chair | A segment of lapsed scopes; non-members only where a contact record with consent exists (D60; P4) | Marketing consent per channel; nothing to a person with no consent row | open |
+| LT-B1 | Board member's welcome letter and package | operational | A Board seat is created on P1's register (CW1) | President (FED2 §C's letter is the President's; *open*) | The seat, its body, its term, its vote property (6.2.2), the standing test (6.2.3), the attendance expectation as a guideline with Q-53 open, the package links (§5) | A seat-holder must receive it | FED2 §C text on the drive; adoption as the platform's text open |
+| LT-B2 | Committee member's welcome package | operational | A committee seat is created (CW1) | The committee chair, with the President as appointing authority (8.1.3) | The seat, the chair, the body's annual plan and meeting cadence (P1 §3.1, §3.2), the job description (FED2 Part IV §E), the drive folder | the same | the same |
+| LT-B3 | Out-of-compliance notice | operational | P1's lapse follow-up opens beside a seat (a Board member on 6.2.3; a committee member on 8.1.2; an elected officer on 13.2) | *open* (Q-65): the President (13.2 names the President to replace), or the body's chair, or the Executive Director as coordinator of official communication (7.9.3) | §4 | A seat-holder must receive it | open |
+| LT-B4 | Club president's expectations letter | operational | A club's officers form is received for the year (C1) | Deputy President (chair of the Council, 6.4.1; the 2020 practice) | The club's standing for the year, the Council's and Board's calendar, what the Federation provides | the same | open; the expectations themselves are Q-42 |
+| LT-B5 | Past President's active-status notice | operational | The President adopts the yearly active list (6.3.1; P1 §2.3) | President | The 6.3.1 test and the member's attendance as the events module holds it; the petition route (two-thirds of the Board) | the same | open |
+| LT-P* | Programme letters: camp acceptance and the parents' letter; scholarship award, missing-document and rejection; Leadership Ramallah acceptance and denial; the Arabic class welcome; the donor's four moments and annual statement (D10); ARFECF's forty-eight-hour thank-you; for the four selection programmes: acceptance (programme invitation), denial and waitlist (operational), the Leadership Ramallah standing reminder; the Arabic term's class welcome and certificate (P12 §2.5, §3.2, §3.5) | programme invitation or operational by the programme's note | the programme's | the programme's committee chair or its entity's treasurer | — | — | each programme's design note (P9, P11, P12; the Arabic term note); listed here so the register is one |
+| LT-I1 | Breach notice | operational | An incident's *notify* step (P15 §2.4) | President | What happened, what was reached, what the Federation did, what the person can do, whom to contact (the FTC content) | A member must receive it regardless of marketing consent; post list for no-channel members (§6) | open |
+| LT-I2 | Answer to a member's access request | operational | An access request row (P15 §4) | The data custodian seat (P15 §2.3; Q-137) | The member's own pages and anything held elsewhere | A member must receive it | open |
+
+Three rules of the register, labelled *design choice*: a letter's class is fixed on the row and not chosen at send; a template merges only fields the member can see on their own record (so a letter never tells a member something the platform hides from them); a letter sent is a dated row on the member's record, readable by the member in their inbox and by the office, and never a free-text note (Breeze Parity §4 r2).
+
+A row may address an institution on the institution registry (a partner, a venue, a media outlet — P6 §3, P14 §3) through the institution's own channel; it merges the institution's registry fields and nothing of any person.
+
+---
+
+## 3. The renewal sequence
+
+The year, with every notice an operational send and nothing marketing until a scope is past the grace:
+
+1. **October (practice; the date is the Membership Committee's parameter).** LT-R1 to every member with a scope expiring on 31 December (8.12.2). Renewal for the next year opens the same day (the portal's pre-purchase, carried into the platform as renewal of a scope before its end date: the new period starts 1 January, never earlier — 5.1). A member whose club collects national dues may renew through the club; standing starts at the club's collection (D1 D) and the sequence stops for that member when the collection is recorded, not when it is remitted.
+2. **November–December.** LT-R2 reminders on the parameter's spacing; a renewed scope leaves the sequence that day. The number of reminders is not in any document; the 2020–21 plan's four-email sequence was a campaign design, not a rule (Q-64).
+3. **1 January.** The scope lapses; standing shows lapsed to the member and to their club's roster and to nobody else (P19 rule, the directory never labels anyone lapsed); LT-R4 goes out; the 90-day directory grace starts (D6; Slice D1).
+4. **Before 30 April.** LT-R3 to every member of the year before who has not paid, citing 5.3 and 8.12.5 with the date and 8.12.4's own-funds rule, because a renewal after 30 April keeps the membership and loses the year's vote for the four positions. The Membership Committee's 10 May list to the Selection Committee (8.12.6) is produced from the paid scopes, not retyped.
+5. **Before the grace ends.** LT-R5; on day 90 the directory row and any RBPN listing drop together (P19 rule 7). After that the member is a lapsed member the Federation may still write to only under LT-R8's marketing consent.
+6. **Dormant club (D6).** Nothing in the sequence changes for the member: their dues stay valid to year end; LT-R1 names the club as dormant and offers the at-large or transfer route only once D5's at-large roll exists (open).
+7. **Automatic renewal.** The October letter has offered it since the portal did; the Hub record does not hold it. If built (slice 5 and a decision on the stored authorisation), LT-R6 precedes every charge, and D1's receipt follows it. Until then the platform offers no automatic renewal and says so on the renewal screen.
+
+A club's own dues run on the club's clock and the club's letters (LT-W2's sender; club plan §4.1 step 5); the national sequence never mentions a club's amount. Where one payment carries both (split at capture, D1), the national notice says the national scope is renewed and leaves the club's to the club.
+
+---
+
+## 4. The out-of-compliance notice (crosswalk B2)
+
+**What it is.** The letter that accompanies P1's lapse follow-up: when a member holding a Board seat, a committee seat or an elected office loses good standing (4.3.1, computed as the Hub computes it: national and club scopes, D1's collection date, D6's dormancy override), the platform opens a follow-up to the chair and the office (P1 §2.3) and drafts LT-B3 to the member. The notice is operational — a person must be told the state of their own seat — and it cites the by-law by number: 6.2.3 for a Board member, 8.1.2 for a committee member, 13.2 for an elected officer, with the clause quoted. It states the scope that lapsed, the date, how to renew, and what the text says follows: for 6.2.3 and 8.1.2 the by-laws state the condition and no mechanism, so the notice says the seat's standing is shown to the body and that removal is a human act under 13.1; for 13.2 it says the text provides removal and replacement by the President. **The platform ends no seat and changes no vote** (P1 rule 3; *design choice*, labelled there).
+
+**What it is not.** It is not the September 2026 attendance notice. The attendance test the Board applied to Board members generally is 6.3.1's Council of Past Presidents test, and whether it reaches other Board members is Q-53; no attendance notice is drafted by the platform until that is answered, and LT-B5 (the Past Presidents' own 6.3.1 notice) goes out only when the President adopts the yearly list. The minutes' concern with "the tone of notices" is a wording matter for the seat that signs (Q-62), which is why no wording is approved here.
+
+**Standing starts at collection (D1 D).** A Board member whose club collected their dues and has not remitted is in good standing; no notice is drafted. A variance between a club's attested collection and its remittance opens a ledger queue item (D1 follow-on) and never a notice to the member.
+
+**Signatory.** The record names no one. 13.2 gives the President the replacement; 7.9.3 gives the Executive Director the coordination of official communication; FED2 gives the chair, with the Deputy President and the President, the conversation about a committee member's commitment. Q-65.
+
+---
+
+## 5. The welcome package for a new Board or committee member (crosswalk C6)
+
+Produced by CW1 the day a seat is created with its dated appointing act (P1 rule 2); it is a page on the member's own record and an operational send (LT-B1 or LT-B2), never a document store. It holds, read from the registers and never typed: the seat (body, role, term start and end, the clause that seated it, the vote property with its citation — P1 §2.2, §2.5); the standing test the seat carries (6.2.3 or 8.1.2) with the member's current scoped standing beside it; the body's annual plan and meeting calendar (P1 §3.1, §3.2) and its seat channel (P1 §3.6); the body's drive folder (D66) and the FED2 job description for the role (FED2 Part IV §E, as a drive link); the attendance guideline as a guideline, with its question open (Q-53); the Selection Committee's vetting date, or "not yet vetted" (P1 rule 5); the reporting duties (FED2 §I; P1 §4) with their dates; and, for a Board seat, the Board's packet schedule (P1 §4.3). The orientation FED2 asks the staff to give is a meeting the staff liaison schedules (P1 §3.2), which the package links. The package is re-produced on any change to the seat (a term extension by Board vote, as in September 2026, is a dated act on the seat and a new package).
+
+A club president's seat on the Council and the Board derives from the officers form (C1); their package is LT-B1 for the Board seat plus LT-B4's expectations letter, and the two are one send.
+
+---
+
+## 6. The new member's welcome (crosswalk G4), and post as a channel
+
+**Digital.** LT-W1 goes out on the join's verified channel the day the national scope is created, with the receipt (LT-R7) and the first-login checklist the Hub already produces. It names the club the member chose and hands the club its follow-up (LT-W2; P20-G1). It carries the member's consent summary as set at join (R27) so the first thing the Federation sends is a statement of what the Federation will and will not do with the record. A programme invitation is a separate send under the programme-invitation class and the member's consent; the welcome itself invites nothing beyond the checklist (*design choice*: the welcome is operational and stays so).
+
+**The welcome session at special events (MIN Dec 2020).** An event type, not a letter: a sub-event of the Convention or the Mid-Year (the events module as built; the CRM requirements' sub-event shape) whose eligibility is a segment, "members whose first national scope started since the last Convention" (or since a date the organiser sets), with the organiser the Membership Committee chair's seat; invitations go out under the programme-invitation class to that segment; attendance is taken (B2) and the count is the Membership Committee's year-one measure (D67). A club may run the same type for its own new members as a club event (club plan §4.2). Whether the session is mandatory, who presents, and what it contains is the committee's; the platform holds the type and the segment.
+
+**Post.** The renewal letter has always been posted, with a reply form; 8.12.2 requires every current member to receive a renewal notice, and some members have no verified email channel. The platform today has email (slice 5) and, gated, text (B5); post is not a channel the record holds, and a printed batch of letters with addresses is a new purpose: addresses are under R27's field consents and the export consent is never granted (P19 rule 6). An operational letter to the member's own address is not an export to a third party, but a mailing house is one (the archive shows a mailing house returning files in 2019). The note does not decide this. Q-66: whether post is a channel of the platform for operational letters only, produced as a print batch for the office, and under what agreement a mailing house may hold it. Until answered, LT-R1 to a member with no verified email is listed to the office as "no channel: not sent", never silently dropped (the comms workflow's "not tracked, never zero").
+
+---
+
+## 7. Rules
+
+1. Every current member receives the annual renewal notice (By-Law 8.12.2); the platform lists any member it could not reach (comms workflow, undeliverable as not tracked).
+2. The membership year is 1 January to 31 December (5.1); a renewal before the end date starts on 1 January.
+3. The franchise notice cites 5.3, 8.12.5 and 8.12.4 by number and states the date; the 10 May list is produced from paid scopes (8.12.6).
+4. Standing is 4.3.1 as the Hub computes it; it starts at collection (D1 D) and survives a club's dormancy to year end (D6).
+5. A lapsed member stays in the directory for the attested 90-day grace and is never labelled lapsed there (D6; Slice D1; P19 rule 7).
+6. A Board member must be in good standing of the Federation and their club (6.2.3); a committee member likewise, before and during (8.1.2); an elected officer who loses standing is removed and replaced by the President (13.2); removal is a human act (13.1). The platform tells, and ends nothing (P1 rule 3; *design choice*).
+7. Every letter has a class fixed on its row; operational letters go to a member with no consent rows, marketing and programme invitations do not (club plan §9.2, a design choice under Q-46); consent is per channel and dated (R27; S1).
+8. The receipt is the receipting entity's (D1 E; D56; D9).
+9. A letter's signatory is a seat on P1's register, never a person (*design choice*; P19 §4's seat principle).
+10. No wording is adopted by the platform; the adopted text lives on the drive (D66) and the row links it (*design choice*).
+11. The platform never initiates contact with a person who is not a member and has no contact record with consent (D36; D60; P4).
+12. A letter merges only fields the member can see on their own record; a sent letter is a dated row, never a note (*design choice*; Breeze Parity §4 r2).
+13. A minor receives no letter; a household's letter goes to the adult who holds authority (R6; comms workflow).
+14. The Executive Director coordinates official communication from the office (7.9.3); the register is where that coordination is recorded (*design choice*).
+15. Every refusal names its rule.
+
+---
+
+## 8. What this note raises
+
+| Q | Question | Owner |
+|---|---|---|
+| Q-62 | Who adopts the wording of each Federation letter (the Board, the Executive Committee, the Membership Committee for its own, the President for the Board's), and whether adoption is minuted; the September 2026 "tone of notices" item belongs here | AFRP Board · Executive Director |
+| Q-63 | The signatory seats for the welcome and renewal letters: the practice is the Membership Committee chair and the President; no text says so | Membership Committee · President |
+| Q-64 | The renewal sequence's parameters: the October date, the number and spacing of reminders, the days before the grace notice | Membership Committee |
+| Q-65 | Who signs the out-of-compliance notice (6.2.3, 8.1.2, 13.2): the President, the body's chair, or the Executive Director under 7.9.3 — one question across notes, Q-65: who signs the out-of-compliance notice (P3, P16) | AFRP Board · President |
+| Q-66 | Whether post is a channel of the platform for operational letters, produced as a print batch for the office; under what agreement a mailing house may hold addresses | AFRP Board · Legal Advisor |
+| Q-67 | Whether a welcome session at the Convention and the Mid-Year is a standing sub-event the Membership Committee runs, and whether clubs are asked to run one | Membership Committee · Convention Innovation Committee |
+
+Carried, not new: Q-53 (which attendance rule applies to whom; no attendance notice until answered); Q-42 (the club presidents' expectations as a Board rule); Q-46 (the no-consent-rows reading); D5 (the at-large roll, which LT-R1 needs for a dormant club's members); crosswalk D5 (automatic renewal for the recognition tier, refused until the Board Rules & Regulations are on file); Q-33 (every seat rule here is built on the 2024 text).
+
+---
+
+## 9. Slices for the Hub
+
+| Slice | Builds | From | Gate |
+|---|---|---|---|
+| LT1 The template register and the renewal sequence | The register under the comms desk (class, trigger, signatory seat, wording status with drive link, fields read, consent, channel, entity); LT-W1, LT-W3, LT-R1 to LT-R5 as scheduled operational sends with the parameters as register rows; the sequence stopping at renewal or at a club's recorded collection; the 10 May list from paid scopes; the "no channel: not sent" list for the office; sent letters as dated rows on the member's record | §2, §3, §6 | Slice 5 (a real email provider) for anything to leave; Q-64 parameters as rows with no value, the sends refusing to schedule until set; Q-62 wording open, drafts only |
+| LT2 The Board and committee letters | LT-B1, LT-B2, LT-B4, LT-B5 produced on the seat's dated act; the welcome package page; LT-B3 drafted on P1's lapse follow-up with the by-law cited; nothing ended, nothing changed | §4, §5 | CW1 (P1) and C1 live; Q-65 signatory as a register row; Q-53: no attendance notice |
+| LT3 The welcome session | The event type as a Convention or Mid-Year sub-event and as a club event; the new-members segment; invitations under the programme-invitation class; attendance to the D67 count | §6 | None for the type; Q-67 for whether it is standing |
+| LT4 Post as a channel | A print batch of operational letters for the office, addresses under the member's own record, with the audit line | §6 | Q-66 |
+| LT5 Automatic renewal and its notice | The stored authorisation, LT-R6, the charge and the receipt | §3 step 7 | Slice 5; a decision on automatic renewal (crosswalk D5; the Board Rules & Regulations for the recognition tier) |
+
+Order: LT1 after slice 5; LT2 after CW1; LT3 any time; LT4 and LT5 when gated items clear.
+
+---
+
+## 10. Journeys proposed
+
+| Journey | Tests | Must reach | Slice |
+|---|---|---|---|
+| P3-J01 Every current member gets the renewal notice | 8.12.2: every scope expiring on 31 December is addressed; a member with no verified email appears on the office's not-sent list and nowhere else | meets | LT1 |
+| P3-J02 The sequence stops at the club's collection | A club records a collection in November; the member leaves the reminder sequence that day; remittance in January changes nothing (D1 D) | meets | LT1 |
+| P3-J03 The franchise notice cites the text | 5.3, 8.12.5 and 8.12.4 by number with the date; a renewal on 1 May keeps the membership and the member is absent from the 10 May list | meets | LT1 |
+| P3-J04 Lapse, grace, drop | 1 January: LT-R4; the directory row unchanged and unlabelled; the grace notice on the parameter's day; day 90: row and listing drop together (P19-J01 extended) | meets | LT1 |
+| P3-J05 A letter with open wording goes nowhere | A template with wording *open* produces a draft to the signatory seat and no send; adoption with a drive link enables it | meets | LT1 |
+| P3-J06 The welcome says what the Federation will do | LT-W1 carries the consent summary as set at join; no programme invitation rides on it; the club's follow-up opens (P20-G1) | meets | LT1 |
+| P3-J07 The welcome package is read, not typed | A Board seat created with its dated act produces LT-B1 with the seat, the clause, the vote property and the standing test; a committee seat produces LT-B2; a term extension re-produces it | meets | LT2 |
+| P3-J08 The out-of-compliance notice ends nothing | A Board member's club scope lapses; the follow-up opens (P1); LT-B3 is drafted citing 6.2.3; the seat and its vote stand; an elected officer's case cites 13.2 and names the President; no attendance notice exists | meets | LT2 |
+| P3-J09 Collected but not remitted | A Board member paid through a slow club; no follow-up, no notice (D1 D) | meets | LT2 |
+| P3-J10 A minor and a household | A family join: one welcome to the adult who holds authority; nothing addressed to the child (R6) | meets | LT1 |
+| P3-J11 The welcome session | The new-members segment is computed; the invitation goes under the programme-invitation class to consenting members only; attendance counts to D67 | meets | LT3 |
+| P3-J12 Post refused until decided | A print batch requested before Q-66 is answered refuses by name | guarded until Q-66 | LT4 |
+
+---
+
+## 11. What changes in the site's data with this note
+
+`workflows.yaml`: `join-renew-dues` gains the renewal sequence (§3) as steps and this note as a source, and `communications` gains the template register as a step with the rule that a letter without a row does not go out; `events` gains the welcome session as an event type. `experiences.yaml`: `new-member` gains LT-W1 and the welcome session; `member` the renewal sequence and the lapse and grace notices; `committee-member` the welcome package and the out-of-compliance notice; `club-president` LT-B4. `questions.yaml`: Q-62–Q-67 for governance to number. The crosswalk: rows B2, C6 and G4 to "Designed" pointing here; the P3 row marked written. `plan/MASTER-PLAN.md`: rows LT1–LT5.

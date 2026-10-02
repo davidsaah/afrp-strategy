@@ -33,6 +33,7 @@ SECTIONS = [
     dict(key="workflows", label="Workflows", href="workflows/index.html"),
     dict(key="prototype", label="Prototype", href="prototype/index.html"),
     dict(key="status", label="Status", href="status/index.html"),
+    dict(key="notes", label="Design notes", href="notes/index.html"),
     dict(key="library", label="Library", href="library/index.html"),
 ]
 
@@ -133,18 +134,61 @@ def status_key(s):
 
 
 def inline(text):
-    """Markdown for one line (bold, code, links) without a wrapping <p>."""
-    return re.sub(r"^<p>(.*)</p>$", r"\1", MD(str(text)).strip(), flags=re.S)
+    """Markdown for one line (bold, code, links) without a wrapping <p>; a backticked design file becomes a link to its note page."""
+    text = re.sub(r"`(AFRP-[A-Za-z0-9_.-]+\.md)`", lambda m: f"[`{m.group(1)}`]({{root}}{note_slug('design/' + m.group(1))})" if ("design/" + m.group(1)) not in NOT_RENDERED and (ROOT / "design" / m.group(1)).exists() else m.group(0), str(text))
+    return re.sub(r"^<p>(.*)</p>$", r"\1", MD(text).strip(), flags=re.S)
+
+
+# Documents the site's privacy scan (check.py) flags are linked to the repository, not rendered:
+# they predate the site's rule and carry names the scan refuses on a public page.
+NOT_RENDERED = {"design/AFRP-Delivery-Status.md", "design/AFRP-Shaheen-1982-Eligibility-Source.md", "design/AFRP-Program-Architecture.md",
+                "design/AFRP-Family-Tree-Integration.md", "design/AFRP-Enterprise-Architecture.md", "design/AFRP-Consolidated-Platform-Map.md",
+                "design/AFRP-Scholarship-Program-Spec.md", "design/AFRP-Program-Experience-Architecture.md", "design/AFRP-Element-Index.md",
+                "design/AFRP-Bylaws-Reconciliation.md", "design/AFRP-Bylaws-2024-Divergence.md", "design/AFRP-Architecture-Addendum-GCP.md",
+                "design/AFRP-Alumni-Recruiting-Use-Cases.md", "design/AFRP-Rules-Register.md", "design/AFRP-Four-Lens-Architecture.md",
+                "design/AFRP-Family-Tree-Design.md", "design/AFRP-Electronic-Voting.md"}
+
+
+def note_slug(path):
+    """design/AFRP-Foo.md -> notes/AFRP-Foo.html; design/bylaws/X.md -> notes/bylaws-X.html"""
+    rel = path[len("design/"):-3]
+    return "notes/" + rel.replace("/", "-") + ".html"
 
 
 def src_link(s):
     path = s.split(" ")[0]
     if (ROOT / path).exists():
-        target = BLOB + path if not path.startswith("docs/") else None
         if path.startswith("docs/"):
             return f'<a href="{{root}}{E(path[5:])}">{E(s)}</a>'
-        return f'<a href="{target}">{E(s)}</a>'
+        if path.startswith("design/") and path.endswith(".md") and path not in NOT_RENDERED:
+            return f'<a href="{{root}}{note_slug(path)}">{E(s)}</a>'
+        return f'<a href="{BLOB}{path}">{E(s)}</a>'
     return E(s)
+
+
+def render_note(path):
+    """A design note as a site page: Markdown, with links to other notes and to the repo rewritten."""
+    import re as _re
+    text = (ROOT / path).read_text(encoding="utf-8")
+    title = next((l[2:].strip() for l in text.splitlines() if l.startswith("# ")), path)
+    sub = next((l[4:].strip() for l in text.splitlines() if l.startswith("### ")), "")
+    body = text.split("\n", 1)[1] if text.startswith("# ") else text
+    def fix(m):
+        href = m.group(2)
+        if href.endswith(".md") and not href.startswith("http"):
+            target = os.path.normpath(os.path.join(os.path.dirname(path), href)).replace("\\", "/")
+            rendered = (ROOT / target).exists() and target not in NOT_RENDERED and (target.count("/") == 1 and target.startswith("design/") or target.startswith("design/bylaws/"))
+            if rendered:
+                return f"[{m.group(1)}]({{root}}{note_slug(target)})"
+            if (ROOT / target).exists():
+                return f"[{m.group(1)}]({BLOB}{target})"
+        return m.group(0)
+    body = _re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", fix, body)
+    # bare backticked design paths become links too
+    def _rendered(t):
+        return (ROOT / t).exists() and t not in NOT_RENDERED and ((t.count("/") == 1 and t.startswith("design/")) or t.startswith("design/bylaws/"))
+    body = _re.sub(r"`(design/[A-Za-z0-9_./-]+\.md)`", lambda m: f"[`{m.group(1)}`]({{root}}{note_slug(m.group(1))})" if _rendered(m.group(1)) else m.group(0), body)
+    return title, sub, MD(body)
 
 
 def table(headers, rows, cls=""):
@@ -476,7 +520,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
           kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html")])
 
     meta, body = md_page("whats-next.md")
-    nt = table(["#", "Design note", "Covers", "Ready to write?"],
+    nt = table(["#", "Design note", "Covers", "Status"],
                [[n["id"], E(n["note"]), ", ".join(f'<a href="{{root}}strategy/crosswalk.html">{E(x)}</a>' for x in [n["covers"]]), inline(n["ready"])] for n in notes])
     write("history/whats-next.html", meta["title"], MD(body).replace("<!--NOTES-->", nt), "history",
           kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html"), ("Evolution", "history/index.html")])
@@ -666,6 +710,22 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
           .replace("<!--LENSES-->", table(["Lens", "Journeys"], lens_rows)).replace("<!--BRANCHES-->", table(["Branch", "Journeys"], br_rows))
           .replace("<!--PROGRAMMES-->", pg).replace("<!--BOARDDATE-->", E(board["generated"][:10])))
     write("status/index.html", "Development status", st, "status", kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html")])
+
+    # ------------------------------------------------------------- DESIGN NOTES
+    note_paths = sorted(str(p.relative_to(ROOT)).replace(os.sep, "/") for p in (ROOT / "design").glob("*.md")) + \
+                 sorted(str(p.relative_to(ROOT)).replace(os.sep, "/") for p in (ROOT / "design/bylaws").glob("*.md"))
+    note_rows = []
+    for np_ in note_paths:
+        title, sub, html_body = render_note(np_)
+        slug = note_slug(np_)
+        if np_ in NOT_RENDERED:
+            note_rows.append([f'<a href="{BLOB}{np_}">{E(title)}</a> <span class="muted small">(in the repository)</span>', E(sub), f'<a class="tag" href="{BLOB}{np_}">{E(np_.split("/")[-1])}</a>'])
+            continue
+        write(slug, title, f'<p class="small muted">Source: <a href="{BLOB}{np_}">{E(np_)}</a> in the public repository. The design record outranks this rendering only in the sense that the file is the record (D41); the page is generated from it.</p>' + html_body,
+              "notes", kicker="Design record", lede=sub, crumbs=[("Home", "index.html"), ("Design notes", "notes/index.html")])
+        note_rows.append([f'<a href="{{root}}{slug}">{E(title)}</a>', E(sub), f'<a class="tag" href="{BLOB}{np_}">{E(np_.split("/")[-1])}</a>'])
+    write("notes/index.html", "Design notes", '<p>Every document in the design record, rendered from <code>design/</code>. The registers (decisions, rules, delivery status), the design notes P1 onward, the architecture and specification documents, and the by-law extracts. Precedence (D41): the by-law texts, then the registers and these documents, then the prototype, then the Hub\'s code.</p>' + table(["Document", "What it is", "File"], note_rows),
+          "notes", kicker="Design record", lede="The design notes and registers the Hub is built from, readable here and kept in the repository.", crumbs=[("Home", "index.html")], chips=[f"{len(note_rows)} documents"])
 
     # ------------------------------------------------------------- LIBRARY
     meta, body = md_page("library.md")

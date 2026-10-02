@@ -68,7 +68,7 @@
 - id: Q-10
   title: Does a suspension recorded after certification withhold the ballot?
   detail: The voter roll is frozen so nobody can be disenfranchised after it. A member suspended on the morning of the poll still holds a roll entry; both readings are defensible.
-  owner: Board · Elections Committee
+  owner: AFRP Board · Selection Committee
   goal: governance
   branch: junction
   source: Design Status
@@ -105,7 +105,7 @@
   decided: "Confirmed by the project owner, 1 Oct 2026: the roster follows By-Law 7.3.3"
 - id: Q-15
   title: Who maintains and pays for the platform after launch?
-  detail: No document names a maintainer or an annual budget line. The previous system could not be maintained once its contractor left.
+  detail: "No document names a maintainer or an annual budget line. The previous system could not be maintained once its contractor left. The Executive Director note (P16 §8) gives the question a shape: whether the Executive Director owns the platform's store register, the vendor accounts and the budget line under 7.9.3, or the Digital Infrastructure Committee's chair does, or a contractor under a Board-approved agreement, and the line's entity and amount. The answer gates IR5, the backups and store register slice."
   owner: Board
   goal: members
   branch: all
@@ -120,7 +120,7 @@
   decided: "D66"
 - id: Q-17
   title: Which revision of the 2021 Recommendations was adopted?
-  detail: By-Law 17.1.4 incorporates the "Strategic Planning Proposal". The 3 May 2021 revision is located but not yet shown by minutes to be the one voted at Jacksonville.
+  detail: "By-Law 17.1.4 incorporates the \"Strategic Planning Proposal\". The 3 May 2021 revision is located but not yet shown by minutes to be the one voted at Jacksonville. The Selection Committee workflow (P5) reads Part IV §G of that revision and asks the same thing from the other side: whether §G's process text was adopted with the job descriptions, since the committee's attendance criterion and the chair's three years rest on it (Q-77)."
   owner: Strategic Planning Committee
   goal: governance
   branch: all
@@ -265,7 +265,7 @@
   decided: "D59"
 - id: Q-35
   title: The endowment's rules and its holding entity
-  detail: The 2012 Endowment Fund Policy Statement governs today. A 2025 distribution guide, an undated draft, sets a cap on a three-year average and a share of every restricted gift for operations, and calls the fund the AFRP Endowed Fund held across AFRP and ARFECF accounts. Decision 2 puts the endowment in ARFECF. An investment policy statement goes to both boards in November 2026.
+  detail: "The 2012 Endowment Fund Policy Statement governs today. A 2025 distribution guide, an undated draft, sets a cap on a three-year average and a share of every restricted gift for operations, and calls the fund the AFRP Endowed Fund held across AFRP and ARFECF accounts. Decision 2 puts the endowment in ARFECF. An investment policy statement goes to both boards in November 2026. The fund rules note (P9) adds a sub-question: who may reduce, waive or carry over a mandatory distribution and by what vote, and whether the reduced year and the carried-over half-year on record were authorised and by whom."
   owner: AFRP Board · ARFECF Board · Investment Committee
   goal: funding
   branch: care
@@ -280,7 +280,7 @@
   decided: "D57 (the rule stays D1)"
 - id: Q-37
   title: How convention delegates are certified
-  detail: Per-club voting lists are produced from the member database before the Convention. Who certifies them, the cut-off and the quorum rule are not written down.
+  detail: "Per-club voting lists are produced from the member database before the Convention. The 2024 text answers part of this: the Selection Committee certifies (9.3.5, 9.1.4), the Membership Committee lists by community by 10 May (8.12.6) and the franchise cut-off is 30 April (5.3, 8.12.5); the workflow note (P5 §3.8) builds on that. What stays open here is the delegate quorum rule; the challenge route and the certification deadline are Q-78."
   owner: Selection Committee · AFRP Board
   goal: governance
   branch: junction
@@ -331,7 +331,7 @@
   source: Club SOP (2025); By-Laws 2024 Article IV; Club Experience Plan §6.6
 - id: Q-44
   title: The Executive Director's access to club records against the counts-only rule
-  detail: By-Law 7.9.3 gives the Executive Director access to all Federation and Chapter Club records; the clubs page as built shows the Federation a club's data as counts, never names (Breeze Parity §3, slice B1). Four-Lens §6.3 (August 2026) lets national staff read every club roster without export; Breeze Parity (September 2026) built the view as counts; which of the two applies to a named-purpose read under 7.9.3 is part of this question. The text wins over both; the platform needs the purposes for which that access is used and an audit line for each use.
+  detail: "By-Law 7.9.3 gives the Executive Director access to all Federation and Chapter Club records; the clubs page as built shows the Federation a club's data as counts, never names (Breeze Parity §3, slice B1). Four-Lens §6.3 (August 2026) lets national staff read every club roster without export; Breeze Parity (September 2026) built the view as counts; which of the two applies to a named-purpose read under 7.9.3 is part of this question. The text wins over both; the platform needs the purposes for which that access is used and an audit line for each use. The Executive Director note (P16 §3.2) gives the answer its shape: a read of a club's names as an act with a purpose from a Board-adopted list (five are offered from 7.9.2, 8.4.1 and P15), the audit line written before the first row renders, the club shown each read the same day, and counts for the Council; the list itself is what the Board adopts."
   owner: AFRP Board · Legal Advisor
   goal: governance
   branch: junction
@@ -345,7 +345,7 @@
   source: Programme committee records (2019–2026); Club Experience Plan §3.4
 - id: Q-46
   title: Whether a member may know a follow-up exists about them
-  detail: A club's follow-up is a task about a person, closed and never deleted, read by the club's officers and nobody else (Breeze Parity §4). Whether the member may know one exists, or read it, is a question of privacy law that varies by state and is not in the record. The same question covers what a member who has never signed in is deemed to have consented to (the plan proposes no for marketing, yes for operational messages, as a design choice).
+  detail: "A club's follow-up is a task about a person, closed and never deleted, read by the club's officers and nobody else (Breeze Parity §4). Whether the member may know one exists, or read it, is a question of privacy law that varies by state and is not in the record. The same question covers what a member who has never signed in is deemed to have consented to (the plan proposes no for marketing, yes for operational messages, as a design choice). The retention note (P15 §4) adds the request side: whether a member who asks for their own record is told that a follow-up existed about them; erasure as a policy and the member's own copy are Q-140."
   owner: Legal Advisor · Membership Committee
   goal: clubs
   branch: all
@@ -366,8 +366,764 @@
   source: design/AFRP-Camp-Directory-Network-Plan.md (browse axes); design/AFRP-Directory-Formats.md §2
 - id: Q-49
   title: Community contacts for places without a chapter club
-  detail: The Federation's printed Committee Directory listed a contact person for each community with no chapter club. No by-law names such a seat and the platform has none; the Membership Committee's composition (By-Law 8.12.1) reaches only communities with a chapter. Whether the Federation appoints community contacts, who appoints them, and what the leadership directory shows them as is not written.
+  detail: The Federation's printed Committee Directory listed a contact person for each community with no chapter club. No by-law names such a seat and the platform has none; the Membership Committee's composition (By-Law 8.12.1) reaches only communities with a chapter. Whether the Federation appoints community contacts, who appoints them, and what the leadership directory shows them as is not written. The 2023 Mid-Year notes record a proposal to appoint a Federation "city representative" where a club is inactive — the same question from another source (P13).
   owner: AFRP Board · Membership Committee
   goal: clubs
   branch: junction
   source: Committee Directory 2017–18 (the officer archive, structure only; later editions listed, not read); By-Laws 2024 (8.12.1); design/AFRP-Directory-Formats.md §2
+- id: Q-50
+  title: "Which committee list seeds the register"
+  detail: "The Constitution names fourteen standing committees and By-Law 8.2.1 names fifteen, adding the Government Affairs Committee, which an unnumbered paragraph under 8.15 then establishes. The heading of 8.10 reads \"Constitutional Committee\" while the text beneath it constitutes the Young Leader Committee. The platform's register of bodies has to seed one list; the Constitution Committee should say which, and fix the drafting."
+  owner: "Constitution Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7; design/AFRP-Advocacy.md §6"
+- id: Q-51
+  title: "Are co-chairs a seat?"
+  detail: "Every committee directory lists co-chairs and no by-law creates them. The question is whether a co-chair is a seat the President appoints under 8.1.3 and whether it carries the chair's duties, such as approving minutes and signing reports. Until answered the register labels a co-chair \"no appointing text\"."
+  owner: "President · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7"
+- id: Q-52
+  title: "Quorum for a committee"
+  detail: "No by-law states a quorum for any committee. Whether By-Law 12.1 (Robert's Rules) supplies a majority-of-members default, or the Board sets one, is open. The workspace computes no quorum until it is answered."
+  owner: "Legal Advisor · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7"
+- id: Q-53
+  title: "Which attendance rule applies to whom"
+  detail: "The 2021 job descriptions count two unexcused absences in the Federation year for committee members and per calendar year for Board members. In September 2026 the Board applied By-Law 6.3.1's test, written for the Council of Past Presidents, to Board members generally. Which rule applies to which seat, and with what consequence, has to be settled before the platform drafts any attendance notice."
+  owner: "AFRP Board · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7; design/AFRP-Letters-and-Onboarding.md §8"
+- id: Q-54
+  title: "Is the quarterly committee report still required, and on which year?"
+  detail: "The 2021 recommendations ask each committee for a quarterly report. Practice is a report at each Board meeting. Whether the quarterly report stands, and whether its year is the fiscal year, the calendar year or the Federation year, sets the platform's reporting period; until then the report runs on demand."
+  owner: "Deputy President · Executive Director"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7"
+- id: Q-55
+  title: "Committee budget lines"
+  detail: "Which committees hold a budget line of their own, in which entity's books, and who proposes them under By-Law 8.7.1 is not written. The Board agreed in September 2026 that chairs should have defined budgets. A body with no line reports an empty, labelled money section until this is answered."
+  owner: "Finance Committee"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7; design/AFRP-Committee-Planning-Survey.md §7"
+- id: Q-56
+  title: "Who is each body's staff liaison, and who takes committee minutes"
+  detail: "The 2021 recommendations named an Executive Administrator and a Program Coordinator; the by-laws give Board and Executive Committee minutes to the Executive Assistant and custody to the Executive Secretary; today's staff are a programme director and a coordinator. The question is who is each body's liaison and who takes a committee's minutes. It carries a second half: whether the Executive Director's seat is the staff liaison on every appointed committee by By-Law 7.9.2 alone, reading every committee workspace by default, or only where the office map assigns it."
+  owner: "Executive Director · President"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7; design/AFRP-Executive-Director.md §10"
+- id: Q-57
+  title: "Is the frozen Board packet a record in its own right?"
+  detail: "The platform assembles and freezes the Board packet and files a copy on the drive. Whether the frozen packet on the platform is itself a record, or the drive copy is the only record under Decision 66 and the Executive Secretary's custody (7.4.1), decides what the platform must keep."
+  owner: "Executive Secretary · AFRP Board"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §7"
+- id: Q-58
+  title: "The two dates of ARFHSN's six-monthly report"
+  detail: "ARFHSN's by-laws require a financial and operational report to the AFRP Board every six months, and Decision 63 has the platform produce it. The by-law names no dates. Thirty November and 31 May, six months apart on ARFHSN's fiscal year, are offered as a parameter for its Board to set."
+  owner: "ARFHSN Board of Trustees"
+  goal: governance
+  branch: care
+  source: "design/AFRP-Committee-Workspace.md §7"
+- id: Q-59
+  title: "Is the committee planning survey yearly, and when does it open?"
+  detail: "The crosswalk calls the survey yearly; one survey is on file, from March 2025. Whether it runs every year, and whether its window sits between the January Mid-Year and the Finance Committee's budget drafting for the July General Assembly, is for the Deputy President and the two committees to say. The open date is a parameter with no value until then."
+  owner: "Deputy President · Strategic Plan Committee · Finance Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Planning-Survey.md §7"
+- id: Q-60
+  title: "The survey form's next version"
+  detail: "The 2025 form asked eight questions and carried no SWOT grid, although the covering letter described the exercise as a SWOT. The next version could keep the eight questions, add the grid, and tag each answer by branch and goal so the roll-up reads straight onto the strategy. The Strategic Plan Committee decides what the form asks."
+  owner: "Strategic Plan Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Planning-Survey.md §7"
+- id: Q-61
+  title: "Do the affiliates' committees answer the Federation's survey?"
+  detail: "ARFECF's fund committees and ARFHSN's committees plan under their own Boards. Whether they answer the Federation's planning survey and appear in its roll-up, or plan separately, decides which bodies the cycle opens for. Until answered the survey reaches AFRP's bodies alone."
+  owner: "AFRP Board · ARFECF Board · ARFHSN Board of Trustees"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Planning-Survey.md §7"
+- id: Q-62
+  title: "Who adopts each letter's wording"
+  detail: "Every letter the platform sends is a row with an approved wording and the body that adopted it. Who adopts the wording of each Federation letter, and whether the adoption is minuted, is not written; the Board's September 2026 item on the tone of notices belongs here. A row whose wording is open produces a draft and no send."
+  owner: "AFRP Board · Executive Director"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Letters-and-Onboarding.md §8"
+- id: Q-63
+  title: "Who signs the welcome and renewal letters"
+  detail: "The practice is that the Membership Committee chair and the President sign the renewal letter. No text says so. The signatory of each letter is a seat on the register, so the committee and the President should confirm it."
+  owner: "Membership Committee · President"
+  goal: members
+  branch: all
+  source: "design/AFRP-Letters-and-Onboarding.md §8"
+- id: Q-64
+  title: "The renewal sequence's parameters"
+  detail: "The renewal letter goes out in the autumn, with reminders and then a grace notice. The October date, the number and spacing of the reminders and the days before the grace notice are parameters the Membership Committee sets; the platform refuses to schedule a step whose parameter has no value."
+  owner: "Membership Committee"
+  goal: members
+  branch: all
+  source: "design/AFRP-Letters-and-Onboarding.md §8"
+- id: Q-65
+  title: "Who signs the out-of-compliance notice"
+  detail: "A member of the Board or a committee who falls out of good standing receives a notice citing By-Laws 6.2.3, 8.1.2 and 13.2. Whether the President, the body's chair or the Executive Director under 7.9.3 signs it is not written. The same question covers which letters the Executive Director's seat signs at all, since 7.9.3 says only \"coordinate\"."
+  owner: "AFRP Board · President"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Letters-and-Onboarding.md §8; design/AFRP-Executive-Director.md §10"
+- id: Q-66
+  title: "Is post a channel of the platform?"
+  detail: "Some members have no verified email or phone. Whether the platform produces a print batch of operational letters for the office to post, and under what agreement a mailing house may hold members' addresses, decides whether post is a platform channel at all."
+  owner: "AFRP Board · Legal Advisor"
+  goal: members
+  branch: all
+  source: "design/AFRP-Letters-and-Onboarding.md §8"
+- id: Q-67
+  title: "The welcome session for new members"
+  detail: "A welcome session at the Convention and the Mid-Year was proposed in December 2020. Whether it is a standing sub-event the Membership Committee runs, and whether clubs are asked to run one, decides whether the platform carries it as an event type with its own invitations."
+  owner: "Membership Committee · Convention Innovation Committee"
+  goal: members
+  branch: junction
+  source: "design/AFRP-Letters-and-Onboarding.md §8"
+- id: Q-68
+  title: "May the platform send a referred person one invitation?"
+  detail: "A member who refers a family supplies a channel the platform has never verified. Whether the platform may send one operational invitation to that channel, or the referrer must carry the invitation, is the one gate on the referral design. The wording of either is to be adopted with it."
+  owner: "Legal Advisor · Membership Committee"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Family-Referral.md §7"
+- id: Q-69
+  title: "May a non-member contact be linked to a tree node?"
+  detail: "A referred person may already appear in the family tree. Whether a non-member's contact record may be linked to a tree node, and who may make the link, is not decided; Decision 36 keeps the tree's channels out of membership work, and the referral design does not link the two."
+  owner: "Family Tree Committee · Membership Committee"
+  goal: heritage
+  branch: heritage
+  source: "design/AFRP-Family-Referral.md §7"
+- id: Q-70
+  title: "The non-member contact record: who it serves, and one retention register"
+  detail: "Decision 60 keeps a contact record (name, verified channel, consent) for a non-member who registers for an Arabic class. Six design notes use the same shape for other people the platform must hold: a referred person, an applicant who is not a member, a media contact, a staffer at a public office, an AFRPWorks candidate. The question is whether D60's record serves all of them with programme-scoped fields, on what consent basis each is held, and whether a non-member learner, applicant or candidate may be told about the next cycle. How long each is kept is a row of the retention register, Q-76."
+  owner: "David · Membership Committee · Legal Advisor"
+  goal: members
+  branch: all
+  source: "design/AFRP-Family-Referral.md §7; design/AFRP-Press-Workflow.md §8; design/AFRP-Selection-Programmes.md §5; design/AFRP-Advocacy.md §6; design/AFRP-Incident-Response-and-Retention.md §9; design/AFRP-AFRPWorks.md §10"
+- id: Q-71
+  title: "Does a referral earn the referrer anything?"
+  detail: "The 2023 minutes ask families to refer families. Whether a referral earns the referrer anything is undecided. If money, By-Law 8.12.4 (own funds) has to be kept; if recognition, it needs a register to sit on."
+  owner: "AFRP Board · Membership Committee"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Family-Referral.md §7"
+- id: Q-72
+  title: "May a club record a prospect with no referrer?"
+  detail: "The club journeys let a club secretary record a prospective member. Whether a club may record a prospect nobody referred, and under what consent that person is first contacted, is the same question the referral raises from the club's side."
+  owner: "Membership Committee · Legal Advisor"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Family-Referral.md §7"
+- id: Q-73
+  title: "Partial terms on the Selection Committee, and the first cohort"
+  detail: "Article XVII caps service on the Selection Committee at six years. Whether a partial term counts and whether a break resets the count is not written. The committee has four seated members in 2026 against the nine the text requires, so the first cohort's dates have to be set before the staggered terms can run."
+  owner: "Selection Committee · Constitution Committee"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-Selection-Committee-Workflow.md §7"
+- id: Q-74
+  title: "The Election and Credentials Committees"
+  detail: "By-Laws 9.2.1, 9.2.3, 9.2.4 and 9.3.4 give duties to an Election Committee and a Credentials Committee that the 2024 text no longer constitutes. The choice is to create them under 8.1.1, fold their duties into the Selection Committee by amendment, or leave them, and to say who performs each duty in 2027. Until then the platform labels them step actors with no constituting text."
+  owner: "President · Constitution Committee"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-Selection-Committee-Workflow.md §7"
+- id: Q-75
+  title: "What the Selection Committee's approval gates"
+  detail: "Article XVII makes the committee responsible for approving every individual recommended for a Federation seat. Whether a floor nominee under 9.3.1, a Member at Large filing under 6.5.2 and an Executive Committee candidate under 7.1.2 must have been approved first is Divergence item 9. The same question asks whether a seat may be recorded as filled before the committee's approval is dated, and whether 17.1.1 reaches programme committees, created committees and ARFECF's three elected Scholarship seats. A clarifying amendment belongs in the Article IX package."
+  owner: "Constitution Committee · General Assembly"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-Selection-Committee-Workflow.md §7; design/AFRP-Committee-Workspace.md §7"
+- id: Q-76
+  title: "Retention periods: one register, one owner per row"
+  detail: "The platform never deletes a ledger line, a frozen roll or a decision, and almost nothing in the record says how long anything about a person is kept. The retention schedule gathers the periods with no value: a Selection Committee application's statement after the cycle; each programme's application statement, answers, documents and receipts, and who deletes the committee's drive copies; how long a closed member record keeps its personal fields and how long sent messages are kept; whether seven years is adopted for financial supporting documents and the drive's folders; the audit and exercise logs and election receipts. Each row needs a value and an owner before any deletion job runs."
+  owner: "AFRP Board · Legal Advisor · CPA"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §7; design/AFRP-Selection-Programmes.md §5; design/AFRP-Incident-Response-and-Retention.md §9; design/AFRP-AFRPWorks.md §10"
+- id: Q-77
+  title: "Are the 2021 attendance criterion and the chair's three years rules?"
+  detail: "The 2021 recommendations' job description for the Selection Committee adds an eligibility test (consistent attendance at Mid-Years and Conventions in the preceding three years) and three years' involvement for the chair; Article XVII carries neither. Whether they are rules, and by what text, decides whether the platform scores attendance or only shows it. Which revision of the recommendations was adopted is Q-17."
+  owner: "Strategic Planning Committee · Constitution Committee"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-Selection-Committee-Workflow.md §7"
+- id: Q-78
+  title: "Challenging a refused certification, and the certification deadline"
+  detail: "The old 8.11.3 made the Board's decision on a challenge final; the 2024 text deleted it. How a member challenges a refused certification, who decides finally, and by what date the Selection Committee must certify are not written. The platform records a challenge as a decision item escalating to the Board, labelled provisional, until this is answered; the delegate quorum stays with Q-37."
+  owner: "Selection Committee · AFRP Board · Legal Advisor"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-Selection-Committee-Workflow.md §7"
+- id: Q-79
+  title: "The emailed ballot of 9.2.2"
+  detail: "By-Law 9.2.2 lets a ballot be returned by email. Whether the committee will accept one, how its secrecy and custody are kept against 9.2.3's sealed-envelope rule, and what counts as a receipt for it are for the Legal Advisor and the committee. Emailed ballots stay off in the platform until then."
+  owner: "Legal Advisor · Selection Committee"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-Selection-Committee-Workflow.md §7"
+- id: Q-80
+  title: "Who approves a Federation statement, letter or position"
+  detail: "By-Law 7.9.3 says the Executive Director coordinates \"official approved\" communication; practice is that the President signs. Who approves the text of a public statement, a letter to an official or an advocacy position before it issues (the President alone, the Executive Committee, the Executive Director, the Government Affairs Committee), whether the Legal Advisor must review a statement on legislation, and whether approval is minuted are not written. The platform holds the approver seat as a parameter with no value and refuses to issue while it is empty."
+  owner: "AFRP Board · President · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Press-Workflow.md §8; design/AFRP-Advocacy.md §6"
+- id: Q-81
+  title: "The positions policy and the 501(c)(4) lobbying consequences"
+  detail: "One Federation letter says it takes no formal positions on final political outcomes; others urge a vote on named bills. Whether a positions policy exists, and whether lobbying by a membership 501(c)(4) obliges the Federation to tell members what share of dues is non-deductible or to pay proxy tax, are for the Legal Advisor and the CPA with the Board, together with Decision 65's confirmation. The lobbying record's row definitions are the Advocacy note's own question."
+  owner: "Legal Advisor · CPA · AFRP Board"
+  goal: voice
+  branch: leadership
+  source: "design/AFRP-Press-Workflow.md §8; design/AFRP-Advocacy.md §6"
+- id: Q-82
+  title: "Is the Media and PR committee constituted, and is the communications manager a seat?"
+  detail: "The 2018 business plan describes a Media and Public Relations Committee; the 2024 by-laws constitute none, though it appears in the directories. Whether it is created on the register under 8.1.1, with whom as chair, and whether the 2020 deck's communications manager is a seat or the Executive Director's own duty under 7.9.3, are the President's and the Executive Director's to say."
+  owner: "President · Executive Director"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Press-Workflow.md §8"
+- id: Q-83
+  title: "The first vocabulary of volunteer interests"
+  detail: "A member opts in to interests from a list the Federation sets as data, not code. The first list is drawn from the record (spokesperson, writer, translator, chaperone, mentor, event help, committee service and so on, with advocacy added for the Government Affairs Committee's member leads). Who adopts it and who may change it (the Board, the Executive Director under 7.9.3, or each programme committee for its own terms) is open; nothing is live until it is set."
+  owner: "AFRP Board · Executive Director"
+  goal: members
+  branch: all
+  source: "design/AFRP-Volunteer-Interests.md §9; design/AFRP-Advocacy.md §6"
+- id: Q-84
+  title: "May a non-member be on a roster?"
+  detail: "By-Law 8.1.2 binds committee members to good standing and says nothing of volunteers. Whether a lapsed member past the grace, a non-member Arabic learner or a professional invited to the Medical Mission may be on any roster is not written. Rosters are members-only until it is."
+  owner: "AFRP Board · Membership Committee · ARFHSN Board"
+  goal: members
+  branch: all
+  source: "design/AFRP-Volunteer-Interests.md §9"
+- id: Q-85
+  title: "A recorded thank-you for volunteers"
+  detail: "Contributors get four recorded moments under Decision 10. Whether volunteers get a recorded thank-you or recognition moment, and who sends it, is not in the record."
+  owner: "Executive Director · programme committees"
+  goal: members
+  branch: all
+  source: "design/AFRP-Volunteer-Interests.md §9"
+- id: Q-86
+  title: "Which volunteer roles are screened, and does the FCRA reach unpaid roles?"
+  detail: "The camp screens its staff. Which other roles touching minors must be screened, what kinds of check, how long a check stays valid, who pays, and whether the Federation's rule binds a club's youth event are not written. Whether the Fair Credit Reporting Act's employment rules bind the Federation for unpaid roles could not be confirmed from a primary source and is for the Legal Advisor."
+  owner: "Legal Advisor · camp committee · AFRP Board"
+  goal: operations
+  branch: education
+  source: "design/AFRP-Volunteer-Interests.md §9"
+- id: Q-87
+  title: "Medical Mission credential verification"
+  detail: "Whether the Medical Mission verifies a volunteer's professional credential, by whom and to what standard is carried from the programme register. The platform now has a place to record the fact and date of a check, never its content."
+  owner: "ARFHSN Board · Medical Mission committee"
+  goal: operations
+  branch: care
+  source: "design/AFRP-Volunteer-Interests.md §9"
+- id: Q-88
+  title: "Are volunteer hours recorded?"
+  detail: "Nothing in the record asks for volunteer hours. Whether they are recorded at all, for which purposes (grant narratives, in-kind valuation, recognition), and by whose entry is for the Board with the Finance Committee and the CPA."
+  owner: "AFRP Board · Finance Committee · CPA"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Volunteer-Interests.md §9"
+- id: Q-89
+  title: "The Convention rotation of 10.1.1 for cities the text does not list"
+  detail: "By-Law 10.1.1 lists three regions by city and bars a return to a region within three years. Clubs chartered since, and the club in Ramallah, are in no region; the hosts recorded through 2030 place consecutive Conventions in one region as the text reads; a club was ruled ineligible for the 2028 vote and a placement without competing bids was proposed. What the text means for an unlisted city, whether the schedule was adopted under a reading of 10.1.1, and whether the Constitution Committee drafts an amendment are open. The platform shows an unlisted city as \"no region under 10.1.1\" and decides nothing."
+  owner: "AFRP Board · Constitution Committee · Legal Advisor"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-MidYear-Host-Bids.md §8"
+- id: Q-90
+  title: "What \"50 paid members for 5 years\" counts"
+  detail: "A city may bid for a Convention with at least fifty paid members for five consecutive years. Whether that counts the bidding club's members in good standing, Federation members with addresses in the city, or both, which year's standing, and who certifies the years before the platform held them is not written. The bid shows both readings and refuses nothing."
+  owner: "Membership Committee · General Treasurer · AFRP Board"
+  goal: clubs
+  branch: junction
+  source: "design/AFRP-MidYear-Host-Bids.md §8"
+- id: Q-91
+  title: "May only an affiliated club bid, and may the Federation host alone?"
+  detail: "The text speaks of a city, not a club. Whether only an affiliated Chapter Club in good standing may bid, and whether the Federation may host a Convention with no bidding club, are for the Board and the Constitution Committee."
+  owner: "AFRP Board · Constitution Committee"
+  goal: clubs
+  branch: junction
+  source: "design/AFRP-MidYear-Host-Bids.md §8"
+- id: Q-92
+  title: "The Mid-Year's host, its agreement and its standing terms"
+  detail: "By-Law 10.2.1 and the 2021 guidelines have the Executive Committee approve the Mid-Year's location; practice is a Board choice, and the Mid-Year's sessions are minuted as a General Assembly though only Board members vote there (10.6.1). The same question gathers what every Mid-Year agreement must carry: whether every Mid-Year needs a signed agreement under Decision 59 or only one where money moves; whether the 2021 guideline's obligations (rooms for the Board, the General Assembly, the Past Presidents and Leadership Ramallah; the reduced banquet; fees agreed with the leadership) are standing terms of every agreement or negotiated each year, and who sets the reduced price; and how sponsorship paid to the host club, the ad-book share and the Federation's separate Mid-Year account are treated, and which entity receipts a sponsorship package that benefits an affiliate's fund."
+  owner: "AFRP Board · Executive Committee · Finance Committee · CPA"
+  goal: clubs
+  branch: junction
+  source: "design/AFRP-MidYear-Host-Bids.md §8; design/AFRP-Selection-Programmes.md §5; design/AFRP-Host-Agreements.md §9"
+- id: Q-93
+  title: "Where are the Convention Contract Guidelines of 10.1.6?"
+  detail: "By-Law 10.1.6 refers to Convention Contract Guidelines. No document by that name is in any folder read. Whether the 2022 host agreement template is that document, and if not where the guidelines are, decides what the agreement row's templates rest on."
+  owner: "Executive Director · Legal Advisor · Council of Past Presidents"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-MidYear-Host-Bids.md §8; design/AFRP-Host-Agreements.md §9"
+- id: Q-94
+  title: "Which hosting models may a bid propose?"
+  detail: "The Convention Innovation Committee has discussed a host-city model, a hybrid, and the Federation as central host with clubs soliciting for a percentage, a central fund for small-city conventions, and reducing or replacing a Mid-Year. Which models a bid may propose, whether the fund is created and in which entity, and whether a Mid-Year may be Federation-hosted are for the Board and the committee. The platform carries the models as templates with blank amounts."
+  owner: "AFRP Board · Convention Innovation Committee"
+  goal: clubs
+  branch: junction
+  source: "design/AFRP-MidYear-Host-Bids.md §8; design/AFRP-Host-Agreements.md §9"
+- id: Q-95
+  title: "Is the Endowment Fund board-designated or donor-restricted?"
+  detail: "The audits call the Endowment Fund board-designated and unrestricted; the 2025 drafts and guide call it permanently restricted. Both cannot be true. Which it is, and which gifts within the two funds, the camp endowment and the Magazine's assets are donor-restricted, decides whether the state's endowment statute governs spending from it."
+  owner: "ARFECF Board · CPA · Legal Advisor"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-96
+  title: "Which state's law governs each entity's funds?"
+  detail: "Whether Michigan's Uniform Prudent Management of Institutional Funds Act applies to ARFECF's and ARFHSN's restricted funds, or another state's law does, is for the Legal Advisor. The answer decides the release route for an old or small restricted fund and the standard for spending from an endowment."
+  owner: "Legal Advisor"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-97
+  title: "Per fund or both together, and the valuation date"
+  detail: "The two policy statements compute the yearly distribution per fund; every Federation budget computes it on both funds together. The policies also name no valuation date. The platform computes both bases, shows them, and flags a conflict rather than taking the lower; the ARFECF Board attests which base and which date."
+  owner: "ARFECF Board"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-98
+  title: "Does the emergency transfer count within the 5% cap?"
+  detail: "The policy allows an emergency transfer to the Federation once in three years. Whether it counts within the fund's five per cent cap, whether the Endowment Fund Committee's exclusive authority applies to it, and whether \"the Board\" that confirms the deficit is ARFECF's alone are not stated. The cap check refuses and names this question until answered."
+  owner: "ARFECF Board"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-99
+  title: "Are the 2025 Donor Policy Manual and gift agreement adopted?"
+  detail: "The 2025 manual gives a share of every restricted gift to operations. Whether the manual and the gift agreement are adopted, whether that share is lawful within ARFECF under its by-laws 6.3.8 and 6.4.4, how it is disclosed to donors, and how it relates to the one per cent transfer are for the two Boards and the CPA. The operations-share row holds no value until then."
+  owner: "ARFECF Board · AFRP Board · CPA"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-100
+  title: "Which entity receipts an endowment campaign gift?"
+  detail: "Campaign gifts are collected on the Federation's pages for a fund ARFECF holds. Which entity receipts them, and whether Decision 56's agency pattern (the Federation collecting as the affiliate's agent) extends to ARFECF's funds, goes with Q-3 to the CPA."
+  owner: "AFRP Treasurer · ARFECF Board · CPA"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-101
+  title: "Unit allocation of a pooled portfolio"
+  detail: "If both entities' funds are invested as one portfolio under the November 2026 policy, how units are allocated to each fund and entity, and how the pooled portfolio is reported on two Forms 990, is for the Investment Committee and the CPA. The allocation method is a CPA-attested parameter."
+  owner: "Investment Committee · CPA"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-102
+  title: "Which named scholarships exist?"
+  detail: "A 2018 proposal would let donors name scholarships. Whether it was adopted, which named scholarships exist, and what written donor criteria each carries decides which sub-funds the register holds with their own instrument."
+  owner: "ARFECF Board · Scholarship Fund Committee"
+  goal: funding
+  branch: education
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-103
+  title: "Is the 2021 ARFECF amendment package pursued?"
+  detail: "A 2021 package would make the AFRP Board the governing authority for ARFECF's budget. Whether it is pursued decides who authorises the yearly distribution's release."
+  owner: "ARFECF Board · AFRP Board"
+  goal: governance
+  branch: care
+  source: "design/AFRP-Fund-Rules.md §11"
+- id: Q-104
+  title: "ARFHSN's two signatories per account"
+  detail: "ARFHSN's by-laws require two signatories on payments. Who they are, by role, for each account (the US operating account, the restricted brokerage accounts, the Ramallah account), and when the Board designated them, is not recorded. A payment refuses while the account's signatory row is unset."
+  owner: "ARFHSN Board"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-105
+  title: "Federation grants to clubs: register or budget line?"
+  detail: "The Federation gives clubs start-up stipends, revival travel and relief passed through. Whether these run on the grants register with the AFRP Board as approver under By-Law 7.2.3's limits, or stay a budget line outside it, is David's and the Board's to decide."
+  owner: "David · AFRP Board"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-106
+  title: "Renewal notice where an agreement states none"
+  detail: "Each partner agreement sets its own renewal notice. Where the text states none, the record is silent and the platform sets no default. Whether a Board-wide default is wanted at all is for ARFHSN's Board and the programme committees."
+  owner: "ARFHSN Board · programme committees"
+  goal: operations
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-107
+  title: "Who may sign an agreement for each entity"
+  detail: "Who may sign an agreement for AFRP, ARFECF and ARFHSN, by role and under what authority, is not written. The prosthetics agreement was signed by ARFHSN's president \"on behalf of the Federation\"; whether it binds ARFHSN, AFRP or both is the test case. The signatory row per entity refuses \"signed\" while it is empty."
+  owner: "ARFHSN Board · AFRP Executive Committee · Legal Advisor"
+  goal: governance
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10; design/AFRP-Selection-Programmes.md §5; design/AFRP-Host-Agreements.md §9"
+- id: Q-108
+  title: "Foundation grants received on the agreements register"
+  detail: "Grants the Federation or an affiliate receives from a foundation carry report deadlines. Whether they sit on the agreements register as a kind, with their reports as obligations, is for David and the programme director role."
+  owner: "David · the programme director role"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-109
+  title: "The Relief Fund's holding entity"
+  detail: "The Relief Fund has sent monthly support to families in Ramallah since 2020. Which entity holds it (AFRP, ARFECF or ARFHSN), with the deductibility consequence stated, who approves each monthly transfer after the Board's vote, and whether Decision 63's closing records apply to it are not stated anywhere. The fund posts nothing until the entity is named; the per-registration Convention amount for it is a term of each host agreement."
+  owner: "AFRP Board · ARFECF Board · ARFHSN Board · CPA"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10; design/AFRP-Host-Agreements.md §9"
+- id: Q-110
+  title: "Where the Federation's relief ends and ARFHSN's begins"
+  detail: "The Federation runs the Relief Fund beside ARFHSN's own relief projects. Where one ends and the other begins, and whether the partners' family lists ever enter any Federation system (the design says never), is for the two Boards."
+  owner: "AFRP Board · ARFHSN Board"
+  goal: operations
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-111
+  title: "The foreign-grant record for discretion and control"
+  detail: "A US charity granting abroad keeps records showing its discretion and control over the funds, and reports on Form 990 Schedule F. What record ARFHSN, and ARFECF for the Ramallah charities, keeps per foreign grant, and whether an expenditure-responsibility-style file is wanted, is the CPA's to say. The fields build now and stay empty."
+  owner: "CPA"
+  goal: funding
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-112
+  title: "Who screens a partner against the sanctions lists"
+  detail: "Payments to partners abroad are screened against sanctions lists. Who screens, how often, against which list, and who may release a payment where a match is possible are for the Legal Advisor and ARFHSN's Board. The platform records the check as an act by a named person and never screens itself."
+  owner: "Legal Advisor · ARFHSN Board"
+  goal: operations
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-113
+  title: "OFAC authorisation for payments into Gaza and the West Bank"
+  detail: "Whether any OFAC authorisation is relied on for humanitarian payments into Gaza and the West Bank, and how transfers to church bodies and hospitals are documented, is for the Legal Advisor."
+  owner: "Legal Advisor"
+  goal: operations
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-114
+  title: "Women to Women's approval before the Board's"
+  detail: "Whether the Women to Women committee's approval of a project is a step before ARFHSN's Board votes, or the Board's approval by delegation, is carried from the programme register. It decides where the grant's approval act sits."
+  owner: "ARFHSN Board · Women to Women Committee"
+  goal: governance
+  branch: care
+  source: "design/AFRP-Care-Grants-and-Partners.md §10"
+- id: Q-115
+  title: "Day of Action eligibility and selection"
+  detail: "Who may apply to the Day of Action (members only, or any young adult), whether the 21–35 band gates the place or only the covered costs, what \"first-time attendee\" counts, who selects and by what written criteria are not written. The eligibility rows stay undetermined until the committee answers."
+  owner: "Government Affairs Committee · President · AFRP Board"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-Selection-Programmes.md §5; design/AFRP-Advocacy.md §6"
+- id: Q-116
+  title: "Project Hope's membership, minimum age and one-trip rule"
+  detail: "The 2019 draft procedure welcomes Arabs and non-Arabs and says nothing of membership; it sets eighteen as the minimum age while nineteen was discussed in 2020. Whether applicants must be members, the minimum age, the one-trip rule with its exceptions, and whether the draft is adopted as the committee's own are for the committee and ARFECF's Board."
+  owner: "Project Hope committee · ARFECF Board"
+  goal: next-generation
+  branch: education
+  source: "design/AFRP-Selection-Programmes.md §5"
+- id: Q-117
+  title: "Selection protocols, scores, late applications and conflicts"
+  detail: "Leadership Ramallah's selection protocol is said to exist and is not on file. Whether scores are held on the platform under a written rubric, whether every programme has a late-application rule, and whether a conflict rule for a deciding seat related to an applicant is wanted, are for the four committees with the Legal Advisor. Scores are refused without an adopted rubric."
+  owner: "Leadership Ramallah committee · the other three programme committees · Legal Advisor"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-Selection-Programmes.md §5"
+- id: Q-118
+  title: "DRAFT: Decision 61 extended to the Exchange Mission and the Fellowship, and read at the door"
+  detail: "Decision 61 settles what historical records of Leadership Ramallah and the Day of Action enter the platform; the Exchange Mission and the Palestine Fellowship need the same wording. The draft also asks David to read D61's last two sentences together: whether \"applications, essays and résumés never enter\" reaches a future cycle's own application door, or only the archive, and so whether an applicant may upload a résumé to the platform under a retention clock or only have an on-file flag."
+  owner: "David · ARFECF Board"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-Selection-Programmes.md §5"
+- id: Q-119
+  title: "The Palestine Fellowship's decision and payment"
+  detail: "How the Fellowship is decided (the panel, the scoring), whether the award is a grant paid in tranches against the quarterly reports, which entity pays and receipts it, and how the private fund's grant received is recorded are not in the record. The platform holds the Fellowship as a grant shape posting nothing until answered."
+  owner: "Exchange Mission committee · ARFECF Board · CPA"
+  goal: funding
+  branch: leadership
+  source: "design/AFRP-Selection-Programmes.md §5"
+- id: Q-120
+  title: "Alumni contact and the alumni newsletter"
+  detail: "Whether a programme may write to an alumnus who is not a member and has not claimed a record, whether an alumni newsletter is a programme invitation or marketing and who sends it, and whether participation history may show in the directory are not decided. Alumni are reached only under a consent row until they are."
+  owner: "AFRP Board · Legal Advisor · Membership Committee"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-Selection-Programmes.md §5; design/AFRP-Advocacy.md §6"
+- id: Q-121
+  title: "The Arabic Program's money"
+  detail: "Decision 55 places the Arabic Program in ARFECF; the teaching partner's invoice names the Federation. Whether class fees are collected by AFRP and forwarded or by ARFECF, where the surplus is held, who signs the teaching partner's agreement and the instructor contracts and for which entity, and whether a written partner agreement exists at all are for the two treasuries and the CPA with the committee."
+  owner: "ARFECF Board · AFRP General Treasurer · CPA · Arabic committee"
+  goal: funding
+  branch: education
+  source: "design/AFRP-Selection-Programmes.md §5"
+- id: Q-122
+  title: "Class recordings' data rule"
+  detail: "Recording an Arabic class touches every learner in it. The consent per learner per term and its audience, who may view a recording and for how long, the teacher's and the partner's rights, and whether a class with a learner who declined may be recorded at all are not written. Nothing is recorded until the rule is set."
+  owner: "Arabic committee · Legal Advisor · ARFECF Board"
+  goal: heritage
+  branch: education
+  source: "design/AFRP-Selection-Programmes.md §5"
+- id: Q-123
+  title: "The Arabic term's unwritten rules"
+  detail: "Which standing the member rate tests (the Federation's alone, or the conjunctive test of 4.3.1), who may create a discount code, the cancellation, class-minimum and refund rules, and whether a learner may hold two classes in one term are the committee's to write. The platform refunds nothing until a rule row exists."
+  owner: "Arabic committee"
+  goal: heritage
+  branch: education
+  source: "design/AFRP-Selection-Programmes.md §5"
+- id: Q-124
+  title: "Standing versus negotiable terms in the host agreement"
+  detail: "The 2022 template mixes terms the Federation would hold to every host with terms a host negotiates. Which are which, who may vary a schedule row (the Executive Committee under 11.1.1 or the Board), and which side bears the template's ambiguous rows (Federation-hosted events' costs, their audio-visual) are for the Board with the committee and the Legal Advisor. A row with no side refuses settlement."
+  owner: "AFRP Board · Convention Innovation Committee · Legal Advisor"
+  goal: clubs
+  branch: junction
+  source: "design/AFRP-Host-Agreements.md §9"
+- id: Q-125
+  title: "Who proposes, decides and pays for speakers"
+  detail: "The template has symposium speakers proposed by the host and decided jointly, and the host paying keynote costs to a ceiling; recent practice has the Federation choosing and, in 2026, paying the keynote. Who proposes and decides, who pays, and whether a programme committee may pay a slot from its own funds are open. The platform shows the variance against the schedule and corrects nothing."
+  owner: "AFRP Board · Convention Innovation Committee · Symposiums committee · Executive Committee"
+  goal: clubs
+  branch: junction
+  source: "design/AFRP-Host-Agreements.md §9"
+- id: Q-126
+  title: "The per-registration Relief Fund amount after 2025"
+  detail: "The 2024 General Assembly withdrew a motion on a per-registration amount for the Relief Fund and referred it to the Board for Conventions after 2025, while the template carries one. Whether it applies after 2025 and to which registrants is for the Board; the fund's holding entity is its own question."
+  owner: "AFRP Board"
+  goal: funding
+  branch: junction
+  source: "design/AFRP-Host-Agreements.md §9"
+- id: Q-127
+  title: "The host coordinator's access"
+  detail: "Whether the host sees seating and reserved tables in the registration system, which event data it sees during and after the event, and what the hand-over on the agreement's close leaves the host are not written. Seating access is a blank term until answered."
+  owner: "AFRP Board · Digital Infrastructure Committee · Legal Advisor"
+  goal: clubs
+  branch: junction
+  source: "design/AFRP-Host-Agreements.md §9"
+- id: Q-128
+  title: "The settlement's two clocks"
+  detail: "The template's release within the settlement period and By-Law 10.1.7's final accounting within 120 days are two clocks. Whether the Federation's release may precede the host's final accounting, and what the Finance Committee's audit step requires of the platform's figures, are for the committee and the Treasurer with the Board."
+  owner: "Finance Committee · General Treasurer · AFRP Board"
+  goal: funding
+  branch: junction
+  source: "design/AFRP-Host-Agreements.md §9"
+- id: Q-129
+  title: "Deficit responsibility where an agreement is silent"
+  detail: "Who bears a Convention deficit when the agreement does not say is a board-confirmation item the register has carried. The agreement row now has a field for it; whether the Board adopts a standing rule or leaves it to each agreement is the question."
+  owner: "AFRP Board"
+  goal: funding
+  branch: junction
+  source: "design/AFRP-Host-Agreements.md §9"
+- id: Q-130
+  title: "Is the Federation Convention Committee a body?"
+  detail: "The Liaison and the Executive Committee act together as a Federation Convention Committee. Whether the Board recognises it as a body on the register, and whether the Convention Innovation Committee's playbook and data template are adopted as Federation guidance for hosts, are for the Board and the committee."
+  owner: "AFRP Board · Convention Innovation Committee"
+  goal: governance
+  branch: junction
+  source: "design/AFRP-Host-Agreements.md §9"
+- id: Q-131
+  title: "A government-affairs seat in each club"
+  detail: "A 2020 proposal for a government-affairs liaison in each club was never adopted. Whether a club has such a seat, who appoints it (the club on its officers form, the committee, or both), and what it may see are for the committee, the Council and the Board. The club's seat builds only on a yes."
+  owner: "Government Affairs Committee · Council of Chapter Club Presidents · AFRP Board"
+  goal: voice
+  branch: leadership
+  source: "design/AFRP-Advocacy.md §6"
+- id: Q-132
+  title: "Does the Federation ever take a candidate position?"
+  detail: "Nothing in the by-laws, the committee's records or Decision 65 contemplates endorsing or opposing a candidate for office, and the IRS taxes a 501(c)(4)'s political expenditures. The platform refuses candidate as the subject of a position until the Board says otherwise, with the Legal Advisor's and the CPA's advice recorded first."
+  owner: "AFRP Board · Legal Advisor · CPA"
+  goal: voice
+  branch: leadership
+  source: "design/AFRP-Advocacy.md §6"
+- id: Q-133
+  title: "Members' own advocacy"
+  detail: "Whether the Federation invites members' own letters, calls and meetings with a template, whose speech a template written under the Federation's position is, whether a member's recorded contact counts as the Federation's lobbying, and whether the committee may ask a member to report back are for the committee with the Legal Advisor and the Board. A member's own row is counted nowhere until answered."
+  owner: "Government Affairs Committee · Legal Advisor · AFRP Board"
+  goal: voice
+  branch: leadership
+  source: "design/AFRP-Advocacy.md §6"
+- id: Q-134
+  title: "The lobbying record's row definitions"
+  detail: "The lobbying register builds now so the Legal Advisor and the CPA can answer the 6033(e) dues-notice or proxy-tax question and the Lobbying Disclosure Act registration question. What they need from it is theirs to define: whether paid-staff hours per position are enough, whether volunteers' time counts at all, which cost categories count as lobbying expenditures, and whether per-quarter and per-tax-year totals are the right periods. Every figure the register shows is computed, not a determination; the policy question is the Press note's."
+  owner: "Legal Advisor · CPA · General Treasurer"
+  goal: voice
+  branch: leadership
+  source: "design/AFRP-Advocacy.md §6; design/AFRP-Press-Workflow.md §8"
+- id: Q-135
+  title: "Outcome codes for a contact with an office"
+  detail: "The committee's tracker recorded outcomes in words (met, declined, no reply, signed, will consider, referred). The codes become a register row the committee adopts; the committee also says whether the Day of Action's congressional meetings are recorded by the programme director or by each delegation's lead."
+  owner: "Government Affairs Committee"
+  goal: voice
+  branch: leadership
+  source: "design/AFRP-Advocacy.md §6"
+- id: Q-136
+  title: "DRAFT: Decision 65 as a Rules Register row"
+  detail: "Decision 65 makes every advocacy activity and public statement AFRP General Fund activity and refuses any charge to an affiliate. If the Board wants the refusal written as a rule the Hub can cite by number, the draft row reads: a position, statement, letter, alert, contact or event of Government Affairs, Congressional Outreach or the Day of Action is an AFRP object in AFRP's scope, no affiliate store holds one, any cost posts to the General Fund, and the platform refuses an ARFECF or ARFHSN line with no override. It adds nothing to D65."
+  owner: "David · AFRP Board"
+  goal: voice
+  branch: leadership
+  source: "design/AFRP-Advocacy.md §6"
+- id: Q-137
+  title: "Which seat is the data custodian"
+  detail: "The by-laws give custody of records to the Executive Secretary (7.4.1), safeguarding and access to the Executive Director (7.9.3) and maintenance to the Executive Assistant (7.10.2). Which seat is the data custodian for incidents and the retention schedule, and whether the Digital Infrastructure Committee's cybersecurity subcommittee or the maintainer is the technical responder, is not written. The Executive Director note offers a reading: the Executive Director for the platform's registers, the Executive Secretary for the drive."
+  owner: "AFRP Board · President"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Incident-Response-and-Retention.md §9; design/AFRP-Executive-Director.md §10"
+- id: Q-138
+  title: "The law register"
+  detail: "The incident register seeds rows for Michigan's and California's breach laws and reads the CCPA, GDPR and COPPA as not applying. The Legal Advisor attests the seeded rows, names which other states' laws need rows from where members live, and attests the not-applying rows. No notification deadline computes until a row is attested."
+  owner: "Legal Advisor"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Incident-Response-and-Retention.md §9"
+- id: Q-139
+  title: "Four periods with no value"
+  detail: "The incident and retention design has four periods nothing in the record sets: the review period after an incident, the window before a young person's eighteenth birthday in which consents are re-asked, the restore-test cadence (the architecture proposes quarterly), and the answer period for a member's own request. Each is a parameter with no value until set."
+  owner: "AFRP Board · Legal Advisor · the maintainer"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Incident-Response-and-Retention.md §9"
+- id: Q-140
+  title: "Erasure as a policy, and a member's own copy"
+  detail: "No law read requires a non-profit to offer erasure. Whether the Federation offers it as a policy, and whether a member may have one copy of their own record, are for the Board with the Legal Advisor and the Membership Committee. Whether a member may see that a follow-up existed about them stays with Q-46."
+  owner: "AFRP Board · Legal Advisor · Membership Committee"
+  goal: members
+  branch: all
+  source: "design/AFRP-Incident-Response-and-Retention.md §9"
+- id: Q-141
+  title: "DRAFT: what the platform never holds"
+  detail: "If the Board wants the incident and retention policy's boundary as a decision before adopting the policy, the draft row reads: the platform holds no card number, Social Security number, government identity number, medical, consent or travel document of a minor, free-text note about a person, or biometric of anyone, and a proposal to hold any of these is a Board decision, not a build. It gathers the payments boundary, Decision 61 as amended, Breeze Parity §4 and the Network Plan's biometrics line into one row."
+  owner: "David · AFRP Board"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Incident-Response-and-Retention.md §9"
+- id: Q-142
+  title: "The office map"
+  detail: "The design notes route many things \"to the office\": the officers form's receipt, the committee register, the Board packet, the letters, the seat channels and functional mailboxes, programme administration. Which staff seat holds each function, and which functional mailbox is which seat's channel, is for the Executive Director once seated with the President. A vacant function shows vacant and lands on the Executive Director's seat labelled unassigned."
+  owner: "Executive Director · President"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Executive-Director.md §10"
+- id: Q-143
+  title: "The Executive Director's own report to the Board"
+  detail: "A Board decision of the early 2010s had the Executive Director draft an annual report by 1 August; the 2021 appointment set performance measures. The report's cadence and sections, whether it is a section of the Board packet, and what the platform fills in from counts are for the President and the Executive Director."
+  owner: "President · Executive Director"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Executive-Director.md §10"
+- id: Q-144
+  title: "Who holds platform administration once the office is staffed"
+  detail: "Today the project owner holds the platform's administrator role and applies a Board decision to a seat's grant bundle. Who holds it once the office is staffed, and whether a bundle change needs the Board or the Executive Committee, is for the Board with David."
+  owner: "AFRP Board · David"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Executive-Director.md §10"
+- id: Q-145
+  title: "The Executive Assistant's appointing act, and minutes when the posts are combined"
+  detail: "By-Law 7.10.1 says the Executive Assistant is hired by the Federation, read with 7.9.9's Executive Committee selection and Board approval; which act seats the person is not clear. When the two staff posts are combined, who takes the minutes of the Executive Committee's evaluation of the Executive Director is also open; the design routes them to the Executive Secretary under 7.4.1."
+  owner: "AFRP Board"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Executive-Director.md §10"
+- id: Q-146
+  title: "Is the 2026 hire also ARFECF's Executive Director?"
+  detail: "ARFECF's 2015 by-laws name an ARFECF Executive Director, non-voting on its Board and the Scholarship Fund Committee. Whether the 2026 hire holds that seat too, who decides it, and whether ARFHSN has any staff seat at all are for ARFECF's Board with the Legal Advisor. The platform keeps the ARFECF seat separate in ARFECF's scope."
+  owner: "ARFECF Board · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Executive-Director.md §10"
+- id: Q-147
+  title: "AFRPWorks' owning committee"
+  detail: "The Board heard that the pilot is intended to become part of RBPN; Decision 64 leaves the owner for the working group to name. Whether the owner is the RBPN Committee, a new committee under 8.1.1 or the working group constituted as one, and who constituted the working group, is open. The programme page says the owner is not named until then."
+  owner: "Jobs Initiative working group · AFRP Board · President"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-148
+  title: "AFRPWorks' fee model"
+  detail: "The programme's fee is a blank: none, a sponsor fee, or a placement fee. If a fee, whether it is a General Fund receipt and what the Legal Advisor and the CPA say about an employment-agency fee under a 501(c)(4) decide the design. The ledger refuses any receipt attributed to the programme until answered."
+  owner: "Jobs Initiative working group · Finance Committee · Legal Advisor · CPA"
+  goal: funding
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-149
+  title: "Portal or managed service?"
+  detail: "Whether the Federation only brokers introductions between employers and candidates, or also holds a referral list of evaluated employer-of-record firms in Ramallah as a referral and never an endorsement, is the working group's to decide."
+  owner: "Jobs Initiative working group"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-150
+  title: "What \"verified\" means for a candidate"
+  detail: "The announcement promises verified candidates. What is verified (identity, qualifications, availability), who verifies (the partner organisation under its agreement, or the group), and what the attestation shows an employer are for the group and the partner. The platform records verification as a dated attestation by a named party."
+  owner: "Jobs Initiative working group · the partner organisation (by agreement)"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-151
+  title: "The candidate's door"
+  detail: "A candidate in Ramallah enters only by their own act. The consent wording in Arabic and English, what the person is told the Federation holds, and whether a person may ask to be introduced to a named employer are for the Legal Advisor with the group and the Board; the retention period for the candidate record sits on the retention register. No introduction leaves proposed until this and the sanctions matters are answered."
+  owner: "Legal Advisor · Jobs Initiative working group · AFRP Board"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-152
+  title: "Brokering, sanctions screening and the exempt purpose"
+  detail: "Whether AFRP as broker must screen counterparties against OFAC's lists or the employer must, and whether an introduction refuses without an attestation; whether an export-control line goes on technical postings; whether brokering jobs is within AFRP's exempt purpose; and whether any placement could involve travel are the Legal Advisor's four matters."
+  owner: "Legal Advisor"
+  goal: operations
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-153
+  title: "The Ramallah partner agreement"
+  detail: "The programme rests on a community organisation in Ramallah. Whether a written agreement with it is signed, on the agreements register, with the obligations the design lists (consent at the door, verification), is for the Board and the group."
+  owner: "AFRP Board · Jobs Initiative working group"
+  goal: operations
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-154
+  title: "Employer eligibility for a Ramallah posting"
+  detail: "The job board lets a member's verified business post. Whether a Ramallah posting may come only from a member's own business, from any member on behalf of an employer they do not own, or from a non-member business a member vouches for is for the group and the RBPN Committee."
+  owner: "Jobs Initiative working group · RBPN Committee"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-155
+  title: "The boundary with the RBPN job board"
+  detail: "The announcement said employers browse verified profiles; the minutes keep employer profiles private and have the group run matching. Whether a Ramallah posting is the job board's posting with a work location or a separate board, whether its pages are public or members-only, and whether employers browse or are brokered are for the group and the RBPN Committee."
+  owner: "Jobs Initiative working group · RBPN Committee"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-156
+  title: "Are no-fee placements recorded on the books?"
+  detail: "If no fee is charged, a placement moves no money. Whether placements are recorded on AFRP's books at all, and what if anything the CPA wants reported about a programme that moves no money, is for the CPA and the Finance Committee."
+  owner: "CPA · Finance Committee"
+  goal: funding
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"
+- id: Q-157
+  title: "The salary-range field for a Ramallah posting"
+  detail: "The job board's salary-range field is in US dollars and names a state's law when the range is missing; the minutes describe monthly full-time pay in Ramallah. The currency and pay period for a Ramallah posting, and whether the line should state the Federation's own rule rather than a state's, are for the group with the Legal Advisor."
+  owner: "Jobs Initiative working group · Legal Advisor"
+  goal: next-generation
+  branch: leadership
+  source: "design/AFRP-AFRPWorks.md §10"

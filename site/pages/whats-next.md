@@ -6,24 +6,24 @@ lede: The design notes, documents, votes and decisions that stand between the st
 
 ## Design notes the strategy needs
 
-Eight elements of the Federation's plans have no design yet (P1–P8). Each needs
-a design note before the Hub can build it. The first, the committee workspace,
-is the one the Hub's refused board and committee screens are waiting for.
+Every design note the crosswalk proposed is written as of 1 October 2026:
+P1 to P9 and P11 to P17, and P18 to P20, all on that day,
+with P10 (the club share and settlement) inside P18. Each note ends with the
+slices it hands the Hub, and `plan/MASTER-PLAN.md` carries those seventy-seven
+slice rows (CW, SV, LT, RF, SC, PR, VI, HB, HA, FR, CG, SEL and AR, AD, IR, ED,
+AW) with their gates, in the notes' own dependency order: the committee register
+first, because the directory, the survey, the Selection Committee and every
+staff seat read from it.
 
-Nine more notes (P9–P17) follow from the working files read in September and
-October 2026 and the decisions taken on them (D55–D67). They are queued in the
-order the Federation is deciding things now: the fund rules first, then the club
-share and settlement, Care grants and partner agreements, the selection
-programmes and the Arabic term, host agreements, advocacy, incident response and
-data retention, the Executive Director as the first staff role, and AFRPWorks.
+What the notes could not settle they raised as questions, numbered Q-50 onward
+below and on the questions page. The gates on the slices are those questions,
+the decisions still reserved (D5, Q-33, Q-35), and the documents still not on
+file.
 
-Three notes are written. P18, the club experience plan, carries the club share
-and settlement (P10) inside it and gives the Hub six club slices (C1–C6) with
-their gates; a deep read of Breeze on 1 October 2026 then adjusted the
-migration path and the gates on club giving and texting. P19, the directory in
-three formats, gives the Hub three more (DIR1–DIR3). P20, the club journeys,
-is the corpus of fifty-two tests the clubs component is built from, each starting
-from what a club officer does in Breeze today.
+Three of the notes carry the clubs: P18, the club experience plan, with the club
+share and settlement (P10) inside it and six club slices (C1–C6); P19, the
+directory in three formats (DIR1–DIR3); P20, the club journeys, the corpus of
+fifty-two tests the clubs component is built from.
 
 <!--NOTES-->
 

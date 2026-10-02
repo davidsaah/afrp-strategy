@@ -14,7 +14,7 @@ and money figures in the prototypes and the fixture are fictional demo data.
 **[The site](https://davidsaah.github.io/afrp-strategy/)** lays the Federation's
 strategy and the member platform side by side, on the four branches (Education,
 Leadership, Heritage, Care), with the family tree as the roots and the
-Convention as the junction. Seven sections:
+Convention as the junction. Nine sections:
 
 1. **[AFRP Strategy](https://davidsaah.github.io/afrp-strategy/strategy/index.html)**: the Federation's current strategy, eight goals, and how the Hub implements each on the CRM.
 2. **[Evolution](https://davidsaah.github.io/afrp-strategy/history/index.html)**: how the strategy got here, what still has to be developed, and the [open questions](https://davidsaah.github.io/afrp-strategy/history/questions.html).
@@ -23,6 +23,8 @@ Convention as the junction. Seven sections:
 5. **[Workflows](https://davidsaah.github.io/afrp-strategy/workflows/index.html)**: how the work moves and hands off.
 6. **[Prototype](https://davidsaah.github.io/afrp-strategy/prototype/index.html)**: the integrated prototype, with guided tours.
 7. **[Development status](https://davidsaah.github.io/afrp-strategy/status/index.html)**: decisions, questions, the build track and the journeys.
+8. **[Design notes](https://davidsaah.github.io/afrp-strategy/notes/index.html)**: the design record, rendered from `design/`.
+9. **[Library](https://davidsaah.github.io/afrp-strategy/library/index.html)**: the reference documents and the archive.
 
 The site is generated from `site/` (D47); see [`site/README.md`](site/README.md).
 AFRP-Hub is **not yet in service**: no DNS, no live payments, no real member data.
@@ -31,7 +33,7 @@ AFRP-Hub is **not yet in service**: no DNS, no live payments, no real member dat
 
 | Folder | What it holds | Published on the site? |
 |---|---|---|
-| [`design/`](design/) | **The design record.** The decisions register (D1–D67), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | No, it is in the repository only |
+| [`design/`](design/) | **The design record.** The decisions register (D1–D67), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | Yes — rendered under Design notes, except seventeen older documents the privacy scan refuses, which the index links to the repository |
 | [`plan/`](plan/) | **The build plan.** `MASTER-PLAN.md` (the slice queue AFRP-Hub takes work from), `QUESTIONS-FOR-DAVID.md` (answered questions, kept as provenance), the archived earlier plans, and the consolidation plan | No, it is in the repository only |
 | [`site/`](site/) | **The site's sources**: prose, data files, template, build and checks (D47) | Generates `docs/` |
 | [`docs/`](docs/) | **The site.** Generated section pages, the prototype, the build board, the Library | Yes, GitHub Pages |
