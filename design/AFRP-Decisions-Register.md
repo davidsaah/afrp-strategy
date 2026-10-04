@@ -1115,7 +1115,9 @@ plate grammar, with the same shapes and line weights.
   continues.
 
 ### What it does not settle
-- Which body runs the award (Q-164; the register's organiser question). Who
+- Which body runs the award (Q-164; the register's organiser question).
+  *Later (4 October 2026):* **D85** answers Q-164: the Scholarship Fund
+  Committee. Who
   scores (Q-117). The budget line that names its fund (D55). Past applicants'
   files (Q-76).
 
@@ -1151,9 +1153,9 @@ plate grammar, with the same shapes and line weights.
 
 ## Part 7 — 4 October 2026
 
-One decision taken by David on 4 October 2026 in the question walk-through:
+Two decisions taken by David on 4 October 2026 in the question walk-through:
 the scholarship conflict-of-interest rule (Q-273), recorded in D58's
-conditional form. P26 §1.4 and §3.2, the scholarship specification's §3 and
+conditional form, and the body that runs the Senior Award (Q-164). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1185,6 +1187,38 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
   under 6.4.6 (P26 §3.2's reading). The record holds no such act.
 - The rubric and who scores (Q-117). The committee's seats (D58). Who approves
   the year's awards (Q-161).
+
+---
+
+## Decision 85 — the Scholarship Fund Committee runs the Senior Award
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-164 · reads D82**
+
+### The adopted wording
+> The Outstanding High School Senior Award, which continues under Decision 82,
+> is run by the Scholarship Fund Committee, as the programme register first
+> held it ("the Scholarship Committee, on an award track"). The Leadership
+> Ramallah committee's running of the award from 2013 to 2020 is kept on the
+> register as its history.
+
+### What it settles
+- Q-164. The programme register's organiser is the Scholarship Fund
+  Committee; the Leadership Ramallah committee's years stay as history.
+- YL6's body and LT-P-YL1's: the award's decision item is the Scholarship
+  Fund Committee's (P25 §5.1). YL6 no longer waits on Q-164.
+- The conflicts-table row on the award's organiser: the record's body is
+  kept, and the practice of 2013–2020 is history, not a rule.
+
+### What it does not settle
+- The budget line that names the fund before any money line (D55). In
+  practice the award was paid from the Education Fund on the Leadership
+  Ramallah chair's request; whether the line now sits in the Scholarship
+  Fund, under the committee's authority in ARFECF By-Law 6.4.4, or elsewhere
+  is for the ARFECF Board's budget.
+- The committee's own act taking the award on. No such act is on file.
+- Who scores and on what sheet (Q-117); past applicants' files (Q-76);
+  whether the award is announced at the Convention (the register's earlier
+  text) or by newsletter (practice); whether D84's conflict rule reaches the
+  award's reviewers.
 
 ---
 
@@ -1225,7 +1259,7 @@ marked "research, 2 Oct 2026").
 | D63 (a Care grant is approved by the holding entity's Board with a ceiling) | Women to Women's public procedure has the committee approve all projects, and the ARFHSN minutes show the committee reporting, not the Board voting, on them | Q-114 | ARFHSN Board · Women to Women Committee |
 | D1 (club dues held as agent; CPA countersignature pending) and D56 (AFRP collects ARFHSN's gifts as its agent) | AFRP's chart of accounts carries a liability for every affiliate purpose collected on the affiliates' behalf (ARFECF, ARFHSN and the Ramallah Foundation); card payments now run through one processor account per entity, replacing one AFRP account with transfers by hand. The agency pattern is in practice for every affiliate purpose and not only the two cases the decisions name; no account on either side carries club-collected national dues | Q-232, Q-3 | AFRP General Treasurer · ARFECF Treasurer · ARFHSN Treasurer · CPA |
 | The programme register's Senior Award entry: retired 31 August 2026 by Board resolution, last files 2024; `AFRP-Program-Architecture.md` §6; Q-20's premise. **Since 3 Oct 2026:** D82 records that the award was not retired and continues; the register's status is corrected and Q-20 falls away | Awards were made in 2023, 2024 and 2025; applications were taken on an online form in 2025; the public site still offered the award in October 2026 and the programmes flyer filed in September 2026 lists it; no retiring resolution was found | Q-163 (answered by D82), Q-20 (falls away under D82) | AFRP Board · David |
-| The programme register's Senior Award entry: the Scholarship Committee, on an award track, announced at the Convention | From 2013 to 2020 the award sat with the Leadership Ramallah committee, whose chair requested its budgeted sum from the ARFECF Board and signed the letters; it was announced by newsletter each September | Q-164 | David · Leadership Ramallah committee |
+| The programme register's Senior Award entry: the Scholarship Committee, on an award track, announced at the Convention. **Since 4 Oct 2026:** D85 keeps the Scholarship Fund Committee as the body; the 2013–2020 practice is the register's history | From 2013 to 2020 the award sat with the Leadership Ramallah committee, whose chair requested its budgeted sum from the ARFECF Board and signed the letters; it was announced by newsletter each September | Q-164 (answered by D85; the announcement venue and the budget line stay open) | David · Leadership Ramallah committee |
 | The programme register's Emerging Leaders entry (ages 16 to 24; an entry rung on the Leadership branch); `branches.yaml`; `AFRP-Family-Tree-Integration.md` | No programme by that name exists in any document, mailing, budget line, committee tab or web page; the age band has no source; the one 2021 mention most plausibly refers to the Youth Summit for adults aged 21 to 35, reported from 2023 as the Day of Action | Q-178 | David · Strategic Planning Committee |
 | By-Law 8.10 paragraph (the Young Leader Committee: a chairman and four members, President-appointed with Board approval, all alumni of Project Hope or Leadership Ramallah); `AFRP-Committee-Workspace.md`; `AFRP-Selection-Programmes.md` | A Young Leaders Committee (also called the Youth Outreach Committee) of two co-chairs and members listed by club city, with a filled Board seat and no appointment record or alumni check; its co-chairs run Leadership Ramallah; the directory has no Leadership Ramallah tab | Q-179, Q-175 | AFRP Board · President · Constitution Committee |
 | The programme register's Senior Living entry (a Federation programme, entity to confirm); `AFRP-Program-Architecture.md` §3 (the capital-campaign module: pledges against cash) and §6 (the *Campaign* shape); journey JP-032 | The project is the Ramallah Foundation's: the Foundation owns, built and will operate the home; construction is complete; the Federation's part was communications, gifts passed through and a Convention-voted budget grant; no pledge was ever held in a Federation system | Q-203, Q-204 | David · AFRP Board · ARFECF Board · CPA |

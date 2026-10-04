@@ -100,8 +100,7 @@ row says which.
 - **The strategy and the committee's draft.** Bringing the committee's draft
   level with the record ([Q-235](#Q-235)); retiring or re-pointing Emerging
   Leaders ([Q-178](#Q-178)); whether the Leadership Ramallah committee and the
-  Young Leader Committee are one body ([Q-175](#Q-175)); which committee owned
-  the Senior Award ([Q-164](#Q-164)).
+  Young Leader Committee are one body ([Q-175](#Q-175)).
 - **Care and the Ramallah Foundation.** Whether Senior Living is a Federation
   programme at all ([Q-203](#Q-203)); a club's gift to the Foundation's home
   ([Q-205](#Q-205)); the Relief Fund on the public giving page

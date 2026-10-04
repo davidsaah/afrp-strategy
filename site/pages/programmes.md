@@ -57,5 +57,6 @@ leaves the choice to the people named.
 
 The Outstanding High School Senior Award was not retired and continues
 (D82, 3 October 2026, answering [Q-163](../history/questions.html#Q-163)); the
-record's earlier "retired 31 August 2026" is corrected. Which committee runs
-it is still open ([Q-164](../history/questions.html#Q-164)).
+record's earlier "retired 31 August 2026" is corrected. Since 4 October 2026
+the Scholarship Fund Committee runs it (D85, answering
+[Q-164](../history/questions.html#Q-164)).

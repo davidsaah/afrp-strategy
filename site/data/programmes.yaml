@@ -356,22 +356,21 @@
   entity: "Paid from the Education Fund (the Education Fund's report, 2017), released on the committee chair's written request to the ARFECF Board against a budget line (2013–14). No line was found in the approved budget (2026–27); no money line raises until a budget line names the fund (D55). Not retired: it continues (D82)."
   shape: "Award"
   flagship: false
-  status: "Plan only · not retired, continues (D82); the body is Q-164"
+  status: "Plan only · not retired, continues (D82); run by the Scholarship Fund Committee (D85)"
   summary: "An award recognising community service and leadership in graduating high-school seniors, created in 2013–14 as a technology scholarship under the Leadership Ramallah committee. The award was not retired and continues (D82, 3 Oct 2026, answering Q-163); the record's earlier \"retired 31 Aug 2026 by Board resolution\" (Program Architecture §6) is corrected. In practice (research, 2 Oct 2026): awards were made in 2023, 2024 and 2025, and the public site and the Federation's programmes flyer still offered it in October 2026."
   who: "Graduating high-school seniors in good standing at their school, at the published minimum GPA, with demonstrated leadership and community service, whose families are Federation members in good standing (2014, 2019, 2020; afrp.org in 2026: applicant and family must be AFRP members in good standing). The pack: the form, an official transcript, an essay of at least 500 words on leadership and service, a school recommendation on letterhead and a verification letter from the organisation where the student volunteered. The form has no club field and no membership number."
   year: "Applications due in May: postmarked 1 May (2014), 15 May (2019, 2020), 31 May (2023–2025; afrp.org, 2026). Posted to the office until 2020; an online form by 2025. Acceptance letters in July–August; the newsletter announces the number of recipients and the prize tiers each September. In practice (research, 2 Oct 2026) announcement was by newsletter, not at the Convention. The record's earlier retirement date, 31 August 2026, is corrected by D82: the award continues."
-  organiser: "The Leadership Ramallah committee and its chair, with the programme coordinator (2013–2020): the chair requested the budgeted sum from the ARFECF Board in writing and signed the acceptance letters, and the 2020 pack is headed Leadership Ramallah. The register's earlier 'Scholarship Committee, on an award track' came from the prototype and is not evidenced (Q-164). Who scored, and on what sheet, is not written (Q-117)."
+  organiser: "The Scholarship Fund Committee (D85, 4 Oct 2026), as the register first held it. History: the Leadership Ramallah committee and its chair, with the programme coordinator (2013–2020): the chair requested the budgeted sum from the ARFECF Board in writing and signed the acceptance letters, and the 2020 pack is headed Leadership Ramallah. The register's earlier 'Scholarship Committee, on an award track' came from the prototype and was not evidenced; D85 adopts it as David's decision. Who scored, and on what sheet, is not written (Q-117)."
   money: "Tiered gift cards (laptops in the first year), bought by the office; budgeted in the Education Fund and released on the committee chair's written request to the ARFECF Board (2013–14); paid by the Educational Fund Treasurer (the Education Fund's report, 2017)."
   handoffs: "Fed by Camp Ramallah; the 2019 description names Leadership Ramallah and Project Hope as programmes it feeds, and it sat before the Scholarship on the Education ladder. It continues (D82), so no gap opens between Camp and the Scholarship and Q-20 falls away."
   strategy_needs:
   - "Part of the youth pipeline from childhood to professional life (2019 plan)"
   platform_needs:
-  - "Kept on the register with recipients, criteria and history preserved; it continues (D82), and YL6 switches it on once the body (Q-164) and a budget line (D55) are named"
+  - "Kept on the register with recipients, criteria and history preserved; it continues (D82), and YL6 switches it on once a budget line names the fund (D55); its body is the Scholarship Fund Committee (D85)"
   - "Past applicants' files are minors' records: whether they are deleted or kept, and by whom, is a row of the retention register (Q-76)"
   questions:
   - "Historical: the Award's 'family in good standing' meant national dues, club dues, or both?"
-  - "Who runs the 2027 cycle, now that the award continues (D82)? The body is Q-164"
-  - "Which committee owned the award: the sources show Leadership Ramallah (2013–2020), not the Scholarship Committee (Q-164)"
+  - "Which fund's budget line pays the award now that the Scholarship Fund Committee runs it (D55, D85)? In practice it was the Education Fund"
   - "Who scored applications, on what sheet, and are past applicants' files (minors) to be deleted or kept? (Q-117, Q-76)"
   journeys:
     total: 2
@@ -403,7 +402,7 @@
   club_role:
   - "Not stated: the application form has no club field (2014–2020)"
   - "A 2013 sibling, the certificate-only Student Achievement Award for grades 6 to 12, recommended that clubs host a recognition luncheon (description only; whether it ran is not shown)"
-  - "On the platform: not stated; the award continues (D82) and its body is Q-164"
+  - "On the platform: not stated; the award continues (D82) and the Scholarship Fund Committee runs it (D85)"
   agreements: []
   systems_today:
   - "Word application forms, postal and email applications"
@@ -420,10 +419,10 @@
     so_that: "my service and leadership are recognised"
     rule: "practice (afrp.org, 2019–2026); D82"
     lens: "door"
-  - who: "Leadership Ramallah committee"
+  - who: "Scholarship Fund Committee"
     wants: "to score applicants on service, leadership and the essay and choose recipients"
     so_that: "the award goes to the strongest applicants"
-    rule: "practice (2013–2020); who scored is not written (Q-164, Q-117)"
+    rule: "D85; the Leadership Ramallah committee did this in 2013–2020; who scores, on what sheet, is not written (Q-117)"
     lens: "programme"
   - who: "Federation finance staff"
     wants: "to pay the prizes from the fund that holds the award"

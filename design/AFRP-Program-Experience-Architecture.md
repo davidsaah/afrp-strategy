@@ -26,7 +26,7 @@ Exchange Mission, and the Convention's own programming.
 
 *Since 2 October 2026:* four of these names have moved.
 - "Emerging Leaders Summit" names no programme in any source. The 2021 mention is most plausibly the Youth Summit, reported since 2023 as the Day of Action (Q-178; P25 §2.2).
-- The Outstanding High School Senior Award's status is in question (Q-163). *Since 3 Oct 2026:* it continues (D82); its body is Q-164.
+- The Outstanding High School Senior Award's status is in question (Q-163). *Since 3 Oct 2026:* it continues (D82); the Scholarship Fund Committee runs it (D85).
 - Senior Living is the Ramallah Foundation's project, and the Federation's part is communications, gifts passed through and a budget grant (P23 §8–§9; Q-203).
 - The Bookstore's two live stores and the Hub's store are set side by side in P24 §8, and which is kept is Q-197.
 

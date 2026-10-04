@@ -11,7 +11,7 @@ the prototype and narrative pages in `../docs/`, which evidence a *story* and ne
 
 | Start with | What it holds |
 |---|---|
-| `AFRP-Decisions-Register.md` | Every human decision the design waits on: the answer, the date, and who decided (D1–D84; D68–D74 on the family tree module, 2 Oct 2026; D75–D83 on the build order, the tree, the Senior Award and the Relief Fund, 3 Oct 2026; D84 on scholarship conflicts, 4 Oct 2026) |
+| `AFRP-Decisions-Register.md` | Every human decision the design waits on: the answer, the date, and who decided (D1–D85; D68–D74 on the family tree module, 2 Oct 2026; D75–D83 on the build order, the tree, the Senior Award and the Relief Fund, 3 Oct 2026; D84 on scholarship conflicts and D85 on the Senior Award's body, 4 Oct 2026) |
 | `AFRP-Delivery-Status.md` | The running build record, updated by each Hub slice |
 | `AFRP-Rules-Register.md` | By-law parameters reconciled from source |
 | `AFRP-Strategic-Plan-Crosswalk.md` | Every element of the Federation's strategic plans (2019–2026) and what the platform does about each |

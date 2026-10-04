@@ -81,9 +81,9 @@ Each item: what the sources show (the research round, role level), what the reco
 
 **Record.** The register entry `ohss-award` holds it as retired on 31 August 2026 by Board resolution (Program Architecture §6), and earlier gave it to the Scholarship Committee from the prototype; Q-20 asks for a successor on that premise. *Since 3 Oct 2026:* D82 corrects the entry: the award was not retired and continues, and Q-20 falls away.
 
-**Questions.** Q-163 (was it retired: by which Board, when, with what minute; if not, who runs 2027), Q-164 (whose it was), Q-20 (the successor), Q-117 (who scored, on what sheet), Q-76 (past applicants' files, which are minors' records). *Since 3 Oct 2026:* Q-163 is answered by D82 and Q-20 falls away; Q-164, Q-117 and Q-76 stay open.
+**Questions.** Q-163 (was it retired: by which Board, when, with what minute; if not, who runs 2027), Q-164 (whose it was), Q-20 (the successor), Q-117 (who scored, on what sheet), Q-76 (past applicants' files, which are minors' records). *Since 3 Oct 2026:* Q-163 is answered by D82 and Q-20 falls away. *Since 4 Oct 2026:* Q-164 is answered by D85 (the Scholarship Fund Committee); Q-117 and Q-76 stay open.
 
-**What the platform does until answered** (§5.1): nothing opens; the register shows the conflict; the path's first rung is drawn with the award marked "status in question (Q-163)". *Since 3 Oct 2026:* the rung shows the award as continuing (D82); nothing opens until its body (Q-164) and a budget line (D55) exist.
+**What the platform does until answered** (§5.1): nothing opens; the register shows the conflict; the path's first rung is drawn with the award marked "status in question (Q-163)". *Since 3 Oct 2026:* the rung shows the award as continuing (D82); nothing opens until its body (Q-164) and a budget line (D55) exist. *Since 4 Oct 2026:* the body is the Scholarship Fund Committee (D85); nothing opens until a budget line exists.
 
 ### 2.4 The Day of Action in 2026
 
@@ -131,7 +131,7 @@ The path is not a new object. It is **what the platform already records about on
 | # | Rung | Age or condition | The object that carries it (already designed) | The rule it obeys | What practice adds, and the question |
 |---|---|---|---|---|---|
 | 0 | A young person in a member household | Under 18 | The household and the node (D30, D37); camp records (slice 2, D61) | Minors in no directory (R7); no interest row on a minor (P7 §2); camp under R6 | Youth volunteers aged 16–22 sought for a website team (Q-191) |
-| 1 | **High-school senior** | Final school year | The Senior Award (§5.1) — **continues** (D82, 3 Oct 2026; until then "status in question") | The award's own criteria (practice, 2014–2026); the applicant is a minor and applies through the household (R6) | Q-164, Q-117, Q-76 (Q-163 answered and Q-20 fallen away by D82) |
+| 1 | **High-school senior** | Final school year | The Senior Award (§5.1) — **continues** (D82, 3 Oct 2026; until then "status in question") | The award's own criteria (practice, 2014–2026); the applicant is a minor and applies through the household (R6) | Q-117, Q-76 (Q-163 answered and Q-20 fallen away by D82; Q-164 answered by D85) |
 | 2 | **Eighteen** | 18 | The refresh at eighteen: own channel and consents (journey J03; D22, D33 re-asked) | 4.1.1 membership opens; interests may now be recorded (P7 §2) | — |
 | 3 | **College and early service** | 18 and over | Scholarship (P26; slice 4), Project Hope (SEL; 18–29 in the 2019 draft), camp counselor (camp; the counselor's own application) | Each programme's eligibility rows (P12 §2.3); D61 | Project Hope ran in Washington in 2024 (Q-172, Q-116) |
 | 4 | **Young adult** | 21 and over | Leadership Ramallah (SEL, Mid-Year sub-event; D45 keeps it on Education); the Day of Action (§5.3); the Young Leader Committee's club gatherings (events) | 4.3.1 standing for Leadership Ramallah (P12 §2.3); D65 for the Day of Action | Q-176, Q-177, Q-115, Q-186 |
@@ -177,7 +177,7 @@ The path is not a new object. It is **what the platform already records about on
 
 **If the Board says it continues**, the platform would carry it on objects already designed, and this note names them so the answer is a switch rather than a design:
 
-- **The body**: the committee the Board names under Q-164 (the sources point to the Leadership Ramallah committee, 2013–2020; the record must not assume it).
+- **The body**: the committee the Board names under Q-164 (the sources point to the Leadership Ramallah committee, 2013–2020; the record must not assume it). *Since 4 Oct 2026:* **D85** names the Scholarship Fund Committee; the Leadership Ramallah years are the register's history.
 - **The cycle**: the award shape of the programme register (Program Architecture §6), not P12's selection engine, because the applicant is **a minor**: P12 §2.3's "All four: not a minor" row would refuse every applicant. A minor applies through the household adult who holds R6's consent power, as camp does; the student's own channel is not used before eighteen (P7 §2; R6).
 - **The application**: by D61's principle and the Scholarship's binding rule 2, the transcript, essay, recommendations and volunteering letter never enter the platform; the platform holds the application's existence, its received date against the published deadline, and on-file flags. *Design choice by analogy; D61 does not name the award* (Q-76 carries the past files).
 - **The money**: the register's evidence is the Education Fund, released on the chair's written request to the ARFECF Board against a budget line; D55's test is the approved budget, and the 2026–27 budget has no line. **No money line raises until a budget line names the fund** (P12-J01's behaviour; D55).
@@ -269,9 +269,9 @@ Carried, not re-asked: Q-20, Q-51, Q-75, Q-76, Q-80, Q-115, Q-116, Q-117, Q-131,
 | YL3 Seat history | Ended seats kept with dates on CW1 and C1; the office's attested historical seat rows with the drive source; P5's eligibility check showing attested and platform service separately | §3 join 2 | CW1, C1, SC2; Q-252 to accept attested rows for the test (shown, not counted, until answered) |
 | YL4 The Day of Action's mode | The cycle's mode row with no value; *registration* mode on the events module with the eligibility rows at the door, the one public sentence and deadline rows, the first-timer fact, the eligibility row recorded for the cycle before it opens (Q-115; a non-member guest unset until Q-186), reimbursement rows on the General Fund, the spend-approval act with the 7.2.3 read; *application and selection* unchanged as AD4 | §5.3 | AD4 and SEL1–SEL5 for the selection mode; Q-254 for who sets the row |
 | YL5 Government Affairs in operation | The coordinators' staff seats on the office map scoped to the committee; the town hall as an event with co-host institution, agenda link and review act, its action segment as an alert under P14; the outreach register's "own tracker in use" banner; the internships' refusal by name; the hours rows' employee-only filter | §5.4 | AD1, AD2, P16 office map; Q-142, Q-134, Q-183, Q-182 |
-| YL6 The Senior Award switch | Nothing until Q-163; on "continues", the award cycle on the programme register's award shape with the household applicant (R6), on-file flags, the named body, no money line until a budget line exists | §5.1 | Q-164; a budget line (D55); Q-76 for past files *(Q-163 answered by D82, 3 Oct 2026: the award continues)* |
+| YL6 The Senior Award switch | Nothing until Q-163; on "continues", the award cycle on the programme register's award shape with the household applicant (R6), on-file flags, the named body, no money line until a budget line exists | §5.1 | a budget line (D55); Q-76 for past files *(Q-163 answered by D82, 3 Oct 2026: the award continues; Q-164 answered by D85, 4 Oct 2026: the Scholarship Fund Committee)* |
 
-Order: YL2 and YL3 with or after CW1; YL1 once any of the rows it reads is live; YL4 with AD4; YL5 with AD1–AD2; YL6 only on Q-163's answer (*given by D82, 3 Oct 2026; YL6 now waits on Q-164 and a budget line*).
+Order: YL2 and YL3 with or after CW1; YL1 once any of the rows it reads is live; YL4 with AD4; YL5 with AD1–AD2; YL6 only on Q-163's answer (*given by D82, 3 Oct 2026; YL6 now waits on Q-164 and a budget line; since D85, 4 Oct 2026, on a budget line only*).
 
 ---
 
@@ -290,7 +290,7 @@ Order: YL2 and YL3 with or after CW1; YL1 once any of the rows it reads is live;
 | P25-J09 | A town hall's action segment cannot be sent while the position approver row is empty, naming Q-80 | guarded until AD1 and AD2 |
 | P25-J10 | A posting attributed to the Washington internships is refused naming Q-182 and D55; a coordinator's contract-labour cost posts to the General Fund and an ARFECF line is refused naming D65 | meets once YL5 lands |
 | P25-J11 | A Young Leader Committee donation drive cannot publish without a catalogue purpose naming its entity (D8, Q-180); once published, gifts carry club attribution and the clubs page shows counts | guarded until Q-180 |
-| P25-J12 | The Senior Award shows as continuing (D82); no form, cycle or letter exists until its body is named (Q-164) and a budget line exists (D55) | guarded until Q-164 *(rewritten 3 Oct 2026 under D82; it read "The Senior Award renders its status with Q-163 and no form, cycle or letter exists", meets)* |
+| P25-J12 | The Senior Award shows as continuing (D82); no form, cycle or letter exists until its body is named (Q-164) and a budget line exists (D55) | guarded until a budget line exists (D55); the body is the Scholarship Fund Committee (D85, 4 Oct 2026) *(rewritten 3 Oct 2026 under D82; it read "The Senior Award renders its status with Q-163 and no form, cycle or letter exists", meets)* |
 | P25-J13 | No interest row, seat or own channel can be recorded for a seventeen-year-old; at eighteen the person is asked directly | meets (P7-J03, R6) |
 
 ---

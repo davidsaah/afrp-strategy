@@ -83,7 +83,7 @@ their data:
 ```
 
 *Since 2 October 2026:* the diagram is the August reading. P25 §3 reads the path from objects the record already holds, rung by rung:
-- **The high-school senior** is the Senior Award, whose status is in question (Q-163). *Since 3 Oct 2026:* it continues (D82); its body is Q-164.
+- **The high-school senior** is the Senior Award, whose status is in question (Q-163). *Since 3 Oct 2026:* it continues (D82); the Scholarship Fund Committee runs it (D85).
 - **The young adult** is Leadership Ramallah, the Day of Action and the Young Leader Committee's club gatherings.
 - **"Emerging Leaders"**, which the register once made the Leadership branch's entry, has no source and no age band (Q-178). P25 §2.2 enters the branch at whichever programme a person first takes part in, as a design choice.
 - **The "Youth Program"** is the By-Law 8.14 committee, which is not seated (Q-251).
@@ -154,7 +154,7 @@ facts that decide everything operational:
 | Congressional Outreach | AFRP (Government Affairs Cmte) | General fund — likely the bylaws' "Internships in Washington" EFund purpose; confirm |
 | Exchange Mission | AFRP + partners | Grant/partner-funded (PalTrek et al.) |
 | Medical Mission, Women to Women | AFRP / *entity to confirm* | Restricted gifts + conduit (11.1.5 routing through HQ) |
-| HS Senior Award | *site: Ramallah Foundation; confirm* | Small fixed awards (~$3,000/yr at current prizes). *Since 2 Oct 2026:* in practice (research) the awards were paid from the Education Fund when the Leadership Ramallah committee's chair requested the budgeted sum. The 2026–27 budget has no line (P25 §2.3, §5.1; Q-163, Q-164). *Since 3 Oct 2026:* the award continues (D82); its body is Q-164 and its money line waits on a budget line (D55) |
+| HS Senior Award | *site: Ramallah Foundation; confirm* | Small fixed awards (~$3,000/yr at current prizes). *Since 2 Oct 2026:* in practice (research) the awards were paid from the Education Fund when the Leadership Ramallah committee's chair requested the budgeted sum. The 2026–27 budget has no line (P25 §2.3, §5.1; Q-163, Q-164). *Since 3 Oct 2026:* the award continues (D82); its body is the Scholarship Fund Committee (D85, 4 Oct 2026, answering Q-164) and its money line waits on a budget line (D55) |
 | Scholarship | **ARFECF** | Scholarship Fund, 4%+1% mandatory distribution |
 | Preservation | *site: Ramallah Foundation; confirm* | Restricted gifts |
 | **Senior Living** | Ramallah Foundation, Inc. | **Capital campaign — $5M goal, its own machinery** (below). *Since 2 Oct 2026:* the campaign was the Foundation's. The Federation's money is gifts passed through, a Convention-voted grant from the Education Fund, and the Foundation's own yearly gifts to Federation funds (P23 §9; Q-203, Q-204) |
@@ -188,7 +188,7 @@ is the cheapest retention programme AFRP runs. The platform should surface
 "Award-age child in a lapsing household" as a signal, and the renewal
 notice should say why it matters this year.
 
-*Since 2 October 2026:* whether the Award was retired is Q-163, and whose it was is Q-164. If it continues, a minor applies through the household (R6) on the award shape of §6, and nothing opens until Q-163 is answered (P25 §5.1; slice YL6). *Since 3 October 2026:* D82 answers Q-163: the award continues; YL6 waits on its body (Q-164) and a budget line (D55). A "lapsing household" signal would also have to meet the consent and counts rules the record has since adopted (S7, R27).
+*Since 2 October 2026:* whether the Award was retired is Q-163, and whose it was is Q-164. If it continues, a minor applies through the household (R6) on the award shape of §6, and nothing opens until Q-163 is answered (P25 §5.1; slice YL6). *Since 3 October 2026:* D82 answers Q-163: the award continues; YL6 waits on its body (Q-164) and a budget line (D55). *Since 4 October 2026:* D85 names the Scholarship Fund Committee; YL6 waits on the budget line. A "lapsing household" signal would also have to meet the consent and counts rules the record has since adopted (S7, R27).
 
 **Preservation and the family tree are one project wearing two names.** An oral
 history is a tree record with audio; a photograph archive is the tree's media

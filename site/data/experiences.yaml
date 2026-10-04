@@ -458,8 +458,8 @@
   needs:
   - Take part in camp and programmes safely
   - At eighteen, own their channel and consents
-  - Apply for the Outstanding High School Senior Award, which continues (D82), through the household adult (R6) once its body
-    is named (Q-164)
+  - Apply for the Outstanding High School Senior Award, which continues (D82), through the household adult (R6) ; the Scholarship Fund Committee
+    runs it (D85)
   - Volunteer on a programme's team (a website rebuild asked for 16-to-22-year-olds in 2026) under a rule (Q-191)
   - 'At eighteen, see my own path page: what I have taken part in and the Leadership and Education programmes open to me,
     as invitations to look (P25 §3; D39)'
@@ -468,7 +468,7 @@
   - Education-branch invitations at milestones, never enrolment
   - Camp ages 13 to 17 on the record and the public page; the 2025 annual report says 13 to 18 (Q-167)
   - The path view (slice YL1) from eighteen; the Senior Award shown as continuing (D82), with no form, cycle or letter until
-    its body is named (Q-164) and a budget line exists (D55) (P25 §5.1; YL6)
+    a budget line exists (D55); the Scholarship Fund Committee runs it (D85) (P25 §5.1; YL6)
   privacy:
   - Minors never appear in any directory payload; no birth date means possible minor (R7)
   - Camp cabins ship as counts and bands, never a minor's id
@@ -497,7 +497,7 @@
     fails: 0
   not_built:
   - id: P25-J12
-    title: The Senior Award shows as continuing (D82); no form, cycle or letter until its body is named (Q-164)
+    title: The Senior Award shows as continuing (D82); no form, cycle or letter until a budget line exists (D55)
   - id: P25-J01
     title: My path page lists my alumni record, interests and seats in date order, and nobody else can open it
   - id: P25-J02
