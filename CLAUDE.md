@@ -16,6 +16,9 @@ the two repositories, a build session cannot see it.
 
 ## Start of every session
 
+0. Run the **`afrp-chat`** skill. It defines what a chat is, keeps this chat to
+   strategy work, and reads the handoff queue
+   (`../AFRP-Hub/ai-memory/cowork/handoff/QUEUE.md`).
 1. `git pull` here **and** in `../AFRP-Hub`. Work may have been pushed from the
    laptop or from a phone-driven session since this clone last moved.
 2. Read `../AFRP-Hub/ai-memory/cowork/LEDGER.md` (the Passes table), the newest
