@@ -22,12 +22,43 @@ This site puts the strategy and the platform on the same pages, so that the
 committee, the Board and the people building the Hub are working from one
 picture.
 
+## Where the design record stands
+
+As of 3 October 2026:
+
+- **Decisions.** Eighty-three are recorded, D1 to D83. D68 to D74 were
+  decided by David on 2 October and settle the family tree: how it looks,
+  where its record lives, who may propose a change, who sees the living and
+  how the Family Tree Committee approves. The latest nine, D75 to D83, were
+  decided by David on 3 October: the build-ready slices go first, the tree's
+  radius reaches third cousins, the hourglass stays as a second view beside
+  the plate and is drawn in the plate's grammar, magazine and life events is
+  the tree's next integration, the second key-holder is a member the
+  committee seats, the list of structural changes is set, the Senior Award
+  was not retired and continues, and AFRP holds the Relief Fund.
+- **Design notes.** All twenty-eight numbered notes, P1 to P28, are written;
+  P10, the club share and settlement, sits inside P18. P1 to P20 were written on 1 October. P21 to
+  P27 came from the research round of 2 October, and P28, the family tree
+  module, from D68 to D74.
+- **Questions.** Questions are numbered Q-1 to Q-279. The open count in the
+  figures at the top of this page is worked out afresh each time the site is
+  built. Answered questions keep their numbers.
+- **The build.** AFRP-Hub is built and tested in part. It is not in service:
+  it holds no real member data and takes no live payments.
+
+The research round of 2 October read the Federation's own files, mail, public
+pages and public tax filings against this record. Where it found practice
+that departs from a decision or a by-law, the record has not been changed to
+fit. Each such case is listed in the Decisions Register as a conflict, with a
+question number, for the person or Board that owns it (D41).
+
 ## Four branches, one meeting place
 
 Everything here is organised the same way. The Federation's work grows on four
 branches, **Education, Leadership, Heritage and Care**. The **family tree** sits
-on Heritage, and every member has a place on it. The **Convention** is where the
-branches meet each year.
+on Heritage, and every member has a place on it; it is drawn in the plate style
+of the printed book (D68). The **Convention** is where the branches meet each
+year.
 
 <!--TREE-->
 

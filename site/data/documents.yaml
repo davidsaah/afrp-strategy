@@ -143,7 +143,7 @@ groups:
         status: Draft, the text of record until adopted (D44)
         id: 18qn5gvNncs8gsdp2cwgVhLrl6_xwAossVExG1e2euXw
         kind: doc
-        summary: The refresh for the committee to edit. The four branches, what repeated across every plan, priorities for 2026–27, the element-by-element crosswalk and the questions for the committee.
+        summary: "The refresh for the committee to edit. The four branches, what repeated across every plan, seven priorities for 2026–27, the element-by-element crosswalk as it stood on 30 September and eight questions for the committee; no goals list. Behind the record since: the tree's place (D53), seventeen statuses, section J, five answered questions, and one question framed before Senior Living was found to be the Ramallah Foundation's (Q-203); listed with a change list in the crosswalk's section of 2 October 2026 (Q-235). D68 to D74 and design notes P21 to P28 came after it."
         goals: [members, clubs, next-generation, governance, voice, funding, heritage, operations]
   - key: papers
     name: Working papers behind the 2020–21 Recommendations
@@ -203,7 +203,7 @@ groups:
         status: Part of the Recommendations
         id: 1wYP8Mq5MCAippTH5sJoJWiS3oqINB7iU
         kind: file
-        summary: Host bids, the schedule, room blocks, registration and fees for the Mid-Year Meeting.
+        summary: "Host bids, the schedule, room blocks, registration and fees for the Mid-Year Meeting. A club applies in writing by February of the year before; the Executive Committee reviews the applications and announces the host at the general meeting; a sharp fee rise needs its written approval; a full-registration option is recommended. Practice in 2026–27 departed from it (Q-92)."
         goals: [operations]
       - title: Letter for new Federation members
         date: 2021

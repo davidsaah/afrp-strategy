@@ -148,6 +148,8 @@ bylaws acknowledging that verification is available but not recoverable.
 - [ ] What happens when a member's standing **lapses mid-term** — automatic suspension, or a vote?
 - [ ] The **conflict of interest** standard.
 
+*(Since David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b): the three-degree block below is replaced. Every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses (P26 §3.2; not yet a D-number, Q-273). The paragraph is kept as the August text.)*
+
 On that last point: the scholarship committee currently blocks a reviewer
 related to an applicant **within three degrees** in the family tree — parent,
 child, sibling, grandparent, aunt/uncle, first cousin — and discloses anything
@@ -155,12 +157,26 @@ beyond that. In a federation descended from one ancestor, a stricter bar would
 leave no committee at all. **Three degrees is a policy choice and the bylaws or
 a committee charter should own it, not the software.**
 
+- [ ] *(Added 2 Oct 2026)* The **composition and name** of the Young Leader Committee (the 8.10 paragraph against practice; Q-179), and whether **8.13 and 8.14** are seated (Q-251).
+- [ ] *(Added 2 Oct 2026)* Whether the **Magazine's board** of 6.7.1 exists, and who the "Manager of the Magazine" of 9.5.2 is (Q-192, Q-250).
+
 ### 2.13 Amendment
 
 - [ ] Notice period before a vote.
 - [ ] Who may propose.
 - [ ] Threshold to adopt.
 - [ ] **Effective date rule**, and the non-retroactivity statement from §0.
+
+### 2.14 Added from the research round (2 October 2026)
+
+Places the 2024 text is silent or reads two ways, found by the research round and the notes P22–P25. Each is an open question; none is decided here.
+
+- [ ] **How a club chooses its delegates** (9.1.3 is silent; Q-37).
+- [ ] **The forfeiture sentence of 10.1.1**: who determines that a turn has passed (Q-240).
+- [ ] **Who signs a payment** to a Convention host: 11.1.2 against 7.5.1–7.5.2 (Q-241).
+- [ ] **The Annual Meeting without a Convention**: where elections, the budget and amendments are taken (Q-244).
+- [ ] **The Federation's representative in Ramallah**, who has no text (Q-246).
+- [ ] **The budget's approval path** (Q-234).
 
 ---
 

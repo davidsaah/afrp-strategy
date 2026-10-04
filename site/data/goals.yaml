@@ -13,7 +13,14 @@
     returned to it in 2020, 2021 and 2023.
   open: >-
     The platform exists but is not yet in service. Nobody has yet been named to
-    maintain it after launch, and no budget line pays for it.
+    maintain it after launch, and no budget line pays for it. The research of
+    2 October 2026 found today's CRM already holding non-members as contacts,
+    with no consent or retention rule, and its occupation field used for
+    outreach (Q-70, Q-236); the Board recorded in May 2026 that nothing tracks
+    membership standing centrally. One record for every non-member the
+    platform must hold, with dated roles and a consent and retention period
+    for each, is designed in P21 (slices CR1–CR7); whether it is adopted is
+    Q-70.
   hub: >-
     This goal is the CRM itself: one record for each person, their household,
     their clubs, their standing and every payment, in one ledger. Every other
@@ -27,7 +34,7 @@
     members onto it. Whether members may be found "near me" by distance, which
     needs a consent nobody has given (Q-48), and who the community contacts are
     for places without a club (Q-49).
-  rows: [D1, D3, D4, D5, D6, D9, C5, D12]
+  rows: [D1, D3, D4, D5, D6, D9, C5, D12, D23]
 - key: clubs
   n: 2
   name: Connect the clubs and the Federation
@@ -42,10 +49,17 @@
     the deep read of Breeze on 1 October 2026 showed club giving is two
     questions, not one (each club's own processor under its own tax number,
     or the Federation's one door holding and remitting), and that texting in
-    Breeze is a shared short code, one way. Family referral has no design yet. Who approves a club's affiliation,
+    Breeze is a shared short code, one way. Family referral is designed (P4;
+    slices RF1–RF3) and not built. Who approves a club's affiliation,
     whether a member may hold two clubs, who appoints a club's programme seats
     and the statement's unwritten terms are Q-40 to Q-47; how local dues are
-    passed on has never been written down (Q-36).
+    passed on has never been written down (Q-36). The research of 2 October
+    2026 found the clubs to be separate exempt organisations, three different
+    counts of clubs in use (Q-229), Breeze onboarding presented as a Federation
+    initiative (Q-230), clubs giving to Ramallah projects directly (Q-228) and
+    one club's membership rule wider than By-Law 4.1.1 (Q-226). How a club's
+    Convention delegation is chosen is recorded as the club's own dated act,
+    with its method stated (P22 §6; Q-37).
   hub: >-
     Clubs work on the same records as the Federation: the club lens, rosters,
     club groups and follow-ups, club events with check-in, and the remittance
@@ -75,7 +89,13 @@
   open: >-
     Several programmes on the Education and Leadership branches exist only as a
     plan. The invitation from one programme's top rung to the next programme is
-    not yet built.
+    not yet built. The research of 2 October 2026 found no programme by the
+    name Emerging Leaders (Q-178), the Senior Award still offered publicly
+    with no retiring resolution found (since recorded as continuing, D82), a Young Leaders Committee that
+    does not match its by-law (Q-179), and no written screening policy for camp
+    volunteers (Q-86, Q-165). The path from a high-school senior to a Board
+    seat is designed in P25 (slices YL1–YL6) and the scholarship award year,
+    renewal and instalments in P26 (slices SA1–SA7); neither is built.
   hub: >-
     Each person's place on the branches and on each programme's five rungs sits
     on their record. The platform can therefore count how many campers became
@@ -93,13 +113,16 @@
     committee reporting and enforcement of good standing (2020-2021); the 2024
     by-laws adopted part of this.
   open: >-
-    Committees have no workspace yet (it waits on design note P1). The Selection
-    Committee's workflow waits on the 2021 proposal being filed. The
-    four-amendment package is not yet calendared.
+    Committees have no workspace yet; it is designed in P1 (slices CW1–CW5)
+    and not built. The Selection Committee's workflow waits on the 2021
+    proposal being filed. The four-amendment package is not yet calendared.
+    The research of 2 October 2026 found no written path for approving the
+    budget (Q-234) and a Young Leader Committee that does not match By-Law
+    8.10 (Q-179).
   hub: >-
     The by-laws held as rules, standing computed from the CRM, and elections and
-    digital voting on a frozen electorate. Committee reports and records are
-    proposed next.
+    digital voting on a frozen electorate. Committee records and reports are
+    designed (P1) and not yet built.
   outside: >-
     The Board's and the General Assembly's votes, and the amendments themselves.
   rows: [A2, A3, A5, A7, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B13, B14]
@@ -112,16 +135,23 @@
     process, a consistent brand and paid communications staff (2018-2022), and
     advocacy with elected officials.
   open: >-
-    The email provider is not yet connected. The press workflow and the
-    volunteer roster have no design yet. A Communications Coordinator has not
-    been hired.
+    The email provider is not yet connected. The press workflow (P6) and the
+    volunteer roster (P7) are designed and not built. A Communications Coordinator has not
+    been hired. The research of 2 October 2026 found Government Affairs
+    running local action committees in the clubs and its own tracker (Q-131,
+    Q-183), congressional internships voted without a funding source (Q-182),
+    and the Magazine without the board By-Law 6.7.1 names (Q-192). The
+    Magazine as it is actually run (six issues a year, announcements through
+    correspondents, a subscriber list kept outside the CRM) is designed in P24
+    (slices MG1–MG7); who chooses whether a Day of Action takes applications or
+    open registration is Q-254.
   hub: >-
     Messages sent from the CRM to the people who consented to receive them, the
     comms and website desks, the magazine's operations, and the public site.
   outside: >-
     The communications strategy itself, the staff role, and relationships with
     the media and elected officials.
-  rows: [C3, D13, D14, D16, D17, D18, D19, D20, E1, E2, E3, E5, E6, E7, E8, E9, E10, I1, I2]
+  rows: [C3, D13, D14, D16, D17, D18, D19, D20, E1, E2, E3, E5, E6, E7, E8, E9, E10, I1, I2, I3]
 - key: funding
   n: 6
   name: Fund the mission, and show the return
@@ -132,7 +162,14 @@
   open: >-
     The endowment waits on its Policy Statement. The contributor moments are
     designed but not built. How outcomes are measured for each branch is not yet
-    defined.
+    defined. The research of 2 October 2026 found the books already moving
+    towards the design (a card processor per entity, QuickBooks fed from the
+    CRM, an audit for ARFECF), four roles answering to "the CPA" (Q-231), a
+    single fundraising strategy promised before any new endowed fund (Q-210),
+    and Senior Living to be the Ramallah Foundation's home (Q-203). The Relief
+    Fund as it runs, and the Federation's part in the Foundation's home, are
+    designed in P23 (slices RL1–RL6); the Relief Fund's holding entity is AFRP
+    (D83, 3 October 2026), and Q-109 stays open on transfers between votes.
   hub: >-
     Funds and restricted purposes on one ledger across AFRP, ARFECF and ARFHSN,
     one door for every payment, and outcome reporting for each branch drawn
@@ -140,7 +177,7 @@
   outside: >-
     Fundraising, grant writing, the endowment campaign itself, and the Policy
     Statement.
-  rows: [A6, D8, D15, D21, F6, F10, H1, H2, H3, H4, H5, H6, F13, F14, F15, F16, F17]
+  rows: [A6, D8, D15, D21, F6, F10, H1, H2, H3, H4, H5, H6, H7, H8, F13, F14, F15, F16, F17, F18]
 - key: heritage
   n: 7
   name: Keep the heritage and the memory
@@ -151,13 +188,25 @@
   open: >-
     The shared drive is the archive of record and the platform links to it
     (D66). Adoption, and three spouse questions under By-Law 4.1.1, are open
-    for the tree.
+    for the tree. The research of 2 October 2026 found the tree kept in one
+    person's desktop genealogy file with one approver (Q-200, Q-201), the
+    archive spread across four places including a second archive-and-tree site
+    (Q-190), and oral histories recorded on a spoken permission (Q-189). On
+    2 October 2026 David decided how the tree is run on the platform (D68 to
+    D74); the move from today's file is designed in P27 and the module in P28.
+    The parallel run that makes the Hub the tree's record waits on a
+    production database with backups and on the terms for holding the tree
+    data (Q-201).
   hub: >-
-    The family tree is the CRM's spine: every member has a node, and a node is
-    never a lineage claim. The magazine archive and the document registries sit
-    alongside it.
+    The family tree sits on the Heritage branch with a node for every member,
+    and a node is never a lineage claim (D30, D32, D53). It is drawn in the printed
+    book's plate style (D68); members in standing propose changes and the
+    committee approves them in tiers (D70, D72); a signed-in member sees living
+    relatives in full only inside their own branch (D71). The magazine archive
+    and the document registries sit alongside it.
   outside: >-
-    The Family Tree Committee's judgements, collecting oral histories, and
+    The Family Tree Committee's judgements and its clan stewards (Q-263),
+    collecting oral histories, and
     keeping the shared drive in order as the archive of record (D66).
   rows: [A8, C4, D22, F8]
 - key: operations
@@ -169,7 +218,13 @@
     and the Convention (2021), and the Convention agreement (2022).
   open: >-
     The Executive Director has not been hired. The Convention element is
-    designed and not built. Mid-Year host bids have no design yet.
+    designed and not built; Convention operations as run, from the award to
+    the close, are designed in P22 (slices CV1–CV8). Mid-Year host bids are designed (P8); the research
+    of 2 October 2026 found the 2020–21 Mid-Year guideline on file, with the
+    Executive Committee choosing the host where 2026–27 practice had the Board
+    choose (Q-92), the 2026 Convention settled under a revised agreement no
+    folder holds (Q-93), and a path set towards a Convention in Ramallah in
+    2029 (Q-223).
   hub: >-
     Roles and access for staff, the Convention element (registration,
     credentials checked against the remittance ledger, the store, settlement),
@@ -177,4 +232,4 @@
   outside: >-
     Hiring the Executive Director, which the 2024 by-laws require to live in the
     headquarters area.
-  rows: [A4, C1, C2, C6, C7, G1, G2, G3, G4, G5]
+  rows: [A4, C1, C2, C6, C7, G1, G2, G3, G4, G5, G6]

@@ -32,6 +32,9 @@ ACA's background-check standard starts at 18, so a 16-year-old CIT is structural
 the control has to be supervision rules in the roster (never counted in ratios, never alone with
 minors), not a screening record.
 
+*Since 2 October 2026 (research round):* for the camp itself, no written screening, training or
+reporting policy is on file (Q-86, Q-165).
+
 **3 · LinkedIn will not do any of it.** No read API for jobs at any tier. The Job Posting API is
 "not accepting new partnerships". Sign In returns eight fields, none professional. "Open to Work"
 has no API field. Hivebrite's LinkedIn profile sync is *higher-education only*. Buying from a broker

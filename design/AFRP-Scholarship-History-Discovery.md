@@ -46,7 +46,7 @@ scholarship chair clearing out a garage cannot.
 
 **Recommendation: do the inventory (§3, Phase 1) in the next few months, before
 and independent of any software.** It is phone calls and a spreadsheet. It does
-not wait on the build, the bylaws, or the CPA.
+not wait on the build, the bylaws, or the CPA. *(Since 2 Oct 2026: P26 designs the award year from here forward, and scholars' names are never published, only counts and amounts by track. "The CPA" is four roles, Q-231.)*
 
 ---
 
@@ -61,7 +61,7 @@ Ordered by likely yield per hour spent.
 | 3 | **Convention programs** | Awards presented, often with photographs | High for award years |
 | 4 | Annual reports | Totals, sometimes names | Medium |
 | 5 | **Treasurer records — cheque registers, bank statements** | Payee, amount, **exact date** | High, and it is the source that *proves* the money |
-| 6 | Named-fund donor files | Recipients of specific named awards, often in correspondence | Medium, high value |
+| 6 | Named-fund donor files | Recipients of specific named awards, often in correspondence | Medium, high value. *Since 2 Oct 2026:* the office's list of named scholarships enters as candidate rows ("instrument not found") until each is reconciled to a P9 sub-fund (P26 §5; slice SA6; Q-102) |
 | 7 | Past chairs' personal files | Everything, unpredictably | **Most fragile — chase first** |
 | 8 | Thank-you letters from recipients | Names, institutions, and warmth worth quoting | Scattered |
 | 9 | Local club newsletters | Recipients from that club | Varies by club |

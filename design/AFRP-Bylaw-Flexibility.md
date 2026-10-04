@@ -85,7 +85,7 @@ also the checklist for what the revision needs to be explicit about.
 **Convention**
 
 - Federation share by city tier ($20k / $30k / $40k), the 50/50 fallback, the $10,000 deviation assessment
-- Relief Fund levy ($10 per registration)
+- Relief Fund levy ($10 per registration) *(since 2 Oct 2026: a term of each host agreement, P13 §2.2; whether it continues is Q-126; in a unified registration it is Q-243; the fund's holding entity is Q-109; P22 §5.3; since 3 Oct 2026 the entity is AFRP, D83)*
 - Keynote cost split ($5,000)
 - Accounting deadline (**90 days** in the contract, **120 days** in By-Law 10.1.7 — pick one)
 - Bid eligibility (50 paid members for 5 consecutive years, 10.1.1)
@@ -276,6 +276,17 @@ caught in a report rather than at a podium.
 
 ## 6. What I'd like the revision to be explicit about
 
+*Since 2 October 2026:* the research round and P22–P25 found more places where the text is silent or reads two ways. Each is a question, and none is decided here:
+- how a club chooses its delegates (9.1.3; Q-37);
+- the forfeiture sentence of 10.1.1 (Q-240);
+- who signs a payment to a Convention host (11.1.2 against 7.5.1–7.5.2; Q-241);
+- the Annual Meeting without a Convention (Q-244);
+- the Young Leader Committee's composition (the 8.10 paragraph; Q-179);
+- whether 8.13 and 8.14 are seated (Q-251);
+- the Magazine's board and the "Manager of the Magazine" (6.7.1, 9.5.2; Q-192, Q-249, Q-250);
+- the Federation's representative in Ramallah (Q-246);
+- the budget's approval path (Q-234).
+
 Not because the app can't cope otherwise, but because **anything the bylaws
 leave unsaid becomes a build decision by default** — and a build decision is a
 governance decision made by whoever wrote the code. Which is me, and shouldn't
@@ -290,7 +301,7 @@ The full list is in **AFRP-Bylaws-Checklist.md** and the discrepancies are in
 3. **When delegate weight is fixed**, if weighted voting survives.
 4. **Conflict of interest** for the scholarship committee — the three-degree
    kinship bar is mine, with no authority behind it, and in a federation
-   descended from one community it *will* be challenged.
+   descended from one community it *will* be challenged. *(Since David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b): the bar is out. Every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses. P26 §3.2 carries it; it is not yet a D-number (Q-273).)*
 5. **Whether complimentary memberships vote**, given 8.15.4.
 
 ---

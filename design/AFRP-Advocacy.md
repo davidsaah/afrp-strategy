@@ -44,7 +44,7 @@ A **position** is what the Federation says on an issue: one row on the Governmen
 
 A **contact** is one dated interaction between the Federation and a public office: a letter sent, a call, a meeting (in Washington, in a district office, at a club, online), a convened meeting with an executive-branch official. It carries:
 
-- **the office**, as a row on the **institution registry** — the office itself (a House or Senate office by state and district, a State Department bureau, a White House office), with the office's public address and its own general channel. The office row is an institution, never a person. **The platform does not hold the office-holder's or a staffer's personal data as member data and holds no profile of any person in the office.** A staffer's name and office e-mail — which the tracker holds today — are a *professional contact at an institution*, on P6 §3's media-contact shape (name, institution, role, professional channel, source, dated), on the institution registry under the office, readable by the committee's seats only, never in any member audience, never exported, and withheld after an inactivity parameter the committee sets (the same parameter shape as the other contact records; *Q-70* asks whether the Federation wants staffer rows at all or only the office's general channel);
+- **the office**, as a row on the **institution registry** — the office itself (a House or Senate office by state and district, a State Department bureau, a White House office), with the office's public address and its own general channel. The office row is an institution, never a person. **The platform does not hold the office-holder's or a staffer's personal data as member data and holds no profile of any person in the office.** A staffer's name and office e-mail — which the tracker holds today — are a *professional contact at an institution*, on P6 §3's media-contact shape (name, institution, role, professional channel, source, dated), on the institution registry under the office, readable by the committee's seats only, never in any member audience, never exported, and withheld after an inactivity parameter the committee sets (the same parameter shape as the other contact records; *Q-70* asks whether the Federation wants staffer rows at all or only the office's general channel); *Since 2 October 2026:* the contact record note (P21 §6) offers to hold such a staffer as a person record with an *office contact* role anchored to the office's registry row (option a), against this paragraph's registry-only home (option b). P21 adopts neither: the design is DRAFT under Q-70, so this paragraph stands until Q-70 is answered (D41), and AD1 still loads no staffer. The role's retention row is P21 §9's, with no value.
 - **the position** it was made under (§2.1), or "general relationship" where no position applies (the 2020 goal of a yearly contact with every foreign-affairs staffer);
 - **the kind** (letter, call, meeting, convened meeting, event invitation) and **the date**;
 - **the ask** made (read from the position's asks; one or more);
@@ -57,7 +57,7 @@ A **contact** is one dated interaction between the Federation and a public offic
 
 ### 2.3 The outreach register — the tracker replaced
 
-The spreadsheet is replaced by a **register view over §2.2's contacts**: one row per office, computed, showing the last contact, the open ask, the outcome of the last contact under each active position, the member lead where one is assigned, and the next follow-up. It is the Government Affairs Committee's workspace page (CW2) and nothing else: no export, no print, no copy to a spreadsheet (the platform's export refusal, Breeze Parity §2; the club plan §9.3).
+The spreadsheet is replaced by a **register view over §2.2's contacts**: one row per office, computed, showing the last contact, the open ask, the outcome of the last contact under each active position, the member lead where one is assigned, and the next follow-up. It is the Government Affairs Committee's workspace page (CW2) and nothing else: no export, no print, no copy to a spreadsheet (the platform's export refusal, Breeze Parity §2; the club plan §9.3). In practice (research, 2 Oct 2026), the committee replaced the spreadsheet in 2025–26 with a tracker of its own built on Microsoft Forms, SharePoint and Power Automate. *Since 2 October 2026:* P25 §5.4 builds this register as designed. It imports nothing from the committee's tracker, does not read it or write to it, and says on its page that "the committee's own tracker is in use (Q-183)".
 
 **The member lead.** The tracker gives each office a member who "owns" the relationship. On the platform the member lead is a **roster assignment from the volunteer interests note (P7 §4's assignment)**: the committee's chair, as the seat that owns the programme's scope, asks a member who has opted in to an *advocacy* interest term (a term P14 asks P7's vocabulary to carry under Q-83, with no *touches minors* flag) to take an office, the member says yes on their own record, and the assignment is a dated row on the contact register with the office and the position, ended when the member or the chair ends it. A member lead sees the contacts for their office and nothing of other offices; the committee's seats see all. A member lead's follow-up to an office is a contact row the lead records (§2.2) — the follow-up object of the club plan is *about a person on the roster* and is not used for offices (*design choice*: the two words should not collide).
 
@@ -102,9 +102,25 @@ The `advocacy` workflow's step 7 has no document behind it. The committee's quar
 
 ---
 
+### 2.8 Government Affairs as practised, 2025–26 (added 2 October 2026)
+
+The leadership pipeline note maps what the committee does today against this note (P25 §2.5, §5.4; YL5; the `government-affairs` workflow). This is evidence of practice and changes no rule here (D41).
+
+| In practice (research, 2 Oct 2026) | What this note's objects do with it | Question |
+|---|---|---|
+| **Local action committees** inside chapter clubs, for year-round meetings with federal, state and local officials. This is the 2020 "liaison per club" proposal running in practice | Nothing is seated: a local action committee is not a seat on the officers form and not a body on CW1 until Q-131 says who appoints it and to whom it reports (AD5). A meeting it holds with an office may still be a contact row against the office (§2.2; P14-J16), or a member's own contact under consent (§2.5) | Q-131 |
+| **The committee's own tracker** | The outreach register (§2.3) is built as designed and imports nothing from that tracker | Q-183 |
+| **Town halls** co-hosted with other village associations, with an action segment | An event under the programme. The co-host is an institution-registry row, and the agenda a drive document with the chair's review as a dated act. The action segment is an alert (§2.4), so it cannot be sent while the position's approver row is empty | Q-80, Q-133 |
+| **Two paid congressional-outreach coordinators** on the General Fund's contract-labour line | Staff seats on the office map, scoped to the committee (P16 §5). Their hours count on the lobbying register only if contract labour is "paid staff" | Q-142, Q-134 |
+| **The Washington internships**: a Mid-Year contribution voted in March 2025 with no funding entity named | No programme entry and no money line. A posting attributed to the internships is refused until a Board names the entity (D55's test; D65; ARFECF 6.3.1 lists internships as an Endowment purpose) | Q-182 |
+| **Candidate-related activity** | *Candidate* stays refused as a position's subject (§2.1). Whether any candidate-related activity is the Federation's, and whether it is permitted to a 501(c)(4), is before the Legal Advisor with the Board and the CPA | Q-132 |
+| **Constituent stories** for a committee website | Nothing is built | Q-184 |
+
+---
+
 ## 3. The Day of Action
 
-The Day of Action is **one cycle of P12's selection engine** (P12 §2.1) running into **one event** (P12 §2.7) under the advocacy programme; nothing in P12 is restated here. This section names where the Day of Action plugs in and what is particular to it.
+The Day of Action is **one cycle of P12's selection engine** (P12 §2.1) running into **one event** (P12 §2.7) under the advocacy programme; nothing in P12 is restated here. In practice (research, 2 Oct 2026), the 2026 cycle was an open registration, free for adult members, with hotel and part of travel covered for first-time attendees, and it had no application questions and no selection; see Q-115. *Since 2 October 2026:* P25 §5.3 does not edit this section. It adds a **mode** row that the deciding body sets for each cycle: *application and selection* (this section, unchanged) or *registration* (an event registration with the programme's eligibility rows read at the door). The row has no value until the body sets it, and a cycle with no mode does not open (YL4; Q-254). Guests from other associations are Q-186, and the May trip is Q-187. This section names where the Day of Action plugs in and what is particular to it.
 
 **The cycle.** Opened by the programme's deciding body — the Day of Action has no vetting sub-body; the register entry names a programme director and the President with the Government Affairs Committee, and afrp.org a Day of Action Committee; the platform seats whichever the committee names on CW1 with "practice" as the appointing text (P12 §2.1). The entity is AFRP's General Fund, read from the register (D55, D65), so money lines raise. The calendar is the programme overview's (preparation in August, applications from 1 September, review in October, two trainings, the event in mid-November — *committee practice, August 2026*), held as the cycle's dates. The form version is the committee's questions (interest, involvement, experience with officials, views on the political situation and on what the government should do, what the applicant hopes to learn, speaker preferences — *the 2024 and 2025 application structure*). The answers on political views are applicant-chosen answers shown to the deciding body only, under the retention clock, never copied anywhere (P12 §2.2's rule, written for exactly this form; under P12 §2.2's reading of D61, Q-118).
 
@@ -116,7 +132,7 @@ The Day of Action is **one cycle of P12's selection engine** (P12 §2.1) running
 
 **After.** The close creates alumni records with *attended* (P12 §2.8, §2.9; D61); the retention clock on the application's answers, documents and receipt attachments is a parameter with no value until the committee and the AFRP Board set it (P12 *Q-76*, carried) and nothing is deleted until it is set. The Day of Action's alumni are a segment the committee may invite to facilitate at Leadership Ramallah or to take an office as a member lead (§2.3; P7's ask). Thank-you letters are LT-P rows. Photographs are per-item consent (D22) and are not a programme feature of this note.
 
-**No club role.** The record holds none for the Day of Action (the register entry; the club plan §7.1); the 2020 proposal of a club government-affairs representative was not adopted; the clubs' part in advocacy today is hosting district meetings, which §2.2 models as an event role. Whether the Federation wants a club seat for advocacy (a liaison appointed by the club on the officers form, or by the committee — the C4 pattern, each appointment naming who made it) is *Q-131*; until answered no seat exists and the clubs page shows "meetings hosted" and "attendees from this club" as counts (club plan §7.2).
+**No club role.** The record holds none for the Day of Action (the register entry; the club plan §7.1); the 2020 proposal of a club government-affairs representative was not adopted (in practice, local action committees run inside clubs since 2025–26; §2.8, Q-131); the clubs' part in advocacy today is hosting district meetings, which §2.2 models as an event role. Whether the Federation wants a club seat for advocacy (a liaison appointed by the club on the officers form, or by the committee — the C4 pattern, each appointment naming who made it) is *Q-131*; until answered no seat exists and the clubs page shows "meetings hosted" and "attendees from this club" as counts (club plan §7.2).
 
 ---
 
@@ -208,6 +224,14 @@ Carried, not new: P6 *Q-80* (who approves a statement, a letter — and, by this
 | P14-J13 Each congressional meeting on the day is a contact under the year's position with its asks and outcome; the quarterly report's advocacy section shows the counts and nothing typed | §3, §2.7 | guarded until CW3 (the contacts meet) | AD4, AD2 |
 | P14-J14 The event closes; attendees become alumni with *attended*; the application's answers, documents and receipts are not deleted while the retention parameter has no value and the page says so | §3; P12 §2.8; D61 | meets | AD4 |
 | P14-J15 Nothing of advocacy renders in the ARFECF or ARFHSN scope; nothing of a position before issue, a contact or an office renders signed out | §4; D65; R39; D28 | meets | AD1, AD3 |
+
+### Journeys from the research round of 2 October 2026
+
+Proposed from the research round of 2 October 2026 (`site/data/experiences.yaml`) and held here because no design note of 2 October owns them. They are numbered in this note's series; the class is the catalogue's to set.
+
+| Journey | Tests | Class | Slice |
+|---|---|---|---|
+| P14-J16 A local action committee's meeting is logged against the office, not the person | A club's local action committee records a meeting with an office as an AD1 contact row against the office and the position, with no free text about a person; whether the committee is a club seat is Q-131 | proposed | not assigned |
 
 ---
 

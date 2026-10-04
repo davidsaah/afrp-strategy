@@ -4,6 +4,11 @@
 **Prepared for:** American Federation of Ramallah, Palestine
 **Date:** August 15, 2026
 **Scope:** afrp.org and my.afrp.org
+**Since 2 October 2026:** this is the August assessment of the current CRM, kept as written. The platform is now built as the Hub (MASTER-PLAN §1), not as an extension of the CRM. Dated pointers mark the places the record has since moved:
+- the person and the contact record (P21; Q-70);
+- the scholar's experience (P26);
+- the family tree (D68–D74; P27, P28);
+- money in practice (three processor accounts, and QuickBooks integrated with the CRM).
 
 ---
 
@@ -29,10 +34,10 @@ Meanwhile, member data is scattered across at least six systems that do not talk
 | CRM / system of record | **Microsoft Dynamics 365** | The strategic asset. Underused |
 | Member portal | **Microsoft Power Pages** | `my.afrp.org`, custom theme, PWA-enabled |
 | Authentication | Power Pages local accounts + Facebook / Google / Microsoft (Entra) | Federation already enabled — big head start |
-| Payments | **Square** | Donations, membership dues, and digital store |
+| Payments | **Square** | Donations, membership dues, and digital store. *In practice (research, 2 Oct 2026):* the registration system's pay links now run through three card-processing accounts, one per entity (AFRP, ARFECF, ARFHSN), and QuickBooks Online is integrated with the CRM for AFRP and ARFECF (`AFRP-QuickBooks-Integration-Spec.md` §12) |
 | Email marketing | **Mailchimp** | Separate list, no CRM sync |
 | Meetings / town halls | **Microsoft Teams** | Ad-hoc event links posted as news items |
-| Family tree | **Google Groups + Google Sites + Google Forms + a personal Gmail** | Entirely outside the stack |
+| Family tree | **Google Groups + Google Sites + Google Forms + a personal Gmail** | Entirely outside the stack. *Since 2 Oct 2026:* in practice the master file is a desktop genealogy product's file under an account not in the Federation's name (Q-201). D69 makes the Hub the record after a parallel run (P27, P28) |
 | Documents | PDFs on WordPress | Magazine, annual reports, convention materials |
 
 ### 1.2 Portal pages that exist today
@@ -68,6 +73,8 @@ A single engaged member currently exists as **five to seven unlinked records**:
 - Year-end tax receipts have to be assembled by hand from Square.
 - A member has three or four logins and no single place to see their own history.
 - The family tree — your single most distinctive asset — is invisible to the CRM, so you cannot tell whether a family-tree contributor is even a member.
+
+*Since 2 October 2026:* the research round found non-members held in four shapes: a vetted CRM contact without a membership, rows in sheets and trackers, a club's Breeze profiles, and mailboxes. None of them has a stated purpose, consent or retention. The record's answer is **the contact record** (P21): one person record with no membership on it, carrying dated roles, each with its owning scope, consent rows and retention row. A person met several ways is one record, merged into a member only with the person's confirmation (P21 §3, §7). The learner role is decided (D60). The other roles are readings under Q-70, built switched off (slices CR1–CR7). The first load from the CRM's non-member contacts is staging only, until Q-70 and Q-76 (P21 §7.5).
 
 ### 1.4 Other confirmed gaps
 
@@ -133,12 +140,12 @@ Use the **Microsoft Cloud for Nonprofit** common data model where it fits rather
 
 | Entity | Purpose | Notes |
 |---|---|---|
-| `Contact` | The person. The spine of everything | Extend with: club affiliation, clan, membership status, family-tree Person link |
+| `Contact` | The person. The spine of everything | Extend with: club affiliation, clan, membership status, family-tree Person link. *Since 2 Oct 2026:* the person record also holds a non-member, as a contact with dated roles and no membership (P21 §3). No date of birth, occupation or address is held on a contact (P21 §3.4) |
 | `Membership` | Term-dated membership record | Tier, start, end, auto-renew, payment reference |
 | `Gift` / `Transaction` | Every dollar in | Cause designation, Square reference, receipt status, soft credits |
 | `Club` | The 26 local chapters | Officers, geography, own page, own roster |
 | `Event` + `Registration` | Convention, town halls, camp, club events | Sessions, capacity, ticket types, check-in |
-| `Program Application` | Scholarships, Project Hope, Camp, Leadership | Reusable application + review workflow |
+| `Program Application` | Scholarships, Project Hope, Camp, Leadership | Reusable application + review workflow. *Since 1–2 Oct 2026:* the selection engine (P12) and, for an awarded scholar, the instalment, semester filing and release (P26 §2) |
 | `Person` (genealogy) | Family tree individual | Distinct from Contact; optional link where a member matches |
 | `Relationship` | Genealogical edges | Parent, spouse, child, with date qualifiers |
 
@@ -202,17 +209,28 @@ The crown jewel, and the reason to do the rest. Deserves its own discovery phase
 | 3.5 | Member submission with moderation queue (replaces Google Forms + the personal Gmail inbox) | 1.5 wks |
 | 3.6 | Privacy rules — living individuals restricted, deceased public to members | 0.5 wk |
 
+*Since 2 October 2026:* Phase 3 is overtaken by D68–D74 and P28.
+- The tree is drawn in the book's plate grammar (D68).
+- The Hub becomes the record after a parallel run of 30 to 60 days, then exports nightly (D69).
+- Members in current national standing propose (D70).
+- A signed-in member sees the living in full only inside their own branch, and nothing about the living without sign-in (D71; D28).
+- The committee approves in tiers, with clan stewards (D72).
+- Membership and join is the first integration (D73).
+
+P27 sets out the migration from today's practice. The clan books with living details are not served by standing (Q-202). Slices T2-0 to T2h are in MASTER-PLAN §2.
+
+
 **Deliverable:** 500 years and 30,000 people, searchable, contributable, and no longer dependent on one volunteer's inbox.
 
 **Risk flag:** this is the phase most likely to run long, because the data quality of the existing clan books is unknown until 3.1 is done. Treat the range as genuinely uncertain and re-estimate after discovery.
 
-**Continuity flag:** the family tree currently has a single point of failure — one volunteer, one Gmail account, one Google Site. That is a preservation risk for irreplaceable data, independent of any software argument. It is worth raising with the board in those terms.
+**Continuity flag:** *(since 2 Oct 2026: the custody register is P27 §3, and Q-201 asks whose licence, account and export cadence hold the master file)* the family tree currently has a single point of failure — one volunteer, one Gmail account, one Google Site. That is a preservation risk for irreplaceable data, independent of any software argument. It is worth raising with the board in those terms.
 
 ### Phase 4 — Programs and archive (4–6 weeks)
 
 | # | Item | Est. |
 |---|---|---|
-| 4.1 | Reusable application + review workflow for Scholarships, Project Hope, Camp Ramallah, Leadership Ramallah | 2.5 wks |
+| 4.1 | Reusable application + review workflow for Scholarships, Project Hope, Camp Ramallah, Leadership Ramallah | 2.5 wks *(since 2 Oct 2026: P12, P26; the scholar is a member-lens experience in `site/data/experiences.yaml`)* |
 | 4.2 | Member directory with per-field privacy controls and opt-out | 1 wk |
 | 4.3 | Searchable document archive — magazine, annual reports, press, convention materials | 1.5 wks |
 
@@ -236,7 +254,7 @@ These need answers from AFRP staff before the estimates firm up:
 2. **What Dynamics licensing is in place?** Nonprofit grant pricing, Microsoft Cloud for Nonprofit, or standard? Affects which entities are available out of the box.
 3. **How many contacts are in Dynamics today**, and what share of the membership do they represent?
 4. **Is Square a deliberate choice or inherited?** Dynamics has native payment connectors; worth knowing whether Square is load-bearing.
-5. **Who owns the family tree data**, and is there board appetite to migrate it off Google?
+5. **Who owns the family tree data**, and is there board appetite to migrate it off Google? *Since 2 Oct 2026:* migration is decided (D69). Who owns the data, and on what terms the Federation holds it, is Q-201.
 6. **What is the actual budget and timeline?** The phases can be resequenced significantly around a hard convention date.
 7. **Is there an existing member directory** that was deliberately withheld for privacy reasons? If so, Phase 4.2 is a policy question before it is a technical one.
 

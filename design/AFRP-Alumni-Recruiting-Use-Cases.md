@@ -4,6 +4,11 @@
 **Date:** August 2026
 **Deliverable mode:** design only. Mockups and use cases; no buildout.
 
+> *Since 2 October 2026:* three later records bear on this note. Its passages are kept as written.
+> - **The Scholarship is ARFECF's** (D3). Awards, named scholarships and the award history are designed in P26 (`AFRP-Scholarship-Awards.md`). The office's list of named scholarships enters as candidate rows, "instrument not found" (P26 §5; Q-102).
+> - **An alumnus who is not a member** is the *alumnus* role on the contact record. The record itself is decided (D61), but contact runs only under a consent row, and whether a programme may write to an alumnus who has not claimed a record is Q-120 (P21 §2, §9). UC-5's campaign is gated on that.
+> - **The family tree.** D36 (8 September 2026) says the tree is not a mailing list, and that recruitment through the tree "starts with the submitting project lead's agreement and a Board decision, not with a feature". D71 (2 October 2026) shows the living in full only inside a member's own branch, and the integrations after D73 (P28 §8) do not include a tree search by programme staff. UC-3 is therefore not buildable as written until the project lead agrees and the Board decides under D36.
+
 ---
 
 ## 0. Why this is the highest-value list AFRP owns
@@ -157,6 +162,8 @@ by someone who knows the families.
 ---
 
 ### UC-3 — Trace an unreachable alumnus through the family tree
+
+*Since 8 September 2026 (D36) and 2 October 2026 (D71; P28 §8):* recruitment through the tree waits for the project lead's agreement and a Board decision under D36 (Q-271). Until then this use case is not built. See the note's header.
 
 **Actor** Scholarship staff · **Trigger** An alumnus has no usable contact
 

@@ -4,6 +4,7 @@
 **Date:** August 2026
 **Decision recorded:** voting will be conducted electronically. Membership tiers and dues figures are provisional and will change.
 **Mode:** design and planning. No buildout.
+**Since 2 October 2026:** P22 §6 (`AFRP-Convention-Operations.md`) builds the bridge from the certified roll to the floor. Each club's delegation is a dated act with its method stated (the text, 9.1.3, is silent on how delegates are chosen; Q-37), and presence is marked at the desk. Where an Annual Meeting is held without a Convention is Q-244. The "CPA" of 9.2.1–9.2.3 is the by-law's custodian of mailed ballots. It is a different question from which of the Federation's four "CPA" roles the record means elsewhere (Q-231).
 
 ---
 
@@ -236,7 +237,7 @@ a choice the bylaws allowed. That also matters for the abstention question — a
 blank ballot and a non-voter must be distinguishable in the record even if they
 are treated the same in the threshold.
 
-**Weighted delegate voting (9.1.3) becomes practical.** Each delegate carries
+**Weighted delegate voting (9.1.3) becomes practical.** *(Since 2 Oct 2026: P22 §6 reads "sent" as present at the desk's check-in, so only a present delegate carries a weight and only a present certified member may extract. When weights fix is still D5.)* Each delegate carries
 `certified members ÷ delegates sent`, and any certified member present may
 extract their own vote, re-dividing the rest. Chicago with 90 members and 5
 delegates: 18.00 votes each; twelve members extracting drops it to 15.60. That

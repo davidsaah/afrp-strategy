@@ -22,7 +22,7 @@ This note is that detail. Every journey below starts from something a club offic
 - **Who:** club secretary (club lens); the new member (door, then member).
 - **In Breeze:** People > Add Person: first name, last name, phones, email, address; mark a phone or email private; "+ Family Member" for spouse and children; tick the club's tag; Add. Or at the door: the check-in screen's "+" creates a profile with whatever fields the event asks.
 - **On the platform:** the secretary cannot create a national member (Article IV: membership is the Federation's to grant). Two paths: the person joins through the join wizard on the door, naming the club, and the secretary sees the join land in the secretary's queue (C2) and confirms the club attachment; or the secretary records a **contact** for the club (name, one verified channel, consent) that is not a membership, and the queue carries an invitation to join. At the door, B2 as built admits a walk-up only from the eligible and adds nobody; a door that records a **contact** (never a member) for an unknown walk-up is a design choice of this note for B2b, routed to the secretary's queue (C2).
-- **Tests:** Article IV; D1 (standing starts at collection); club plan §9.2 (no consent rows means no marketing — a design choice under Q-46); club plan §3.2.
+- **Tests:** Article IV; D1 (standing starts at collection); club plan §9.2 (no consent rows means no marketing — a design choice under Q-46); club plan §3.2; *since 2 October 2026* the contact is a club prospect role (P21 §2, §10; P20-A7).
 - **Refuses:** "Add member" from the club lens, naming Article IV; a second profile for a person the register already knows (identity resolution proposes a match; the queue decides).
 - **Must reach:** meets. **Slice:** C2 (the queue); B2 (the door).
 
@@ -65,6 +65,14 @@ This note is that detail. Every journey below starts from something a club offic
 - **Tests:** club plan §3.5; Q-41 (guarded).
 - **Refuses:** a move the member did not ask for.
 - **Must reach:** guarded until Q-41. **Slice:** C2.
+
+### P20-A7 · A prospect the club met becomes a contact role (added 2 October 2026)
+- **Who:** club secretary (club lens); the person met at a meeting, who is not a member.
+- **In Breeze:** People > Add Person with whatever the secretary knows; the person is on the club's lists the same day.
+- **On the platform:** the person is a **club prospect**, a role on the contact record (P21 §2) scoped to this club. It is created only by the person's own act at the club's door. The secretary's entry is a queue item that holds no channel until the person acts. The club sees its own prospects and nobody else's (P21 §10). If the person later joins, the role is linked to the membership with the person's confirmation (P21 §7.2).
+- **Tests:** P21 §2, §10; D60's shape; S1; Q-70 (the contact record's shape, DRAFT); Q-72 (a prospect nobody referred).
+- **Refuses:** a channel typed by the secretary; the prospect in any other club's view or in a member audience; a prospect imported from Breeze becoming a role before Q-70's migration option (P21 §7.5).
+- **Must reach:** guarded until Q-70 (and Q-72 for a prospect nobody referred). **Slice:** CR5 on CR1, with C2.
 
 ---
 
@@ -146,7 +154,7 @@ This note is that detail. Every journey below starts from something a club offic
 - **Who:** club president and officers; the credentials desk (federation).
 - **In Breeze:** nothing; a spreadsheet of voting members from the office.
 - **On the platform:** the delegation is selected from certified members (9.1.4) on the club lens; weights computed, never typed; handed to the convention workflow; an independent voter extracts at the opening and is deducted (9.1.3; D5 reopened on when weights fix).
-- **Tests:** 9.1.3, 9.1.4; Q-37 (who certifies).
+- **Tests:** 9.1.3, 9.1.4; Q-37 (who certifies; *since 2 October 2026* also how delegates are chosen, P22 §6 and P20-D6).
 - **Refuses:** a delegate who is not a certified member; a typed weight.
 - **Must reach:** guarded until Q-37 and D5 settle. **Slice:** C1.
 
@@ -165,6 +173,30 @@ This note is that detail. Every journey below starts from something a club offic
 - **Tests:** P19 §4; R27.
 - **Refuses:** an officer's phone or email in the payload; the person's own franchise on the page.
 - **Must reach:** meets. **Slice:** DIR2.
+
+### P20-D6 · The delegation records how it was chosen (added 2 October 2026)
+- **Who:** club president and officers; the credentials desk.
+- **In Breeze:** nothing; a spreadsheet of voting members from the office.
+- **On the platform:** the delegation is a dated act of the club with its **method** stated: *officers' selection*, *members' vote*, or *as the club's own by-laws provide*. Its evidence (minutes, a drive link) is attached. The desk marks each delegate present, and only a present delegate carries a weight, computed as certified members divided by present delegates (P22 §6's reading of 9.1.3's 'delegates sent'; Q-37). P20-D3 is unchanged; this journey adds the method and presence.
+- **Tests:** 9.1.3 (silent on method); P22 §6; Q-37.
+- **Refuses:** nothing on the method; a weight for a delegate not marked present (P22 §6's reading of 9.1.3's 'delegates sent'; Q-37); a typed weight.
+- **Must reach:** meets for the record and presence; the weights stay guarded with P20-D3 until D5. **Slice:** CV4, with C1.
+
+### P20-D7 · The club's local action committee (added 2 October 2026)
+- **Who:** club president; members of the local action committee; the Government Affairs Committee.
+- **In Breeze:** a tag or a group, if anything.
+- **On the platform:** in practice (research, 2 Oct 2026) the committee launched local action committees inside clubs in 2025–26. The platform seats nothing for them: no officers-form seat and no body on CW1 until Q-131 says who appoints them and to whom they report. A meeting they hold with an office is recorded as a contact row against the office and the position, never a note about a person (P14 §2.2; P14-J16). A member's own contact is recorded under that member's consent (P14 §2.5).
+- **Tests:** P25 §5.4; P14 §2.8, AD5; Q-131.
+- **Refuses:** a "local action committee" seat on the officers form, naming Q-131; a free-text note about an office-holder or a staffer.
+- **Must reach:** guarded until Q-131. **Slice:** AD5 (with YL5).
+
+### P20-D8 · The correspondent sends in an announcement (added 2 October 2026)
+- **Who:** the club's Magazine correspondent; the household; the Magazine's editor.
+- **In Breeze:** nothing; an email to the editor with photos.
+- **On the platform:** the correspondent's seat is filed on the officers form (§4.1 step 2) or appointed by the Magazine, naming who appointed it. The correspondent enters an announcement *on the household's behalf* as a **pending submission** naming who entered it and from what. It prints nothing until the household's consent is recorded: through the proof-and-confirm link for a member household, or through the channel the submission came on for a household with no member (P24 §3.2). A death goes through the family-approval gate (R34).
+- **Tests:** P24 §3.2; D33; R34; R27; Q-195.
+- **Refuses:** printing a pending submission; an announcement typed straight into a section.
+- **Must reach:** guarded until Q-195 (the door builds pending-only). **Slice:** MG1, with C1 for the seat.
 
 ---
 
@@ -355,9 +387,25 @@ This note is that detail. Every journey below starts from something a club offic
 - **Who:** club treasurer.
 - **In Breeze:** a fund on the club's giving page.
 - **On the platform:** a conduit line on the club statement (By-Law 11.1.5; D1 treatment 4): club → AFRP → the project, purpose preserved; an appeal for a project the Federation has undertaken shows the authority of the Board and the Executive Committee, or refuses to open (11.1.4).
-- **Tests:** 11.1.4, 11.1.5; D1.
+- **Tests:** 11.1.4, 11.1.5; D1; *since 2 October 2026* P23 §5 for relief money (P20-I7).
 - **Refuses:** an appeal without that authority for a Federation-undertaken project.
 - **Must reach:** meets. **Slice:** C3.
+
+### P20-I7 · The clubs' relief drive (added 2 October 2026)
+- **Who:** club treasurer and president; the drive's organisers (in 2025 the Young Leaders); the Federation.
+- **In Breeze:** a fund on the club's giving page, or cash collected and sent on.
+- **On the platform:** a drive across the clubs is **one catalogue purpose** in the receiving entity's name, with a published end date. Each gift carries the club's attribution (D57), and the tally is a count and an amount per club on the drive's page. Money a club raises for the Relief Fund passes through headquarters (11.1.5) and is never the club's money. A prize is the organisers' and is not modelled. A club's gift to its own project in Ramallah is outside 11.1.5's words, and the platform builds nothing that blocks or records it until Q-228 is answered (P23 §5).
+- **Tests:** 11.1.4, 11.1.5; D8; D57; P23 §5; Q-180, Q-109, Q-228.
+- **Refuses:** publishing the drive while its receiving fund has no entity (D8; Q-109, Q-180); a per-club tally that names a giver. *Since 3 Oct 2026:* the Relief Fund's entity is AFRP (D83); which fund receives a drive stays Q-180.
+- **Must reach:** guarded until Q-180 (P23-J10). **Slice:** RL4, with C3.
+
+### P20-I8 · A club's gift to the Foundation's senior home (added 2 October 2026)
+- **Who:** club president and treasurer.
+- **In Breeze:** a cheque from the club's account; nothing recorded beyond it.
+- **On the platform:** a club gift made **through the Federation's pass-through purpose** is a line on the club's statement with the club as donor and the recognition request (signage) carried to the Foundation with the transfer. Recognition is the Foundation's to give (P23 §9.3–§9.4). A gift the club makes directly to the Foundation is outside the platform.
+- **Tests:** P23 §9.4; D57; Q-205; Q-204 (the receipting entity); Q-248 (recognition and the receipt).
+- **Refuses:** the line before Q-205 says it runs; publishing the purpose before Q-204.
+- **Must reach:** guarded until Q-205 (and Q-204 for the purpose). **Slice:** RL6, with C3.
 
 ---
 
@@ -384,6 +432,14 @@ This note is that detail. Every journey below starts from something a club offic
 - **On the platform:** campers, scholars, participants, volunteers, gifts attributed and events hosted per club per year, from the registers, frozen in the annual snapshot (D67).
 - **Tests:** D67.
 - **Must reach:** meets. **Slice:** C5.
+
+### P20-J4 · The club's legal shape on the register (added 2 October 2026)
+- **Who:** the office; the club president.
+- **In Breeze:** nothing; each club's filings are its own.
+- **On the platform:** in practice (research, 2 Oct 2026), public filings show the clubs as separate exempt organisations: large clubs as 501(c)(7) social clubs, one revived club as a 501(c)(3), and at least one club with a sister 501(c)(3) foundation beside it. The club register (P18 §6.1) shows the tax status *as the club states it* and verifies nothing. Columns for each club's state entity, federal subsection and any sister foundation, and who keeps them current, wait for the Board.
+- **Tests:** By-Law 3.1 (good standing with state and federal regulation); P18 §6.1; Q-227; Q-229 (which count of clubs).
+- **Refuses:** a status the platform did not receive from the club or a public filing; treating a sister foundation's gifts as the club's.
+- **Must reach:** guarded until Q-227. **Slice:** C1 (the register row).
 
 ---
 
@@ -469,8 +525,8 @@ This note is that detail. Every journey below starts from something a club offic
 
 ## M. Coverage
 
-Fifty-two journeys. Every one names a by-law, a decision, a rules-register row, a design-document section, a slice gate or a labelled design choice. Ten are guarded by a named gate (Q-41, Q-37/D5, Q-44, Q-46, B3 for three, B5, D55's silence, the two-household case under R4), which is the correct state until the gate lifts. The canonical J08 and J14 stand; the twenty journeys the club plan listed in §11.2 are absorbed here (P18-J01→P20-D1, P18-J02→P20-D1, P18-J03→P20-D3, P18-J04→P20-A1/A4/A6, P18-J05→P20-L2, P18-J06→P20-I2, P18-J07→P20-I3, P18-J08→P20-D2, P18-J09→P20-C3, P18-J10→P20-L1, P18-J11→P20-H3, P18-J12→P20-J2, P18-J13→P20-J2, P18-J14→P20-K3, P18-J15→P20-K6, P18-J16→P20-K6, P18-J17→P20-K4, P18-J18→P20-K5, P18-J19→P20-H4, P18-J20→P20-H2).
+Fifty-nine journeys: fifty-two of 1 October 2026 and seven added on 2 October 2026 (P20-A7, D6, D7, D8, I7, I8, J4) for the club's part in P21–P25 and the federation research. Every one names a by-law, a decision, a rules-register row, a design-document section, a slice gate or a labelled design choice. Seventeen are guarded by a named gate, which is the correct state until the gate lifts. The ten of 1 October are guarded by Q-41, Q-37/D5, Q-44, Q-46, B3 (three journeys), B5, D55's silence and the two-household case under R4. The seven of 2 October are guarded by Q-70, D5 (P20-D6's weights, with P20-D3), Q-131, Q-195, Q-180, Q-205 and Q-227. The canonical J08 and J14 stand; the twenty journeys the club plan listed in §11.2 are absorbed here (P18-J01→P20-D1, P18-J02→P20-D1, P18-J03→P20-D3, P18-J04→P20-A1/A4/A6, P18-J05→P20-L2, P18-J06→P20-I2, P18-J07→P20-I3, P18-J08→P20-D2, P18-J09→P20-C3, P18-J10→P20-L1, P18-J11→P20-H3, P18-J12→P20-J2, P18-J13→P20-J2, P18-J14→P20-K3, P18-J15→P20-K6, P18-J16→P20-K6, P18-J17→P20-K4, P18-J18→P20-K5, P18-J19→P20-H4, P18-J20→P20-H2).
 
 What the corpus does not cover, on purpose: Breeze's worship, service-planning and song tools (not a federation's need, Addendum 2 §3.1); name-tag printing (not a goal); a free-form form builder (B6 stays a question); a case file on a person (the record has not decided to keep one).
 
-**For the Hub's component.** Read together, A–L describe the clubs component: the roster and queue (A, B), groups (C), seats (D), events and the door (E), volunteers (F), follow-ups (G), communications (H), the treasurer's desk and the statement (I), the dashboard and the roll-up (J), the migration path (K) and the member's club view (L). The slices that build it are B1, B2, B2b, C1–C6, DIR1–DIR2, with B3 and B5 gated. Each journey here is the exit test for its slice; a slice is done when its journeys reach the class named and the Delivery Status says so.
+**For the Hub's component.** Read together, A–L describe the clubs component: the roster and queue (A, B), groups (C), seats (D), events and the door (E), volunteers (F), follow-ups (G), communications (H), the treasurer's desk and the statement (I), the dashboard and the roll-up (J), the migration path (K) and the member's club view (L). The slices that build it are B1, B2, B2b, C1–C6, DIR1–DIR2, with B3 and B5 gated. Each journey here is the exit test for its slice; a slice is done when its journeys reach the class named and the Delivery Status says so. The seven journeys added on 2 October 2026 are also exit tests for slices of other notes: CR5 (P21), CV4 (P22), RL4 and RL6 (P23), MG1 (P24), and AD5 with YL5 (P14, P25).

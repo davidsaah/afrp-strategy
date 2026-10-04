@@ -437,7 +437,7 @@ def main():
             ("Verified", "Walked by the journeys, shown under Status", "#2f5a73")]) + "</div>")
     home_body = MD(body).replace("<!--TREE-->", tree_svg()).replace("<!--SECTIONS-->", cardhtml).replace("<!--SEQUENCE-->", seq)
     write("index.html", "AFRP Strategy and Hub", home_body, "home", heading=meta["heading"], kicker=meta["kicker"], lede=meta["lede"],
-          chips=[f"{n_dec} decisions recorded", f"{len(open_q)} open questions", f"{len(progs)} programmes on four branches",
+          chips=[f"{n_dec} decisions recorded", f"{len(open_q)} open questions", (lambda nb, nj: f"{nb} programmes on four branches" + (" and the Convention as the junction" if nj == 1 else (f" and {nj} at the junction" if nj else "")))(sum(1 for p in progs if p["branch"] != "junction"), sum(1 for p in progs if p["branch"] == "junction")),
                  f"{all_j.get('total',0)} journeys walked", (f"{facts['tests']} tests green" if facts["tests"] else "")])
 
     # ------------------------------------------------------------- STRATEGY
@@ -527,15 +527,16 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
 
     meta, body = md_page("questions.md")
     qrows = "".join(
-        f'<tr id="{q["id"]}" data-goal="{q["goal"]}" data-branch="{q["branch"]}"><td><b>{q["id"]}</b></td><td><b>{E(q["title"])}</b><br><span class="small">{E(q["detail"])}</span></td>'
+        f'<tr id="{q["id"]}" data-goal="{q["goal"]}" data-branch="{q["branch"]}" data-owner="{E(q["owner"].lower())}"><td><b>{q["id"]}</b></td><td><b>{E(q["title"])}</b><br><span class="small">{E(q["detail"])}</span></td>'
         f'<td class="small">{E(q["owner"])}</td><td class="small">{glink(q["goal"])}<br>{btag(q["branch"])}</td>'
         f'<td class="small">{E(q["source"])}<br><a href="{REPO}/discussions?discussions_q={q["id"]}">Discuss {q["id"]}</a></td></tr>'
         for q in open_q)
     qfilt = ('<div class="filters"><select id="qg"><option value="">Every goal</option>' +
              "".join(f'<option value="{g["key"]}">{g["n"]}. {E(g["name"])}</option>' for g in goals) +
              '</select><select id="qb"><option value="">Every branch</option><option value="all">All branches</option>' +
-             "".join(f'<option value="{b["key"]}">{E(b["name"])}</option>' for b in branches) + '</select></div>')
-    qscript = """<script>(function(){var g=document.getElementById('qg'),b=document.getElementById('qb');function f(){document.querySelectorAll('#qt tbody tr').forEach(function(r){r.style.display=(!g.value||r.dataset.goal==g.value)&&(!b.value||r.dataset.branch==b.value)?'':'none'})}g.onchange=f;b.onchange=f;})();</script>"""
+             "".join(f'<option value="{b["key"]}">{E(b["name"])}</option>' for b in branches) + '</select>'
+             '<input id="qo" type="search" placeholder="Owner contains…" aria-label="Filter by owner"></div>')
+    qscript = """<script>(function(){var g=document.getElementById('qg'),b=document.getElementById('qb'),o=document.getElementById('qo');function f(){var t=o.value.trim().toLowerCase();document.querySelectorAll('#qt tbody tr').forEach(function(r){r.style.display=(!g.value||r.dataset.goal==g.value)&&(!b.value||r.dataset.branch==b.value)&&(!t||(r.dataset.owner||'').indexOf(t)>=0)?'':'none'})}g.onchange=f;b.onchange=f;o.oninput=f;})();</script>"""
     decided_q = [q for q in questions if q.get("decided")]
     drows = "".join(
         f'<tr id="{q["id"]}"><td><b>{q["id"]}</b></td><td><b>{E(q["title"])}</b><br><span class="small">{E(q["detail"])}</span></td>'
@@ -573,7 +574,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
         body = (f'<p>{E(b["summary"])}</p><h2>Programmes on this branch</h2><div class="grid">{"".join(pcard(p) for p in ps)}</div>'
                 f'<h2>How people move along it</h2><p><b>{E(b["shape"])}.</b> ' + {
                     "education": "A milestone on one programme opens an invitation to the next, by age. The order follows a young person's life: camp, then Project Hope, the Scholarship and Leadership Ramallah.",
-                    "leadership": "Entry is at Emerging Leaders. People move by what they are ready to take on, and the order is a suggestion, never a prerequisite.",
+                    "leadership": "'Emerging Leaders' has no source, and whether its register entry is retired or re-pointed is Q-178 (P25 §2.2). Until that is answered the branch is entered at whichever of its programmes a person first takes part in (P25 §2.2, a design choice). People move by what they are ready to take on, and the order is a suggestion, never a prerequisite.",
                     "heritage": "There is no next step and no milestone invitation. People take part in any of these at any point in life.",
                     "care": "People arrive by choice or by capacity to give. The Ramallah Foundation and the Endowed Fund are funds: shown here, not joined."}[b["key"]] +
                 ' Inside every programme, people move through the same five rungs: <b>hear · show up · take part · give or serve · lead</b> (D25).</p>'

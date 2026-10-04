@@ -1,15 +1,17 @@
 # The Ramallah Family Tree in the platform
 ### Lineage as evidence — design decisions of 20 August 2026
 
-**Source file:** `Ramallah Family Tree_20260813.ged` — a Family Tree Maker export dated 13 Aug 2026,
-submitted by **John Aziz Mogannam**, who runs the project. **28,226 individuals · 10,399 families ·
+**2 October 2026:** D68–D74 (Decisions Register, Part 5) change what follows: D69 supersedes D11's staging, D71 amends D17, D72 amends D14's mitigations, D70 confirms D13 and D68 supersedes D27. The design built on them is `AFRP-Family-Tree-Module.md` (P28); the text below is left as written.
+
+**Source file:** `Ramallah Family Tree_20260813.ged` — a desktop-genealogy export dated 13 Aug 2026,
+submitted by the project's volunteer lead. **28,226 individuals · 10,399 families ·
 nine clans · earliest recorded birth 1500.**
 
 **The project itself:** begun in 2003 at the San Jose Convention. It documents the descendants of
 **Rashed El-Haddadeen**, who settled Ramallah around 1517 — a Ghassanid line that came by way of
 Karak in Jordan. Its source of record is **Azeez Shaheen, *Ramallah, Its History and Its
 Genealogies* (1982)**, carrying data from the mid-1970s onward. Today it runs on a Google Group:
-apply, await approval, access a members-only area, submit corrections on a form ordirectly to John.
+apply, await approval, access a members-only area, submit corrections on a form or directly to the project's lead.
 
 ---
 
@@ -58,6 +60,8 @@ one of those gaps would become an eligibility denial — and the by-law's own es
 **The file's silence is not evidence of absence.**
 
 ### 3 · Inside the platform, all members see everything — recorded as a decision
+*Since 2 October 2026:* D71 amends this decision (D17). A signed-in member sees the living in full only inside their own branch: blood relatives sharing an ancestor no further back than a great-great-grandparent, and their spouses. Outside it, a living person shows a name and a position on the plate only. D28 is unchanged. The premise below, that open visibility "matches how the Google Group works today", was also wrong about practice. In practice (research, 2 Oct 2026), access is by approval of each request, not by membership; see Q-200 (P27 §1.3).
+
 This matches how the Google Group works today, so the platform does not quietly change it. It is
 recorded here so it is a decision rather than an accident:
 
@@ -127,8 +131,8 @@ alone** — nearly a third of the whole record from one man born in 1556.
 ---
 
 ## What comes next
-1. **Corrections and submissions** — rebuild John Mogannam's pipeline: request access, propose an
-   addition or correction, review, publish, version. Today it is a Google Group, a form, and one
+1. **Corrections and submissions** — rebuild the project lead's pipeline: request access, propose an
+   addition or correction, review, publish, version. *(Since 2 Oct 2026: members in current national standing propose (D70); the committee applies with one key or two (D72); the Hub becomes the record after a parallel run (D69); slices T2b, T2c and T2d in P28 §14.)* Today it is a Google Group, a form, and one
    person, and that is the maintainer's real bottleneck.
 2. **Heritage browsing** — walk your line, and find how you are related to another member. The most
    emotionally compelling surface in the entire platform, and the strongest reason a young person

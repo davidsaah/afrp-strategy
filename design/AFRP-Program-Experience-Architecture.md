@@ -6,6 +6,8 @@
 functionality that is thin for any of the programs and a lot of redundancies in the platform."*
 Both are true, both are measured below, and they are the same problem.
 
+**Since 2 October 2026:** this map is kept as written. Where a lens, object or programme it describes has moved since, a dated pointer stands at that place. There are four additions. **The contact record** is a cross-cutting object (P21; Q-70). **The scholar** is a member-lens experience (P26). **The family surface** follows D68–D74 (P28). **The programme list** has been corrected by the research round: Emerging Leaders has no source (Q-178), the Senior Award's status is in question (Q-163; *since 3 Oct 2026 it continues, D82*), and Senior Living is the Foundation's (Q-203). The experiences themselves are now written in `site/data/experiences.yaml` (sixteen lenses).
+
 ---
 
 ## Part 1 — The diagnosis, measured
@@ -22,6 +24,14 @@ the Scholarship, the Outstanding High School Senior Award, Emerging Leaders Summ
 Congressional Outreach, the Family Tree, the Preservation Project, the Educational & Cultural
 Exchange Mission, and the Convention's own programming.
 
+*Since 2 October 2026:* four of these names have moved.
+- "Emerging Leaders Summit" names no programme in any source. The 2021 mention is most plausibly the Youth Summit, reported since 2023 as the Day of Action (Q-178; P25 §2.2).
+- The Outstanding High School Senior Award's status is in question (Q-163). *Since 3 Oct 2026:* it continues (D82); its body is Q-164.
+- Senior Living is the Ramallah Foundation's project, and the Federation's part is communications, gifts passed through and a budget grant (P23 §8–§9; Q-203).
+- The Bookstore's two live stores and the Hub's store are set side by side in P24 §8, and which is kept is Q-197.
+
+The Convention's own programming is designed as an element in P22.
+
 What the program lens actually contains is a **generic administrative pipeline** —
 `applications`, `intake`, `registry`, `lifecycle`, `budget`, `disbursement`, `conflicts`,
 `alumni`, `endowment`. Those are the seven stations, one set, shared by everyone.
@@ -29,6 +39,8 @@ What the program lens actually contains is a **generic administrative pipeline**
 **So a program today is a row in a registry with a workflow attached.** That is precisely why it
 reads as thin: the administration is built and the *experience* was never built. Nobody's year in
 Camp Ramallah is anywhere in this platform. Neither is anybody's job running it.
+
+*Since 2 October 2026:* the experiences are written per lens in `site/data/experiences.yaml`, sixteen of them. The research round added the **scholar**, a member-lens experience for a new or continuing Scholarship recipient on the US or Ramallah track. The scholar files after each semester to have the next instalment released, receives a missing-documents letter that says what is missing and by when, and is never named in public (counts and amounts by track only). The scholar's workflows are `scholarship-cycle` and `scholarship-renewal`. It rests on P26 §2 (the instalment, the semester filing, the release and the hold), with Q-158, Q-159 and Q-255 open.
 
 ### 1.2 The redundancy, counted
 
@@ -40,7 +52,7 @@ The same object, given a new URL each time a different role looked at it:
 | Elections & voting | **9** | `member/voting` `member/ballot` `+confirm` `+sealed` `fed/floor` `fed/results` `fed/mailedballot` `fed/credentialing` `fed/calendar` |
 | Events | **8** | `fed/events` `club/events` `club/newevent` `program/newevent` `member/events` `member/event/harvest` `+lecture` `+party` |
 | Money | **7** | `fed/ledger` `fed/finance` `fed/qbo` `fed/controls` `program/budget` `program/disbursement` `club/remit` |
-| Identity & support | **4** | `fed/crm` `fed/member360` `fed/identity` `fed/supportdesk` |
+| Identity & support | **4** | `fed/crm` `fed/member360` `fed/identity` `fed/supportdesk` *(since 2 Oct 2026, the same object also holds non-members: the contact record, P21)* |
 | Institutions | **4** | `fed/institutions` `fed/inst` `fed/newinst` `fed/hsn` |
 | Directory | **3** | `fed/directory` `member/directory` `member/dirinclusion` |
 | Governance | **3** | `fed/board` `fed/committees` `fed/boardroom` |
@@ -81,6 +93,13 @@ see different things — instead of two routes that drift apart.
 | **Comms** | 3 | **2** | `inbox` (receiving) and `comms` (composing, role-adaptive). |
 | **Club lens** | 9 | **4** | `club/dashboard` `club/roster` (households folds in) `club/officers` `club/voting`. Events, remittance and comms move to the shared surfaces. |
 | **Programs** | 17 | **2** | **The headline.** `programs` (the registry) and `program/:slug` — *one templated surface that renders any of the nineteen*. The admin stations become tabs inside it. |
+
+*Since 2 October 2026, pointers on the surfaces above:*
+
+- **`people` holds the contact record (P21), a cross-cutting object.** A non-member is held as one person record with no membership on it, carrying dated roles: learner, applicant, referred, club prospect, giver, guest, subscriber, media or office contact, candidate, alumnus. Each role has its owning scope, consent rows per channel and message class, and a retention row. Member 360 shows the roles; the merge queue links a contact to a member only with the person's confirmation (P21 §3, §7, §10; slices CR1–CR7). Only the learner role is decided (D60) and the alumnus record is D61. Every other role is a reading of D60 under **Q-70**, whose DRAFT decision is P21 §11 and is not adopted. Every surface that meets a non-member reads this object: `programs` (the Arabic door, applications, AFRPWorks), `events` (guests, Q-238), the Magazine (subscribers, Q-239), `clubs` (prospects), `money` (a one-time giver) and `institutions` (media and office contacts, whose home is an option under Q-70).
+- **`family`** follows D68–D74 and P28. It draws the book's plate grammar (D68); the hourglass stays as a second view (D77), drawn in the same grammar (D80). The Hub becomes the record after a parallel run (D69, superseding D11's staging). Members in standing propose (D70). A signed-in member sees the living in full only inside their own branch: blood relatives sharing an ancestor no further back than a great-great-grandparent, and their spouses (D71). The committee decides with one key, or two different keys for a structural change, and clan stewards never approve (D72); the structural kinds are the rules-register row D81 set. Membership and join is the first integration (D73), with find-yourself at join and renewal (P28 §4.4). The federation approval in the household row is now D72's committee keys.
+- **`convention`** gains the desk, the unified registration, delegates from the roll and the close as dated acts (P22 §5, §6, §9).
+- **`money`** meets a Federation that already runs one card-processing account per entity and keeps QuickBooks integrated with its current CRM. That is practice, recorded in `AFRP-Multi-Entity-Ledger.md` §9 and `AFRP-QuickBooks-Integration-Spec.md` §12; D1 and D56 stand.
 
 **Net effect: ~97 routes → ~40 distinct surfaces — while going from 5 programs with a surface to
 19.** Fewer things to build, more of AFRP actually represented. If you prefer to count each
@@ -154,12 +173,14 @@ Leadership Ramallah because of what they just did. That handoff is the existing 
 the ladder gives it a trigger point rather than leaving it as narrative. The ladder does not replace
 `AFRP-Program-Architecture.md` — it is the rung-level detail underneath it.
 
+*Since 1–2 October 2026:* D39 makes programmes "windows, not gates", so nothing moves anyone between rungs or programmes. P25 §3 draws the Leadership path as what the platform already records about one person, read in order. It is a "my path" page only the member sees, with unvisited programmes shown as links and never as a next step owed. The branch outcomes are counts under the floor (S7). The "trigger point" above is therefore an invitation the member may look at, never a step the platform takes.
+
 ### 3.3 Five rules the ladder must obey — built in, not bolted on
 These are stated up front because the red team will attack exactly here, and because getting them
 wrong turns a warm organisation into a sales funnel.
 
 1. **A rung is not a score, and the member never sees a number.** The participant sees *"here is
-   what's next, if you'd like it."* They never see "you are a 2." A member who comes to the hafli
+   what's next, if you'd like it."* *(Since 2 Oct 2026: P25 rule and slice YL1 go further: no "next" or "required" string on any branch surface; D39.)* They never see "you are a 2." A member who comes to the hafli
    every year for twenty years and nothing else is **not** a failure of the platform.
 2. **Declines stay invisible.** The existing design records a declined program invitation *nowhere
    a committee can see*. Rung movement must not become a back door to that — an organizer must not
@@ -177,6 +198,8 @@ wrong turns a warm organisation into a sales funnel.
 ---
 
 ## Part 4 — The program template
+
+*Since 13 September – 2 October 2026:* the template is the programme register's eight headings (MASTER-PLAN slice P1; `site/data/programmes.yaml`, twenty-one entries), updated field by field from the research round with "In practice (research, 2 Oct 2026)" lines and their questions.
 
 Every one of the nineteen is written against this. Six get it at full depth; thirteen get the same
 headings, shorter. Uniformity is the point: it makes the thin ones **visibly** thin instead of
@@ -208,6 +231,8 @@ invisibly thin, which is how they get fixed.
 7. Redraft into six section documents, retiring the overlapping ones.
 
 ### Blocked
+*Since 1–2 October 2026:* unblocked in part. The intakes of 1 October and the research round of 2 October read the Federation's own files, mail and public pages at role level. The private reports are in the planning Project, and their public text is in the register and the notes P21–P28.
+
 AFRP's own program material — the `AFRP Management` folder — is connected on a device named **rafa**,
 while this session is bridged to **ramallah**. Until that folder is reachable, everything in steps 3
 and 4 rests on afrp.org and the existing charters, which is a materially weaker source for the

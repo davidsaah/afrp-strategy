@@ -30,7 +30,8 @@
 <main>
 <p class="small muted">Source: <a href="https://github.com/davidsaah/afrp-strategy/blob/main/design/AFRP-Multi-Entity-Ledger.md">design/AFRP-Multi-Entity-Ledger.md</a> in the public repository. The design record outranks this rendering only in the sense that the file is the record (D41); the page is generated from it.</p><h3>Addendum 6</h3>
 <p><strong>Date:</strong> August 15, 2026
-<strong>Trigger:</strong> clubs keep their own books; clubs are separately incorporated</p>
+<strong>Trigger:</strong> clubs keep their own books; clubs are separately incorporated
+<strong>Since 2 October 2026:</strong> the research round found how the Federation's own books now run across the three entities. That is recorded in §9 as practice, never as a decision; D1 and D56 stand, and nothing below changes because of it.</p>
 <hr />
 <h2>1. The four answers, and what they cost</h2>
 <table>
@@ -59,6 +60,7 @@
 </tr>
 </tbody>
 </table>
+<p><em>In practice (research, 2 Oct 2026):</em> the Federation now runs <strong>three card-processing accounts, one per entity (AFRP, ARFECF, ARFHSN)</strong>, replacing one AFRP account whose receipts were moved to the affiliates by hand; the registration system's pay links name the receiving entity's processor profile. That is the split between the Federation's entities, not the club split this table answers, and it leaves the club rows above as written; see §9 and Q-232.</p>
 <p>Taken together this is a <strong>much better outcome than the worst case.</strong> No
 split-tender payments, no inter-entity due-to/due-from between 27 ledgers, no
 consolidation eliminations. One collection point and a monthly payout run.</p>
@@ -94,6 +96,7 @@ them, which is exactly why it is an explicit setting rather than an assumption
 buried in a query.</p>
 <p><strong>Ask the accountant this once, get it in writing, and record the answer in
 <code>club_ledger_profile.treatment</code>.</strong></p>
+<p><em>In practice (research, 2 Oct 2026):</em> the Federation's chart of accounts already books every affiliate purpose it collects (ARFECF's, ARFHSN's and the Ramallah Foundation's) as a "due to" liability, the agency pattern of D1 and D56 applied more widely than either decision names. No account on either side yet carries club-collected national dues. Which of the four roles called "the CPA" gives the written answer is Q-231; the countersignature itself is still Q-3 (D1).</p>
 <hr />
 <h2>3. Worked remittance run</h2>
 <p>Real output from the implemented engine:</p>
@@ -280,10 +283,10 @@ daily close.</p>
 <hr />
 <h2>8. Open questions</h2>
 <ol>
-<li><strong>Agency or revenue?</strong> §2.1. Get it in writing from the CPA.</li>
+<li><strong>Agency or revenue?</strong> §2.1. Get it in writing from the CPA. <em>Since 2 Oct 2026:</em> this is Q-3 (D1's countersignature, put together with D56's agency treatment); which CPA is meant is Q-231; the books already use the agency pattern for affiliate purposes (§9).</li>
 <li><strong>Who bears the processing fee</strong> — national or the club?</li>
 <li><strong>How many clubs actually keep books,</strong> and on what? Needs a survey, and it
-   is a phone call rather than a query.</li>
+   is a phone call rather than a query. <em>In practice (research, 2 Oct 2026):</em> clubs keep their own books (some in Breeze, some in QuickBooks); none is in the Federation's file. The count is still not stated.</li>
 <li><strong>What is the remittance cadence and minimum?</strong> Monthly with a $25 floor is
    modelled; clubs may want quarterly.</li>
 <li><strong>Are all 26 clubs separately incorporated,</strong> or only some? A club inside
@@ -291,8 +294,21 @@ daily close.</p>
 <li><strong>Do any clubs currently collect dues directly?</strong> If so, migrating them to
    national collection is a member-facing change and a governance conversation.</li>
 <li><strong>Who signs off a remittance run</strong> before payment? Modelled as
-   <code>remittance_run.approved_by</code>; the policy is undecided.</li>
+   <code>remittance_run.approved_by</code>; the policy is undecided. <em>Since 2 Oct 2026:</em> the cadence and approver for settling each affiliate's "due to" account is Q-232; club dues are still Q-36 under D1 and D57.</li>
 </ol>
+<hr />
+<h2>9. In practice: the Federation's books across the entities (research, 2 October 2026)</h2>
+<p>What the Federation's own files show, recorded as evidence of practice under D41. None of it is a decision, none of it changes D1 or D56, and none of it sets a default for the platform. Each line names the question that holds it.</p>
+<ul>
+<li><strong>Accounts retitled per entity.</strong> Bank accounts that had carried the wrong entity were retitled to the right one in 2025–26. <em>In practice (research, 2 Oct 2026); the agency treatment is Q-3 and Q-232.</em></li>
+<li><strong>Three processor accounts.</strong> One card-processing account per entity (AFRP, ARFECF, ARFHSN), with ARFHSN's own merchant account set up in spring 2026; the pay links choose the entity's profile and whether the payer covers the card fee. <em>In practice; Q-232.</em></li>
+<li><strong>QuickBooks is already integrated with the current CRM.</strong> QuickBooks Online holds AFRP's and ARFECF's books from the 2026 Mid-Year, with ARFHSN to follow, fed from the registration system, with monthly statements and budget-versus-actual. The platform's own QuickBooks connection is still absent from the Hub (MASTER-PLAN §1a); the integration the Hub replaces is the CRM's, not a blank. <em>In practice; <code>AFRP-QuickBooks-Integration-Spec.md</code> §11.</em></li>
+<li><strong>The "due to" family.</strong> AFRP's chart carries a liability for each affiliate purpose collected on the affiliates' behalf (ARFECF's, ARFHSN's and the Ramallah Foundation's), plus "Due to Convention Host City" and a Convention bank account (P22 §10). How often and on whose approval each is settled is <strong>Q-232</strong>.</li>
+<li><strong>The Relief Fund in ARFECF's books.</strong> ARFECF's balance sheet carries the Relief Fund as its own bank account, with AFRP owing it. The record's rule stands: the fund posts nothing until a Board names its holding entity. <em>In practice; Q-109 (P23 §2).</em> <em>Since 3 Oct 2026:</em> D83 names AFRP; the fund posts to AFRP, and ARFECF's booking is the reconciliation item D83 names (the books follow D83, or the Boards revisit).</li>
+<li><strong>The Convention leg through ARFECF.</strong> ARFECF's balance sheet carries an amount due to AFRP for the Convention host fee. The Convention is AFRP's (D1 G), and the platform refuses a Convention posting to an ARFECF account. <em>In practice; Q-224 (P22 §10).</em></li>
+<li><strong>Review and audit.</strong> Both AFRP and ARFECF had financial reviews for the year to May 2025. ARFECF moves to a CPA audit from the year to May 2026 (FY2026); AFRP stays on review. <em>In practice; the export the outside firm needs is the QuickBooks spec's §6.</em></li>
+<li><strong>"The CPA" is four roles.</strong> The outside firm that reviews or audits and files the returns; the General Fund Treasurer, a CPA in practice; a volunteer financial adviser, also a CPA; and the bookkeeper. This document's "the CPA" (§2.1, §7 item 1, §8 q1) means the person who countersigns the treatment, which is not written. Which role is meant is <strong>Q-231</strong>.</li>
+</ul>
 <hr />
 <p><em>Agency-versus-revenue treatment per ASC 958 guidance on contributions held for
 others. Figures are from the implemented engine against seeded data and are

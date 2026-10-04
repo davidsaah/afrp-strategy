@@ -3,6 +3,7 @@
 
 **Date:** August 2026
 **Purpose:** one map from everything raised across this project to the screen that covers it.
+**Since 2 October 2026:** the elements raised by the research round and designed in the notes P21–P28 are listed at the end, with the Hub modules each note is written for ("Design notes P21–P28, and their modules"). The mockup screens below predate them, and the prototype evidences a story, never a rule (D41).
 
 ---
 
@@ -39,7 +40,7 @@ seen from four angles, not four applications.
 | The 18th-birthday consent refresh | Member 03 |
 | Stored cards, subscriptions, expiring card | Member 04 |
 | Per-channel consent, per-field privacy | Member 05 |
-| Member 360 — every linked source record | Ops 02 |
+| Member 360 — every linked source record | Ops 02 *(since 2 Oct 2026: also a non-member's contact roles, P21 §10)* |
 | Identity resolution and the merge queue | Ops 03 |
 | Free student membership for scholarship recipients | Member 16, Ops 15 |
 | Complimentary Family tier for newlyweds | Member 15–16 |
@@ -81,7 +82,7 @@ seen from four angles, not four applications.
 
 | Element | Where |
 |---|---|
-| Lineage, search, living individuals restricted | Member 14 |
+| Lineage, search, living individuals restricted | Member 14 *(since 2 Oct 2026: the living in full only inside one's own branch, D71; the book's plate grammar, D68; P28)* |
 | Provisional records marked unverified | Member 14, Member 16 |
 | Weddings, births, graduations, deaths | Member 15 |
 | Consent gates before anything is published | Member 15–16 |
@@ -131,7 +132,24 @@ seen from four angles, not four applications.
 | Upcoming activities | Ops 19 |
 | Proof-and-confirm your own entry | Member 19, Ops 19 |
 | Read the issue, search the archive | Member 19 |
-| Bookstore, member pricing, digital library | Member 20, Ops 20 |
+| Bookstore, member pricing, digital library | Member 20, Ops 20 *(since 2 Oct 2026: neither live store has a member price or digital goods, Q-199; which store is kept, Q-197; P24 §8)* |
+
+---
+
+## Design notes P21–P28, and their modules (2 October 2026)
+
+| Note | Element | Hub modules it is written for | Slices | Its open questions |
+|---|---|---|---|---|
+| **P21** `AFRP-Contact-Record.md` | The contact record: one person record for every non-member, with dated roles, scope by seat, consent per role and class, retention per role, and merging with the person's confirmation | `people` (Member 360, identity and merge), `member`, `comms`, `programs`, `events`, `clubs`, `magazine`, `payments`; the institution registry; the retention schedule (IR2) | CR1–CR7 | Q-70 (the DRAFT decision is §11), Q-238, Q-239 |
+| **P22** `AFRP-Convention-Operations.md` | The Convention element: the award and forfeiture, a hosting model abroad, the unified registration and the desk, delegates, sponsors and the ad book, the coordinator's access, the close, the books, the playbook | `events`, `payments`, `ledger`, `funds`, `voting`, `clubs`, `governance`; CG2; CW1; the QuickBooks mapping | CV1–CV8 | Q-240–Q-245 |
+| **P23** `AFRP-Relief-Fund-and-Senior-Living.md` | The Relief Fund's three paths, the organisation register and the representative's report; the Federation's part in the Foundation's senior home | `funds`, `ledger`, `grants`, the institution registry, `payments`, `comms`, the Care programme pages | RL1–RL6 | Q-246–Q-248; Q-109, Q-203, Q-204 |
+| **P24** `AFRP-Magazine-Operations.md` | The Magazine as it runs: announcements, the people, the subscriber ledger, the money, the archive; the two live stores and the Cook Book | `magazine`, `store`, `funds`, `ledger`, `comms`, `memberdir`, the institution registry | MG1–MG7 | Q-249, Q-250; Q-192–Q-199 |
+| **P25** `AFRP-Leadership-Pipeline.md` | The leadership path from a high-school senior to a Board seat; the Young Leader Committee as the text reads; the Senior Award switch; the Day of Action's two modes; Government Affairs in operation | `programs`, `committees`, `member`, `events`, `alumni`, `voting`, `network`, `reporting` | YL1–YL6 | Q-251–Q-254; Q-163, Q-178, Q-179 |
+| **P26** `AFRP-Scholarship-Awards.md` | Scholarship awards and renewal: instalments, the semester filing and release, the hold, letters and cheques, named scholarships as fund rows, the committee's seats | `scholarship`, `funds`, `ledger`, `comms`, `committees`, `alumni` | SA1–SA7 | Q-255–Q-257; Q-158, Q-159 |
+| **P27** `AFRP-Family-Tree-In-Practice.md` | The family tree's migration from practice: custody of the master file, the corrections queue as the one door, the clan books, oral-history consent, the archive index (amended by D68–D74) | `tree`, `member`, `committees`, `comms`, `heritage`, `access` | FT1–FT6 (FT4 and FT6 folded into T2h and T2d) | Q-258–Q-261; Q-189, Q-200–Q-202 |
+| **P28** `AFRP-Family-Tree-Module.md` | The family tree module: the book's look on screen, members proposing and the committee deciding in tiers, the Hub as the record after a parallel run, and the tree reaching membership, the magazine, the directory and Heritage (D68–D74) | `tree`, `member`, `join`, `dues`, `access`, `rules`, `magazine`, `memberdir`, `comms`, `reporting` | T2-0, T2-R, T2a–T2h | Q-262–Q-270 |
+
+The slice rows are in `plan/MASTER-PLAN.md` §2. The note-by-note crosswalk rows are in `AFRP-Strategic-Plan-Crosswalk.md` (design-notes table).
 
 ---
 
@@ -172,10 +190,10 @@ what they want.
 The questions that gate work rather than merely inform it:
 
 1. **The bylaws** — apportionment, quorum, proxy voting, tie-breaking.
-2. **Agency or revenue** for club dues — one signature from the CPA.
+2. **Agency or revenue** for club dues — one signature from the CPA. *(Since 2 Oct 2026: Q-3; which CPA is Q-231.)*
 3. **How many scholarship recipients**, across how many years, in what form.
 4. **Publication calendar** — everything in the magazine keys off the press date.
-5. **Who administers Dynamics today**, and what the licensing actually is.
+5. **Who administers Dynamics today**, and what the licensing actually is. *(Since 2 Oct 2026: the Hub replaces it; in practice the CRM feeds QuickBooks Online, `AFRP-QuickBooks-Integration-Spec.md` §12.)*
 6. **Which club goes first** on migration — it should be one that wants to.
 
 ---

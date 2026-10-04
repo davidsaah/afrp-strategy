@@ -4,13 +4,17 @@
 **Date:** August 15, 2026
 **Status:** implemented, 41 tests, end-to-end cycle runs
 
+> Superseded on payer and Board approval by D3, ARFECF 6.4.4 and P26 §1.4 (`AFRP-Scholarship-Awards.md`).
+>
+> *Since 2 October 2026:* four passages below are kept as written and are overtaken, each with a dated pointer: §1 and §5 ("AFRP is the payer of record") by **D3** (20 August 2026: the Scholarship is ARFECF's); §3's three-degree block by **David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b)** (disclosed by degree and acknowledged, only the same household refuses; not yet a D-number, Q-273); §2's "board approval" by ARFECF 6.4.4 (the committee's decision authorises; Q-161); §5.1's yearly verification by the 2026 award letter's per-semester practice (P26 §2; Q-159). Awards, instalments, renewal, letters and named scholarships are designed in **P26** (SA1–SA7).
+
 ---
 
 ## 1. Your four answers, and what each one costs
 
 | Decision | Consequence |
 |---|---|
-| **Paid to the student** after enrolment proof | Flexible for the student. Makes AFRP the payer of record — tax status, qualified/taxable split and non-resident withholding all become AFRP's to capture. See §5 |
+| **Paid to the student** after enrolment proof | Flexible for the student. Makes AFRP the payer of record — tax status, qualified/taxable split and non-resident withholding all become AFRP's to capture. See §5. *Since 20 August 2026 (D3): the payer is ARFECF, and the tax-fact capture applies to ARFECF (P26 §1.4, §2.3); which account pays in practice is Q-158* |
 | **Multi-year with annual continuation review** | Right for scholars. Commits money AFRP has not raised, so future years must be **encumbered**. See §4 — this is the one that quietly breaks programs |
 | **Open to any Ramallah descendant**; free membership onboards | Widest reach, and it turns the scholarship into recruitment. Descent is verified **against the family tree** — the first time that archive does operational work |
 | **Both endowed and annual** named scholarships | Each carries its own funding, criteria and capacity. Matching scholars to them is a real assignment problem. See §6 |
@@ -22,6 +26,8 @@
 ```
 form → application → review (recusal) → rank → match to named awards
      → budget check → board approval → offer → accept
+       (since 2 Oct 2026: under ARFECF 6.4.4 the committee's decision authorises;
+        a Board act is recorded beside it and gates nothing — P26 §3.3, Q-161)
      → [each year] verify → authorise → disburse → continuation review
      → graduation
 ```
@@ -43,7 +49,7 @@ So conflicts are **detected, not merely declared**:
 |---|---|
 | Reviewer is the applicant | Blocked |
 | Same household | Blocked |
-| Related within 3 degrees in the family tree | Blocked |
+| Related within 3 degrees in the family tree | Blocked. *Since 8 September 2026 (David's correction, recorded in P26 §1.4 and §3.2; built in slice 4b; Q-273):* disclosed by degree and acknowledged, not blocked; only the same household refuses (P26 §1.4) |
 | Related beyond 3 degrees | **Disclosed on the record, not blocked** |
 | Self-declared | Always honoured, never questioned |
 
@@ -136,6 +142,8 @@ needs growing — a conversation to have with the donor's family.
 ## 5. Disbursement, and the tax facts AFRP now owns
 
 Because AFRP pays the **student** directly, AFRP is the payer of record.
+
+*Since 20 August 2026:* D3 makes the Scholarship ARFECF's, so ARFECF is the payer of record and this section's tax facts are ARFECF's to capture. A disbursement drawn on another entity's account does not post (P26 §2.3, SA3; D3; ARFECF 6.4.8). In practice (research, 2 Oct 2026), the 2026 letters went out in AFRP's name and the office wrote the cheques; see Q-158. P26 §2 replaces §5.1's yearly gate with three verification rows per semester instalment (Q-159, Q-256).
 
 ### 5.1 Gates — nothing moves until verified
 
@@ -309,13 +317,13 @@ before the first disbursement is due.
 1. **Who is the tax adviser** who clears flagged disbursements? The workflow
    needs a named person before the first non-resident award.
 2. **What is the actual rubric,** and how many reviewers per application?
-3. **Is 3 degrees the right conflict bar?** It is a committee policy question,
+3. *(Since 8 September 2026 (David's correction, P26 §1.4): disclosed by degree, only the same household refuses. Whether the Scholarship Fund Committee adopts it as its conflict policy is not recorded (Q-273).)* **Is 3 degrees the right conflict bar?** It is a committee policy question,
    and I have set a default rather than a rule.
-4. **How many named scholarships exist,** and does each have written donor
+4. *(Since 2 October 2026: the office's list of about twenty names enters as candidate rows, "instrument not found", refusing posting and matching until reconciled — P26 §5, SA6; Q-102.)* **How many named scholarships exist,** and does each have written donor
    criteria? Undocumented criteria are the most common cause of a stranded
    named fund.
 5. **Are any named endowments underfunded** relative to their award amount, as
-   the Zarou example shows? Worth auditing before the next cycle.
+   a named family's scholarship (example) in §4.1 shows? Worth auditing before the next cycle.
 6. **What historic data actually survives,** and for how many years?
 7. **Does the free student membership have an age or enrolment limit?**
 8. **Who approves the budget** — the committee recommends and the board

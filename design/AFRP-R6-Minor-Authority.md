@@ -1,5 +1,13 @@
 # R6 — guardian and delegation authority: who may act for a minor
 
+**Since 2 October 2026:** new readers of R6, none of which changes it:
+- the Senior Award, which continues (D82, 3 Oct 2026): a minor applies through the household adult who holds R6's consent power (P25 §5.1; Q-163, answered by D82);
+- oral-history consent for a minor, through the household (P27 §6; D22);
+- whether minors may serve on a programme's volunteer team (Q-191);
+- whether relatives inside one's own branch see a minor's dates on the tree (D71; Q-268).
+
+No contact record exists for a minor (P21 §3.1).
+
 **Drafted 8 September 2026.** This document exists to close the gap the rules
 register records at R6: *"Guardian and delegation authority — who may act for a
 minor. **inferred** — 13 citations, none stating it. ❌ not modelled."*

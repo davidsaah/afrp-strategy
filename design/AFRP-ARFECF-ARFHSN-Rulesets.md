@@ -82,6 +82,10 @@ The file is an OCR of a marked-up copy (§11.2 contains a literal "Replace with"
 
 ARFHSN — the **American Ramallah Federation Human Services Network** — is the simplest of the three entities to model, because it has **no membership and no franchise**. It is a 501(c)(3) NGO whose entire governance runs through the AFRP Board.
 
+> *Since 2 October 2026 (research round; role level).* **The by-laws are in revision.** Counsel's draft of revised ARFHSN by-laws (July 2026) is with a four-trustee review committee. It goes next to the full ARFHSN board and then to the AFRP Board, with November 2026 as the target. The review covers Board authority, the AFRP–ARFHSN relationship, financial oversight, programme references and compliance. Until the AFRP Board votes under Art. V, the 2015/2017 text below is operative. Which text is operative on the day the Hub seats the Care lens, and whether the revision changes D62, D63 or Art. III §5 and §7, is **Q-220**.
+>
+> **Who convenes the monthly meeting.** D62 says the Federation President convenes ARFHSN. In practice the Federation's programme director issues the monthly invitation, the ARFHSN secretary sets the agenda, and the President attends. This is a conflict between the record (D62) and practice, and it is recorded in the Decisions Register's research-round conflicts table. Whether convening is an office service to ARFHSN (an agency role, Q-3's pattern) or the President's power is **Q-214**. D62 stands until it is answered (D41).
+
 ### 2.1 Ruleset inventory (citations to the 2015/2017 text)
 
 **Identity.** Michigan non-profit NGO; educational and charitable purposes (job training centers, vocational scholarships and grants, senior-citizen services awareness, elderly assistance, food/shelter for needy families, economic development in the Palestinian Territories); AFRP is its "supporting organization" (Art. I, II). Note Art. III §1 describes AFRP as **501(c)(4)** while ARFHSN operates as **501(c)(3)** — an entity-status fact the ledger and receipt language must respect (donations deductible to ARFHSN, not necessarily to AFRP).

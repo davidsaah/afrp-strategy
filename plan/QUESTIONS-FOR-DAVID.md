@@ -10,7 +10,46 @@ verbatim in substance, with what it changed or scheduled.
 **None here.** Q11 (extracting the 2012 by-law text into rules) moved to
 `ai-memory/08-OPEN-QUESTIONS.md` on 8 September 2026, because that file is in
 `CLAUDE.md`'s boot pack and this one is not — an open question a build session
-never reads is not open, it is lost.
+never reads is not open, it is lost. *(Since 2 October 2026: numbered Q-274 in `site/data/questions.yaml`.)*
+
+## In David's own lap, 2 October 2026
+
+These are the open questions from the research round and the notes P21–P28 (Q-158 to Q-273), and the record's own unnumbered questions numbered later that day (Q-274 to Q-278), whose owner names David, alone or with others. Each is in `site/data/questions.yaml` with its detail. Q-258 is answered by D69 and is not listed. *Since 3 October 2026:* Q-262, Q-270 and Q-272 are answered by D79, D77 and D76 and are no longer listed; Q-278 and Q-265 are answered in part by D75 and D78 and stay listed for what remains. Later the same day Q-279, Q-264 and Q-163 were answered by D80, D81 and D82 and are no longer listed (with D82, Q-20 fell away); D83 answered Q-109 in part (AFRP holds the Relief Fund), and Q-109, whose owner field names the three Boards and the CPA rather than David, stays open on who approves each transfer between the Board's votes and whether D63's closing records apply.
+
+**David alone**
+- Q-274 — Should the 2012 by-law text be extracted into rules? (numbered 2 Oct 2026; was Q11 above)
+- Q-276 — The email provider and the payment account for slice 5 (numbered 2 Oct 2026; MASTER-PLAN §1d.6; 3 Oct 2026: David keeps the hold for now)
+- Q-278 — Where the record-only slice R3 sits (numbered 2 Oct 2026; the rest is answered by D75, 3 Oct 2026: the build-ready slices first, and LT1 waits on slice 5 only for a send)
+- Q-265 — The order of directory and comms (T2g) and Heritage (T2h) (D78, 3 Oct 2026, put magazine and life events next)
+
+**David named first**
+- Q-275 — Which club moves from Breeze first, and who holds its Breeze account key (with the first club's officers; numbered 2 Oct 2026; gates C6)
+- Q-162 — The public site says the Scholarship is managed by the Ramallah Foundation (with the ARFECF Board)
+- Q-164 — Which committee owned the Senior Award (with the Leadership Ramallah committee)
+- Q-171 — When the public page carries the non-member rate (with the programme director)
+- Q-175 — Are the Leadership Ramallah committee and the Young Leader Committee one body or two? (with the AFRP Board)
+- Q-178 — Retire or re-point Emerging Leaders (with the Strategic Planning Committee)
+- Q-190 — A second archive-and-tree site built by volunteers (with the Preservation committee, the Family Tree committee and the AFRP Board)
+- Q-195 — The correspondent seat and the consent it must hold (with the Magazine)
+- Q-203 — Is Senior Living a Federation programme at all? (with the AFRP and ARFECF Boards)
+- Q-205 — A club's gift to the Foundation's home, recognised by signage (with the Council of Chapter Club Presidents)
+- Q-208 — Should the Relief Fund be a purpose on the public giving page now? (with the General Treasurer; since D83, 3 Oct 2026, the fund is AFRP's, so under D8 the purpose is for AFRP's Board)
+- Q-214 — Who convenes the monthly ARFHSN meeting (with the ARFHSN Board)
+- Q-217 — The grants register's states and the earmark shape ARFHSN uses (with the ARFHSN Board)
+- Q-218 — The purpose wording of every appeal, as published (with the ARFHSN Board)
+- Q-235 — The committee's draft against the record (with the Strategic Planning Committee)
+- Q-260 — Serving a drive-held document inside the sign-in boundary (with the Digital Infrastructure Committee and the Executive Director)
+- Q-268 — Minors' dates inside one's own branch (with the Family Tree Committee and the Membership Committee)
+- Q-273 — Record the scholarship conflict-of-interest rule as a decision (with the Scholarship Fund Committee)
+
+**David with others named first**
+- Q-189 — What consent an oral-history recording needs (the Preservation committee, the Legal Advisor)
+- Q-197 — Who owns the bookstore (the AFRP and ARFECF Boards)
+- Q-200 — Who approves access to the clan books and the interactive tree, under what test (the AFRP Board, the Family Tree committee)
+- Q-201 — The genealogy product's licence, account and export cadence (the Family Tree committee)
+- Q-216 — A club's closed branch account held by ARFHSN (the ARFHSN Board, the club)
+- Q-230 — Is the Breeze roll-out a Federation programme or each club's choice? (the Deputy President, the AFRP Board)
+- Q-266 — Arabic-script names on the tree (the Family Tree Committee)
 
 ## Answered 6 September 2026
 
@@ -176,6 +215,7 @@ never reads is not open, it is lost.
     It is one setting (`tree.policy.LIVING_VISIBLE_TO`) and the design doc
     calls it the one setting worth revisiting before launch. Signed out,
     nothing about the living (Decision 28).
+    *Since 2 October 2026:* amended by **D71**. A signed-in member sees the living in full only inside their own branch (blood relatives sharing an ancestor no further back than a great-great-grandparent, and their spouses), and outside it a name and a position only. D28 is unchanged. Whether relatives inside one's own branch see minors' dates, as this answer says today, is Q-268.
 
 23. **Where the tree's data lives.** *Answer:* a GEDCOM file, updated with
     the new membership, protected so nobody but the Family Tree Committee
@@ -252,11 +292,13 @@ never reads is not open, it is lost.
     (postmark vs receipt), standing across scopes (4.1.1's two readings),
     and the endowment valuation date.
 
-31. **The Family Tree Committee.** *Answer:* "David Saah for now; John
-    later." *Consequence:* the bootstrap command grants roles named in
+31. **The Family Tree Committee.** *Answer:* "David Saah for now; [the
+    project's lead] later." *Consequence:* the bootstrap command grants roles named in
     `BOOTSTRAP_OFFICER_ROLES` to the first officer on deploy; set to
-    `family_tree_committee` on staging. John is entered on the Roles
-    screen by name when David says who.
+    `family_tree_committee` on staging. The project's lead is entered on
+    the Roles screen by name when David says who.
+    *Since 2 October 2026:* **D72** needs two different committee members to apply a structural change. Who holds `tree:moderate` beside David is **Q-262**, and until then a structural item records its first key and waits. Steward appointment is Q-263.
+    *Since 3 October 2026:* **D79** answers Q-262: the second holder is a Family Tree Committee member seated by the committee's own act (FT2), chosen over the project's lead (answer 31).
 
 32. **The public site.** *Answer (6 Sep 2026, evening):* "have as much
     from the afrp.org website in the public-facing site." *Consequence:*

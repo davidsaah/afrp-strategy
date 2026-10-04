@@ -1,5 +1,7 @@
 # The family tree as the platform's spine — integration design
 
+**2 October 2026:** D68–D74 (Decisions Register, Part 5) change the decisions this document extends: D69 supersedes D11's staging, D71 amends D17, D72 amends D14's mitigations, D70 confirms D13, D68 supersedes D27 and D73 makes membership and join the first integration. The design built on them is `AFRP-Family-Tree-Module.md` (P28); the text below is left as written.
+
 **Drafted 8 September 2026.** The tree stops being one programme among nineteen
 and becomes the substrate the rest of the platform resolves people through.
 This document states what that means, what it must never mean, and which
@@ -20,13 +22,13 @@ The tree's spine was settled on 20–21 August 2026. This work **extends** it:
 
 | | Decision | Consequence here |
 |---|---|---|
-| **D11** | Body of record is **staged** — a governed mirror now, the platform after one clean annual cycle | The GEDCOM is the master **today**; the platform is not yet the record. Integration must survive the handover without a rebuild. |
+| **D11** | Body of record is **staged** — a governed mirror now, the platform after one clean annual cycle | The GEDCOM is the master **today**; the platform is not yet the record. Integration must survive the handover without a rebuild. *Since 2 Oct 2026: D69 supersedes D11's staging. The Hub becomes the record after a parallel run of 30 to 60 days in which the Hub wins; the external file is then read-only, with a nightly export (P28 §4.3).* |
 | **D12** | A correction touching a decided line **re-evaluates and flags** | Life events feeding the tree inherit this: a corrected birth re-opens what leaned on it. |
-| **D13** | **Any member may propose anything** | The life-event surfaces are proposal surfaces, not write surfaces. |
-| **D14** | **Every life event queues** for the committee | Confirmed and unchanged by D31 below. |
+| **D13** | **Any member may propose anything** | The life-event surfaces are proposal surfaces, not write surfaces. *Since 2 Oct 2026: D70 confirms D13 for members in current national standing; no account exists for non-members.* |
+| **D14** | **Every life event queues** for the committee | Confirmed and unchanged by D31 below. *Since 2 Oct 2026: D72 amends D14's mitigations. One committee key applies an own-household life event or a non-structural correction, and two different keys apply a structural change. Clan stewards recommend and never approve.* |
 | **D15** | Public build: deceased real, living synthetic | Unchanged. The real file never enters the repository. |
 | **D16** | The tree is **evidence for a human decision, never a verdict** | The load-bearing constraint on D30. |
-| **D17** | All members see everything in-platform | The exposure ceiling for statistics, mailings and stories. |
+| **D17** | All members see everything in-platform | The exposure ceiling for statistics, mailings and stories. *Since 2 Oct 2026: D71 amends D17. A signed-in member sees the living in full only inside their own branch (blood relatives sharing an ancestor no further back than a great-great-grandparent, and their spouses); outside it, a name and a position only. D28 is unchanged.* |
 | **D22** | Photos: **per-item consent held by the subject**; a minor's runs through the household and is **re-asked at eighteen** | The pattern D33 extends to announcements. |
 
 ---
@@ -155,7 +157,7 @@ producing the manuscript and carrying **no eligibility force** (D32).
 
 **Statistics.** Clan composition by chapter club, generational spread,
 geographic drift — derived and read-only. The exposure ceiling is D17 and R7
-together: **aggregates only where a cell would name a minor**, and the
+together *(since 2 Oct 2026: D71 in place of D17's "everything")*: **aggregates only where a cell would name a minor**, and the
 k-anonymity floor already used for camp rows (`JP-066`, k≥3 including the reason
 the row is suppressed) applies unchanged.
 
@@ -181,7 +183,7 @@ Unchanged and restated because integration multiplies the temptation:
   integration described above is a reason to add one.
 - Under **D11** the file is still the master and the platform is a governed
   mirror. Every integration here must work identically after the handover, and
-  the surfaces say which side of it they are on.
+  the surfaces say which side of it they are on. *Since 2 Oct 2026: superseded by D69. During the parallel run the Hub wins, and the record keeper's edits arrive as imports through the diff preview, applied as audited committee edits with conflicts held. After the run the external file is read-only and the Hub exports nightly under `tree:moderate`. Who owns the data, and on what terms, is Q-201.*
 
 ---
 
@@ -192,7 +194,7 @@ dues benefit, or an eligibility finding. It does not answer 4.1.1's three open
 spouse questions, or the club attachment of a minor in two households (R6 §6,
 ratified as staying open). It does not repoint By-Law 4.1.1. It does not widen
 who may hold the GEDCOM. And it does not change D17 — the widest exposure in the
-platform, still flagged as the one setting worth revisiting before launch.
+platform, still flagged as the one setting worth revisiting before launch. *Since 2 Oct 2026: D71 has revisited it (own branch only).*
 
 ---
 
@@ -241,7 +243,7 @@ The file was submitted to AFRP for the family-tree project. Using it to reach
 roughly 27,000 living people who never agreed to hear from the federation is a
 different purpose than the one it was given for, and it is not one a build
 decision may take. Recruitment through the tree, if it is ever wanted, starts
-with John Mogannam's agreement and a Board decision, not with a feature.
+with the submitting project lead's agreement and a Board decision, not with a feature.
 
 ### D37 · The household and the tree are two models, linked by one node
 
@@ -296,7 +298,7 @@ person's card, and refuses to infer anything from it — R40.
 
 | Scenario | The rule |
 |---|---|
-| A committee member exports, edits in Family Tree Maker, re-imports | **A diff preview before apply**, naming what the import adds, changes, and would remove. Under D11 the file is master, so this is the moment the platform's accepted changes can vanish — silently, and with no way to tell afterwards. |
+| A committee member exports, edits in Family Tree Maker, re-imports | **A diff preview before apply**, naming what the import adds, changes, and would remove. Under D11 the file is master, so this is the moment the platform's accepted changes can vanish — silently, and with no way to tell afterwards. *Since 2 Oct 2026: under D69 the Hub wins during the run, and an import's conflicts are held for a decision and never merged (P28 §4.3).* |
 | The import file is missing 200 people | **Never a deletion.** `JF-056` already holds: a person is closed as merged or deceased, never deleted. An older file is an older file. |
 | Two committee members import different exports | Refused, not merged. A single-writer lease on the import, and an import whose parent export is not the current one is rejected with what changed since. |
 | The committee wants to change a record directly | Allowed, and **audited like any other change** — who, when, why — and **D12** applies: a correction touching a decided line re-evaluates and flags it. |
@@ -322,9 +324,11 @@ platform, and the four are:
 | Branch | Members, in order | Shape |
 |---|---|---|
 | **Education** | Camp Ramallah (13–17) · Arabic Program · HS Senior Award (senior year) · Scholarship (college) · Project Hope (18–29) · Leadership Ramallah (21+) | **ladder — by age** |
-| **Leadership** | Emerging Leaders (16–24) · RBPN (career) · Congressional Outreach · Day of Action · ECEM missions | **ladder — by capacity** |
+| **Leadership** | Emerging Leaders (16–24) · RBPN (career) · Congressional Outreach · Day of Action · ECEM missions | **ladder — by capacity** *(since 2 Oct 2026: "Emerging Leaders" names no programme in any source, and the 16–24 band has no source, Q-178; P25 §2.2)* |
 | **Heritage** | Preservation Project · Hathihe Ramallah · Bookstore | **cluster** |
-| **Care** | Medical Mission · Women to Women · Senior Living · *Ramallah Foundation* · *Endowed Fund* | **destinations** |
+| **Care** | Medical Mission · Women to Women · Senior Living · *Ramallah Foundation* · *Endowed Fund* | **destinations** *(since 2 Oct 2026: Senior Living is the Foundation's project, Q-203, P23 §8; the Relief Fund is on the Care branch, P23)* |
+
+*Since 30 Sep – 2 Oct 2026:* D53 puts the family tree on the Heritage branch ("The family tree is part of Heritage"), so the next paragraph is superseded on that point. The HS Senior Award's status is in question (Q-163). *Since 3 Oct 2026:* it continues (D82).
 
 **The family tree is not on this list. It is the roots.** D30 already made every
 member's node the thing the rest of the platform resolves people through, so the
@@ -346,7 +350,7 @@ that were a promotion. Each branch therefore declares a shape:
   age, which the invitation logic must know rather than schedule.
 - **ladder — by capacity.** Ordered by readiness, not birthday; entry is at
   Emerging Leaders and the order is a suggestion, never a prerequisite.
-  Leadership.
+  Leadership. *Since 2 Oct 2026: Emerging Leaders has no source (Q-178). P25 §2.2 enters the branch at whichever of its programmes a person first takes part in, as a design choice. The young-adult rungs are Leadership Ramallah, the Day of Action and the Young Leader Committee's club gatherings (P25 §3).*
 - **cluster.** Unordered, always open, no "next" and no milestone invitations.
   Nobody graduates from Preservation to the magazine. Heritage.
 - **destinations.** Entered by choice or capacity to give; never invited by
@@ -395,7 +399,7 @@ strings, and a grep cannot tell them apart. `programs/rails.py` is now
 the four old groupings under new names — which is worse than either state,
 because the words would then be right and the contents wrong. The re-cut moves
 RBPN out of the youth pipeline, moves the Arabic Program from Heritage to
-Education, moves Emerging Leaders from Education to Leadership, adds the
+Education, moves Emerging Leaders from Education to Leadership *(since 2 Oct 2026: no source, Q-178)*, adds the
 bookstore to Heritage, adds Senior Living to Care, lifts the tree out to the
 roots and the Convention out to a junction. Every one of those is a change of
 meaning, and the tests that name the old rails are the ones that will catch a

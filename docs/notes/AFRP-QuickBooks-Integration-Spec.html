@@ -31,7 +31,8 @@
 <p class="small muted">Source: <a href="https://github.com/davidsaah/afrp-strategy/blob/main/design/AFRP-QuickBooks-Integration-Spec.md">design/AFRP-QuickBooks-Integration-Spec.md</a> in the public repository. The design record outranks this rendering only in the sense that the file is the record (D41); the page is generated from it.</p><h3>Integration specification</h3>
 <p><strong>Date:</strong> August 15, 2026
 <strong>Addendum 4 to:</strong> AFRP Enterprise Platform architecture
-<strong>Status:</strong> posting engine and connector implemented, 45 tests passing</p>
+<strong>Status:</strong> posting engine and connector implemented, 45 tests passing
+<strong>Since 2 October 2026:</strong> the research round found the Federation already keeps its books in QuickBooks Online, integrated with the current CRM, with a real chart of accounts. §12 records what the sources show, as practice and never as a decision; the open questions of §11 carry their answers in practice. D1 and D56 stand.</p>
 <hr />
 <h2>1. Decisions</h2>
 <table>
@@ -56,7 +57,7 @@
 <tr>
 <td>3</td>
 <td><strong>Dues recognised in full when paid</strong></td>
-<td>Simple. See §7 — worth one conversation with whoever signs the 990</td>
+<td>Simple. See §7 — worth one conversation with whoever signs the 990. <em>In practice (research, 2 Oct 2026):</em> this is the Federation's practice, and its chart already holds an unused deferred-dues account; the conversation is Q-233, with the outside firm</td>
 </tr>
 <tr>
 <td>4</td>
@@ -74,6 +75,7 @@ platform answers "who gave it".</strong> Traceability is preserved by
 <hr />
 <h2>2. Chart of accounts</h2>
 <p>Placeholder numbers — substitute AFRP's real chart before go-live.</p>
+<p><em>Since 2 October 2026:</em> the real chart exists and is in use (§12). Among what it already carries: a Convention bank account and a <strong>"Due to Convention Host City"</strong> liability (P22 §10 maps the Convention's lines onto them); a "due to" liability for each affiliate purpose AFRP collects (Q-232); on ARFECF's side, the Relief Fund as its own bank account with AFRP owing it (Q-109). The mapping is typed by the bookkeeper against that chart, never by a build session (§10 item 2). The table below stays as the engine's test fixture.</p>
 <table>
 <thead>
 <tr>
@@ -293,6 +295,7 @@ is a missing transaction. Neither is silently absorbed.</p>
 <h2>7. The one accounting question to settle</h2>
 <p>AFRP has chosen to <strong>recognise dues in full when paid</strong>. That is common for
 organisations of this size and it is simpler.</p>
+<p><em>Since 2 October 2026:</em> "whoever signs the 990" is the outside firm, one of four roles the record has called "the CPA" (Q-231); the question itself is Q-233. ARFECF moves to an audit from the year to May 2026, so the answer matters more for ARFECF than it did.</p>
 <p>It is worth one conversation with whoever signs the 990, because a $1,000 Patron
 membership paid in March covers twelve months, and an auditor may take the view
 that it is not all March revenue. Deferring would recognise roughly $83.33 per
@@ -462,20 +465,33 @@ because the gift data must be trustworthy before it reaches the ledger.</p>
 <h2>11. Open questions</h2>
 <ol>
 <li><strong>Who is AFRP's bookkeeper or accountant</strong>, and will they sit for the
-   chart-of-accounts mapping? This integration cannot be specified without them.</li>
+   chart-of-accounts mapping? This integration cannot be specified without them.
+   <em>In practice (research, 2 Oct 2026):</em> the office's Executive Administrator keeps the books, with a volunteer financial adviser alongside. Whether they sit for the mapping is not stated.</li>
 <li><strong>What is the actual chart of accounts and class list today?</strong> Everything in
-   §2 is placeholder.</li>
+   §2 is placeholder. <em>In practice:</em> the chart exists in QuickBooks Online for AFRP and ARFECF (§12); the class list is not stated.</li>
 <li><strong>Does AFRP have an annual audit or a review?</strong> Determines how strict the
-   dues-recognition answer needs to be.</li>
+   dues-recognition answer needs to be. <em>In practice:</em> reviews for AFRP and ARFECF for the year to May 2025; <strong>ARFECF moves to a CPA audit from the year to May 2026 (FY2026)</strong>; AFRP stays on review. Dues recognition is Q-233.</li>
 <li><strong>Is the Endowed Fund truly permanently restricted</strong> (corpus untouchable) or
    board-designated? They are accounted for very differently, and the engine
-   currently refuses to release from it.</li>
+   currently refuses to release from it. <em>Since 1 Oct 2026:</em> Q-95.</li>
 <li><strong>Who reconciles the bank today,</strong> and would they rather see one deposit per
-   settlement batch or per day?</li>
+   settlement batch or per day? <em>In practice:</em> the bookkeeper reconciles monthly and the Treasurer reviews. The batch-or-day preference is not stated.</li>
 <li><strong>Are local clubs in the same QuickBooks file</strong> or do they keep their own
    books? If separate, this is 26 more integrations — please confirm before
-   Phase 3 planning.</li>
+   Phase 3 planning. <em>In practice:</em> clubs keep their own books (some in Breeze, some in QuickBooks); none is in the Federation's file (<code>AFRP-Multi-Entity-Ledger.md</code> §9).</li>
 </ol>
+<hr />
+<h2>12. In practice: the books as they stand (research, 2 October 2026)</h2>
+<p>Evidence of practice under D41, from the Federation's own minutes, reports and balance sheets, read at role level. It is not a decision and sets no default. D1 (club dues held as agent; the countersignature pending, Q-3) and D56 (AFRP collects ARFHSN's gifts as its agent) stand unchanged.</p>
+<ul>
+<li><strong>QuickBooks is integrated with the current CRM.</strong> QuickBooks Online holds AFRP's and ARFECF's books from the 2026 Mid-Year, with ARFHSN to follow. It is fed from the registration system, with monthly statements and budget-versus-actual. Committee chairs are to get budget sheets from the books without the organisation's full statements. What the Hub replaces is therefore a working CRM-to-QuickBooks feed, not an empty ledger; the Hub's own connection is still absent (MASTER-PLAN §1a).</li>
+<li><strong>Accounts retitled per entity.</strong> Bank accounts that carried the wrong entity were retitled to the right one in 2025–26.</li>
+<li><strong>Three processor accounts.</strong> One card-processing account each for AFRP, ARFECF and ARFHSN, replacing one AFRP account with transfers made by hand. The pay links name the entity's processor profile and whether the payer covers the fee. For this spec that means one gateway clearing account per entity, not one for the Federation (§2's 1200). The mapping is the bookkeeper's.</li>
+<li><strong>The chart, structure only.</strong> AFRP has operating and Convention bank accounts, "Due to Convention Host City", a "due to" family for ARFECF, ARFHSN and Ramallah Foundation purposes, the unused deferred-dues account, and income lines for dues, the endowment distribution, the Convention host fee and card-fee income. ARFECF has separate bank accounts for operating, the Relief Fund, the Magazine, the cook book and camp, with "due from AFRP" lines per purpose. P22 §10 maps the Convention onto these. P24 §6 maps the Magazine's two rows. P23 §2 and Q-109 cover the Relief Fund.</li>
+<li><strong>The Relief Fund is booked as an ARFECF bank account.</strong> The platform's rule stands: the fund posts nothing until a Board names its holding entity (Q-109). <em>Since 3 Oct 2026:</em> D83 names AFRP; the fund posts to AFRP, and the ARFECF bank account is the reconciliation item D83 names (the books follow D83, or the Boards revisit).</li>
+<li><strong>Review and audit.</strong> AFRP and ARFECF had reviews for the year to May 2025. ARFECF moves to audit from FY2026.</li>
+<li><strong>"The CPA".</strong> Four roles answer to the name: the outside firm that reviews or audits and files; the General Fund Treasurer, a CPA in practice; a volunteer financial adviser, also a CPA; and the bookkeeper. Every "CPA" or "accountant" in this spec (§7, §10, §11) needs one of them named. <strong>Q-231</strong> asks which.</li>
+</ul>
 <hr />
 <p><em>QuickBooks Online API behaviour from Intuit developer documentation and
 integration guides, August 2026. Chart of accounts, class list, and fee rates

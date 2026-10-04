@@ -3,19 +3,47 @@
 - key: visitor
   name: Visitor
   lens: door
-  who: 'Someone not signed in: a prospective member, a relative or a member of the public reading about AFRP.'
+  who: 'Someone not signed in: a prospective member, a relative or a member of the public reading about AFRP. Also a non-member
+    the platform holds as a contact (a learner, applicant, subscriber, candidate or giver), who signs in with a verified channel
+    to see only their own record (P21 §4).'
   needs:
   - Understand what AFRP and its programmes are
   - Find a way to join
   - Browse the bookstore and reach the public giving door without signing in
+  - Register for an Arabic class at the public rate without joining (D60)
+  - Know before checkout that the stores ship only to US addresses
+  - 'As a non-member contact, see my own record: each role, its scope, source and date, its consent rows, and a withdrawal
+    for each (P21 §4)'
+  - Apply to a second programme on the same channel and be asked to sign in, so the new role joins my one record (P21 §7.1)
+  - Offer my time to the Medical Mission and be answered by the office (in practice, research 2 Oct 2026; Q-87)
+  - Read a back issue of the magazine signed out, with no page naming a living person (P24 §7)
   platform:
   - Public site and programme pages from the programme register
   - One front door to join or sign in
   - Public job postings with complete markup
+  - The Arabic class door at the public rate (D60); the public page still says members only (Q-171)
+  - Two online stores today, on the website and the member portal, with the same titles and no member price (in practice,
+    research 2 Oct 2026) (Q-197)
+  - One person record with dated roles for every non-member the platform holds; no role is a membership, a directory row,
+    a tree node or a count as a member (P21 §3; D60)
+  - Operational messages about my own transaction only; a next-term or next-cycle invitation waits on Q-70 and is not asked
+    for at the door (P21 §8)
+  - The shipping rule is a catalogue parameter shown on the catalogue page before the cart; while it is unset, checkout refuses
+    and names Q-197 (P24 §8.2)
+  - 'A purchase is never a gift: no product, order or receipt carries a deductibility statement (P24 §8.2; UC-11)'
   privacy:
   - Nothing about living people shows without sign-in (D28)
   - Sign-in and recovery are existence-blind
   - Living people in the public build are synthetic (D15)
+  - A role is read only in its owning scope; one programme's consent row is never offered to another programme's audience
+    (P21 §5, §8)
+  - No consent row is created by a migration; an imported occupation or date of birth is not loaded onto the person (P21 §7.5)
+  - Withdrawing a role closes it at once; its fields wait for a retention clock that has no value yet, so nothing is deleted
+    (P21 §9)
+  - A door whose person does not attest to being an adult creates no contact (R7; P21 §3)
+  - Signed out, a tree plate shows the deceased in full and nothing about the living (D28; P28 §5)
+  - An oral-history narrator who withdraws is removed from every platform surface the same day; a printed page cannot be recalled
+    and the consent screen says so (P27 §6)
   journeys:
   - id: J01
     title: Join & first login
@@ -31,11 +59,41 @@
     open: 3
     not_built: 0
     fails: 0
-  not_built: []
+  not_built:
+  - id: P12-J15
+    title: Two rates, one door, no membership
+  - id: P21-J01
+    title: The learner is a contact, not a member
+  - id: P21-J02
+    title: One person, one record
+  - id: P21-J07
+    title: Next-term news waits on Q-70
+  - id: P21-J16
+    title: No minor is a contact
+  - id: P24-J10
+    title: A back issue signed out
+  - id: P24-J11
+    title: A purchase is not a gift
+  - id: P24-J12
+    title: An order splits by entity (Q-197)
+  - id: P24-J13
+    title: US-only is said before checkout (Q-197)
+  - id: P25-J08
+    title: The Day of Action's public sentence and deadline render identically everywhere
+  - id: P27-J10
+    title: A narrator withdraws; the item leaves every platform surface the same day
+  - id: P28-J04
+    title: Signed out, a plate shows nothing of the living (D28)
+  - id: P28-J17
+    title: No plate, sheet or search result says whether a person is a member
   workflows:
   - join-renew-dues
   - giving-funds
   - directory-consent
+  - arabic-term
+  - magazine
+  - magazine-announcements
+  - tree-life-events
   prototype:
   - '#/door/landing'
   - '#/door/join'
@@ -43,6 +101,11 @@
   - design/AFRP-Decisions-Register.md §Part 2 Presentation and privacy
   - docs/AFRP-Platform-Experience.html §J01
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §3–§9
+  - design/AFRP-Magazine-Operations.md (P24) §7, §8
+  - design/AFRP-Family-Tree-Module.md (P28) §5
 - key: new-member
   name: New member
   lens: door
@@ -51,14 +114,28 @@
   - A join that cannot be captured by a mistyped email
   - Clear dues and what they buy
   - A first login that says what to set up next
+  - Find myself on the family tree at join or renewal, or skip the step, and have either be a complete answer (D73)
+  - Join after an Arabic class or an application on the same channel and keep that history (P21 §7.2)
   platform:
   - Channel verification before any payment or PII (S1)
   - A tree node on join, never a lineage claim (D30)
   - The Associate route offered where the genealogy cannot reach
+  - A first contact through an Arabic class counted when the learner later joins; some learners joined this way (in practice,
+    research 2 Oct 2026)
+  - 'A ''Find yourself on the family tree'' step at join and renewal: search by own name or the oldest ancestor I can name;
+    candidates shown, the platform never picks; a link proposal queues and the node stays unattached meanwhile (D73; P28 §4.4)'
+  - A contact who joins confirms the record is theirs; the membership is added, each role and its consents carry over unchanged,
+    and no role consent becomes a member consent (P21 §7.2)
+  - A walk-in at the Convention desk who is not in standing is offered dues and registration in one payment as separate lines
+    (P22 §5.4)
   privacy:
   - Consent at join is per field with its source recorded
   - A minor's consent is held by the household and re-asked at eighteen
   - No password can exist
+  - Today's registration system makes a vetted account with a profile before any membership or consent; the platform's contact
+    record is narrower (D60; Q-70)
+  - No membership decision reads the tree node (D30, D73)
+  - A staff seat cannot link a contact to a member on a name match without the person's confirmation (P21 §7.2)
   journeys:
   - id: J01
     title: Join & first login
@@ -75,11 +152,20 @@
     open: 2
     not_built: 0
     fails: 0
-  not_built: []
+  not_built:
+  - id: P21-J08
+    title: Joining keeps the roles
+  - id: P22-J09
+    title: The walk-in goes through the door
+  - id: P28-J15
+    title: At join, a person finds a candidate, proposes, and is a member with an unattached node
+  - id: P28-J16
+    title: At join, a person skips the step and nothing about membership changes
   workflows:
   - join-renew-dues
   - tree-life-events
   - directory-consent
+  - convention
   prototype:
   - '#/door/join'
   - '#/door/login'
@@ -88,6 +174,10 @@
   - docs/AFRP-Platform-Experience.html §S1, §J01
   - design/AFRP-Family-Tree-Integration.md §3
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Family-Tree-Module.md (P28) §4.4
+  - design/AFRP-Contact-Record.md (P21) §7.2
 - key: member
   name: Member
   lens: member
@@ -96,16 +186,66 @@
   - See each membership's standing and date
   - Renew, give, register and vote
   - Control what others see
+  - Register for the Day of Action by one published deadline, free as an adult member, with first-timer costs covered (in
+    practice, research 2 Oct 2026)
+  - Send a wedding, birth, graduation or obituary once and have it reach the tree and the magazine
+  - Propose a family-tree change while in current national standing and track it (D70), and ask for clan-book access and be
+    told the test (Q-200)
+  - Take the action a town hall asks for and contact my representative (Q-133)
+  - See my own plate in the book's grammar, my living relatives in full inside my own branch (D68, D71)
+  - 'See my own path: my programme alumni records, interests and seats in date order, with programmes I have not taken part
+    in as links, never as a next step (P25 §3; D39)'
+  - Apply for a sponsored Arabic-class place with a short statement and hear the outcome before registration closes (in practice,
+    research 2 Oct 2026; Q-168)
+  - Register for an RBPN speaker event and be reminded (Q-181)
+  - Submit a photograph or document with its consent class and a credit, linked to a tree node, through the platform (D66;
+    D22; P27 §6.4)
+  - Read the digital issue on the platform rather than from an email link (Q-196)
+  - As a family, submit an obituary with its tribute and pay the placement, approved through the family contact (R34; P24
+    §3.3; Q-193)
+  - Register a guest for the Convention as a name and a credential class, not a contact (P21 §4; Q-238)
+  - Forward a relative's late scholarship application and be told the rule (Q-117; Q-257)
   platform:
   - Home with an attention list and two standing pills
   - 'Scoped standing: national and club lapse independently'
   - Ballots with the reason when ineligible
   - My branches and the next step on each
-  - The directory in three formats, signed in: members with membership and club shown, professional services, and the leadership seats with their votes (design note P19)
+  - The directory in three formats, signed in: members with membership and club shown, professional services, and the leadership
+      seats with their votes (design note P19)
+  - A registration door for programmes that take registration rather than applications (the Day of Action in 2026; Q-115)
+  - The change-request form's rows land in the Family Tree Committee's queue (D14). *Since 2 October 2026:* the form's rows
+    are not imported; a member proposes in the platform and requests already sent by form arrive through the record keeper's
+    next export (P27 §4.3; D70)
+  - 'The plate: one plate per tree, a trunk to the founder, each limb carrying its grade, the continuation marks opening in
+    place at phone width (D68; P28 §3). *Since 3 October 2026:* the plate is the default view on every surface and the
+    hourglass stays available as an alternative view (D77), drawn in the plate grammar (D80)'
+  - 'Edit mode on a plate: add a child or a spouse, correct a name or date, record a death, attach a source, flag a duplicate
+    or propose a parent; submit the sitting as one bundle and track it as pending, needs information, accepted or declined,
+    with the committee''s reason (D70, D21; P28 §4.1)'
+  - Archive items linked to a deceased person's node show on that person's page to signed-in members, each under its consent
+    row (P27 §7.2)
+  - The path view of one's own record, seen by nobody else (P25 §3; slice YL1)
+  - 'The unified Convention registration: a banquet seat from the sub-event''s capacity, refunds under terms published before
+    opening, dues paid with registration standing for the year (P22 §5)'
+  - A graduation is an announcement on my record, printed only with my print consent; a correspondent's entry is pending until
+    I confirm it once (P24 §3.1, §3.2)
+  - An appeal reaches me on the channel I consented to, never chosen by my age (P24 §5.5)
   privacy:
   - Display, contact and export are three separate consents (R27)
   - A declined invitation is recorded nowhere a committee can see
-  - All members see the whole tree, a recorded choice (D17)
+  - All members see the whole tree, a recorded choice (D17). *Since 2 October 2026:* a member sees the living in full only
+    inside their own branch and their spouses (out to third cousins, a common great-great-grandparent; D76), and outside it a name and a position on
+    the plate (D71; P28 §5)
+  - A constituent story or a town-hall action is not a member record until consent and retention are stated (Q-184, Q-133)
+  - Outreach by a profile field such as occupation waits on consent rows (Q-236)
+  - Clan-book access follows D17 (now D71) and D28, not a personal approval; a book carrying living details is not offered
+    by standing (P27 §5; Q-200, Q-202)
+  - Own branch runs along blood links only; a step or adoptive link never widens it (D71; P28 §5). Whether relatives inside
+    it see minors' dates is Q-268
+  - A lapsed member cannot propose a tree change; no account exists for a non-member to contribute (D70)
+  - No plate, sheet or search result says whether a person is a member (D30; P28 §3.2)
+  - No member-facing export of the tree exists; the nightly backup is the committee's (D69)
+  - The path view is mine alone; a committee sees only what its own scope already shows (P25 §3)
   journeys:
   - id: J02
     title: Multi-club renewal
@@ -146,6 +286,60 @@
     title: A restricted gift's surplus rule is printed BEFORE payment
   - id: JM-068
     title: A ticketed event is non-deductible entirely; the gift beyond it is receipted separately
+  - id: P25-J07
+    title: 'A Day of Action registrant: free for adult members, the first-timer link, one deadline and one eligibility sentence
+      (Q-115)'
+  - id: P27-J05
+    title: Clan-book access names its test, not a person (Q-200)
+  - id: P22-J06
+    title: A Mid-Year event cannot open without its membership gate; a non-member registrant is offered dues as a separate
+      line (Q-225)
+  - id: P21-J14
+    title: A guest is a line, not a contact (Q-238)
+  - id: P22-J04
+    title: Cancel means refunds, not lost dues (Q-244)
+  - id: P22-J05
+    title: The unified ticket carries a seat
+  - id: P24-J01
+    title: A graduation reaches the magazine through the correspondent with the household's consent, asked once (Q-195)
+  - id: P24-J03
+    title: An obituary is approved and ordered; the fee is held unposted (Q-193)
+  - id: P24-J06
+    title: The appeal never chases a payer
+  - id: P24-J07
+    title: No age-based channel
+  - id: P25-J01
+    title: My path page lists my alumni record, interests and seats in date order, and nobody else can open it
+  - id: P25-J02
+    title: Nothing on the path page or a branch page says "next" or "required"
+  - id: P25-J09
+    title: A town hall's action segment cannot be sent while the position approver row is empty (Q-80)
+  - id: P27-J02
+    title: A member's correction queues on the platform for the committee, not on the public form (D13, D14; Q-200, Q-259)
+  - id: P27-J06
+    title: After stage 3, a member in good standing opens a clan book carrying only the deceased (D71)
+  - id: P27-J07
+    title: An archive item linked to a deceased person's node shows on that person's page
+  - id: P28-J01
+    title: 'A member opens their own plate: trunk to the founder, bold and hairline limbs'
+  - id: P28-J02
+    title: 'A member views a living second cousin: dates shown'
+  - id: P28-J03
+    title: 'A member views a living fourth cousin: name and position only'
+  - id: P28-J19
+    title: 'A member views a living third cousin: dates shown (D76)'
+  - id: P28-J05
+    title: A step-parent's relative never appears in own branch
+  - id: P28-J06
+    title: A member drafts two changes and submits one bundle; status shows pending
+  - id: P28-J07
+    title: 'A lapsed member tries to propose: refused (D70)'
+  - id: P28-J14
+    title: A nightly export row appears; a member-facing export does not exist
+  - id: P28-J17
+    title: No plate, sheet or search result says whether a person is a member
+  - id: P28-J18
+    title: 'Phone width: the trunk stays pinned and continuation chips open in place'
   workflows:
   - join-renew-dues
   - events
@@ -153,6 +347,14 @@
   - directory-consent
   - magazine
   - tree-life-events
+  - selection-programmes
+  - advocacy
+  - government-affairs
+  - tree-submission
+  - magazine-announcements
+  - arabic-term
+  - convention
+  - giving-funds
   prototype:
   - '#/member/home'
   - '#/member/membership'
@@ -161,6 +363,14 @@
   - design/AFRP-Four-Lens-Architecture.md §2
   - docs/AFRP-Unified-Member.html
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Family-Tree-Module.md (P28) §3, §4.1, §5
+  - design/AFRP-Family-Tree-In-Practice.md (P27) §4.3, §5, §7
+  - design/AFRP-Leadership-Pipeline.md (P25) §3
+  - design/AFRP-Magazine-Operations.md (P24) §3, §5.5
+  - design/AFRP-Convention-Operations.md (P22) §5
+  - design/AFRP-Decisions-Register.md §Decision 68–§Decision 73
 - key: household-parent
   name: Household parent or guardian
   lens: member
@@ -170,14 +380,29 @@
   - Act for a child without guesswork
   - Apply to camp and register the family
   - Know what a partner or step-parent may do
+  - Know, before applying, who will be with the child at camp and what screening ran on them
+  - Send a birth or a graduation to the magazine once, through the city correspondent
+  - Declare a life event for the household's minors and see my household's relatives as any member does (R6, D33, D35; P28
+    §5)
   platform:
   - R6's four authority paths and enumerated powers
   - A release list writable only by a standing holder
   - Life-event declarations queued to the committee
+  - The camp page states the screening the camp runs, once a policy is adopted (Q-86, Q-165)
+  - A correspondent's entry for my household is pending until the household's consent act is on record; it is asked once (P24
+    §3.2; Q-195)
   privacy:
   - The more protective answer wins when holders disagree (D35)
   - A step-parent holds nothing until named (D34)
   - A child's announcement is withdrawable and re-asked at eighteen (D33)
+  - Screening runs before contact with campers once the Board adopts a policy; the platform never screens (Q-86)
+  - A minor on a programme's volunteer team (aged 16–17) has no rule outside camp (Q-191)
+  - Campers travelling from Ramallah have no written consent or travel rule (Q-166)
+  - A correspondent enters a household's life event only with the family's consent recorded (Q-195)
+  - A minor is never a contact; a child at a club event is a line under the household's authority (P21 §3; R7)
+  - No interest row, seat or own channel is recorded for a seventeen-year-old, and a minor narrator's archive consent is the
+    household adult's, re-asked at eighteen (P25 §6; P27 §6; R6)
+  - A step-parent's relatives never enter a child's own branch (D71; P28 §5)
   journeys:
   - id: J03
     title: Household & the 18th birthday
@@ -193,11 +418,27 @@
     open: 0
     not_built: 0
     fails: 0
-  not_built: []
+  not_built:
+  - id: P7-J13
+    title: A parent reads the camp's screening answer before applying (Q-86, Q-165)
+  - id: P24-J01
+    title: A graduation reaches the magazine through the correspondent with the household's consent, asked once (Q-195)
+  - id: P21-J16
+    title: No minor is a contact
+  - id: P24-J02
+    title: No consent, no print
+  - id: P25-J13
+    title: No interest row, seat or own channel for a seventeen-year-old
+  - id: P27-J12
+    title: A minor cannot be an archive volunteer or interviewer; a minor narrator's consent is the household's
+  - id: P28-J05
+    title: A step-parent's relative never appears in own branch
   workflows:
   - camp-application
   - events
   - tree-life-events
+  - magazine-announcements
+  - tree-submission
   prototype:
   - '#/member/household'
   - '#/member/programs'
@@ -206,6 +447,10 @@
   - design/AFRP-R6-Minor-Authority.md §1–§5
   - design/AFRP-Family-Tree-Integration.md §D34, §D35
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Magazine-Operations.md (P24) §3.2
+  - design/AFRP-Family-Tree-Module.md (P28) §5
 - key: young-person
   name: Young person
   lens: member
@@ -213,13 +458,25 @@
   needs:
   - Take part in camp and programmes safely
   - At eighteen, own their channel and consents
+  - Apply for the Outstanding High School Senior Award, which continues (D82), through the household adult (R6) once its body
+    is named (Q-164)
+  - Volunteer on a programme's team (a website rebuild asked for 16-to-22-year-olds in 2026) under a rule (Q-191)
+  - 'At eighteen, see my own path page: what I have taken part in and the Leadership and Education programmes open to me,
+    as invitations to look (P25 §3; D39)'
   platform:
   - A refresh window before eighteen that asks them on their own channel
   - Education-branch invitations at milestones, never enrolment
+  - Camp ages 13 to 17 on the record and the public page; the 2025 annual report says 13 to 18 (Q-167)
+  - The path view (slice YL1) from eighteen; the Senior Award shown as continuing (D82), with no form, cycle or letter until
+    its body is named (Q-164) and a budget line exists (D55) (P25 §5.1; YL6)
   privacy:
   - Minors never appear in any directory payload; no birth date means possible minor (R7)
   - Camp cabins ship as counts and bands, never a minor's id
   - Campers have no account; a CIT gets a limited one
+  - Past Senior Award applications from minors are kept or deleted on a rule not yet written (Q-76)
+  - A minor volunteer needs supervision and consent rules before being taken on (Q-191)
+  - No interest row, seat or own channel for a seventeen-year-old; at eighteen the person is asked directly (P25 §6; R6)
+  - A seventeen-year-old cannot be recorded as an archive volunteer or an interviewer (P27 §7.3; P7)
   journeys:
   - id: J03
     title: Household & the 18th birthday
@@ -238,11 +495,22 @@
     open: 0
     not_built: 0
     fails: 0
-  not_built: []
+  not_built:
+  - id: P25-J12
+    title: The Senior Award shows as continuing (D82); no form, cycle or letter until its body is named (Q-164)
+  - id: P25-J01
+    title: My path page lists my alumni record, interests and seats in date order, and nobody else can open it
+  - id: P25-J02
+    title: Nothing on the path page or a branch page says "next" or "required"
+  - id: P25-J13
+    title: No interest row, seat or own channel for a seventeen-year-old
+  - id: P27-J12
+    title: A minor cannot be an archive volunteer or interviewer; a minor narrator's consent is the household's
   workflows:
   - camp-application
   - directory-consent
   - join-renew-dues
+  - selection-programmes
   prototype:
   - '#/door/refresh'
   - '#/member/household'
@@ -250,6 +518,73 @@
   - docs/AFRP-Platform-Experience.html §J03
   - design/AFRP-Rules-Register.md §Identity, minors and the directory
   - design/AFRP-Camp-Directory-Network-Plan.md §Decisions taken
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Leadership-Pipeline.md (P25) §3, §5.1, §6
+- key: scholar
+  name: Scholar
+  lens: member
+  who: A Scholarship recipient, new or continuing, on the undergraduate or medical track in the United States or Ramallah,
+    whose award is paid in instalments.
+  needs:
+  - Know what to file after each semester to have the next instalment released
+  - Know what happens after a bereavement or a hardship before the payment is late
+  - Receive the award letter and the first cheque without chasing
+  - See on my own page each instalment's state, what is still missing for the next one and the date the office received each
+    item (P26 §2.2)
+  - Ask for hardship by category and have the account I give stay outside the platform (P26 §2.4)
+  platform:
+  - A semester filing (transcript, full-time enrolment with the next schedule, cumulative GPA) checked by the office before
+    release (in practice, research 2 Oct 2026) (Q-159)
+  - A missing-documents letter that says what is missing and by when (in practice, research 2 Oct 2026)
+  - A free student membership on award (J06 step 6)
+  - 'Instalment states: scheduled, due, verified, released, held, suspended, cancelled; three verification rows per instalment,
+    each a dated act with no content; release once all three are recorded (P26 §2.1–§2.3)'
+  - A missed filing holds the instalment and never lapses it; only the committee's act suspends or cancels, and the window
+    that turns due into held has no value until Q-256 sets it (P26 §2.4)
+  - Letters on P3's register in ARFECF's name; a letter row with no signatory is a draft the office sees and is not sent (P26
+    §4; Q-158)
+  privacy:
+  - Applicant material never enters the Hub; the platform records references only (scholarship spec)
+  - Recipients' names are never published; counts and amounts by track are (in practice, research 2 Oct 2026)
+  - A named scholarship's donor sees which award carries the name, by count, never the scholar (Q-102)
+  - Relationships the tree sees are disclosed with their degree on review (D16)
+  - No transcript, schedule or GPA figure enters the platform; the verification row records only that the item is on file
+    (P26 §2.2; D61)
+  - An instalment is seen only by the scholar, the office's seat, the committee's seats and the fund's treasurer (P26 §2.2;
+    R39)
+  journeys:
+  - id: J06
+    title: Scholarship — application to award
+  catalogue: {}
+  not_built:
+  - id: P26-J01
+    title: An instalment is released only once its three verification rows are recorded (Q-159)
+  - id: P26-J06
+    title: A disbursement for an ARFECF award drawing on another entity's account is refused (D3, ARFECF 6.4.8; Q-158)
+  - id: P26-J02
+    title: No transcript, schedule or GPA figure can be attached to a verification row
+  - id: P26-J03
+    title: 'The filing window passes with a row missing: the instalment is held, never suspended (Q-256)'
+  - id: P26-J04
+    title: A hardship request takes a category and refuses free text
+  - id: P26-J05
+    title: The committee suspends an award by a decision item with seats present
+  - id: P26-J11
+    title: An award letter row with no signatory is a draft that cannot be sent (Q-158)
+  workflows:
+  - scholarship-cycle
+  - scholarship-renewal
+  - join-renew-dues
+  - alumni-recruiting
+  prototype:
+  - '#/program/applications'
+  sources:
+  - design/AFRP-Scholarship-Program-Spec.md §4, §11
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Scholarship Committee's report to the Board (August 2026) and the 2026 award letters
+  - design/AFRP-Scholarship-Awards.md (P26) §2, §4
 - key: donor
   name: Donor
   lens: member
@@ -258,13 +593,32 @@
   - Know where the money goes before paying
   - A correct receipt from the right entity
   - Hear what the gift did
+  - Make a memorial gift to the Ramallah Foundation's senior home through the Federation and know which entity receipts it
+    (Q-204)
+  - Give to the Relief Fund on the public giving page (Q-208)
+  - Establish a named scholarship and see, by count, which award carries the name (Q-102)
+  - Give an endowed gift for Women to Women and know how it is held and spent (Q-210)
   platform:
   - Named funds by entity
   - Ticket and gift receipted separately (D9; designed, not built)
   - Four contributor moments then an annual statement (D10; designed, not built)
+  - A gift for an outside body passes through and its transfer shows on the purpose's page; ARFECF receives and releases senior-home
+    gifts today (in practice, research 2 Oct 2026) (Q-204)
+  - An appeal's purpose wording kept as published, so a later use can be read against it (D8; Q-218)
+  - A named scholarship is a sub-fund inside the Scholarship Fund; a name with no instrument is a candidate row that takes
+    no gift and is offered to no scholar (P26 §5; Q-102)
+  - A gift for the senior home states, before payment, the receiving entity, the pass-through and the transfer schedule, and
+    does not publish while its receiving entity is unset (P23 §9.2; Q-204)
+  - An honoree and a recognition request travel with the transfer; the page promises no recognition on the Foundation's behalf
+    (P23 §9.3; Q-248)
+  - A gift by a non-member keeps its ledger line and receipt after the giver's role closes (P21 §9)
   privacy:
   - Money on Member 360 shows only with giving:read at the exact scope
   - Restriction comes only from donor designation (S6)
+  - A public claim that all donations go to programmes waits on the CPA and the Legal Advisor (Q-215)
+  - A relief gift posts to AFRP, which holds the Relief Fund (D83); its receipt claims no deductibility until the CPA gives
+    the text (D9; P11 §4)
+  - No pledge, campaign total or naming opportunity exists for Senior Living (P23 §9.7; Q-203)
   journeys:
   - id: J12
     title: Donor & the endowment
@@ -310,12 +664,40 @@
   - id: JF-088
     title: A money-taking event cannot publish without its surplus and shortfall rules on the ticket
   - id: JP-032
-    title: 'Senior Living: pledges vs cash, restricted and ring-fenced'
+    title: 'Senior Living: pledges vs cash — unoperated for Senior Living (P23 §9.7; Q-203)'
   - id: JP-034
     title: Endowment expenditure authority is the Fund Committee's ALONE
+  - id: P9-J01
+    title: A fund with no entity posts nothing
+  - id: P11-J14
+    title: The Relief Fund posts to AFRP (D83)
+  - id: P26-J13
+    title: A named scholarship's donor sees a count, never the scholar (Q-102)
+  - id: P21-J12
+    title: A gift outlives its giver's role
+  - id: P23-J01
+    title: The Relief Fund posts to AFRP (D83); a gift's receipt waits on the CPA's text (D9)
+  - id: P23-J10
+    title: A club relief drive's per-club tally names its receiving entity (Q-180)
+  - id: P23-J11
+    title: The pass-through tells the donor first (Q-204)
+  - id: P23-J12
+    title: 'Funds transferred: every contributor hears D10''s third moment (Q-204)'
+  - id: P23-J13
+    title: Recognition is the Foundation's
+  - id: P23-J15
+    title: No campaign machinery for Senior Living (Q-203)
+  - id: P24-J11
+    title: A purchase is not a gift
+  - id: P26-J12
+    title: A named scholarship with no instrument takes no posting and is offered to no scholar (Q-102)
   workflows:
   - giving-funds
   - remittance-ledger
+  - relief-disbursement
+  - women-to-women-grants
+  - scholarship-renewal
+  - care-grants
   prototype:
   - '#/member/payments'
   - '#/program/endowment'
@@ -323,6 +705,10 @@
   - design/AFRP-Decisions-Register.md §Part 2 Money
   - docs/AFRP-Platform-Experience.html §J12
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) §3, §9
+  - design/AFRP-Scholarship-Awards.md (P26) §5
 - key: delegate-voter
   name: Delegate and voter
   lens: member
@@ -331,14 +717,26 @@
   - Know whether they can vote and why not
   - Cast a secret ballot and verify it
   - Vote through a delegate or extract to vote directly
+  - Be checked in at the desk so that my presence counts on the floor (9.1.3; P22 §6)
+  - As a candidate for office, submit a platform article to the Magazine under the staff's criteria (By-Law 9.5.2)
   platform:
   - A frozen electorate at the record date (R12)
   - An inclusion receipt shown once
   - Weights fixed when voting opens (S4)
+  - 'Certification as the Legal Advisor described it in May 2026: each community certifies its paid members, who vote on delegates;
+    a member present votes in person with the vote deducted from a delegate''s total (in practice, research 2 Oct 2026) (Q-37)'
+  - 'Presence at the desk: only a present delegate carries a weight and only a present certified member may extract; the weight
+    is certified members over present delegates, computed, never typed (P22 §6''s reading of 9.1.3''s ''delegates sent''; Q-37; D5)'
+  - The delegation as a dated act of the club with its method stated (officers' selection, members' vote, or the club's own
+    by-laws), the weights computed the same way whatever the method (P22 §6; Q-37)
+  - 'The Convention city: one qualified bid by voice or hands (9.1.2); two by a weighted delegate vote (9.1.1(2)) (P22 §3,
+    §6)'
+  - A candidate's service check lists platform seats and attested historical rows separately (P25 §3; Q-252)
   privacy:
   - The voter-to-token link is never stored
   - A lost receipt cannot be reissued, and the screen says so first
   - Dues count for voting only when paid from the member's own funds
+  - A Mid-Year registrant who is not a member is asked for dues; the gate did not fire for one registrant in 2026 (Q-225)
   journeys:
   - id: J05
     title: Convention end-to-end
@@ -399,6 +797,17 @@
     title: The mailed CPA ballot - the transitional channel - is designed, not built
   - id: JF-079
     title: 'Credentialing: the delegate roll certifies against standing'
+  - id: P22-J06
+    title: A Mid-Year event cannot open without its membership gate; a non-member registrant is offered dues as a separate
+      line (Q-225)
+  - id: P22-J02
+    title: One bid, voice vote; two bids, delegate vote
+  - id: P22-J10
+    title: Present delegates carry the weight (D5)
+  - id: P22-J11
+    title: The delegation records its method (Q-37)
+  - id: P25-J06
+    title: A Deputy President candidate's service check shows platform seats and attested rows separately (Q-252)
   workflows:
   - elections-voting
   - convention
@@ -411,6 +820,9 @@
   - design/AFRP-Electronic-Voting.md §2, §4
   - design/AFRP-Four-Lens-Architecture.md §7
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Convention-Operations.md (P22) §3, §6
 - key: club-officer
   name: Club officer
   lens: club
@@ -420,20 +832,46 @@
   - Reach members lawfully
   - Run meetings, events and the officer year
   - Keep the roster true as people join, lapse, move house or move clubs
+  - Run a local action committee's meetings with officials and report them (Q-131)
+  - Report the club's direct gift to a Ramallah project so that it is counted beside the Federation's charities (Q-228)
+  - 'Hold the club''s legal details on the register: state entity, federal subsection, any sister foundation (Q-227)'
+  - Hold the club's own prospects, referrals and event guests as the club's roles, and nothing else of anyone (P21 §10)
+  - Raise money for the Relief Fund as gifts to the fund's purpose with the club's attribution, through headquarters (By-Laws
+    11.1.4, 11.1.5; P23 §5); a club's own Ramallah project is Q-228
+  - As the host club's coordinator, print badges and read sub-event rosters and counts by club at the desk without a guest-list
+    export (P22 §8; Q-127)
   platform:
   - Roster with national and club status side by side
-  - The members' directory filtered to the club, which shows only consenting members; the roster shows all and never leaves the club lens
+  - The members' directory filtered to the club, which shows only consenting members; the roster shows all and never leaves
+    the club lens
   - Groups, follow-ups and club events with check-in
   - The acting panel on any filtered set (mail it, group it, follow it up)
-  - The secretary's queue of things that need a person (a join naming this club, a household split, a move between clubs, a reported death)
+  - The secretary's queue of things that need a person (a join naming this club, a household split, a move between clubs,
+    a reported death)
   - A lapse raises a follow-up only if the club switched that rule on, and names the rule
   - Federation context as counts
+  - A club member admitted under the club's own wider rule shows club standing only; how is not yet written (Q-226)
+  - The Program Director's summary of each club's priorities after the presidents' meeting (in practice, research 2 Oct 2026)
+  - 'The club''s own contact roles: a prospect in the secretary''s queue once the person has acted on the club''s invitation;
+    referrals as a count until the person consents; the club''s event guests under the organiser seat, with no export (P21
+    §10; Q-72)'
+  - A relief drive across the clubs is one catalogue purpose with an end date and a tally of attributions per club; it cannot
+    publish until its receiving row has an entity (P23 §5; Q-180)
+  - 'The host coordinator''s scoped grant on the event: badges and QR codes produced by the platform from the registration
+    (P22 §5.4, §8; P13 §2.4)'
   privacy:
   - A club officer cannot read another club's roster
   - Bulk export refuses the officer as it refuses everyone
   - Club and programme scopes are siblings; neither implies the other
-  - A follow-up is a task about a person, closed and never deleted; there is no free-text note on a person anywhere in the club lens except a follow-up's one completion note
+  - A follow-up is a task about a person, closed and never deleted; there is no free-text note on a person anywhere in the
+    club lens except a follow-up's one completion note
   - Minutes and club documents stay on the drive, the archive of record (D66); the platform links to them
+  - Today the president's view and the host coordinator's export show members' names and contact details; the record's counts-only
+    and per-field-consent rules narrow both (Q-237, Q-127)
+  - A club never sees another club's contacts, any programme's roles, or a contact's channels outside its own roles; a learner
+    or subscriber is never named to a club (P21 §10)
+  - A Breeze profile of a non-member enters as a staging row with no consent row (P21 §7.5)
+  - A drive's gifts are the fund's, counted on the club's statement and never the club's money (P23 §5; D57)
   journeys:
   - id: J08
     title: Club treasurer's year — Houston
@@ -469,11 +907,28 @@
     title: Evidence is not consent
   - id: P18-J20
     title: Texting under the club's name
+  - id: P14-J16
+    title: A local action committee's meeting is logged against the office, not the person (Q-131)
+  - id: P14-J04
+    title: A district meeting hosted at a chapter club is an event with the host club role
+  - id: P21-J04
+    title: A role is read only in its scope
+  - id: P21-J13
+    title: A club sees its own
+  - id: P21-J15
+    title: No consent comes in with a migration (Q-70, Q-76)
+  - id: P22-J14
+    title: The coordinator prints badges without an export (Q-127)
+  - id: P23-J10
+    title: A club relief drive's per-club tally names its receiving entity (Q-180)
   workflows:
   - club-management
   - events
   - communications
   - club-migration
+  - government-affairs
+  - relief-disbursement
+  - convention
   prototype:
   - '#/club/dashboard'
   - '#/club/roster'
@@ -484,6 +939,11 @@
   - design/AFRP-Club-Experience-Plan.md §3.2
   - design/AFRP-Club-Journeys.md (the club corpus)
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §10
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) §5
+  - design/AFRP-Convention-Operations.md (P22) §8
 - key: club-treasurer
   name: Club treasurer
   lens: club
@@ -494,6 +954,14 @@
   - See on one statement what the club is owed and what it owes across every programme
   - Take the club's own income without a second system
   - Hand the books to a successor at the end of the officer year
+  - When the club hosts, reconcile the Convention with the Federation on one sheet and be paid by a channel the bank allows
+    (Q-221, Q-222)
+  - Know whose money a closed branch balance held by an affiliate is (Q-216)
+  - Record the club's co-funding of a Care grant once its trustee confirms it in the affiliate's meeting
+  - When the club hosts, see the per-registration Relief Fund amount post as one dated line to the liability 'the entity to
+    be named' at the close (P22 §5.3; P23 §3; Q-243)
+  - Record a club gift to the Ramallah Foundation's home made through the Federation as a line on the club's statement, if
+    Q-205 allows it (P23 §9.4)
   platform:
   - Split at capture of national and club dues
   - A remittance statement with carry-forward
@@ -502,11 +970,17 @@
   - The club's ledger profile, agency against revenue
   - 'Club giving through the one payment door onto the club''s books: proposed (B3), waiting on David''s answer'
   - The year-end hand-over as a dated change of seat with the balance carried, never a copy of the data
+  - The host's balance shown as due to the host until paid, with netted items as their own lines (Q-221)
+  - A relief drive's per-club tally, with its receiving entity named (Q-180)
   privacy:
   - Collected AFRP dues are custodial on the club's books, never revenue (D1)
   - The treasurer reads only their own club's dues
-  - A gift to a club lands on the club's books and the member's statement for that club; a purpose outside the club's entity refuses by name
-  - The Executive Director's access to Chapter Club records (By-Law 7.9.3) needs a named purpose and an audit line; the Federation otherwise reads counts
+  - A gift to a club lands on the club's books and the member's statement for that club; a purpose outside the club's entity
+    refuses by name
+  - The Executive Director's access to Chapter Club records (By-Law 7.9.3) needs a named purpose and an audit line; the Federation
+    otherwise reads counts
+  - Today's per-payment 'due to local club' figure is gross after the discount and the card cost; it is not the settlement
+    (Q-127)
   journeys:
   - id: J08
     title: Club treasurer's year — Houston
@@ -530,12 +1004,27 @@
     title: A line with no entity cannot settle
   - id: P18-J08
     title: The year-end hand-over
+  - id: P13-J09
+    title: The statement reads only the row
+  - id: P13-J11
+    title: Two clocks, independently
+  - id: P11-J11
+    title: A co-funded grant lists each club's share
+  - id: P22-J15
+    title: A netted item with no schedule row is held; the rest settles (Q-124)
+  - id: P23-J10
+    title: A club relief drive's per-club tally names its receiving entity (Q-180)
+  - id: P22-J08
+    title: The Relief Fund amount posts to AFRP's fund (D83; Q-243)
   workflows:
   - remittance-ledger
   - club-share
   - club-management
   - club-migration
   - join-renew-dues
+  - convention-close
+  - relief-disbursement
+  - care-grants
   prototype:
   - '#/club/dashboard'
   - '#/money'
@@ -545,26 +1034,45 @@
   - design/AFRP-Club-Experience-Plan.md §3.3, §5
   - design/AFRP-Club-Journeys.md (the club corpus)
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Convention-Operations.md (P22) §5.3, §9
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) §5, §9.4
 - key: club-president
   name: Club president
   lens: club
-  who: The president of a chapter club, who files the officers each year, sits on the Council of Chapter Club Presidents and the Federation Board, and brings the delegation to the Convention.
+  who: The president of a chapter club, who files the officers each year, sits on the Council of Chapter Club Presidents and
+    the Federation Board, and brings the delegation to the Convention.
   needs:
   - Know the club is affiliated and in good standing for the year
   - File the officers once and have every Federation list read from it
   - See the club's health as the Federation will see it
   - Bring the delegation to the Convention credentialed
   - Bid to host a Mid-Year or a Convention
+  - Present the club's Mid-Year bid at the previous Mid-Year, as the Mid-Year guideline asks (Q-92)
+  - File the club's by-laws, state entity and federal subsection with the office and have receipt acknowledged (By-Law 3.1;
+    Q-227)
+  - Reconcile a hosted Convention at the close meeting with the Deputy President (in practice, research 2 Oct 2026)
   platform:
-  - One officers form a year, started from last year's, which is the By-Law 3.2 filing and the source of the Council, Board and Membership Committee seats that derive from it
+  - One officers form a year, started from last year's, which is the By-Law 3.2 filing and the source of the Council, Board
+    and Membership Committee seats that derive from it
   - A standing pill for the club (affiliated for the year, filed on, approved on)
   - The club dashboard as the first screen (roster counts, dues position, open follow-ups, next events, the club-share balance)
   - The delegation selected from certified members (By-Laws 9.1.3, 9.1.4) and handed to the convention workflow
   - The host-bid form and the host agreement on the event (D59)
+  - The delegation recorded as the club's dated act with its method and evidence (P22 §6; Q-37)
+  - The host's confirmation of the corrected settlement statement on the club lens, or a query that holds that line only (P22
+    §9)
+  - 'The award: a region whose bids all fail the tests reads ''no qualified bid'', and the turn passes only by the Assembly''s
+    dated act (P22 §3.1; Q-240)'
   privacy:
-  - The president must be in good standing of club and Federation, because every compliant president sits on the Board (By-Laws 6.2.2, 6.2.3, 4.3.1); the president's seat is refused to a lapsed member by name; other seats follow the club's own laws (3.1) and are shown, not refused
+  - The president must be in good standing of club and Federation, because every compliant president sits on the Board (By-Laws
+    6.2.2, 6.2.3, 4.3.1); the president's seat is refused to a lapsed member by name; other seats follow the club's own laws
+    (3.1) and are shown, not refused
   - The president reads the whole club and nothing of any other club
   - The officers' contact details on the form are the office's and the Council's, never the directory's (R27)
+  - A club's own membership rule wider than By-Law 4.1.1 leaves the conjunctive standing test unwritten for those members
+    (Q-226)
   journeys:
   - id: J14
     title: Federation club management
@@ -580,12 +1088,22 @@
     title: The year-end hand-over
   - id: P18-J16
     title: Cutover is one dated act
+  - id: P8-J06
+    title: The Mid-Year decision names its body
+  - id: P22-J15
+    title: A netted item with no schedule row is held; the rest settles (Q-124)
+  - id: P22-J01
+    title: No qualified bid, no automatic move (Q-240)
+  - id: P22-J11
+    title: The delegation records its method (Q-37)
   workflows:
   - club-management
   - club-migration
   - convention
   - elections-voting
   - bylaws-rules
+  - convention-close
+  - government-affairs
   prototype:
   - '#/club/dashboard'
   - '#/club/officers'
@@ -593,32 +1111,59 @@
   - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 3.1, 3.2, 6.2.2, 6.2.3, 6.4.1, 8.12.1, 9.1.3, 10.5.1)
   - design/AFRP-Club-Experience-Plan.md §3.1
   - design/AFRP-Club-Journeys.md (the club corpus)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Convention-Operations.md (P22) §3, §6, §9
 - key: club-ambassador
   name: Club ambassador in a programme
   lens: club
-  who: The club's seat in one programme — the camp liaison, the scholarship outreach contact, the Day of Action travel coordinator, the Arabic volunteers' lead, the dabke lead, the Mid-Year sponsor-outreach lead.
+  who: The club's seat in one programme — the camp liaison, the scholarship outreach contact, the Day of Action travel coordinator,
+    the Arabic volunteers' lead, the dabke lead, the Mid-Year sponsor-outreach lead. In practice also the magazine's city
+    correspondent, the club city's Young Leaders Committee member and the club's local action committee (research, 2 Oct 2026).
   needs:
   - See the programme from the club's side (this club's families, scholars, travellers, volunteers)
   - See what the club owes or is owed for them
   - Pass news both ways between the club and the programme
+  - As the magazine's correspondent, collect announcements and remind members to renew
+  - As the club city's Young Leaders member, run the club's part of a relief drive and see the tally (Q-180)
+  - As Women to Women's city representative, be listed with the yearly minimum recorded (in practice; Q-213)
+  - As the club city's Young Leaders member, host a virtual gathering or a Mid-Year young-adult event (in practice, research
+    2 Oct 2026)
   platform:
   - A programme seat scoped to one club, appointed on the officers form or after it, dated, expiring with the officer year
   - The programme's roster filtered to the ambassador's own club
   - The club's lines on the club-share statement for that programme (D57)
+  - As the magazine's correspondent, an assisted submission on a household's behalf, pending until the household's consent
+    act is recorded and printing nothing until Q-195 is answered (P24 §3.2)
+  - The club's programme seat sees accepted participants from the club and counts of the rest; a learner, subscriber, applicant
+    or candidate is never named to it (P21 §10)
   privacy:
   - A programme seat does not grant the club lens, and a club seat does not grant the programme lens
   - Minors in a programme are a count to the ambassador unless the R6 authority model names them
   - The ambassador sees nothing of other clubs in the same programme
+  - A correspondent enters a household's life event only with the family's consent recorded (Q-195)
+  - A drive's tally shows the club's total, never who gave
   journeys: []
   catalogue: {}
   not_built:
   - id: P18-J09
     title: The ambassador sees one club in one programme
+  - id: P24-J01
+    title: A graduation reaches the magazine through the correspondent with the household's consent, asked once (Q-195)
+  - id: P23-J10
+    title: A club relief drive's per-club tally names its receiving entity (Q-180)
+  - id: P24-J02
+    title: No consent, no print
+  - id: P25-J11
+    title: A Young Leader Committee drive cannot publish without a catalogue purpose naming its entity (Q-180)
   workflows:
   - club-share
   - camp-application
   - selection-programmes
   - advocacy
+  - magazine-announcements
+  - government-affairs
+  - relief-disbursement
   prototype:
   - '#/club/dashboard'
   sources:
@@ -626,10 +1171,15 @@
   - design/AFRP-Four-Lens-Architecture.md §6
   - design/AFRP-Club-Experience-Plan.md §3.4
   - design/AFRP-Club-Journeys.md (the club corpus)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Magazine-Operations.md (P24) §3.2
+  - design/AFRP-Contact-Record.md (P21) §10
 - key: club-member-view
   name: A member, seen from the club
   lens: club
-  who: An ordinary member of a chapter club — what the club lens shows them of themselves, and what it never shows of anyone else.
+  who: An ordinary member of a chapter club — what the club lens shows them of themselves, and what it never shows of anyone
+    else.
   needs:
   - See their own club standing beside their national standing
   - See their own groups, attendance and statement with the club
@@ -642,9 +1192,13 @@
   - A request to move clubs opens a secretary's-queue item in both clubs
   privacy:
   - Display, contact and export are three separate consents (R27); a club mailing honours the contact consent
-  - A follow-up about a member is the club's record, not shown to the member; whether the member may know one exists is a question for the Legal Advisor
+  - A follow-up about a member is the club's record, not shown to the member; whether the member may know one exists is a
+    question for the Legal Advisor
   - The member never sees another member's groups, follow-ups or attendance
-  - A certified member may vote independently at the Convention and the vote is deducted from the club's delegation (By-Law 9.1.3)
+  - A certified member may vote independently at the Convention and the vote is deducted from the club's delegation (By-Law
+    9.1.3)
+  - A member admitted under the club's own wider rule and not eligible nationally holds club standing only, on a rule not
+    yet written (Q-226)
   journeys:
   - id: J02
     title: Multi-club renewal
@@ -668,6 +1222,8 @@
   - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 3.1, 4.3.1, 9.1.3)
   - design/AFRP-Club-Experience-Plan.md §3.5
   - design/AFRP-Club-Journeys.md (the club corpus)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
 - key: programme-organiser
   name: Programme organiser
   lens: program
@@ -676,14 +1232,50 @@
   - See who is in the programme across the federation
   - Run applications and selection
   - Report outcomes without naming people
+  - Release a scholarship instalment only after the semester's documents are verified (Q-159)
+  - Compile a one-paragraph summary of each Fellowship application for the committee (in practice, research 2 Oct 2026)
+  - Answer any question about camp screening from a record of who applied, was interviewed and was screened; no written screening, training or reporting policy is on file (Q-86, Q-165)
+  - Log each scanning scope against the vendor agreement and the grant before the grant report (Q-108)
+  - Sponsor a member's Arabic-class seat from another programme's fund with its purpose posted (Q-168)
+  - 'Magazine subscription manager: see every subscription payment, by card, cheque or at an event, in one ledger, and produce
+    each issue''s print list from it (P24 §5)'
+  - 'Magazine treasurer: file a per-issue cost line against subscriptions and obituary income (P24 §6; Q-174)'
+  - 'The Federation''s representative in Ramallah: report each path''s counts, amounts, dates and organisations, never a person
+    (P23 §7; Q-246)'
+  - 'Host coordinator: print badges and read rosters and counts by club at the desk without exporting the guest list (P22
+    §8; Q-127)'
+  - 'Preservation: take an oral-history release that grants each place a recording may be shown, separately (P27 §6)'
   platform:
   - Programme plans on the record, every section sourced
   - The five-rung ladder per programme
   - Suppressed pipeline counts
+  - A document-gap list per selected scholar before any cheque (in practice, research 2 Oct 2026)
+  - A grant row with its period, spend to date and report date, so an unspent balance is seen before the period ends (Q-108)
+  - A learner's, applicant's or subscriber's role read in the programme's own scope only; a send to a field ("everyone with
+    a medical occupation") cannot be built (P21 §5, §8)
+  - The subscriber ledger after one reconciliation act; the print list at freeze leaves out lapsed print subscribers and the
+    hand-off refuses while the mailing house's agreement row is empty (P24 §5.2, §5.3; Q-66)
+  - 'The obituary as two objects: the death approved by the named family contact and a placement order whose fee is held unposted
+    (P24 §3.3; Q-193)'
+  - 'The beneficiary-organisation register and the representative''s report: counts, amounts, dates and organisations; a returned
+    cheque is a reversal on its own line (P23 §4.2, §7)'
+  - The verification rows and the release for each scholarship instalment, and the office's draft letters (P26 §2, §4)
+  - 'Stock, reprints and consignment for the bookstore: a reprint refuses while the title''s rights row is "not stated" (P24
+    §8.3; Q-173)'
+  - 'The archive''s consent scopes: community archive, public web, print and research, each a separate row; a withdrawal is
+    a new row (P27 §6.2)'
   privacy:
   - A programme scope stops at everything else
   - Cohort names only with roster:read at that programme
   - No engagement score exists
+  - Interview notes hold no free text about an applicant's views (Q-118)
+  - An oral history needs a written release with separate permissions for the community archive, the public web, print and
+    research (Q-189)
+  - Mission images of sites, partners and patients wait on a consent rule (Q-219)
+  - No field accepts a beneficiary person; a note carrying a name is replaced by a corrected entry, never edited (P23 §7;
+    P11 rule 12)
+  - The survivors in an obituary are the family's text and are never linked to person records (P24 §3.3)
+  - A recording made on a spoken permission shows only to the Preservation committee's seats (P27 §6.3; Q-189)
   journeys:
   - id: J06
     title: Scholarship — application to award
@@ -712,19 +1304,84 @@
   - id: JP-031
     title: Human-services intake is a separate store under exact grants only
   - id: JP-032
-    title: 'Senior Living: pledges vs cash, restricted and ring-fenced'
+    title: 'Senior Living: pledges vs cash — unoperated for Senior Living (P23 §9.7; Q-203)'
   - id: JP-034
     title: Endowment expenditure authority is the Fund Committee's ALONE
   - id: JP-056
     title: 'Intake: the seven-station shape receives an application'
   - id: JP-063
     title: 'Programme money: budget line vs remitted club ledger, per the builder'
+  - id: P12-J06
+    title: The interview holds no content
+  - id: P26-J01
+    title: An instalment is released only once its three verification rows are recorded (Q-159)
+  - id: P7-J14
+    title: Any statement about screening reads from the screening record, not from memory (Q-86)
+  - id: P11-J20
+    title: A sponsored Arabic seat posts as a transfer between two entities' funds with its purpose (Q-168)
+  - id: P21-J04
+    title: A role is read only in its scope
+  - id: P21-J06
+    title: Consent never crosses roles
+  - id: P21-J07
+    title: Next-term news waits on Q-70
+  - id: P22-J14
+    title: The coordinator prints badges without an export (Q-127)
+  - id: P23-J06
+    title: Organisations, never people
+  - id: P23-J07
+    title: A returned cheque is a reversal on its own line (Q-207)
+  - id: P23-J15
+    title: No campaign machinery for Senior Living (Q-203)
+  - id: P24-J02
+    title: No consent, no print
+  - id: P24-J03
+    title: An obituary is approved and ordered; the fee is held unposted (Q-193)
+  - id: P24-J04
+    title: One subscriber ledger
+  - id: P24-J05
+    title: Only paid print is mailed (Q-66)
+  - id: P24-J06
+    title: The appeal never chases a payer
+  - id: P24-J07
+    title: No age-based channel
+  - id: P24-J14
+    title: No reprint without rights (Q-173)
+  - id: P24-J15
+    title: Consignment is counted
+  - id: P25-J08
+    title: The Day of Action's public sentence and deadline render identically everywhere
+  - id: P25-J09
+    title: A town hall's action segment cannot be sent while the position approver row is empty (Q-80)
+  - id: P26-J02
+    title: No transcript, schedule or GPA figure can be attached to a verification row
+  - id: P26-J09
+    title: A late application shows as received after the deadline; nothing is refused (Q-117)
+  - id: P26-J11
+    title: An award letter row with no signatory is a draft that cannot be sent (Q-158)
+  - id: P27-J09
+    title: A recording released for the community archive and not print is refused to the issue builder
+  - id: P27-J10
+    title: A narrator withdraws; the item leaves every platform surface the same day
+  - id: P27-J11
+    title: A recording made on the 2022 spoken permission shows only to the Preservation committee (Q-189)
   workflows:
   - scholarship-cycle
   - camp-application
   - magazine
   - alumni-recruiting
   - reporting
+  - scholarship-renewal
+  - selection-programmes
+  - women-to-women-grants
+  - magazine-announcements
+  - tree-submission
+  - arabic-term
+  - care-grants
+  - partner-agreements
+  - relief-disbursement
+  - convention
+  - government-affairs
   prototype:
   - '#/program/overview'
   - '#/program/registry'
@@ -733,23 +1390,62 @@
   - design/AFRP-Four-Lens-Architecture.md §4
   - design/AFRP-Program-Experience-Architecture.md Part 3, Part 4
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §5, §8
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) §4, §7
+  - design/AFRP-Magazine-Operations.md (P24) §3, §5, §8
+  - design/AFRP-Scholarship-Awards.md (P26) §2, §4
+  - design/AFRP-Family-Tree-In-Practice.md (P27) §6
 - key: committee-member
   name: Committee member
   lens: federation
-  who: A member serving on a committee such as the Family Tree, Scholarship or Membership Committee.
+  who: A member serving on a committee such as the Family Tree, Scholarship or Membership Committee. Also a clan steward the
+    Family Tree Committee appoints, who pre-reviews and recommends for one clan and never approves (D72; Q-263).
   needs:
   - A queue of decisions with evidence
   - Conflicts disclosed on the record
   - Authority that is theirs alone where the by-laws say so
+  - 'Women to Women: approve a project and see its receipts against it (Q-114)'
+  - 'ARFHSN board: dispose of each funding request one of four ways with a date (Q-217)'
+  - 'Scholarship Committee: assign a named scholarship under its donor''s criteria (Q-102)'
+  - 'Family Tree Committee: see the change-request form''s rows in the queue rather than in one person''s inbox (D14). *Since
+    2 October 2026:* the form''s rows are not imported; members propose in the platform and earlier requests arrive through
+    the record keeper''s export, labelled as made outside the queue (P27 §4.3; D70)'
+  - 'Family Tree Committee: run the parallel run by dated acts, decide each conflict, and see the nightly backup row (D69;
+    P28 §4.3)'
+  - 'Clan steward: annotate and recommend accept, decline or needs information for my clan, and apply nothing (D72)'
+  - 'Convention Innovation Committee: keep a sponsor-prospect list by region with who is working each prospect, and enter
+    past Conventions as attested history rows (P22 §7.2, §11; Q-245)'
+  - 'Scholarship Committee: suspend or cancel an award only by a decision item with the seats present, and reconcile the named-scholarship
+    list to instruments (P26 §2.4, §5)'
   platform:
-  - The tree committee queue, triaged
+  - The tree committee queue, triaged; one approval applies an own-household life event or a non-structural correction, and
+    a structural change needs a second key from a different committee member (D72; P28 §4.2)
   - Scholarship review with median ranking
   - Open questions routed by name (R40)
-  - Their seat on the leadership directory, with its dates, whether it votes, and a seat channel instead of personal contact details (P19)
+  - Their seat on the leadership directory, with its dates, whether it votes, and a seat channel instead of personal contact
+    details (P19)
+  - The Care grant record with its ceiling, two signatories and three closing records (D63)
+  - The steward's pre-review on the clan's queue; the structural kinds read from the rules-register row
+    D81 set, which the committee may amend by a dated act (P28 §4.2, §6)
+  - 'The conflict list during D69''s parallel run: a change made on both sides since the last export is held with both readings;
+    after the run an external import is refused naming D69 (P28 §4.3)'
+  - A nightly GEDCOM backup under tree:moderate, each night a dated row and a failed night shown on the console (D69)
+  - 'The custody page: licence holder, account and cadence shown as "not stated (Q-201)", the last export imported against
+    the cadence, and the queue''s counts (P27 §3, §4.4)'
+  - 'The Young Leader Committee as the text reads: five seats, the sixth refused naming the 8.10 paragraph and Q-179 (P25
+    §4)'
+  - The Scholarship Committee's seats as the 2015 policy reads; a "Foundation representative" seat refused naming D58; an
+    attendee without a seat in no tally (P26 §3.1)
   privacy:
   - Refusals name the rule, not the relatives (S6)
   - A declined invitation is never visible to a committee
   - Fund committees hold exclusive expenditure authority
+  - 'Applicant data for Women to Women''s tuition awards: its class and holder are not stated (Q-211)'
+  - Who approves a Women to Women project is open between the committee and ARFHSN's Board (Q-114)
+  - The same committee member cannot give both keys on a structural change; the second key-holder is a committee member the committee seats (D72, D79)
+  - A steward recommends and never applies (D72)
   journeys:
   - id: J10
     title: Joining a committee
@@ -798,10 +1494,67 @@
     title: The seven committees wait on their design note
   - id: JP-034
     title: Endowment expenditure authority is the Fund Committee's ALONE
+  - id: P11-J01
+    title: A grant is approved by the holding entity's Board with a ceiling
+  - id: P11-J19
+    title: An ARFHSN request is disposed of one of four ways, with a date (Q-217)
+  - id: P27-J02
+    title: A member's correction queues on the platform for the committee, not on the public form (D13, D14; Q-200, Q-259)
+  - id: P22-J13
+    title: 'Two members, one sponsor prospect: nothing is overwritten (Q-70)'
+  - id: P22-J18
+    title: The history row is attested, not invented
+  - id: P25-J03
+    title: A sixth Young Leader Committee seat is refused (Q-179)
+  - id: P25-J04
+    title: A Young Leader seat-holder with no alumni record shows undetermined; nothing is refused
+  - id: P25-J11
+    title: A Young Leader Committee drive cannot publish without a catalogue purpose naming its entity (Q-180)
+  - id: P26-J05
+    title: The committee suspends an award by a decision item with seats present
+  - id: P26-J07
+    title: A "Foundation representative" seat is refused (D58)
+  - id: P26-J08
+    title: A person present without a seat is an attendee and in no tally
+  - id: P26-J09
+    title: A late application shows as received after the deadline; nothing is refused (Q-117)
+  - id: P26-J10
+    title: An AFRP Board act on the committee's report is shown under Q-161 and gates no release
+  - id: P26-J12
+    title: A named scholarship with no instrument takes no posting and is offered to no scholar (Q-102)
+  - id: P26-J14
+    title: A Cook Book fund transfer refuses (Q-173); the console shows nothing of Women to Women
+  - id: P27-J01
+    title: The custody page shows licence holder, account and cadence as not stated (Q-201)
+  - id: P27-J03
+    title: An import labels a change made outside the queue
+  - id: P27-J04
+    title: Nothing reads the change-request form's sheet
+  - id: P28-J08
+    title: A steward recommends and cannot apply
+  - id: P28-J09
+    title: One committee member cannot give both keys on a merge
+  - id: P28-J10
+    title: Two committee members apply a merge; D12 flags decisions on both records
+  - id: P28-J11
+    title: 'Parallel run: a non-conflicting external change applies as an audited committee edit'
+  - id: P28-J12
+    title: 'Parallel run: a change made on both sides is held as a conflict'
+  - id: P28-J13
+    title: After the run ends, an external import is refused (D69)
+  - id: P28-J14
+    title: A nightly export row appears; a member-facing export does not exist
   workflows:
   - tree-life-events
   - scholarship-cycle
   - bylaws-rules
+  - care-grants
+  - women-to-women-grants
+  - scholarship-renewal
+  - tree-submission
+  - relief-disbursement
+  - convention
+  - selection-programmes
   prototype:
   - '#/fed/tree'
   - '#/program/applications'
@@ -810,22 +1563,64 @@
   - design/AFRP-Scholarship-Program-Spec.md §3
   - plan/MASTER-PLAN.md §2 row SP0
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Family-Tree-Module.md (P28) §4.2, §4.3, §5, §6
+  - design/AFRP-Family-Tree-In-Practice.md (P27) §3, §4
+  - design/AFRP-Decisions-Register.md §Decision 69, §Decision 72
+  - design/AFRP-Convention-Operations.md (P22) §7.2, §11
+  - design/AFRP-Leadership-Pipeline.md (P25) §4
+  - design/AFRP-Scholarship-Awards.md (P26) §2.4, §3, §5
 - key: federation-staff
   name: Federation staff and officers
   lens: federation
-  who: National officers and staff running membership, money, governance and the registries.
+  who: National officers and staff running membership, money, governance and the registries. Includes the Executive Administrator,
+    who keeps the books and writes the cheques, the General Fund and Educational Fund treasurers, the programme director and
+    the paid congressional-outreach coordinators.
   needs:
   - Know whether the federation is healthy and governed properly
   - Close the books
   - Run elections and the convention
+  - 'Educational Fund Treasurer: file the Education Fund, Relief Fund and Cook Book statements to every Board meeting from
+    the ledger (Q-174)'
+  - 'Executive Administrator: prepare the Convention reconciliation and record the payment the General Treasurer makes, clearing
+    the liability (Q-221, Q-222, Q-241)'
+  - 'Executive Administrator: cut a scholarship cheque only after verification, from the account that should pay it (Q-158)'
+  - 'Executive Administrator: record a Relief Fund transfer and the onward wire as one linked act'
+  - 'General Fund Treasurer: settle each affiliate''s ''due to'' balance on a known cadence (Q-232)'
+  - 'Committee chairs: budget-versus-actual for their line without the organisation''s full statements (in practice, research
+    2 Oct 2026)'
+  - 'Run the Convention desk: check in delegates and members, print badges, take walk-ins through the door (P22 §5.4)'
+  - 'Record the close''s acts: the reconciliation meeting''s corrections, the approval and the payment with its signatories
+    by seat and its channel (P22 §9; Q-241)'
+  - 'Educational Fund Treasurer: file the Relief Fund''s statement from the ledger once its entity is named, and until then
+    link the paper statement and say why (P23 §6; Q-174)'
+  - 'Executive Administrator: record a Relief Fund transfer and its wire as one act with two legs (P23 §4.4)'
   platform:
   - Dashboard, Member 360 and the merge queue
   - Daily close and remittance runs
   - Elections console, floor and ruleset workbench
+  - One card-processing account per entity, with each payment naming its entity's processor profile (in practice, research
+    2 Oct 2026)
+  - The settlement statement with netted items and the payment channel (Q-221, Q-222)
+  - Member 360 shows a contact's roles by kind, scope, date, state and consent state and none of their fields without that
+    role's scope; the Executive Director's 7.9.3 read is a named-purpose act with an audit line (P21 §5; P16 §3.2; Q-44)
+  - 'The merge queue for contacts: two contact records for one person land in the review band and a human decides; a merge
+    is reversible (P21 §7.3)'
+  - 'The Convention books mapping: bookkeeper-typed rows; a Convention line mapped to ARFECF is refused (D1 G; P22 §10; Q-224)'
+  - The Relief Fund row, held by AFRP (D83), and its three paths with authoriser rows; a path-3 transfer with no approval act refuses (P23 §3,
+    §4; Q-109)
+  - The Young Leader Board seat as a register row with "no appointing text" (P25 §4)
   privacy:
   - 'Sensitive permissions need an exact-scope grant: PII read, export, unseal, post, grant'
   - 'Deleting a person never happens: closed as merged or deceased'
   - Federation scope does not read the ARFHSN store (R39)
+  - Four roles answer to 'the CPA'; the record names which per question (Q-231)
+  - A relief payment carries counts and totals, never recipients (P11 §4)
+  - Staff applicants stay outside the platform; only the outcome is recorded (P16)
+  - Every contact role other than the learner refuses by name until Q-70 is answered (P21 §2, slice CR1)
+  - 'Retention not set: nothing deleted, and every screen that reads a silent row says so (P21 §9; P15 §3)'
+  - No node, person or archive item is sent to an outside site by any endpoint, export or feed (P27 §7)
   journeys:
   - id: J13
     title: Convention — running the element
@@ -878,6 +1673,91 @@
     title: 'Raising in another entity''s name: catalogue purposes one-click, new purposes to its board'
   - id: JF-088
     title: A money-taking event cannot publish without its surplus and shortfall rules on the ticket
+  - id: P11-J14
+    title: The Relief Fund posts to AFRP (D83)
+  - id: P11-J15
+    title: Family lists never enter
+  - id: P13-J09
+    title: The statement reads only the row
+  - id: P23-J08
+    title: The Relief Fund's per-meeting statement assembles from the ledger (Q-174)
+  - id: P26-J06
+    title: A disbursement for an ARFECF award drawing on another entity's account is refused (D3, ARFECF 6.4.8; Q-158)
+  - id: P22-J16
+    title: The host payment shows its signatories by seat and its channel (Q-241, Q-222)
+  - id: P21-J03
+    title: Every other role refuses by name (Q-70)
+  - id: P21-J05
+    title: Member 360 shows kinds, not contents (Q-44)
+  - id: P21-J09
+    title: No link without the person
+  - id: P21-J10
+    title: Two contacts, one human decision
+  - id: P21-J11
+    title: Nothing is deleted while the clock is blank
+  - id: P21-J15
+    title: No consent comes in with a migration (Q-70, Q-76)
+  - id: P22-J01
+    title: No qualified bid, no automatic move (Q-240)
+  - id: P22-J03
+    title: The abroad checklist decides nothing until adopted (Q-223)
+  - id: P22-J04
+    title: Cancel means refunds, not lost dues (Q-244)
+  - id: P22-J06
+    title: A Mid-Year event cannot open without its membership gate; a non-member registrant is offered dues as a separate
+      line (Q-225)
+  - id: P22-J07
+    title: A price needs its act
+  - id: P22-J08
+    title: The Relief Fund amount posts to AFRP's fund (D83; Q-243)
+  - id: P22-J09
+    title: The walk-in goes through the door
+  - id: P22-J12
+    title: A sponsor package is entries, not a second sale (Q-242)
+  - id: P22-J14
+    title: The coordinator prints badges without an export (Q-127)
+  - id: P22-J15
+    title: A netted item with no schedule row is held; the rest settles (Q-124)
+  - id: P22-J17
+    title: Nothing of the Convention posts to ARFECF (D1 G; Q-224)
+  - id: P23-J01
+    title: The Relief Fund posts to AFRP (D83); a gift's receipt waits on the CPA's text (D9)
+  - id: P23-J02
+    title: No ad hoc path (Q-109)
+  - id: P23-J03
+    title: Two acts for the charities (Q-207)
+  - id: P23-J04
+    title: One act, two chequebooks
+  - id: P23-J05
+    title: Signatories from the text
+  - id: P23-J07
+    title: A returned cheque is a reversal on its own line (Q-207)
+  - id: P23-J09
+    title: No assumed income (Q-126)
+  - id: P23-J14
+    title: The budget grant to the Foundation pays from an ARFECF account with 7.7.1's signatories
+  - id: P24-J08
+    title: The Magazine board is shown absent (Q-192)
+  - id: P24-J09
+    title: Magazine money stays typed (Q-194)
+  - id: P24-J12
+    title: An order splits by entity (Q-197)
+  - id: P25-J03
+    title: A sixth Young Leader Committee seat is refused (Q-179)
+  - id: P25-J05
+    title: The Board's Young Leader seat is a register row with no appointing text
+  - id: P25-J06
+    title: A Deputy President candidate's service check shows platform seats and attested rows separately (Q-252)
+  - id: P25-J10
+    title: A posting to the Washington internships is refused (Q-182, D55); coordinators post to the General Fund (D65)
+  - id: P26-J07
+    title: A "Foundation representative" seat is refused (D58)
+  - id: P26-J10
+    title: An AFRP Board act on the committee's report is shown under Q-161 and gates no release
+  - id: P26-J14
+    title: A Cook Book fund transfer refuses (Q-173); the console shows nothing of Women to Women
+  - id: P27-J08
+    title: No endpoint, export or feed sends a node, a person or an archive item to an outside site
   workflows:
   - remittance-ledger
   - elections-voting
@@ -885,6 +1765,15 @@
   - reporting
   - convention
   - communications
+  - convention-close
+  - relief-disbursement
+  - scholarship-renewal
+  - government-affairs
+  - care-grants
+  - club-share
+  - magazine-announcements
+  - partner-agreements
+  - advocacy
   prototype:
   - '#/fed/dashboard'
   - '#/fed/crm'
@@ -894,3 +1783,9 @@
   - design/AFRP-Four-Lens-Architecture.md §5, §6
   - docs/AFRP-Deep-Federation.html
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §5, §7, §9
+  - design/AFRP-Convention-Operations.md (P22) §5, §9, §10
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) §3, §4, §6
+  - design/AFRP-Executive-Director.md (P16) §3.2

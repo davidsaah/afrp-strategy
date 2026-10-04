@@ -4,6 +4,7 @@
 **Date:** August 15, 2026
 **Addendum 4 to:** AFRP Enterprise Platform architecture
 **Status:** posting engine and connector implemented, 45 tests passing
+**Since 2 October 2026:** the research round found the Federation already keeps its books in QuickBooks Online, integrated with the current CRM, with a real chart of accounts. §12 records what the sources show, as practice and never as a decision; the open questions of §11 carry their answers in practice. D1 and D56 stand.
 
 ---
 
@@ -13,7 +14,7 @@
 |---|---|---|
 | 1 | **QuickBooks Online** | REST API, OAuth 2.0, real webhooks, sandbox. Far friendlier than Breeze — the hazards here are accounting hazards, not vendor ones |
 | 2 | **Daily summary journal entries** | One balanced entry per day per fund. The platform stays the donor system of record; QuickBooks holds the ledger |
-| 3 | **Dues recognised in full when paid** | Simple. See §7 — worth one conversation with whoever signs the 990 |
+| 3 | **Dues recognised in full when paid** | Simple. See §7 — worth one conversation with whoever signs the 990. *In practice (research, 2 Oct 2026):* this is the Federation's practice, and its chart already holds an unused deferred-dues account; the conversation is Q-233, with the outside firm |
 | 4 | **Classes per fund** | Endowed Fund, Scholarship, Medical Mission each become a QB Class. Standard nonprofit pattern, works in every QBO tier |
 
 Decision 2 is the one that keeps this maintainable. The alternative — a Sales
@@ -28,6 +29,8 @@ platform answers "who gave it".** Traceability is preserved by
 ## 2. Chart of accounts
 
 Placeholder numbers — substitute AFRP's real chart before go-live.
+
+*Since 2 October 2026:* the real chart exists and is in use (§12). Among what it already carries: a Convention bank account and a **"Due to Convention Host City"** liability (P22 §10 maps the Convention's lines onto them); a "due to" liability for each affiliate purpose AFRP collects (Q-232); on ARFECF's side, the Relief Fund as its own bank account with AFRP owing it (Q-109). The mapping is typed by the bookkeeper against that chart, never by a build session (§10 item 2). The table below stays as the engine's test fixture.
 
 | Account | Type | Purpose |
 |---|---|---|
@@ -190,6 +193,8 @@ is a missing transaction. Neither is silently absorbed.
 AFRP has chosen to **recognise dues in full when paid**. That is common for
 organisations of this size and it is simpler.
 
+*Since 2 October 2026:* "whoever signs the 990" is the outside firm, one of four roles the record has called "the CPA" (Q-231); the question itself is Q-233. ARFECF moves to an audit from the year to May 2026, so the answer matters more for ARFECF than it did.
+
 It is worth one conversation with whoever signs the 990, because a $1,000 Patron
 membership paid in March covers twelve months, and an auditor may take the view
 that it is not all March revenue. Deferring would recognise roughly $83.33 per
@@ -269,18 +274,33 @@ because the gift data must be trustworthy before it reaches the ledger.
 
 1. **Who is AFRP's bookkeeper or accountant**, and will they sit for the
    chart-of-accounts mapping? This integration cannot be specified without them.
+   *In practice (research, 2 Oct 2026):* the office's Executive Administrator keeps the books, with a volunteer financial adviser alongside. Whether they sit for the mapping is not stated.
 2. **What is the actual chart of accounts and class list today?** Everything in
-   §2 is placeholder.
+   §2 is placeholder. *In practice:* the chart exists in QuickBooks Online for AFRP and ARFECF (§12); the class list is not stated.
 3. **Does AFRP have an annual audit or a review?** Determines how strict the
-   dues-recognition answer needs to be.
+   dues-recognition answer needs to be. *In practice:* reviews for AFRP and ARFECF for the year to May 2025; **ARFECF moves to a CPA audit from the year to May 2026 (FY2026)**; AFRP stays on review. Dues recognition is Q-233.
 4. **Is the Endowed Fund truly permanently restricted** (corpus untouchable) or
    board-designated? They are accounted for very differently, and the engine
-   currently refuses to release from it.
+   currently refuses to release from it. *Since 1 Oct 2026:* Q-95.
 5. **Who reconciles the bank today,** and would they rather see one deposit per
-   settlement batch or per day?
+   settlement batch or per day? *In practice:* the bookkeeper reconciles monthly and the Treasurer reviews. The batch-or-day preference is not stated.
 6. **Are local clubs in the same QuickBooks file** or do they keep their own
    books? If separate, this is 26 more integrations — please confirm before
-   Phase 3 planning.
+   Phase 3 planning. *In practice:* clubs keep their own books (some in Breeze, some in QuickBooks); none is in the Federation's file (`AFRP-Multi-Entity-Ledger.md` §9).
+
+---
+
+## 12. In practice: the books as they stand (research, 2 October 2026)
+
+Evidence of practice under D41, from the Federation's own minutes, reports and balance sheets, read at role level. It is not a decision and sets no default. D1 (club dues held as agent; the countersignature pending, Q-3) and D56 (AFRP collects ARFHSN's gifts as its agent) stand unchanged.
+
+- **QuickBooks is integrated with the current CRM.** QuickBooks Online holds AFRP's and ARFECF's books from the 2026 Mid-Year, with ARFHSN to follow. It is fed from the registration system, with monthly statements and budget-versus-actual. Committee chairs are to get budget sheets from the books without the organisation's full statements. What the Hub replaces is therefore a working CRM-to-QuickBooks feed, not an empty ledger; the Hub's own connection is still absent (MASTER-PLAN §1a).
+- **Accounts retitled per entity.** Bank accounts that carried the wrong entity were retitled to the right one in 2025–26.
+- **Three processor accounts.** One card-processing account each for AFRP, ARFECF and ARFHSN, replacing one AFRP account with transfers made by hand. The pay links name the entity's processor profile and whether the payer covers the fee. For this spec that means one gateway clearing account per entity, not one for the Federation (§2's 1200). The mapping is the bookkeeper's.
+- **The chart, structure only.** AFRP has operating and Convention bank accounts, "Due to Convention Host City", a "due to" family for ARFECF, ARFHSN and Ramallah Foundation purposes, the unused deferred-dues account, and income lines for dues, the endowment distribution, the Convention host fee and card-fee income. ARFECF has separate bank accounts for operating, the Relief Fund, the Magazine, the cook book and camp, with "due from AFRP" lines per purpose. P22 §10 maps the Convention onto these. P24 §6 maps the Magazine's two rows. P23 §2 and Q-109 cover the Relief Fund.
+- **The Relief Fund is booked as an ARFECF bank account.** The platform's rule stands: the fund posts nothing until a Board names its holding entity (Q-109). *Since 3 Oct 2026:* D83 names AFRP; the fund posts to AFRP, and the ARFECF bank account is the reconciliation item D83 names (the books follow D83, or the Boards revisit).
+- **Review and audit.** AFRP and ARFECF had reviews for the year to May 2025. ARFECF moves to audit from FY2026.
+- **"The CPA".** Four roles answer to the name: the outside firm that reviews or audits and files; the General Fund Treasurer, a CPA in practice; a volunteer financial adviser, also a CPA; and the bookkeeper. Every "CPA" or "accountant" in this spec (§7, §10, §11) needs one of them named. **Q-231** asks which.
 
 ---
 

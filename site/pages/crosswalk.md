@@ -16,10 +16,18 @@ Federation", collects what clubs, the Federation and the affiliates already
 share.
 
 The platform column says how far the Hub has got. **Built** means built and
-tested, though nothing is in service yet. **Plan only** means a register row and
-a written plan with no working screens. **Proposed** means it needs a design note
-first. **Outside** means it is a hire, a policy or a vote, not software. **Gap**
-means nothing in the record accounts for it.
+tested, though nothing is in service yet. **Partly built** means the core is
+built and the rest is designed only. **Designed** means a design note is
+written and nothing is built. **Queued** means a slice is waiting in the master
+plan. **Plan only** means a register row and a written plan with no working
+screens. **Proposed** means it needs a design note first. **Outside** means it
+is a hire, a policy or a vote, not software. **Gap** means nothing in the record
+accounts for it. Two statuses together (for example *Outside · Designed*) mean
+the element is partly each.
+
+Rows marked **Research (2 Oct 2026)** add what the second research round found
+in practice. That is evidence of how things are done today, never a rule
+(D41), and each such finding names its question.
 
 The table is generated from
 [`design/AFRP-Strategic-Plan-Crosswalk.md`](https://github.com/davidsaah/afrp-strategy/blob/main/design/AFRP-Strategic-Plan-Crosswalk.md);

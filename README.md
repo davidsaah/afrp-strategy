@@ -13,12 +13,12 @@ and money figures in the prototypes and the fixture are fictional demo data.
 
 **[The site](https://davidsaah.github.io/afrp-strategy/)** lays the Federation's
 strategy and the member platform side by side, on the four branches (Education,
-Leadership, Heritage, Care), with the family tree as the roots and the
-Convention as the junction. Nine sections:
+Leadership, Heritage, Care), with the family tree on the Heritage branch
+(D53) and the Convention as the junction. Nine sections:
 
 1. **[AFRP Strategy](https://davidsaah.github.io/afrp-strategy/strategy/index.html)**: the Federation's current strategy, eight goals, and how the Hub implements each on the CRM.
 2. **[Evolution](https://davidsaah.github.io/afrp-strategy/history/index.html)**: how the strategy got here, what still has to be developed, and the [open questions](https://davidsaah.github.io/afrp-strategy/history/questions.html).
-3. **[Branches & programmes](https://davidsaah.github.io/afrp-strategy/programmes/index.html)**: the nineteen programmes and what each needs.
+3. **[Branches & programmes](https://davidsaah.github.io/afrp-strategy/programmes/index.html)**: the programmes and what each needs.
 4. **[People](https://davidsaah.github.io/afrp-strategy/experiences/index.html)**: who uses the platform and what they need.
 5. **[Workflows](https://davidsaah.github.io/afrp-strategy/workflows/index.html)**: how the work moves and hands off.
 6. **[Prototype](https://davidsaah.github.io/afrp-strategy/prototype/index.html)**: the integrated prototype, with guided tours.
@@ -27,13 +27,17 @@ Convention as the junction. Nine sections:
 9. **[Library](https://davidsaah.github.io/afrp-strategy/library/index.html)**: the reference documents and the archive.
 
 The site is generated from `site/` (D47); see [`site/README.md`](site/README.md).
+Open questions are numbered Q-1 to Q-279 and kept in
+[`site/data/questions.yaml`](site/data/questions.yaml); the
+[questions page](https://davidsaah.github.io/afrp-strategy/history/questions.html)
+explains the numbering and how to raise one.
 AFRP-Hub is **not yet in service**: no DNS, no live payments, no real member data.
 
 ## What is where
 
 | Folder | What it holds | Published on the site? |
 |---|---|---|
-| [`design/`](design/) | **The design record.** The decisions register (D1–D67), the delivery status, the rules register, by-law analysis, the design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | Yes — rendered under Design notes, except seventeen older documents the privacy scan refuses, which the index links to the repository |
+| [`design/`](design/) | **The design record.** The decisions register (D1–D83), the delivery status, the rules register, by-law analysis, the design notes P1–P28 and the other design documents each Hub module is cut from, the R6 ratification memos, the by-law texts (`design/bylaws/`), and the GCP hosting option (`design/hosting-gcp/`) | Yes — rendered under Design notes, except seventeen older documents the privacy scan refuses, which the index links to the repository |
 | [`plan/`](plan/) | **The build plan.** `MASTER-PLAN.md` (the slice queue AFRP-Hub takes work from), `QUESTIONS-FOR-DAVID.md` (answered questions, kept as provenance), the archived earlier plans, and the consolidation plan | No, it is in the repository only |
 | [`site/`](site/) | **The site's sources**: prose, data files, template, build and checks (D47) | Generates `docs/` |
 | [`docs/`](docs/) | **The site.** Generated section pages, the prototype, the build board, the Library | Yes, GitHub Pages |
@@ -81,10 +85,10 @@ beyond what is already public, and never real member data.
 
 | File | What it is |
 |---|---|
-| `AFRP-Design-Status.html` | **Decisions, open questions, and how the design changed** — the current page |
+| `AFRP-Design-Status.html` | Redirects to the Development status section (`status/index.html`), which carries the decisions, the open questions and the build's figures |
 | `AFRP-Analyst-Dashboard.html` | **The build board** — the slice track, the journey corpus and its verdict, generated from the build's own report |
 | `prototype.html` | The integrated clickable prototype, all modules, five lenses |
-| `index.html` | The delivery hub |
+| `index.html` | The site's home page: where the design record stands, and the sections |
 | `AFRP-Platform-Map.html` | The platform map and element matrix. **Its build badges are a 19 Aug 2026 snapshot**, not a live reading — Design Status carries the current figures |
 | `AFRP-Board-Packet.html` | Six decisions as they would be minuted, and the documents nobody has produced |
 | `AFRP-Deep-*.html` | Deep dives: flagship programmes, the Convention, club activities, club management, federation operations |

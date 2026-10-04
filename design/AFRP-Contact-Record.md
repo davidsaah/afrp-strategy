@@ -1,0 +1,381 @@
+# The contact record
+
+### One person record for every non-member the platform must hold: the roles it carries, who sees each, the consent and the clock each runs on, and how a contact becomes a member
+
+**Design note P21 · 2 October 2026 · for the Hub's `people` (Member 360, identity and merge), `member`, `comms`, `programs`, `events`, `clubs`, `magazine` and `payments` modules, the institution registry and the retention schedule (IR2)**
+
+**What it rests on.** Decision 60, the one adopted text: *"A person who is not a member may register for an Arabic class at the public rate. The platform keeps a contact record for them (name, verified channel, consent) and not a membership."* It is written for the Arabic learner. Six notes have since used the same shape for other people (P4, P6, P12, P14, P17, and the club plan with P20), and P15's retention schedule gathers them in one row. The design notes' cross-check of 1 October 2026 (findings F1.7 and F1.8, kept in the planning Project) found that each note calls the extension something different — "D60's precedent", "D60's shape", "D60's pattern" — and none raises it, and that two homes are designed for a professional contact. Its one question is **Q-70** (*"The non-member contact record: who it serves, and one retention register"*, owner David · Membership Committee · Legal Advisor), whose detail the second research round extended on 2 October 2026. The research round (federation §6, with its convention, clubs and money sections; heritage on the Magazine; education on the Arabic Program; leadership on the Day of Action, the Government Affairs committee and AFRPWorks) is the evidence of how non-members are held today and of how comparable bodies hold them. P15 §3 is the retention schedule this note writes rows for.
+
+**What this note does not do.** It does not adopt the extension of D60. D60 decides the Arabic learner and nothing else; every other kind of person in this note is held on a **reading** of D60 that only David, with the Membership Committee and the Legal Advisor, can turn into a decision under Q-70. §11 gives the DRAFT register wording for that decision, marked DRAFT, for the governance agent to place under Q-70. Until it is adopted, the slices below build the learner's record on D60 and build every other kind of contact switched off, with Q-70 named in the refusal.
+
+**Precedence (D41).** The by-law texts first (Article IV, membership is the Federation's to grant; 5.2, the Convention registrant who is not eligible; 6.7.1, the Magazine's subscription policy; 7.9.3, the Executive Director's access to records; 8.12.2–8.12.8, the application and the household). Then the register and the named design documents — the six notes above, P3 for the letter classes, P15 for retention, P19 for the directory, the club plan and P20 for the club's side. Then the prototype's `#/people` screens (Member 360, identity and merge), which show the story of one person seen whole and never a rule about who may see what. Then the Hub as built, which shows what *is*. The research round is evidence of practice: where practice and the record disagree this note says both and builds the record, and the conflict is the register's row and its question.
+
+**Public-repo rule.** No living person is named. No club is named. No figure appears: no count of contacts, subscribers, guests or emails. The comparables are named because their practice is published.
+
+---
+
+## 1. What the record already holds
+
+**Decided.** D60 (above): the Arabic learner who is not a member is a contact record with three things — name, a verified channel, consent — and not a membership; consent is part of the record. D61: past participants of Project Hope, Leadership Ramallah and the Day of Action, and past scholarship recipients, enter as alumni records (name, programme, year, club) through the match queue; applications, essays, documents and anything of a minor's never enter; future cycles apply in the platform. D36: the tree is not a mailing list; the platform never initiates contact with a person in the file who is not a member. D30: every member is a node and a node is never a lineage claim. D28: nothing about a living person renders signed out. D10: a contributor hears four moments and an annual statement. D9, D55, D56: receipts and books follow the holding entity, and ARFHSN receipts the gifts it holds. D22: consent per item, held by the subject. D50: roles only on public pages.
+
+**In the by-laws.** Membership is open to those 4.1.1 and 4.2.1 describe and is the Federation's to grant; an application carries age, address and telephone (8.12.2), a household signs through one adult who lists the others with their ages (8.12.3), and dues count for voting only from the applicant's own funds (8.12.4). A Convention registrant who is not eligible for membership "may be required … to remit a fee or donation" (5.2) — the by-laws already expect non-members at the Convention. The Magazine's "subscription fee collection and policy will be determined by the Magazine's independently selected Board in consultation with the Federation's Board" (6.7.1). The Executive Director "shall … have access to all A.F.R.P. and Chapter Club records" and oversees "the maintenance and safeguarding of all records" (7.9.3). The membership list is released to members and to ARFECF only on the Executive Committee's approval (8.12.7). Nothing in the by-laws speaks of a person who is not a member and not an applicant.
+
+**Designed, in the notes (the readings of D60).**
+
+| Note | The person | Where the note puts them | Fields beyond D60's three | The note's gate |
+|---|---|---|---|---|
+| P4 §2 | The adult of a referred household | A contact for the club named | The club; the "tell the referrer" consent, off by default | Q-68 (no send by the platform); Q-70 (expiry) |
+| P5 §3.3 | A non-member who approaches the Selection Committee | Refused with 8.1.2 and 9.3.1: "a contact, not an application" | — | — |
+| P6 §3 | A media contact | The institution registry, under the outlet | Outlet, area of interest, locality, the source of consent | Q-70 (consent basis; inactivity) |
+| P12 §2.2 | A programme applicant who is not a member | On the application | Date of birth and club asked, "held on the application only" | Q-70; Q-116 (Project Hope's membership rule) |
+| P12 §2.9 | An alumnus who is not a member | The alumni record (D61) | Programme, year, club, attended | Q-120 (whether they may be written to) |
+| P12 §3.2 | The Arabic learner | Created or reused at the public-rate door | Track and level history | D60 (decided); Q-70 (retention; next-term news) |
+| P13 §2.4 | A Convention registrant who is not a member | A credential class on the event (guest with 5.2's fee or donation; exhibitor and press as non-attendee credentials) | — | Q-127 (the host's access) |
+| P14 §2.2 | A staffer at a public office | The institution registry, under the office | Role, professional channel, source | Q-70 (nothing loaded until answered) |
+| P17 §3.3 | An AFRPWorks candidate in Ramallah | Programme scope | A self-typed profile: skill tags, experience band, availability, location | Q-151 (the door's wording); Q-70 |
+| Club plan §3.2; P20-A1, E2 | A prospect the secretary records; an unknown walk-up at the door | The secretary's queue (C2); the door (B2b) | — | Q-72 (a prospect nobody referred) |
+| P3 §2 | The non-member reached by the renewal campaign | LT-R8, marketing class, "only where a contact record with consent exists (D60; P4)" | — | — |
+| P15 §3 | All of them | One "Contact records" row: the member-side store for referred persons, learners, applicants and candidates; the institution registry for media and office contacts | — | One purge parameter with no value (Q-70; Q-76) |
+
+P3's rule 11 states the principle every row above obeys: *"The platform never initiates contact with a person who is not a member and has no contact record with consent (D36; D60; P4)."* Since the cross-check, each of P4 rule 2, P6 rule 5, P12 rule 10, P14 rule 6 and P17 rule 2 carries the sentence "D60 is written for the Arabic term; its use for this person is a reading, raised as one question for governance".
+
+**Built (Delivery Status).** Member 360, identity resolution and the merge queue, with a merge that closes the loser and never deletes it (the `people` surface; `src/identity/resolve.ts` ported); the red-team fixes that refuse a merge during an open election and a merge of a parent and child, or of twins, on one email; the alumni match queue (slice 9), on the same matcher, in which a transliterated name with the same birth date lands in the review band, the same name with a different birth date is blocked, every link records who made it and can be undone, nothing links itself, and an alumnus who asks not to be contacted closes every path; passwordless sign-in on a verified channel (S1); exact grants for the sensitive permissions, with federation scope satisfying club and programme and club and programme as siblings (Four-Lens §6.2; R39); the comms desk with three message classes, per-channel consent at audience build and the withheld named to the sender (R27; workflow `communications`); the institution registry (`institutions`); bulk export refused for everyone. **Not built:** any contact record. The Delivery Status records that *"the audience builder cannot express a non-member"*. Whether the Hub's person model admits a person with no membership at all is not recorded, and the build session reports it before CR1 (§14).
+
+**In practice (research round, 2 October 2026; role level).** The Federation holds non-members today in four shapes, none with a stated purpose, consent or retention:
+
+- **The registration system's contacts.** An account is created by self-registration and vetted by staff, and it exists before any membership is bought, so everyone who registered and never paid, every guest a household registered, and every one-off payer is a contact, carrying a profile (club, date of birth, occupation, address) and no consent row. Manual payments are tagged "member or non-member". In 2026 the Medical Mission reached contacts by their recorded occupation, members and non-members alike, for volunteers and gifts; the Day of Action was mailed to every adult contact. The event-coordinator role gives a host every registered guest's contact information, with an export, and a report of who paid what.
+- **Sheets, forms and trackers.** A club's prospect list; the membership drive's segments ("active, lapsed and non-members"); Day of Action applicants; the congressional tracker (replaced in 2025–26 by the committee's own automated tracker, Q-183); journalists invited to a Day of Action dinner; sponsor prospects by region; endowment prospects by tier; the Executive Director hire's applicants, held outside the Federation's systems by design to avoid conflicts of interest.
+- **Each club's Breeze.** People profiles with no membership object; a walk-up checked in at the door becomes a profile.
+- **Mailboxes.** Programme committees' own mailboxes; the Magazine's subscriber list, which includes non-members and households and is kept both in the registration system and in the subscription manager's own ledger (found to differ in 2026); a dictionary pre-sold through the registration system's event-guest entity, with mailing addresses.
+
+The AFRPWorks prototype already holds candidate profiles of people in Ramallah, outside any rule (Q-151).
+
+**The comparables (published practice, read by the research round).** Rotary International's membership leads hold *"prospective, referred, and relocating or returning members — all in one place"*, route each lead to the club the person chose, and ask the club's named officers to connect and report back. Blackbaud's constituent model keeps one record per person with constituent codes — member, volunteer, prospect, board member — each with a start and an end date. Salesforce's Program Management Module keeps one contact and a *program engagement* per programme, which it likens to an enrolment record. Hadassah's privacy statement treats members, donors, petition-signers, subscribers and event registrants as one set of people. **Every one keeps one person record with dated roles hanging from it; none keeps a record per programme.** None publishes a retention period beyond "as long as necessary", and none says what a chapter or club sees.
+
+**The conflicts already in the register** (the section "Conflicts between practice and the record found in the research round of 2 October 2026"): D61 and Q-70 against the registration system's vetted contact with a profile and no consent, and its use for outreach by occupation (Q-70, Q-236, Q-151); P13 §2.4's scoped coordinator grant against the coordinator's guest-list export (Q-127); D60 against the public page that still says registration is open to adult members (Q-171); the club plan §6.3 against a club's draft by-laws that admit people By-Law 4.1.1 does not (Q-226); the counts-only rule against the club president's portal view of members' contact details (Q-237, the table's last row; it joins Q-44 and Q-46).
+
+**What is missing.** One answer to which people the contact record holds, and what it is: one record, or one per note. Who sees which part of it. How the merge queue treats it. Which letter class reaches it. How long each part is kept. What a club sees. And, under all of these, the decision.
+
+---
+
+## 2. Who the record must hold
+
+| Role | Who | How the role is created | Owning scope | Fields beyond name, verified channel and consent | Status |
+|---|---|---|---|---|---|
+| **learner** | A non-member who buys an Arabic class | The person's own act at the public-rate door (P12 §3.2) | Programme: the Arabic Program | Class history: track, level, completed, year (P12 §3.2, §3.6) | **Decided (D60)** |
+| **applicant** | A non-member applying to a programme whose eligibility row does not require membership (the Exchange Mission; Project Hope pending Q-116) | The person's own act at the application door (P12 §2.2) | Programme: the selection programme | None on the record; date of birth, club and the answers stay on the application under its clock (P12 §2.2, §2.8) | Reading (Q-70) |
+| **referred** | The adult of a household a member referred | The referred adult's own act on the invitation the referrer carried (P4 §2) | Club: the club named | The club; "tell the referrer" (P4 §2) | Reading (Q-70); sending gated (Q-68) |
+| **club prospect** | A person a club met: at a meeting, at the door, at a club event | The person's own act at the club's door; a secretary's entry only as a queue item with no channel until the person acts (P20-A1, E2) | Club: that club | None | Reading (Q-70); a prospect nobody referred is Q-72 |
+| **giver** | A non-member who gives once, by card or by cheque | A payment the person made; for a cheque, the office's recording of it (research: "member or non-member" on manual transactions) | Desk: the receipting entity's (D9, D56) | None; the gift is a ledger line | Reading (Q-70); P15's giving row already says "the donor's personal fields follow the member or contact row" |
+| **guest** | A non-member registered for a Convention, Mid-Year or club event, by themselves or by a member | The registrant's act on the event; the guest's own act only if they register themselves | Event: the event's organiser seat | None (the registration line holds the name and the credential class) | Reading (Q-70); a guest named by someone else is **Q-238** |
+| **subscriber** | A non-member who subscribes to the Magazine, in print or digitally | The person's own act on the subscription (a purchase) | Programme: the Magazine | Print or digital; for print, a postal address | Reading (Q-70); the address and the list are **Q-239** |
+| **media contact** | A journalist or press desk on the Federation's media list | The person's reply or sign-up, or a published press contact (P6 §3) | Desk: the statement register's seats (P6) | Outlet, area of interest, locality, the source of consent (P6 §3) | Reading (Q-70); consent basis open (Q-70) |
+| **office contact** | A staffer at a congressional or other public office | Not decided: P14 holds none until Q-70 | Desk: the Government Affairs Committee's seats (P14) | Role, the office's professional channel (P14 §2.2) | Reading (Q-70); nothing loaded |
+| **candidate** | An AFRPWorks candidate in Ramallah | The person's own act at the candidate door, in words the Legal Advisor approves (P17 §3.3) | Programme: AFRPWorks | The self-typed profile (P17 §3.3) | Reading (Q-70); door wording Q-151 |
+| **alumnus** | A past participant who is not a member | An import resolved through the match queue (D61), not the person's act | Programme: the one they took part in | Programme, year, club at the time, attended (D61; P12 §2.9) | **Decided (D61)** as a record; contact only under a consent row (Q-120) |
+
+**Who the record does not hold, by design.** A non-member who approaches the Selection Committee: refused with 8.1.2 and 9.3.1, and nothing is kept beyond the refusal (P5 §3.3, read here as no role; *design choice*). The Executive Director hire's applicants: outside the platform by the search committee's choice, with only the outcome recorded (research; Q-76 lists them as "outside by design"). Anyone in a camp form, and anything of a minor's that D61 keeps out. A partner organisation's own database (P17 §3.3). Sponsor and endowment prospects: Q-76 asks whether those lists move onto the record at all, and this note does not design them. A member's constituent story: the author is a member, and Q-184 asks what that data class is. A non-member Medical Mission volunteer: whether a non-member may be on any roster is Q-84, and until it is answered rosters are members only (P7 rule 9).
+
+---
+
+## 3. The record: one person, dated roles
+
+### 3.1 The person
+
+A contact is a **person record with no membership on it.** It is the same kind of record a member has, so that one human being is one record however many ways the Federation meets them — the comparables' shape and the shape Q-70 asks David to choose. *Design choice of this note, offered as the DRAFT of §11; not adopted.*
+
+It holds what D60 names and nothing more:
+
+- **a name**, as the person typed it;
+- **one or more verified channels** (an email address or a mobile number confirmed by a code — S1, as the join wizard does), each with the date it was verified;
+- **an adult attestation**: the person states at the door that they are eighteen or over. No contact exists for a minor (R7's principle; P4 rule 6; P17 §3.3). A child at a club event or a Convention is a line on the registration under the household's authority (R6) and never a contact;
+- **its roles** (§3.2), each with its consent rows (§3.3).
+
+It carries no standing, no club scope, no directory row (D28; P19 rule 1), no tree node (D30 is for members; linking a contact to a node is Q-69), no roster place (Q-84), no vote and no household. It is never counted as a member anywhere (P12 §2.2).
+
+### 3.2 The role
+
+Every reason the Federation holds a non-member is a **role**: a dated row on the person record with
+
+- **the kind** (§2's list; a kind not on the list does not exist until a decision adds it);
+- **the scope that owns it**: one programme, one club, one desk (the statement register, Government Affairs, a receipting entity), or one event — the Four-Lens grant model's scopes, plus the desk as a federation scope narrowed to the seats that hold it;
+- **the source**: the door it came through, or the act that created it (a payment, an import under D61), with the date and, where a person other than the contact acted, who acted;
+- **its state** (§4);
+- **its own fields**, listed per kind in §2 and nowhere else. A field one role needs is not a field of the person: the learner's class history is not visible to the Magazine, and a candidate's skill tags are not visible to the Arabic Program;
+- **its consent rows** (§3.3);
+- **its retention row** on P15's schedule (§9).
+
+A person may hold several roles at once (a learner who also subscribes) and the same kind in two scopes (an applicant to two programmes). A role ends on a date; an ended role is kept as a dated fact until its clock runs. *Design choice; Blackbaud's dated constituent codes and Salesforce's programme engagements are the comparables.*
+
+### 3.3 The consent row
+
+A consent row belongs to **one role, one channel and one message class** (P3's classes, §8), and is dated, with its wording version (the door's text) and its source. A withdrawal is a new row (R27's retraction rule). **A consent given under one role is never read by another**: the Arabic Program's consent does not reach the Medical Mission, and a media contact's consent to receive releases does not reach a fundraising appeal. This is what makes the 2026 outreach by occupation impossible on the platform (§8). *Design choice, from R27 and P7 §2's consent-to-be-asked; Q-236 asks the Board whether the practice may continue before the platform exists.*
+
+### 3.4 What never enters a contact
+
+No date of birth on the person (an applicant's is asked and held on the application only, P12 §2.2). No occupation, employer or profession on the person (P17's candidate types tags in that programme's role only; a member's profession is the member's own directory listing, P19 §3). No home address, except a print subscriber's postal address, which is **Q-239**. No free-text note about the person anywhere (Breeze Parity §4 r2). No document (D61's principle; P17 §3.3). No identity document, card number or government number (P15 §7 clause 7, and the DRAFT under Q-141). No photograph. No channel the person did not verify themselves (P4 §2; P17 §3.3), except the professional contacts Q-70 may admit (§6).
+
+---
+
+## 4. The lifecycle
+
+**created → consented → used → converted to a member, or dormant → purged.**
+
+| State | What makes it | What the platform does | Rule |
+|---|---|---|---|
+| **created** | The person's own act at a door through a channel they verified (learner, applicant, referred, club prospect, candidate, a self-registered guest, subscriber); a payment the person made (giver); an import resolved by a human through the match queue (alumnus, D61) | The person record is created, or found (§7.1) and the role attached to it; the role's source and date are recorded | D60; S1; D61; P4 §2 |
+| **consented** | The consent rows the door asks for, given or declined row by row | A role with no consent row receives operational messages about its own transaction and nothing else (§8) | R27; club plan §9.2's reading of no rows, applied to contacts (*design choice*) |
+| **used** | The role's own business: a class, an application, a follow-up, a receipt, a release, an introduction | Each use is dated on the role; the role's clock restarts at its last activity (§9) | P12 §3.6; P4 §3; P6 §3 |
+| **converted** | The person joins through the join wizard (the only door to membership, Article IV) | The record gains a membership with the person's own confirmation (§7.2); each role stays, with its own scope, consent and clock; from that day the member rules govern the person and the role rules govern the roles | P12 §2.2, §3.2; slice 9's rule |
+| **withdrawn** | The person withdraws a role's consent or asks to leave | The role closes at once; the follow-ups it opened close (P4 §2); its fields wait for the clock | R27; P15 §4 |
+| **dormant** | No activity on a role for the role's period | The role is withheld from every audience and list and shown to its owning seat as dormant; nothing is deleted while the period has no value | P6 §3; P15 §3 |
+| **purged** | Every role on a record with no membership has ended and every clock has run | The role fields are deleted; the person's name and channels are blanked; the record closes. Anything that points at it — a ledger line, a receipt, an alumni fact, a sent message's count — stays against the closed record's key, never deleted | P15 §3 (the member record row; giving and receipts; alumni) and §4 (closure) |
+
+**Creation by anyone other than the person.** Four cases, each named and none open-ended. (1) The alumnus (D61): a human resolves the import; there is no consent row and nothing is sent until the person claims the record or gives one (P12 §2.9; Q-120). (2) The giver by cheque: the office records the payment; the channel on the cheque or its envelope is unverified and carries the receipt and D10's moments, nothing else (*design choice*; D10 and D56 decide what a contributor hears). (3) The professional contacts: whether a published press or office address may be held without the person's own act is the second half of Q-70; until it is answered P6 and P14 hold the field and load nothing. (4) The guest named by a registrant: **Q-238**; until it is answered the guest is a name and a credential class on the registration, with no channel and no role. A secretary's entry of a prospect (P20-A1) is a queue item naming no channel; it becomes a role only when the person acts on the club's invitation (P4's pattern; Q-72).
+
+**The person's own page.** A contact signs in with a verified channel (S1) and sees their own record: every role, its scope, its source and date, its consent rows, and the withdrawal for each. The page is behind sign-in (D28). *Design choice: the own-record principle members already have (R27), extended to contacts; P4 §2 already gives the referred adult this page.*
+
+---
+
+## 5. Who may see which role
+
+A role is read in its owning scope and nowhere else. Club and programme are siblings (Four-Lens §6.2): a club seat reads none of a programme's roles, and a programme seat reads none of a club's. The person-level fields (name, verified channels, adult attestation) are shown to a seat only together with a role that seat may read.
+
+| Role | Its owning seats read | A club reads | The Federation office reads | The person reads | Nobody else |
+|---|---|---|---|---|---|
+| learner | The Arabic committee's chair and coordinator; the teacher, for their class (P12 §3) | Learners per club as a count (club plan §7.1) | Counts; Member 360 (§7) | All of it | Not another programme; not the directory |
+| applicant | The deciding body and its staff seat (P12 §2.2) | The club's outreach contact: a count, then the accepted participants from the club (club plan §3.4) | Counts per cycle (S7) | Their own application and state | Never the answers outside the deciding body |
+| referred | The club named (P4 §2) | The club named, after the person consents | Counts on the clubs page (P4 §4) | Their own page | The referrer sees "received" only (P4 §2) |
+| club prospect | The club's secretary and officers | That club only | Counts | Their own page | Never another club (§10) |
+| giver | The receipting entity's treasurer and the office (D9, D56) | The gift's club attribution as a line on the club statement, never the giver's name unless the giver chose it (D57 for the attribution; *design choice* for the name) | The gift as a ledger line | Their receipts and statement | — |
+| guest | The event's organiser seat; the host's coordinator under P13 §2.4's scoped grant (Q-127) | A club event's own organiser | Counts | Their own registration | No export (P13 §2.4; Q-127) |
+| subscriber | The Magazine's subscription seat | Subscriptions per club as a count (programme register, `magazine`) | Counts | Their own subscription | The mailing house only under Q-239 and Q-66 |
+| media contact | The statement register's drafter and approver seats; the Executive Director (P6 §3) | A club's own media contacts are the club's role (P6 §5) | — | Their own consent | Never in a member audience |
+| office contact | The Government Affairs Committee's seats (P14 §2.2) | — | — | Their own record, if held | Never in a member audience |
+| candidate | The AFRPWorks working group's seats (P17 §3.3) | — | Counts | Their own profile | An employer only through an introduction (P17 §3.4) |
+| alumnus | The programme's seats (P12 §2.9) | Alumni per club as a count | Counts | Their own record once claimed | — |
+
+**Member 360 and the federation office.** Member 360 shows a person's roles by kind, scope, date, state and consent state — what a seat working the merge queue or answering a person's request needs — and shows a role's fields only to a seat that holds that role's scope. *Design choice.* Reading a contact's fields is the sensitive permission `member:pii:read`, so it takes an exact grant for the scope (Four-Lens §6.2; R39). The Executive Director's 7.9.3 access to "all A.F.R.P. … records" is the by-law's and outranks this table (D41). It is exercised as P16 §3.2's **named-purpose read**: an act naming the purpose and the rows it reads, with an audit line. Which purposes the Board adopts for that read is Q-44's question, and contacts join it. *A reading of P16 §3.2 for contacts; no new question.*
+
+---
+
+## 6. The two homes: the member-side store or the institution registry
+
+**What the record says.** P6 §3 puts a media contact "on the institution registry under the outlet as an institution, never a member record". P14 §2.2 puts an office staffer there under the office, on P6's shape. P15 §3, as edited after the cross-check, records the two homes: "the member-side contact store for referred persons, learners, applicants and candidates; the institution registry for media and office contacts". The cross-check (F1.8) found this is not a contradiction of a rule, but that a build will make two tables unless it is told otherwise.
+
+**What the two homes cost.** A journalist who also takes an Arabic class, or a staffer who is also a member's referred relative, would be two records in two stores that the merge queue cannot see together, with two consent models and two retention rows. A person's request under P15 §4 (access, erasure) would have to search both. Each comparable keeps one person and hangs the relationship to the institution from it.
+
+**The design this note offers, as option (a) of §11's DRAFT.** A media or office contact is a **person record with a role anchored to an institution row**: the role's scope is the desk (the statement register, Government Affairs); its fields are P6's and P14's (outlet or office, area of interest, locality, role, professional channel, source of consent); and the institution registry **shows** the role under the outlet or office, which keeps P6's and P14's "on the registry under the outlet" as the view those desks work in. The registry's institution row stays an institution and holds no person (P14 §2.2's rule). A professional channel is the person's channel on that role only; it is never offered to any other role or audience. *Design choice, not adopted.*
+
+**Option (b)**, the record as written: a professional contact stays on the institution registry and is not a person record. The merge queue then does not see professional contacts, and a person's request reaches them by a second search, which the custodian's queue must name (P15 §4).
+
+**Until Q-70 is answered, P6 §3 and P14 §2.2 stand as written** (D41: a design document governs until a decision changes it). No CR slice touches PR1's media list or AD1's staffer field; AD1 already loads no staffer. The answer to Q-70 chooses the home; whether a published press or office address is consent enough to hold the person is the other half of the same question.
+
+**A member who is also a professional contact.** Under option (a), the merge queue may propose the pair (§7). The member's record gains the professional role, and the role stays invisible to every member surface: no directory field, no member audience, no club roster. Under option (b), the two are never joined. Under neither may a member's own channels be used for a professional send, or the reverse (§3.3).
+
+---
+
+## 7. Matching and merging with Member 360 and the merge queue
+
+### 7.1 At the door
+
+A door that would create a contact first checks the verified channel against the register. Where the channel already belongs to a person record (member or contact), the door says only "this address is already registered; sign in with it to continue" — which discloses nothing, because the person has just proved they control it — and after sign-in **the new role attaches to the person's own record**. No duplicate is made, and nothing about the existing record is shown before sign-in. *Design choice, on S1.*
+
+### 7.2 Contact to member
+
+A contact who joins comes through the join wizard. The wizard proposes the contact record as theirs where the verified channel matches; the person confirms; the record gains the membership; the roles and their consents carry over unchanged. Where the person joins on a different channel, identity resolution proposes the pair and **the person confirms** from the member record before anything links (P12 §2.2, §3.2: "with the applicant's own confirmation, nothing automatic"). A staff seat may not link a contact to a member on its own. The learner's class history moves with them (P12 §3.2). The member's R27 consents are set at the join as for any member; **no role's consent becomes a member consent**, and no member consent reaches back into a role.
+
+### 7.3 Contact to contact
+
+Two contact records for one person — two channels, two doors — are proposed by identity resolution on the same matcher as the merge queue and slice 9. The review band goes to the merge queue, a human decides each pair, the merge closes the loser and records a map of what moved, and the map makes it reversible (Delivery Status; P20-A5). The built guards hold: a different birth date blocks the pair where one is known (contacts rarely carry one, so most pairs land in review, which is the conservative result); a pair sharing one channel is not merged on that alone (the parent-and-child fix).
+
+### 7.4 What a merge never does
+
+It never creates a membership (Article IV). It never merges or widens a consent row: each role keeps its own rows, and where both records held the same role kind in the same scope, the stricter row of each class stands (*design choice*, from D35's "the more protective answer wins", read across). It never moves a role out of its scope. It never runs during an open election when either record is on a frozen roll (the built guard). And it never takes a channel the person did not verify.
+
+### 7.5 Migration: the registration system's contacts, the lists, and Breeze
+
+Today's registration-system contacts without a membership, the lists in sheets and trackers, and each club's Breeze profiles of non-members are the first load. None becomes a role by import alone. Each source enters **staging rows** (the club plan §8's pattern, slice C6), resolved against the register through the same review band. A staging row becomes a role only where (i) the creating purpose is typed from the source as one of §2's kinds and (ii) a decision says such an import may stand as a role without the person's act. That decision is Q-70's migration half: *"whether a non-member CRM contact migrates as such a record with its creating purpose typed"*. Which lists move at all, and who owns each until then, is Q-76. Until both are answered, staging rows are kept on the drive's final export (D66) and nothing is loaded. **No consent row is ever created by migration.** The registration system holds none, and a Breeze opt-in is evidence, not consent (club plan §8.3). The research's finding that the registration system's contact carries a date of birth, an occupation and an address is a reason those fields do not migrate onto the person (§3.4).
+
+---
+
+## 8. Consent and the message classes (P3)
+
+P3's template register gives every letter a fixed class: **operational**, **marketing** or **programme invitation**. P6 adds the statement register's **public** class for releases. For a contact:
+
+| Class | What a contact may receive | On what basis | Source |
+|---|---|---|---|
+| **operational** | Messages about a transaction of one of their own roles: the receipt (LT-R7), the class welcome and certificate (LT-P), an application's state, denial or waitlist, a cancellation, D10's four moments for a gift, a breach notice (LT-I1) | The transaction itself; no consent row is needed and none can stop it while the transaction lives | P3 §2, rule 7; D10; P12 §3.2 |
+| **programme invitation** | An invitation from the role's own programme: the next term, the next cycle, an alumni event | A consent row for that role and class, given at the door in the door's words. **Whether a learner, applicant or candidate may be asked for it at all is Q-70** ("whether a non-member learner, applicant or candidate may be told about the next cycle"); until it is answered the door does not ask, and the platform sends none | P12 §2.9, §3.6; Q-70; Q-120 for alumni |
+| **marketing** | The Federation's own campaigns, LT-R8's invitation to join among them | A marketing consent row the person gave to the Federation, distinct from every role's rows | P3 LT-R8; rule 11 |
+| **public** | The Federation's releases | The media contact role's consent row, with its source (P6 §3); the consent basis for a published press address is Q-70 | P6 §3 |
+
+**The refusals this table makes.** No message under one role's consent to a purpose of another role (§3.3). No segment of contacts built from a field: the platform holds no occupation, age or address to segment by (§3.4). This is the 2026 occupation outreach, which the platform cannot reproduce. Whether the practice may continue before the platform exists is Q-236, for the Board. No contact in a member audience: a member send is built from members (the `communications` workflow) and a contact is never one. No send to a channel the person did not verify (club plan §9.3). No send to a closed, withdrawn or dormant role. Every withheld contact is named to the sender and to nobody else (R27, as built).
+
+**A converted member.** After joining, the member's consents govern member sends, and each role's rows go on governing that role's sends. A learner who joins and declines marketing still hears about the next term if their learner role holds that row.
+
+---
+
+## 9. Retention per role, against P15
+
+P15 §3 has one row, *Contact records*: "Kept while consent stands; a purge after the last activity on a parameter with no value", status **silent**. This note proposes that the row become **one row per role kind**, each with its own clock and owner, inside the one register that Q-70 and Q-76 ask for. **Every period below has no value.** The platform deletes nothing under a silent row, and every screen that reads one says "retention not set: nothing deleted" (P15 §3).
+
+| Role | The clock starts | Deleted when the clock runs | Survives | Owner who proposes the value | P15 row | Status |
+|---|---|---|---|---|---|---|
+| learner | The end of the last term with a class history row | The role and its class history (the history moves with a converted member, P12 §3.2) | Enrolment counts per term (D67) | Arabic committee · Membership Committee | Contact records | silent (Q-70) |
+| applicant | The cycle's close (P12 §2.8) | The role; the application's free text and documents on the application's own clock | The structured rows of the committee's decision; the alumni record if attended | Each programme committee with its entity's Board | Applications; Contact records | silent (Q-76; Q-70) |
+| referred | The last activity on the referral or its follow-up | The role; the referral row stays with no name (P4 §2) | Referral counts (P4 §4) | Membership Committee · Legal Advisor | Contact records | silent (Q-70) |
+| club prospect | The last activity on the club's follow-up | The role | Counts | The club, within a parameter the Membership Committee sets (*design choice*; Q-72) | Contact records | silent (Q-70) |
+| giver | The last gift | The role's fields; never the ledger line or the receipt's record | Every ledger line and receipt against the closed key | CPA · General Treasurer · the receipting entity's treasurer | Giving and receipts | lines **attested**; the giver's fields silent (Q-76) |
+| guest | The event's close | The registration line's name, once the event's settlement is closed (D59; P13) | Counts; the ledger | Convention Innovation Committee · AFRP Board | Contact records | silent (Q-238) |
+| subscriber | The end of the last paid period | The role and the postal address | Subscription counts; the ledger | The Magazine's board under 6.7.1 · AFRP Board | Contact records | silent (Q-239) |
+| media contact | The last release accepted or the last renewed consent | Withheld at the inactivity parameter (P6 §3); deleted at a second | Counts per release | Executive Director · Legal Advisor | Contact records | silent (Q-70) |
+| office contact | The last contact row naming the person | The person; the contact rows keep the office (P14 §2.2) | The outreach register's rows by office | Government Affairs Committee · Legal Advisor | Contact records | silent (Q-70) |
+| candidate | The last introduction or the last profile update | The role and its profile (P17 §3.3) | The pilot's counts (P17 §7) | Jobs Initiative working group · AFRP Board | Contact records | silent (Q-151; Q-70) |
+| alumnus | — | Never (D61; P12 §2.9) | Everything | — | Alumni records | **attested** |
+
+**Withdrawal is immediate, retention is not.** Withdrawing consent closes the role at once (R27). The role's fields wait for the clock, because a closed role can still be the record of a decision (an application) or of a payment (a gift). *Design choice, from P15 §3's "kept while consent stands" read with its "what survives" column.*
+
+**The person record.** It is purged only when every role has ended and every clock has run, and never while a membership exists (§4).
+
+---
+
+## 10. What a club sees
+
+A club works with people it has met. The platform lets it hold them as the club's own roles and shows it nothing else.
+
+- **Its own prospects** (the club prospect role): the secretary's queue holds them once the person has acted on the club's invitation (P20-A1; C2). A prospect nobody referred is Q-72's question, and until it is answered the club may record the person only as a queue item that names no channel.
+- **Referrals to the club** (P4): a count while the referral awaits the person, then the person once they consent.
+- **The door**: an unknown walk-up becomes a club prospect only by the person's own act at the door (P20-E2; B2b). A headcount is a count, never a person.
+- **Its people in programmes**: the club's programme seat (the ambassador, club plan §3.4) sees accepted participants from the club and counts of the rest. A learner, subscriber, applicant or candidate is never named to a club, even one that gave the person's club as their own (*design choice*, from Four-Lens §6.2).
+- **Its own media contacts**, for statements in its own name (P6 §5).
+- **Its own events' guests**, under the event's organiser seat, with no export.
+
+A club never sees another club's contacts, any programme's or desk's roles, the Federation's media list, or a contact's channels outside its own roles. Each club's slice of the Federation's clubs page is counts under the floor (club plan §10.1; S7).
+
+**The migration from Breeze.** A Breeze profile of a non-member enters as a staging row and becomes a club prospect role only under §7.5's rule, with no consent row. The club keeps its own list by hand in its own tool until then (club plan §9.3).
+
+**What the clubs asked for and the record does not give.** The club president's portal view of members' contact details, and the request for every member's name, email, address and phone by club, are Q-237. That question is about members. This note adds nothing for contacts beyond the club's own roles. A person a club admits under its own by-laws who is not eligible under 4.1.1 is a club member and not a contact. What such a person is on the platform is Q-226, carried and not answered here.
+
+---
+
+## 11. DRAFT register wording, under Q-70
+
+**For the governance agent to place under Q-70 in `site/data/questions.yaml` (its detail gains a pointer to this section) and, once David decides, in `design/AFRP-Decisions-Register.md` with the next D-number. Not adopted. Nothing in this section is a decision.**
+
+> **DRAFT — Decision [number to be assigned] — the contact record: one person, dated roles**
+> **Status: DRAFT, not adopted · for David Saah, the Membership Committee and the Legal Advisor · under Q-70**
+>
+> **The wording proposed.**
+> A person the Federation holds who is not a member is held on one person record, the same kind of record a member has, with no membership on it. Everything the Federation holds about such a person is held under a **role** — learner, programme applicant, referred adult, club prospect, giver, guest, subscriber, media contact, office contact, programme candidate, alumnus — and each role is dated, scoped to the one programme, club, desk or event that holds it, and carries its own source, its own consent rows and its own row on the retention schedule. A role is created only by the person's own act through a channel they have verified, or by a payment they made; an alumnus enters under Decision 61; any other source needs this register's words. A role never makes a membership, a directory row, a tree node, a roster place or a vote. A consent given under one role is never read by another. When the person joins, the record becomes a member's with their own confirmation, and each role keeps its own consent and its own clock. Decision 60 is this decision's first role and is unchanged.
+>
+> **Option to choose — where a professional contact lives.** (a) A media or office contact is a person record whose role is anchored to its institution on the registry and shown there. Or (b) a media or office contact is held on the institution registry under the institution and is not a person record, as `AFRP-Press-Workflow.md` §3 and `AFRP-Advocacy.md` §2.2 are written.
+>
+> **Option to choose — the first load.** (a) A contact in the current registration system with no membership migrates as a person record with its creating purpose typed as a role, and with no consent row until the person gives one. Or (b) it does not migrate, and the person enters by their own act.
+>
+> **What it would settle.** The first half of Q-70: whether D60's record serves every non-member, and in what shape. The cross-check's F1.7: the "reading" sentence in P4 rule 2, P6 rule 5, P12 rule 10, P14 rule 6 and P17 rule 2 would cite this decision instead. F1.8, by the option chosen. P15 §3's *Contact records* row, split per role.
+>
+> **What it would not settle.** Any retention value (Q-76, Q-70's retention half). Whether a published press or office address is consent enough (Q-70). Whether a learner, applicant or candidate may be told of the next cycle (Q-70). Whether a club may record a prospect nobody referred (Q-72). Whether the platform may send a referred person one invitation (Q-68). The candidate's consent wording (Q-151). A guest named by someone else (Q-238). A non-member subscriber's address (Q-239). Whether a non-member may be on a roster (Q-84). Whether outreach by a profile field continues before the platform (Q-236).
+
+The wording uses §2's role list. Two of its roles, guest and subscriber, rest on this note's new questions. If David adopts the decision before they are answered, those two roles stand in the list and are switched off until their questions are.
+
+---
+
+## 12. Rules
+
+1. A non-member is never a member: no role, import, door, club or merge creates a membership (Article IV; P20-A1; P4 rule 1).
+2. A contact record exists only with a name, a channel the person verified, and consent (D60; S1). For the Arabic learner this is decided. For every other role it is a reading of D60 under Q-70, and those roles are switched off until it is answered (*D60 is written for the Arabic term; its use for any other person is a reading, raised as one question for governance, Q-70*).
+3. One person, one record; every reason to hold a non-member is a dated role with one owning scope (*design choice*; the comparables; §11 DRAFT).
+4. A role's fields are read only in its scope; club and programme are siblings; a contact's fields are a sensitive read needing an exact grant (Four-Lens §6.2; R39).
+5. The Executive Director's 7.9.3 access to the Federation's records is exercised as a named-purpose read with an audit line (7.9.3; P16 §3.2; Q-44).
+6. A consent row belongs to one role, one channel and one class; it is never read by another role; a withdrawal is a new row (R27; *design choice* for the role binding).
+7. Operational messages go to a role about its own transaction; programme invitations, marketing and public sends go only on a consent row of that class (P3 §2, rule 7, rule 11; D10).
+8. The platform initiates no contact with a person who has not agreed to it (P3 rule 11; D36 by analogy; P4 rule 3).
+9. No contact for a minor; a child is a line on a registration under the household's authority (R6; R7; P4 rule 6).
+10. No date of birth, occupation, home address, free-text note, document or identity number on the person; a role's fields are those §2 lists (D61's principle; Breeze Parity §4 r2; P12 §2.2; *design choice* for the list; a print subscriber's address is Q-239).
+11. No contact appears in the directory, on the tree, on a roster or on a roll (D28; P19 rule 1; D30; Q-69; Q-84).
+12. A contact links to a member only with the person's own confirmation; two contacts merge only by a human in the merge queue; nothing links itself; a merge is reversible and never widens a consent (slice 9's rule; P12 §2.2, §3.2; the merge queue as built; D35 read across for the stricter consent, *design choice*).
+13. No migration creates a role without a decision, and none creates a consent row (Q-70; Q-76; club plan §8.3).
+14. A role is withdrawn at once; its fields are deleted only on its retention row's value; a row with no value deletes nothing (P15 §3; R27).
+15. A record that anything points at is closed, never deleted (P15 §3, the member record row; §4).
+16. Until Q-70 chooses, media and office contacts stay where P6 §3 and P14 §2.2 put them (D41).
+17. A club sees its own prospects, the referrals to it, its own event guests and media contacts, and counts of everything else (club plan §3.4, §10.1; P4 §4; S7).
+18. No list of contacts is exported to anyone, including a host or a club (P13 §2.4; club plan §9.3; Q-127).
+19. Every refusal names its rule.
+
+---
+
+## 13. What this note raises
+
+| Q | Question | Owner |
+|---|---|---|
+| Q-238 | **A guest named by someone else.** A member or household registers a guest for the Convention, the Mid-Year or a club event, and today the registration system makes the guest a contact, and the host's coordinator exports the guest's contact details. May the platform hold anything of a guest beyond a name and a credential class on the registration? May a guest who did not register themselves ever be written to, and on what basis? Is a non-member registrant's fee or donation under By-Law 5.2 a gift, a ticket or neither for D9's receipt? No question in Q-1 to Q-237 asks about the guest as a person. Q-127 asks about the host's access, Q-186 about other associations' members at the Day of Action, and Q-225 about the membership gate. | AFRP Board · Legal Advisor · Convention Innovation Committee · CPA |
+| Q-239 | **A Magazine subscriber who is not a member.** Print goes to paid print subscribers, who include non-members and households, and the subscriber list is kept both in the registration system and in the subscription manager's own ledger. May the platform hold a non-member subscriber's postal address on the subscriber role? Under what agreement may the mailing house receive it? Q-66 asks this for members' addresses only. Is the subscriber list among the lists Q-76 moves onto the record? It names the other lists and not this one. And whose list is it under By-Law 6.7.1, which gives subscription policy to the Magazine's board (Q-192 asks whether that board exists)? | the Magazine · AFRP Board · Legal Advisor |
+
+**Carried, not new.** Q-70 (the question this note answers in DRAFT: who the record serves, the consent basis per role, the next-cycle news, the migration, one register). Q-76 (every retention value, and which lists move). Q-68 (the referral's one send). Q-69 (a contact linked to a tree node). Q-72 (a club prospect nobody referred). Q-84 (a non-member on a roster). Q-116 (Project Hope's membership rule, which decides whether its applicants may be contacts). Q-120 (alumni who are not members). Q-127 (the host coordinator's access to guests). Q-151 (the candidate's door, and the prototype's profiles before the platform). Q-170 (whether the contact rule reaches the Arabic summer pilot's platform). Q-171 (the public page and D60). Q-186 (other associations' members at the Day of Action). Q-196 (the digital issue's audience). Q-66 (post and the mailing house). Q-44 (the 7.9.3 read). Q-46 (what no consent rows mean). Q-140 (erasure as a policy). Q-226 (a club member not eligible nationally). Q-236 (outreach by a profile field before consent rows exist). Q-237 (a club's view of members' contact details).
+
+---
+
+## 14. Slices for the Hub
+
+| Slice | Builds | From | Gate |
+|---|---|---|---|
+| CR1 The person without a membership, and the learner role | The build session first reports whether the person model admits a record with no membership. Then: the person record of §3.1 (name, verified channels, adult attestation); the role object of §3.2 with kind, scope, source, state, fields and dates; consent rows per role, channel and class (§3.3); the door's channel check that attaches a role to an existing record after sign-in (§7.1); the contact's own page with each role and its withdrawal (§4); the refusals of §3.4 and rules 1, 9, 10, 11. **Only the learner role is switched on**; every other kind exists and refuses with "Q-70 not answered" named | §3, §4, §7.1 | D60 (decided); built with AR2 (P12), which is its first caller; live money on slice 5 |
+| CR2 Scope and Member 360 | Role-scoped reads under the grant model, with the contact's fields as an exact-grant read; Member 360's role list (kind, scope, dates, state, consent state) with fields shown only in scope; the 7.9.3 named-purpose read reused from P16 for contacts, with its audit line; a club's view of its own roles and counts of the rest | §5, §10 | CR1; Q-44 for the named-purpose read's list of purposes (the act and its audit line build without it) |
+| CR3 Matching and merging contacts | Contact-to-member linking at the join with the person's confirmation (§7.2); contact-to-contact pairs through identity resolution into the merge queue (§7.3); the merge map and its reversal; the built guards (open election, shared channel) applied to contacts; consent rows never merged or widened (§7.4) | §7.1–§7.4 | CR1; the slice 9 matcher |
+| CR4 Retention rows per role | P15's *Contact records* row split into a row per role kind (§9), each with no value and "retention not set: nothing deleted" on the screens that read it; dormancy shown to the owning seat; the purge job built against the rows and dormant; closure of a record that anything points at | §9 | IR2; every value on Q-70 and Q-76 |
+| CR5 The other roles switched on | The applicant (SEL2), referred (RF1), club prospect (C2, B2b), candidate (AW2) and giver roles; the media and office contact roles in whichever home Q-70 chooses (PR1, AD1) | §2, §6 | Q-70 (the decision of §11); each caller's own gates (Q-68, Q-72, Q-151 and the slices named) |
+| CR6 Guests and subscribers | The guest as a line on the registration with a credential class, and the guest role where Q-238 allows; the subscriber role with print or digital, its postal address where Q-239 allows, and the subscription period; no export to a host or a mailing house except under the answered terms | §2, §8, §9 | Q-238; Q-239; Q-66; Q-127; Q-196 |
+| CR7 The first load | Staging rows from the registration system's non-member contacts, the lists Q-76 moves, and each club's Breeze non-members (with C6), resolved through the review band; a typed creating purpose per row; no consent row ever created; nothing becomes a role until the decision allows it | §7.5 | Q-70 (the migration option); Q-76 (which lists); C6 for the Breeze path |
+
+Order: CR1 with AR2, because D60 is decided and the term runs three times a year; CR2 and CR3 next, because a second role cannot be switched on safely without scope and merge; CR4 with IR2; CR5, CR6 and CR7 after Q-70, in any order. The slices that already use a contact record (RF1, SEL2, PR1, AD1, AW2, C2, B2b, AR2) should name CR1 as the object they create a role on, when the owning agent next touches `plan/MASTER-PLAN.md`.
+
+---
+
+## 15. Journeys proposed
+
+| Journey | Tests | Must reach | Slice |
+|---|---|---|---|
+| P21-J01 The learner is a contact, not a member | A non-member buys a class at the public rate; a person record with a learner role, a verified channel and consent rows exists; no membership, directory row, node, roster place or count as a member | meets | CR1 |
+| P21-J02 One person, one record | A learner who later applies to the Exchange Mission with the same channel is asked to sign in, and the applicant role attaches to the same record; no second record exists | meets for the door; the applicant role guarded until Q-70 | CR1, CR5 |
+| P21-J03 Every other role refuses by name | An attempt to create a referred, prospect, candidate, guest, subscriber, media or office role before Q-70 refuses citing Q-70 | guarded until Q-70 | CR1 |
+| P21-J04 A role is read only in its scope | The Arabic coordinator sees the learner role; the Medical Mission's seat, a club's secretary and the Magazine's seat see nothing of it; the club sees a count | meets | CR2 |
+| P21-J05 Member 360 shows kinds, not contents | A federation seat without the role's scope sees the person's roles by kind, date and consent state and none of their fields; a 7.9.3 read is an act with a purpose and an audit line | meets; the purpose list guarded until Q-44 | CR2 |
+| P21-J06 Consent never crosses roles | A send by the Medical Mission to "everyone with a medical occupation" cannot be built: no such field exists; a learner's consent row is not offered to any other programme's audience | meets | CR1, CR2 |
+| P21-J07 Next-term news waits on Q-70 | The Arabic door does not ask for a programme-invitation consent, and a next-term invitation to a non-member learner refuses citing Q-70; the class welcome and certificate still go as operational | guarded until Q-70; meets for operational | CR1 |
+| P21-J08 Joining keeps the roles | A learner joins on the same channel and confirms the record is theirs; the membership is added, the class history stays, the learner role's consents are unchanged and no member consent is set from them | meets | CR3 |
+| P21-J09 No link without the person | A staff seat links a contact to a member on a name match without the person's confirmation: refused, naming slice 9's rule | meets | CR3 |
+| P21-J10 Two contacts, one human decision | Two contact records for one person land in the merge queue's review band; a human merges them; the map is shown; the merge is undone and both records return with their own roles and consents | meets | CR3 |
+| P21-J11 Nothing is deleted while the clock is blank | A dormant learner role and a withdrawn applicant role each show "retention not set: nothing deleted"; the purge job runs and deletes nothing | meets | CR4 |
+| P21-J12 A gift outlives its giver's role | A non-member giver's role is purged once its value is set (in the test fixture only); the ledger line and receipt remain against the closed record's key | meets (fixture value) | CR4 |
+| P21-J13 A club sees its own | A club secretary sees the club's own prospects and the referrals to the club after consent; the club does not see the learner from its town, another club's prospects, or any channel | meets for the view; the prospect role guarded until Q-70 and Q-72 | CR2, CR5 |
+| P21-J14 A guest is a line, not a contact | A member registers a guest for the Convention; the guest is a name and a credential class on the registration; no channel is held, no role exists, and the host's coordinator has no export | guarded until Q-238 and Q-127 | CR6 |
+| P21-J15 No consent comes in with a migration | A staging row from the registration system with an occupation and a date of birth loads none of them; the role, where allowed, has no consent row and receives nothing but its own operational messages | guarded until Q-70 and Q-76 | CR7 |
+| P21-J16 No minor is a contact | A door whose person does not attest to being an adult creates nothing, naming R7's principle; a child at a club event is a line under the household's authority | meets | CR1 |
+
+---
+
+## 16. What changes in the site's data with this note
+
+`questions.yaml`: Q-70's detail gains a pointer to this note's §11 DRAFT (the governance agent places it, and the DRAFT is not adopted); Q-238 and Q-239 are numbered; Q-76's detail names the subscriber list as one more list (if Q-239 is merged into it rather than numbered). `workflows.yaml`: `communications` gains "a contact is never in a member audience; a role's consent is read by that role only" as a step note and this note as a source; `arabic-term`'s open item on the contact's retention points to §9's learner row; `join-renew-dues` gains the contact-to-member step (§7.2); `club-management` gains the club's own contact roles (§10); `magazine-announcements` gains the subscriber role under Q-239; `incident-and-retention` gains the per-role rows (§9); `convention` gains the guest as a registration line (Q-238). `experiences.yaml`: a lens for a non-member contact (learner, applicant, subscriber, candidate) — their own page, their roles, their withdrawals — or, if the owning agent prefers, rows on the `visitor` lens; `federation-staff` names Member 360's role list and the named-purpose read; `club-officer` names the club's own contacts. `programmes.yaml`: the `data_classes` of `arabic-program`, `afrp-works`, `magazine`, `convention`, `day-of-action`, `ecem`, `project-hope` and `congressional-outreach` cite this note's role for their non-members. The crosswalk: row D23 → "Designed (P21)" pointing here, and a P21 row in the design-notes table. `plan/MASTER-PLAN.md` §2: rows CR1–CR7, and CR1 named in RF1, SEL2, PR1, AD1, AW2, C2, B2b and AR2. `design/AFRP-Incident-Response-and-Retention.md` §3: the *Contact records* row split as §9 proposes, by P15's owner when Q-70 is answered.
+
+---
+
+## Sources
+
+- American Federation of Ramallah, Palestine, *Constitution and By-Laws*, approved 13 July 2024 (`design/bylaws/`): 4.1.1, 4.2.1, 4.3.1, 5.2, 6.7.1, 7.9.3, 8.1.2, 8.12.2, 8.12.3, 8.12.4, 8.12.7, 8.12.8, 9.3.1.
+- `design/AFRP-Decisions-Register.md`: D9, D10, D22, D28, D30, D35, D36, D41, D50, D55, D56, D57, D59, D60, D61, D66, D67; the section "Conflicts between practice and the record found in the research round of 2 October 2026" (the rows citing Q-70, Q-127, Q-171, Q-226).
+- `design/AFRP-Rules-Register.md`: R6, R7, R27, R39; S1 and S7 as cited across the record.
+- `design/AFRP-Family-Referral.md` (P4) §2–§7; `design/AFRP-Selection-Committee-Workflow.md` (P5) §3.3; `design/AFRP-Press-Workflow.md` (P6) §3, §5, rule 5; `design/AFRP-Volunteer-Interests.md` (P7) §2, rule 9; `design/AFRP-Selection-Programmes.md` (P12) §2.2, §2.8, §2.9, §3.2, §3.6, rule 10; `design/AFRP-Host-Agreements.md` (P13) §2.4; `design/AFRP-Advocacy.md` (P14) §2.2, rule 6; `design/AFRP-Incident-Response-and-Retention.md` (P15) §3, §4; `design/AFRP-Executive-Director.md` (P16) §3.2; `design/AFRP-AFRPWorks.md` (P17) §3.3, §3.4, §7, rule 2; `design/AFRP-Club-Experience-Plan.md` (P18) §3.2, §3.4, §6.3, §8.3, §9.2, §9.3, §10.1; `design/AFRP-Directory-Formats.md` (P19) rule 1, §3; `design/AFRP-Club-Journeys.md` (P20) A1, A5, E2; `design/AFRP-Letters-and-Onboarding.md` (P3) §2, rules 7 and 11; `design/AFRP-Four-Lens-Architecture.md` §6; `design/AFRP-Breeze-Club-Parity.md` §4.
+- `design/AFRP-Delivery-Status.md`: the `people` surface (Member 360, identity and merge), the merge queue and its red-team fixes, slice 9 (the match queue), the audience builder's limit, the `institutions` registry.
+- `design/AFRP-Strategic-Plan-Crosswalk.md` row D23 (source INTAKE26).
+- `site/data/questions.yaml` (Q-1 to Q-237, 2 October 2026); `site/data/workflows.yaml` (`communications`, `arabic-term`, `join-renew-dues`, `magazine-announcements`, `government-affairs`); `site/data/programmes.yaml` (`magazine`, `arabic-program`, `afrp-works`, `convention`).
+- The design notes' cross-check of 1 October 2026, findings F1.7 and F1.8 (planning Project, private).
+- Research round, 2 October 2026 (federation §1, §2, §6), private.
+- Research round, 2 October 2026 (heritage §4, the Magazine; §5, the Bookstore), private.
+- Research round, 2 October 2026 (education §5, the Arabic Program), private.
+- Research round, 2 October 2026 (leadership §5, AFRPWorks; §6, Congressional Outreach and the Day of Action), private.
+- Rotary International, privacy policy: https://my-cms.rotary.org/en/privacy-policy; District 7090, "Managing membership leads": https://rotary7090.org/Stories/managing-membership-leads (read in the research round; not re-read for this note).
+- Blackbaud Raiser's Edge NXT, the ConstituentCodes table reference: https://cdn.cdata.com/help/JZN/ado/pg_table-constituentcodes.htm (read in the research round; not re-read).
+- Salesforce Trailhead, "Manage Program Engagements and Program Cohorts" (Program Management Module): https://trailhead.salesforce.com/content/learn/modules/service-delivery-with-program-management-module-pmm/manage-program-engagements-and-program-cohorts (read in the research round; not re-read).
+- Hadassah, privacy statement: https://www.hadassah.org/page/privacy-statement (read in the research round; not re-read).

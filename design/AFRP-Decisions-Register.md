@@ -351,6 +351,8 @@ gift by the receiving entity.
 | 17 | Who sees living people in-platform | **All members see everything** |
 | 18 | The tree's first job | **Lineage verification** for 4.1.1 and the Scholarship |
 
+*Later (2 October 2026):* **D11**'s staging is superseded by **D69** (the Hub becomes the record after a parallel run). **D13** is confirmed by **D70** (members in current national standing). **D14**'s mitigations are amended by **D72** (one key for small changes, two for structural, clan stewards). **D17** is amended by **D71** (the living in full only inside one's own branch). See Part 5.
+
 **13 and 14 together set the committee's workload**, so the queue triages itself rather
 than reducing it: own-household life events clear first, structural changes wait for a
 quorum, and an unsourced structural claim sorts to the *top* for dismissal rather than the
@@ -367,6 +369,10 @@ Google Group works today, not as an oversight.
 | 21 | How a sitting of work reaches the committee | **One bundle**, with its aggregate blast radius |
 | 22 | Photos and documents | **Full media, per-item consent** |
 
+*Later (2 October 2026):* P28 retires the hourglass as a view in favour of the plate (D68); whether **D19** is superseded is Q-270. **D20**'s pending marks move onto the plate (T2a). See Part 5.
+
+*Later (3 October 2026):* **D77** answers Q-270: the plate (D68) is the default view on every surface, and the hourglass stays available as an alternative view. **D19** no longer sets the default; it is not superseded. See Part 6.
+
 **Decision 22 was implemented with the consent held by the subject, not the uploader.**
 Anyone may contribute a photograph; only the person in it decides who sees it. Deceased
 people cannot consent, so their images are set by the committee on next-of-kin request with
@@ -381,6 +387,8 @@ silently become hers at thirty.
 | 27 | Tree viewer styling | **Keep the platform styling** | The tree stays box-and-line in the platform palette rather than adopting the book's oval plate grammar. Internal consistency wins over publication kinship. Fun Facts keeps the book palette, because it *is* a page of the book. |
 | 28 | Living people's birth dates on the web | **Nothing for the living without sign-in** | Signed out, a living person shows a name and a position in the line and no dates at all. Deceased people are unaffected — already published in Shaheen 1982, and the heritage is almost entirely theirs. This diverges deliberately from the printed volume, which does carry them. |
 | 29 | What to build next | **Finish the consolidation** — elections and events | 72 → 60 routes. |
+
+*Later (2 October 2026):* **D27** is superseded by **D68** (the tree is drawn in the print book's plate grammar on every surface). **D28** is unchanged (D71). See Part 5.
 
 ### Program experience — 20 August
 
@@ -465,6 +473,8 @@ Precedence, highest first:
 2. **This register** and the named design documents.
 3. **The prototype and the narrative mockups** — inspiration, not specification.
 4. **The code** — evidence of what *is*, never of what *should be*.
+
+*Since 29 September 2026:* the by-law texts now live at `design/bylaws/` in afrp-strategy, since AFRP-Portal was folded into it. The list above is left as written; `docs/bylaws/` in item 1 is the Portal-era path. (Pointer added 2 October 2026.)
 
 ### Why it had to be written down
 `CLAUDE.md` told every session a module may be cut from a design document *"or
@@ -581,6 +591,7 @@ David approved `plan/SITE-OVERHAUL-PLAN.md` and its ten recommendations on
 
 ### What it does not settle
 - The Boards may move a programme; the register follows the next approved budget.
+- *Since 2 October 2026:* the Preservation Project. Q-18 named it and D55's wording does not; which entity holds it is Q-277.
 
 ---
 
@@ -731,6 +742,413 @@ David approved `plan/SITE-OVERHAUL-PLAN.md` and its ten recommendations on
 
 ---
 
+## Part 5 — the family tree module, 2 October 2026
+
+Seven decisions taken by David on 2 October 2026 on how the tree looks, where its
+record lives, who contributes, who sees the living, how the committee approves,
+and what is built first. The design they are built on is
+`AFRP-Family-Tree-Module.md` (P28); `AFRP-Family-Tree-In-Practice.md` (P27) is
+amended to follow them. The earlier decisions they change keep their text above,
+each with a pointer here.
+
+---
+
+## Decision 68 — the tree is drawn in the book's plate grammar
+**Status: Adopted · decided by David, 2 October 2026 · supersedes D27**
+
+### The adopted wording
+> The tree is drawn in the print book's plate grammar on every surface.
+
+### What it settles
+- **Supersedes D27** ("keep the platform styling"). The plate grammar (one plate
+  per tree, a trunk to the founder, ovals and rounded rectangles, bold and
+  hairline limbs, the continuation marks) is specified in P28 §3.
+- Each limb carries its grade, so the plate never looks more certain than the
+  record is (P28 §3.2).
+
+### What it does not settle
+- Whether D68 also replaces D19 (the hourglass as the default view): P28 retires
+  the hourglass as a view and D68 names only D27 (Q-270).
+- The richer grade vocabulary (Q-267) and how plates are cut where the committee
+  has not numbered a line (Q-269).
+
+*Later (3 October 2026):* **D77** limits D68 as applied to D19: the plate is the
+default on every surface, and the hourglass stays available as an alternative
+view (Q-270 answered). See Part 6.
+
+---
+
+## Decision 69 — the Hub becomes the record of the tree
+**Status: Adopted · decided by David, 2 October 2026 · supersedes D11's staging**
+
+### The adopted wording
+> The Hub becomes the record of the tree. During a parallel run of 30 to 60 days
+> the Hub wins: the record keeper's edits arrive as GEDCOM imports through the
+> diff preview and are applied as audited committee edits, with conflicts held
+> for a decision and never merged. At the end of the run the external file is
+> read-only and the Hub exports a GEDCOM backup every night under
+> `tree:moderate`.
+
+### What it settles
+- **Supersedes D11's staging** (a governed mirror until one clean annual cycle).
+  Q-258 (what a clean cycle means) is answered by this decision; P27's stage 4
+  is replaced by the parallel run (P28 §4.3, slice T2d).
+- The run's start, its length within 30 to 60 days and its end are the Family
+  Tree Committee's dated acts.
+
+### What it does not settle
+- The terms on which the Federation holds the tree data (Q-201); the run's start
+  should cite them (P28 §7, gate 3).
+- A production database with backups (P28 §7, gate 1; `plan/MASTER-PLAN.md` §1d
+  items 8 and 9). The run cannot start on staging.
+- How many nightly exports are kept: every one is kept until the committee sets
+  a retention.
+
+---
+
+## Decision 70 — members in standing contribute
+**Status: Adopted · decided by David, 2 October 2026 · confirms D13**
+
+### The adopted wording
+> Members in current national standing may propose changes. No account exists
+> for non-members to contribute.
+
+### What it settles
+- **Confirms D13** and bounds it: "any member" is a member in current national
+  standing.
+- Q-259 (a non-member asking for a change) is answered for the platform: there
+  is no contributor account for a non-member.
+
+---
+
+## Decision 71 — the living in full inside one's own branch
+**Status: Adopted · decided by David, 2 October 2026 · amends D17 and Q22 (answer 22 in `plan/QUESTIONS-FOR-DAVID.md`); D28 unchanged**
+
+### The adopted wording
+> A signed-in member sees the living in full inside their own branch: blood
+> relatives sharing an ancestor no further back than a great-great-grandparent
+> (out to second cousins), and the spouses of those relatives. Outside it a
+> living person shows a name and a position on the plate only. D28 is unchanged.
+
+### What it settles
+- **Amends D17** ("all members see everything") and answer 22's "paid members
+  see everything". The radius is a row on the rules register, set by this
+  decision; a change is a dated act under a citation.
+- Own branch runs along blood links only; a step or adoptive link never widens
+  it (P28 §5).
+- **D28 is unchanged**: signed out, nothing about the living.
+
+### What it does not settle
+- Whether relatives inside one's own branch see minors' dates; answer 22 says
+  yes today (Q-268).
+- Whether the radius is a great-great-grandparent (third cousins) or second
+  cousins, as the wording's parenthesis says; the two disagree (Q-272).
+
+*Later (3 October 2026):* **D76** answers Q-272: the great-great-grandparent
+governs and the branch reaches third cousins; "(out to second cousins)" in the
+wording above is an error. The wording is left as adopted. See Part 6.
+
+---
+
+## Decision 72 — the committee approves in tiers, with clan stewards
+**Status: Adopted · decided by David, 2 October 2026 · amends D14's mitigations**
+
+### The adopted wording
+> One committee approval applies an own-household life event or a
+> non-structural correction; two approvals from different committee members
+> apply a structural change. The committee may appoint clan stewards, who
+> pre-review and recommend for their clan and never approve.
+
+### What it settles
+- **Amends D14's mitigations**: every life event still queues (D14, D31); the
+  quorum for structural changes becomes two keys from different committee
+  members.
+
+### What it does not settle
+- The list of structural kinds: a rules-register row left unset, with P28 §6's
+  list shown as a proposal (Q-264).
+- Steward appointment, number and term (Q-263).
+- A second holder of `tree:moderate`, without whom no structural change applies
+  (Q-262); a committee's quorum in general is Q-52.
+
+*Later (3 October 2026):* **D79** answers Q-262: the second holder is a Family
+Tree Committee member seated by the committee's own act (FT2), chosen over
+the project's lead (answer 31). See Part 6. **D81** answers Q-264: P28 §6's list
+is the structural-kinds row's value, which the committee may amend by a dated
+act.
+
+---
+
+## Decision 73 — membership and join is the first integration
+**Status: Adopted · decided by David, 2 October 2026**
+
+### The adopted wording
+> Membership and join is the first integration.
+
+### What it settles
+- "Find yourself on the family tree" at join and renewal is built first (P28
+  §4.4, slice T2e); skipping it is a complete answer and no membership decision
+  reads the node (D30).
+
+### What it does not settle
+- The order of the other three: magazine and life events, directory and comms,
+  Heritage (Q-265).
+
+*Later (3 October 2026):* **D78** places magazine and life events (T2f) next;
+the order of directory and comms and of Heritage stays Q-265. See Part 6.
+
+---
+
+## Decision 74 — the print pipeline is decided after the Mid-Year
+**Status: Adopted · decided by David, 2 October 2026**
+
+### The adopted wording
+> How the 2027 print edition is produced is decided after the January 2027
+> Mid-Year. Whatever produces it carries no eligibility force (D32).
+
+### What it settles
+- No print pipeline is designed or built before the Mid-Year; P28's renderer is
+  reusable for print if this decision later chooses it.
+
+---
+
+## Part 6 — 3 October 2026
+
+Five decisions taken by David on 3 October 2026 in the question walk-through:
+the order of the build-ready slices (Q-278, in part), the tree's radius
+(Q-272), the hourglass (Q-270), the next tree integration (Q-265, in part) and
+the second key-holder (Q-262). The earlier decisions they read or limit keep
+their text above, each with a pointer here. Two other answers the same day are
+not decisions and change no rule: on Q-276 David keeps the hold on slice 5's
+email provider and payment account for now, and on Q-70 he sends the contact
+record's shape (P21 §11) and its consent basis to the Membership Committee and
+the Legal Advisor before deciding. Both questions stay open.
+
+Later the same day David answered four more questions, recorded as D80 to D83:
+the hourglass is drawn in the plate grammar (Q-279), P28 §6's list becomes the
+structural-kinds row (Q-264), the Senior Award was not retired and continues
+(Q-163), and AFRP holds the Relief Fund (Q-109, in part; who approves a
+transfer between the Board's votes and whether D63's closing records apply stay
+open, and the deductibility text waits on the CPA).
+
+---
+
+## Decision 75 — the build-ready slices go first
+**Status: Adopted · David Saah, 3 October 2026 · answers Q-278 in part**
+
+### The adopted wording
+> The build-ready slices Q-278 lists (CW1, FR1, DIR1, C1, C2, AR1, CR1 with
+> AR2, SC1, SC4, SA1, MG2 and MG1) may be taken before T1d, the T2 series,
+> B2b, slice 3 and slice 11, in that order. Within that order a session still
+> takes the lowest unstarted, ungated slice, and never a closed gate. LT1
+> follows P3 §9's gate column: its template register, letter rows, lists and
+> drafts are built now, and only a send waits on slice 5.
+
+### What it settles
+- Q-278's order of the build-ready slices against the rows above SP0.
+  `plan/MASTER-PLAN.md` §3.2's dated note becomes this order; the twelve
+  opening prompts of 2 October 2026 may be pasted.
+- P3 §9's two readings of LT1: the gate column governs. LT1's row in
+  `plan/MASTER-PLAN.md` §2 and P3 §9's order line follow it. AR2's class
+  welcome, SEL3's rows and SA5, which wait on LT1's register, wait on the
+  register being built, not on slice 5; their sends and AR2's live money still
+  wait on slice 5.
+
+### What it does not settle
+- Where the record-only slice R3 sits. David did not say; it stays with Q-278,
+  which remains open on that point.
+- Any slice's own gate, which stands: for example MG1's assisted door on
+  Q-195, and every send or live payment that waits on slice 5, which waits on
+  Q-276.
+- The order among T1d, the T2 series, B2b, slice 3 and slice 11 themselves,
+  which stays as `plan/MASTER-PLAN.md` §2 and §3.2 have it.
+
+---
+
+## Decision 76 — D71's radius reaches third cousins
+**Status: Adopted · David Saah, 3 October 2026 · reads D71; D71's wording is left as adopted**
+
+### The adopted wording
+> Decision 71's own branch is blood relatives sharing an ancestor no further
+> back than a great-great-grandparent, which reaches third cousins, and the
+> spouses of those relatives. The parenthesis "(out to second cousins)" in
+> Decision 71's wording is an error; the great-great-grandparent governs.
+
+### What it settles
+- Q-272. The Rules Register's *Tree radius* row keeps its value,
+  great-great-grandparent, and its note of the disagreement points here.
+- P28 §2 and §5 read the radius as reaching third cousins. A journey is
+  proposed for T2a: a living third cousin's dates are shown (P28-J19).
+
+### What it does not settle
+- Whether relatives inside one's own branch see minors' dates (Q-268).
+- A later change of the radius, which is a dated act of the Board or the
+  Family Tree Committee under a citation (D71; P28 §2).
+
+---
+
+## Decision 77 — the hourglass stays as a second view
+**Status: Adopted · David Saah, 3 October 2026 · limits D68 as applied to D19**
+
+### The adopted wording
+> The plate (Decision 68) is the tree's default view on every surface. The
+> hourglass around a focus person (Decision 19) stays available as an
+> alternative view. Decision 68 does not retire the hourglass, and Decision 19
+> no longer sets the default view.
+
+### What it settles
+- Q-270. D68 is limited as applied to D19: D68 makes the plate the default and
+  does not remove the hourglass; D19 stands for the hourglass as a view and no
+  longer for the default.
+- T2a: the hourglass route is kept as a second view, and where the hourglass
+  was the default the plate now opens. The redirect reads "plate by default,
+  hourglass available" (P28 §3.2).
+
+### What it does not settle
+- Whether the hourglass is redrawn in the plate grammar or keeps its built
+  style. The record is silent; it is David's to say. (Q-279)
+- The grade vocabulary (Q-267) and how plates are cut where the committee has
+  not numbered a line (Q-269).
+
+*Later (3 October 2026):* **D80** answers Q-279: the hourglass is drawn in the
+plate grammar, with the same shapes and line weights.
+
+---
+
+## Decision 78 — magazine and life events is the next tree integration
+**Status: Adopted · David Saah, 3 October 2026 · answers Q-265 in part**
+
+### The adopted wording
+> After membership and join (Decision 73), the next integration of the family
+> tree is magazine and life events.
+
+### What it settles
+- T2f's place: it comes next after T2e among the integrations. SP0's order
+  line and P28 §14's order line name T2f next.
+
+### What it does not settle
+- The order of directory and comms (T2g) and Heritage (T2h) after it. Q-265
+  stays open on that point.
+- Where a Heritage item's file lives (Q-260). Oral-history consent (Q-189,
+  Q-261).
+
+---
+
+## Decision 79 — the second holder of `tree:moderate` is a committee member the committee seats
+**Status: Adopted · David Saah, 3 October 2026 · the seat is filled by the Family Tree Committee's act (FT2)**
+
+### The adopted wording
+> The second holder of `tree:moderate` that Decision 72 requires is another
+> member of the Family Tree Committee, seated by the committee's own act (FT2).
+
+### What it settles
+- David chose this over the project's lead (the pack's option A, from answer 31). The grant is made by name on the Roles screen after the committee's act and is never seeded (answer 28); until it is made, a structural item records its first key and waits (D72, T2c).
+- Q-262. P28 §7 gate 2 and T2c name this decision: T2c builds the two-key path
+  now, and a structural change applies in practice once the committee has
+  seated the member and the grant is entered.
+
+### What it does not settle
+- Which member, and when the committee acts (FT2, P27 §4.2).
+- A committee's quorum in general (Q-52), stewards (Q-263) and the list of
+  structural kinds (Q-264).
+  *Later the same day:* D81 sets the list (Q-264).
+- Whether the project's lead also holds the role later, under answer 31.
+
+---
+
+## Decision 80 — the hourglass is drawn in the plate grammar
+**Status: Adopted · David Saah, 3 October 2026 · answers Q-279; reads D77 with D68**
+
+### The adopted wording
+> The hourglass kept as an alternative view by Decision 77 is drawn in the
+> plate grammar of Decision 68, with the same shapes and line weights as the
+> plate.
+
+### What it settles
+- Q-279. T2a redraws the hourglass route in the plate grammar (P28 §3, §3.2)
+  and keeps it as the second view D77 keeps; the plate stays the default.
+
+### What it does not settle
+- The grade vocabulary (Q-267) and how plates are cut where the committee has
+  not numbered a line (Q-269), as under D77.
+
+---
+
+## Decision 81 — the structural kinds of tree change
+**Status: Adopted · David Saah, 3 October 2026 · answers Q-264; sets D72's parameter; the Family Tree Committee may amend it by a dated act**
+
+### The adopted wording
+> The list of structural kinds proposed in `AFRP-Family-Tree-Module.md` §6
+> becomes the value of the Rules Register's *Structural kinds* row, the
+> parameter Decision 72 left unset: a parent link added, changed or removed;
+> two records merged; a branch moved; a person removed or marked removed; a
+> clan assignment changed; a sex recorded differently; a link's grade raised.
+> Every other change is non-structural. The Family Tree Committee may amend
+> the list by a dated act.
+
+### What it settles
+- Q-264. The Rules Register's *Structural kinds* row takes the list as its
+  value. P28 §6's "proposal" and "DRAFT interim" labels are removed, and T2c's
+  gate is no longer held by Q-264.
+
+### What it does not settle
+- Stewards (Q-263); the grade vocabulary that "a link's grade raised" reads
+  (Q-267). A structural change still applies in practice only once the second
+  holder of `tree:moderate` is seated and granted (D79, FT2).
+
+---
+
+## Decision 82 — the Senior Award was not retired and continues
+**Status: Adopted · David Saah, 3 October 2026 · answers Q-163; recorded by the project owner**
+
+### The adopted wording
+> The Outstanding High School Senior Award was not retired. It continues. The
+> programme register's "retired 31 Aug 2026" status is corrected.
+
+### What it settles
+- Q-163. The programme register's status line and the conflicts-table row
+  below follow this decision.
+- YL6 switches on in principle; it still waits on what its row also names: the
+  body that runs the award (Q-164) and a budget line before any money line
+  (D55), with past applicants' files under Q-76.
+- Q-20 (a successor) falls away: there is no gap to fill while the award
+  continues.
+
+### What it does not settle
+- Which body runs the award (Q-164; the register's organiser question). Who
+  scores (Q-117). The budget line that names its fund (D55). Past applicants'
+  files (Q-76).
+
+---
+
+## Decision 83 — AFRP holds the Relief Fund
+**Status: Adopted · David Saah, 3 October 2026 · David's decision for the design record · answers Q-109 in part · the deductibility and receipt text waits on the CPA (D9)**
+
+### The adopted wording
+> The Relief Fund is held by AFRP. The deductibility statement and receipt
+> text for gifts to it follow Decision 9 and wait on the CPA.
+
+### What it settles
+- Q-109's entity part. P23 §3's holding-entity row takes AFRP; P9's fund
+  register (FR1), P11 §4 and P22's Relief Fund liability (CV7) follow. The
+  programme register's `relief-fund` entry takes AFRP as its entity.
+- The slices whose gate was Q-109 for posting (CG5, RL1, RL3, RL4, CV7) lose
+  that gate. Any receipt's deductibility text still waits on the CPA.
+- Q-208 and the other questions that waited on the entity now read AFRP: a
+  public purpose for the fund is for AFRP's Board under D8.
+
+### What it does not settle
+- Who approves each transfer between the Board's votes, and whether Decision
+  63's closing records apply to the fund. Both stay open under Q-109.
+- The books. In practice (research, 2 October 2026) the account is booked
+  inside ARFECF, with AFRP owing it. This is recorded as a reconciliation item
+  in the conflicts table below: the books follow D83, or the Boards revisit.
+- The deductibility and receipt text (the CPA, D9). Q-207 (the charities
+  list), Q-180 (club drives), Q-126 (the per-registration amount), Q-232
+  (settling the "due to" accounts).
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
@@ -739,6 +1157,76 @@ These are settled in the design and merely need the board to say so out loud:
    it being argued later.
 2. **Convention deficit responsibility** is read from the Convention Contract, and the screen says
    plainly where the contract is silent rather than assigning the loss by assumption.
+
+---
+
+## Conflicts between practice and the record found in the research round of 2 October 2026
+
+**Recorded 2 October 2026 · no decision's text is changed here.** The second research
+round (five reports under D54: Education, Leadership, Heritage, Care and the Federation
+itself) read the Federation's drive, mail, public pages and filings against this register,
+the by-laws and the named design documents. Where the sources show practice contradicting a
+decision or a by-law, the conflict is recorded below with both sides cited and a question
+number. Under D41 the by-law text wins over this register, and this register and the design
+documents win over practice; a research finding is evidence of practice and never a rule.
+Every row is for the owner named to settle; nothing in the platform changes until it is.
+The questions are in `site/data/questions.yaml` (Q-158 onward; additions to earlier rows are
+marked "research, 2 Oct 2026").
+
+| What the record says | What the sources show | Question | Owner |
+|---|---|---|---|
+| D13 (any member may propose anything), D14 (every life event queues for the committee), D17 (all members see everything); the programme register's "the Family Tree Committee decides every change". **Since 2 Oct 2026:** D70 confirms D13 for members in current national standing; D72 amends D14 (one committee key for a small change, two different keys for a structural one, clan stewards who never approve); D71 amends D17 (the living in full only inside one's own branch). These settle the platform's rule; today's approval of access stays Q-200 | One project lead receives, approves and applies every change from a form or email; the committee has two members; the master file lives in a commercial desktop genealogy product not held in the Federation's name, shared by personal invitation; the clan books are PDFs behind an access request the lead approves "by agreement with the board", a rule asserted and not minuted | Q-200 | AFRP Board · Family Tree committee · David |
+| D11 (a governed mirror now; the platform becomes the record after one clean annual cycle); the programme register's "GEDCOM database". **Since 2 Oct 2026:** D69 supersedes D11's staging: the Hub becomes the record after a parallel run of 30 to 60 days, the external file then read-only, with a nightly export; the run waits on Q-201 (now carrying who owns the tree data and on what terms) and a production database (P28 §7) | The body of record is a desktop genealogy file not held by the Federation, with a cloud copy; no licence holder, export cadence or second key-holder is written | Q-201 | Family Tree committee · David · Executive Director |
+| D28 (nothing for the living without sign-in). **Since 2 Oct 2026:** D71 leaves D28 unchanged and adds that a signed-in member sees the living in full only inside their own branch, so a book carrying living dates cannot be served to every member by standing (P27 §5, amended) | The clan-book PDFs, like the printed 1982 volume, carry living people's dates and are served to approved requesters rather than to signed-in members by standing | Q-202 | Family Tree committee · Legal Advisor |
+| D66 (the shared drive is the archive of record; the platform links to it). **Since 2 Oct 2026:** D69 makes the Hub the one record of the tree and D68 its one look on every surface; a second viewer of the tree outside the Hub would sit beside both. Where node media lives (D22 against D66) is Q-260 | A volunteer's prototype site (July 2026) holds the archive and the tree with per-person profiles, and the Preservation committee sought volunteers (February 2026) to rebuild its stand-alone website — a third archive beside the drive and the vendor's files, and a further viewer of the tree | Q-190 | David · Preservation committee · Family Tree committee · AFRP Board |
+| D22 (full media, per-item consent held by the subject) | Oral histories are recorded against one spoken permission covering "the Ramallah community and any other projects"; no written release, no separate print or web switch, no takedown rule | Q-189 | Preservation committee · Legal Advisor · David |
+| D55 (Women to Women is a sub-fund of ARFHSN) | ARFECF's reviewed financial statements show Women to Women gifts as ARFECF's donor-restricted revenue in one year, released the next, with a matching expense line; the Education Fund's chequebook carries a tuition gift matching a Women to Women project | Q-212 | ARFECF Board · ARFHSN Board · CPA |
+| D55 (programmes sit in the fund that budgets them) and `AFRP-Fund-Rules.md` §2 (non-earmarked money never crosses funds) | Women to Women (ARFHSN) pays Arabic Program (ARFECF) fees for member women each term; the Cook Book fund transferred money to the Education Fund for the Federation's systems; the Scholarship's letters go out in AFRP's name for ARFECF's fund | Q-168, Q-173, Q-158 | ARFHSN Board · ARFECF Board · AFRP General Treasurer · CPA |
+| D62 ("The Federation President convenes") | The Federation's programme director issues the monthly ARFHSN invitation and the ARFHSN secretary sets the agenda; the President attends | Q-214 | David · ARFHSN Board |
+| D63 (a Care grant is approved by the holding entity's Board with a ceiling) | Women to Women's public procedure has the committee approve all projects, and the ARFHSN minutes show the committee reporting, not the Board voting, on them | Q-114 | ARFHSN Board · Women to Women Committee |
+| D1 (club dues held as agent; CPA countersignature pending) and D56 (AFRP collects ARFHSN's gifts as its agent) | AFRP's chart of accounts carries a liability for every affiliate purpose collected on the affiliates' behalf (ARFECF, ARFHSN and the Ramallah Foundation); card payments now run through one processor account per entity, replacing one AFRP account with transfers by hand. The agency pattern is in practice for every affiliate purpose and not only the two cases the decisions name; no account on either side carries club-collected national dues | Q-232, Q-3 | AFRP General Treasurer · ARFECF Treasurer · ARFHSN Treasurer · CPA |
+| The programme register's Senior Award entry: retired 31 August 2026 by Board resolution, last files 2024; `AFRP-Program-Architecture.md` §6; Q-20's premise. **Since 3 Oct 2026:** D82 records that the award was not retired and continues; the register's status is corrected and Q-20 falls away | Awards were made in 2023, 2024 and 2025; applications were taken on an online form in 2025; the public site still offered the award in October 2026 and the programmes flyer filed in September 2026 lists it; no retiring resolution was found | Q-163 (answered by D82), Q-20 (falls away under D82) | AFRP Board · David |
+| The programme register's Senior Award entry: the Scholarship Committee, on an award track, announced at the Convention | From 2013 to 2020 the award sat with the Leadership Ramallah committee, whose chair requested its budgeted sum from the ARFECF Board and signed the letters; it was announced by newsletter each September | Q-164 | David · Leadership Ramallah committee |
+| The programme register's Emerging Leaders entry (ages 16 to 24; an entry rung on the Leadership branch); `branches.yaml`; `AFRP-Family-Tree-Integration.md` | No programme by that name exists in any document, mailing, budget line, committee tab or web page; the age band has no source; the one 2021 mention most plausibly refers to the Youth Summit for adults aged 21 to 35, reported from 2023 as the Day of Action | Q-178 | David · Strategic Planning Committee |
+| By-Law 8.10 paragraph (the Young Leader Committee: a chairman and four members, President-appointed with Board approval, all alumni of Project Hope or Leadership Ramallah); `AFRP-Committee-Workspace.md`; `AFRP-Selection-Programmes.md` | A Young Leaders Committee (also called the Youth Outreach Committee) of two co-chairs and members listed by club city, with a filled Board seat and no appointment record or alumni check; its co-chairs run Leadership Ramallah; the directory has no Leadership Ramallah tab | Q-179, Q-175 | AFRP Board · President · Constitution Committee |
+| The programme register's Senior Living entry (a Federation programme, entity to confirm); `AFRP-Program-Architecture.md` §3 (the capital-campaign module: pledges against cash) and §6 (the *Campaign* shape); journey JP-032 | The project is the Ramallah Foundation's: the Foundation owns, built and will operate the home; construction is complete; the Federation's part was communications, gifts passed through and a Convention-voted budget grant; no pledge was ever held in a Federation system | Q-203, Q-204 | David · AFRP Board · ARFECF Board · CPA |
+| D3 and D55 (the Scholarship is ARFECF's; the Foundation's role is an agreement) | The public scholarship page says the programme is "managed by the Ramallah Foundation Inc"; the Foundation is a private foundation on its public filings | Q-162 | David · ARFECF Board |
+| D58 (Foundation seats exist only once the ARFECF Board amends the 2015 policy) | The 2026 committee counts its Foundation representatives as votes; the Scholarship Program Overview lists three | Q-29 (answered by D58, conditional on the amendment) | ARFECF Board · Scholarship Fund Committee |
+| ARFECF By-Law 6.4.4 (the Scholarship Fund Committee's exclusive authority over its fund) | The 2023 community report says the AFRP Board approved the year's scholarships; the 2026 committee report "presents recommendations" to the Board and the incoming President | Q-161 | ARFECF Board · Legal Advisor |
+| The programme register's Scholarship entry: renewal "is not lapsed by silence" | The 2026 award letter: failure to file the semester documents "may result in suspension"; the recipient must contact the office | Q-159 | Scholarship Fund Committee · ARFECF Board |
+| The programme register's Relief Fund and Convention entries: holding entity not stated; registration and Relief Fund amounts are "Federation money from the first dollar"; `AFRP-Care-Grants-and-Partners.md` §4. **Since 3 Oct 2026:** D83 (David's decision for the design record) names AFRP as the holding entity; the deductibility and receipt text waits on the CPA (D9). **Reconciliation item:** the books carry the fund inside ARFECF, so either the books follow D83 or the Boards revisit it | ARFECF's balance sheet carries the Relief Fund as its own bank account with AFRP owing it; ARFECF's reviewed statements book relief gifts as ARFECF's donor-restricted contributions and the Ramallah charities as its programme expense; the Educational Fund Treasurer reports the account at every Board meeting; ad hoc transfers left with no approval on file | Q-109 (entity: D83; the reconciliation, who approves between votes and D63's reach stay open) | AFRP Board · ARFECF Board · ARFHSN Board · CPA |
+| D59 (a signed host agreement before every Convention); the programme register's "no signed host agreement has been found for any year" | The Board's minutes of September 2026 say the 2026 Convention was reconciled "under a revised Federation/city convention agreement"; its text is in no folder read | Q-93 | Executive Director · Legal Advisor · Convention Innovation Committee |
+| `AFRP-Host-Agreements.md` §4 (dues excluded from the gross; netting only where a schedule row exists) | The 2026 settlement netted a sum the host owed the Federation against the release and charged a Federation-hosted dinner to the host's side, neither with a schedule row | Q-124 | AFRP Board · Convention Innovation Committee |
+| `AFRP-Host-Agreements.md` §2.4 (the host's event-coordinator role is a scoped grant that reads no member record) | The registration system's coordinator role gives the host every registered guest's contact information with an export, full seating control, the waitlist and a payment-by-payer report; the design narrows today's access | Q-127 | AFRP Board · Digital Infrastructure Committee · Legal Advisor |
+| `AFRP-MidYear-Host-Bids.md` §3 (the Board chooses the Mid-Year host; "practice is a Board choice") | The 2020–21 Mid-Year guideline, now on file, has the Executive Committee review applications and announce the selection, as By-Law 10.2.1 reads; 2026–27 practice had the Board choose after quotes, the Federation sign the hotel contract and the Executive Committee set the fee | Q-92 | AFRP Board · Executive Committee |
+| By-Law 5.2 and the host-agreement template (membership-mandatory for every registrant); the board-confirmation item above | A 2026 Mid-Year registrant was not asked for dues at registration | Q-225 | AFRP Board · Digital Infrastructure Committee |
+| Q-86's premise ("The camp screens its staff"); `AFRP-Volunteer-Interests.md` §9 | No written screening, training or reporting policy for camp volunteers is on file; the sources do not show the premise that the camp screens its staff | Q-86, Q-165 | AFRP Board · Camp Ramallah committee · Legal Advisor |
+| By-Law 6.7.1 (the Federation "shall appropriate the necessary funds to guarantee [the Magazine's] publication"); the programme register's Magazine entry and crosswalk row D21 ("magazine money kept apart from Federation money", 2020 minutes) | Kept-apart is the 2020 practice; the by-law imposes a Federation funding duty; General Fund magazine lines from 2018 to 2024 and a seed deposit when the Magazine's account opened in 2023 show money crossing | Q-194 | AFRP Board · ARFECF Board · CPA |
+| By-Law 6.7.1 (subscription policy set by the Magazine's independently selected Board; a one-year seat on the AFRP Board appointed at the General Assembly); the programme register's "its own board" | A staff of five roles and a treasurer, paid per issue; no board roster, minutes or appointment record found | Q-192 | AFRP Board · the Magazine · Constitution Committee |
+| `AFRP-Magazine-Bookstore-Use-Cases.md` UC-2 (deaths are never auto-published; family approval), §0 (three issues a year), UC-9 and UC-11 (back issues, clan books, downloads, member pricing; sales as exchange revenue) | Six issues a year; obituaries are family-submitted paid placements with a tribute, graduations a standing type; two online stores sell seven titles to US addresses with no member price, back issues, clan books or downloads; the cook book line is a Board-reported chequebook on ARFECF's budget | Q-193, Q-196, Q-197, Q-199 | the Magazine · AFRP Board · ARFECF Board · CPA |
+| The programme register's Bookstore entry (`in_service: None found`; "no source document exists"); the platform map's entity AFRP | Two public stores exist, on the website and the member portal; the only money evidence (the Cook Book fund) is ARFECF's | Q-197, Q-173 | AFRP Board · ARFECF Board · David |
+| D60 (a non-member may register for an Arabic class at the public rate) | The public page in October 2026 says registration is open to adult members | Q-171 | David · the programme director |
+| The programme register's Exchange Mission entry: a standing October delegation; the committee's August 2026 decision to pay a Convention symposium slot from Mission funds | No delegation has run since 2023 and the committee's plan is reverse missions; Houston's symposia were run by a Federation committee with the host club; whether the Mission's decision to pay a slot stands beside that committee and the host agreement is Q-125 | Q-188, Q-125 | Exchange Mission committee · AFRP Board · Convention Innovation Committee |
+| D65 (Government Affairs, Congressional Outreach and the Day of Action are AFRP General Fund activity) and ARFECF By-Law 6.3.1 ("Internships in Washington" as an Endowment purpose) | The March 2025 Mid-Year assembly voted a Federation contribution to congressional internships with the source left open; the programme has no register entry | Q-182 | AFRP Board · ARFECF Board · CPA · Legal Advisor |
+| `AFRP-Advocacy.md` and Q-132 (the platform refuses a candidate as the subject of a position) | The 2025–26 sources raise candidate-related questions the record does not answer | Q-132 | Legal Advisor · AFRP Board · CPA |
+| The programme register's Congressional Outreach entry ("the 2020 proposal for a representative per club was not adopted"; "the tracker was last edited in 2023"); `AFRP-Advocacy.md` | Local action committees were launched inside the chapter clubs in 2025–26; the committee replaced its spreadsheet with an automated tracker on Microsoft Forms, SharePoint and Power Automate | Q-131, Q-183 | Government Affairs Committee · Council of Chapter Club Presidents · Digital Infrastructure Committee |
+| The programme register's Day of Action entry (applicants answer about fifteen questions; who selects); `AFRP-Advocacy.md` P14-J11 (an application whose political-views answers are shown to the deciding body only) | The 2026 cycle was an open registration, free for adult members, with no application and no selection; the page and the mailing differ on the deadline and the eligibility sentence | Q-115 | Government Affairs Committee · President · AFRP Board |
+| The programme register's AFRPWorks entry ("built by a volunteer developer"); `AFRP-AFRPWorks.md` ("browse" against "brokered" as a contradiction) | The prototype is built under the Executive Committee; an employer submits, is approved, then browses; the research reads the announcement and the minutes as a sequence (a gate, then browsing), which is evidence for the working group and not a rule | Q-147, Q-155 | President · AFRP Board |
+| D44 (the committee's Google Doc is the canonical strategy text until the committee adopts a plan) | The Doc is a 30 September snapshot: it still has the tree as the roots (superseded by D53), seventeen rows marked "Proposed" that are now "Designed", no section J and no goals list (D52) | Q-235 | David · Strategic Planning Committee |
+| `AFRP-Breeze-Club-Parity.md` §1 (about ten clubs run Breeze by their own choice) and crosswalk J11 (each club's decision to move onto the platform) | The Deputy President's reports present Breeze onboarding as a Federation initiative with a Federation target of every club | Q-230 | Deputy President · AFRP Board · David |
+| `AFRP-Club-Experience-Plan.md` §6.3 (a club's members are a subset of people who could be Federation members under By-Law 4.1.1) | A club's 2026 by-laws draft admits anyone who considers themselves part of the Ramallah community and supports the club | Q-226 | Membership Committee · Constitution Committee · Legal Advisor |
+| D57 and By-Law 11.1.5 (club money for Federation projects passes through headquarters; 11.1.4 bars soliciting for them without authority) | Clubs raise and send money to Ramallah projects directly; the Board in May 2026 asked for one channel, preferably the Relief Fund | Q-228 | AFRP Board · Council of Chapter Club Presidents |
+| ARFHSN By-Laws Article III §2 (fourteen trustees; a Chairman); Q-2 (the trustee roster not on file) | The state filing lists a President, a Secretary, a Treasurer and directors; the working sheet lists a larger committee; three sources disagree | Q-2 | ARFHSN Board |
+| D61 (future cycles of every programme apply in the platform) and Q-70 (D60's contact record) | The CRM creates a vetted contact with a profile (club, date of birth, occupation, address) before any consent is recorded, and the Medical Mission used the occupation field for outreach in 2026; the AFRPWorks prototype holds candidate profiles outside any rule | Q-70, Q-236, Q-151 | David · Membership Committee · Legal Advisor · AFRP Board |
+| `AFRP-Club-Experience-Plan.md` §6.4 and `AFRP-Selection-Committee-Workflow.md` §3.8 (a club's delegation is selected by its officers); By-Law 9.1.3 (silent on method) | The Legal Advisor's description to the Board (May 2026) has the community's certified members vote on delegates | Q-37 | AFRP Board · Legal Advisor · Constitution Committee |
+| The record's rule for what is read about a club's people: counts for the Federation's view (`AFRP-Breeze-Club-Parity.md` §3; B1 as built), a member's contact fields only under that member's dated, per-field consent (the member directory, `AFRP-Directory-Formats.md`, P19), and any wider read as a named-purpose act (Q-44) | The club president's portal view today shows members' names and contact details, and the CRM feedback asked for every member's name, email, address and phone by club | Q-237 | AFRP Board · Council of Chapter Club Presidents · Legal Advisor |
+
+**What this section does not do.** It changes no decision. Where a row's practice is
+wanted as the rule, the owner decides and the decision is recorded above in register form
+with its D-number; where the record is wanted as the rule, the owner corrects the practice
+and the row closes. The programme register, the crosswalk and the design documents are
+corrected to say "the sources show X" in their own passes; this table is the list of what
+those passes must not resolve on their own.
 
 ---
 

@@ -16,8 +16,11 @@
   shape: A ladder by capacity
   colour: "#4c6414"
   summary: >-
-    Service, advocacy and professional life. People enter at Emerging Leaders
-    and move by what they are ready to take on, not by age. The order is a
+    Service, advocacy and professional life. "Emerging Leaders" has no source
+    (whether the register entry is retired or re-pointed is Q-178); until that
+    is answered people enter at whichever of the branch's programmes they first
+    take part in (P25 §2.2, a design choice) and move by what they are ready to
+    take on, not by age. The order is a
     suggestion, never a prerequisite.
   outcomes:
     - How many Exchange Mission alumni join Congressional Outreach or the Day of Action
@@ -44,8 +47,9 @@
   shape: Destinations
   colour: "#8c2f21"
   summary: >-
-    The Medical Mission, Women to Women and Senior Living, with the Ramallah
-    Foundation and the Endowed Fund shown as funds that people give to and
+    The Medical Mission, Women to Women and the Relief Fund, with Senior Living
+    as the Ramallah Foundation's project the Federation supports (Q-203), and the
+    Ramallah Foundation and the Endowed Fund shown as funds that people give to and
     cannot join. People arrive by choice or by capacity to give, never by
     progression.
   outcomes:

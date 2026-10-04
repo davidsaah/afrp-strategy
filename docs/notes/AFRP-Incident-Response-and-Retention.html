@@ -236,7 +236,7 @@
 <td>Withdrawal of consent closes the row; a purge job once the parameter is set</td>
 <td>the Membership Committee with the Legal Advisor (P4); each programme committee</td>
 <td>Counts</td>
-<td><strong>silent</strong> (one parameter for all four notes — <em>Q-70</em> proposes gathering them)</td>
+<td><strong>silent</strong> (one parameter for all four notes — <em>Q-70</em> proposes gathering them). <em>Since 2 October 2026:</em> P21 §9 proposes splitting this row into one row per role kind, each with its own clock and owner and none with a value; the split is made when Q-70 is answered (P21 §16; CR4)</td>
 </tr>
 <tr>
 <td><strong>Follow-ups</strong> (a task about a person, with one completion note)</td>
@@ -280,7 +280,7 @@
 </tr>
 <tr>
 <td><strong>The family tree</strong></td>
-<td>platform (the governed mirror now; the record after one clean cycle, D11); the committee's GEDCOM on the drive</td>
+<td>platform (the governed mirror now; the record after D69's parallel run, which supersedes D11's staging; a nightly export under <code>tree:moderate</code> after it); the committee's GEDCOM on the drive</td>
 <td>Deceased people permanently; living people's dates under consent; the public build synthetic for the living</td>
 <td>D11, D15, D17, D22, D28; T1c's never-delete and stale-export guards</td>
 <td>A living person's node closes under §4; nothing deleted from the tree's record</td>
@@ -338,8 +338,119 @@
 <td>Nothing</td>
 <td><strong>attested</strong> (design documents)</td>
 </tr>
+<tr>
+<td><strong>Contact roles</strong> (P21: learner, applicant, referred, club prospect, giver, guest, subscriber, media contact, office contact, candidate, alumnus)</td>
+<td>platform (one person record with dated roles, DRAFT under Q-70; until it is answered, the two homes above)</td>
+<td>Per role, as P21 §9 tabulates: each clock starts where P21 §9 says for that role and <strong>has no value</strong></td>
+<td>P21 §9; D60; D61 for the alumnus</td>
+<td>Withdrawal closes the role at once (R27); a role's fields wait for its clock; the person record is purged only when every role has ended and every clock has run, never while a membership exists</td>
+<td>Per role, the owner P21 §9 names</td>
+<td>Counts; ledger lines; the alumni record</td>
+<td><strong>silent</strong> for every role's fields; <strong>attested</strong> for the alumnus (D61) and for a giver's ledger lines — Q-70, Q-76, Q-151, Q-238, Q-239</td>
+</tr>
+<tr>
+<td><strong>Convention and Mid-Year registrations</strong> (registration lines, guest names, desk check-in, transfers)</td>
+<td>platform</td>
+<td>Ledger lines permanently (as above); a guest's name on the registration line until the event's settlement closes, then the guest role's clock (P21 §9)</td>
+<td>P22 §5; D59; P13</td>
+<td>A scheduled deletion of the guest's name once a value is set</td>
+<td>the Convention Innovation Committee with the AFRP Board (P21 §9)</td>
+<td>Counts by club and class under the floor (S7); the ledger; the history row (P22 §11)</td>
+<td><strong>attested</strong> for lines; <strong>silent</strong> for registrants' personal fields (Q-76, Q-238)</td>
+</tr>
+<tr>
+<td><strong>Delegations and delegate presence</strong> (the club's dated delegation act with its method, the desk's present marks feeding the floor)</td>
+<td>platform</td>
+<td>The delegation act and the presence marks are part of the floor's roll, frozen and never recomputed</td>
+<td>P22 §6; R12, R43</td>
+<td>Never for the roll and the result (as election records)</td>
+<td>Nobody</td>
+<td>The roll, the weights, the result</td>
+<td><strong>attested</strong> for the freeze; <strong>silent</strong> for how long the presence marks are kept after the contest (Q-76)</td>
+</tr>
+<tr>
+<td><strong>Sponsor records</strong> (campaigns, packages, complimentary registrations, vendor credentials; the sponsor prospect)</td>
+<td>platform for products and lines; the prospect list outside the platform until Q-70</td>
+<td>Lines permanently; the prospect role only if Q-70 adds the kind (P22 §7.2)</td>
+<td>P22 §7; D8, D9</td>
+<td>Never for lines; a prospect follows its contact role</td>
+<td>the coordinating body Q-245 names</td>
+<td>The ledger; counts</td>
+<td><strong>attested</strong> for lines; <strong>silent</strong> for the prospect (Q-70, Q-76)</td>
+</tr>
+<tr>
+<td><strong>Relief disbursement requests</strong> (grants on CG1 by path, approval acts, the paying route's two legs, the representative's reports of counts)</td>
+<td>platform; the distribution plans and acknowledgements on the drive (D66)</td>
+<td>Ledger lines and approval acts permanently; a report carrying a refused detail is replaced by a corrected entry naming the old, never edited (P23 §7)</td>
+<td>P23 §4, §7; P11 rule 12 (no beneficiary person ever enters)</td>
+<td>Never for lines and acts; the drive copies on the drive's rule</td>
+<td>Nobody for lines</td>
+<td>Counts of families per month and organisations per year (D67)</td>
+<td><strong>attested</strong> for lines; <strong>silent</strong> for the drive documents (Q-76)</td>
+</tr>
+<tr>
+<td><strong>Receiving organisations</strong> (the beneficiary-organisation register: kind, yearly lines, returns, a role-level contact)</td>
+<td>platform (institution registry)</td>
+<td>Not stated; the platform never drops an organisation from the list itself (P23 §4.2)</td>
+<td>P23 §7; P11 §3</td>
+<td>A role-level contact follows its contact role (P21)</td>
+<td>the body Q-207 names for the list</td>
+<td>The organisation's yearly lines</td>
+<td><strong>silent</strong> (Q-207, Q-76)</td>
+</tr>
+<tr>
+<td><strong>The Magazine's subscriber ledger</strong> (subscriptions, payments by channel, the frozen opening list, print lists handed to the mailing house)</td>
+<td>platform</td>
+<td>Payments as ledger lines permanently; the opening list frozen at the reconciliation act (R43's shape); a subscriber's postal address on the subscriber role's clock (P21 §9)</td>
+<td>P24 §5; R43; R27</td>
+<td>Never for lines and the frozen list; the address on the role's clock once set</td>
+<td>the Magazine's board under 6.7.1 with the AFRP Board (P21 §9; whether that board exists is Q-192)</td>
+<td>The ledger; subscription counts; each hand-off's date and count</td>
+<td><strong>attested</strong> for lines and the freeze; <strong>silent</strong> for the subscriber's fields (Q-239)</td>
+</tr>
+<tr>
+<td><strong>Magazine announcements and obituary orders</strong> (pending submissions, consent acts, placement orders)</td>
+<td>platform; the printed issue</td>
+<td>Printed issues cannot be recalled (D33); a retraction is a new entry (R27); a pending submission never confirmed: not stated</td>
+<td>P24 §3; D33; R34; R27</td>
+<td>Never for what was printed; nothing else stated</td>
+<td>the Magazine's editor seat; not stated for unconfirmed submissions</td>
+<td>The issue</td>
+<td><strong>silent</strong> for unconfirmed submissions and for placement orders' personal fields (Q-76, Q-193, Q-195)</td>
+</tr>
+<tr>
+<td><strong>Scholarship semester verifications and disbursements</strong> (three verification rows per instalment, the release, the disbursement row)</td>
+<td>platform; the scholar's documents with the office, <strong>never</strong> in the platform</td>
+<td>Not stated in P26; the rows carry no content, grade figure or document (P26 §2.2); disbursements as ledger lines permanently; a reversal is a new row (R24)</td>
+<td>P26 §2.2, §2.3; D61 and the Scholarship's binding rule 2 for documents</td>
+<td>Never for disbursement lines</td>
+<td>Nobody for lines; the Scholarship Fund Committee with the ARFECF Board for the rest</td>
+<td>The award's instalment states; counts</td>
+<td><strong>attested</strong> for lines and for documents never entering; <strong>silent</strong> for the verification rows' period (Q-76)</td>
+</tr>
+<tr>
+<td><strong>Oral-history releases</strong> (the consent row per recording; the signed release on the drive)</td>
+<td>platform for the consent row; the drive for the release and the recording (D66)</td>
+<td>Consent rows: a withdrawal is a new row and never deletes the old (R27); the release and recording on the drive's rule</td>
+<td>P27 §6; D22, D33, R27</td>
+<td>Never for consent rows</td>
+<td>The Preservation committee for the drive copies</td>
+<td>The consent history</td>
+<td><strong>attested</strong> for the consent rows' never-delete; <strong>silent</strong> for the drive copies' period (Q-189, Q-76)</td>
+</tr>
+<tr>
+<td><strong>The family tree's nightly exports and conflict rows</strong> (P28)</td>
+<td>private storage outside the repository under <code>tree:moderate</code>; the conflict rows in the platform</td>
+<td>Proposals, decisions and conflicts never deleted; how many nightly exports are kept is not decided, so until the Family Tree Committee sets it every night is kept</td>
+<td>P28 §9; D69</td>
+<td>None by the platform</td>
+<td>the Family Tree Committee, for the export count</td>
+<td>Everything</td>
+<td><strong>attested</strong> (P28 §9, design document) for never-delete; <strong>silent</strong> for the export count</td>
+</tr>
 </tbody>
 </table>
+<p><em>Since 2 October 2026:</em> the last eleven rows cover the records that the notes P21 to P28 create. Each row cites its note, and none of them sets a period that the note leaves silent.</p>
 <p><strong>Three things the table shows.</strong> First, <em>never delete</em> is attested almost everywhere and <em>how long</em> is attested almost nowhere: the record is strong on the ledger and silent on the person. Second, every retention parameter in the sibling notes is the same parameter in a different coat (applications, contacts, exercise logs, messages, receipts' copies); <em>Q-70</em> proposes one register with one owner per row rather than five committees setting five clocks. Third, the IRS's rule is "as long as they may be needed", with a three-year limitation period as the general floor and a permanent set; <strong>seven years</strong> is the practitioners' and the architecture's figure and the vendor's — it is <em>proposed</em> here for financial supporting documents and the audit log, for the CPA to attest, and is not a rule of this note.</p>
 <hr />
 <h2>4. A member's own requests</h2>

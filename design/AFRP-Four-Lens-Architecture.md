@@ -3,6 +3,12 @@
 
 **Date:** August 15, 2026
 **Addendum 5.** Builds on the portal, Breeze replacement, life-events, and QuickBooks work.
+**Since 2 October 2026:** the four lenses stand. Dated pointers mark the places where an object or a lens has moved since:
+- the contact record (P21) puts non-members on the same person model, as a cross-cutting object (§0, §4, §6);
+- the scholar is a member-lens experience (P26; §2);
+- the family tree follows D68–D74 and P28 (§2, §6.1);
+- the Convention is designed in P22 (§5, §8);
+- the books' practice is recorded in the ledger and QuickBooks specs (§5, §12).
 
 ---
 
@@ -18,6 +24,8 @@ So the architecture is not four applications. It is one data model plus a
 **role-scoped policy layer** that decides which slice of it you see and what you
 may do. Get that layer right and the four lenses are mostly UI. Get it wrong and
 you will build the same feature four times.
+
+*Since 2 October 2026, one object cuts across all four lenses:* **the contact record** (P21). It is a person record with no membership on it, carrying dated roles: learner, applicant, referred, club prospect, giver, guest, subscriber, media or office contact, candidate and alumnus. Each role is owned by one scope (a programme, a club, an event, or a *desk*, which is a federation scope narrowed to the seats that hold it), and each has its own consent rows and retention row. Member 360 shows it whole, and each lens reads only the roles its scope owns (P21 §3, §5, §10). Only the learner is decided (D60) and the alumnus record is D61. The other roles are readings under **Q-70**, built switched off until it is answered (slices CR1–CR7).
 
 ---
 
@@ -62,10 +70,10 @@ not exist. Only `standingAt(memberships, { personId, scope, clubId, asOf })`.
 | Money | Giving history across dues, donations, store. Tax receipts. Stored cards and subscriptions |
 | Events | One calendar — federation and their club. Register self and household. QR check-in |
 | Governance | Ballots they are eligible for, with the reason if they are not. Cast a vote. Verify a receipt |
-| Family tree | Their lineage, search, submit corrections, see their own provisional records |
+| Family tree | Their lineage, search, submit corrections, see their own provisional records. *Since 2 Oct 2026:* drawn in the book's plate grammar (D68); proposals by members in current national standing (D70); the living seen in full only inside one's own branch (D71); find-yourself at join and renewal (D73; P28 §4.4) |
 | Life events | Announce a wedding or birth; see the benefit granted |
 | Directories | Member directory and RBPN, members-only, their own fields under per-field control |
-| Programs | Browse, apply, track application status |
+| Programs | Browse, apply, track application status. *Since 2 Oct 2026:* a Scholarship recipient also files after each semester and sees the next instalment's release or hold (the **scholar** experience; P26 §2). The "my path" page lists the member's own programmes and seats in date order, and only the member sees it (P25 §3; D39) |
 | Communications | Preferences per channel with real consent |
 
 **The design rule for this lens: never show a member something they cannot act
@@ -126,6 +134,8 @@ Ramallah · Scholarship Program · Day of Action · Arabic Course · Women to Wo
 RBPN · Educational and Cultural Exchange · Hathihe Ramallah · Preservation
 Project · Family Tree.
 
+*Since 2 October 2026:* a programme scope also owns its non-members' roles on the contact record (P21): the Arabic learner (D60), the applicant to a programme open to non-members, the AFRPWorks candidate and the Magazine subscriber (Q-239). The programme reads only those roles, never the person's other roles (P21 §3.2, §5). The Day of Action runs in one of two modes per cycle, application and selection or registration, set by the deciding body; a cycle with no mode does not open (P25 §5.3; Q-254). The Senior Award's status is in question (Q-163; *since 3 Oct 2026 it continues, D82*), and "Emerging Leaders" has no source (Q-178).
+
 **The connection worth building deliberately:** program participation is the
 strongest predictor of long-term membership. A teenager who goes to Camp
 Ramallah is a future Patron. Nothing currently connects those two facts, and the
@@ -140,9 +150,9 @@ platform can — that link is arguably the most valuable analytic AFRP could own
 | Domain | Federation capability |
 |---|---|
 | Membership | Federation-wide health, by club, tier, cohort, and trend |
-| Money | Consolidated giving, fund balances, QuickBooks close, restricted-fund reporting |
+| Money | Consolidated giving, fund balances, QuickBooks close, restricted-fund reporting. *In practice (research, 2 Oct 2026):* QuickBooks is already integrated with the current CRM for AFRP and ARFECF, with three processor accounts, one per entity (`AFRP-QuickBooks-Integration-Spec.md` §12); D1 and D56 stand |
 | Governance | Convention, apportionment, credentialing, ballots, certification, minutes |
-| Convention | Sessions, registration, housing, banquet, sponsors, delegate credentialing |
+| Convention | Sessions, registration, housing, banquet, sponsors, delegate credentialing. *Since 2 Oct 2026:* designed in P22 (slices CV1–CV8) |
 | Clubs | Health across 26 clubs; migration status; officer directory |
 | Programs | Portfolio view, budget vs actual, participation |
 | Communications | Federation-wide sends, per-club coordination, deliverability |
@@ -167,8 +177,9 @@ A grant is `(person, role, scope)` where `scope` is `federation`, `club:<id>`, o
 | `club_president` / `secretary` / `treasurer` / `events` | club | One club |
 | `program_chair` / `program_reviewer` | program | One program, **all clubs** |
 | `national_officer` / `national_staff` / `national_treasurer` | federation | Everything in their domain |
-| `genealogy_moderator` | federation | Tree moderation only |
+| `genealogy_moderator` | federation | Tree moderation only. *Since 2 Oct 2026:* `tree:moderate`, held by committee members. One key applies a non-structural change and two different keys apply a structural one (D72). The second holder is a committee member the committee seats (D79, 3 Oct 2026; Q-262). Clan stewards recommend and never approve |
 | `credentials_committee` | federation, **time-boxed** | Delegate credentialing |
+| *(since 2 Oct 2026)* a desk seat | federation, narrowed to the seats that hold it | The contact roles that desk owns: the statement register's media contacts, Government Affairs' office contacts, a receipting entity's one-time givers (P21 §3.2). Exact-grant for any contact's fields (R39) |
 | `elections_officer` | federation | Ballot creation, certification, unsealing |
 | `platform_admin` | federation | Integrations, audit, role granting |
 
@@ -314,6 +325,18 @@ The single most complex thing AFRP does, and every lens touches it.
 | Program | Program sessions, awards, participant meetups |
 | Federation | Full agenda, room and resource allocation, sponsors, ballots, minutes, financial close |
 
+*Since 2 October 2026:* the Convention is designed as its own element in P22 (`AFRP-Convention-Operations.md`), alongside P8 (bids) and P13 (host agreements). It covers:
+- the award and the 10.1.1 forfeiture reading (Q-240);
+- a Federation-hosted Convention abroad as a template (Q-223);
+- the unified registration with a membership-gate parameter per event (Q-225) and the desk;
+- delegates from the certified roll to the floor, with each club's selection method recorded and none refused (Q-37);
+- sponsors and the ad book (Q-242, Q-245);
+- the host coordinator's access, narrower than today's practice (Q-127);
+- the close as dated acts (Q-221, Q-241);
+- the books (P22 §10).
+
+A guest named by someone else is Q-238 on the contact record.
+
 **Build order matters here.** Registration and check-in first, governance
 second, housing and sponsorship last. Governance can run on paper for one more
 convention; registration cannot.
@@ -383,7 +406,7 @@ without it.
 2. **Do clubs set their own dues,** and do they remit a per-capita to national?
    Determines whether club dues touch the federation ledger at all.
 3. **Do clubs keep their own QuickBooks files?** If yes, the ledger integration
-   is 27 connections, not one.
+   is 27 connections, not one. *In practice (research, 2 Oct 2026):* clubs keep their own books, some in Breeze and some in QuickBooks, and none is in the Federation's file (`AFRP-Multi-Entity-Ledger.md` §9).
 4. **Should the wedding benefit cover club dues too,** or national only?
 5. **Can someone be a national member with no club?** The model allows it; the
    bylaws may not.

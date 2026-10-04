@@ -5,6 +5,7 @@
 **Date:** August 15, 2026
 **Assumes:** small funded team (2–4 developers), TypeScript + PostgreSQL, cloud-agnostic
 **Companion artifacts:** backend prototype (`afrp-platform/`), web member portal, admin console, mobile app prototypes
+**Since 2 October 2026:** the platform is built as the Hub (`plan/MASTER-PLAN.md` §1). Where this document's August assumptions about the Federation's systems have moved, a dated pointer stands beside them. Payments and the books are recorded as practice in `AFRP-Multi-Entity-Ledger.md` §9 and `AFRP-QuickBooks-Integration-Spec.md` §12. The family tree's record and custody are D69 and Q-201.
 
 ---
 
@@ -286,10 +287,10 @@ compared pairwise is 450M comparisons; blocked, it is a nightly job.
 | Breeze API keys | Secrets manager only. `club_breeze_account.api_key_ref` stores a reference, never the key. The schema makes leaking one awkward by construction |
 | PII at rest | Postgres encryption at rest; DOB and address restricted to `staff` scope |
 | Living individuals in the tree | Restricted by default. The lineage endpoint nulls birth/death years for living people and flags `restricted` |
-| Payments | **Never touch card data.** Square hosted checkout only. This keeps AFRP out of PCI scope entirely |
+| Payments | **Never touch card data.** Square hosted checkout only. This keeps AFRP out of PCI scope entirely. *In practice (research, 2 Oct 2026):* the Federation's registration system now uses one card-processing account per entity (AFRP, ARFECF, ARFHSN), and the Hub's card processing is a hosted integration, simulated today behind a production guard (MASTER-PLAN §1a) |
 | Audit | Append-only, 7-year retention |
 | Backups | Daily automated, 30-day retention, **restore tested quarterly**. An untested backup is not a backup |
-| Family tree continuity | The tree is irreplaceable and currently depends on one volunteer's Gmail. Nightly GEDCOM export to object storage, plus offsite copy, from day one |
+| Family tree continuity | The tree is irreplaceable and currently depends on one volunteer's Gmail. Nightly GEDCOM export to object storage, plus offsite copy, from day one. *Since 2 Oct 2026:* D69 makes the Hub the record after a parallel run, with a nightly export under `tree:moderate`. The run needs a production database with backups (P28 §7; MASTER-PLAN §1d). Custody of the master file today is Q-201 |
 
 ---
 

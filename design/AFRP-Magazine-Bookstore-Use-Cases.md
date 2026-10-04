@@ -4,6 +4,8 @@
 **Date:** August 2026
 **Mode:** design only — mockups and use cases, no buildout.
 
+> *Since 2 October 2026:* how the Magazine and the Bookstore actually run is in **P24** (`AFRP-Magazine-Operations.md`, MG1–MG7). P24 covers the issue cycle as run (six issues a year), announcements as they arrive (the correspondent and the editor as assisted doors; obituaries as paid placements), the staff and the absent 6.7.1 board, the subscriber ledger, the Magazine's money, the back-issue register, the **two live stores** (a shop on afrp.org and the "Digital Store" on the CRM's portal), and the Cook Book. Where this note and practice differ, the passages below are kept and carry a dated pointer: the cadence (§0, §1), obituaries (UC-2; Q-193), the product lines and member price (UC-9; Q-199), and cook book sales as ARFECF income (UC-11; Q-197). The digital issue and back issues are Q-196.
+
 ---
 
 ## 0. The magazine is the forcing function
@@ -24,7 +26,7 @@ copy deadline  →  members want to appear  →  members record their events
 build.** Every other data-quality initiative AFRP could run — email campaigns
 asking people to update their profile, staff phoning members, a form on the
 website — competes for attention against everything else in a member's life.
-The magazine doesn't compete. It creates its own demand, three times a year, on
+The magazine doesn't compete. It creates its own demand, three times a year (*six in practice; P24 §2*), on
 a schedule, because the alternative is not being in it.
 
 **The design consequence, and it is not optional:** every printed section must
@@ -39,7 +41,7 @@ magazine stops improving the data.
 | Decision | Consequence |
 |---|---|
 | **Manar and Patron are membership tiers** | Recognition lists come from active memberships at a cut-off date, not from the ledger. Straightforward — but see UC-3 on name handling |
-| **Print and digital, a few issues a year** | Hard deadlines. Copy freeze, proof, press, mail. The hard deadline is exactly what makes the forcing function work |
+| **Print and digital, a few issues a year** (*six in practice; P24 §2*) | Hard deadlines. Copy freeze, proof, press, mail. The hard deadline is exactly what makes the forcing function work |
 | **Professional listings sold by subscription** | Recurring revenue, no artwork production, and it doubles as the RBPN directory. **This is ASC 606 exchange revenue, not a contribution** |
 | **Bookstore ships physical goods** | Inventory, shipping, and sales tax. See §5 — the tax position is the part most likely to be got wrong |
 
@@ -98,6 +100,8 @@ automatic content will consume.
 ---
 
 ### UC-2 — Life events section (weddings, births, graduations, deaths)
+
+*Since 2 October 2026:* in practice obituaries are family-submitted **paid placements** with a tribute. P24 §3.3 keeps the death as a life event under R34's family-approval gate and adds a placement order whose fee is held unposted until Q-193 is answered. Graduations are already a standing type, an announcement on the member's record (P24 §3.1). Submissions come through a city correspondent or the editor as pending assisted submissions (P24 §3.2; Q-195).
 
 **Actor** System, editor · **Trigger** Copy freeze
 
@@ -285,6 +289,8 @@ stops being the only thing AFRP cannot query.
 
 ### UC-9 — Browse and buy
 
+*Since 2 October 2026:* neither live store has back issues, clan books, merchandise, downloads or a member price. Both are US-only and show no stock (P24 §8.1). Which product lines and whether a member price exist is Q-199; the owner of the bookstore is Q-197; sales tax registration is Q-198. P24 §8 reconciles the Hub's catalogue with the two stores (MG7).
+
 **Actor** Member or public · **Trigger** Shop link, or a magazine mention
 
 **Main flow**
@@ -323,6 +329,8 @@ stops being the only thing AFRP cannot query.
 ---
 
 ### UC-11 — Revenue to the ledger
+
+*Since 2 October 2026:* in practice cook book sales are income of the Cook Book fund, which is ARFECF's on D55's evidence (P24 §9; Q-173, Q-197); on the platform nothing posts to or from the fund until its kind and governing text are set (P9 rule 1; P26 §6.2). Each title's holding entity is a row, and orders split by entity are never netted (P24 §8.2). The afrp.org cook book page carries "tax-deductible" donation text. That is practice to correct: a purchase is not a gift (this UC; P24 rule 13).
 
 **Actor** System · **Trigger** Daily close
 
@@ -364,6 +372,8 @@ single other state. The threshold that could plausibly bite is the
 low, order count high.
 
 ### 5.3 The proportionate design
+
+*Since 2 October 2026:* this is the note's proportionate design, not a decision. Whether the Federation is registered to collect sales tax anywhere is unconfirmed (Q-198).
 
 **Do not register in 18 states on day one.** That is months of work and ongoing
 filings for an obligation that probably does not exist.

@@ -25,9 +25,11 @@ which.
    Federation's work on four branches (Education, Leadership, Heritage and Care)
    and proposes priorities for 2026–27. It is not yet adopted. Until the
    committee adopts it, the committee's own draft is the text of record (D44);
-   this site shows it and links to it. The draft is being kept in step with this
-   site, so that what the committee reads and what the site shows do not drift
-   apart.
+   this site shows it and links to it. The draft is the crosswalk as it stood on
+   30 September 2026, and the record has moved since: the family tree's place
+   (D53), seventeen statuses, section J and five of its eight questions. The
+   crosswalk lists where the draft is behind, with the changes that would bring
+   it level ([Q-235](../history/questions.html#Q-235)).
 
 <div class="note">
 <p><b>Sources.</b> The 2018 SWOT; the Strategic Plan 2018–2023 (May 2019); the 2020–21 Recommendations (3 May 2021) and their working papers; the subcommittee task list; the Convention agreement (October 2022); the committee's minutes from 2020 to 2026; the committee SWOT responses (March 2025); the committee's 2026 working draft; and four folders of the Federation's and the affiliates' working files, read in September and October 2026 (the Federation's own folder, ARFECF's, ARFHSN's and the officer archive, 2009–2026). <a href="documents.html">All of them are listed, with links, on the strategy documents page</a>.</p>
@@ -61,7 +63,11 @@ is missing is a shared record of it.
 **Shared services that exist today.** The member database and online
 registration; the giving pages; the newsletter and the Magazine; templates,
 including by-law templates for clubs; and the monthly meeting of club
-presidents. Clubs still keep their own books and mailing tools beside them.
+presidents. Since 2026 the Federation's books and the educational fund's are
+kept in QuickBooks, fed from the member database, and card payments go to one
+processor account for each entity (in practice, research 2 Oct 2026; Q-231,
+Q-232). Clubs still keep their own books and mailing tools beside them, and
+each club is its own legal organisation (Q-227).
 
 **Shared services proposed.** One statement per club for every amount it pays or
 receives through a Federation or affiliate programme (D57); a single way for
@@ -81,7 +87,11 @@ places, each handled separately today:
 6. event amounts due to a club.
 
 Camp rebates, Leadership Ramallah travel shares and club gifts to Care work
-cross the same line through the affiliates. Each element, and what the platform
+cross the same line through the affiliates. So do club relief drives and
+clubs' gifts to Ramallah projects, which the Board in May 2026 asked to go
+through one channel, preferably the Relief Fund (P23 §5; Q-180, Q-228), and
+gifts passed through to the Ramallah Foundation's senior home (P23 Part B;
+Q-203, Q-204). Each element, and what the platform
 does about it, is in [section J of the crosswalk](crosswalk.html).
 
 **The club experience.** How a chapter club lives on the platform, from the
@@ -90,6 +100,8 @@ Club Presidents on [For club presidents](for-clubs.html), and for build
 sessions in the club experience plan (design note P18). Breeze, which about
 ten clubs run today, was read module by module on 1 October 2026; what it can
 and cannot do, and what that changes in the plan, is in the Breeze parity note.
+Whether moving clubs onto Breeze is a Federation programme or each club's own
+choice is [Q-230](../history/questions.html#Q-230).
 
 **The directory.** The Ramallah directory the Federation once printed returns
 in three formats behind sign-in: the members' directory with membership and
@@ -107,7 +119,7 @@ drive.
 ## Every element, one table
 
 The [crosswalk](crosswalk.html) lists every element of the Federation's plans
-(about a hundred of them) with what the platform does about each. You can
+(about a hundred and ten of them) with what the platform does about each. You can
 filter it by goal, by status and by section.
 
 ## What this section does not do

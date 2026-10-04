@@ -15,6 +15,8 @@ only as citations.
 and does not claim to be. Where a rule's wording here was inferred from the
 sentence that cites it, the register says so, and the inference is marked.
 
+**Since 2 October 2026:** the register also holds the family tree's parameter rows that D71 and D72 set. They are in "The family tree, set by decision", with a one-line pointer on each older row that D69–D72 now touch. Those rows are T2-0's record work in `AFRP-Family-Tree-Module.md` (P28) §14.
+
 ---
 
 ## Method, borrowed from the family's own
@@ -60,10 +62,10 @@ survive their author leaving.
 
 | Rule | Statement | Grade | Hub |
 |---|---|---|---|
-| **R7** | Minors never appear in any directory payload. A person with no birth date on file is treated as a possible minor and excluded. | **attested** — stated in the prototype (*"R7 keeps a minor out of every directory, so the household browser shows a count and no names"*) and in the build handoff | ✅ `core/directory.py`, `core/payload.py`; **cited by number**, 18 times |
+| **R7** | Minors never appear in any directory payload. A person with no birth date on file is treated as a possible minor and excluded. *Since 2 Oct 2026:* unchanged by D71. Whether relatives inside one's own branch see a minor's dates on the tree is Q-268. | **attested** — stated in the prototype (*"R7 keeps a minor out of every directory, so the household browser shows a count and no names"*) and in the build handoff | ✅ `core/directory.py`, `core/payload.py`; **cited by number**, 18 times |
 | **R4** | Household composition and club attachment. Cited jointly with R40 on the minor-in-two-households question. | **inferred** — 33 citations, none stating it | ◐ `core.Household` exists; **the two-household case is now half-modelled** — `authority.services.club_attachment` (slice 2b) holds every club the minor's households reach and flags the person OPEN rather than picking one, which is what §6 ratified. The rule that would *resolve* it is still with the Membership Committee under By-Law 4.3.1, so this stays deliberately unfinished. |
 | **R6** | Guardian and delegation authority — who may act for a minor. **Stated in full:** `AFRP-R6-Minor-Authority.md` — four authority paths, seven enumerated powers, supervise designated / release consented, restrictions override, authority lapsing at eighteen, every exercise logged. | **attested** (8 Sep 2026) — the paths decided by David Saah; the power set, the supervise/release split, the restriction model and the two routed answers **ratified as drafted, without amendment**, by the Membership Committee, Camp Ramallah and the Legal Advisor, each on its own sections. Provenance in that document's table. | ✅ **`authority/` (slice 2b, 8 Sep 2026)** — `services.may(adult, minor, power)` is the one gate; `paths_for` resolves P1–P4, `can_transact_for` wraps the `transact` power, `standing_holders` bounds who may write a release list, `exercise` logs every use with its path. **Restrictions are checked before the paths**, so a new path cannot silently outrun them. `club_attachment` holds both and picks neither. R7 is untouched: no power reaches a directory payload, asserted in both the service and screen tests. |
-| **R34** | A death is a life event with a family-approval gate; the deceased are withheld from the directory. | **attested** — stated in the prototype | ◐ `LivingGuardedModel` terminates the record; **no approval gate** — the platform never announces a death, and nothing in the Hub implements who approves |
+| **R34** | A death is a life event with a family-approval gate; the deceased are withheld from the directory. *Since 2 Oct 2026:* a life event is proposed only by a member in current national standing (D70). One committee approval applies an own-household life event (D72). The family-approval gate for a death is slice T2f (P28 §8). | **attested** — stated in the prototype | ◐ `LivingGuardedModel` terminates the record; **no approval gate** — the platform never announces a death, and nothing in the Hub implements who approves |
 | **R27** | Per-field visibility is a consent. The room and the archive both honour it; moderation logs never de-anonymise; **a retraction is a new entry, never an edit** (with S5). | **attested** | ◐ per-field audiences exist in `memberdir`; retraction-as-new-entry does not |
 
 ### Money and the multi-entity ledger
@@ -94,6 +96,20 @@ is their fuller statement.
 | **R16** | During a club migration only the migrating club's membership is touched; the other membership and the club-of-record pointer move **only if the member acts** (with R2). | **attested** | ❌ no migration module |
 | **R39** | Exact grants — five sensitive permissions at their strictest. **Federation scope does not read into the ARFHSN store.** | **attested** | ✅ `access/policy.py` (policy.ts ported verbatim), `access/services.requires` on every federation view; `access/tests.py` locks the reach matrix and exact-scope sensitivity. The staff flag now opens only the Django admin |
 | **R2** | Cited with R16 on migration; the Hub uses "R2" for a different rule (no real living person in fixtures). | ⚠ **collision** — see below | ✅ under the Hub's own meaning |
+
+### The family tree, set by decision (2 October 2026)
+
+These rows are not reconstructions. Their source is the Decisions Register itself, so their grade is **decided**, a grade outside the reconstruction's scale above. Each value is changed only by a dated act under a citation, never by an edit to this table.
+
+| Row | Statement | Set by | Value | Hub |
+|---|---|---|---|---|
+| **Tree radius** | A signed-in member sees the living in full inside their own branch: blood relatives sharing an ancestor no further back than the radius, and the spouses of those relatives. Outside it, a living person shows a name and a position on the plate only. Own branch runs along blood links only; a step or adoptive link never widens it. D28 is unchanged: signed out, nothing about the living. | **D71** (amends D17 and answer 22 of `plan/QUESTIONS-FOR-DAVID.md`); read by **D76** | **Great-great-grandparent.** A change is a dated act of the Board or the Family Tree Committee under a citation (P28 §2). The radius reaches third cousins. D71's parenthesis ("out to second cousins") disagreed with this value; *since 3 Oct 2026* D76 reads it as an error and the great-great-grandparent stays (Q-272 answered). | ❌ not built; slice T2a puts the branch in the payload (P28 §5, §11) |
+| **Tree approval tiers** | One committee approval (`tree:moderate`) applies an own-household life event or a non-structural correction. Two approvals from **different** committee members apply a structural change. Clan stewards, appointed by the committee, pre-review and recommend for their clan and never approve. Every life event still queues (D14, D31). | **D72** (amends D14's mitigations); **D79** for the second key-holder | One key, or two different keys. A structural item with one key records it and waits. The second holder of `tree:moderate` is a Family Tree Committee member seated by the committee's own act (FT2), chosen over the project's lead (answer 31) (D79, 3 Oct 2026). Steward appointment, number and term are Q-263. A committee's quorum in general is Q-52. | ❌ not built; slice T2c (P28 §4.2) |
+| **Structural kinds** | The list of change kinds that need two keys under D72. | **D72**; set by **D81**; the Family Tree Committee may amend it by a dated act | **Set by D81 (3 Oct 2026; Q-264).** A parent link added, changed or removed; two records merged; a branch moved; a person removed or marked removed; a clan assignment changed; a sex recorded differently; a link's grade raised. Every other change is non-structural (P28 §6). *(Until D81 this row read "Unset (Q-264)", with P28 §6's list shown as a proposal.)* | ❌ not built; slice T2c |
+
+**Pointers from D69 and D70, which set no parameter of their own here.**
+- D69 makes the Hub the record of the tree after a parallel run of 30 to 60 days. The run's start, length and end are the committee's dated acts, and nightly exports run under `tree:moderate` (P28 §4.3; slice T2d). Changes in the run are audited committee edits, with conflicts held and never merged, which is R24's and R27's never-edit-the-original shape applied to the tree.
+- D70 bounds who may propose: members in current national standing. No account exists for non-members to contribute, so Q-259 is answered for the platform. Standing is read with `standingAt` per scope (4.3.1).
 
 ### Numbers that are cited but say nothing
 
@@ -173,7 +189,7 @@ renamed to AFRP-Portal or never pushed.
 `RULES.md` is recovered, **this register is superseded and should be deleted, not
 merged** — a reconstruction has no standing beside its source.
 
-**Five design documents named by the build handoff remain unlocated**:
+**Five design documents named by the build handoff remain unlocated** *(since 2 Oct 2026: all five are now in this repository's `design/` directory)*:
 `AFRP-Family-Tree-Design.md`, `AFRP-Decisions-Register.md`,
 `AFRP-Camp-Directory-Network-Plan.md`, `AFRP-Test-Fixture-500.md`,
 `AFRP-Program-Experience-Architecture.md`. Two of them are now partly recoverable
@@ -189,6 +205,8 @@ of which is the design document, and both of which are described below.
 Recorded here because two sessions have now called it "blocked" while material
 sat unexamined. It is not blocked for want of data. It is blocked for want of a
 **design** that says how the tree becomes the platform's identity substrate.
+
+*Since 2 October 2026:* the design is D68–D74 and P28 (`AFRP-Family-Tree-Module.md`), with P27 for the migration from practice. D68 carries the grade on every limb of the plate (P28 §3.2), which is the point the first bullet below makes. The rows this register holds for it are in "The family tree, set by decision" above.
 
 **`AFRP-History` (public, on disk)** — *The One Line*, by David Saah and John
 Mogannam. A book built deterministically from sources: sixty-six generations from

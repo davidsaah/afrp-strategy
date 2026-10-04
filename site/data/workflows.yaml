@@ -13,6 +13,11 @@
     who: Applicant
   - step: Pay once at checkout; a payment carrying national and club dues splits at capture
     who: Applicant; platform posts
+  - step: A contact who joins confirms the contact record is theirs; the membership is added and each role keeps its own consents;
+      no role consent becomes a member consent (P21 §7.2)
+    who: Applicant; platform
+  - step: Offer 'Find yourself on the family tree'; skipping is a complete answer (D73; P28 §4.4)
+    who: Applicant or member
   - step: Receive AFRP's receipt and a first-login checklist (household, consent, directory, tree)
     who: Platform
   - step: Renew each scope on its own clock; grace is shown as grace, never rounded to current
@@ -52,6 +57,8 @@
   - Whether the wedding benefit should cover club dues or national only (Four-Lens §12).
   - Whether someone can be a national member with no club; the at-large roll is still open (D5).
   - Whether the free student membership has an age or enrolment limit (Scholarship spec §11).
+  - Dues recognition, when paid or deferred, for the outside CPA (Q-233).
+  - A club member eligible under the club's own wider rule and not under By-Law 4.1.1 (Q-226).
   deep_dive:
   - AFRP-Platform-Experience.html
   - AFRP-Unified-Member.html
@@ -68,6 +75,10 @@
   - design/AFRP-Four-Lens-Architecture.md §1.1
   - plan/MASTER-PLAN.md §1a
   - docs/AFRP-Platform-Experience.html §J01, §J02
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §7.2
+  - design/AFRP-Family-Tree-Module.md (P28) §4.4
   owner: shared — the Federation runs the one front door; clubs collect and hold club dues as agent (D1)
   could_share: The Arabic term's non-member purchase (D60) is a new caller of the same payment door
   trigger: A person applies to join, or a membership scope reaches renewal
@@ -81,6 +92,15 @@
     Whether the restatement was adopted is unknown (Q-33).
   - The 2024 by-laws make club dues part of good standing; no document says whether a member may opt out of local dues, and
     one club collects national and local dues separately (the Federation's club records; Q-36, the rule stays D1).
+  - 'In practice (research, 2 Oct 2026): membership runs on the calendar year with auto-renewal; dues are recognised when
+    paid, and the books carry an unused deferred-dues account (Q-233). No account on either side of the chart carries club-collected
+    national dues (Q-36).'
+  - 'In practice (research, 2 Oct 2026): the current registration system creates a staff-vetted account before any membership
+    is bought, with a profile (club, date of birth, occupation, address) and no consent row; that account is the largest set
+    of non-members the Federation holds, and its occupation field has been used for outreach. D60''s contact record is narrower
+    (Q-70, Q-236).'
+  - 'In practice (research, 2 Oct 2026): at least one club''s 2026 draft by-laws admit members more widely than By-Law 4.1.1;
+    what such a member''s standing is on the platform is not written (Q-226).'
 - key: remittance-ledger
   name: Club remittance and the ledger
   summary: National collects once and remits club money on a periodic run. The ledger posts gross, closes daily as an idempotent
@@ -100,6 +120,9 @@
     who: National treasurer
   - step: Reconcile collections to remittance; a variance opens a queue item with an owner and a clock
     who: National staff
+  - step: Settle each affiliate's 'due to' balance (ARFECF, ARFHSN, the Ramallah Foundation) to that affiliate — in practice
+      (research, 2 Oct 2026) the books carry these balances and the cadence and approver are not written (Q-232)
+    who: Executive Administrator (bookkeeper); General Fund Treasurer
   branches:
   - all
   programmes: []
@@ -124,15 +147,19 @@
   - elections-voting
   - convention
   - club-share
+  - relief-disbursement
   handoff_notes:
   - 'ledger → reporting: the daily close feeds giving and fund views on the federation dashboard'
   - 'ledger → club share: the remittance is one line on the club''s single statement; the remittance rule stays D1 (D57)'
   - 'ledger → voting: standing keys to the collection date, so a slow-remitting club cannot disenfranchise members (D1-D)'
   - 'ledger → convention: delegate standing is verified against the club remittance ledger, not self-attested'
+  - 'ledger → affiliates: each affiliate purpose collected through AFRP is a ''due to'' balance until settled (D56; Q-232)'
   open:
   - The CPA's written answer on agency versus revenue informs each club's treatment; it is not yet on file.
   - Who bears the processing fee, and the remittance cadence and minimum (Multi-Entity Ledger §8).
   - How many clubs keep books, and on what (Multi-Entity Ledger §8).
+  - Which CPA countersigns the agency treatment (Q-3, Q-231).
+  - The cadence and approver for settling the affiliates' 'due to' balances (Q-232).
   deep_dive:
   - AFRP-Unified-Operations.html
   - AFRP-Deep-Club-Management.html
@@ -147,6 +174,8 @@
   - design/AFRP-Delivery-Status.md §Slice D1
   - design/AFRP-QuickBooks-Integration-Spec.md
   - design/AFRP-Decisions-Register.md §Decision 57
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
   owner: Federation — the national treasurer produces the run and an Executive Committee officer approves it (D1)
   could_share: Every other club amount, on the one club statement (D57)
   trigger: Each collection; the daily close; the periodic remittance run
@@ -160,6 +189,17 @@
   - D1 holds club-collected AFRP dues as agent and remits by run; no written remittance rule appears in the Federation's records
     since 2009, and the current member database computes a "due to local club" amount on event payments with no written rule
     behind it (Q-36).
+  - 'In practice (research, 2 Oct 2026): since 2026 card payments run through one processing account per entity (AFRP, ARFECF,
+    ARFHSN), replacing one AFRP account with transfers by hand; the registration system''s pay links name the receiving entity''s
+    processor profile; QuickBooks Online holds AFRP''s and ARFECF''s books, fed from the registration system. AFRP''s chart
+    holds each affiliate purpose collected on the affiliate''s behalf as a ''due to'' liability — D1''s agency treatment and
+    D56''s one door then remit, in the books for affiliates though not yet for club dues (Q-232).'
+  - 'In practice (research, 2 Oct 2026): the only club-share figure in any system is the registration system''s per-payment
+    ''due to local club'' (the payment less the discount and the card cost); it is not a remittance or a settlement (Q-36,
+    Q-127).'
+  - 'In practice (research, 2 Oct 2026): four roles answer to ''the CPA'': the outside firm that reviews or audits and files,
+    the General Fund Treasurer, a volunteer financial adviser and the bookkeeper. Which countersigns D1''s treatment
+    is Q-231.'
 - key: giving-funds
   name: Giving, restricted funds and the endowment
   summary: Gifts land in named funds held by the right entity, with restriction set only by donor designation. Funds such
@@ -171,9 +211,15 @@
     who: Donor
   - step: Receipt a ticket as a purchase and any gift beyond it as a deductible gift, by the receiving entity (D9)
     who: Platform
-  - step: Collect gifts to the Medical Mission and Human Services Network funds as ARFHSN's agent and forward them; the receipt names
-      ARFHSN (D56)
+  - step: Collect gifts to the Medical Mission and Human Services Network funds as ARFHSN's agent and forward them; the receipt
+      names ARFHSN (D56)
     who: Platform; Federation treasurer
+  - step: Pass a gift collected for an outside body (the Ramallah Foundation's senior home) on to that body — in practice
+      (research, 2 Oct 2026) ARFECF books it as a restricted gift received and released; which entity receipts it is Q-204.
+      On the platform the purpose states the receiving entity, the pass-through and the transfer schedule before payment,
+      carries the honoree and any recognition request to the Foundation, and does not publish while its entity is unset (P23
+      §9.2, §9.3)
+    who: Educational Fund Treasurer; Executive Administrator
   - step: Attribute a gift to a club where the donor or the appeal names one (D57)
     who: Platform
   - step: Authorise raising in another entity's name from a purpose catalogue; a new purpose goes to that entity's board (D8)
@@ -191,6 +237,7 @@
   - women-to-women
   - senior-living
   - preservation-project
+  - relief-fund
   services:
   - funds-ledger
   - directory-comms
@@ -208,24 +255,33 @@
   - D57
   status: Partly built
   status_note: The public giving door (J12) and ARFECF fund boundaries are built. Rows for the four contributor moments, surplus-before-payment,
-    the purpose catalogue, Senior Living pledges and club giving (B3, gated) are not built.
+    the purpose catalogue and club giving (B3, gated) are not built; Senior Living pledges are unoperated (P23 §9.7; Q-203).
   hands_to:
   - remittance-ledger
   - communications
   - reporting
   - care-grants
   - club-share
+  - relief-disbursement
+  - women-to-women-grants
+  - scholarship-renewal
   handoff_notes:
   - 'giving → ledger: gifts post gross by fund; reversals run through receivables (R20, R25, S3)'
   - 'giving → care grants: money given to a Care fund leaves it only through a Care grant (D63)'
   - 'giving → club share: a gift carrying a club attribution shows on that club''s statement (D57)'
   - 'giving → comms: the four contributor moments, then an annual statement (D10)'
   - 'giving → reporting: lapsed donors surface as a report that asks for a call (JF-003)'
+  - 'giving → relief: a relief gift posts to AFRP, which holds the Relief Fund (D83); its receipt''s deductibility text waits
+    on the CPA (D9), and ARFECF''s booking of the fund is a reconciliation item (P11 §4; Q-109)'
+  - 'giving → named scholarships: a donor sees which award carries the name, by count, never the scholar (Q-102)'
   open:
   - The Endowment Fund Policy Statement and the 2015 Scholarship Fund Policy Statement are not on file; the cap-versus-floor
     spend rule is unsettled.
   - ARFECF's exempt-status determination letter is not on file; exempt-status claims on receipts wait on it.
   - Whether clubs take gifts through the platform onto their own books (Breeze Parity §5 q3).
+  - Whether the Relief Fund is a purpose on the public giving page now (Q-208).
+  - An endowed fund for Women to Women inside ARFHSN (Q-210).
+  - Which entity receipts a senior-home gift made through the Federation (Q-204).
   deep_dive:
   - AFRP-Unified-Member.html
   - AFRP-Unified-Operations.html
@@ -241,6 +297,12 @@
   - design/AFRP-Family-Tree-Integration.md §D40
   - design/AFRP-Program-Architecture.md §3
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Fund-Rules.md (P9) §2, §6
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) §9
+  - design/AFRP-Scholarship-Awards.md (P26) §5
+  - design/AFRP-Contact-Record.md (P21) §9 (the giver role)
   owner: shared — each fund's holding entity receipts and holds its gifts (D9, D55, D56)
   could_share: Care grants spend what it collects; the club statement counts club-attributed gifts (D57)
   trigger: A donor gives, pledges or answers an appeal
@@ -261,6 +323,17 @@
     after 2013 (the Federation's officer records).
   - D8 requires a purpose catalogue for raising in another entity's name; emergency appeals in 2020 and 2023 were set up ad
     hoc (ARFHSN board minutes).
+  - 'In practice (research, 2 Oct 2026): the Senior Living Project is the Ramallah Foundation''s capital project; gifts through
+    the Federation reach the Foundation through ARFECF, a Convention-voted ARFECF budget line paid it, and the public instruction
+    today is a cheque to the Foundation. No pledge was ever held in a Federation system (Q-203, Q-204; JP-032 describes nothing
+    operated).'
+  - 'In practice (research, 2 Oct 2026): Women to Women gifts and a project payment appear in ARFECF''s books for one year,
+    against D55''s sub-fund of ARFHSN (Q-212). An endowed fund for Women to Women was asked for in September 2026; the CPA''s
+    view is that it stays in ARFHSN''s investment accounts, and the AFRP President asked that no new endowed fund be made
+    before one fundraising strategy exists (Q-210).'
+  - 'In practice (research, 2 Oct 2026): the public giving page offers no Relief Fund purpose (Q-208); D8''s purpose catalogue
+    does not yet hold the wording of past appeals as published (Q-218); a public statement that all donations go to programmes
+    sits beside insurance, CPA and card-fee costs in ARFHSN''s books (Q-215).'
 - key: events
   name: Events and registration
   summary: One event row seen by the member, the club, the programme and the federation. Each event carries one scope; its
@@ -294,10 +367,10 @@
   - R26
   - S3
   status: Partly built
-  status_note: 'Member registration, household registration and club events with door check-in and attendance (B2) are built.
+  status_note: Member registration, household registration and club events with door check-in and attendance (B2) are built.
     Member QR check-in, banquet seats as inventory and volunteer roles (B2b) are not built; the deep read of Breeze (1 October
-    2026) adds to B2b a self check-in kiosk, check-out times, an anonymous headcount beside named attendance, volunteer
-    reminders and the volunteer''s own blockout dates (Breeze Parity §1a).'
+    2026) adds to B2b a self check-in kiosk, check-out times, an anonymous headcount beside named attendance, volunteer reminders
+    and the volunteer's own blockout dates (Breeze Parity §1a).
   hands_to:
   - remittance-ledger
   - club-management
@@ -308,6 +381,7 @@
   - 'events → giving: a fundraising ticket is non-deductible; a gift beyond it is receipted separately (D9)'
   open:
   - Whether any club uses printed child security codes today (Breeze Parity §5 q5).
+  - Which door counts for attendance when an event registers outside the platform (Q-181).
   deep_dive:
   - AFRP-Deep-Club-Activities.html
   - AFRP-Unified-Member.html
@@ -320,6 +394,9 @@
   - design/AFRP-Breeze-Club-Parity.md §3
   - design/AFRP-Delivery-Status.md §Slice B2
   - design/AFRP-Rules-Register.md §Money and the multi-entity ledger
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Convention-Operations.md (P22) §5
   owner: shared — clubs, programmes and the Federation each host events, one scope per event (R23)
   could_share: Medical Mission trips (an invited roster, no fee), Arabic classes, the Mid-Year and the Day of Action
   trigger: An organiser publishes an event
@@ -329,21 +406,32 @@
   money: Ticket purchases routed by the event's host; gifts beyond a ticket receipted separately
   module: events, payments
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): RBPN''s 2026 speaker series registered through a Microsoft Teams event, outside the
+    member portal and the registration system; which door counts as attendance is Q-181.'
+  - 'In practice (research, 2 Oct 2026): the Mid-Year registration did not ask at least one 2026 registrant for dues; the
+    membership-mandatory gate does not always fire today (Q-225).'
 - key: convention
   name: The Convention
   summary: 'The junction where all four branches meet once a year: registration, credentialing, the governance floor, the
     participant layer and the financial close.'
   steps:
-  - step: Register self and household; membership is mandatory for attendees
+  - step: Award the Convention to a qualified bidding club two years ahead; a region that fields no qualified bid forfeits
+      its turn (By-Law 10.1.1, as the Legal Advisor read it for 2028 — in practice, research, 2 Oct 2026; P22 §3.1; Q-240);
+      one qualified bid by voice or hands (9.1.2), two by a weighted delegate vote (9.1.1(2))
+    who: General Assembly
+  - step: Register self and household; membership is mandatory for attendees; a non-member guest is a line on the registration
+      with a credential class, not a contact (P21 §2; Q-238)
     who: Member
-  - step: Select delegates and file the club roster by live feed or dated manual roster
+  - step: Select delegates and file the club roster by live feed or dated manual roster; how a club chooses its delegates
+      is not written (9.1.3) and is recorded as a dated act (P22 §6; Q-37)
     who: Club officer
   - step: Credential delegates against standing on the remittance ledger and freeze the roll
     who: Credentials committee (time-boxed grant)
   - step: 'Record the host agreement: the Federation''s share, the holdback, the settlement date, the liaison and each side''s
       obligations'
     who: Convention committee; host club president
+  - step: Check in delegates and members at the desk; presence feeds the floor's weights (9.1.3; P22 §5.4, §6)
+    who: Federation office desk; host volunteers on a time-boxed grant
   - step: Run the floor with weighted delegation; weights freeze when voting opens on a motion (S4)
     who: Presiding officer; elections officer
   - step: Post stamped announcements and answer the help desk, owned and clocked
@@ -352,7 +440,8 @@
     who: Convention organisers
   - step: Close the books; who bears a deficit reads from that year's host agreement (D59)
     who: Federation treasurer
-  - step: Settle with the host club within the agreed period and issue the settlement statement
+  - step: Settle with the host club within the agreed period and issue the settlement statement; the close runs as its own
+      workflow (Convention close and host payment)
     who: Federation treasurer
   branches:
   - junction
@@ -374,26 +463,33 @@
   - D59
   status: Designed
   status_note: The floor and election consoles exist; the Convention element (registration desk, credentialing, room block,
-    on-site run, money) is not built and is scheduled as its own project.
+    on-site run, money) is not built; it is designed in P22 (`AFRP-Convention-Operations.md`, CV1–CV8) between P8 and P13.
   hands_to:
   - elections-voting
   - remittance-ledger
   - magazine
   - partner-agreements
   - club-share
+  - convention-close
   handoff_notes:
   - 'convention → voting: the certified roll frozen at record date drives delegate weight (R12)'
   - 'convention → agreements: the host agreement is on the agreements register with its terms (D59)'
   - 'convention → club share: the settlement with the host club shows on that club''s statement (D57, D59)'
   - 'convention → ledger: convention money is federation money at the first dollar (D1-G)'
   - 'convention → magazine: statutory notices are computed back from the convention date'
+  - 'convention → close: the reconciliation, approval and payment to the host run in the close workflow (Q-221)'
   open:
   - Which convention is the target date for registration and check-in (Four-Lens §12 q8).
-  - Exhibitor and press as non-attendee credentials await board confirmation; deficit responsibility now reads from each
-    year's host agreement (D59).
+  - Exhibitor and press as non-attendee credentials await board confirmation; deficit responsibility now reads from each year's
+    host agreement (D59).
   - 'The Federation''s share: the agreement, a 2021 resolution, a 2024 General Assembly vote and a split under discussion
     differ (Q-34, now D59 sets the agreement as the rule)'
   - 'Decision 5 (the two 9.1.3 drafts: weights fix at opening; the at-large roll) is open.'
+  - Mid-Year registration and the membership-mandatory gate (Q-225).
+  - A Federation-hosted Convention abroad and its gates (Q-223).
+  - The forfeiture sentence of By-Law 10.1.1 (Q-240).
+  - The Annual Meeting without a Convention, and dues paid with a cancelled registration (Q-244).
+  - Who coordinates Convention and Mid-Year sponsorship (Q-245); the tax character of sponsorships and booths (Q-242).
   deep_dive:
   - AFRP-Deep-Convention.html
   - AFRP-Convention.html
@@ -408,6 +504,10 @@
   - plan/MASTER-PLAN.md §2 (blocked row)
   - design/AFRP-Family-Tree-Integration.md §D38
   - design/AFRP-Decisions-Register.md §Decision 59
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Convention-Operations.md (P22) §3–§8, §11
+  - design/AFRP-Contact-Record.md §2 (P21)
   owner: shared — the Federation and the host club under that year's host agreement (D59)
   could_share: The Mid-Year runs on the same host agreement and settlement (D59)
   trigger: A host club is set for the year's Convention
@@ -421,10 +521,24 @@
   - The 2009 convention contract set the Federation's share by host size and was never signed; a 2021 resolution set one flat
     share; the 2024 General Assembly voted a different one; the Convention Innovation Committee is discussing a split (Q-34;
     D59 now makes each year's host agreement the rule).
-  - The host agreement template (2022) has the host pay keynote costs; a 2026 keynote agreement has the Federation paying (the
-    Federation's convention records).
-  - The 2024 by-laws credential delegates; in practice per-club voting lists are produced from the member database and no certification
-    step is written (Q-37).
+  - The host agreement template (2022) has the host pay keynote costs; a 2026 keynote agreement has the Federation paying
+    (the Federation's convention records).
+  - The 2024 by-laws credential delegates; in practice per-club voting lists are produced from the member database and no
+    certification step is written (Q-37).
+  - 'In practice (research, 2 Oct 2026): the 2026 books were reconciled under a revised host agreement the Board''s minutes
+    mention and no folder holds (Q-93); the close is described in its own workflow (Q-221, Q-222).'
+  - 'In practice (research, 2 Oct 2026): the host coordinator''s role in today''s registration system holds every guest''s
+    contact details with an export, seating control and a payment-by-payer report; the design''s scoped grant (P13 §2.4) is
+    narrower (Q-127).'
+  - 'In practice (research, 2 Oct 2026): the Legal Advisor described delegate voting in May 2026: each community certifies
+    its paid members, those members vote on delegates, delegates cast the votes, and a member present may vote in person with
+    the vote deducted from a delegate''s total. The quorum rule and how a community''s vote is held are unwritten (Q-37).'
+  - 'In practice (research, 2 Oct 2026): the Mid-Year guideline (2020–21) has the Executive Committee select the host and
+    approve a sharp fee rise in writing; in 2026–27 the Board chose the host after quotes, the Federation signed the hotel
+    contract, and sponsorship was raised by committee members by region and processed through ARFECF (Q-92, Q-224).'
+  - 'In practice (research, 2 Oct 2026): a 2029 Convention in Ramallah is under review against a requirements checklist with
+    gates and a GO / HOLD / RELOCATE / POSTPONE / CANCEL decision; a Federation-hosted Convention abroad is a model the templates
+    do not carry (Q-223).'
 - key: elections-voting
   name: Elections and voting
   summary: Secret ballots with a one-time inclusion receipt and recorded ballots for motions, on one engine. The electorate
@@ -440,6 +554,10 @@
     who: Member
   - step: Honour a paper request by closing the electronic ballot for that voter
     who: Elections officer
+  - step: At the Convention, run the Convention city as a delegate vote where two qualified bids stand (9.1.1(2)) and by voice
+      or hands where one stands (9.1.2); only delegates checked in at the desk carry a weight and only a present certified
+      member may extract (P22 §6's reading of 9.1.3's 'delegates sent'; Q-37)
+    who: Presiding officer; elections officer
   - step: Count with two key-holder shares after close; no interim count exists
     who: Key-holders
   - step: Certify the result against a hash
@@ -469,6 +587,7 @@
   - By-Law 9.2 amendment for digital voting awaits ratification; the 2024 mailed process is still the law (D4).
   - 'Decision 5 is open: when extraction stops, and where at-large members are counted.'
   - Proxy voting and tie-breaking rules (Four-Lens §7.5).
+  - Seats held before the platform, attested for a candidate's service record (P25 §3; Q-252).
   deep_dive:
   - AFRP-Unified-Operations.html
   - AFRP-Governance-Mobile.html
@@ -484,6 +603,10 @@
   - design/AFRP-Four-Lens-Architecture.md §7
   - design/AFRP-Decisions-Register.md §Decision 4, §Decision 5
   - design/AFRP-Rules-Register.md §Governance, franchise and reporting
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Selection-Committee-Workflow.md (P5) §3.8, §3.9
+  - design/AFRP-Convention-Operations.md (P22) §6
   owner: Federation — the elections officer runs AFRP elections on the 2024 by-laws (D4)
   could_share: The three Scholarship Committee seats elected at the Convention (D58); the AFRP Board's poll on ARFHSN by-law
     amendments
@@ -494,8 +617,11 @@
   money: None
   module: voting, rules, bylaws
   rule_vs_practice:
-  - The 2024 constitution amends by a two-thirds delegate vote; the 2026 restated draft amends by Board vote. Whether the restatement
-    was adopted is unknown (Q-33).
+  - The 2024 constitution amends by a two-thirds delegate vote; the 2026 restated draft amends by Board vote. Whether the
+    restatement was adopted is unknown (Q-33).
+  - 'In practice (research, 2 Oct 2026): the Legal Advisor''s reading (May 2026) is that only the General Assembly may amend
+    the by-laws, that changes are published at least sixty days before the vote, and that there is no process for calling
+    a special meeting; the 2026 restatement was taken off the Convention''s agenda and not voted (Q-33).'
 - key: bylaws-rules
   name: By-laws and the rules register
   summary: By-law parameters, mechanisms and thresholds are versioned data per entity. Where the text is silent the platform
@@ -534,6 +660,8 @@
   - Decision 5 (the two 9.1.3 drafts) needs an answer.
   - Four of the six "who counts as family" questions under By-Law 4.1.1 are unanswered.
   - Board Rules & Regulations (the dues-ladder authority) are not on file.
+  - Which ARFHSN text is operative on the day the Hub seats the Care lens (Q-220).
+  - The budget's approval path (Q-234).
   deep_dive:
   - AFRP-Ruleset-Workbench.html
   - AFRP-Institutions.html
@@ -544,6 +672,8 @@
   - design/AFRP-Bylaw-Flexibility.md §1, §4, §5
   - design/AFRP-Rules-Register.md §The register, §The six open questions
   - design/AFRP-Decisions-Register.md §The conforming-amendment package
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
   owner: shared — each entity's ruleset is versioned for that entity (AFRP, ARFECF, ARFHSN)
   could_share: No change
   trigger: A governing document is adopted, amended or found
@@ -555,23 +685,42 @@
   - The ruleset treated the ARFECF region map and the cap on overlap with the AFRP Board as absent from the text; the ARFECF
     by-laws as revised in 2015 contain both (now superseded by text).
   - ARFHSN By-Laws Art. VI set up a standing grant committee; it is not seen in ARFHSN's board minutes.
+  - 'In practice (research, 2 Oct 2026): ARFHSN''s by-laws are being revised (counsel''s draft, a four-trustee review committee,
+    then the AFRP Board); the 2017 text is operative until the AFRP Board votes (Q-220). ARFHSN''s state filing lists six
+    officers and directors with a President against fourteen trustees and a Chairman in the by-laws (Q-2).'
+  - 'In practice (research, 2 Oct 2026): the Legal Advisor found no defined process for passing a budget; the General Assembly
+    approves it by practice (Q-234).'
 - key: tree-life-events
   name: Family tree and life events
-  summary: 'The tree sits on the Heritage branch, and every member has a node on it and the platform resolves people through it. Births, marriages,
-    graduations and deaths queue for the Family Tree Committee before anything changes.'
+  summary: The tree sits on the Heritage branch, and every member has a node on it and the platform resolves people through
+    it. Births, marriages, graduations and deaths queue for the Family Tree Committee before anything changes.
   steps:
-  - step: Find a line by the oldest ancestor you can name; propose any change
-    who: Member
+  - step: Open a plate in the book's grammar (D68) and find a line by the oldest ancestor you can name; draft changes in edit
+      mode and submit the sitting as one bundle (D21, D70; P28 §4.1)
+    who: Member in current national standing
+  - step: At join or renewal, offer 'Find yourself on the family tree'; a link proposal queues and the node stays unattached
+      meanwhile; skipping is a complete answer and no membership decision reads the node (D73, D30; P28 §4.4)
+    who: Applicant or member
   - step: Declare a life event; R6 decides who may declare about a minor
     who: Member or household adult
   - step: Queue the declaration; the queue triages itself, unsourced structural claims first
     who: Platform
-  - step: Decide, send back for information, or reject; only then does the record change
+  - step: Pre-review and recommend for the clan; never approve (D72)
+    who: Clan steward
+  - step: Decide, send back for information, or reject; only then does the record change. One approval applies an own-household
+      life event or a non-structural correction; a structural change needs two approvals from different committee members
+      (D72)
     who: Family Tree Committee
   - step: 'Fan out on acceptance: node, household, offers, magazine hold, heritage layer'
     who: Platform
-  - step: Import a GEDCOM only after its diff preview; an import never deletes anyone
-    who: Genealogy moderator
+  - step: 'Import the record keeper''s GEDCOM only through the diff preview, against the Hub''s current version, during D69''s
+      parallel run: a change touching nothing changed in the Hub applies as an audited committee edit, a change made on both
+      sides is held as a conflict; an import never deletes anyone. After the run an external import is refused naming D69
+      (P28 §4.3)'
+    who: Family Tree Committee (tree:moderate)
+  - step: Write a GEDCOM backup to private storage every night, each a dated row; a failed night shows on the committee console
+      (D69; P28 §4.3)
+    who: Platform
   branches:
   - heritage
   programmes:
@@ -581,7 +730,6 @@
   - membership-standing
   - magazine
   decisions:
-  - D11
   - D12
   - D14
   - D16
@@ -595,25 +743,48 @@
   - D35
   - D36
   - D37
+  - D68
+  - D69
+  - D70
+  - D71
+  - D72
+  - D73
   - R6
   - R34
   - S2
+  - D21
   status: Partly built
-  status_note: Node, hourglass, committee queue, life-event pipeline and mailings are built (slices T1a–T1c). Per-subject
-    photo consent and "how am I related" are not built; the death approval gate is not in the Hub.
+  status_note: Node, hourglass, committee queue, life-event pipeline and mailings are built (slices T1a–T1c). *Since 2 October
+    2026:* the plate replaces the hourglass as the default view (D68 supersedes D27); since 3 October 2026 the hourglass
+    stays available as an alternative view (D77), drawn in the plate grammar (D80). Per-subject photo consent and "how am I related" are not built; the death approval gate is not in the Hub. P28
+    (`AFRP-Family-Tree-Module.md`, 2 Oct 2026) designs D68–D74 as slices T2a–T2h — the plate, proposals by members in standing,
+    stewards and two keys, find yourself at join, the parallel run, then the magazine, directory and Heritage integrations;
+    P27 (`AFRP-Family-Tree-In-Practice.md`) designs the migration from today's practice.
   hands_to:
   - magazine
   - join-renew-dues
   - directory-consent
   - scholarship-cycle
+  - tree-submission
+  - magazine-announcements
   handoff_notes:
-  - 'tree → magazine: a birth announcement runs on household consent; a death is held until the family approves (D33)'
+  - 'tree → magazine: a birth announcement runs on household consent (D33); a death is held until the family approves (R34)'
   - 'tree → membership: a death terminates memberships at save; incentives are offered, never auto-granted'
-  - 'tree → directory: the deceased are withheld; living people show no dates signed out (R34, D28)'
+  - 'tree → directory: the deceased are withheld; living people show no dates signed out (R34, D28); signed in, the living
+    show in full only inside the viewer''s own branch (D71, out to third cousins by D76); the directory integration comes
+    after magazine and life events (D78), and its place against Heritage is Q-265'
   - 'tree → scholarship: relationships the tree can see are disclosed with their degree on review'
   open:
   - Adoption has no decision; an adoptive link is recorded as non-lineage and nothing is inferred.
   - Three By-Law 4.1.1 spouse questions and the club attachment of a minor in two households are open.
+  - Whose licence and account hold the master file, and on what terms the Federation holds the tree before D69's parallel
+    run (Q-201).
+  - Clan stewards (Q-263), and the order of directory and comms and Heritage after magazine and life events (Q-265; D78
+    set magazine and life events next). The second key-holder is answered by D79 (Q-262); the structural kinds are set by
+    D81 (Q-264).
+  - Whether relatives inside one's own branch see minors' dates (Q-268); the grade vocabulary on plates (Q-267) and how plates
+    are cut where no line is numbered (Q-269). The hourglass is answered by D77 (Q-270) and drawn in the plate grammar by D80
+    (Q-279).
   deep_dive:
   - AFRP-Community-LifeEvents.html
   - AFRP-Unified-Member.html
@@ -626,7 +797,13 @@
   - design/AFRP-Decisions-Register.md §Part 2 family tree, §Part 3
   - design/AFRP-R6-Minor-Authority.md §1
   - docs/AFRP-Analyst-Dashboard.html (journey data)
-  owner: Federation — the Family Tree Committee decides every change before the record moves (D11)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Family-Tree-Module.md (P28) §3, §4, §5, §6
+  - design/AFRP-Family-Tree-In-Practice.md (P27) §4
+  - design/AFRP-Decisions-Register.md §Decision 68–§Decision 74
+  owner: Federation — the Family Tree Committee decides every change before the record moves (D14, D72); the Hub is the record
+    after D69's parallel run
   could_share: No change
   trigger: A member proposes a change or declares a life event; a GEDCOM import
   frequency: On demand; a print edition with an update deadline is planned
@@ -634,7 +811,14 @@
   money: None
   module: tree, identity, magazine
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): one project lead receives, approves and applies every change to a master file in
+    a desktop genealogy product; the committee has two members and no queue; corrections arrive by a form or email (D13, D14;
+    Q-200). The practice is described in its own workflow (Family-tree submission and correction, as run).'
+  - 'In practice (research, 2 Oct 2026): access to the clan books is by a request the lead approves and to the interactive
+    tree by personal invitation, against D17''s ''all members see everything'', now D71''s own branch (Q-200); the clan-book
+    PDFs may carry living persons'' dates (D28; Q-202).'
+  - 'In practice (research, 2 Oct 2026): a volunteer prototyped a second site holding the tree with archive profiles (D66;
+    Q-190).'
 - key: scholarship-cycle
   name: Scholarship cycle
   summary: Application to award for the Scholarship held by ARFECF. Median ranking, relationships disclosed on the record,
@@ -650,7 +834,8 @@
     who: Scholarship committee
   - step: Match named awards most-constrained first; encumber forward commitments
     who: Scholarship committee
-  - step: Verify enrolment each term before disbursement
+  - step: Verify enrolment each term before disbursement; the letters, the document chase and the instalment release run as
+      their own workflow (Scholarship award letters, renewal and instalment release)
     who: Committee; staff
   - step: Issue award receipts as ARFECF's
     who: Platform
@@ -675,14 +860,18 @@
   - alumni-recruiting
   - join-renew-dues
   - giving-funds
+  - scholarship-renewal
   handoff_notes:
   - 'scholarship → alumni: award history becomes the alumni register'
   - 'scholarship → membership: a scholar receives a free student membership (J06 step 6)'
   - 'scholarship → funds: awards draw on the ARFECF Scholarship Fund under its committee''s authority'
+  - 'scholarship → renewal: the selected list and its document gaps pass to the office for letters and the first cheque'
   open:
   - Members vote for a Scholarship Committee no AFRP by-law constitutes; a conforming amendment is needed (D3).
   - The rubric and reviewers per application are the committee's to set (spec §11).
   - Who approves the budget, and who is the tax adviser for flagged disbursements (spec §11).
+  - Which account pays and in whose name the letters go (Q-158).
+  - Whether the Board approves the year's scholarships or receives the committee's decision (Q-161).
   deep_dive:
   - AFRP-Deep-Flagship-Programs.html
   - AFRP-Deep-Programs.html
@@ -695,6 +884,10 @@
   - design/AFRP-Decisions-Register.md §Decision 3
   - design/AFRP-Delivery-Status.md §Slice 4
   - plan/MASTER-PLAN.md §2 row 4b
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Scholarship-Awards.md (P26) §3
+  - design/AFRP-Selection-Committee-Workflow.md (P5) §3.1
   owner: ARFECF — the Scholarship is held by ARFECF and run by its committee (D3, D55)
   could_share: Selection programmes could reuse its review and vote screens
   trigger: The application window opens
@@ -707,6 +900,18 @@
   - The 2015 Scholarship Fund Policy sets the committee's make-up; the committee's overview lists Ramallah Foundation representatives.
     D58 allows the seats once the ARFECF Board amends the policy.
   - The 2015 policy requires published application guidelines; none is found (the Federation's officer records).
+  - 'In practice (research, 2 Oct 2026): in 2026 the committee read one review spreadsheet in advance and decided by consensus
+    at one meeting on academic performance, connection to Ramallah and the community, financial need, eligible enrolment and
+    years of support; no median ranking was used. The committee secretary reports the recommendations to the Board and the
+    President; whether the Board approves or receives them is Q-161 (ARFECF By-Law 6.4.4).'
+  - 'In practice (research, 2 Oct 2026): a late or absent application is treated as disqualifying; no written late-application
+    rule exists (Q-117).'
+  - 'In practice (research, 2 Oct 2026): the public site says the programme is managed by the Ramallah Foundation (Q-162)
+    and accepts ''committee sponsorship approved by the Board'' in place of lineage (Q-160); the 2026 committee counts Foundation
+    representatives as votes (D58).'
+  - 'In practice (research, 2 Oct 2026): about twenty named scholarships are on the office''s list, reconstructed from the
+    1990s; none has an instrument or criteria on file (Q-102). Recipients'' names are not published; counts and amounts by
+    track are.'
 - key: camp-application
   name: Camp Ramallah application and season
   summary: Camp is a selection problem, not an enrolment funnel. A parent applies under the household; selection is by quota
@@ -756,6 +961,8 @@
   open:
   - Camp capacity, selection criteria, fee and committee are unconfirmed (Camp plan §Still unknown).
   - Which state's camp regulation governs, and whether AFRP is or wants to be ACA-accredited.
+  - Whether the Federation is a mandated reporter and holds a written abuse policy (Q-165).
+  - 'Campers from Ramallah: sponsor, consent and travel (Q-166).'
   deep_dive:
   - AFRP-Deep-Flagship-Programs.html
   - AFRP-Deep-Programs.html
@@ -768,6 +975,9 @@
   - design/AFRP-Camp-Directory-Network-Plan.md §Decisions taken, §The four findings, §Still unknown
   - design/AFRP-R6-Minor-Authority.md §1–§6
   - plan/MASTER-PLAN.md §2 rows 2, 2b
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Volunteer-Interests.md (P7)
   owner: ARFECF — Camp Ramallah is budgeted in ARFECF's Educational Fund (D55); the camp committee runs it
   could_share: Selection programmes (ranked offers, serialized windows)
   trigger: The camp season's applications open
@@ -777,7 +987,11 @@
   money: Camp fees, family rebates after camp, club rebates (on the club statement, D57), counsellor travel
   module: camp, programs, member
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): no written screening, training or reporting policy for camp volunteers is on file;
+    the screening step above is the design, not today''s practice (Q-86, Q-165).'
+  - 'In practice (research, 2 Oct 2026): the 2025 annual report gives the age range as 13 to 18; the record and the public
+    page say 13 to 17 (Q-167). A small delegation of campers travelled from Ramallah in 2025 with no written consent or travel
+    rule (Q-166).'
 - key: magazine
   name: Hathihe Ramallah and the bookstore
   summary: The magazine issue runs plan, copy freeze, proof, press and archive, with auto sections snapshotted at the freeze.
@@ -795,7 +1009,8 @@
     who: Magazine editor
   - step: Press, publish and archive
     who: Magazine editor
-  - step: Browse and order at member price; fulfil and post revenue
+  - step: Browse and order at member price; fulfil and post revenue; each title carries its entity and rights rows and the
+      shipping rule is shown before the cart, refused at checkout while unset (P24 §8; Q-197, Q-173)
     who: Member; store manager
   branches:
   - heritage
@@ -817,12 +1032,16 @@
   hands_to:
   - tree-life-events
   - remittance-ledger
+  - magazine-announcements
   handoff_notes:
   - 'magazine → tree: the archive is genealogy source material (JM-078)'
   - 'bookstore → ledger: a sale is never a gift; revenue posts to the ledger (UC-11)'
+  - 'magazine → practice: announcements, paid placements, the subscription list and the mailing house run in the announcements
+    workflow until the platform carries them'
   open:
-  - Issues per year and real deadlines, page budgets and listing tiers (Magazine use cases §8).
-  - Who the editor is, whether back issues are open to non-members, and the bookstore's stock (§8).
+  - Issues per year and real deadlines, page budgets and listing tiers (Magazine use cases §8). In practice six a year (research,
+    2 Oct 2026).
+  - Who the editor is, whether back issues are open to non-members (Q-196), and the bookstore's owner and stock (Q-197) (§8).
   - The five-versus-six section count sits with the magazine committee.
   deep_dive:
   - AFRP-Deep-Programs.html
@@ -836,6 +1055,9 @@
   - design/AFRP-Magazine-Bookstore-Use-Cases.md §2, §3, §4, §8
   - plan/MASTER-PLAN.md §2 row 7b
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Magazine-Operations.md (P24) §2, §7, §8
   owner: shared — the magazine has its own board; its assets are ARFECF's (D55)
   could_share: No change
   trigger: An issue is planned; a store order
@@ -844,7 +1066,16 @@
   money: Subscriptions and store sales, posted as revenue, never as gifts
   module: magazine, store
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): six issues a year, laid out by a design agency, printed and mailed through a mailing
+    house and sent digitally as an email campaign; announcements reach the editor through a city correspondent or the magazine''s
+    mailbox; obituaries are paid placements; graduations are a standing type. The practice is described in its own workflow
+    (Magazine announcements, subscriptions and the issue as run).'
+  - 'In practice (research, 2 Oct 2026): By-Law 6.7.1 gives the Magazine an independently selected board; a staff of five
+    roles and a treasurer are evidenced and no board (Q-192). The same by-law requires the Federation to appropriate the funds
+    that guarantee publication, beside the 2020 practice of keeping magazine money apart (crosswalk row D21; Q-194).'
+  - 'In practice (research, 2 Oct 2026): the bookstore is two online stores, one on the website and one on the member portal,
+    with the same titles, US addresses only and no member price; no owner, order log or stock record is kept (Q-197, Q-198,
+    Q-199). The Cook Book is a separate fund reported by the Educational Fund Treasurer, with a pending trademark (Q-173).'
 - key: communications
   name: Communications and consent
   summary: Two senders, club and federation, on one consent model. Consent is checked when the audience is built, and the
@@ -862,11 +1093,14 @@
     who: Platform
   - step: Mute or change consent per channel; each change is a dated row
     who: Member
-  - step: Treat a member with no consent rows as "no" for marketing and programme invitations and "yes" for operational
-      messages they must receive (a design choice, Club Experience Plan §9.2; Q-46); treat an opt-in imported from a club's
-      Breeze as evidence, not consent, until the member confirms on first sign-in
+  - step: Treat a member with no consent rows as "no" for marketing and programme invitations and "yes" for operational messages
+      they must receive (a design choice, Club Experience Plan §9.2; Q-46); treat an opt-in imported from a club's Breeze
+      as evidence, not consent, until the member confirms on first sign-in
     who: Platform
   - step: Address a household about a child to the adult who holds authority (R6); a minor is never an audience member
+    who: Platform
+  - step: Never put a contact in a member audience; a role's consent is read by that role only, and no audience is built from
+      a profile field (P21 §8; Q-236)
     who: Platform
   branches:
   - all
@@ -893,6 +1127,7 @@
   - Printed directory and labels are refused by design; whether the Board wants a consented print purpose (§5 q7).
   - No list is ever exported to a club's own mailing tool; a club that keeps one keeps its own list by hand. To be said plainly
     at the Council before the first migration (Club Experience Plan §9.3).
+  - Outreach by a profile field before consent rows exist (Q-236).
   deep_dive:
   - AFRP-Unified-Operations.html
   - AFRP-Unified-Member.html
@@ -906,6 +1141,9 @@
   - design/AFRP-Club-Experience-Plan.md §9
   - plan/MASTER-PLAN.md §2 rows 5, B5
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §8
   owner: shared — two senders, the club and the Federation, on one consent model
   could_share: Advocacy alerts, agreement reminders and Arabic class messages to non-member contacts (D60)
   trigger: A sender builds an audience
@@ -914,7 +1152,9 @@
   money: None
   module: comms
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): the Medical Mission contacted registration-system contacts by occupation in 2026,
+    members and non-members alike, with no interest term or consent row (Q-236); the Day of Action was mailed to all adult
+    contacts in the registration system; the magazine''s digital issue is the Federation''s best-performing email.'
 - key: club-management
   name: Running a club
   summary: 'The club lens replaces Breeze: roster with dual status, groups, follow-ups, events, dues and the officer year,
@@ -931,10 +1171,14 @@
     who: Club secretary or officer
   - step: Make groups and raise follow-ups with due dates; a lapse raises one only if the club switched the rule on
     who: Club secretary or officer
-  - step: 'Run the treasurer''s month: collect, close, remit, reconcile (D1); review the club statement when a run is issued (D57)'
+  - step: 'Hold the club''s own contact roles: a prospect once the person acts on the club''s invitation, referrals after
+      consent, event guests with no export; never another club''s contacts or a programme''s roles (P21 §10; Q-72)'
+    who: Club secretary or officer
+  - step: 'Run the treasurer''s month: collect, close, remit, reconcile (D1); review the club statement when a run is issued
+      (D57)'
     who: Club treasurer
-  - step: Select the delegation from certified members (By-Laws 9.1.3, 9.1.4) and hand it to the convention workflow; file a
-      host bid if bidding
+  - step: Select the delegation from certified members (By-Laws 9.1.3, 9.1.4) and hand it to the convention workflow; file
+      a host bid if bidding
     who: Club president and officers
   - step: Report to the Council twice a year from the dashboard counts (By-Law 10.5.1)
     who: Club president
@@ -966,6 +1210,7 @@
   - communications
   - convention
   - reporting
+  - government-affairs
   handoff_notes:
   - 'club → ledger: collections are attested and remitted on the run (D1)'
   - 'club → club share: the treasurer reviews each statement run (D57)'
@@ -973,14 +1218,16 @@
   - 'club → comms: a club mailing reaches only its own roster, consent-filtered'
   - 'club → convention: the delegation is selected and credentialed against standing'
   - 'club → reporting: the Federation roll-up shows counts, never names'
+  - 'club → government affairs: a club''s local action committee meets officials year-round (Q-131)'
   open:
-  - Whether the club register holds 17, 18 or 19 clubs (§5 q8).
+  - Whether the club register holds 17, 18 or 19 clubs (§5 q8); the public annual report counts fourteen active (Q-229).
   - Who gives "the approval of the A.F.R.P." to an affiliation (By-Law 3.1), and what a late officers form costs the club
     (Club Experience Plan §3.1) (Q-40).
   - Whether a member may belong to two clubs at once, and who decides a move (§3.2) (Q-41).
   - Whether the Executive Director's access to Chapter Club records (By-Law 7.9.3) is a named purpose with an audit line,
     against the counts-only rule (§3.3) (Q-44).
   - Whether a club or the programme committee appoints the club's programme seats (§3.4) (Q-45).
+  - A club's own membership rule wider than By-Law 4.1.1 (Q-226).
   deep_dive:
   - AFRP-Deep-Club-Management.html
   - AFRP-Deep-Club-Activities.html
@@ -998,6 +1245,9 @@
   - design/AFRP-Club-Experience-Plan.md §3, §4.1
   - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 3.1, 3.2, 6.2.2, 6.4.1, 9.1.3, 10.5.1)
   - docs/AFRP-Analyst-Dashboard.html (journey data)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §10
   owner: club — each club runs its roster, events and treasurer's month
   could_share: The club statement (D57); RBPN club ambassadors
   trigger: The officer year; a member joins or lapses; an event
@@ -1007,10 +1257,19 @@
   module: clubs, dues, events, member
   rule_vs_practice:
   - By-Law 3.2 requires clubs to file an affiliation form by 1 August; no forms are on file (the Federation's club records).
-  - The 2020 letters set an attendance rule for the monthly club presidents' meeting; minutes from 2020 to 2026 exist and attendance
-    is not tallied.
+  - The 2020 letters set an attendance rule for the monthly club presidents' meeting; minutes from 2020 to 2026 exist and
+    attendance is not tallied.
   - The 2024 by-laws require club money for AFRP projects to pass through headquarters; Mid-Year sponsorship cheques are payable
     to the host club (the Federation's Mid-Year records, 2026).
+  - 'In practice (research, 2 Oct 2026): the chapter clubs are separate exempt organisations of several kinds (social clubs,
+    a charity, a social club with a sister charitable foundation); the club register holds no legal columns (Q-227). The public
+    annual report counts fourteen active chapters, the office''s list seventeen and the voting lists eighteen (Q-229).'
+  - 'In practice (research, 2 Oct 2026): after each presidents'' meeting the Program Director compiles the clubs'' priorities
+    and events into a summary the Deputy President reviews before it returns to the clubs; it is the Council''s working record.'
+  - 'In practice (research, 2 Oct 2026): the president''s view in today''s registration system shows members'' names and contact
+    details, and clubs have asked for more; the record''s counts-only and per-field-consent rules narrow this (Q-237, Q-44).'
+  - 'In practice (research, 2 Oct 2026): clubs raise and send money to Ramallah projects directly; the Board said in May 2026
+    that club gifts to needy families should go through one channel, preferably the Relief Fund (Q-228).'
 - key: alumni-recruiting
   name: Alumni and recruiting
   summary: Historic scholarship recipients are resolved to people on the register and reconnected with consent. Nothing links
@@ -1061,6 +1320,10 @@
   sources:
   - design/AFRP-Alumni-Recruiting-Use-Cases.md §1, §3, §6
   - design/AFRP-Delivery-Status.md §Slice 9
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Selection-Programmes.md (P12) §2.9
+  - design/AFRP-Contact-Record.md (P21) §4 (the alumnus role)
   owner: shared — programme staff for the Scholarship (ARFECF, D55) and RBPN
   could_share: Project Hope, Leadership Ramallah and Day of Action alumni (D61)
   trigger: A historic recipient list is imported; a reconnection campaign
@@ -1069,18 +1332,19 @@
   money: None
   module: alumni, identity, comms
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): Project Hope''s alumni list is being rebuilt from past rosters by a volunteer for
+    the committee''s revival (October 2026); it sits outside the platform (Q-116).'
 - key: directory-consent
   name: Directory, RBPN and consent
-  summary: 'A members-only directory in three formats - the members'' directory with membership and club identified, at
-    Federation and club scale; the professional services directory; the leadership directory of seats and their votes -
-    where display, contact and export are three separate consents. No minor appears in any payload, nothing about the
-    living shows signed out, and nothing is printed or exported.'
+  summary: A members-only directory in three formats - the members' directory with membership and club identified, at Federation
+    and club scale; the professional services directory; the leadership directory of seats and their votes - where display,
+    contact and export are three separate consents. No minor appears in any payload, nothing about the living shows signed
+    out, and nothing is printed or exported.
   steps:
   - step: Set per-field visibility; the ceiling is members, never public
     who: Member
-  - step: 'Browse the members'' directory, where presence means membership in good standing or within the grace, with the
-      club or clubs shown as the Federation''s fact; filter it to one club from the club''s page'
+  - step: Browse the members' directory, where presence means membership in good standing or within the grace, with the club
+      or clubs shown as the Federation's fact; filter it to one club from the club's page
     who: Member
   - step: Search with transliteration folding and aliases
     who: Member
@@ -1092,8 +1356,8 @@
   - step: Verify membership and ownership before a listing exists; a licence is never verified and the listing says so
     who: RBPN desk
   - step: 'Read the leadership directory: every seat on the Executive Committee, the Board (By-Law 6.2.2), the Council, the
-      committees and each club''s officers, with whether the seat carries a vote under the text that composes the body, and a
-      seat channel for contact; never the holder''s personal details or their own franchise'
+      committees and each club''s officers, with whether the seat carries a vote under the text that composes the body, and
+      a seat channel for contact; never the holder''s personal details or their own franchise'
     who: Member; the Board and the Council on the same page
   - step: Keep the seats true from the officers form, the election results and a dated committee register until the committee
       workspace exists (the crosswalk's design note P1)
@@ -1115,16 +1379,19 @@
   - R7
   - R27
   status: Partly built
-  status_note: 'Directory, consents, the broker, RBPN listings and the job board are built (slice 10); the 90-day grace is
-    attested (slice D1). The membership mark and club filter (DIR1), the leadership directory of seats (DIR2) and any
-    "near me" axis (DIR3, gated on Q-48) are not built (design note P19, AFRP-Directory-Formats.md). Bulk export refuses for
-    everyone; on David''s direction of 1 October 2026 no format is printed or exported.'
+  status_note: Directory, consents, the broker, RBPN listings and the job board are built (slice 10); the 90-day grace is
+    attested (slice D1). The membership mark and club filter (DIR1), the leadership directory of seats (DIR2) and any "near
+    me" axis (DIR3, gated on Q-48) are not built (design note P19, AFRP-Directory-Formats.md). Bulk export refuses for everyone;
+    on David's direction of 1 October 2026 no format is printed or exported.
   hands_to:
   - communications
   - magazine
   handoff_notes:
   - 'directory → comms: contact runs through the broker, never an exported address'
   - 'directory → magazine: a lapsed listing drops out of the magazine''s professional directory'
+  - 'directory → contacts: a non-member contact is never a directory row (P21 §3, §5)'
+  - 'directory → tree: the tree''s payload is its own class, not a directory payload; the directory integration comes after
+    magazine and life events (D78) and its place against Heritage is Q-265 (P28 §5, §8)'
   open:
   - Paying for a listing on the platform is not decided.
   - '"Near me": by metro area from what is already displayed, or by distance from a stored address, a new purpose (Q-48).'
@@ -1143,18 +1410,24 @@
   - design/AFRP-Decisions-Register.md §Decision 6, §Part 2
   - design/AFRP-Delivery-Status.md §Slice 10, §Slice D1
   - design/AFRP-Rules-Register.md §Identity, minors and the directory
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §5
+  - design/AFRP-Family-Tree-Module.md (P28) §8
   owner: Federation — a members-only directory in three formats; listings verified by the RBPN desk; seats kept by the office
   could_share: AFRPWorks beside the RBPN job board (D64)
   trigger: A member sets visibility, searches or lists a profession
   frequency: On demand; lapsed members drop after the grace window
-  records: Per-field visibility and contact consents, brokered contacts, RBPN listings and their verification, seats with their
-    dates, votes and channels
+  records: Per-field visibility and contact consents, brokered contacts, RBPN listings and their verification, seats with
+    their dates, votes and channels
   money: None (paying for a listing is not decided)
   module: memberdir, network, authority, clubs
   rule_vs_practice:
   - The Federation printed and sold a membership directory and printed an annual Committee Directory with contact details
     (the officer archive, 2009–2026); the platform prints neither (David, 1 October 2026) and the Magazine's professional
     directory is the one print surface, on print consent.
+  - 'In practice (research, 2 Oct 2026): AFRPWorks'' prototype has an employer submit, be approved by the working group, then
+    browse candidate profiles: a gate and then browsing, not a choice between them (Q-147, Q-151).'
 - key: reporting
   name: Reporting and oversight
   summary: Federation, club and programme views built from counts, not rows. Every aggregate carries complementary suppression
@@ -1166,9 +1439,9 @@
     who: Federation staff
   - step: Benchmark a club against federation aggregates
     who: Club officer
-  - step: 'Read the clubs page: per club, its standing for the year, membership, club life, the Federation''s work in it
-      (campers, scholars, participants, volunteers, gifts attributed), the statement balance each way and its migration state;
-      every cell under the floor (Club Experience Plan §10)'
+  - step: 'Read the clubs page: per club, its standing for the year, membership, club life, the Federation''s work in it (campers,
+      scholars, participants, volunteers, gifts attributed), the statement balance each way and its migration state; every
+      cell under the floor (Club Experience Plan §10)'
     who: Executive Director; the Council of Chapter Club Presidents
   - step: Read programme pipeline counts, suppressed under the floor
     who: Programme organiser
@@ -1177,6 +1450,10 @@
   - step: Produce ARFHSN's six-monthly financial and operational report to the AFRP Board from the ledger and the grants register
       (D63)
     who: Platform; ARFHSN treasurer
+  - step: File one-page statements for the Education Fund, the Relief Fund and the Cook Book fund (opening balance, deposits,
+      expenses, closing balance) to every Board meeting — in practice (research, 2 Oct 2026); whether the platform produces
+      them, and in whose name, is Q-174
+    who: Educational Fund Treasurer
   - step: 'Report each branch''s year-one baseline: two or three counts that exist today, such as campers per club per year,
       scholars by track, mission volunteers, grants made and delivered, members by level (D67)'
     who: Programme committees; platform
@@ -1200,11 +1477,12 @@
     and committee reporting wait on a design note; QuickBooks and 990 support are not built.
   hands_to:
   - club-management
+  - relief-disbursement
   handoff_notes:
   - 'reporting → clubs: federation context (a club''s rate against the median) returns to the club lens as counts'
   - 'reporting → AFRP Board: the six-monthly ARFHSN report is built from the ledger and the grants register (D63)'
   open:
-  - The committee workspace and reporting design note (P1) is not yet written.
+  - The committee workspace and reporting are designed in P1 (CW1–CW5); the board workspace is not built.
   - Per-branch donor outcome metrics use the five-rung ladder (D42); their definitions are not stated in the record. Year
     one reports baseline counts instead (D67).
   deep_dive:
@@ -1224,7 +1502,11 @@
   - design/AFRP-ARFECF-ARFHSN-Rulesets.md §ARFHSN (Art. III §7)
   - plan/MASTER-PLAN.md §2 row SP0
   - docs/AFRP-Analyst-Dashboard.html (journey data)
-  owner: shared — the Federation, clubs, programmes and ARFHSN each read their own views; ARFHSN reports to the AFRP Board (D63)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Committee-Workspace.md (P1) §4
+  owner: shared — the Federation, clubs, programmes and ARFHSN each read their own views; ARFHSN reports to the AFRP Board
+    (D63)
   could_share: The year-one baseline counts for every branch (D67)
   trigger: A dashboard read; a scheduled report
   frequency: On demand; six-monthly for ARFHSN (D63); yearly for the funnel snapshot
@@ -1236,6 +1518,11 @@
     board minutes, 2023).
   - ARFHSN By-Laws Art. III §9 have the AFRP Board retain an outside accountant to certify ARFHSN's finances; in 2026 an accountant's
     review is under way, not an audit (ARFHSN board minutes, 2026).
+  - 'In practice (research, 2 Oct 2026): ARFHSN''s report to the AFRP Board carries sections for its general account, Women
+    to Women, Gaza relief transfers, Mission gifts, expenses, earmarks (one holding a club''s closed branch balance) and investments
+    (Q-216, Q-217).'
+  - 'In practice (research, 2 Oct 2026): the Executive Committee planned in August 2026 that committee chairs receive budget-versus-actual
+    sheets fed from the books without the organisation''s full statements.'
 - key: care-grants
   name: Care grants and partner projects
   summary: A partner or a committee asks for support; the Board of the entity that holds the money decides with a ceiling,
@@ -1247,12 +1534,19 @@
   - step: Check fit with the programme and with the fund's restriction; a restricted gift is spent only on its purpose (D2,
       D3)
     who: Programme committee
+  - step: Dispose of each request in one of four ways — approve with a sum, reject with a reason, refer to the Medical Mission
+      committee, or return for itemised detail — in practice (research, 2 Oct 2026); whether the register carries the last
+      two as states is Q-217
+    who: ARFHSN Board
   - step: Approve with a spending ceiling and record the vote; no approval tiers apply until the holding entity adopts a finance
       manual written for a volunteer board (D63)
     who: The holding entity's Board (ARFHSN's Board for the Medical Mission, Women to Women and Human Services funds; D55,
       D62)
   - step: Record each club's share where clubs co-fund the grant (D57)
     who: Programme coordinator; club treasurer
+  - step: Record a club's co-funding when the club's trustee confirms it in the meeting — in practice (research, 2 Oct 2026;
+      D57)
+    who: Club trustee on the ARFHSN Board; programme coordinator
   - step: Sign the agreement with the receiving partner and place it on the agreements register
     who: Entity chair or designated signatory
   - step: Pay on delivery from the named fund, with two signatories (D63; ARFHSN By-Laws Art. III §5)
@@ -1290,29 +1584,36 @@
   - D63
   - ARFHSN By-Laws Art. III §5
   - ARFHSN By-Laws Art. III §7
-  status: Proposed
+  status: Designed
   status_note: Found in ARFHSN's board minutes and the Medical Mission committee's records (2020–2026); D63 sets how money
-    leaves a Care fund. Not designed or built.
+    leaves a Care fund. Designed in P11 (`AFRP-Care-Grants-and-Partners.md`, CG1–CG6); the Relief Fund's paths in P23. Not
+    built.
   hands_to:
   - giving-funds
   - reporting
   - partner-agreements
   - club-share
+  - relief-disbursement
+  - women-to-women-grants
   handoff_notes:
   - 'care grants → giving: the grant draws on gifts held by fund; contributors hear at transfer and at fulfilment (D10)'
   - 'care grants → reporting: grants made and delivered are a Care baseline count (D67) and feed the six-monthly ARFHSN report
     (D63)'
   - 'care grants → agreements: each grant''s signed partner agreement sits on the agreements register'
   - 'care grants → club share: a co-funded grant lists each club''s share on the club statements (D57)'
+  - 'care grants → Women to Women: the sub-fund''s published procedure is a grant run by its committee (Q-114)'
   open:
   - Safeguarding beyond the three closing records (inspections, a hospital agreement drafted by counsel, a local committee
     in Ramallah) has been proposed since 2023 and is not written (Q-24; D63 settles the closing records only).
-  - 'Which body approves the Relief Fund''s monthly transfers is Not stated: D55 does not name the Relief Fund; the Federation
-    runs it in practice (the Federation''s records, 2020 on). The next approved budget would state its holding entity.'
+  - 'Which body approves the Relief Fund''s transfers is not stated: D55 does not name the Relief Fund. The sources show three
+    paths decided three ways (the Relief Fund workflow; Q-109, Q-207). *Since 3 Oct 2026:* D83 names AFRP as the fund''s holding
+    entity; who approves a transfer between the Board''s votes stays open (Q-109).'
   - Who the designated signatories are, by role, is not recorded; ARFHSN's by-laws require two co-signatures (Art. III §5)
     without naming them.
   - Federation grants to clubs (start-up stipends, revival travel) have no written procedure; whether they run on this workflow
     is not decided.
+  - The earmark shape and the 'referred' and 'more information' states (Q-217).
+  - Whose money a club's closed branch balance held by ARFHSN is (Q-216).
   deep_dive: []
   prototype: []
   sources:
@@ -1321,6 +1622,10 @@
   - ARFHSN board minutes (2020–2026)
   - The Medical Mission committee's records (2023–2026)
   - The Federation's records of the Relief Fund (2020 on)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Care-Grants-and-Partners.md (P11) §2, §5, §6, §8
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) §4
   owner: ARFHSN — its Board approves grants from the Care funds it holds (D55, D62, D63); the Relief Fund is Federation-run
     in practice
   could_share: Federation grants to clubs, and the Relief Fund's monthly transfers, on the same grant record
@@ -1331,11 +1636,22 @@
   money: Grants and partner-project payments from restricted Care funds; club co-funding shares
   module: none yet
   rule_vs_practice:
-  - ARFHSN By-Laws Art. III §5 require two co-signatures on all cheques; ARFHSN's records show difficulty keeping a second signatory
-    for the Ramallah account, and the signatories are not recorded by role.
+  - ARFHSN By-Laws Art. III §5 require two co-signatures on all cheques; ARFHSN's signatories for the Ramallah account are
+    not recorded by role (Q-104).
   - ARFHSN's draft finance manual (2026, not adopted) sets approval tiers for paid roles; the Board votes a ceiling on each
     request (ARFHSN board minutes). D63 applies no tiers until a manual for a volunteer board is adopted.
   - ARFHSN By-Laws Art. VI set up a standing grant committee; it is not seen in ARFHSN's board minutes.
+  - 'In practice (research, 2 Oct 2026): a multi-year tuition programme abroad is approved as an earmark and drawn down per
+    instalment with a trainee count and no names; who confirms ''delivery'' is Q-217.'
+  - 'In practice (research, 2 Oct 2026): the monthly ARFHSN meeting is convened by the Federation''s Program Director with
+    the ARFHSN secretary''s agenda; D62 says the Federation President convenes (Q-214).'
+  - 'In practice (research, 2 Oct 2026): Women to Women''s committee approves its projects and reports to the ARFHSN board,
+    and ARFHSN''s minutes show the committee reporting rather than the board voting, against D63 (Q-114). The practice is
+    described in its own workflow.'
+  - 'In practice (research, 2 Oct 2026): a club''s closed branch balance is held by ARFHSN as an earmark ''for'' that club,
+    a shape the record does not have (Q-216).'
+  - 'In practice (research, 2 Oct 2026): requests arrive as letters and proposals under ''new requests for funding''; no request
+    form or criteria sheet exists.'
 - key: partner-agreements
   name: Partner agreements
   summary: Every agreement with an outside party (a hospital or university partner, the Arabic teaching partner, the scanning
@@ -1376,10 +1692,11 @@
   - D59
   - D63
   - D66
-  status: Proposed
+  status: Designed
   status_note: 'Found in the ARFHSN, ARFECF and Federation records (2016–2026): the Medical Mission''s partner agreement with
     an annual renewal, the Arabic teaching partner, the scanning vendor, a multi-year sponsorship and the host-club agreement
-    template. No register exists today. Not designed or built.'
+    template. No register exists today. Designed in P11 §3 (the partner agreements register), P13 (host agreements) and P22
+    §3.2 (the Federation as host abroad); not built.'
   hands_to:
   - care-grants
   - convention
@@ -1404,6 +1721,11 @@
   - ARFHSN board minutes and the Medical Mission committee's records (2025–2026)
   - The Arabic Program's and the Preservation Project's committee records (2025–2026)
   - The host-club agreement template (2022) and the Federation's sponsorship records (2016–2021)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Care-Grants-and-Partners.md (P11) §3
+  - design/AFRP-Host-Agreements.md (P13)
+  - design/AFRP-Convention-Operations.md (P22) §3.2
   owner: shared — each agreement is signed for the entity that carries the obligation (D55)
   could_share: Convention and Mid-Year host agreements (D59), sponsorships, foundation grant reports
   trigger: A programme enters an agreement with an outside party
@@ -1413,10 +1735,16 @@
   money: None directly; the agreements set per-seat payments, sponsorship allocations and convention shares
   module: none yet
   rule_vs_practice:
-  - The Medical Mission's partner agreement requires a renewal review before its annual expiry; no record shows the review was
-    tracked (ARFHSN records, 2025–2026).
+  - The Medical Mission's partner agreement requires a renewal review before its annual expiry; no record shows the review
+    was tracked (ARFHSN records, 2025–2026).
   - The host agreement template sets the convention's terms; no signed host agreement or settlement is on file (the Federation's
     convention records; D59 now makes the agreement the rule).
+  - 'In practice (research, 2 Oct 2026): the Preservation Project''s foundation grant ended on 30 September 2026 with funds
+    unspent and a report due in November; a second scanning scope was quoted per box (Q-108).'
+  - 'In practice (research, 2 Oct 2026): the 2026 Convention closed under a revised host agreement the Board minuted and no
+    folder holds (Q-93); for the 2027 Mid-Year the Federation, not the host, negotiated and signed the hotel contract (Q-92).'
+  - 'In practice (research, 2 Oct 2026): Women to Women''s repeat partners and the Medical Mission''s training, screening
+    and tuition partners have no agreement on paper (Q-217).'
 - key: selection-programmes
   name: Selection programmes
   summary: 'Programmes with limited places choose participants the same way: apply, vet, vote with a tie-break, offer, travel,
@@ -1426,6 +1754,9 @@
     who: Programme committee
   - step: Apply in the platform with the programme's form; past cycles' applications never enter (D61)
     who: Member (applicant)
+  - step: Where the programme takes registration instead of applications (the Day of Action in 2026), register by the deadline;
+      the first-timer's covered costs are the only gate — in practice (research, 2 Oct 2026; Q-115)
+    who: Member (registrant)
   - step: Vet applications against the programme's criteria (the 2020 Exchange Mission operating procedure)
     who: Vetting subcommittee
   - step: Vote; the coordinator and the chair break a tie (the 2020 Exchange Mission operating procedure)
@@ -1460,9 +1791,10 @@
   - D57
   - D61
   - D65
-  status: Proposed
+  status: Designed
   status_note: Found in the Exchange Mission's 2020 operating procedure, the 2026 Leadership Ramallah rules and the Day of
-    Action records. The vetting and tie-break steps are the committee's practice, not a platform rule. Not designed or built.
+    Action records. Designed in P12 (`AFRP-Selection-Programmes.md`, SEL1–SEL5) with P25 §3 and §5 (the path, the Senior Award,
+    the Day of Action's mode); not built. The vetting and tie-break steps are the committee's practice, not a platform rule.
   hands_to:
   - club-share
   - alumni-recruiting
@@ -1479,6 +1811,9 @@
     on file; the Day of Action's selection criteria are not written.
   - Eligibility (age, membership) is set per programme by its committee; the record does not hold it for every programme.
   - Deleting past applications and passports from the shared drive is the committee's rule (D61), outside the platform.
+  - Application-and-selection or open registration for the Day of Action (Q-115).
+  - A joint Day of Action and Project Hope year (Q-172).
+  - Women to Women's tuition awards as a selection cycle (Q-211).
   deep_dive: []
   prototype: []
   sources:
@@ -1487,6 +1822,10 @@
   - The Leadership Ramallah committee's rules (2026)
   - The Project Hope committee's records (2026)
   - The Federation's Day of Action records (2024–2026)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Leadership-Pipeline.md §3, §5 (P25)
+  - design/AFRP-Selection-Programmes.md (P12) §2
   owner: shared — Project Hope and the Exchange Mission are ARFECF's (D55); the Day of Action is AFRP's (D55, D65); Leadership
     Ramallah's entity is Not stated in D55
   could_share: Camp offers and the scholarship's vote mode
@@ -1497,7 +1836,17 @@
   money: Travel and fee reimbursements from the holding entity's fund; club travel shares
   module: none yet
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): the Day of Action in 2026 is an open registration, free for adult members, with no
+    application and no selection; the page and the mailing differ on the deadline and the eligibility sentence; inviting other
+    village and town associations at their own expense is under discussion (Q-115, Q-186, Q-187).'
+  - 'In practice (research, 2 Oct 2026): in 2024 Project Hope did not travel and ran jointly with the Day of Action in Washington;
+    which entity holds a joint year''s money and which committee decides places is Q-172.'
+  - 'In practice (research, 2 Oct 2026): the Exchange Mission''s October delegation has not run since 2023 (Q-188); the Fellowship''s
+    committee reads a one-paragraph summary per applicant and does not score; a vetting template holds free-text interview
+    notes about an applicant''s views (Q-118).'
+  - 'In practice (research, 2 Oct 2026): Leadership Ramallah''s 2025 window ran from the autumn to a January deadline, and
+    the 2027 summit moves to January with the Mid-Year (Q-176); its co-chairs are the Young Leaders Committee''s (Q-175).'
+  - 'In practice (research, 2 Oct 2026): Women to Women now evaluates student applications for tuition support (Q-211).'
 - key: arabic-term
   name: Arabic classes, term by term
   summary: Three terms a year of weekly online classes on two tracks, taught by a partner institution paid per seat, with
@@ -1510,6 +1859,10 @@
   - step: Register and pay; a member pays the member rate; a non-member pays the public rate and is kept as a contact record
       (name, verified channel, consent), not a membership (D60)
     who: Learner
+  - step: Sponsor a member's class fee from another programme's fund — in practice (research, 2 Oct 2026) the Women to Women
+      committee pays a small number of member women's fees each term on a short statement; the cross-entity payment has no
+      rule (Q-168)
+    who: Women to Women committee; Arabic committee
   - step: Accept the programme's disclaimer before the first class (the committee's practice)
     who: Learner
   - step: Place by level with a placement test
@@ -1534,15 +1887,16 @@
   - D55
   - D57
   - D60
-  status: Proposed
-  status_note: 'Runs today through the Federation''s current member portal, outside this platform (the programme committee''s
-    records, 2025–2026). A non-member purchase (D60) is a new caller of the one payment door: a design change for the Arabic
-    term''s design note, not a parameter. Not designed or built.'
+  status: Designed
+  status_note: Runs today through the Federation's current member portal, outside this platform (the programme committee's
+    records, 2025–2026). Designed in P12 §3 (`AFRP-Selection-Programmes.md`, AR1–AR4); the non-member learner is P21's learner
+    role (`AFRP-Contact-Record.md`, CR1). Not built.
   hands_to:
   - partner-agreements
   - communications
   - join-renew-dues
   - club-share
+  - women-to-women-grants
   handoff_notes:
   - 'Arabic term → agreements: the teaching partner''s agreement and per-seat terms sit on the register'
   - 'Arabic term → comms: a non-member contact receives class messages on the consent they gave (D60)'
@@ -1550,14 +1904,21 @@
   - 'Arabic term → club share: clubs that recruit volunteer partners are recorded against the club (D57)'
   open:
   - The member and public rates are the committee's to set; the record holds neither.
-  - How long a non-member's contact record is kept after the term is Not stated; the Arabic term design note would state it.
+  - How long a non-member's contact record is kept after the term is Not stated; P21 §9's learner row proposes the clock with
+    no value (Q-70).
   - Whether class fees post to ARFECF's Educational Fund, which budgets the programme (D55), or are collected by AFRP and
     forwarded, is Not stated; the Arabic term design note would state it.
+  - A Care sub-fund paying an Education programme's fees (Q-168).
+  - Where the summer pilot's learner records are held (Q-170).
   deep_dive: []
   prototype: []
   sources:
   - design/AFRP-Decisions-Register.md §Decision 55, §Decision 60
   - The Arabic Program committee's plan (2025) and strategy meeting (August 2026)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §3, §8, §9
+  - design/AFRP-Selection-Programmes.md (P12) §3
   owner: ARFECF — the Arabic Program is budgeted in ARFECF's Educational Fund (D55); the Arabic committee runs it
   could_share: No change
   trigger: The committee publishes a term
@@ -1567,12 +1928,16 @@
   money: Class fees at the member and public rates; per-seat payments to the teaching partner
   module: none yet
   rule_vs_practice:
-  - None found
+  - 'In practice (research, 2 Oct 2026): the public page says registration is open to adult members only, against D60''s public
+    rate (Q-171).'
+  - 'In practice (research, 2 Oct 2026): a 2026 summer pilot ran on a separate learning platform at its own price (Q-170);
+    teacher incentives tied to retention are on the committee''s agenda (Q-169); some learners joined the Federation through
+    the programme.'
 - key: advocacy
   name: Advocacy and the Day of Action
   summary: An issue becomes a statement signed by the President; members are asked to act with a one-pager; meetings are supported
-    and logged; once a year selected members go to Washington for the Day of Action. All of it is AFRP General Fund activity
-    and is never charged to an affiliate (D65).
+    and logged; once a year members go to Washington for the Day of Action, by application or registration as the cycle's
+    mode says (Q-115, Q-254). All of it is AFRP General Fund activity and is never charged to an affiliate (D65).
   steps:
   - step: Draft a statement or letter on an issue
     who: Government Affairs committee
@@ -1584,8 +1949,11 @@
   - step: Offer a committee member to join a member's meeting with an office
     who: Government Affairs committee
   - step: Log each contact and meeting against the office
-    who: Member lead; Government Affairs committee
-  - step: 'Run the Day of Action: open applications, select, train and reimburse travel (as in selection programmes)'
+    who: Member lead; congressional-outreach coordinator; Government Affairs committee
+  - step: 'Run the Day of Action: open applications, select, train and reimburse travel (as in selection programmes); in 2026
+      a free registration for adult members with first-timer costs covered and no selection (in practice, research, 2 Oct
+      2026; Q-115). On the platform a cycle has a mode row with no value until set (registration or selection) and does not
+      open without it (P25 §5.3; Q-254)'
     who: Programme director; President
   - step: Report outcomes to the Board
     who: Government Affairs committee
@@ -1604,13 +1972,14 @@
   - D55
   - D65
   - S1
-  status: Proposed
-  status_note: Observed in the Federation's Government Affairs and Congressional Outreach records (2020–2026). No written
-    procedure and no reporting step today. Not designed or built.
+  status: Designed
+  status_note: Observed in the Federation's Government Affairs and Congressional Outreach records (2020–2026). Designed in
+    P14 (`AFRP-Advocacy.md`, AD1–AD5) and, for the Day of Action's mode and the town hall, P25 §5.3–§5.4; not built.
   hands_to:
   - selection-programmes
   - communications
   - reporting
+  - government-affairs
   handoff_notes:
   - 'advocacy → selection: Day of Action participants are chosen through the selection workflow'
   - 'advocacy → comms: member alerts go to a consent-filtered audience (S1)'
@@ -1621,12 +1990,18 @@
   - Whether each club names a government-affairs representative was proposed in 2020 and not adopted.
   - What the platform keeps about a member's contact with an office (who, when, which office) is Not stated; the advocacy
     design note would state it.
+  - The Washington internships' entity and whether a stipend is advocacy (Q-182).
+  - Guests from other associations at the Day of Action (Q-186).
   deep_dive: []
   prototype: []
   sources:
   - design/AFRP-Decisions-Register.md §Decision 55, §Decision 65
   - The Federation's Government Affairs and Congressional Outreach records (2020–2026)
   - The Federation's Day of Action records (2024–2026)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Advocacy.md (P14)
+  - design/AFRP-Leadership-Pipeline.md (P25) §5.3, §5.4
   owner: Federation — AFRP General Fund activity, never charged to an affiliate (D65)
   could_share: No change
   trigger: An issue the Government Affairs committee takes up; the Day of Action's call
@@ -1638,6 +2013,15 @@
   rule_vs_practice:
   - The 2024 by-laws describe AFRP as a 501(c)(4) and its affiliates as 501(c)(3)s; a 2025 contract annex describes AFRP as
     a 501(c)(3) (the Federation's contract records; the Legal Advisor to confirm, D65).
+  - 'In practice (research, 2 Oct 2026): the committee launched local action committees inside chapter clubs for year-round
+    meetings with officials (Q-131), replaced its spreadsheet with an automated meeting tracker (Q-183), runs town halls with
+    an action segment asking members to contact their representatives (Q-133), and is building a constituent-stories website
+    (Q-184). The practice is described in its own workflow.'
+  - 'In practice (research, 2 Oct 2026): two paid congressional-outreach coordinators are on the General Fund; the March 2025
+    Mid-Year voted a contribution to Washington internships with the fund left open, while ARFECF By-Law 6.3.1 names Internships
+    in Washington as an Endowment purpose (Q-182).'
+  - 'In practice (research, 2 Oct 2026): the record refuses a candidate subject, and whether any candidate-related activity
+    is permitted is Q-132.'
 - key: club-share
   name: Club share and settlement
   summary: 'Every amount a club pays or receives through a Federation or affiliate programme sits on one statement per club:
@@ -1658,8 +2042,8 @@
     who: Federation treasurer
   - step: Review the statement and confirm it or raise a query
     who: Club treasurer
-  - step: Settle the balance each way per entity, never netting across entities (a design choice, Club Experience Plan §5.1); a query holds its line with an owner
-      and a clock while the rest settles; a balance under the floor carries forward
+  - step: Settle the balance each way per entity, never netting across entities (a design choice, Club Experience Plan §5.1);
+      a query holds its line with an owner and a clock while the rest settles; a balance under the floor carries forward
     who: Federation treasurer; club treasurer
   - step: Close the run; a correction is a new line on the next run naming the one it corrects
     who: Platform
@@ -1671,6 +2055,7 @@
   - rbpn
   - convention
   - medical-mission
+  - relief-fund
   services:
   - funds-ledger
   - membership-standing
@@ -1682,12 +2067,14 @@
   - D63
   status: Designed
   status_note: 'Adopted as one shared service on the funds ledger (D57) and designed in the Club Experience Plan §5: one account
-    per club per holding entity, sixteen line types each tied to a programme term in the register, a run with a query hold and
-    an immutable close. The remittance statement it extends is built (slice D1); the rest is not.'
+    per club per holding entity, sixteen line types each tied to a programme term in the register, a run with a query hold
+    and an immutable close. The remittance statement it extends is built (slice D1); the rest is not.'
   hands_to:
   - remittance-ledger
   - giving-funds
   - care-grants
+  - convention-close
+  - relief-disbursement
   handoff_notes:
   - 'club share → ledger: the dues remittance stays D1; the statement is where it shows (D57)'
   - 'club share → giving: club-attributed gifts are counted on the club''s statement (D57)'
@@ -1698,6 +2085,8 @@
   - The camp rebate term; three clubs give rebates on their own today and the committee wants pooled club funds (Q-47).
   - The dabke travel term, minuted case by case and never written (Q-47).
   - A share of the convention ad book for the host club was proposed and not decided (Q-47).
+  - A club's closed branch balance held by ARFHSN (Q-216).
+  - Club relief drives and direct club giving (Q-180, Q-228).
   deep_dive: []
   prototype: []
   sources:
@@ -1706,20 +2095,30 @@
   - design/AFRP-Multi-Entity-Ledger.md §8
   - The camp, Leadership Ramallah and RBPN committees' records (2019–2026)
   - The Federation's convention, Mid-Year and club records (2020–2026)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
   owner: shared — every club, the Federation and the affiliates on one statement per club (D57)
   could_share: Every programme with a club term; Care co-funding; convention and Mid-Year settlements
   trigger: Any amount a club pays or receives through a programme
   frequency: As amounts arise; a statement per run
   records: Club amounts by programme and holding entity, club attributions on gifts, statements, approvals, queries and settlements
-  money: Dues remitted, camp rebates, travel shares, event reimbursements, convention and Mid-Year settlements, grants to clubs,
-    Care co-funding
+  money: Dues remitted, camp rebates, travel shares, event reimbursements, convention and Mid-Year settlements, grants to
+    clubs, Care co-funding
   module: ledger, clubs (to build)
   rule_vs_practice:
   - The 2024 by-laws require club money for AFRP projects to pass through headquarters; Mid-Year sponsorship cheques are payable
     to the host club (the Federation's Mid-Year records, 2026).
-  - No written rule governs dues remittance to clubs in the Federation's records since 2009; D1 is the rule and D57 shows it
-    on the statement (Q-36).
+  - No written rule governs dues remittance to clubs in the Federation's records since 2009; D1 is the rule and D57 shows
+    it on the statement (Q-36).
   - 'The convention share: the 2009 contract, a 2021 resolution and a 2024 General Assembly vote differ (Q-34; D59).'
+  - 'In practice (research, 2 Oct 2026): the Young Leaders Committee ran relief drives as a competition among clubs with a
+    per-club tally (2025, 2026); which entity receipted them and whether the tally is a club attribution is Q-180.'
+  - 'In practice (research, 2 Oct 2026): a club''s co-funding of an ARFHSN subsidy is confirmed by the club''s trustee in
+    the ARFHSN meeting; a club''s closed branch balance is held by ARFHSN as an earmark (Q-216).'
+  - 'In practice (research, 2 Oct 2026): the Ramallah Foundation offered clubs signage at its senior home for a club gift
+    (Q-205); clubs also give directly to Ramallah projects (Q-228).'
+  - 'In practice (research, 2 Oct 2026): the 2026 Convention close netted a sum the host owed the Federation and charged a
+    Federation-hosted dinner to the host''s side, neither on a schedule row (Q-221).'
 - key: club-migration
   name: Moving a club from Breeze
   summary: One club at a time, with a named owner on each side, from read-only access to a dated cutover. Nothing is written
@@ -1729,10 +2128,10 @@
     who: Federation staff with the club president
   - step: Give read-only API access; the key is held as a secret, never in the repo
     who: The club's Breeze Account Owner, the only holder of the key
-  - step: 'Extract people, families, tags, events, attendance, form entries, volunteer roles, the custom fields and the
-      consent flags as found into staging rows, through the vendor''s API at its rate limit (attendance is not in the account
-      export) with the account export as the fallback; report which custom fields and forms the club used and what will
-      not move (notes, files, photos, recurring gifts)'
+  - step: Extract people, families, tags, events, attendance, form entries, volunteer roles, the custom fields and the consent
+      flags as found into staging rows, through the vendor's API at its rate limit (attendance is not in the account export)
+      with the account export as the fallback; report which custom fields and forms the club used and what will not move (notes,
+      files, photos, recurring gifts)
     who: Platform
   - step: Resolve identities against the register; send the review band to the merge queue
     who: Match-queue reviewer, then the club secretary
@@ -1757,12 +2156,14 @@
   - D61
   - D66
   - R6
-  status: Proposed
-  status_note: 'The connector and the extract exist from the Portal era (Addendum 2 §3.4, steps 1–3); staging, identity
-    resolution, the parallel-run report, sign-off and cutover are not built (B4). Before the first club: volunteer roles (B2b),
-    a real email provider (slice 5), the secretary''s queue and the officers form. The order of clubs: one pilot that uses Breeze
-    for roster, groups and events and not for giving or texting; then the clubs whose Breeze is failing; clubs on no system by
-    spreadsheet in parallel; the remaining Breeze clubs after texting and giving are answered (Club Experience Plan §8).'
+  status: Designed
+  status_note: 'The connector and the extract exist from the Portal era (Addendum 2 §3.4, steps 1–3); staging, identity resolution,
+    the parallel-run report, sign-off and cutover are not built (B4). Before the first club: volunteer roles (B2b), a real
+    email provider (slice 5), the secretary''s queue and the officers form. The order of clubs: one pilot that uses Breeze
+    for roster, groups and events and not for giving or texting; then the clubs whose Breeze is failing; clubs on no system
+    by spreadsheet in parallel; the remaining Breeze clubs after texting and giving are answered (Club Experience Plan §8).
+    Designed in the Club Experience Plan (P18) §8; non-members in a club''s Breeze enter as staging rows with no consent row
+    (P21 §7.5). Status Designed (P18 §8; status set 2 Oct 2026).'
   hands_to:
   - club-management
   - join-renew-dues
@@ -1771,8 +2172,8 @@
   - 'migration → join: a person in Breeze and not on the register enters as a contact or a club member as the officers decide,
     never as a national member (Article IV)'
   open:
-  - Which club goes first, and who holds its key (Breeze Parity §5 q4); the plan asks for one that does not take gifts or text
-    in Breeze. Only the club's Account Owner holds the key; a club whose owner has left recovers ownership by the vendor's
+  - Which club goes first, and who holds its key (Breeze Parity §5 q4); the plan asks for one that does not take gifts or
+    text in Breeze. Only the club's Account Owner holds the key; a club whose owner has left recovers ownership by the vendor's
     paper process first.
   - Whether the clubs accept what the platform refuses by design (export, printed directories and labels, free-text notes,
     deleting a person) (Breeze Parity §5 q7).
@@ -1786,6 +2187,9 @@
   - design/AFRP-Breeze-Club-Parity.md §1a, §3 (B4), §5
   - design/AFRP-Club-Experience-Plan.md §4.4, §8
   - The Federation's club records and the club presidents' meeting notes (2020–2026)
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - design/AFRP-Contact-Record.md (P21) §7.5, §10
   owner: shared — the Federation runs the path; each club owns its data and its sign-off
   could_share: The path itself, one club at a time
   trigger: A club agrees to move
@@ -1794,6 +2198,724 @@
   money: None moves; giving history only if B3 is answered yes
   module: clubs, identity, memberdir
   rule_vs_practice:
-  - About ten clubs are on Breeze and the rest use other tools or none (the club presidents' meeting, August 2026); each
-    club's Breeze is its own account and its own key.
-
+  - About ten clubs are on Breeze and the rest use other tools or none (the club presidents' meeting, August 2026); each club's
+    Breeze is its own account and its own key.
+  - 'In practice (research, 2 Oct 2026): the Deputy President''s reports present Breeze onboarding as a Federation initiative
+    aimed at every club, not each club''s own choice; whether the roll-out is a Federation programme is Q-230.'
+- key: convention-close
+  name: Convention close and host payment
+  summary: 'After the Convention the Federation and the host club settle on one reconciliation: the office prepares it, a
+    reconciliation meeting corrects it, the approvers record dated acts (who they must be is Q-221), the General Treasurer
+    pays the host (7.5.1; Q-241) and the accounting goes to the Board. Written from the 2026 close; that year''s signed agreement
+    remains the rule (D59).'
+  steps:
+  - step: Carry the host's balance as a liability due to the host from registration to payment; the Federation's fixed share
+      books as General Fund income from the host — in practice (research, 2 Oct 2026)
+    who: Executive Administrator (bookkeeper)
+  - step: Prepare the reconciliation from the registration system's transaction report and the host's records, with netted
+      items each way — in practice (Q-221)
+    who: Executive Administrator
+  - step: Convene the reconciliation meeting with the host's leads and enter the corrections agreed on it (a sum the host
+      owes netted against the release; a Federation-hosted event inside the Convention charged to the host's side) — in practice;
+      neither had a schedule row, and a netted item with no schedule row is held while the rest settles (P22 §4, §9; Q-124)
+    who: Deputy President; host club leads
+  - step: Read deficit responsibility and every other term from that year's signed host agreement; a term the agreement does
+      not carry is shown as not stated (D59; Q-129)
+    who: Federation treasurer
+  - step: Exclude dues collected with registration from the gross; they are remitted, never proceeds (By-Law 5.2; P13 §4)
+    who: Platform
+  - step: Approve the settlement by a dated reply — in practice; who approves the statement for the Federation and whether
+      the Finance Committee's audit step still runs are open (Q-221); whether a reply stands as the countersignature is Q-241
+      (P22 §9.4)
+    who: President and Deputy President
+  - step: Post the per-registration Relief Fund amount from the settlement as one dated line — in practice for 2022–2025;
+      whether it continues after 2025 is Q-126 (P22 §5.3; P23 §3; Q-243)
+    who: Executive Administrator; Educational Fund Treasurer
+  - step: Pay the host by the channel the bank allows for the amount and record the channel against the liability — in practice
+      a cheque (Q-222); the payment's signatories are By-Law 11.1.2 (the Treasurer, countersigned by a senior Executive Committee
+      officer) and 7.5.1–7.5.2 (the General Treasurer and the Financial Secretary co-sign cheques), which differ; whether
+      an approval by reply stands as the countersignature is Q-241
+    who: AFRP General Treasurer (P22 §9.5; By-Law 7.5.1); in practice the office issued the cheque (2026)
+  - step: Release within the agreed settlement period while the host's final accounting runs on its own clock (By-Law 10.1.7;
+      Q-128)
+    who: Federation treasurer; host club treasurer
+  - step: Show the settlement on the host club's statement (D57)
+    who: Platform
+  - step: Present the Convention's accounting to the Board at its next meeting — in practice
+    who: Federation office; AFRP Board
+  branches:
+  - junction
+  programmes:
+  - convention
+  services:
+  - funds-ledger
+  - events
+  decisions:
+  - D1
+  - D57
+  - D59
+  - By-Law 5.2
+  - By-Law 10.1.7
+  - By-Law 11.1.2
+  - By-Law 7.5.1
+  - By-Law 7.5.2
+  status: Designed
+  status_note: Observed in the 2026 close (the Federation's Convention accounting and the Board's minutes, September 2026)
+    and the 2012 settlement sheet; the settlement statement is designed in the host-agreements note (P13 §4). Designed as
+    dated acts in P22 §9 (CV6); not built.
+  hands_to:
+  - club-share
+  - remittance-ledger
+  - relief-disbursement
+  - reporting
+  - partner-agreements
+  handoff_notes:
+  - 'close → club share: the settlement lands on the host club''s statement (D57, D59)'
+  - 'close → relief: the per-registration amount posts to the Relief Fund as one line (Q-126)'
+  - 'close → ledger: the liability due to the host clears on payment; the fixed share is General Fund income'
+  - 'close → agreements: the statement reads only the signed agreement''s terms (D59; Q-93)'
+  - 'close → reporting: the accounting goes to the Board''s next meeting'
+  open:
+  - The close's standing roles, who approves the statement, and whether netted items need schedule rows (Q-221, Q-124).
+  - Who signs the payment, By-Law 11.1.2 or 7.5.1–7.5.2, and whether a reply stands as the countersignature (Q-241).
+  - The payment channel (Q-222).
+  - Why part of the host fee runs through ARFECF's books (Q-224).
+  - The revised 2026 agreement is minuted and not on file (Q-93).
+  - The per-registration Relief Fund amount after 2025 (Q-126); the two clocks (Q-128).
+  deep_dive:
+  - AFRP-Deep-Convention.html
+  prototype:
+  - '#/convention'
+  sources:
+  - design/AFRP-Host-Agreements.md §4
+  - design/AFRP-Convention-Operations.md §9, §10
+  - design/AFRP-Relief-Fund-and-Senior-Living.md §3 (P23)
+  - design/AFRP-Decisions-Register.md §Decision 59
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Federation's Convention accounting thread and the AFRP Board minutes (September 2026)
+  - The AFRP and ARFECF balance sheets at 31 May 2026 (the 2026 General Assembly packet)
+  - The 2012 settlement sheet in the officer archive
+  owner: shared — the Federation's office prepares, the General Treasurer pays (7.5.1; signatories Q-241), the approver set
+    is open (Q-221; the President and Deputy President approved in 2026), the host club's leads reconcile; the terms are that
+    year's agreement's (D59)
+  could_share: The Mid-Year settlement on the same statement (D59); every affiliate's 'due to' settlement (Q-232)
+  trigger: The Convention ends
+  frequency: Yearly; in 2026 about six weeks after the Convention
+  records: The reconciliation with its netted items, the meeting's corrections, the dated approvals, the payment and its channel,
+    the Relief Fund line, the statement on the host's club account
+  money: The balance due to the host; the Federation's fixed share; amounts netted each way; the per-registration Relief Fund
+    amount
+  module: none yet (would land in events and ledger)
+  rule_vs_practice:
+  - 'In practice (research, 2 Oct 2026): the only earlier settlement on file (2012) ran the other way: the host collected
+    registration and paid the Federation its fee with the dues and Relief Fund amounts, less two costs the Federation bore.'
+  - 'In practice (research, 2 Oct 2026): the design''s ten-line statement (P13 §4) has no line for a Federation-hosted event
+    charged to the host or a host debt netted against the release; 2026 did both (Q-124, Q-221).'
+  - 'In practice (research, 2 Oct 2026): part of the host fee appears in ARFECF''s books as due to AFRP, though the Convention
+    is AFRP''s (D1 G; D55''s test, the register entry; Q-224).'
+- key: relief-disbursement
+  name: 'Relief Fund: money in and three paths out'
+  summary: A separate account in the Federation's name, reported at every Board meeting by the Educational Fund Treasurer.
+    Money comes in after each Convention and from appeals; it leaves by three paths decided three ways, and only the first
+    has a written rule. AFRP holds the fund (D83, 3 Oct 2026); the receipt's deductibility text waits on the CPA, and ARFECF's
+    booking of the fund is a reconciliation item.
+  steps:
+  - step: Deposit the per-registration amount from each Convention's settlement as one dated line; take appeal gifts in an
+      emergency through the Federation's procedure (By-Law 11.1.4) — in practice (research, 2 Oct 2026)
+    who: Executive Administrator
+  - step: 'Path 1, emergency support: vote a sum per month for a term with a distribution plan and the condition that recipients
+      are told the Federation is the source; extend by a further vote (the only written rule; the Board''s votes of 2020–21
+      and the General Assembly''s of 2021)'
+    who: AFRP Board; General Assembly
+  - step: 'Path 2, the annual Ramallah charities: vote the line on the Educational Fund page of the budget at the Convention,
+      funded from the Relief Fund; the list of organisations and the amount for each is not written (Q-207); the platform
+      refuses to mark the distribution approved while that list''s authoriser row is empty (P23 §4.2)'
+    who: General Assembly; the Federation's representative in Ramallah
+  - step: 'Path 3, ad hoc: a seasonal distribution or a one-off wire went out in practice with no approval on file; on the
+      platform it is refused without an approval act (P23 §4.3; Q-109)'
+    who: Executive Administrator executes; approver not on file
+  - step: Transfer from the Relief Fund to the Education Fund account and wire the Federation's Ramallah account, recorded
+      as one linked act on both chequebooks — in practice since 2024 (in 2020 the wire went direct)
+    who: Executive Administrator; Educational Fund Treasurer
+  - step: Distribute in Ramallah from an account that needs two local signatures; report counts, amounts, dates and organisations
+      from the beneficiary-organisation register, never a person (P23 §7; Q-246, Q-247)
+    who: The Federation's representative in Ramallah
+  - step: File the one-page statement (opening balance, deposits, expenses, closing balance) to every Board meeting beside
+      the Education Fund and Cook Book statements (Q-174)
+    who: Educational Fund Treasurer
+  - step: Post to AFRP, the holding entity (D83); a gift is receipted without a deductibility claim until the CPA settles
+      the text (D9; P11 §4); ARFECF's booking of the fund is a reconciliation item (the books follow D83, or the Boards revisit)
+    who: Platform
+  - step: Keep family lists outside the platform; a relief payment carries a count and an amount (P11 §4)
+    who: Platform
+  branches:
+  - care
+  programmes:
+  - relief-fund
+  services:
+  - funds-ledger
+  - directory-comms
+  decisions:
+  - D8
+  - D9
+  - D55
+  - D63
+  - D83
+  - By-Law 11.1.4
+  - By-Law 11.1.5
+  status: Designed
+  status_note: Observed in the Educational Fund Treasurer's statements in the Board packets (2020–2026), ARFECF's reviewed
+    statements and the Board's votes. The care-grants note (P11 §4) held the Relief Fund to post nothing until its entity
+    was named; since 3 Oct 2026 D83 names AFRP, and the receipt's deductibility text waits on the CPA. Designed in P23 Part A (`AFRP-Relief-Fund-and-Senior-Living.md`, RL1–RL4); not built.
+  hands_to:
+  - care-grants
+  - reporting
+  - giving-funds
+  - club-share
+  handoff_notes:
+  - 'convention close → relief: the per-registration amount arrives as one line from the settlement (Q-126)'
+  - 'relief → reporting: the per-meeting statement becomes the ledger''s report once the fund posts to AFRP (D83; Q-174)'
+  - 'relief → giving: no Relief Fund purpose is on the public giving page today (Q-208)'
+  - 'relief → club share: a club relief drive''s per-club tally is an attribution only if the Board says so (Q-180, Q-228)'
+  - 'relief → care grants: whether D63''s closing records reach a relief payment is open (Q-109)'
+  open:
+  - Who may authorise a transfer between Board votes, and whether D63's closing records apply (Q-109; the holding entity is
+    AFRP by D83).
+  - ARFECF's booking of the fund against D83: the books follow D83, or the Boards revisit (the conflicts table; the CPA).
+  - The deductibility and receipt text for gifts to the fund (the CPA; D9).
+  - Who selects the annual charities and the amount for each (Q-207).
+  - A Relief Fund purpose on the public giving page (Q-208).
+  - The Treasurer's proposed pre-spend rule (Q-209).
+  - Club relief drives and direct club giving (Q-180, Q-228).
+  - The per-registration amount after 2025 (Q-126), and in a unified registration (Q-243).
+  - The Federation's representative in Ramallah, a seat with no constituting act (Q-246).
+  - The account in Ramallah that receives the relief wire (Q-247).
+  deep_dive: []
+  prototype: []
+  sources:
+  - design/AFRP-Relief-Fund-and-Senior-Living.md (P23) Part A, §3–§7
+  - design/AFRP-Convention-Operations.md §5.3 (P22)
+  - design/AFRP-Care-Grants-and-Partners.md §4
+  - design/AFRP-Decisions-Register.md §Decision 55, §Decision 63
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Educational Fund Treasurer's Relief Fund statements in the Board packets (2020–2026)
+  - ARFECF's reviewed financial statements (year to May 2025) and balance sheet (31 May 2026)
+  - The Board's and the General Assembly's votes on emergency support (2020–2021)
+  owner: AFRP (D83, 3 Oct 2026) — the account is in the Federation's name and the AFRP Board votes emergency support; in practice
+    ARFECF's books carry the gifts, the charities and the account, a reconciliation item (Q-109 for who approves between votes)
+  could_share: Care grants' closing records (D63) if the Boards apply them; the club statement for relief drives (D57)
+  trigger: A Board vote on emergency support; the budget's charities line; a Convention settlement; an appeal
+  frequency: Monthly during emergency support; the charities yearly; a deposit after each Convention; a statement at every
+    Board meeting
+  records: Deposits with their source, the votes and distribution plans, transfers and wires as linked pairs, the representative's
+    counts and totals, the per-meeting statement; never family lists
+  money: Per-registration Convention amounts and appeal gifts in; monthly support, the annual charities and seasonal distributions
+    out, through the Education Fund account since 2024
+  module: none yet; the fund posts to AFRP (D83) once RL1–RL4 are built (P23)
+  rule_vs_practice:
+  - 'In practice (research, 2 Oct 2026): the record names no holding entity; ARFECF''s reviewed statements book relief gifts
+    as its donor-restricted contributions and the Ramallah charities as its programme expense, and ARFECF''s balance sheet
+    holds the account with AFRP owing it, while the account carries the Federation''s name and the AFRP Board votes emergency
+    support (Q-109). *Since 3 Oct 2026:* D83 names AFRP; ARFECF''s booking is a reconciliation item (the books follow D83, or
+    the Boards revisit).'
+  - 'In practice (research, 2 Oct 2026): By-Law 11.1.4 bars soliciting for a Federation project without the Board''s and the
+    Executive Committee''s authority, and 11.1.5 routes club-raised funds for it through headquarters; the Board said in May
+    2026 that club gifts to needy families should come through one channel, preferably the Relief Fund, and clubs give directly
+    to Ramallah projects (Q-228).'
+  - 'In practice (research, 2 Oct 2026): a treasurer''s projection assumes the per-registration amount continues to 2030;
+    no decision continues it after 2025 (Q-126).'
+- key: scholarship-renewal
+  name: Scholarship award letters, renewal and instalment release
+  summary: After selection the office checks documents, writes the letters and the first cheque; each later instalment is
+    released only when the scholar's semester documents are verified. The rule is written in the award letter, not in an adopted
+    policy (Q-159).
+  steps:
+  - step: Verify each selected applicant's documents (acceptance letter, transcript, recommendation, statement, and the Ramallah
+      track's school-leaving scores) and list the gaps — in practice (research, 2 Oct 2026)
+    who: Programme director
+  - step: Ask the committee secretary whether to chase a gap or hold the cheque — in practice
+    who: Executive Administrator; Scholarship Committee secretary
+  - step: Send award, missing-documents and rejection letters in early September, in the Federation's name over the President's
+      and the committee secretary's signatures — in practice (Q-158). On the platform each letter is an LT-P row in ARFECF's
+      name; with no signatory row it is a draft the office sees and is not sent (P26 §4)
+    who: Federation office
+  - step: Write the first cheque with the award letter; a missing-documents letter holds it until the gaps close — in practice
+    who: Executive Administrator
+  - step: File the semester transcript, proof of full-time enrolment with the next semester's schedule, and the cumulative
+      GPA after the fall and the winter semester (the 2026 award letter)
+    who: Scholar (continuing recipient)
+  - step: Verify and release the instalment; a late filing, dropping below full time or below the minimum GPA may suspend
+      or cancel the next payment, and a scholar in hardship contacts the office (the 2026 award letter; Q-159). The platform
+      itself suspends nothing; see the instalment states below (P26 §2.4)
+    who: Federation office
+  - step: Draw the award on ARFECF's Scholarship Fund under the committee's authority (D3, D55); which account pays in practice
+      is not shown (Q-158)
+    who: Executive Administrator, for the fund
+  - step: Hold the instalment's state (scheduled, due, verified, released, held, suspended, cancelled) with its verification
+      rows; a missed filing holds and never lapses, and only the committee's act suspends or cancels (P26 §2.1–§2.4; Q-256,
+      Q-257)
+    who: Federation office; Scholarship Committee
+  - step: Ask for hardship by a category the committee defines, with no free text; the request opens a follow-up to the office
+      and a decision item for the committee (P26 §2.4; Q-159)
+    who: Scholar; Federation office; Scholarship Committee
+  - step: Announce counts and amounts by track, never names — in practice
+    who: Programme director
+  - step: Assign a named scholarship to a recipient under its donor's criteria; no instrument or criteria are on file for
+      any of them (Q-102)
+    who: Scholarship Committee
+  branches:
+  - education
+  programmes:
+  - scholarship
+  services:
+  - funds-ledger
+  - directory-comms
+  - membership-standing
+  decisions:
+  - D3
+  - D55
+  - D58
+  - ARFECF By-Laws 6.4.4
+  status: Designed
+  status_note: The committee engine (slices 4, 4b) verifies enrolment before disbursement; the letters, the document chase,
+    the instalment release and named-scholarship assignment are designed in P26 (`AFRP-Scholarship-Awards.md`, SA1–SA7); not
+    built. Written from the committee's 2026 report and the 2026 award letter.
+  hands_to:
+  - scholarship-cycle
+  - giving-funds
+  - communications
+  - alumni-recruiting
+  handoff_notes:
+  - 'scholarship cycle → renewal: the selected list and its gaps arrive from the committee secretary'
+  - 'renewal → giving: a named scholarship''s donor sees a count, never the scholar (Q-102)'
+  - 'renewal → comms: letters and reminders go to the scholar on a verified channel'
+  - 'renewal → alumni: a scholar who completes becomes an alumnus (UC-7)'
+  open:
+  - Which account pays and in whose name the letters go (Q-158).
+  - Whether the letter's renewal rule is the committee's policy, and the hardship exception (Q-159).
+  - Whether the Board approves the year's awards or receives them (Q-161).
+  - Which named scholarships exist and what each requires (Q-102).
+  - The Ramallah track's payment channel is not stated in any source.
+  - The Ramallah track's renewal parameters (Q-255); parameters the award letter does not reach (Q-256); an appeal route (Q-257).
+  deep_dive: []
+  prototype:
+  - '#/program/applications'
+  sources:
+  - design/AFRP-Scholarship-Program-Spec.md §4, §11
+  - design/AFRP-Decisions-Register.md §Decision 3
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Scholarship Committee's report to the Board (August 2026) and the 2026 award letters
+  - The office's named-scholarship list (July 2026)
+  - design/AFRP-Scholarship-Awards.md (P26) §2, §4, §5
+  owner: ARFECF — the Scholarship Fund and its committee (D3, D55); the Federation's office runs the letters and cheques in
+    practice
+  could_share: Women to Women's tuition awards (Q-211); a tuition earmark drawn per instalment (Q-217)
+  trigger: The committee's recommendations are reported; each semester ends
+  frequency: Letters yearly in September; two instalments a year per scholar
+  records: The selected list, document gaps, letters sent, instalments with the verification behind each, suspensions, named-scholarship
+    assignments
+  money: Annual awards from ARFECF's Scholarship Fund in two instalments, by cheque by post on the US track; the Ramallah
+    track's channel is not stated
+  module: scholarship, funds (the release step is not built)
+  rule_vs_practice:
+  - 'In practice (research, 2 Oct 2026): the programme register reads a missed renewal after a bereavement as not lapsed by
+    silence; the 2026 letter says failure to file may suspend the award and asks the scholar to contact the office. Neither
+    is a written policy (Q-159).'
+  - 'In practice (research, 2 Oct 2026): the programme register has the ARFECF Treasurer pay approved awards; the Executive
+    Administrator writes the cheques and the letters are in AFRP''s name (Q-158).'
+  - 'In practice (research, 2 Oct 2026): ARFECF By-Law 6.4.4 gives the fund committee alone the spending authority; the 2023
+    community report says the AFRP Board approved the year''s scholarships (Q-161).'
+- key: women-to-women-grants
+  name: 'Women to Women: proposal to disbursement'
+  summary: 'The procedure Women to Women publishes: a project is proposed to the committee''s contact in Ramallah, approved
+    by the committee in writing, paid from ARFHSN''s US account to an account in Ramallah, and disbursed by the contact against
+    receipts. D63 has the holding entity''s Board approve with a ceiling; practice is the committee (Q-114).'
+  steps:
+  - step: Propose a project in writing, with the need and the amount, within the published project band (Q-213)
+    who: Women's organisation in Ramallah, through the committee's Ramallah contact
+  - step: Put the proposal to the committee; its September meeting finalises donations, proposals and student evaluations
+      — in practice (research, 2 Oct 2026)
+    who: Ramallah contact; Women to Women committee
+  - step: Approve the grant with a ceiling and record the vote (D63) — in practice the committee approves and reports to the
+      ARFHSN board, which does not vote (Q-114)
+    who: ARFHSN Board under D63; Women to Women committee in practice
+  - step: Account for the gifts in ARFHSN's US account and transfer to the account in Ramallah (Q-104)
+    who: ARFHSN treasurer
+  - step: Disburse against receipts and return the receipts to the committee
+    who: Ramallah contact
+  - step: Close only with the partner's agreement, a delivery confirmation and any inventory on record (D63); repeat partners
+      have no agreement today
+    who: Platform
+  - step: Evaluate student applications and award tuition support — in practice since 2026 (Q-211)
+    who: Women to Women committee
+  - step: Sponsor a member's Arabic-class seat each term on a short statement — in practice (Q-168)
+    who: Women to Women committee
+  - step: Post the sub-fund's income from direct gifts, a book sale, the Convention women's luncheon and the representatives'
+      yearly minimum (Q-213)
+    who: ARFHSN treasurer
+  - step: Report the sub-fund as its own section in ARFHSN's report to the AFRP Board (D63; ARFHSN By-Laws Art. III §7)
+    who: ARFHSN treasurer
+  branches:
+  - care
+  programmes:
+  - women-to-women
+  services:
+  - funds-ledger
+  - directory-comms
+  - events
+  decisions:
+  - D10
+  - D55
+  - D63
+  - ARFHSN By-Laws Art. III §5
+  - ARFHSN By-Laws Art. III §7
+  status: Designed
+  status_note: The procedure is published on the Federation's website and six years of projects are in ARFHSN's records. Designed
+    as a committee sub-fund on the Care grants register (P11 §2, §6); its tuition awards are P11 grant rows (P26 §6.1). Who
+    approves a project is Q-114. Not built.
+  hands_to:
+  - care-grants
+  - giving-funds
+  - arabic-term
+  - reporting
+  - selection-programmes
+  handoff_notes:
+  - 'Women to Women → care grants: the grant record, closing records and two signatories are the Care grant''s (D63)'
+  - 'Women to Women → Arabic term: a sponsored seat is a cross-entity payment with no rule (Q-168)'
+  - 'Women to Women → selection: tuition awards may be a selection cycle holding applicant data (Q-211)'
+  - 'Women to Women → giving: an endowed gift waits on Q-210'
+  - 'Women to Women → reporting: its section in ARFHSN''s report to the AFRP Board (D63)'
+  open:
+  - 'Who approves a project for payment: the committee, as published, or ARFHSN''s Board under D63 (Q-114).'
+  - An endowed fund for Women to Women (Q-210).
+  - Tuition awards and their applicant data (Q-211).
+  - Women to Women gifts in ARFECF's books (Q-212).
+  - The representative's yearly minimum and the project band (Q-213).
+  - The Ramallah account's signatories (Q-104).
+  deep_dive: []
+  prototype: []
+  sources:
+  - design/AFRP-Care-Grants-and-Partners.md (P11) §2, §6
+  - design/AFRP-Decisions-Register.md §Decision 55, §Decision 63
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Women to Women page on the Federation's website (the published procedure)
+  - ARFHSN board minutes and reports to the AFRP Board (2020–2026)
+  - design/AFRP-Scholarship-Awards.md (P26) §6.1
+  owner: ARFHSN — Women to Women is its sub-fund (D55); the committee approves in practice
+  could_share: Care grants (P11); the selection engine for tuition awards
+  trigger: A proposal reaches the Ramallah contact
+  frequency: On demand; decisions at the committee's meetings, the September one finalising the year
+  records: Proposals with need and amount, committee decisions, transfers, the contact's receipts; student applications (where
+    held is not stated)
+  money: Gifts, book proceeds, luncheon proceeds and representatives' minimums in; project payments, tuition and class-fee
+    sponsorships out through the Ramallah account
+  module: none yet (Care grants)
+  rule_vs_practice:
+  - 'In practice (research, 2 Oct 2026): D63 has the holding entity''s Board approve each grant with a ceiling; the published
+    procedure and ARFHSN''s minutes have the committee approve (Q-114).'
+  - 'In practice (research, 2 Oct 2026): D55 makes Women to Women a sub-fund of ARFHSN; ARFECF''s statements carry Women to
+    Women gifts and a project payment for one year (Q-212).'
+  - 'In practice (research, 2 Oct 2026): the CPA''s view is that endowed Women to Women money stays in ARFHSN''s investment
+    accounts as a separately accounted fund; the AFRP President asked that no new endowed fund be made before one fundraising
+    strategy exists (Q-210).'
+- key: magazine-announcements
+  name: Magazine announcements, subscriptions and the issue as run
+  summary: 'How Hathihe Ramallah runs today beside the designed issue cycle: announcements reach the editor through a city
+    correspondent or the magazine''s mailbox; obituaries are paid placements; the print run goes only to paid subscribers
+    through a mailing house; the digital issue goes out as an email campaign; an appeal goes out when renewals lag.'
+  steps:
+  - step: Send a wedding, birth, graduation or obituary to the editor, directly or through the city correspondent, under the
+      published guidelines — in practice (research, 2 Oct 2026)
+    who: Family (member household); city correspondent
+  - step: Enter the life event on the household's behalf with the family's consent recorded, so that the section is generated
+      and the household is not asked twice — the seat the design needs (Q-195); the entry is pending, names who entered it
+      and from what, and prints nothing until the consent act is on record (P24 §3.2)
+    who: City correspondent
+  - step: Approve the death as the named family contact (R34) and place the obituary as an order with its tribute; the fee
+      is held unposted with a "payment received" receipt that claims no deductibility, until it is classed (P24 §3.3; Q-193)
+    who: Family
+  - step: Hold a death until the family approves (R34)
+    who: Magazine editor
+  - step: Lay out the issue for the editor
+    who: Design agency
+  - step: Produce the print mailing list without lapsed print subscribers and hand it to the mailing house — in practice since
+      the May/June 2025 issue
+    who: Subscriptions manager
+  - step: Send the digital issue as an email campaign; a digital copy comes with membership — in practice (Q-196)
+    who: Federation office
+  - step: Record every subscription payment, by card, cheque or at an event, in one list with its print or digital flag; in
+      2026 the manager's own ledger and the registration system diverged; a non-member subscriber is a role on the contact
+      record (P21 §2; Q-239)
+    who: Subscriptions manager
+  - step: Reconcile the two ledgers once into the platform's subscriber ledger, then produce each issue's print list from
+      it for the mailing house (P24 §5.2, §5.3)
+    who: Subscriptions manager; Federation office
+  - step: Send an appeal to lapsed subscribers, by email to younger contacts and by letter to older households, with a cut-off
+      before the next issue — in practice (August 2026). On the platform the channel is each person's consented channel, never
+      chosen by age, and a subscriber who paid since the appeal is not written to again (P24 §5.5)
+    who: Magazine editor; general manager chooses the channel
+  - step: File the magazine's chequebook report (subscriptions and obituary income; per-issue stipends, design, print, postage)
+    who: Magazine treasurer
+  - step: Publicise the Member-at-Large nomination call before the Mid-Year and take candidates' platform articles under the
+      staff's criteria (By-Laws 6.5.2, 9.5.2)
+    who: Magazine manager
+  branches:
+  - heritage
+  programmes:
+  - magazine
+  services:
+  - magazine
+  - directory-comms
+  - funds-ledger
+  - family-tree
+  decisions:
+  - D33
+  - R27
+  - R34
+  - S5
+  - By-Law 6.5.2
+  - By-Law 6.7.1
+  - By-Law 9.5.2
+  - R7
+  status: Designed
+  status_note: Practice found in the Magazine's and the office's records (2014–2026). The Hub's magazine module (slices 7,
+    7b) builds the designed cycle; the correspondent seat, paid placements, the subscription list and the mailing-house hand-off
+    are designed in P24 (`AFRP-Magazine-Operations.md` §3, §5; MG1–MG5) and not built.
+  hands_to:
+  - magazine
+  - tree-life-events
+  - communications
+  - remittance-ledger
+  handoff_notes:
+  - 'announcements → tree: a life event the correspondent enters is a declaration in the committee''s queue (D14)'
+  - 'announcements → magazine: the designed cycle snapshots what the queue accepted at the copy freeze'
+  - 'announcements → comms: the digital issue and the appeal go through the consent filter'
+  - 'announcements → ledger: subscriptions and placement fees post as the CPA classes them (Q-193)'
+  open:
+  - Whether the Magazine has the board of By-Law 6.7.1 (Q-192).
+  - What an obituary placement fee is (Q-193).
+  - The Federation's funding duty under 6.7.1 (Q-194).
+  - The correspondent seat and the consent it must hold (Q-195).
+  - 'The digital issue and back issues: member, subscriber or public (Q-196).'
+  - Who set the subscription policies (Q-249); the 9.5.2 Manager (Q-250); a non-member subscriber (Q-239).
+  deep_dive: []
+  prototype:
+  - '#/program/magazine'
+  sources:
+  - design/AFRP-Magazine-Bookstore-Use-Cases.md §2, §8
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Magazine's published submission guidelines (2020) and its chequebook reports (2014–2026)
+  - The 2026 subscription appeal correspondence (August 2026)
+  - design/bylaws/AFRP-Constitution-Bylaws-2024.pdf (By-Laws 6.5.2, 6.7.1, 9.5.2)
+  - design/AFRP-Magazine-Operations.md (P24) §2–§6
+  - design/AFRP-Contact-Record.md (P21) §5, §9 (the subscriber role)
+  owner: the Magazine — its staff and treasurer; its assets are ARFECF's (D55)
+  could_share: The tree's life-event queue (D14) as the source of announcements
+  trigger: An announcement arrives; an issue is due; renewals lag
+  frequency: Six issues a year; appeals as needed
+  records: Announcements with the household's consent, placement fees, the subscriber list with its print or digital flag
+    (members and non-members), the mailing-house file, appeal sends, the chequebook report
+  money: Subscriptions and paid obituary placements in; per-issue stipends, design, printing and postage out
+  module: 'magazine (partly); the subscription list and the mailing-house hand-off: none yet'
+  rule_vs_practice:
+  - 'In practice (research, 2 Oct 2026): By-Law 6.7.1 gives the Magazine an independently selected board; a staff and a treasurer
+    are evidenced and no board (Q-192).'
+  - 'In practice (research, 2 Oct 2026): the record has an appeal each November; the 2026 appeal ran in August.'
+  - 'In practice (research, 2 Oct 2026): the record holds no subscriber data beyond member records; the subscriber list includes
+    non-members and is kept in two places.'
+- key: tree-submission
+  name: Family-tree submission and correction, as run
+  summary: Today one project lead receives, approves and applies every change to a master file held in a desktop genealogy
+    product, and approves access to the clan books. The designed workflow (family tree and life events) queues every change
+    for the Family Tree Committee; this records the practice it would replace.
+  steps:
+  - step: Ask for a change (a birth, death, marriage or divorce date, an immigration date, a name correction) through the
+      change-request form or by email — in practice (research, 2 Oct 2026)
+    who: Member
+  - step: Apply the change to the master file; de-duplicate and prune — in practice
+    who: Family-tree project lead
+  - step: Request access to the clan books; the lead approves 'by agreement with the board', with no written test (Q-200)
+    who: Member; family-tree project lead
+  - step: Invite a person to the interactive tree through the product's cloud sharing — in practice
+    who: Family-tree project lead
+  - step: 'Queue the same request for the Family Tree Committee before the record changes: a clan steward may recommend and
+      never applies; one approval applies an own-household life event or a non-structural correction, two approvals from different
+      committee members a structural change (D70, D72; P28 §4.2) — the design; today the committee has two members and no
+      queue'
+    who: Clan steward; Family Tree Committee
+  - step: Import the master file's edits into the Hub as diffs during D69's parallel run, conflicts held for a decision; after
+      the run the file is read-only and the Hub exports every night (P28 §4.3); no licence holder or account is written (Q-201)
+    who: Family Tree Committee (tree:moderate); the record keeper supplies the file
+  - step: Change the public page's text through one approver and the web agency — in practice
+    who: Programme director
+  - step: Adopt the platform's queue as the committee's one intake by a dated act, with the committee's seats on CW1 (P27
+      stage 2)
+    who: Family Tree Committee
+  branches:
+  - heritage
+  programmes:
+  - family-tree
+  - preservation-project
+  services:
+  - family-tree
+  - membership-standing
+  decisions:
+  - D13
+  - D14
+  - D17
+  - D28
+  - D66
+  - D69
+  - D70
+  - D71
+  - D72
+  status: Designed
+  status_note: Practice found in the project's public page and the project's and committees' correspondence (2023–2026); it
+    runs outside the platform. The designed workflow is partly built (slices T1a–T1c); the migration from this practice is
+    designed in P27 (`AFRP-Family-Tree-In-Practice.md`, amended for D68–D74) and P28 (`AFRP-Family-Tree-Module.md`, T2a–T2h).
+  hands_to:
+  - tree-life-events
+  - directory-consent
+  - magazine-announcements
+  handoff_notes:
+  - 'submission → tree: a form row becomes a declaration in the committee''s queue (D14). *Since 2 October 2026:* the form''s
+    rows are not imported; members propose in the platform, and requests already received arrive through the next export labelled
+    as made outside the queue (P27 §4.3; D70)'
+  - 'submission → directory: access to the living follows D71 and D28, not a personal approval (Q-200)'
+  - 'submission → magazine: a birth or death reaches the magazine only through the queue (D33 for a birth, R34 for a death)'
+  open:
+  - Who approves access to the clan books and the interactive tree, under what test (Q-200).
+  - The genealogy product's licence, account and export cadence (Q-201).
+  - Whether the clan-book PDFs carry living persons' dates (Q-202).
+  - A second archive-and-tree site built by volunteers (Q-190).
+  - 'Serving drive-held clan books inside sign-in (Q-260). Answered since: the handover by D69 (Q-258); a non-member''s change
+    request by D70 (Q-259).'
+  - Steward appointment, number and term (Q-263); the list of structural kinds is set by D81 (Q-264). The second holder of tree:moderate is answered by D79 (Q-262): a committee member the committee seats.
+  deep_dive: []
+  prototype:
+  - '#/member/family'
+  - '#/fed/tree'
+  sources:
+  - design/AFRP-Family-Tree-Integration.md §2, §3
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Family Tree page on the Federation's website (2025) and the change-request form
+  - The family-tree and preservation committees' correspondence (July–September 2026)
+  - design/AFRP-Family-Tree-In-Practice.md (P27) §2–§5, §8
+  - design/AFRP-Family-Tree-Module.md (P28) §4.2, §4.3, §15
+  owner: Federation — the Family Tree Committee under the design (D72; the Hub the record after D69's parallel run); one project
+    lead in practice
+  could_share: The Preservation Project's archive, linked to tree nodes through the platform rather than a second site (D66;
+    Q-190)
+  trigger: A member asks for a change or for access
+  frequency: On demand
+  records: Change requests, the master file and its cloud copy, the clan-book access list
+  money: None
+  module: tree (the designed path); the practice is outside the platform
+  rule_vs_practice:
+  - 'In practice (research, 2 Oct 2026): D13 and D14 (now D70 and D72) have members in standing propose and the committee
+    decide every change; a single approver decides and applies (Q-200).'
+  - 'In practice (research, 2 Oct 2026): D17 (now D71) has members see the living by membership, not approval; the clan books
+    need an approved request and the interactive tree a personal invitation (Q-200).'
+  - 'In practice (research, 2 Oct 2026): D11 (superseded by D69) made the platform a governed mirror; the body of record is
+    a desktop file under an account not in the Federation''s name (Q-201).'
+  - 'In practice (research, 2 Oct 2026): D28 shows nothing about the living without sign-in; the clan books may carry living
+    persons'' dates and go to approved requesters, not to members by standing (Q-202).'
+  - 'In practice (research, 2 Oct 2026): D66 makes the shared drive the archive of record; a volunteer prototype proposes
+    a new site holding the tree with archive profiles (Q-190).'
+- key: government-affairs
+  name: 'Government Affairs: meetings, town halls and local action'
+  summary: 'The Government Affairs Committee''s year-round work as it ran in 2025–26: meetings with offices logged on the
+    committee''s own automated tracker, town halls with an action segment, local action committees inside clubs, and paid
+    coordinators on AFRP''s General Fund (D65).'
+  steps:
+  - step: Arrange a meeting with a federal, state or local office, through the committee or a club's local action committee
+      — in practice (research, 2 Oct 2026; Q-131)
+    who: Congressional-outreach coordinator; club local action committee
+  - step: Log the meeting on the committee's automated tracker (Microsoft Forms and SharePoint); the platform's outreach register
+      would be a third tracker unless it takes this one over, and shows a banner naming the committee's tracker until then
+      (P25 §5.4; Q-183)
+    who: Congressional-outreach coordinator; member lead
+  - step: Draft a town-hall agenda
+    who: Congressional-outreach coordinators
+  - step: Review the agenda; who clears a Federation position is not written (Q-80)
+    who: Committee chair and co-chair
+  - step: Open the town hall; a co-host association's president speaks; a guest; an action segment asks members to contact
+      their representatives on a named bill; an alert to members leaves only once its approver row is set (P25 §5.4; Q-80)
+    who: President; co-host association; Government Affairs committee
+  - step: Take the action and contact my representative; whether a member's own advocacy is counted is Q-133
+    who: Member
+  - step: Collect constituent stories for a committee website — in build; consent and retention are not stated (Q-184)
+    who: Government Affairs committee
+  - step: Pay the coordinators' contract labour and the committee's costs from AFRP's General Fund; never charge an affiliate
+      (D65)
+    who: AFRP General Treasurer
+  - step: Refuse a position whose subject is a candidate (P14) (Q-132)
+    who: Platform; Legal Advisor
+  branches:
+  - leadership
+  programmes:
+  - congressional-outreach
+  - day-of-action
+  services:
+  - events
+  - directory-comms
+  - funds-ledger
+  decisions:
+  - D55
+  - D65
+  - S1
+  status: Designed
+  status_note: Practice in the committee's 2025–26 report, its town-hall planning (August 2026) and the club initiatives report
+    (May 2026). Designed in P14 (`AFRP-Advocacy.md`, AD1–AD5) with P25 §5.4 (the town hall's alert gate and the tracker banner);
+    not built.
+  hands_to:
+  - advocacy
+  - communications
+  - events
+  - club-management
+  - reporting
+  handoff_notes:
+  - 'government affairs → advocacy: positions, statements and alerts run in the advocacy workflow (P14)'
+  - 'government affairs → events: a town hall or a district meeting at a club is an event with its host'
+  - 'government affairs → clubs: a club''s local action committee is not yet a seat on the officers form (Q-131)'
+  - 'government affairs → reporting: meetings and town halls report to the Board, and cost rows to the lobbying record (Q-134)'
+  open:
+  - Who appoints a club's local action committee, and to whom it reports (Q-131).
+  - The committee's tracker against the platform's register (Q-183).
+  - 'Constituent stories: consent and retention (Q-184).'
+  - Candidate-related activity for a 501(c)(4) (Q-132).
+  - The Washington internships (Q-182).
+  deep_dive: []
+  prototype: []
+  sources:
+  - design/AFRP-Advocacy.md (P14) §2, §4
+  - design/AFRP-Decisions-Register.md §Decision 65
+  - design/AFRP-Decisions-Register.md §Conflicts between practice and the record found in the research round of 2 October
+    2026
+  - The Government Affairs Committee's 2025–26 report and the club initiatives report (May 2026)
+  - The town-hall planning correspondence (August 2026)
+  - design/AFRP-Leadership-Pipeline.md §5.4 (P25)
+  owner: Federation — AFRP General Fund activity (D65); clubs' local action committees in practice
+  could_share: Club events (a district meeting at a club, P14); the Day of Action
+  trigger: A bill or issue the committee takes up; a town hall; a member's or club's meeting with an office
+  frequency: Year-round; town halls every few months
+  records: Meetings by office on the tracker, town-hall agendas and attendance, constituent stories (proposed)
+  money: Coordinators' contract labour and town-hall costs, AFRP General Fund only (D65); the internship contribution's fund
+    undecided (Q-182)
+  module: none yet
+  rule_vs_practice:
+  - 'In practice (research, 2 Oct 2026): the record carries the 2020 proposal of a representative per club as not adopted;
+    local action committees were launched inside clubs in 2025–26 (Q-131).'
+  - 'In practice (research, 2 Oct 2026): the record''s tracker was last edited in 2023; the committee replaced it with an
+    automated one (Q-183).'
+  - 'In practice (research, 2 Oct 2026): the record refuses a candidate subject; whether any candidate-related activity is
+    permitted is Q-132.'
+  - 'In practice (research, 2 Oct 2026): the March 2025 Mid-Year voted a contribution to Washington internships with no fund
+    named; D65 puts Government Affairs on the General Fund and ARFECF By-Law 6.3.1 names Internships in Washington as an Endowment
+    purpose (Q-182).'
