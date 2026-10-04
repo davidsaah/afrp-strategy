@@ -60,7 +60,8 @@ each part of the record was written:
   alumni through the tree (D36) and the two readings of D71's radius.
 - **Q-273** was raised by the review of that work: the scholarship
   conflict-of-interest rule of 8 September 2026 rests on David's correction
-  (P26 §1.4) and has no D-number.
+  (P26 §1.4) and has no D-number. *Answered by D84 (4 October 2026),
+  conditional on the Scholarship Fund Committee's adoption.*
 - **Q-274 to Q-278** were numbered later the same day, from questions the
   record already held without a number: extracting the 2012 by-law text into
   rules, which club moves from Breeze first, the email and payment
@@ -115,8 +116,6 @@ row says which.
   ([Q-195](#Q-195)).
 - **Public pages.** When the Arabic page shows the non-member rate
   ([Q-171](#Q-171)).
-- **Scholarships.** Recording the scholarship conflict-of-interest rule as a
-  decision, with the Scholarship Fund Committee ([Q-273](#Q-273)).
 - **The build.** Extracting the 2012 by-law text into rules
   ([Q-274](#Q-274)); which club moves from Breeze first ([Q-275](#Q-275));
   the email and payment credentials, which David is holding for now

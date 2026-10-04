@@ -1149,6 +1149,45 @@ plate grammar, with the same shapes and line weights.
 
 ---
 
+## Part 7 — 4 October 2026
+
+One decision taken by David on 4 October 2026 in the question walk-through:
+the scholarship conflict-of-interest rule (Q-273), recorded in D58's
+conditional form. P26 §1.4 and §3.2, the scholarship specification's §3 and
+the by-law notes that cited Q-273 keep their text, each with a pointer here.
+
+---
+
+## Decision 84 — scholarship conflicts are disclosed, and only the household refuses
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-273 · conditional on the Scholarship Fund Committee adopting it as its conflict policy (ARFECF By-Law 6.4.4; 6.4.6 if it is adopted as a rules amendment)**
+
+### The adopted wording
+> A reviewer on the Scholarship Fund Committee who is related to an applicant
+> discloses the relationship by degree, and the disclosure is acknowledged on
+> the record of the decision; only a reviewer in the applicant's own household
+> is refused. The specification's three-degree block (August 2026) is
+> withdrawn. Until the committee adopts this as its conflict policy, the
+> platform applies it as built in slice 4b and labels it pending adoption.
+
+### What it settles
+- Q-273. David's correction of 8 September 2026 (P26 §1.4, §3.2) now has a
+  D-number; P26 and the specification's §3 cite D84 in place of "not yet a
+  D-number".
+- The pattern: like D58, the rule is the design record's, and the committee's
+  exclusive authority over its fund (ARFECF 6.4.4) is kept by the condition.
+- The Hub: no build change. Slice 4b already applies the rule; the
+  "pending adoption" label is the only thing it lacks, for a build session to
+  add with the Hub record's next pass.
+
+### What it does not settle
+- Whether, when and by what act the Scholarship Fund Committee adopts it, and
+  whether that act is a rules amendment needing two-thirds of the ARFECF Board
+  under 6.4.6 (P26 §3.2's reading). The record holds no such act.
+- The rubric and who scores (Q-117). The committee's seats (D58). Who approves
+  the year's awards (Q-161).
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

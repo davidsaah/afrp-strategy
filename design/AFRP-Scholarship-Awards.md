@@ -34,7 +34,7 @@ The committee engine: an application's existence, state, scores and an opaque re
 | Spec (15 August 2026) | Since | What stands |
 |---|---|---|
 | §1, §5: "AFRP is the payer of record" | D3 (20 August): the Scholarship is ARFECF's | ARFECF is the payer; the spec's tax-fact capture applies to ARFECF |
-| §3: related within three degrees is blocked | David's correction (8 September; built in slice 4b; not yet a D-number, Q-273) | Disclosed by degree and acknowledged; only same household refuses |
+| §3: related within three degrees is blocked | David's correction (8 September; built in slice 4b); **D84** (4 Oct 2026), pending the Scholarship Fund Committee's adoption | Disclosed by degree and acknowledged; only same household refuses |
 | §2 lifecycle: "budget check → board approval → offer" | 6.4.4 (text) | The committee's decision authorises; a Board's act, if any, is recorded beside it and gates nothing (§3.3; Q-161) |
 | §5.1: verification "every year" | The 2026 award letter (practice): per semester | §2 builds the semester as the unit, graded practice (Q-159) |
 
@@ -99,7 +99,7 @@ The committee is a body on CW1 seated as the 2015 policy reads (D58): the chairm
 
 ### 3.2 The decision
 
-A **decision item** on the committee's queue (P1 §3.4) per cycle and track: the seats present; the outcome *consensus* or a tally (the 2026 practice is consensus at one meeting); the disclosed relationships acknowledged (P26 §1.4, built in slice 4b; Q-273); the awards made, each creating the award and its award years with the encumbrance (slice 4); scores only under an adopted rubric (the spec's §11 q2; built as refused without one). The decision freezes the cycle's application list.
+A **decision item** on the committee's queue (P1 §3.4) per cycle and track: the seats present; the outcome *consensus* or a tally (the 2026 practice is consensus at one meeting); the disclosed relationships acknowledged (P26 §1.4, built in slice 4b; D84, pending the committee's adoption); the awards made, each creating the award and its award years with the encumbrance (slice 4); scores only under an adopted rubric (the spec's §11 q2; built as refused without one). The decision freezes the cycle's application list.
 
 **Late or absent applications.** Each application carries its received date against the cycle's deadline (31 May, the programme's published calendar). One received after it, or never received, is shown as such. **The platform refuses nothing on lateness**; the committee's practice (treating a late application as disqualifying) is recorded as the committee's dated act on that application, and becomes a rule the platform applies only once the committee adopts a late-application rule as a register row (Q-117 asks every programme committee for one; for the Scholarship the adoption is a rules amendment under 6.4.6). A member who forwards a relative's appeal is answered outside the platform; whether a declined or suspended person has an appeal route at all is **Q-257**.
 

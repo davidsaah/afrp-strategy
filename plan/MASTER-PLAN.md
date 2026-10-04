@@ -77,7 +77,7 @@ rebuild it.
 `AFRP-Portal/docs/design/` (31 documents, incl. the Decisions Register: 29
 decisions answered, D5 reopened), `davidsaah/afrp-mockups` (public:
 prototype, Platform Map, Complete Platform, five deep dives, the fixture),
-and `ai-memory/` (00–10 + prompts). *Since 29 Sep – 2 Oct 2026:* AFRP-Portal and afrp-mockups are folded into `davidsaah/afrp-strategy`. Its `design/` holds the Decisions Register (D1–D83) and the design notes P1–P28, its `plan/` holds this plan, and `site/data/questions.yaml` holds Q-1 to Q-279 (254 open on 2 October 2026; 252 open on 3 October 2026, after D75–D79 and Q-279). Precedence is D41. The Claude Project mirrors key
+and `ai-memory/` (00–10 + prompts). *Since 29 Sep – 2 Oct 2026:* AFRP-Portal and afrp-mockups are folded into `davidsaah/afrp-strategy`. Its `design/` holds the Decisions Register (D1–D84) and the design notes P1–P28, its `plan/` holds this plan, and `site/data/questions.yaml` holds Q-1 to Q-279 (254 open on 2 October 2026; 252 open on 3 October 2026, after D75–D79 and Q-279). Precedence is D41. The Claude Project mirrors key
 documents for Cowork sessions; **anything a build session must obey is a
 file in the repo, never only in the Project.**
 

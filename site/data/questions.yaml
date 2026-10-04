@@ -1942,7 +1942,8 @@
   decided: "D76"
 - id: Q-273
   title: "Record the scholarship conflict-of-interest rule (David's correction in P26 §1.4) as a decision"
-  detail: "The scholarship spec of August 2026 blocked a reviewer related to an applicant within three degrees on the family tree. Since 8 September 2026, by David's correction recorded in P26 §1.4 and §3.2 and built in Hub slice 4b, every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses. No D-number carries the rule, and nothing on file shows the Scholarship Fund Committee adopted it as its conflict policy. A slice shows what is built, not what should be (D41). Does David record the rule in the Decisions Register, and does the Scholarship Fund Committee adopt it?"
+  detail: "The scholarship spec of August 2026 blocked a reviewer related to an applicant within three degrees on the family tree. Since 8 September 2026, by David's correction recorded in P26 §1.4 and §3.2 and built in Hub slice 4b, every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses. No D-number carries the rule, and nothing on file shows the Scholarship Fund Committee adopted it as its conflict policy. A slice shows what is built, not what should be (D41). Does David record the rule in the Decisions Register, and does the Scholarship Fund Committee adopt it? Answered by D84 (4 Oct 2026): the rule is recorded, conditional on the Scholarship Fund Committee adopting it as its conflict policy (ARFECF 6.4.4; 6.4.6 if a rules amendment); until then the platform applies it as built and labels it pending adoption."
+  decided: "D84"
   owner: "David · Scholarship Fund Committee"
   goal: next-generation
   branch: education

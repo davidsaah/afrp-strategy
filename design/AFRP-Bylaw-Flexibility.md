@@ -301,7 +301,7 @@ The full list is in **AFRP-Bylaws-Checklist.md** and the discrepancies are in
 3. **When delegate weight is fixed**, if weighted voting survives.
 4. **Conflict of interest** for the scholarship committee — the three-degree
    kinship bar is mine, with no authority behind it, and in a federation
-   descended from one community it *will* be challenged. *(Since David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b): the bar is out. Every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses. P26 §3.2 carries it; it is not yet a D-number (Q-273).)*
+   descended from one community it *will* be challenged. *(Since David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b): the bar is out. Every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses. P26 §3.2 carries it; since 4 October 2026 it is **D84**, pending the Scholarship Fund Committee's adoption.)*
 5. **Whether complimentary memberships vote**, given 8.15.4.
 
 ---

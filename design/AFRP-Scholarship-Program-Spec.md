@@ -6,7 +6,7 @@
 
 > Superseded on payer and Board approval by D3, ARFECF 6.4.4 and P26 §1.4 (`AFRP-Scholarship-Awards.md`).
 >
-> *Since 2 October 2026:* four passages below are kept as written and are overtaken, each with a dated pointer: §1 and §5 ("AFRP is the payer of record") by **D3** (20 August 2026: the Scholarship is ARFECF's); §3's three-degree block by **David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b)** (disclosed by degree and acknowledged, only the same household refuses; not yet a D-number, Q-273); §2's "board approval" by ARFECF 6.4.4 (the committee's decision authorises; Q-161); §5.1's yearly verification by the 2026 award letter's per-semester practice (P26 §2; Q-159). Awards, instalments, renewal, letters and named scholarships are designed in **P26** (SA1–SA7).
+> *Since 2 October 2026:* four passages below are kept as written and are overtaken, each with a dated pointer: §1 and §5 ("AFRP is the payer of record") by **D3** (20 August 2026: the Scholarship is ARFECF's); §3's three-degree block by **David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b)** (disclosed by degree and acknowledged, only the same household refuses; recorded as **D84** on 4 October 2026, pending the Scholarship Fund Committee's adoption); §2's "board approval" by ARFECF 6.4.4 (the committee's decision authorises; Q-161); §5.1's yearly verification by the 2026 award letter's per-semester practice (P26 §2; Q-159). Awards, instalments, renewal, letters and named scholarships are designed in **P26** (SA1–SA7).
 
 ---
 
@@ -49,7 +49,7 @@ So conflicts are **detected, not merely declared**:
 |---|---|
 | Reviewer is the applicant | Blocked |
 | Same household | Blocked |
-| Related within 3 degrees in the family tree | Blocked. *Since 8 September 2026 (David's correction, recorded in P26 §1.4 and §3.2; built in slice 4b; Q-273):* disclosed by degree and acknowledged, not blocked; only the same household refuses (P26 §1.4) |
+| Related within 3 degrees in the family tree | Blocked. *Since 8 September 2026 (David's correction, recorded in P26 §1.4 and §3.2; built in slice 4b; D84, 4 Oct 2026, pending the committee's adoption):* disclosed by degree and acknowledged, not blocked; only the same household refuses (P26 §1.4) |
 | Related beyond 3 degrees | **Disclosed on the record, not blocked** |
 | Self-declared | Always honoured, never questioned |
 
@@ -317,7 +317,7 @@ before the first disbursement is due.
 1. **Who is the tax adviser** who clears flagged disbursements? The workflow
    needs a named person before the first non-resident award.
 2. **What is the actual rubric,** and how many reviewers per application?
-3. *(Since 8 September 2026 (David's correction, P26 §1.4): disclosed by degree, only the same household refuses. Whether the Scholarship Fund Committee adopts it as its conflict policy is not recorded (Q-273).)* **Is 3 degrees the right conflict bar?** It is a committee policy question,
+3. *(Since 8 September 2026 (David's correction, P26 §1.4): disclosed by degree, only the same household refuses. Recorded as D84 (4 Oct 2026), conditional on the Scholarship Fund Committee adopting it as its conflict policy; no such act is on file.)* **Is 3 degrees the right conflict bar?** It is a committee policy question,
    and I have set a default rather than a rule.
 4. *(Since 2 October 2026: the office's list of about twenty names enters as candidate rows, "instrument not found", refusing posting and matching until reconciled — P26 §5, SA6; Q-102.)* **How many named scholarships exist,** and does each have written donor
    criteria? Undocumented criteria are the most common cause of a stranded

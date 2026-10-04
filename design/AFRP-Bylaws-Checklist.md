@@ -148,7 +148,7 @@ bylaws acknowledging that verification is available but not recoverable.
 - [ ] What happens when a member's standing **lapses mid-term** — automatic suspension, or a vote?
 - [ ] The **conflict of interest** standard.
 
-*(Since David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b): the three-degree block below is replaced. Every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses (P26 §3.2; not yet a D-number, Q-273). The paragraph is kept as the August text.)*
+*(Since David's correction of 8 September 2026, recorded in P26 §1.4 and §3.2 (built in slice 4b): the three-degree block below is replaced. Every relationship is disclosed by degree and acknowledged on the record, and only the same household refuses (P26 §3.2; **D84**, 4 Oct 2026, pending the Scholarship Fund Committee's adoption). The paragraph is kept as the August text.)*
 
 On that last point: the scholarship committee currently blocks a reviewer
 related to an applicant **within three degrees** in the family tree — parent,
