@@ -109,8 +109,7 @@ row says which.
   Scholarship ([Q-162](#Q-162)).
 - **Heritage and the family tree.** A second archive-and-tree site
   ([Q-190](#Q-190)); serving a drive-held document behind sign-in
-  ([Q-260](#Q-260)); the order of directory and comms and Heritage, after
-  magazine and life events (D78) ([Q-265](#Q-265)); minors' dates inside one's
+  ([Q-260](#Q-260)); minors' dates inside one's
   own branch ([Q-268](#Q-268)); the Magazine's correspondent seat
   ([Q-195](#Q-195)).
 - **Public pages.** When the Arabic page shows the non-member rate

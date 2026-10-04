@@ -1885,7 +1885,8 @@
   decided: "D81"
 - id: Q-265
   title: "The order of the tree's three remaining integrations"
-  detail: "D73 makes membership and join the first integration. The order of the other three — magazine and life events, directory and comms, Heritage (slices T2f to T2h) — is not decided. Answered in part by D78 (3 Oct 2026): magazine and life events (T2f) comes next after membership and join. Still open: the order of directory and comms (T2g) and Heritage (T2h)."
+  detail: "D73 makes membership and join the first integration. The order of the other three — magazine and life events, directory and comms, Heritage (slices T2f to T2h) — is not decided. Answered in part by D78 (3 Oct 2026): magazine and life events (T2f) comes next after membership and join. Answered in full by D86 (4 Oct 2026): Heritage (T2h), then directory and comms (T2g)."
+  decided: "D86"
   owner: "David"
   goal: heritage
   branch: heritage

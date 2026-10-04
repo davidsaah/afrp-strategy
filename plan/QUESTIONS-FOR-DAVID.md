@@ -14,13 +14,12 @@ never reads is not open, it is lost. *(Since 2 October 2026: numbered Q-274 in `
 
 ## In David's own lap, 2 October 2026
 
-These are the open questions from the research round and the notes P21–P28 (Q-158 to Q-273), and the record's own unnumbered questions numbered later that day (Q-274 to Q-278), whose owner names David, alone or with others. Each is in `site/data/questions.yaml` with its detail. Q-258 is answered by D69 and is not listed. *Since 4 October 2026:* Q-273 and Q-164 are answered by D84 and D85 and are no longer listed. *Since 3 October 2026:* Q-262, Q-270 and Q-272 are answered by D79, D77 and D76 and are no longer listed; Q-278 and Q-265 are answered in part by D75 and D78 and stay listed for what remains. Later the same day Q-279, Q-264 and Q-163 were answered by D80, D81 and D82 and are no longer listed (with D82, Q-20 fell away); D83 answered Q-109 in part (AFRP holds the Relief Fund), and Q-109, whose owner field names the three Boards and the CPA rather than David, stays open on who approves each transfer between the Board's votes and whether D63's closing records apply.
+These are the open questions from the research round and the notes P21–P28 (Q-158 to Q-273), and the record's own unnumbered questions numbered later that day (Q-274 to Q-278), whose owner names David, alone or with others. Each is in `site/data/questions.yaml` with its detail. Q-258 is answered by D69 and is not listed. *Since 4 October 2026:* Q-273 and Q-164 are answered by D84 and D85, and Q-265 in full by D86; none is listed. *Since 3 October 2026:* Q-262, Q-270 and Q-272 are answered by D79, D77 and D76 and are no longer listed; Q-278 and Q-265 are answered in part by D75 and D78 and stay listed for what remains. Later the same day Q-279, Q-264 and Q-163 were answered by D80, D81 and D82 and are no longer listed (with D82, Q-20 fell away); D83 answered Q-109 in part (AFRP holds the Relief Fund), and Q-109, whose owner field names the three Boards and the CPA rather than David, stays open on who approves each transfer between the Board's votes and whether D63's closing records apply.
 
 **David alone**
 - Q-274 — Should the 2012 by-law text be extracted into rules? (numbered 2 Oct 2026; was Q11 above)
 - Q-276 — The email provider and the payment account for slice 5 (numbered 2 Oct 2026; MASTER-PLAN §1d.6; 3 Oct 2026: David keeps the hold for now)
 - Q-278 — Where the record-only slice R3 sits (numbered 2 Oct 2026; the rest is answered by D75, 3 Oct 2026: the build-ready slices first, and LT1 waits on slice 5 only for a send)
-- Q-265 — The order of directory and comms (T2g) and Heritage (T2h) (D78, 3 Oct 2026, put magazine and life events next)
 
 **David named first**
 - Q-275 — Which club moves from Breeze first, and who holds its Breeze account key (with the first club's officers; numbered 2 Oct 2026; gates C6)

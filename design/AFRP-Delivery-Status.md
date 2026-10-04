@@ -1256,3 +1256,7 @@ Two Hub-record items for the next build session:
 **Added later on 4 October 2026: D85.** David answered Q-164 (Decisions Register, Part 7): the Scholarship Fund Committee runs the Senior Award, as the programme register first held it, and the Leadership Ramallah committee's years 2013–2020 are kept as history. YL6 now waits only on a budget line naming the fund (D55) and Q-76 for past files; P25-J12 is guarded on the budget line. The committee's own act taking the award on is not on file.
 
 **Counts after D85 (4 October 2026):** **85 decisions** (D1–D85); **279 question ids** (Q-1–Q-279), of which **246 are open** and 33 carry a decision (Q-164 newly decided); **178 slice rows** in MASTER-PLAN §2, unchanged.
+
+**Added later on 4 October 2026: D86.** David answered the rest of Q-265 (Decisions Register, Part 7): after magazine and life events (T2f, D78), Heritage (T2h) comes before directory and comms (T2g). SP0's and P28 §14's order lines read T2f → T2h → T2g; T2h still runs on drive links until Q-260 is answered.
+
+**Counts after D86 (4 October 2026):** **86 decisions** (D1–D86); **279 question ids** (Q-1–Q-279), of which **245 are open** and 34 carry a decision (Q-265 now decided in full); **178 slice rows** in MASTER-PLAN §2, unchanged.

@@ -86,7 +86,7 @@ register's `family-tree` entry).
 | **D70** | Members in current national standing may propose changes. No account exists for non-members to contribute. | None. |
 | **D71** | A signed-in member sees the living in full inside their own branch: blood relatives sharing an ancestor no further back than a great-great-grandparent (out to second cousins), and the spouses of those relatives. Outside it a living person shows a name and a position on the plate only. D28 is unchanged. | **The radius** (great-great-grandparent) is a row on the rules register, set by D71; a change is a dated act of the Board or the committee under a citation. D71's wording also says "out to second cousins", who share a great-grandparent. *Since 3 Oct 2026:* D76 reads the radius: the great-great-grandparent governs and the branch reaches third cousins; the parenthesis is an error (Q-272 answered). |
 | **D72** | One committee approval applies an own-household life event or a non-structural correction; two approvals from different committee members apply a structural change. The committee may appoint clan stewards, who pre-review and recommend for their clan and never approve. | **The list of structural kinds**: a row on the rules register, set to §6's list by D81 (3 Oct 2026, Q-264); the Family Tree Committee may amend it by a dated act. *(Until D81: unset, with the list shown as a proposal.)* **Steward appointment, number and term**: the committee (Q-263). **The second holder of `tree:moderate`**: a committee member seated by the committee's own act (FT2), chosen over the project's lead (answer 31) (D79, 3 Oct 2026). |
-| **D73** | Membership and join is the first integration. | **The order of the other three** (magazine and life events; directory and comms; Heritage): David (Q-265). *Since 3 Oct 2026:* magazine and life events is next (D78); the order of directory and comms and Heritage stays Q-265. |
+| **D73** | Membership and join is the first integration. | **The order of the other three** (magazine and life events; directory and comms; Heritage): David (Q-265). *Since 3 Oct 2026:* magazine and life events is next (D78); the order of directory and comms and Heritage stays Q-265. *Since 4 Oct 2026:* Heritage, then directory and comms (D86). |
 | **D74** | How the 2027 print edition is produced is decided after the January 2027 Mid-Year. Whatever produces it carries no eligibility force (D32). | **The pipeline**: David and the committee, after the Mid-Year. |
 
 ---
@@ -281,7 +281,7 @@ of these; T2d's cutover cannot leave staging until gate 1 clears.
 
 ---
 
-## 8. The integrations after D73 (T2f next, D78; the order of T2g and T2h, Q-265)
+## 8. The integrations after D73 (T2f next, D78; then T2h and T2g, D86)
 
 **Magazine and life events (T2f).** As built in 7 and 7b, reading the accepted
 tree; the death approval gate (designed, not built) is built here.
@@ -395,11 +395,11 @@ carries.
 | T2e | Find yourself at join and renewal | §4.4 | T2a |
 | T2d | The parallel run: dated start and end, import against the Hub's version with conflicts held, nightly export, the freeze | §4.3, §7 | Built and tested on staging with the synthetic tree; the run against real data on §7 gates 1 and 3 |
 | T2f | Magazine and life events; the death approval gate | §8 | T2e (D78: the next integration after membership and join) |
-| T2g | Directory and comms: relationships inside one's own branch | §8 | After T2f (D78); its place against T2h is Q-265 |
-| T2h | Heritage: items attached to nodes through P27's archive index (FT4 folded in) | §8; P27 §7.2 | After T2f (D78); its place against T2g is Q-265; Q-260 for where the file lives |
+| T2g | Directory and comms: relationships inside one's own branch | §8 | After T2h (D86, 4 Oct 2026) |
+| T2h | Heritage: items attached to nodes through P27's archive index (FT4 folded in) | §8; P27 §7.2 | After T2f (D78), before T2g (D86, 4 Oct 2026); Q-260 for where the file lives |
 
 Order: T1d → T2-R → T2a → T2b → T2c → T2e → T2d (when its gates clear) → T2f
-(D78) → T2g and T2h (when Q-265 sets their order). Under D75 (3 Oct 2026) the
+(D78) → T2h → T2g (D86, 4 Oct 2026). Under D75 (3 Oct 2026) the
 build-ready slices of `plan/MASTER-PLAN.md` §3.2 may be taken before T1d and the
 T2 series. The print pipeline is not a slice until D74's
 decision after the Mid-Year.
@@ -450,7 +450,8 @@ Answered by D68 to D74: Q-258 (D11's "one clean annual cycle") by D69; Q-259 (a
 non-member asking for a change) by D70.
 
 Answered on 3 October 2026: Q-262 by D79; Q-270 by D77; Q-272 by D76. Q-265 is
-answered in part by D78 (T2f next); the order of T2g and T2h stays open.
+answered in part by D78 (T2f next), and in full on 4 October 2026 by D86 (T2h,
+then T2g).
 
 Raised 3 October 2026: Q-279 (the hourglass's drawing). Answered the same day: Q-279 by D80; Q-264 by D81.
 

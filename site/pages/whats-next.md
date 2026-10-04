@@ -82,7 +82,7 @@ first, and the print pipeline after the January 2027 Mid-Year.
   It raises [Q-262](questions.html#Q-262) to [Q-270](questions.html#Q-270) and adds to [Q-201](questions.html#Q-201) and [Q-260](questions.html#Q-260).
   The parallel run waits on a production database with backups and on
   [Q-201](questions.html#Q-201). Magazine and life events is the next integration (D78, 3 October
-  2026); the order of the directory and Heritage integrations is [Q-265](questions.html#Q-265).
+  2026); Heritage follows it, then the directory (D86, 4 October 2026, answering [Q-265](questions.html#Q-265)).
   On 3 October David also answered [Q-262](questions.html#Q-262) (D79),
   [Q-270](questions.html#Q-270) (D77), [Q-272](questions.html#Q-272) (D76),
   [Q-279](questions.html#Q-279) (D80: the hourglass in the plate grammar) and

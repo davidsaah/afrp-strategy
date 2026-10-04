@@ -895,7 +895,7 @@ act.
   Heritage (Q-265).
 
 *Later (3 October 2026):* **D78** places magazine and life events (T2f) next;
-the order of directory and comms and of Heritage stays Q-265. See Part 6.
+the order of directory and comms and of Heritage stays Q-265. See Part 6. *Later (4 October 2026):* **D86** sets it: Heritage, then directory and comms. See Part 7.
 
 ---
 
@@ -1028,7 +1028,8 @@ plate grammar, with the same shapes and line weights.
 
 ### What it does not settle
 - The order of directory and comms (T2g) and Heritage (T2h) after it. Q-265
-  stays open on that point.
+  stays open on that point. *Later (4 October 2026):* **D86** sets it:
+  Heritage (T2h), then directory and comms (T2g).
 - Where a Heritage item's file lives (Q-260). Oral-history consent (Q-189,
   Q-261).
 
@@ -1153,9 +1154,10 @@ plate grammar, with the same shapes and line weights.
 
 ## Part 7 — 4 October 2026
 
-Two decisions taken by David on 4 October 2026 in the question walk-through:
+Three decisions taken by David on 4 October 2026 in the question walk-through:
 the scholarship conflict-of-interest rule (Q-273), recorded in D58's
-conditional form, and the body that runs the Senior Award (Q-164). P26 §1.4 and §3.2, the scholarship specification's §3 and
+conditional form, the body that runs the Senior Award (Q-164), and the order
+of the tree's last two integrations (Q-265's remainder). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1219,6 +1221,27 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
   whether the award is announced at the Convention (the register's earlier
   text) or by newsletter (practice); whether D84's conflict rule reaches the
   award's reviewers.
+
+---
+
+## Decision 86 — Heritage comes before directory and comms
+**Status: Adopted · David Saah, 4 October 2026 · answers the rest of Q-265 · completes D78**
+
+### The adopted wording
+> After magazine and life events (Decision 78), the family tree's remaining
+> integrations are built in this order: Heritage, then directory and comms.
+
+### What it settles
+- Q-265, in full: the order after D73 is magazine and life events (T2f, D78),
+  Heritage (T2h), then directory and comms (T2g). SP0's order line and P28
+  §14's order line follow.
+- FT5 (oral-history consent), which follows T2h, can come before T2g.
+
+### What it does not settle
+- Where a Heritage item's file lives (Q-260): T2h runs on drive links until it
+  is answered, and no item's file is stored in the Hub before then.
+- Oral-history consent (Q-189, Q-261). Each slice's own gates, which stand.
+- Where the T2 series sits against the build-ready slices, which D75 sets.
 
 ---
 
