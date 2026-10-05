@@ -1383,3 +1383,25 @@ record". Not PT1's, as its row says: the strategy site's publish script.
 
 Round 49 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 39 recorded (37 confirmed, 2 refuted, suspected or observed).
 <!-- /findings: round 49 -->
+
+<!-- findings: round 50 -->
+### Slice A2 — The refusal and the snapshot (5 October 2026)
+
+**Built and pushed; done when the staging deploy is LIVE on its commit**,
+which waits, as R3's and PT1's do, on the recreation of the staging
+database.
+
+Every refusal is now one type, `core.refusal.Refusal`, which cannot be built
+naming nothing; a walk checks that each of the platform's constructions
+cites a decision, an open question, a design note's or document's section,
+a by-law clause, a binding rule or a register row that exists in the record
+(P29-J01). A malformed request is an input check and names no rule (David,
+5 Oct 2026); a rule the record does not state cites a counted placeholder,
+listed per file as open work. Voting's certified roll is written from a
+snapshot (P29 §12) that is never changed, deleted or retaken; a member who
+lapses after certification still votes (P29-J10). Who is on a roll and when
+it freezes did not change; ballots, custody, the tally and the Tier-4 floor
+were not touched.
+
+Round 50 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 26 recorded (24 confirmed, 2 refuted, suspected or observed).
+<!-- /findings: round 50 -->
