@@ -1432,7 +1432,7 @@
   - 'The conflict list during D69''s parallel run: a change made on both sides since the last export is held with both readings;
     after the run an external import is refused naming D69 (P28 §4.3)'
   - A nightly GEDCOM backup under tree:moderate, each night a dated row and a failed night shown on the console (D69)
-  - 'The custody page: licence holder, account and cadence shown as "not stated (Q-201)", the last export imported against
+  - 'The custody page: licence holder and account shown as the Federation (D87), the cadence "not stated" until the committee''s act, the last export imported against
     the cadence, and the queue''s counts (P27 §3, §4.4)'
   - 'The Young Leader Committee as the text reads: five seats, the sixth refused naming the 8.10 paragraph and Q-179 (P25
     §4)'
@@ -1525,7 +1525,7 @@
   - id: P26-J14
     title: A Cook Book fund transfer refuses (Q-173); the console shows nothing of Women to Women
   - id: P27-J01
-    title: The custody page shows licence holder, account and cadence as not stated (Q-201)
+    title: The custody page shows licence holder and account as the Federation (D87) and the cadence as not stated until the committee's act
   - id: P27-J03
     title: An import labels a change made outside the queue
   - id: P27-J04

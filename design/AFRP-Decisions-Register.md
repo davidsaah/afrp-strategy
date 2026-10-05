@@ -798,7 +798,9 @@ view (Q-270 answered). See Part 6.
 
 ### What it does not settle
 - The terms on which the Federation holds the tree data (Q-201); the run's start
-  should cite them (P28 §7, gate 3).
+  should cite them (P28 §7, gate 3). *Later (4 October 2026):* **D87** puts the
+  licence and account in the Federation's name and names who records the
+  cadence and the terms; the run waits on those acts. See Part 7.
 - A production database with backups (P28 §7, gate 1; `plan/MASTER-PLAN.md` §1d
   items 8 and 9). The run cannot start on staging.
 - How many nightly exports are kept: every one is kept until the committee sets
@@ -1154,10 +1156,11 @@ plate grammar, with the same shapes and line weights.
 
 ## Part 7 — 4 October 2026
 
-Three decisions taken by David on 4 October 2026 in the question walk-through:
+Four decisions taken by David on 4 October 2026 in the question walk-through:
 the scholarship conflict-of-interest rule (Q-273), recorded in D58's
-conditional form, the body that runs the Senior Award (Q-164), and the order
-of the tree's last two integrations (Q-265's remainder). P26 §1.4 and §3.2, the scholarship specification's §3 and
+conditional form, the body that runs the Senior Award (Q-164), the order
+of the tree's last two integrations (Q-265's remainder), and who holds the
+tree's master file (Q-201). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1245,6 +1248,36 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 87 — the Federation holds the tree's master file
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-201 · the Family Tree Committee's acts and the AFRP Board's minute it calls for are not yet on file**
+
+### The adopted wording
+> The licence and the account that hold the tree's master file and its cloud
+> copy are held in the Federation's name. The Family Tree Committee records,
+> as dated acts, who may open the file and the export cadence into the Hub;
+> the AFRP Board records, by minute, the terms on which the Federation holds
+> the record keeper's compilation and the original author's work. Decision
+> 69's parallel run starts only after both are on file and cites them. After
+> the run, the external file is read-only (Decision 69).
+
+### What it settles
+- Q-201: whose licence and account (the Federation's), and who records the
+  cadence (the committee) and the terms (the Board).
+- FT1's licence-holder and account rows take "the Federation (D87)"; the
+  key-holder and cadence rows, and the terms, take values only from the
+  committee's acts and the Board's minute, and read "not stated" until then.
+- P28 §7 gate 3 has its route: it clears when both are on file, not before.
+
+### What it does not settle
+- When the licence and account move, and who in the Federation's name holds
+  the account (a seat, not a person). The record holds no act on either.
+- The terms themselves, which are the Board's. Whether the Legal Advisor
+  reviews them is not stated.
+- P28 §7 gate 1 (production with backups; `plan/MASTER-PLAN.md` §1d items 8
+  and 9; Q-15). How many nightly exports are kept (D69).
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
@@ -1272,7 +1305,7 @@ marked "research, 2 Oct 2026").
 | What the record says | What the sources show | Question | Owner |
 |---|---|---|---|
 | D13 (any member may propose anything), D14 (every life event queues for the committee), D17 (all members see everything); the programme register's "the Family Tree Committee decides every change". **Since 2 Oct 2026:** D70 confirms D13 for members in current national standing; D72 amends D14 (one committee key for a small change, two different keys for a structural one, clan stewards who never approve); D71 amends D17 (the living in full only inside one's own branch). These settle the platform's rule; today's approval of access stays Q-200 | One project lead receives, approves and applies every change from a form or email; the committee has two members; the master file lives in a commercial desktop genealogy product not held in the Federation's name, shared by personal invitation; the clan books are PDFs behind an access request the lead approves "by agreement with the board", a rule asserted and not minuted | Q-200 | AFRP Board · Family Tree committee · David |
-| D11 (a governed mirror now; the platform becomes the record after one clean annual cycle); the programme register's "GEDCOM database". **Since 2 Oct 2026:** D69 supersedes D11's staging: the Hub becomes the record after a parallel run of 30 to 60 days, the external file then read-only, with a nightly export; the run waits on Q-201 (now carrying who owns the tree data and on what terms) and a production database (P28 §7) | The body of record is a desktop genealogy file not held by the Federation, with a cloud copy; no licence holder, export cadence or second key-holder is written | Q-201 | Family Tree committee · David · Executive Director |
+| D11 (a governed mirror now; the platform becomes the record after one clean annual cycle); the programme register's "GEDCOM database". **Since 2 Oct 2026:** D69 supersedes D11's staging: the Hub becomes the record after a parallel run of 30 to 60 days, the external file then read-only, with a nightly export; the run waits on Q-201 (now carrying who owns the tree data and on what terms) and a production database (P28 §7) | The body of record is a desktop genealogy file not held by the Federation, with a cloud copy; no licence holder, export cadence or second key-holder is written | Q-201 (answered by D87, 4 Oct 2026: the licence and account move into the Federation's name; the committee's acts and the Board's minute on terms are not yet on file) | Family Tree committee · David · Executive Director |
 | D28 (nothing for the living without sign-in). **Since 2 Oct 2026:** D71 leaves D28 unchanged and adds that a signed-in member sees the living in full only inside their own branch, so a book carrying living dates cannot be served to every member by standing (P27 §5, amended) | The clan-book PDFs, like the printed 1982 volume, carry living people's dates and are served to approved requesters rather than to signed-in members by standing | Q-202 | Family Tree committee · Legal Advisor |
 | D66 (the shared drive is the archive of record; the platform links to it). **Since 2 Oct 2026:** D69 makes the Hub the one record of the tree and D68 its one look on every surface; a second viewer of the tree outside the Hub would sit beside both. Where node media lives (D22 against D66) is Q-260 | A volunteer's prototype site (July 2026) holds the archive and the tree with per-person profiles, and the Preservation committee sought volunteers (February 2026) to rebuild its stand-alone website — a third archive beside the drive and the vendor's files, and a further viewer of the tree | Q-190 | David · Preservation committee · Family Tree committee · AFRP Board |
 | D22 (full media, per-item consent held by the subject) | Oral histories are recorded against one spoken permission covering "the Ramallah community and any other projects"; no written release, no separate print or web switch, no takedown rule | Q-189 | Preservation committee · Legal Advisor · David |

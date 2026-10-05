@@ -1260,3 +1260,7 @@ Two Hub-record items for the next build session:
 **Added later on 4 October 2026: D86.** David answered the rest of Q-265 (Decisions Register, Part 7): after magazine and life events (T2f, D78), Heritage (T2h) comes before directory and comms (T2g). SP0's and P28 §14's order lines read T2f → T2h → T2g; T2h still runs on drive links until Q-260 is answered.
 
 **Counts after D86 (4 October 2026):** **86 decisions** (D1–D86); **279 question ids** (Q-1–Q-279), of which **245 are open** and 34 carry a decision (Q-265 now decided in full); **178 slice rows** in MASTER-PLAN §2, unchanged.
+
+**Added later on 4 October 2026: D87.** David answered Q-201 (Decisions Register, Part 7): the licence and account holding the tree's master file and its cloud copy are held in the Federation's name; the Family Tree Committee records who may open it and the export cadence, and the AFRP Board records the terms by minute. D69's parallel run starts only after both are on file. FT1's licence and account rows read the Federation; the rest read "not stated" until the acts exist. T2d still waits on gate 1 (production with backups).
+
+**Counts after D87 (4 October 2026):** **87 decisions** (D1–D87); **279 question ids** (Q-1–Q-279), of which **244 are open** and 35 carry a decision (Q-201 newly decided); **178 slice rows** in MASTER-PLAN §2, unchanged.

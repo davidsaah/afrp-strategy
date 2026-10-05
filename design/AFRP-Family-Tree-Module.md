@@ -274,7 +274,10 @@ the row was unset.)*
    compilation and the original author's work are the source. Before the Hub
    becomes the record, the committee and the Board record on what terms the
    Federation holds it. The run's start is the committee's act and should cite
-   that record.
+   that record. *Since 4 Oct 2026:* **D87** puts the licence and account in
+   the Federation's name; the committee records the cadence and who may open
+   the file, the Board records the terms by minute, and the gate clears when
+   both are on file.
 
 T2a to T2c and T2e can be built and run against the synthetic tree without any
 of these; T2d's cutover cannot leave staging until gate 1 clears.
@@ -414,8 +417,8 @@ there and is built from there:
 
 - **The custody register (P27 §3, FT1).** Records the external file's licence,
   account, key-holders and status. Under D69 it shows the file as the source of
-  the run's imports and, after the run, as read-only; Q-201 carries the
-  ownership and licence that gate 3 needs.
+  the run's imports and, after the run, as read-only; Q-201 carried the
+  ownership and licence that gate 3 needs, answered by D87 (4 Oct 2026).
 - **The corrections door (P27 §4, FT2 in part).** The committee as a CW1 body
   with its seats, the public page and form pointing members in-platform, and
   nothing reading the form's sheet. The queue's tiers are T2c here; the import

@@ -80,8 +80,9 @@ first, and the print pipeline after the January 2027 Mid-Year.
 - **P28, the family tree module** — *written.* What the T2 slices are cut from
   (`AFRP-Family-Tree-Module.md`; slices T2-0, T2-R, T2a–T2h; crosswalk D22).
   It raises [Q-262](questions.html#Q-262) to [Q-270](questions.html#Q-270) and adds to [Q-201](questions.html#Q-201) and [Q-260](questions.html#Q-260).
-  The parallel run waits on a production database with backups and on
-  [Q-201](questions.html#Q-201). Magazine and life events is the next integration (D78, 3 October
+  The parallel run waits on a production database with backups and on the
+  committee's and the Board's acts that D87 calls for (answering
+  [Q-201](questions.html#Q-201), 4 October 2026). Magazine and life events is the next integration (D78, 3 October
   2026); Heritage follows it, then the directory (D86, 4 October 2026, answering [Q-265](questions.html#Q-265)).
   On 3 October David also answered [Q-262](questions.html#Q-262) (D79),
   [Q-270](questions.html#Q-270) (D77), [Q-272](questions.html#Q-272) (D76),
