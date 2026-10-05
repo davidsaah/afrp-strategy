@@ -301,7 +301,9 @@ P27 §7.2 (its slice FT4 is folded into T2h); oral-history consent is P27 §6
 (FT5, after T2h). **Where the item lives is Q-260**: D22 decided full media with
 per-item consent; D66 made the shared drive the archive of record. A node may
 carry a drive link today without either being decided; storing the file in the
-Hub waits for the answer.
+Hub waits for the answer. *Since 4 Oct 2026:* **D88** answers for now: the
+item is listed, its drive link goes to the holding committee's seats only, and
+nothing is served to members or stored in the Hub.
 
 ---
 
@@ -399,7 +401,7 @@ carries.
 | T2d | The parallel run: dated start and end, import against the Hub's version with conflicts held, nightly export, the freeze | §4.3, §7 | Built and tested on staging with the synthetic tree; the run against real data on §7 gates 1 and 3 |
 | T2f | Magazine and life events; the death approval gate | §8 | T2e (D78: the next integration after membership and join) |
 | T2g | Directory and comms: relationships inside one's own branch | §8 | After T2h (D86, 4 Oct 2026) |
-| T2h | Heritage: items attached to nodes through P27's archive index (FT4 folded in) | §8; P27 §7.2 | After T2f (D78), before T2g (D86, 4 Oct 2026); Q-260 for where the file lives |
+| T2h | Heritage: items attached to nodes through P27's archive index (FT4 folded in) | §8; P27 §7.2 | After T2f (D78), before T2g (D86, 4 Oct 2026); items listed and linked for the committee's seats only (D88, for now); Q-260 for the lasting answer |
 
 Order: T1d → T2-R → T2a → T2b → T2c → T2e → T2d (when its gates clear) → T2f
 (D78) → T2h → T2g (D86, 4 Oct 2026). Under D75 (3 Oct 2026) the

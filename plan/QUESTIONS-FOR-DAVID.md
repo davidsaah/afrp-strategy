@@ -36,7 +36,7 @@ These are the open questions from the research round and the notes P21–P28 (Q-
 - Q-217 — The grants register's states and the earmark shape ARFHSN uses (with the ARFHSN Board)
 - Q-218 — The purpose wording of every appeal, as published (with the ARFHSN Board)
 - Q-235 — The committee's draft against the record (with the Strategic Planning Committee)
-- Q-260 — Serving a drive-held document inside the sign-in boundary (with the Digital Infrastructure Committee and the Executive Director)
+- Q-260 — Serving a drive-held document inside the sign-in boundary (with the Digital Infrastructure Committee and the Executive Director; answered for now by D88, 4 Oct 2026: not served)
 - Q-268 — Minors' dates inside one's own branch (with the Family Tree Committee and the Membership Committee)
 
 **David with others named first**

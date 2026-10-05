@@ -1160,7 +1160,8 @@ Four decisions taken by David on 4 October 2026 in the question walk-through:
 the scholarship conflict-of-interest rule (Q-273), recorded in D58's
 conditional form, the body that runs the Senior Award (Q-164), the order
 of the tree's last two integrations (Q-265's remainder), and who holds the
-tree's master file (Q-201). P26 §1.4 and §3.2, the scholarship specification's §3 and
+tree's master file (Q-201). A fifth, D88, answers Q-260 for now: drive-held
+documents are not served to members; Q-260 stays open for the lasting answer. P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1243,6 +1244,8 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 ### What it does not settle
 - Where a Heritage item's file lives (Q-260): T2h runs on drive links until it
   is answered, and no item's file is stored in the Hub before then.
+  *Later the same day:* **D88** answers Q-260 for now: not served; the links
+  are for the committee's seats only.
 - Oral-history consent (Q-189, Q-261). Each slice's own gates, which stand.
 - Where the T2 series sits against the build-ready slices, which D75 sets.
 
@@ -1275,6 +1278,37 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
   reviews them is not stated.
 - P28 §7 gate 1 (production with backups; `plan/MASTER-PLAN.md` §1d items 8
   and 9; Q-15). How many nightly exports are kept (D69).
+
+---
+
+## Decision 88 — for now, drive-held documents are not served to members
+**Status: Adopted for now · David Saah, 4 October 2026 · answers Q-260 for now; Q-260 stays open for the lasting answer · D22 and D66 unchanged**
+
+### The adopted wording
+> For now, a document or media item held on the shared drive (Decision 66),
+> such as a clan book or an item attached to a tree node, is not served to
+> members. The platform lists it in its own registers and gives its drive
+> link to the seats of the committee that holds it only. No drive share link
+> is given to a member, and the platform stores no copy. This holds until
+> David or the Board decides how such items are served (Q-260).
+
+### What it settles
+- How FT3 and T2h are built now: FT3 lists the clan books and serves none;
+  T2h shows a node's items from the archive index and links them for the
+  committee's seats only. Neither stores a file in the Hub.
+- P27 §5.2's interim ("lists the books and serves none") is now the rule,
+  not a refusal waiting on a question.
+
+### What it does not settle
+- The lasting answer to Q-260: serving from the drive inside the sign-in
+  boundary (the pack's option A), or copying into platform storage, which
+  would need D66 amended (option B). Q-260 stays open.
+- Clan-book access by standing (Q-200) and living dates in the books (Q-202).
+  Oral-history consent (Q-189, Q-261). Download and print, refused wherever a
+  living person appears (P27 §5.2).
+- Which seats count as "the committee that holds it" for an item with no
+  committee title on the archive index. The index's committee-title field
+  names it; an item without one is linked to no seat.
 
 ---
 

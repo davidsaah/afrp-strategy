@@ -1264,3 +1264,7 @@ Two Hub-record items for the next build session:
 **Added later on 4 October 2026: D87.** David answered Q-201 (Decisions Register, Part 7): the licence and account holding the tree's master file and its cloud copy are held in the Federation's name; the Family Tree Committee records who may open it and the export cadence, and the AFRP Board records the terms by minute. D69's parallel run starts only after both are on file. FT1's licence and account rows read the Federation; the rest read "not stated" until the acts exist. T2d still waits on gate 1 (production with backups).
 
 **Counts after D87 (4 October 2026):** **87 decisions** (D1–D87); **279 question ids** (Q-1–Q-279), of which **244 are open** and 35 carry a decision (Q-201 newly decided); **178 slice rows** in MASTER-PLAN §2, unchanged.
+
+**Added later on 4 October 2026: D88.** David answered Q-260 for now (Decisions Register, Part 7): a document or media item held on the shared drive is not served to members; the platform lists it and gives its drive link to the holding committee's seats only, with no share link to a member and no copy in the Hub. FT3 builds the listing only; T2h links items for the committee's seats. Q-260 stays open for the lasting answer.
+
+**Counts after D88 (4 October 2026):** **88 decisions** (D1–D88); **279 question ids** (Q-1–Q-279), of which **244 are open** (Q-260 answered for now and still open) and 35 carry a decision; **178 slice rows** in MASTER-PLAN §2, unchanged.
