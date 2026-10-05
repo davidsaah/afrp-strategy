@@ -960,7 +960,7 @@ open, and the deductibility text waits on the CPA).
 - Where the record-only slice R3 sits. David did not say; it stays with Q-278,
   which remains open on that point.
 - Any slice's own gate, which stands: for example MG1's assisted door on
-  Q-195, and every send or live payment that waits on slice 5, which waits on
+  Q-195 (*answered 4 Oct 2026 by D89*), and every send or live payment that waits on slice 5, which waits on
   Q-276.
 - The order among T1d, the T2 series, B2b, slice 3 and slice 11 themselves,
   which stays as `plan/MASTER-PLAN.md` §2 and §3.2 have it.
@@ -1161,7 +1161,9 @@ the scholarship conflict-of-interest rule (Q-273), recorded in D58's
 conditional form, the body that runs the Senior Award (Q-164), the order
 of the tree's last two integrations (Q-265's remainder), and who holds the
 tree's master file (Q-201). A fifth, D88, answers Q-260 for now: drive-held
-documents are not served to members; Q-260 stays open for the lasting answer. P26 §1.4 and §3.2, the scholarship specification's §3 and
+documents are not served to members; Q-260 stays open for the lasting answer.
+A sixth, D89, answers Q-195: two doors for a life event, the household's own
+and the correspondent's, and it makes an exception to D33's consent pattern. P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1309,6 +1311,42 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 - Which seats count as "the committee that holds it" for an item with no
   committee title on the archive index. The index's committee-title field
   names it; an item without one is linked to no seat.
+
+---
+
+## Decision 89 — two doors for a life event: the household's and the correspondent's
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-195 · makes an exception to D33's consent pattern for the Magazine's assisted door; D22 otherwise unchanged**
+
+### The adopted wording
+> A household may submit its own life event or announcement to the Magazine.
+> A Magazine correspondent, or the editor, may also submit one on a
+> household's behalf, and the correspondent's attestation that the family
+> agreed is enough for it to print. This covers every kind of life event the
+> Magazine prints: weddings, births, graduations and deaths. The attestation
+> is recorded with the entry: who entered it, on what date, and from what. For
+> a birth this is an exception to Decision 33's pattern, under which the
+> household consents; Decision 33 otherwise stands.
+
+### What it settles
+- Q-195. MG1's assisted door opens: an assisted submission with an
+  attestation on record prints in the next issue's section without the
+  household being asked. The household's own door (proof-and-confirm, P24
+  §3.2) stays as it is.
+- P24 §3.2's "pending until the household's consent act is on record" now
+  applies only to an assisted submission with no attestation recorded.
+- For a death, the attestation stands as the family's approval for what the
+  Magazine prints.
+
+### What it does not settle
+- R34's gate for recording a death on the member record and the tree (T2f),
+  which D89 does not change: the Magazine may print a death on an attestation
+  before or without the tree recording it.
+- Withdrawal. Under D22 a consent is withdrawable and a minor's is re-asked at
+  eighteen; what a household or the grown child can withdraw of an attested
+  item, beyond the printed issue that cannot be recalled (D33; R27), is not
+  stated.
+- The obituary fee (Q-193). Keeping unconfirmed submissions (Q-76). Who holds
+  the correspondent seat (the Club Experience Plan §3.4; C1).
 
 ---
 

@@ -196,7 +196,7 @@ This note is that detail. Every journey below starts from something a club offic
 - **On the platform:** the correspondent's seat is filed on the officers form (§4.1 step 2) or appointed by the Magazine, naming who appointed it. The correspondent enters an announcement *on the household's behalf* as a **pending submission** naming who entered it and from what. It prints nothing until the household's consent is recorded: through the proof-and-confirm link for a member household, or through the channel the submission came on for a household with no member (P24 §3.2). A death goes through the family-approval gate (R34).
 - **Tests:** P24 §3.2; D33; R34; R27; Q-195.
 - **Refuses:** printing a pending submission; an announcement typed straight into a section.
-- **Must reach:** guarded until Q-195 (the door builds pending-only). **Slice:** MG1, with C1 for the seat.
+- **Must reach:** guarded until Q-195 (the door builds pending-only). *Since 4 Oct 2026:* D89 answers Q-195; an entry with the correspondent's attestation recorded prints without the household being asked, so the journey meets once MG1 lands. **Slice:** MG1, with C1 for the seat.
 
 ---
 

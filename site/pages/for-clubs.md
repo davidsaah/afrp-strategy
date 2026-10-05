@@ -157,9 +157,9 @@ where it departs from the record, the question that settles it is named.
   an office may still be recorded with that member's consent (P25 §5.4).
 - **Correspondents.** Announcements reach the Magazine through a city
   correspondent as well as from families. The correspondent is the club's seat
-  in the Magazine. An announcement the correspondent enters waits as pending,
-  and nothing prints until the household has agreed and Q-195 says what
-  consent the correspondent must hold (P24 §3.2).
+  in the Magazine. An announcement the correspondent enters prints on the
+  correspondent's recorded word that the family agreed (D89), and a family
+  can still submit for itself (P24 §3.2).
 - **Prospects.** Clubs keep lists of possible members in their own
   spreadsheets and in Breeze. In the draft contact-record design (P21, not
   adopted; Q-70), a club would hold a prospect only once that person has acted

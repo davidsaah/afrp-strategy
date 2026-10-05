@@ -146,7 +146,7 @@ Six kinds of person walk the club lens. For each: who they are in the text, what
 
 *Since 2 October 2026, two club seats in particular:*
 
-- **The Magazine correspondent.** A city correspondent named on the magazine's inside cover is how announcements and club news reach the editor today. The Magazine operations note gives the seat one act: an **assisted submission** made on a household's behalf, which lands as pending and prints nothing until the household's consent is recorded. The door builds as pending-only until Q-195 is answered (P24 §3.2, MG1; P20-D8).
+- **The Magazine correspondent.** A city correspondent named on the magazine's inside cover is how announcements and club news reach the editor today. The Magazine operations note gives the seat one act: an **assisted submission** made on a household's behalf, which lands as pending and prints nothing until the household's consent is recorded. The door builds as pending-only until Q-195 is answered (P24 §3.2, MG1; P20-D8). *Since 4 Oct 2026:* **D89** answers it: the correspondent's recorded attestation that the family agreed is enough to print.
 - **The local action committee.** In practice (research, 2 Oct 2026), the Government Affairs Committee launched local action committees inside clubs in 2025–26. Nothing is seated: it is not a seat on the officers form and not a body on CW1 until Q-131 says who appoints it and to whom it reports (P25 §5.4; P14 §2.8; P20-D7).
 
 ### 3.5 A member, seen from the club's side

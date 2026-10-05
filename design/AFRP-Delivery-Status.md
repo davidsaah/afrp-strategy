@@ -1268,3 +1268,7 @@ Two Hub-record items for the next build session:
 **Added later on 4 October 2026: D88.** David answered Q-260 for now (Decisions Register, Part 7): a document or media item held on the shared drive is not served to members; the platform lists it and gives its drive link to the holding committee's seats only, with no share link to a member and no copy in the Hub. FT3 builds the listing only; T2h links items for the committee's seats. Q-260 stays open for the lasting answer.
 
 **Counts after D88 (4 October 2026):** **88 decisions** (D1–D88); **279 question ids** (Q-1–Q-279), of which **244 are open** (Q-260 answered for now and still open) and 35 carry a decision; **178 slice rows** in MASTER-PLAN §2, unchanged.
+
+**Added later on 4 October 2026: D89.** David answered Q-195 (Decisions Register, Part 7): a household may submit its own life event, and a correspondent or the editor may submit one on its behalf; the correspondent's recorded attestation that the family agreed is enough to print, for weddings, births, graduations and deaths, as an exception to D33's pattern for a birth. MG1's assisted door is open; P24-J01 is rewritten and meets once MG1 lands. R34's gate for recording a death on the tree (T2f) is unchanged; withdrawal of an attested item is not stated.
+
+**Counts after D89 (4 October 2026):** **89 decisions** (D1–D89); **279 question ids** (Q-1–Q-279), of which **243 are open** and 36 carry a decision (Q-195 newly decided); **178 slice rows** in MASTER-PLAN §2, unchanged.

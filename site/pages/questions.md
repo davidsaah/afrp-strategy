@@ -110,8 +110,7 @@ row says which.
 - **Heritage and the family tree.** A second archive-and-tree site
   ([Q-190](#Q-190)); serving a drive-held document behind sign-in
   ([Q-260](#Q-260)); minors' dates inside one's
-  own branch ([Q-268](#Q-268)); the Magazine's correspondent seat
-  ([Q-195](#Q-195)).
+  own branch ([Q-268](#Q-268)).
 - **Public pages.** When the Arabic page shows the non-member rate
   ([Q-171](#Q-171)).
 - **The build.** Extracting the 2012 by-law text into rules
