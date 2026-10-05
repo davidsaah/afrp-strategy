@@ -135,7 +135,7 @@ file in one of the two repositories, never only in a chat.**
    their grants, since the page renders from grants and seeds no names
    (Q2). The four remaining programme pages are slice 6's, not a blocker.
 8. **Staging lifecycle:** the free Render Postgres expires on its fixed
-   window (5 October 2026 for the current staging database) and has no backups — decide upgrade-vs-recreate before it lapses (the database's survival past 5 October waits on David, and D99 leaves it open *(4 Oct 2026, D99)*);
+   window (5 October 2026 for the current staging database) and has no backups — decide upgrade-vs-recreate before it lapses *(4 Oct 2026, David:* the current staging database is let expire on 5 October and is recreated empty by a Blueprint sync of `render.yaml`'s `afrp-hub-db`; its data is synthetic, so nothing is lost that the release chain and `seed_fixture` do not rebuild. Until it is recreated and a deploy is LIVE on it, no slice can close. Production with backups stays §1d 9 and IR5.*)*;
    fixture reloads run from David's laptop per `docs/DEPLOYING.md`.
 9. **Q-15 (who maintains and pays)** gates IR5 (backups and the store register);
    the project owner is the owner until then.
