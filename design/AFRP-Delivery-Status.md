@@ -1354,3 +1354,32 @@ record numbers; counts derived by `afrp.tests_record` or dropped.
   an award from it. Locked by `scholarship.tests`
   (`test_matching_is_most_constrained_first_not_greedy`,
   `test_unfilled_awards_and_unmatched_applicants_carry_reasons`).
+
+<!-- findings: round 49 -->
+### Slice PT1 — Process tooling (5 October 2026)
+
+**Built and pushed; done when the staging deploy is LIVE on its commit**,
+which waits, as R3's does, on the recreation of the staging database.
+
+`manage.py close_slice` writes every count the record states from the
+derivation `afrp.tests_record` checks (the registry moved to
+`afrp/record.py`: one derivation, two callers), then runs the suite, the
+migration check, the whole corpus with every failure shown (a new
+`run_journeys --no-report`, so a laptop never replaces CI's report of
+record) and the findings check, prints the diff, and stops red on any
+failure; it runs no git and claims no CI or deploy. A round's findings are
+one file, `ai-memory/findings/round-NN.yaml`, rendered into the ledger, this
+entry and the commit message by `manage.py render_findings` (round 48 was
+converted and renders byte for byte; this round is the first written so).
+`manage.py propose_journey_stubs` proposes a NOT BUILT stub for every
+journey the design notes define that no catalogue row cites, for the
+workbench queue, never the catalogue (438 today, P1–P29). The Analyst
+Dashboard reads §2a and escaped pipes.
+
+R3's finding for PT1 (`--baseline-from-report` accepts a laptop report) is
+answered from 06: the baseline is written locally by design and CI's gate
+proves it; the defect was a message calling a laptop report "the report of
+record". Not PT1's, as its row says: the strategy site's publish script.
+
+Round 49 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 39 recorded (37 confirmed, 2 refuted, suspected or observed).
+<!-- /findings: round 49 -->
