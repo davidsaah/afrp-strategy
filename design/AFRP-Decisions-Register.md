@@ -1169,7 +1169,13 @@ records Senior Living as the Ramallah Foundation's project (Q-203), pending
 the two Boards' confirmation. A ninth, D92, puts a club's gift to the home
 through the Federation on the club's statement (Q-205). A tenth, D93, requires
 a written, scoped release for every oral history (Q-189). An eleventh, D94,
-extends D61 and reads it at a future cycle's door, for now (Q-118). P26 §1.4 and §3.2, the scholarship specification's §3 and
+extends D61 and reads it at a future cycle's door, for now (Q-118).
+
+Later the same day David took four more together, to clear the way for the
+build (D95 to D98): deaths keep the family contact's approval (D95, limiting
+D89); SC1 and SC4 are built now and LT1's register goes before CR1 with AR2
+(D96); clan books by standing with no approval step (D97, Q-200); and what
+T2f and T2e do where the record is silent (D98). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1346,7 +1352,9 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 ### What it does not settle
 - R34's gate for recording a death on the member record and the tree (T2f),
   which D89 does not change: the Magazine may print a death on an attestation
-  before or without the tree recording it.
+  before or without the tree recording it. *Later the same day:* **D95**
+  takes deaths out of D89: a death prints only on the named family contact's
+  approval, as slice 7 built it.
 - Withdrawal. Under D22 a consent is withdrawable and a minor's is re-asked at
   eighteen; what a household or the grown child can withdraw of an attested
   item, beyond the printed issue that cannot be recalled (D33; R27), is not
@@ -1493,6 +1501,85 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 - Retention periods (Q-76). Scoring (Q-117). Q-115 and Q-116.
 - If the lasting answer reads "never enter" as every cycle, what becomes of
   documents uploaded under this decision. The record does not say.
+
+---
+
+## Decision 95 — a death prints only on the family contact's approval
+**Status: Adopted · David Saah, 4 October 2026 · limits D89 · keeps R34 and slice 7's built hold**
+
+### The adopted wording
+> Decision 89's correspondent route covers weddings, births and graduations.
+> A death printed in the Magazine needs the approval of the named family
+> contact, as slice 7 built it: the person who reported the death cannot be
+> that contact, and no role overrides the hold. A correspondent may still
+> enter a death on a family's behalf; it waits for the family contact.
+
+### What it settles
+- The conflict between D89 and slice 7's built hold: the hold stands, and MG1
+  changes nothing in it.
+
+### What it does not settle
+- The obituary fee (Q-193). R34's gate on the tree side (T2f).
+
+---
+
+## Decision 96 — SC1 and SC4 are built now; LT1's register goes before CR1 with AR2
+**Status: Adopted · David Saah, 4 October 2026 · reads D75**
+
+### The adopted wording
+> SC1 and SC4 are built in D75's order now, behind the Q-33 setting that
+> already governs the Selection Committee's rules; the governance gate of
+> `plan/MASTER-PLAN.md` §1d does not hold them. LT1's template register,
+> letter rows, lists and drafts are taken before CR1 with AR2, so the class
+> welcome is not left unbuilt; LT1's sends still wait on slice 5.
+
+### What it settles
+- Two of the items the build-prompt check of 4 October left for David: the
+  order within D75 is CW1, FR1, DIR1, C1, C2, AR1, LT1 (register only), CR1
+  with AR2, SC1, SC4, SA1, MG2, MG1.
+
+### What it does not settle
+- Q-33 itself. Where R3 sits (Q-278). Slice 5 (Q-276).
+
+---
+
+## Decision 97 — clan books by standing, with no approval step
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-200 · within D71 and D88**
+
+### The adopted wording
+> Clan books are served to signed-in members in good standing within Decision
+> 71's limits, with no approval step, once a book can be served inside the
+> sign-in boundary (Decision 88 holds them back for now); a book carrying
+> living people's details beyond a name and a position is not served by
+> standing (Q-202). Until then access stays with the project's own process,
+> which the Board records by minute with its test.
+
+### What it settles
+- Q-200 for the platform: FT3 builds access by standing and no approval step.
+
+### What it does not settle
+- The Board's minute of today's practice, which the wording asks for and is
+  not on file. Q-202. When books can be served (D88; Q-260).
+
+---
+
+## Decision 98 — T2f and T2e where the record is silent
+**Status: Adopted · David Saah, 4 October 2026 · reads P28 §5 and §8**
+
+### The adopted wording
+> T2f builds nothing the record does not state. Its session reports what
+> slices 7 and 7b built, writes the slice's journeys, and leaves anything
+> further NOT BUILT, naming P28 §8. At join and renewal (T2e), a person who
+> is not yet a member is shown no living person's details on the tree beyond
+> what Decision 28 already allows a signed-out visitor.
+
+### What it settles
+- Two of the gaps the T2 prompt check of 4 October found: T2f's scope and
+  what a join applicant sees of a living relative.
+
+### What it does not settle
+- What, if anything, T2f should add to slice 7's hold. Prompts for FT1, FT2,
+  FT3 and FT5, which are to be written later.
 
 ---
 

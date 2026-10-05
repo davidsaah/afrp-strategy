@@ -37,7 +37,6 @@ These are the open questions from the research round and the notes P21–P28 (Q-
 
 **David with others named first**
 - Q-197 — Who owns the bookstore (the AFRP and ARFECF Boards)
-- Q-200 — Who approves access to the clan books and the interactive tree, under what test (the AFRP Board, the Family Tree committee)
 - Q-216 — A club's closed branch account held by ARFHSN (the ARFHSN Board, the club)
 - Q-230 — Is the Breeze roll-out a Federation programme or each club's choice? (the Deputy President, the AFRP Board)
 - Q-266 — Arabic-script names on the tree (the Family Tree Committee)
