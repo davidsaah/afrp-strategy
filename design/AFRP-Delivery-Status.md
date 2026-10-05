@@ -1302,3 +1302,55 @@ Two Hub-record items for the next build session:
 Six Hub defects found by the review are listed for a fix slice (FX1), among them the club door screen reading a child with no birth date as an adult while the check-out service reads the same child as a possible minor.
 
 **Counts after D99 (4 October 2026, printed by the build):** **99 decisions** (D1–D99); **279 question ids**, of which **43 are decided**, **198 are open** (181 open, 2 for now, 8 in part, 7 pending a body's act) and **38 are parked**; **134 open slice rows** in MASTER-PLAN §2, with 25 done and 28 merged, split or retired in §2a.
+
+
+### Slice R3 — the Hub's record catch-up, with T2-R, T1d and T1e (4 October 2026)
+
+**Built and pushed; not yet done.** The slice is done when the staging deploy
+is LIVE on its pushed commit, and that waits on the recreation of the staging
+database (MASTER-PLAN §1d.8). Until then the old database holds the programme
+row D90 withdrew, `seed_programs` refuses it by name, and every deploy stops in
+pre-deploy with the previous release serving. How a row already seeded leaves
+a live database is D90's open point; nobody has decided it.
+
+**The code half.** T1d: the family tree is on the Heritage branch as a cluster
+(D53); no surface calls it the roots; every branch's foot links the member's
+own node; D30's node is untouched. T1e: the Emerging Leaders entry is retired
+(D90): the seed, the Leadership branch, its plan, its glyph and journey JP-039
+follow, the Day of Action's plan carries the Youth Summit's history, and the
+Leadership branch is entered at whichever programme a person first takes part
+in. Round 48 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: twenty
+confirmed findings and one refuted, across the build, two attack lanes and
+three audited fix layers (the fourth attacked by mutation); 1,606 tests green
+under both postures; the journey corpus unchanged at 393 runnable, 274 meet,
+63 guarded, 16 open, 39 not built, 1 rated 0.
+
+**The record half.** The Hub's README, `CLAUDE.md` and boot pack follow
+D53–D99, the questions file to Q-279 and the design notes to P29; T2-R's five
+items; D99 item 6's lighter loop written into `02-BUILD-DISCIPLINE.md`; 08
+points to `site/data/questions.yaml` and carries the Q-number of every row the
+record numbers; counts derived by `afrp.tests_record` or dropped.
+
+**Two Hub-record items the design notes had wrong or open:**
+
+- **The Hub's store against P24 §8.1.** As built (slice 7, `store`): a
+  catalogue an admin keeps under `store:manage` (the platform admin and the
+  Executive Administrator); an optional member price per item, read from the
+  buyer's national standing on the day of the order, with list price when the
+  field is blank; stock checked before payment and decremented after it, so a
+  decline leaves no order and no stock change; an order log with a fulfil step;
+  a shipping address as free text on the order, with no rule about where the
+  store ships; no digital goods (an item's kind is book, music, film,
+  language or other); no deductibility text on any item or order. So P24 §8.1's
+  "Not stated" for shipping and digital goods reads: shipping is a free-text
+  field with no rule, and there are no digital goods. MG7 holds the member
+  price at list until Q-199, gated on Q-197; the code still allows one.
+- **Named-award matching against P26 §1.3.** P26 §1.3 treats named-scholarship
+  assignment as not built because slice 4's entry did not say it was. It is
+  built as a proposal: `scholarship.services.match` fills named awards
+  most-constrained first, then the general fund down the rank while the
+  available amount lasts, and every unfilled award and unmatched applicant
+  carries its reason. The proposal is computed and never saved; nothing assigns
+  an award from it. Locked by `scholarship.tests`
+  (`test_matching_is_most_constrained_first_not_greedy`,
+  `test_unfilled_awards_and_unmatched_applicants_carry_reasons`).
