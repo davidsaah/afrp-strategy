@@ -63,7 +63,7 @@ fire; own-branch mailings (D36). The living-visibility rule is one setting,
 
 **Designed, not built.** The tree on Heritage (slice T1d, D53); "how am I
 related"; per-subject photo consent (D22); the death approval gate (workflow
-`tree-life-events`); P27's custody register, corrections door, clan-book access
+`tree-life-events`) *(Corrected 4 Oct 2026: the Magazine's hold is built. Slice 7 holds a death notice until the named family contact approves, with no override at any role (`AFRP-Delivery-Status.md`, Slice 7; the Hub's `magazine` app). What T2f adds beyond reading that hold is not stated.)*; P27's custody register, corrections door, clan-book access
 and oral-history consent (slices FT1 to FT5).
 
 **Decided today.** D68 to D74, quoted in §2.
@@ -287,7 +287,7 @@ of these; T2d's cutover cannot leave staging until gate 1 clears.
 ## 8. The integrations after D73 (T2f next, D78; then T2h and T2g, D86)
 
 **Magazine and life events (T2f).** As built in 7 and 7b, reading the accepted
-tree; the death approval gate (designed, not built) is built here.
+tree; the death approval gate (designed, not built) is built here. *(Corrected 4 Oct 2026: the Magazine's hold is built. Slice 7 holds a death notice until the named family contact approves, with no override at any role (`AFRP-Delivery-Status.md`, Slice 7; the Hub's `magazine` app). What T2f adds beyond reading that hold is not stated.)*
 
 **Directory and comms (T2g).** The directory shows a relationship only inside
 the viewer's own branch and only along documented links ("your second cousin
