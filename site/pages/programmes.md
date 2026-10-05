@@ -30,9 +30,9 @@ leaves the choice to the people named.
   as the way into the Leadership branch. No programme by that name appears in
   any of the Federation's documents, mailings, budgets or web pages. The one
   mention most likely refers to the Youth Summit, reported since 2023 as the
-  Day of Action. Whether the entry rung is retired or pointed at another
-  programme is for David and the Strategic Planning Committee
-  ([Q-178](../history/questions.html#Q-178)). The path from a high-school
+  Day of Action. On 4 October 2026 David retired the entry (D90, answering
+  [Q-178](../history/questions.html#Q-178)): the branch is entered at
+  whichever of its programmes a person first takes part in. The path from a high-school
   senior to a Board seat, through what the record already holds, is design
   note P25 (`AFRP-Leadership-Pipeline.md` §3).
 - **Senior Living.** The sources show the senior home is the Ramallah

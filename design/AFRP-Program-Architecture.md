@@ -7,7 +7,7 @@
 **Since 2 October 2026:** the research round and the notes P22–P25 overtake parts of this document. The text is kept as written, and a dated pointer stands wherever a passage has moved:
 - the Senior Award's retirement (§6) is not shown in any source (Q-163); *since 3 October 2026, D82 records that the award was not retired and continues*;
 - Senior Living is the Ramallah Foundation's building, and its capital-campaign machinery (§3, §5, §6) was never operated (P23 §8–§9; Q-203);
-- "Emerging Leaders", which the register made the Leadership entry rung, has no source (Q-178); until that is answered the branch is entered at whichever of its programmes a person first takes part in (P25 §2.2, a design choice), and the young-adult rungs are Leadership Ramallah (kept on Education, D45), the Day of Action and the Young Leader Committee's club gatherings (P25 §3);
+- "Emerging Leaders", which the register made the Leadership entry rung, has no source (Q-178; retired by D90, 4 Oct 2026); the branch is entered at whichever of its programmes a person first takes part in (P25 §2.2, a design choice), and the young-adult rungs are Leadership Ramallah (kept on Education, D45), the Day of Action and the Young Leader Committee's club gatherings (P25 §3);
 - the Day of Action runs in two modes (P25 §5.3);
 - the Bookstore and the Cook Book are added to the money map (P24 §8–§9);
 - the Convention is designed as its own element (P22).
@@ -85,7 +85,7 @@ their data:
 *Since 2 October 2026:* the diagram is the August reading. P25 §3 reads the path from objects the record already holds, rung by rung:
 - **The high-school senior** is the Senior Award, whose status is in question (Q-163). *Since 3 Oct 2026:* it continues (D82); the Scholarship Fund Committee runs it (D85).
 - **The young adult** is Leadership Ramallah, the Day of Action and the Young Leader Committee's club gatherings.
-- **"Emerging Leaders"**, which the register once made the Leadership branch's entry, has no source and no age band (Q-178). P25 §2.2 enters the branch at whichever programme a person first takes part in, as a design choice.
+- **"Emerging Leaders"**, which the register once made the Leadership branch's entry, has no source and no age band (Q-178); D90 (4 Oct 2026) retires it. P25 §2.2 enters the branch at whichever programme a person first takes part in, as a design choice.
 - **The "Youth Program"** is the By-Law 8.14 committee, which is not seated (Q-251).
 - **An elder who lives in Senior Living** is the Foundation's resident, not the Federation's (P23 §8; Q-203).
 

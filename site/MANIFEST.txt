@@ -95,7 +95,6 @@ programmes/convention.html
 programmes/day-of-action.html
 programmes/ecem.html
 programmes/education.html
-programmes/emerging-leaders.html
 programmes/family-tree.html
 programmes/heritage.html
 programmes/index.html

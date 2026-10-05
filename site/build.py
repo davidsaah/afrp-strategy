@@ -574,7 +574,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
         body = (f'<p>{E(b["summary"])}</p><h2>Programmes on this branch</h2><div class="grid">{"".join(pcard(p) for p in ps)}</div>'
                 f'<h2>How people move along it</h2><p><b>{E(b["shape"])}.</b> ' + {
                     "education": "A milestone on one programme opens an invitation to the next, by age. The order follows a young person's life: camp, then Project Hope, the Scholarship and Leadership Ramallah.",
-                    "leadership": "'Emerging Leaders' has no source, and whether its register entry is retired or re-pointed is Q-178 (P25 §2.2). Until that is answered the branch is entered at whichever of its programmes a person first takes part in (P25 §2.2, a design choice). People move by what they are ready to take on, and the order is a suggestion, never a prerequisite.",
+                    "leadership": "The branch is entered at whichever of its programmes a person first takes part in (P25 §2.2, a design choice); the 'Emerging Leaders' entry, which had no source, was retired by D90. People move by what they are ready to take on, and the order is a suggestion, never a prerequisite.",
                     "heritage": "There is no next step and no milestone invitation. People take part in any of these at any point in life.",
                     "care": "People arrive by choice or by capacity to give. The Ramallah Foundation and the Endowed Fund are funds: shown here, not joined."}[b["key"]] +
                 ' Inside every programme, people move through the same five rungs: <b>hear · show up · take part · give or serve · lead</b> (D25).</p>'

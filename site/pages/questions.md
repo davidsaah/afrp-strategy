@@ -98,8 +98,7 @@ row says which.
   from foundations ([Q-105](#Q-105), [Q-108](#Q-108)); the grants register for
   Care and the wording of appeals ([Q-217](#Q-217), [Q-218](#Q-218)).
 - **The strategy and the committee's draft.** Bringing the committee's draft
-  level with the record ([Q-235](#Q-235)); retiring or re-pointing Emerging
-  Leaders ([Q-178](#Q-178)); whether the Leadership Ramallah committee and the
+  level with the record ([Q-235](#Q-235)); whether the Leadership Ramallah committee and the
   Young Leader Committee are one body ([Q-175](#Q-175)).
 - **Care and the Ramallah Foundation.** Whether Senior Living is a Federation
   programme at all ([Q-203](#Q-203)); a club's gift to the Foundation's home

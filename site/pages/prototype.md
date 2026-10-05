@@ -32,9 +32,8 @@ as it was rather than quietly edited to agree (D48). It will be re-framed later.
   2026 the tree is drawn in the printed book's plate style on every surface
   (D68, replacing D27; P28 §3).
 - **It shows an Emerging Leaders Summit for ages 16 to 24.** No programme by
-  that name is found in the Federation's records; whether the Leadership
-  branch's entry rung is retired or re-pointed is
-  [Q-178](../history/questions.html#Q-178).
+  that name is found in the Federation's records, and the entry is retired
+  (D90, answering [Q-178](../history/questions.html#Q-178)).
 - **It shows Senior Living as a Federation campaign with a pledge ledger.**
   The sources show the senior home is the Ramallah Foundation's project, and
   no pledge was ever held in a Federation system; the capital-campaign design

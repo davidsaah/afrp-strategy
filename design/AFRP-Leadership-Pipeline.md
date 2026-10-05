@@ -71,7 +71,7 @@ Each item: what the sources show (the research round, role level), what the reco
 
 **Record.** The register entry `emerging-leaders` (ages 16 to 24, the Leadership branch's entry rung); `branches.yaml`; `AFRP-Family-Tree-Integration.md` D38–D39 ("entry is at Emerging Leaders"); the Hub's `programs/branches.py`.
 
-**Question.** Q-178 (retire, or re-point to the Young Leader Committee's club-level work). Nothing supports a third programme and nothing supports the 16–24 band.
+**Question.** Q-178 (retire, or re-point to the Young Leader Committee's club-level work). Nothing supports a third programme and nothing supports the 16–24 band. *Since 4 Oct 2026:* **D90** retires the entry; the Day of Action carries the Youth Summit's history, and the Hub follows in slice T1e.
 
 **What the platform does until answered.** The entry keeps its status "Plan only · no programme by this name" and renders no rungs, no call, no invitation and no age band; the Leadership branch page lists it with that status. No rung on this path reads it (§3). Because Leadership is a ladder by capacity with no milestone invitations (D39), nothing in the Hub depends on an entry rung existing; *design choice*: the branch is entered at whichever of its programmes a person first takes part in.
 

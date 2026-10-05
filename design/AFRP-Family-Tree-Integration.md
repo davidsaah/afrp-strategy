@@ -324,7 +324,7 @@ platform, and the four are:
 | Branch | Members, in order | Shape |
 |---|---|---|
 | **Education** | Camp Ramallah (13–17) · Arabic Program · HS Senior Award (senior year) · Scholarship (college) · Project Hope (18–29) · Leadership Ramallah (21+) | **ladder — by age** |
-| **Leadership** | Emerging Leaders (16–24) · RBPN (career) · Congressional Outreach · Day of Action · ECEM missions | **ladder — by capacity** *(since 2 Oct 2026: "Emerging Leaders" names no programme in any source, and the 16–24 band has no source, Q-178; P25 §2.2)* |
+| **Leadership** | Emerging Leaders (16–24) · RBPN (career) · Congressional Outreach · Day of Action · ECEM missions | **ladder — by capacity** *(since 2 Oct 2026: "Emerging Leaders" names no programme in any source, and the 16–24 band has no source, Q-178; P25 §2.2; retired by D90, 4 Oct 2026)* |
 | **Heritage** | Preservation Project · Hathihe Ramallah · Bookstore | **cluster** |
 | **Care** | Medical Mission · Women to Women · Senior Living · *Ramallah Foundation* · *Endowed Fund* | **destinations** *(since 2 Oct 2026: Senior Living is the Foundation's project, Q-203, P23 §8; the Relief Fund is on the Care branch, P23)* |
 
@@ -350,7 +350,7 @@ that were a promotion. Each branch therefore declares a shape:
   age, which the invitation logic must know rather than schedule.
 - **ladder — by capacity.** Ordered by readiness, not birthday; entry is at
   Emerging Leaders and the order is a suggestion, never a prerequisite.
-  Leadership. *Since 2 Oct 2026: Emerging Leaders has no source (Q-178). P25 §2.2 enters the branch at whichever of its programmes a person first takes part in, as a design choice. The young-adult rungs are Leadership Ramallah, the Day of Action and the Young Leader Committee's club gatherings (P25 §3).*
+  Leadership. *Since 2 Oct 2026: Emerging Leaders has no source (Q-178); since 4 Oct 2026 it is retired (D90). P25 §2.2 enters the branch at whichever of its programmes a person first takes part in, as a design choice. The young-adult rungs are Leadership Ramallah, the Day of Action and the Young Leader Committee's club gatherings (P25 §3).*
 - **cluster.** Unordered, always open, no "next" and no milestone invitations.
   Nobody graduates from Preservation to the magazine. Heritage.
 - **destinations.** Entered by choice or capacity to give; never invited by
@@ -399,7 +399,7 @@ strings, and a grep cannot tell them apart. `programs/rails.py` is now
 the four old groupings under new names — which is worse than either state,
 because the words would then be right and the contents wrong. The re-cut moves
 RBPN out of the youth pipeline, moves the Arabic Program from Heritage to
-Education, moves Emerging Leaders from Education to Leadership *(since 2 Oct 2026: no source, Q-178)*, adds the
+Education, moves Emerging Leaders from Education to Leadership *(since 2 Oct 2026: no source, Q-178; retired by D90, 4 Oct 2026)*, adds the
 bookstore to Heritage, adds Senior Living to Care, lifts the tree out to the
 roots and the Convention out to a junction. Every one of those is a change of
 meaning, and the tests that name the old rails are the ones that will catch a

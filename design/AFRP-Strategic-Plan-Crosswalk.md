@@ -236,7 +236,7 @@ instead is Q-235.
 | 3 | Other statuses as of 30 September | A8 Gap → Partly built · Designed (D64, P17); B2, C1, H1 gained designs; D4 Built → Built · Designed (P19); F2 and F7 Queued → Built; F4 Built → Plan only · Designed (corrected downwards); I2 Outside → Designed (P14); H3 no longer blocked (P9; Q-35); B14 Gap → Outside (Q-14); E9 Proposed → Outside · Proposed |
 | 4 | Sections A to I only | Section J (One Federation, J1–J12), rows F13–F17 (1 October) and rows D23, F18, G6, H7, H8 and I3 (2 October) are missing |
 | 5 | Eight questions for the committee | Five have an answer on the record: Question 1 for the design record by D42, though adoption stays the committee's; Question 2 by D64; Question 4 by Q-14; Question 5 by D66; Question 8 in part by D55 (Women to Women is a sub-fund of ARFHSN), with Senior Living shown by the research to be the Ramallah Foundation's (Q-203) and Preservation's entity not stated. Three stay open: Question 3 (Q-13), Question 6 (Q-15), Question 7 (Q-17) |
-| 6 | Branch table: Emerging Leaders, the High School Senior Award, Senior Living; "Ramallah Works … needs a home" | Ramallah Works is AFRPWorks on the Leadership branch (D64). Three entries are under question: Emerging Leaders (no programme by that name found; Q-178), the Senior Award (still offered publicly; Q-163, Q-164; *since 3 Oct 2026 it continues, D82; since 4 Oct the Scholarship Fund Committee runs it, D85*), Senior Living (Q-203) |
+| 6 | Branch table: Emerging Leaders, the High School Senior Award, Senior Living; "Ramallah Works … needs a home" | Ramallah Works is AFRPWorks on the Leadership branch (D64). Three entries were under question: Emerging Leaders (no programme by that name found; Q-178; *retired by D90, 4 Oct 2026*), the Senior Award (still offered publicly; Q-163, Q-164; *since 3 Oct 2026 it continues, D82; since 4 Oct the Scholarship Fund Committee runs it, D85*), Senior Living (Q-203) |
 | 7 | Priority 3: "the five governing documents" nobody has on file | Three are found (the Endowment and Scholarship Fund Policy Statements and the 2015 ARFECF by-laws); two remain (ARFECF's exemption letter, the Board Rules & Regulations), and the ARFHSN trustee roster and the Houston General Assembly minutes are now also needed |
 | 8 | No goals list; seven priorities | The site shows eight goals distilled for the committee to confirm (D52); they appear nowhere in the Doc. Whether the committee confirms goals, priorities or both is Q-235 |
 | 9 | Next steps: design notes "follow for the elements marked Proposed" | P1 to P20 are written (1 October); P21 to P27 (the contact record, Convention operations, the Relief Fund and Senior Living, the Magazine's operations, the leadership pipeline, scholarship awards, the family tree in practice) are written (2 October), and P28 (the family tree module, from D68–D74) the same day |
@@ -258,7 +258,9 @@ Role-level, figure-free. Each item names the place in the Doc and the text to pu
 4. **Branch table, a note beneath it.** "Three entries are under question: Emerging Leaders,
    for which no programme by that name has been found; the High School Senior Award, which is
    still offered publicly; and Senior Living, which is the Ramallah Foundation's home and may
-   not be a Federation programme."
+   not be a Federation programme." *(Since 4 Oct 2026: remove Emerging Leaders from the
+   branch table, D90; the Senior Award continues, run by the Scholarship Fund Committee, D82
+   and D85; Senior Living stays under question, Q-203.)*
 5. **Priority 3.** Replace with: "Produce the governing documents the by-laws cite and nobody
    has on file: ARFECF's tax-exemption letter, the Board Rules & Regulations (the authority
    for the dues tiers), the ARFHSN trustee roster and the minutes of the July 2026 General

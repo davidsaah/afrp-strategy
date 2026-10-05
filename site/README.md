@@ -14,7 +14,7 @@ python site/check.py      # links, privacy (D50), framing (D42, D46)
 | `pages/*.md` | The prose of each section page, with front matter |
 | `data/goals.yaml` | The eight strategic goals and the crosswalk rows under each (D52) |
 | `data/questions.yaml` | Open questions with their Q-numbers (D43) |
-| `data/programmes.yaml` | The twenty-one programmes on the four branches and the junction |
+| `data/programmes.yaml` | The twenty programmes on the four branches (Emerging Leaders retired by D90) and the junction |
 | `data/branches.yaml` | The four branches and the junction |
 | `data/workflows.yaml`, `data/experiences.yaml` | Workflows and the people who use the platform |
 | `data/timeline.yaml` | The evolution timeline |

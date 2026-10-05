@@ -1163,7 +1163,8 @@ of the tree's last two integrations (Q-265's remainder), and who holds the
 tree's master file (Q-201). A fifth, D88, answers Q-260 for now: drive-held
 documents are not served to members; Q-260 stays open for the lasting answer.
 A sixth, D89, answers Q-195: two doors for a life event, the household's own
-and the correspondent's, and it makes an exception to D33's consent pattern. P26 §1.4 and §3.2, the scholarship specification's §3 and
+and the correspondent's, and it makes an exception to D33's consent pattern.
+A seventh, D90, retires the Emerging Leaders entry (Q-178). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1350,6 +1351,34 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 90 — Emerging Leaders is retired from the register
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-178 · the Strategic Planning Committee to reflect it in its draft**
+
+### The adopted wording
+> The programme register's Emerging Leaders entry is withdrawn: no Federation
+> programme of that name or age band is found in any source. The Leadership
+> branch is entered at whichever of its programmes a person first takes part
+> in (P25 §2.2, a design choice; Decision 39 makes the order a suggestion,
+> never a prerequisite). The Youth Summit's history is carried on the Day of
+> Action's entry.
+
+### What it settles
+- Q-178. The `emerging-leaders` entry leaves `site/data/programmes.yaml`; the
+  Leadership branch's summary, P25 §2.2, the architecture notes and the
+  Family Tree Integration note's D38–D39 text stop naming an entry rung.
+- The Hub follows in slice T1e (`plan/MASTER-PLAN.md`): the `els` programme
+  leaves the seed and the Leadership ladder, its plan and journey JP-039 with it.
+- The committee's draft: the branch-table note loses Emerging Leaders (the
+  crosswalk's change list, item 4).
+
+### What it does not settle
+- The Young Leader Committee: its composition (Q-179), whether it and the
+  Leadership Ramallah committee are one body (Q-175), its drive (Q-180).
+- How a row already seeded for the programme leaves a live database. The
+  record does not say; T1e's build session reports it.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
@@ -1388,7 +1417,7 @@ marked "research, 2 Oct 2026").
 | D1 (club dues held as agent; CPA countersignature pending) and D56 (AFRP collects ARFHSN's gifts as its agent) | AFRP's chart of accounts carries a liability for every affiliate purpose collected on the affiliates' behalf (ARFECF, ARFHSN and the Ramallah Foundation); card payments now run through one processor account per entity, replacing one AFRP account with transfers by hand. The agency pattern is in practice for every affiliate purpose and not only the two cases the decisions name; no account on either side carries club-collected national dues | Q-232, Q-3 | AFRP General Treasurer · ARFECF Treasurer · ARFHSN Treasurer · CPA |
 | The programme register's Senior Award entry: retired 31 August 2026 by Board resolution, last files 2024; `AFRP-Program-Architecture.md` §6; Q-20's premise. **Since 3 Oct 2026:** D82 records that the award was not retired and continues; the register's status is corrected and Q-20 falls away | Awards were made in 2023, 2024 and 2025; applications were taken on an online form in 2025; the public site still offered the award in October 2026 and the programmes flyer filed in September 2026 lists it; no retiring resolution was found | Q-163 (answered by D82), Q-20 (falls away under D82) | AFRP Board · David |
 | The programme register's Senior Award entry: the Scholarship Committee, on an award track, announced at the Convention. **Since 4 Oct 2026:** D85 keeps the Scholarship Fund Committee as the body; the 2013–2020 practice is the register's history | From 2013 to 2020 the award sat with the Leadership Ramallah committee, whose chair requested its budgeted sum from the ARFECF Board and signed the letters; it was announced by newsletter each September | Q-164 (answered by D85; the announcement venue and the budget line stay open) | David · Leadership Ramallah committee |
-| The programme register's Emerging Leaders entry (ages 16 to 24; an entry rung on the Leadership branch); `branches.yaml`; `AFRP-Family-Tree-Integration.md` | No programme by that name exists in any document, mailing, budget line, committee tab or web page; the age band has no source; the one 2021 mention most plausibly refers to the Youth Summit for adults aged 21 to 35, reported from 2023 as the Day of Action | Q-178 | David · Strategic Planning Committee |
+| The programme register's Emerging Leaders entry (ages 16 to 24; an entry rung on the Leadership branch); `branches.yaml`; `AFRP-Family-Tree-Integration.md` | No programme by that name exists in any document, mailing, budget line, committee tab or web page; the age band has no source; the one 2021 mention most plausibly refers to the Youth Summit for adults aged 21 to 35, reported from 2023 as the Day of Action | Q-178 (answered by D90, 4 Oct 2026: the entry is retired) | David · Strategic Planning Committee |
 | By-Law 8.10 paragraph (the Young Leader Committee: a chairman and four members, President-appointed with Board approval, all alumni of Project Hope or Leadership Ramallah); `AFRP-Committee-Workspace.md`; `AFRP-Selection-Programmes.md` | A Young Leaders Committee (also called the Youth Outreach Committee) of two co-chairs and members listed by club city, with a filled Board seat and no appointment record or alumni check; its co-chairs run Leadership Ramallah; the directory has no Leadership Ramallah tab | Q-179, Q-175 | AFRP Board · President · Constitution Committee |
 | The programme register's Senior Living entry (a Federation programme, entity to confirm); `AFRP-Program-Architecture.md` §3 (the capital-campaign module: pledges against cash) and §6 (the *Campaign* shape); journey JP-032 | The project is the Ramallah Foundation's: the Foundation owns, built and will operate the home; construction is complete; the Federation's part was communications, gifts passed through and a Convention-voted budget grant; no pledge was ever held in a Federation system | Q-203, Q-204 | David · AFRP Board · ARFECF Board · CPA |
 | D3 and D55 (the Scholarship is ARFECF's; the Foundation's role is an agreement) | The public scholarship page says the programme is "managed by the Ramallah Foundation Inc"; the Foundation is a private foundation on its public filings | Q-162 | David · ARFECF Board |
