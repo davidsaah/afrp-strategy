@@ -315,7 +315,7 @@ has not yet seen them.
 
 ## Design notes
 
-P1 to P20 are written as of 1 October 2026 (P10 inside P18); P21 to P27 as of 2 October 2026, from the second research round; P28 the same day, from D68–D74. Each slice row in
+P1 to P20 are written as of 1 October 2026 (P10 inside P18); P21 to P27 as of 2 October 2026, from the second research round; P28 the same day, from D68–D74; P29 on 4 October 2026, from D99. Each slice row in
 `plan/MASTER-PLAN.md` §2 names its note and its gate.
 
 | # | Design note | Covers | Status |
@@ -348,6 +348,7 @@ P1 to P20 are written as of 1 October 2026 (P10 inside P18); P21 to P27 as of 2 
 | P26 | Scholarship awards and renewal | F9, F6, H5 | **Written** (`AFRP-Scholarship-Awards.md`, 2 Oct 2026): the award year, the semester filing and release, the hold, letters and cheques, named scholarships as P9 fund rows, the committee's seats; slices SA1–SA7; Q-255–Q-257 |
 | P27 | The family tree in practice | D22, F8, C4 | **Written** (`AFRP-Family-Tree-In-Practice.md`, 2 Oct 2026): the migration in four stages — custody of the master file, the corrections queue as the one door, clan books under the record's rules, the handover — with oral-history consent as a written, scoped consent and the archive index; slices FT1–FT6; Q-258–Q-261. Amended the same day for D68–D74: the handover is D69's parallel run, FT4 folds into T2h and FT6 into T2d, Q-258 and Q-259 are answered (D69, D70) |
 | P28 | The family tree module: the book's look on screen, members proposing and the committee deciding, the Hub as the record, and the tree reaching membership, the magazine, the directory and Heritage | D22 (and F8, C4 by its Heritage integration) | **Written** (`AFRP-Family-Tree-Module.md`, 2 Oct 2026): from D68–D74; the plate grammar (D68), the parallel run and cutover (D69), contribution by members in standing (D70), the living in full inside one's own branch (D71), approval in tiers with clan stewards (D72), find yourself at join and renewal (D73); slices T2-0, T2-R, T2a–T2h; Q-262–Q-270, with additions to Q-201 and Q-260 |
+| P29 | Platform primitives: the shapes every design note draws, built once — the refusal, the act and append-only record, the scoped parameter and authority row, the dated role with bodies and seats, consent, the cycle, the statement run, sending, the record on file, the work item, the clock, the snapshot | None of its own; every row a note P1–P28 covers, through that note | **Written** (`AFRP-Platform-Primitives.md`, 4 Oct 2026): from D99; adds no rule and no question; each note's rules become the primitives' settings; slices A2 and PR0 first, then each primitive in its first user's slice (CW1, C2, LT1, CM1, CR1, CY1, CY2, C3) |
 
 ## Gaps the record cannot close alone
 

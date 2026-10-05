@@ -26,6 +26,7 @@ experiences/visitor.html
 experiences/young-person.html
 history/index.html
 history/questions.html
+history/rules-in-force.html
 history/whats-next.html
 index.html
 library/archive/AFRP-Alumni-Desktop.html
@@ -69,6 +70,7 @@ notes/AFRP-Magazine-Bookstore-Use-Cases.html
 notes/AFRP-Magazine-Operations.html
 notes/AFRP-MidYear-Host-Bids.html
 notes/AFRP-Multi-Entity-Ledger.html
+notes/AFRP-Platform-Primitives.html
 notes/AFRP-Portal-Mobile-UX-Review.html
 notes/AFRP-Press-Workflow.html
 notes/AFRP-QuickBooks-Integration-Spec.html

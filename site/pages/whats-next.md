@@ -89,6 +89,46 @@ first, and the print pipeline after the January 2027 Mid-Year.
   [Q-279](questions.html#Q-279) (D80: the hourglass in the plate grammar) and
   [Q-264](questions.html#Q-264) (D81: the list of structural changes).
 
+### The shared pieces, from D99
+
+On 4 October 2026 David adopted the review of everything designed so far
+(D99). The review found that the twenty-eight notes describe the same dozen
+pieces again and again, each in its own words: a refusal that names its rule,
+a record of who did what on whose authority, a setting with an owner, a seat
+on a body, a consent, a call for applications, a statement that is checked and
+closed, a letter on the record, a document held only as "on file", an item
+waiting for a decision, a deadline, and a frozen list such as a voting roll.
+
+- **P29, the platform primitives** — *written.* Each of those pieces is built
+  once and shared, before the slices that would otherwise each build their own
+  (`AFRP-Platform-Primitives.md`). It adds no rule and answers no question:
+  each note's own rules become the settings of the shared pieces, and every
+  note now carries a dated line pointing to it.
+- **The build queue is reshaped** (in `plan/MASTER-PLAN.md`): finished slices
+  move to an appendix, slices that build the same thing are merged, the
+  payments slice is split from the email slice, and six slices are added for
+  the shared pieces.
+- **The open questions are sorted**: each carries a status (open, for now, in
+  part, pending an act, parked), questions a decision already answers are
+  closed with it, and the rest are grouped so each owning body gets one ask.
+- **Designed but not built.** Five places in the notes were designed ahead of
+  any rule, or against practice, and are now marked so: kept and not built until their
+  question is answered: a Convention abroad ([Q-223](questions.html#Q-223)),
+  the club statement's lines with no written term ([Q-47](questions.html#Q-47),
+  [Q-30](questions.html#Q-30)), AFRPWorks introductions brokered by the
+  Federation when practice lets employers browse ([Q-155](questions.html#Q-155),
+  [Q-147](questions.html#Q-147)), volunteer screening outside the camp
+  ([Q-86](questions.html#Q-86), [Q-87](questions.html#Q-87)), and the
+  Scholarship's Ramallah and medical tracks ([Q-255](questions.html#Q-255),
+  [Q-256](questions.html#Q-256)).
+- **Four contradictions between notes were resolved or pointed out.** The
+  Relief Fund is no longer refused for a missing holding entity (D83 named
+  AFRP). The retention schedule now has one row for non-members by role and
+  three rows for applications, one per way an application's documents are
+  held. When ARFHSN's six-monthly report falls due is still
+  [Q-58](questions.html#Q-58): two notes read the by-laws two ways, and
+  neither is chosen.
+
 ## Documents nobody has on file
 
 Two of the documents the by-laws cite were found in October 2026: the

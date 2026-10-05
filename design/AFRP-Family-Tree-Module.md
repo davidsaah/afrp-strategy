@@ -4,6 +4,8 @@
 
 **Design note P28 · 2 October 2026 · for the Hub's `tree`, `member`, `join`, `dues`, `access`, `rules`, `magazine`, `memberdir`, `comms` and `reporting` modules**
 
+*Since 4 October 2026 (D99):* the shared shapes this note draws — proposals in tiers as work items — are built once as the platform primitives of `AFRP-Platform-Primitives.md` (P29 §10); this note's rules are carried as their settings.
+
 **Why now.** On 2 October 2026 David decided D68 to D74 (Decisions Register,
 Part 5): the tree takes the print book's plate grammar everywhere (D68,
 superseding D27); the Hub becomes the tree's record after a parallel run (D69,

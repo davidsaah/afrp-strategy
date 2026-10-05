@@ -6,12 +6,22 @@ lede: Everything still undecided, each with a number, an owner and the goal and 
 
 ## How to use this page
 
-Every open question is in the table below. Each row gives the question, what
+Every open question is in the tables below. Each row gives the question, what
 the record already knows about it, who owns the answer, the goal and branch it
-affects, and where it came from. Use the two menus above the table to show only
+affects, and where it came from. Use the two menus above the tables to show only
 the questions for one goal or one branch, and the owner box to show only the
 questions whose owner contains a word (for example "David" or "ARFECF Board").
 The two lists further down this section group the owners most often asked for.
+
+Since 4 October 2026 (D99) every question carries a **status**: *open*;
+*answered for now*, where a decision holds for now and the lasting answer is
+still open; *answered in part*; *pending an act*, where the platform's answer is
+set and a body's act is awaited; *parked*, where no slice of the master plan and
+no gate in a design note cites it, so it holds no build; or *answered*. The open
+ones are grouped into **twelve clusters (A to L)**, each put to its owning body
+as one ask; the rest follow, then the parked list, then the answered list. What
+the decisions already settle, topic by topic, is on
+[Rules in force](rules-in-force.html).
 
 The platform never fills a gap itself. Where the by-laws and the decisions are
 silent, the part of the platform that depends on the answer waits for it, and
@@ -81,7 +91,10 @@ for what remains. Later that day D80, D81 and D82 answered [Q-279](#Q-279),
 [Q-264](#Q-264) and [Q-163](#Q-163), and with D82 the successor question
 [Q-20](#Q-20) fell away; D83 answered [Q-109](#Q-109) in part (AFRP holds the
 Relief Fund), and it stays open on who approves a transfer between the
-Board's votes and whether D63's closing records apply. Questions are kept in
+Board's votes and whether D63's closing records apply. On 4 October 2026, under
+D99, [Q-136](#Q-136) was closed by D65 and [Q-278](#Q-278) by D75 with D99;
+seven questions were relabelled as pending an act and eight as answered in part,
+and those no slice or gate cites were parked. Questions are kept in
 [`site/data/questions.yaml`](https://github.com/davidsaah/afrp-strategy/blob/main/site/data/questions.yaml).
 
 ## Questions most in David's lap
@@ -93,19 +106,19 @@ row says which.
 - **The record's own shape.** The contact record for people who are not
   members, and one retention register ([Q-70](#Q-70); sent to the Membership
   Committee and the Legal Advisor on 3 October 2026); the DRAFT register rows
-  for programme records, advocacy and what the platform never holds
-  ([Q-118](#Q-118), [Q-136](#Q-136), [Q-141](#Q-141)); grants to clubs and
+  for programme records and what the platform never holds
+  ([Q-118](#Q-118), answered for now by D94, and [Q-141](#Q-141)); grants to clubs and
   from foundations ([Q-105](#Q-105), [Q-108](#Q-108)); the grants register for
   Care and the wording of appeals ([Q-217](#Q-217), [Q-218](#Q-218)).
 - **The strategy and the committee's draft.** Bringing the committee's draft
   level with the record ([Q-235](#Q-235)); whether the Leadership Ramallah committee and the
   Young Leader Committee are one body ([Q-175](#Q-175)).
 - **Care and the Ramallah Foundation.** The Relief Fund on the public giving page
-  ([Q-208](#Q-208)); who convenes the monthly ARFHSN meeting
+  ([Q-208](#Q-208), now pending AFRP's Board under D8); who convenes the monthly ARFHSN meeting
   ([Q-214](#Q-214)); what the public site says about who manages the
   Scholarship ([Q-162](#Q-162)).
 - **Heritage and the family tree.** A second archive-and-tree site
-  ([Q-190](#Q-190)); serving a drive-held document behind sign-in
+  ([Q-190](#Q-190), parked); serving a drive-held document behind sign-in
   ([Q-260](#Q-260)); minors' dates inside one's
   own branch ([Q-268](#Q-268)).
 - **Public pages.** When the Arabic page shows the non-member rate
@@ -113,8 +126,8 @@ row says which.
 - **The build.** Extracting the 2012 by-law text into rules
   ([Q-274](#Q-274)); which club moves from Breeze first ([Q-275](#Q-275));
   the email and payment credentials, which David is holding for now
-  ([Q-276](#Q-276)); and where the record-only slice R3 sits in the build
-  order, the rest of which D75 settled ([Q-278](#Q-278)).
+  ([Q-276](#Q-276)). Where the record-only slice R3 sits ([Q-278](#Q-278))
+  is answered by D75 with D99.
 
 David is also a named owner, after a Board or a committee, on
 [Q-144](#Q-144), [Q-189](#Q-189), [Q-197](#Q-197),

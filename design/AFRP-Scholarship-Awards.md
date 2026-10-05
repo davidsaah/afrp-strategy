@@ -4,6 +4,8 @@
 
 **Design note P26 · 2 October 2026 · for the Hub's `scholarship`, `funds`, `ledger`, `comms` (P3's register), `committees` (CW1) and `alumni` modules**
 
+*Since 4 October 2026 (D99):* the shared shapes this note draws — the scoped parameter (instalments), the verifying seat, the cycle with a never-held document policy, verification as a record on file and the filing-window clock — are built once as the platform primitives of `AFRP-Platform-Primitives.md` (P29 §3, §4, §6, §9, §11); this note's rules are carried as their settings.
+
 **What this note rests on.** `AFRP-Scholarship-Program-Spec.md` (Addendum 7, 15 August 2026: the lifecycle, the committee engine, encumbrance, the verification gates, named-scholarship matching), which Hub slices 4 and 4b built in part; the ARFECF By-Laws 6.4.1–6.4.8 and the Scholarship Fund Policy Statement (revised 2015, `bylaws/ARFECF-2015-and-the-fund-policies.md`); D2, D3, D7–D10, D55, D58, D61 and the register's conflicts section of 2 October 2026; P9 (`AFRP-Fund-Rules.md`, the fund object and its rows); P3 (`AFRP-Letters-and-Onboarding.md`, the letter register); P5 (`AFRP-Selection-Committee-Workflow.md`, the three elected seats); P12 (`AFRP-Selection-Programmes.md`, the engine the Scholarship does **not** run on); and the research round of 2 October 2026 (the Education report in full, with the Care report's Women to Women section). The workflow `scholarship-renewal` (added 2 October) is the practice this note designs for.
 
 **Precedence (D41).** The ARFECF by-laws and the 2015 policy first; then the Decisions Register and the named design documents (the spec, P3, P9); then the prototype (`#/program/applications`, a story); then the Hub's `scholarship` and `funds` code (what is). The research round is evidence of practice. Where the spec and a later decision disagree, the decision wins and this note says where (§1.4). Where practice and the record disagree this note builds the record and carries the conflict as a question. Where the record is silent it says so.
@@ -49,6 +51,8 @@ The 2026 cycle: a revised online form; the office compiles the continuing cohort
 The spec's `award` and `award year` objects stand (spec §9's schema, slice 4). This note adds what sits between an award year and money leaving: **the instalment**, its **verification**, its **release**, its **hold**, and the **disbursement** record.
 
 ### 2.1 The instalment
+
+*Since 4 October 2026 (D99 review), marked unoperated in the manner of P23 §9.7:* two tracks in the table below have no source at all: the **Ramallah track** (Q-255) and the **medical track with quarter or trimester calendars** (Q-256). Their instalment schedules are **designed; not built until Q-255 and Q-256 are answered**; until then the closing paragraph of this section already has the console show the track unscheduled with its question number. Nothing is deleted.
 
 An award year carries one or more **instalments**, each with: its sequence; the **trigger** (the academic term whose end makes it due); its share of the award year; its state — *scheduled*, *due* (the trigger term has ended), *verified*, *released*, *held*, *suspended* (only by the committee's act, §2.4), *cancelled* (only by the committee's act); and its verification rows.
 

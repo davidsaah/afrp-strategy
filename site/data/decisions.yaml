@@ -1,0 +1,565 @@
+# The rules in force, one topic at a time (D99 item 4). The Decisions Register
+# (design/AFRP-Decisions-Register.md) stays the history and outranks this file
+# (D41); this file only states, per topic, what the decisions in force say today
+# and cites them. A current_rule quotes or closely paraphrases the decisions it
+# cites and adds nothing. When a decision is adopted, amended or superseded, the
+# topic it touches is updated in the same commit as the register.
+#
+# topics: key, title, current_rule, decisions (in force, newest last),
+#   superseded (decisions or parts no longer in force, with what replaced them),
+#   open_questions (Q-numbers in site/data/questions.yaml), pending_act (a body's
+#   act the rule waits on: body, act, decision). site/build.py renders
+#   docs/history/rules-in-force.html and its "Waiting on a body's act" list from
+#   this file.
+# clusters: the twelve asks of D99 item 3. A question's cluster is the `cluster:`
+#   field in questions.yaml; the membership is never typed here.
+
+topics:
+- key: precedence
+  title: How the record decides
+  current_rule: >-
+    Precedence, highest first: the operative by-law texts; the Decisions Register and the named
+    design documents; the prototype and the narrative mockups, which evidence a story and never a
+    rule; the code, which is evidence of what is and never of what should be (D41). Each open
+    question carries one Q-number used in GitHub Discussions and in the committee's Google Doc
+    (D43); the committee's Doc is canonical for the strategy text until the committee adopts the
+    plan (D44). New site pages name roles only (D50). Every outside source goes through one intake,
+    which proposes changes and never decides them; a new rule enters only as a decision in the
+    register (D54).
+  decisions: [D41, D43, D44, D47, D50, D54]
+  superseded: []
+  open_questions: [Q-235]
+  pending_act: []
+
+- key: build-order
+  title: The build order
+  current_rule: >-
+    The build-ready slices are taken before T1d, the T2 series, B2b, slice 3 and slice 11, in the
+    order CW1, FR1, DIR1, C1, C2, AR1, LT1 (register only), CR1 with AR2, SC1, SC4, SA1, MG2, MG1;
+    within that order a session takes the lowest unstarted, ungated slice and never a closed gate
+    (D75, D96). LT1's template register, letter rows, lists and drafts are built now and only a send
+    waits on slice 5 (D75); SC1 and SC4 are built behind the Q-33 setting, not held by the
+    governance gate (D96). The queue is reshaped: done rows move to an appendix, rows that build one
+    mechanism are merged onto it, a row whose gate holds only one action is a build row, slice 5 is
+    split into 5a (email) and 5b (payments), R3, T2-R, T1d and T1e are one record slice, and rows
+    A2, PR0, PT1, CY1, CY2 and CM1 are added (D99).
+  decisions: [D75, D96, D99]
+  superseded: []
+  open_questions: [Q-276, Q-275, Q-15]
+  pending_act: []
+
+- key: platform-primitives
+  title: Platform primitives and the build loop
+  current_rule: >-
+    The shapes the design notes draw again and again are built once, as the platform primitives of
+    AFRP-Platform-Primitives.md (P29), before the slices that would otherwise each build their own:
+    A2 (the refusal and the snapshot) and PR0 (the act and append-only record, the scoped parameter
+    and authority row, the dated-role base, the record on file, the clock), then each remaining
+    primitive in the first slice that needs it. Process tooling (PT1) generates the counts and
+    records the registry now only checks, renders each round's findings from one file and generates
+    journey stubs from the design notes. A slice that only builds a register or a form, and touches
+    none of voting, payments, by-laws, authority, the tree, scholarships, the directory or
+    core.decision, runs a lighter loop (build, one combined attack that includes its fix layer, the
+    hygiene lints); every other slice keeps the full four steps (D99).
+  decisions: [D99]
+  superseded: []
+  open_questions: []
+  pending_act: []
+
+- key: branches
+  title: The branches, the ladder and the Leadership entry
+  current_rule: >-
+    The platform and the Federation's strategic plan use four branches, Education, Leadership,
+    Heritage and Care, with the Convention as the junction (D38, D42). The family tree is part of
+    Heritage, with the Preservation Project, Hathihe Ramallah and the Bookstore (D53). Each branch
+    declares a shape and only an age ladder fires milestones (D39). Every programme has the
+    five-rung ladder (D25). Leadership Ramallah is on Education (D45); AFRPWorks is on Leadership
+    beside the RBPN job board, held by AFRP (D64). The Emerging Leaders entry is withdrawn: the
+    Leadership branch is entered at whichever of its programmes a person first takes part in, and
+    the order is a suggestion, never a prerequisite (D90). The Ramallah Foundation and the Endowed
+    Fund are funds, shown on their branch and not joinable (D40).
+  decisions: [D25, D38, D39, D40, D42, D45, D53, D64, D90]
+  superseded: ["D38's placement of the tree as the roots beneath all four branches (by D53)"]
+  open_questions: [Q-175, Q-179, Q-147]
+  pending_act:
+  - {body: Strategic Planning Committee, act: "reflect the withdrawal of Emerging Leaders in its draft", decision: D90}
+  - {body: Strategic Planning Committee and AFRP Board, act: "adopt the four-branch framework for the Federation (the committee recommends, the Board decides)", decision: D42}
+
+- key: outcomes
+  title: Outcome reporting
+  current_rule: >-
+    Each branch reports, for its first year, two or three counts that exist today; the five-rung
+    ladder measures follow from the first full year of platform data (D67). Outcome metrics for
+    donors are reported per branch, using the ladder and stage-to-stage conversion (D42).
+  decisions: [D25, D42, D67]
+  superseded: []
+  open_questions: []
+  pending_act: []
+
+- key: tree-view
+  title: The tree view
+  current_rule: >-
+    The tree is drawn in the print book's plate grammar on every surface, and each limb carries its
+    grade so the plate never looks more certain than the record (D68). The plate is the default
+    view on every surface; the hourglass around a focus person stays available as an alternative
+    view (D77, reading D19) and is drawn in the plate grammar with the same shapes and line weights
+    (D80). Unapproved edits are shown in place, marked pending (D20).
+  decisions: [D19, D20, D68, D77, D80]
+  superseded: ["D27 (keep the platform styling), by D68", "D19 as the default view, by D77"]
+  open_questions: [Q-267, Q-269, Q-266]
+  pending_act: []
+
+- key: tree-visibility
+  title: Who sees the living on the tree
+  current_rule: >-
+    Signed out, nothing about the living: a living person shows a name and a position and no dates
+    (D28). A signed-in member sees the living in full inside their own branch: blood relatives
+    sharing an ancestor no further back than a great-great-grandparent, which reaches third
+    cousins, and their spouses; outside it a living person shows a name and a position only (D71,
+    D76). Own branch runs along blood links only. At join and renewal a person who is not yet a
+    member is shown no living person's details beyond what D28 allows a signed-out visitor (D98).
+    The public build ships the deceased real and the living synthetic (D15). Using the tree to reach
+    people is for members only, about their own branch (D36).
+  decisions: [D15, D28, D36, D71, D76, D98]
+  superseded: ["D17 (all members see everything), amended by D71", "D71's parenthesis \"(out to second cousins)\", read as an error by D76"]
+  open_questions: [Q-268, Q-271]
+  pending_act: []
+
+- key: tree-approval
+  title: Proposing and approving tree changes
+  current_rule: >-
+    Members in current national standing may propose changes; no account exists for non-members to
+    contribute (D70, confirming D13). Every life event queues for the committee (D14, D31). One
+    committee approval applies an own-household life event or a non-structural correction; two
+    approvals from different committee members apply a structural change; the committee may appoint
+    clan stewards, who pre-review and recommend and never approve (D72). The structural kinds are a
+    parent link added, changed or removed; two records merged; a branch moved; a person removed or
+    marked removed; a clan assignment changed; a sex recorded differently; a link's grade raised;
+    the committee may amend the list by a dated act (D81). The second holder of tree:moderate is a
+    Family Tree Committee member seated by the committee's own act (D79). A sitting of work reaches
+    the committee as one bundle (D21). A correction to a line a decision was made on is
+    re-evaluated and flagged to the committee, never auto-revoked (D12).
+  decisions: [D12, D13, D14, D21, D31, D70, D72, D79, D81]
+  superseded: ["D14's mitigations, amended by D72"]
+  open_questions: [Q-263, Q-52]
+  pending_act:
+  - {body: Family Tree Committee, act: "seat the second holder of tree:moderate (FT2), after which the grant is entered", decision: D79}
+
+- key: tree-record
+  title: The tree's record and its custody
+  current_rule: >-
+    The Hub becomes the record of the tree. During a parallel run of 30 to 60 days the Hub wins:
+    the record keeper's edits arrive as GEDCOM imports through the diff preview and are applied as
+    audited committee edits, conflicts held for a decision; at the end the external file is
+    read-only and the Hub exports a GEDCOM backup every night under tree:moderate (D69). The licence
+    and the account that hold the master file and its cloud copy are held in the Federation's name;
+    the Family Tree Committee records, as dated acts, who may open the file and the export cadence;
+    the AFRP Board records by minute the terms on which the Federation holds the compilation and the
+    original author's work; the parallel run starts only after both are on file and cites them
+    (D87).
+  decisions: [D69, D87]
+  superseded: ["D11's staging (a governed mirror until one clean annual cycle), by D69"]
+  open_questions: [Q-15]
+  pending_act:
+  - {body: Family Tree Committee, act: "record who may open the master file and the export cadence into the Hub", decision: D87}
+  - {body: AFRP Board, act: "minute the terms on which the Federation holds the record keeper's compilation and the original author's work", decision: D87}
+
+- key: tree-eligibility
+  title: The tree and eligibility
+  current_rule: >-
+    Every member has a node on the tree, and a node is never a lineage claim; no membership
+    decision reads it (D30). The tree is evidence for a human decision on By-Law 4.1.1, never a
+    verdict (D16), and its first job is lineage verification for 4.1.1 and the Scholarship (D18).
+    The new edition of the book carries no eligibility force; 4.1.1 still points at Shaheen 1982
+    (D32). How the 2027 print edition is produced is decided after the January 2027 Mid-Year
+    (D74). "Find yourself on the family tree" at join and renewal is the first integration, and
+    skipping it is a complete answer (D73).
+  decisions: [D16, D18, D30, D32, D73, D74]
+  superseded: []
+  open_questions: [Q-4, Q-5, Q-6, Q-7, Q-9]
+  pending_act: []
+
+- key: tree-integrations
+  title: The order of the tree's integrations
+  current_rule: >-
+    Membership and join is the first integration (D73); magazine and life events is next (D78);
+    then Heritage, then directory and comms (D86). T2f builds nothing the record does not state: it
+    reports what slices 7 and 7b built, writes its journeys and leaves anything further NOT BUILT,
+    naming P28 §8 (D98).
+  decisions: [D73, D78, D86, D98]
+  superseded: []
+  open_questions: []
+  pending_act: []
+
+- key: households-minors
+  title: Households, step-parents and minors
+  current_rule: >-
+    The household and the tree are two models joined by one audited link (D37). A step-parent
+    joining a household has nothing over the children in it until a standing holder names them
+    (D34). Where two standing holders disagree, the more protective answer wins (D35). An
+    announcement of a birth or baptism follows D22's pattern: the household consents, withdrawably,
+    and it is re-asked at eighteen (D33), except on the Magazine's assisted door (D89).
+  decisions: [D33, D34, D35, D37]
+  superseded: []
+  open_questions: [Q-8, Q-191]
+  pending_act: []
+
+- key: life-events
+  title: Life events and deaths
+  current_rule: >-
+    Every life event queues for the Family Tree Committee (D14, D31). A household may submit its own
+    life event to the Magazine; a Magazine correspondent or the editor may submit one on its behalf,
+    and the correspondent's attestation that the family agreed, recorded with who entered it, when
+    and from what, is enough for a wedding, a birth or a graduation to print; for a birth this is an
+    exception to D33 (D89, as limited by D95). A death printed in the Magazine needs the approval
+    of the named family contact: the person who reported the death cannot be that contact and no
+    role overrides the hold; a correspondent may enter a death, which waits for the contact (D95).
+  decisions: [D14, D31, D33, D89, D95]
+  superseded: ["D89's reach to deaths, by D95"]
+  open_questions: [Q-193]
+  pending_act: []
+
+- key: media-oral-histories
+  title: Photographs, documents and oral histories
+  current_rule: >-
+    Full media, with per-item consent held by the subject (D22). Oral histories take D22 through a
+    written release signed by the narrator and held on the drive, granting each scope separately
+    (community archive, public web, print, research, excerpts), each defaulting to no; a recording
+    without a release on file is shown to the Preservation committee's seats only, and a recording
+    made earlier under a spoken permission is treated the same until the narrator signs (D93).
+  decisions: [D22, D93]
+  superseded: []
+  open_questions: [Q-261]
+  pending_act:
+  - {body: Legal Advisor and Preservation committee, act: "draft (the Legal Advisor) and adopt (the committee) the release's text; no item reaches a scope until a signed release on the adopted form is on file", decision: D93}
+
+- key: archive-drive
+  title: The archive, drive documents and clan books
+  current_rule: >-
+    The Federation's shared drive is the archive of record; the platform holds its own registers
+    and links to the drive for documents (D66). For now a document or media item held on the drive,
+    such as a clan book or an item attached to a tree node, is not served to members: the platform
+    lists it and gives its drive link to the seats of the committee that holds it only, gives no
+    member a share link and stores no copy (D88). Once a book can be served inside the sign-in
+    boundary, clan books are served to signed-in members in good standing within D71's limits with
+    no approval step; a book carrying living people's details beyond a name and a position is not
+    served by standing; until then access stays with the project's own process, which the Board
+    records by minute with its test (D97).
+  decisions: [D66, D88, D97]
+  superseded: []
+  open_questions: [Q-260, Q-202, Q-190]
+  pending_act:
+  - {body: AFRP Board, act: "minute today's clan-book access process and its test", decision: D97}
+
+- key: historical-records
+  title: Historical programme records and the application door
+  current_rule: >-
+    Camp: past seasons enter as camper records; applications, consent, medical and travel forms
+    never enter for any season, and the platform holds only whether a form is on file. The
+    Scholarship: past recipients only, as alumni records; applicant data and documents never enter.
+    Project Hope, Leadership Ramallah and the Day of Action: past participants as alumni;
+    applications, essays and résumés never enter. Future cycles of every programme apply in the
+    platform (D61). For now D61 extends to the Exchange Mission and the Palestine Fellowship; its
+    "never enter" governs past cycles, and a future applicant may type a statement and upload
+    documents at the platform's door under the retention clock; passports, photo ID, consent,
+    release, medical and travel forms never enter for any cycle; from a selection discussion the
+    committee keeps a summary per applicant, the votes and a decision note, and no note of an
+    applicant's political views (D94).
+  decisions: [D61, D94]
+  superseded: ["D61's first wording, which admitted camp documents under a retention rule (amended the same day)"]
+  open_questions: [Q-118, Q-76, Q-117]
+  pending_act:
+  - {body: ARFECF Board, act: "confirm D94's extension and its reading at the door", decision: D94}
+
+- key: holding-entities
+  title: Which entity holds each programme
+  current_rule: >-
+    Until a Board says otherwise, a programme's holding entity is the fund that carries it in the
+    Federation's approved budget. For 2026–27: Camp Ramallah, the Arabic Program, Project Hope, the
+    Exchange Mission and the Scholarship are ARFECF's; the Magazine's assets and the camp land
+    account are ARFECF's; Government Affairs, Congressional Outreach and the Day of Action are
+    AFRP's; Women to Women is a sub-fund of ARFHSN; the Medical Mission is ARFHSN's (D55, D62).
+    Receipts, books and the tax return follow the holding entity (D55). The Endowed Fund (D2) and
+    the Scholarship (D3) are ARFECF's; AFRPWorks is AFRP's (D64); the Relief Fund is AFRP's (D83);
+    the Senior Living Project is the Ramallah Foundation's capital project, not a Federation
+    programme (D91).
+  decisions: [D2, D3, D55, D62, D64, D83, D91]
+  superseded: []
+  open_questions: [Q-277, Q-177, Q-121, Q-172, Q-182]
+  pending_act:
+  - {body: AFRP Board and ARFECF Board, act: "confirm D55's table", decision: D55}
+
+- key: funds-arfecf
+  title: The Endowment and Scholarship funds
+  current_rule: >-
+    The Endowed Fund is held by ARFECF and governed by ARFECF's by-laws and its Endowment Fund
+    Committee, which has exclusive authority over its expenditures; non-earmarked money is never
+    diverted between the Endowment and Scholarship Funds (D2). The Scholarship is held by ARFECF;
+    the Scholarship Fund Committee holds exclusive authority over its fund; award receipts and the
+    donor-facing exempt status are ARFECF's (D3). The 2012 and 2015 policy statements, found in
+    October 2026, make a 4% programme distribution and a 1% transfer to AFRP mandatory each year
+    (the register's status note under D3).
+  decisions: [D2, D3]
+  superseded: ["The \"4% floor versus 5% cap\" framing under D2 and D3, withdrawn by the status note of 1 Oct 2026"]
+  open_questions: [Q-35, Q-95, Q-97, Q-98, Q-99]
+  pending_act: []
+
+- key: receipting-agency
+  title: Receipting, agency and giving
+  current_rule: >-
+    When a club collects AFRP dues it acts as AFRP's agent: the money is AFRP's from the first
+    dollar, the receipt is AFRP's, and standing starts at collection (D1). Gifts to the Medical
+    Mission and the Human Services Network funds are ARFHSN's, and the Federation's pages collect
+    them as ARFHSN's agent (D56). Ticketed events are non-deductible entirely, and a contribution
+    beyond the ticket is receipted separately by the receiving entity (D9). Surplus on a restricted
+    appeal goes to the receiving entity's general fund only where that is disclosed on the ticket
+    before payment, and never within ARFECF (D7). Raising in another entity's name runs from a
+    purpose catalogue; a new purpose goes to that entity's board and blocks publication, and the
+    authoriser is per purpose (D8). Contributors get four moments, then an annual statement (D10).
+  decisions: [D1, D7, D8, D9, D10, D56]
+  superseded: []
+  open_questions: [Q-3, Q-100, Q-204, Q-232, Q-233]
+  pending_act:
+  - {body: CPA, act: "countersign the agency treatment of club-collected dues (D1); D56's agency for ARFHSN gifts goes to the CPA with it", decision: D1}
+
+- key: dues-standing
+  title: Dues and dormant clubs
+  current_rule: >-
+    Standing starts at collection, not remittance (D1). When a club goes dormant mid-year, dues its
+    members have paid stay valid for the remainder of the membership year; dormancy is a club-state
+    change, not a member-state change (D6). The directory grace period after a lapse is a
+    parameter D6 left unset.
+  decisions: [D1, D6]
+  superseded: []
+  open_questions: [Q-41, Q-43, Q-64]
+  pending_act: []
+
+- key: club-statement
+  title: The club statement
+  current_rule: >-
+    Every amount a club pays or receives through a Federation or affiliate programme is recorded
+    against the club on one statement; each programme sets its own terms; every gift may carry a
+    club attribution, and a co-funded grant lists each club's share (D57). A club's gift to the
+    Ramallah Foundation's home made through the Federation's pass-through purpose is a line on that
+    statement, with the club as donor and its recognition request carried to the Foundation; a gift
+    a club makes directly to the Foundation is outside the platform (D92).
+  decisions: [D57, D92]
+  superseded: []
+  open_questions: [Q-47, Q-228, Q-216]
+  pending_act: []
+
+- key: relief-fund
+  title: The Relief Fund
+  current_rule: >-
+    The Relief Fund is held by AFRP; the deductibility statement and receipt text for gifts to it
+    follow D9 and wait on the CPA (D83). A public purpose for the fund is for AFRP's Board under D8
+    (D83).
+  decisions: [D8, D9, D83]
+  superseded: []
+  open_questions: [Q-109, Q-208, Q-207, Q-180, Q-126, Q-243, Q-247]
+  pending_act:
+  - {body: CPA, act: "the deductibility statement and receipt text for Relief Fund gifts", decision: D83}
+  - {body: AFRP Board, act: "add the Relief Fund to the purpose catalogue, if it chooses (Q-208)", decision: D83}
+
+- key: care-grants
+  title: Care grants and the Medical Mission
+  current_rule: >-
+    A grant or partner project paid from a Care fund is approved by the holding entity's Board with
+    a spending ceiling, paid on delivery with two signatories, and closed only when the partner's
+    signed agreement, a delivery confirmation and an inventory of any equipment are on record; no
+    approval tiers apply until ARFHSN adopts a finance manual written for a volunteer board; the
+    platform produces ARFHSN's six-monthly report to the AFRP Board from the ledger and the grants
+    register (D63). The Medical Mission is a programme of ARFHSN, whose Board appoints the
+    committee's chair and approves its spending; the Federation President convenes (D62).
+  decisions: [D56, D62, D63]
+  superseded: []
+  open_questions: [Q-58, Q-104, Q-114, Q-214, Q-217, Q-220]
+  pending_act: []
+
+- key: scholarship-committee
+  title: The Scholarship Fund Committee and conflicts
+  current_rule: >-
+    The Scholarship is ARFECF's and the Ramallah Foundation's role is a partnership recorded as an
+    agreement (D3). The Foundation may hold seats on the Scholarship Fund Committee only once the
+    ARFECF Board amends the 2015 Scholarship Fund Policy Statement to provide them; until then the
+    committee is seated as the policy reads (D58). A reviewer related to an applicant discloses the
+    relationship by degree, acknowledged on the record of the decision; only a reviewer in the
+    applicant's own household is refused; the three-degree block is withdrawn; until the committee
+    adopts this as its conflict policy the platform applies it and labels it pending adoption (D84).
+  decisions: [D3, D58, D84]
+  superseded: ["The specification's three-degree block (August 2026), by D84"]
+  open_questions: [Q-117, Q-159, Q-161]
+  pending_act:
+  - {body: ARFECF Board, act: "amend the 2015 Scholarship Fund Policy Statement to provide the Foundation's seats, by two-thirds", decision: D58}
+  - {body: Scholarship Fund Committee, act: "adopt D84 as its conflict policy (ARFECF 6.4.4; 6.4.6 if a rules amendment)", decision: D84}
+
+- key: senior-award
+  title: The High School Senior Award
+  current_rule: >-
+    The Outstanding High School Senior Award was not retired and continues (D82). It is run by the
+    Scholarship Fund Committee; the Leadership Ramallah committee's running of it from 2013 to 2020
+    is kept as its history (D85).
+  decisions: [D82, D85]
+  superseded: []
+  open_questions: [Q-117, Q-76]
+  pending_act:
+  - {body: Scholarship Fund Committee, act: "take the award on by its own act", decision: D85}
+  - {body: ARFECF Board, act: "a budget line naming the award's fund, before any money line (D55)", decision: D85}
+
+- key: advocacy
+  title: Advocacy and public statements
+  current_rule: >-
+    Government Affairs, Congressional Outreach, the Day of Action and the Federation's public
+    statements are AFRP General Fund activity, and the platform refuses to charge any of it to
+    ARFECF or ARFHSN (D65).
+  decisions: [D65]
+  superseded: []
+  open_questions: [Q-80, Q-81, Q-132, Q-133, Q-134]
+  pending_act:
+  - {body: Legal Advisor, act: "confirm the 501(c)(4) limits", decision: D65}
+
+- key: contact-record
+  title: People who are not members
+  current_rule: >-
+    A person who is not a member may register for an Arabic class at the public rate; the platform
+    keeps a contact record for them (name, verified channel, consent) and not a membership; members
+    pay the member rate (D60). No account exists for a non-member to contribute to the tree (D70).
+  decisions: [D60, D70]
+  superseded: []
+  open_questions: [Q-70, Q-171]
+  pending_act: []
+
+- key: convention
+  title: The Convention and the Mid-Year
+  current_rule: >-
+    Each Convention runs under a host agreement signed by the Federation and the host club before
+    the Convention, recording the Federation's share, the holdback, the settlement date and each
+    side's obligations; the platform records the terms and produces the settlement statement; a
+    change to the share goes from the Convention Innovation Committee to the Board, not the floor;
+    the same shape serves the Mid-Year (D59). Two items are settled in the design for the Board to
+    confirm: exhibitor and press credentials are non-attendee credentials, so the
+    membership-mandatory rule stays absolute; and deficit responsibility is read from the
+    Convention Contract, the screen saying plainly where it is silent.
+  decisions: [D59]
+  superseded: []
+  open_questions: [Q-124, Q-129, Q-225, Q-92]
+  pending_act:
+  - {body: AFRP Board, act: "confirm the two items for board confirmation (non-attendee credentials; deficits read from the contract)", decision: "Board confirmation items"}
+
+- key: senior-living
+  title: Senior Living and the Ramallah Foundation
+  current_rule: >-
+    The Senior Living Project is the Ramallah Foundation's capital project, not a Federation
+    programme; the Foundation is held on the partner register under D3's shape, and the Federation's
+    part (communications, gifts passed through, any Convention-voted budget grant) is recorded as
+    agreements with it (D91). A club's gift to the home through the Federation's pass-through
+    purpose is a club-statement line (D92).
+  decisions: [D3, D91, D92]
+  superseded: []
+  open_questions: [Q-204, Q-206, Q-248]
+  pending_act:
+  - {body: AFRP Board and ARFECF Board, act: "confirm D91", decision: D91}
+
+- key: voting
+  title: Voting and the 9.1.3 drafts
+  current_rule: >-
+    Full digital voting is the approved direction; until the conforming amendment to By-Law 9.2 is
+    ratified the 2024 text is the law, and the platform runs it in full as the transitional channel
+    (D4). Whether either 9.1.3 amendment draft goes to the floor is undecided (D5, reopened).
+  decisions: [D4, D5]
+  superseded: []
+  open_questions: [Q-1, Q-10, Q-33]
+  pending_act:
+  - {body: AFRP Board · Constitution Committee, act: "put the conforming 9.2 amendment to a Convention (which Convention, and who drafts it, are not yet set)", decision: D4}
+
+clusters:
+- key: A
+  title: The contact record
+  owner: Membership Committee · Legal Advisor
+  ask: >-
+    Do you adopt one contact record per person, with dated, programme-scoped roles and a consent
+    row per role (P21 §11), and on what consent basis is each kind of person who is not a member
+    held and written to?
+  unblocks: "The contact-record slices CR1 to CR6, the referral slices RF1 and RF2, AD1, MG2 and MG3, DIR3, IR2 and IR3, LT4, C5, CV5, ED2 and YL4."
+- key: B
+  title: Retention
+  owner: AFRP Board · Legal Advisor · CPA
+  ask: >-
+    Will you give each row of one retention register a period and an owner, and name the seat that
+    is the data custodian?
+  unblocks: "The incident and retention slices IR1 to IR5, and the deletion steps of AD4, AR4, CW4, SC7, SEL5 and YL6."
+- key: C
+  title: A delegation-of-authority schedule per entity
+  owner: AFRP Board · ARFECF Board · ARFHSN Board
+  ask: >-
+    Will each Board adopt one schedule saying, for each kind of act (a letter's wording, a
+    statement, an agreement, a payment, a grant, a transfer, a settlement), which seat approves,
+    which signs, who countersigns and up to what limit?
+  unblocks: "CG1 to CG3, RL1, RL3 and RL4, CV6 and CV7, LT1's adopted wordings, PR1, ED1 and YL5."
+- key: D
+  title: The committee register as the Board Rules & Regulations
+  owner: AFRP Board · Constitution Committee · President
+  ask: >-
+    Will the Board adopt a register of its bodies, as its Rules & Regulations: which bodies exist
+    and by what text, their seats (co-chairs included), quorum, attendance rule, reporting year,
+    staff liaison and budget line?
+  unblocks: "The committee workspace CW1 to CW3, C4, CV5 and CV8, RL2 and SV1."
+- key: E
+  title: One engagement with the outside accountants
+  owner: The outside accounting firm · AFRP General Treasurer · ARFECF and ARFHSN Treasurers
+  ask: >-
+    Will the outside firm answer, in one engagement, the agency, receipting, recognition and
+    tax-character questions the record holds, and name which "CPA" answers each?
+  unblocks: "Receipt texts across the giving slices, B3, CG6, CV5 and CV7, FR5 and FR6, MG1, MG5 and MG7, and RL5."
+- key: F
+  title: One memo from the Legal Advisor
+  owner: Legal Advisor
+  ask: >-
+    Will the Legal Advisor answer, in one memo, the questions of law the record holds: lobbying and
+    candidate activity, screening and safeguarding, sanctions, governing state law, and the
+    emailed ballot?
+  unblocks: "AD2 and AD3, CG6, FR4, SC5, VI3 and YL5."
+- key: G
+  title: The host agreement's standing terms
+  owner: AFRP Board · Convention Innovation Committee · Legal Advisor
+  ask: >-
+    Which terms of the host agreement are standing for every Convention and Mid-Year, which are
+    negotiated, who may vary them, and how is By-Law 10.1.1's rotation read?
+  unblocks: "The Convention slices CV1 to CV3 and CV5 to CV7, the host-bid slices HB1 and HB3, HA1, HA3 and HA4, CR6, MG2 and RL3."
+- key: H
+  title: The Scholarship Fund Committee's rules
+  owner: Scholarship Fund Committee · ARFECF Board
+  ask: >-
+    Will the committee adopt its rules in one act under ARFECF 6.4.6 (renewal and hardship, the
+    appeal route, the rubric, named scholarships, the lineage exception and the Ramallah track), and
+    say who approves the year's awards?
+  unblocks: "The scholarship award slices SA1 to SA6, and SC3."
+- key: I
+  title: ARFHSN's by-laws and finance manual
+  owner: ARFHSN Board of Trustees · AFRP Board
+  ask: >-
+    Will ARFHSN's revised by-laws and the finance manual D63 waits on settle its report dates,
+    approvals, grant states, appeals wording and its committees' roles?
+  unblocks: "CW4 and MG7, and D63's approval tiers, which apply only once the finance manual is adopted."
+- key: J
+  title: Ratifying D55's table
+  owner: AFRP Board · ARFECF Board
+  ask: >-
+    Will the two Boards confirm D55's table of holding entities, and extend it to the programmes it
+    does not name?
+  unblocks: "AR2's money, MG5 and MG7, YL5, and every money line D55 holds until a budget line names its fund."
+- key: K
+  title: The Family Tree Committee's standing act
+  owner: Family Tree Committee
+  ask: >-
+    Will the committee adopt, in one standing act, its stewards, its grade vocabulary, how
+    unnumbered plates are cut, Arabic-script names, minors' dates inside a branch and the clan
+    books' living details?
+  unblocks: "T2a's and T2h's open items."
+- key: L
+  title: AFRPWorks' owner
+  owner: President · AFRP Board · Jobs Initiative working group
+  ask: >-
+    Which body owns AFRPWorks? Its owner then answers the fee, the partner agreement, verification,
+    the candidate's door and the boundary with the RBPN job board.
+  unblocks: "The AFRPWorks slices AW1 to AW4, and CR5 and IR2 for its candidates."

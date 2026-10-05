@@ -56,7 +56,7 @@
 
 **What it is.** A person holding a role in a scope for a period: (person, kind, scope, started, ended, the act that started it, state). Three kinds extend it. A **seat** on a body adds authority, term and vote (P1 §2.2). A **contact role** adds its consent and retention (P21 §3.2). An **assignment** adds a slot (P7).
 
-**Bodies and seats.** CW1's body register is the anchor for every "seat, never a person" in the record: signatories (P3), approvers (P6, P14), the verifying seat (P26), the correspondent (P24), the second holder of `tree:moderate` (D79), the Executive Director's grants (P16). Grants are derived from seats; a seat ended ends its grants.
+**Bodies and seats.** CW1's body register is the anchor for every "seat, never a person" in the record: signatories (P3), approvers (P6, P14), the verifying seat (P26), the correspondent (P24), the Executive Director's grants (P16). Grants are derived from seats; a seat ended ends its grants. One exception is the record's: the second holder of `tree:moderate` is granted by name on the Roles screen after the Family Tree Committee's own act, never derived or seeded (D79), and D79 governs it.
 
 **Replaces.** `clubs.OfficerRole`, `programs.CommitteeSeat` and `scholarship.Seat`, each saying "the roster is the grant", beside `access.Grant`; seven separate "active on this date" implementations.
 

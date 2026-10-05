@@ -101,9 +101,31 @@ def delivery_facts():
 
 
 def plan_slices(done_extra):
+    """The slice rows of MASTER-PLAN §2 (the queue) and §2a (done and retired rows, D99), each tagged with its section."""
     text = (ROOT / "plan/MASTER-PLAN.md").read_text(encoding="utf-8")
-    rows = re.findall(r"^\| (\S+) \| \*\*(.+?)\*\* \| (.+?) \|", text, re.M)
-    return [dict(n=a, name=b, stream=re.sub(r"\*", "", c)) for a, b, c in rows]
+    out, sec = [], None
+    for line in text.splitlines():
+        h = re.match(r"^## (\d+[a-z]?)\. ", line)
+        if h:
+            sec = h.group(1)
+            continue
+        m = re.match(r"^\| (\S+) \| \*\*(.+?)\*\* \| (.+?) \|", line)
+        if m and sec in ("2", "2a"):
+            out.append(dict(n=m.group(1), name=m.group(2), stream=re.sub(r"\*", "", m.group(3)), section=sec))
+    return out
+
+
+def appendix_status(s, done):
+    """A §2a row is done, or says what became of it (merged, split, folded, moved); it is never queued."""
+    st = s["stream"].strip()
+    if s["n"] in done or "done" in st.lower():
+        return "done"
+    m = re.match(r"(merged|folded|split|blocked)\b.*?see (.+)$", st, re.I)
+    if m:
+        kind, target = m.group(1).lower(), m.group(2).strip()
+        return {"merged": f"merged into {target}", "folded": f"folded into {target}",
+                "split": f"split into {target}", "blocked": f"moved to {target}"}[kind]
+    return "retired"
 
 
 def board_data():
@@ -116,7 +138,8 @@ def board_data():
 STATUS_CLASS = [("not built", "st-notbuilt"), ("partly", "st-partly"), ("built", "st-built"),
                 ("plan only", "st-plan"), ("designed", "st-designed"), ("queued", "st-queued"),
                 ("proposed", "st-proposed"), ("gap", "st-gap"), ("outside", "st-outside"),
-                ("retired", "st-retired"), ("done", "st-built")]
+                ("retired", "st-retired"), ("done", "st-built"), ("merged", "st-retired"), ("folded", "st-retired"),
+                ("split", "st-retired"), ("moved", "st-retired")]
 
 
 def status_tag(s):
@@ -338,10 +361,35 @@ def main():
     done = facts["done"] | {s["n"] for s in board["slices"] if s["status"] == "done"}
     slices = [s for s in plan_slices(done) if s["n"] not in ("—",)]
     for s in slices:
-        s["status"] = "done" if s["n"] in done else ("design first" if s["n"].startswith("SP") else "queued")
+        if s["section"] == "2a":
+            s["status"] = appendix_status(s, done)
+        else:
+            s["status"] = "done" if s["n"] in done else ("design first" if s["n"].startswith("SP") else "queued")
     n_done = sum(1 for s in slices if s["status"] == "done")
+    n_open_slices = sum(1 for s in slices if s["section"] == "2" and s["status"] != "done")
     n_dec = len(decisions)
-    open_q = [q for q in questions if not q.get("decided")]
+    # D99: a question's status. Open on the site = open, for-now, in-part and pending-act; parked and
+    # decided questions are listed separately and never counted as open.
+    QSTATUS = ("open", "for-now", "in-part", "pending-act", "parked", "decided")
+    for q in questions:
+        st = q.get("status") or ("decided" if q.get("decided") else "open")
+        assert st in QSTATUS, f"{q['id']}: unknown status {st}"
+        assert (st == "decided") == bool(q.get("decided")), f"{q['id']}: status {st} disagrees with decided:"
+        q["status"] = st
+    open_q = [q for q in questions if q["status"] in ("open", "for-now", "in-part", "pending-act")]
+    parked_q = [q for q in questions if q["status"] == "parked"]
+    qcount = Counter(q["status"] for q in questions)
+    dec_data = load("decisions.yaml")
+    topics, clusters = dec_data["topics"], dec_data["clusters"]
+    CLU = {c["key"]: c for c in clusters}
+    for q in questions:
+        assert not q.get("cluster") or q["cluster"] in CLU, f"{q['id']}: unknown cluster {q.get('cluster')}"
+    QIDS = {q["id"] for q in questions}
+    for t in topics:
+        for d in t["decisions"]:
+            assert re.match(r"D\d+$", d) and int(d[1:]) in decisions, f"topic {t['key']}: unknown decision {d}"
+        for qq in t.get("open_questions") or []:
+            assert qq in QIDS, f"topic {t['key']}: unknown question {qq}"
     prog_status = Counter(status_key(p["status"]) for p in progs)
 
     def bcolour(k):
@@ -423,6 +471,7 @@ def main():
         ("workflows/index.html", "5 · Workflows", "How the work moves, and how the pieces hand off to each other.", f"{len(workflows)} <small>workflows</small>"),
         ("prototype/index.html", "6 · Prototype", "The integrated prototype: five lenses, with guided tours by branch and by journey.", "5 <small>lenses</small>"),
         ("status/index.html", "7 · Development status", "Decisions, open questions, the build track and how the journeys fare.", f"{all_j.get('meets',0)}/{all_j.get('total',0)} <small>journeys meet</small>"),
+        ("history/rules-in-force.html", "Rules in force", "The current rule on each topic, with the decisions behind it, and what waits on a body's act.", f"{len(topics)} <small>topics</small>"),
         ("library/index.html", "Library", "The earlier reference documents, dated, and the archive.", f"{len(library['reference'])} <small>documents</small>"),
     ]
     cardhtml = '<div class="grid">' + "".join(
@@ -516,7 +565,9 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
     meta, body = md_page("history.md")
     tl = ('<div class="legend"><span><i style="background:#9a720d"></i>The Federation\'s strategy</span><span><i style="background:#4c6414"></i>The platform\'s design and build</span><span><i style="background:#8c2f21"></i>Where they meet</span></div><div class="tl">' +
           "".join(f'<div class="ev {t["strand"]}"><div class="when">{E(t["date"])}</div><div class="what"><b>{E(t["title"])}</b><p>{E(t["text"])}</p></div></div>' for t in timeline) + "</div>")
-    write("history/index.html", "How the strategy evolved", MD(body).replace("<!--TIMELINE-->", tl), "history",
+    rif_link = ('<div class="note"><p><b><a href="{root}history/rules-in-force.html">Rules in force</a>.</b> The Decisions Register is the history; '
+                'the rules in force state the current rule on each topic, with the decisions behind it and every decision waiting on a body\'s act (D99).</p></div>')
+    write("history/index.html", "How the strategy evolved", rif_link + MD(body).replace("<!--TIMELINE-->", tl), "history",
           kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html")])
 
     meta, body = md_page("whats-next.md")
@@ -526,26 +577,79 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
           kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html"), ("Evolution", "history/index.html")])
 
     meta, body = md_page("questions.md")
-    qrows = "".join(
-        f'<tr id="{q["id"]}" data-goal="{q["goal"]}" data-branch="{q["branch"]}" data-owner="{E(q["owner"].lower())}"><td><b>{q["id"]}</b></td><td><b>{E(q["title"])}</b><br><span class="small">{E(q["detail"])}</span></td>'
-        f'<td class="small">{E(q["owner"])}</td><td class="small">{glink(q["goal"])}<br>{btag(q["branch"])}</td>'
-        f'<td class="small">{E(q["source"])}<br><a href="{REPO}/discussions?discussions_q={q["id"]}">Discuss {q["id"]}</a></td></tr>'
-        for q in open_q)
+    QST_LABEL = {"open": "open", "for-now": "answered for now", "in-part": "answered in part", "pending-act": "pending an act", "parked": "parked"}
+
+    def qrow(q):
+        return (f'<tr id="{q["id"]}" data-goal="{q["goal"]}" data-branch="{q["branch"]}" data-owner="{E(q["owner"].lower())}" data-status="{q["status"]}"><td><b>{q["id"]}</b><br><span class="tag">{QST_LABEL[q["status"]]}</span></td><td><b>{E(q["title"])}</b><br><span class="small">{E(q["detail"])}</span></td>'
+                f'<td class="small">{E(q["owner"])}</td><td class="small">{glink(q["goal"])}<br>{btag(q["branch"])}</td>'
+                f'<td class="small">{E(q["source"])}<br><a href="{REPO}/discussions?discussions_q={q["id"]}">Discuss {q["id"]}</a></td></tr>')
+    QHEAD = '<thead><tr><th>ID</th><th>Question</th><th>Owner</th><th>Goal · branch</th><th>Source · discuss</th></tr></thead>'
+    qgroups = ""
+    for c in clusters + [dict(key=None, title="Not in a cluster", owner="", ask="Each of these is put to its owner on its own.", unblocks="")]:
+        qs = [q for q in open_q if q.get("cluster") == c["key"]]
+        if not qs:
+            continue
+        anchor = f'cluster-{c["key"]}' if c["key"] else "cluster-none"
+        head = f'{c["key"]} · {E(c["title"])}' if c["key"] else E(c["title"])
+        qgroups += (f'<h3 id="{anchor}">{head} <span class="muted small">· {len(qs)} open</span></h3>'
+                    + (f'<p class="small"><b>Put to:</b> {E(c["owner"])}. <b>The ask:</b> {E(c["ask"])}' + (f' <b>Unblocks:</b> {E(c["unblocks"])}' if c["unblocks"] else "") + '</p>' if c["key"] else f'<p class="small">{E(c["ask"])}</p>')
+                    + f'<div class="tw"><table class="qt">{QHEAD}<tbody>{"".join(qrow(q) for q in qs)}</tbody></table></div>')
+    ccount = ", ".join(f'{k} {v}' for k, v in [("open", qcount["open"]), ("answered for now", qcount["for-now"]), ("answered in part", qcount["in-part"]), ("pending an act", qcount["pending-act"])])
+    qintro = (f'<h2 id="open">Open questions, by cluster</h2><p>{len(open_q)} questions are open ({ccount}); {qcount["parked"]} are parked and {qcount["decided"]} answered. '
+              'Under D99 the open questions are grouped into twelve clusters, each put to its owning body as one ask; the rest are put to their owners one by one. '
+              '<a href="{root}history/rules-in-force.html">Rules in force</a> states what the decisions already settle.</p>')
     qfilt = ('<div class="filters"><select id="qg"><option value="">Every goal</option>' +
              "".join(f'<option value="{g["key"]}">{g["n"]}. {E(g["name"])}</option>' for g in goals) +
              '</select><select id="qb"><option value="">Every branch</option><option value="all">All branches</option>' +
              "".join(f'<option value="{b["key"]}">{E(b["name"])}</option>' for b in branches) + '</select>'
              '<input id="qo" type="search" placeholder="Owner contains…" aria-label="Filter by owner"></div>')
-    qscript = """<script>(function(){var g=document.getElementById('qg'),b=document.getElementById('qb'),o=document.getElementById('qo');function f(){var t=o.value.trim().toLowerCase();document.querySelectorAll('#qt tbody tr').forEach(function(r){r.style.display=(!g.value||r.dataset.goal==g.value)&&(!b.value||r.dataset.branch==b.value)&&(!t||(r.dataset.owner||'').indexOf(t)>=0)?'':'none'})}g.onchange=f;b.onchange=f;o.oninput=f;})();</script>"""
+    qscript = """<script>(function(){var g=document.getElementById('qg'),b=document.getElementById('qb'),o=document.getElementById('qo');function f(){var t=o.value.trim().toLowerCase();document.querySelectorAll('table.qt tbody tr').forEach(function(r){r.style.display=(!g.value||r.dataset.goal==g.value)&&(!b.value||r.dataset.branch==b.value)&&(!t||(r.dataset.owner||'').indexOf(t)>=0)?'':'none'})}g.onchange=f;b.onchange=f;o.oninput=f;})();</script>"""
+    psect = (f'<h2 id="parked">Parked</h2><p>{len(parked_q)} questions block nothing: no slice row of the master plan and no gate or refusal line of a design note cites them (D99). '
+             'They keep their numbers and are unparked when a slice or a gate cites one.</p>'
+             f'<div class="tw"><table class="qt">{QHEAD}<tbody>{"".join(qrow(q) for q in parked_q)}</tbody></table></div>') if parked_q else ""
     decided_q = [q for q in questions if q.get("decided")]
     drows = "".join(
         f'<tr id="{q["id"]}"><td><b>{q["id"]}</b></td><td><b>{E(q["title"])}</b><br><span class="small">{E(q["detail"])}</span></td>'
         f'<td class="small">{E(str(q["decided"]))}</td></tr>' for q in decided_q)
     dsect = (f'<h2 id="decided">Answered</h2><p>Questions that have been answered stay here with their number, so a link to them keeps working. The answer is in the Decisions Register or, where a by-law text settled it, in the text itself.</p>'
              f'<div class="tw"><table><thead><tr><th>ID</th><th>Question</th><th>Answered by</th></tr></thead><tbody>{drows}</tbody></table></div>') if decided_q else ""
-    write("history/questions.html", meta["title"], MD(body) + qfilt +
-          f'<div class="tw" id="qt"><table><thead><tr><th>ID</th><th>Question</th><th>Owner</th><th>Goal · branch</th><th>Source · discuss</th></tr></thead><tbody>{qrows}</tbody></table></div>' + qscript + dsect,
+    write("history/questions.html", meta["title"], MD(body) + qintro + qfilt + qgroups + psect + qscript + dsect,
           "history", kicker=meta["kicker"], lede=meta["lede"], crumbs=[("Home", "index.html"), ("Evolution", "history/index.html")])
+
+    # ------------------------------------------------------------- RULES IN FORCE (D99 item 4)
+    QBY = {q["id"]: q for q in questions}
+
+    def qref(i):
+        q = QBY[i]
+        tag = "" if q["status"] == "open" else f' <span class="muted small">({QST_LABEL.get(q["status"], "answered")})</span>'
+        return qlink(q) + tag
+
+    toc = "<ol>" + "".join(f'<li><a href="#{t["key"]}">{E(t["title"])}</a></li>' for t in topics) + "</ol>"
+    tsect = ""
+    for t in topics:
+        tsect += (f'<h2 id="{t["key"]}">{E(t["title"])}</h2><p>{E(t["current_rule"])}</p><dl class="kv">'
+                  f'<dt>Decisions in force</dt><dd>{dlinks(t["decisions"])}</dd>'
+                  + (f'<dt>No longer in force</dt><dd>{"<br>".join(E(s) for s in t["superseded"])}</dd>' if t.get("superseded") else "")
+                  + (f'<dt>Open questions</dt><dd>{" · ".join(qref(i) for i in t["open_questions"])}</dd>' if t.get("open_questions") else "")
+                  + (f'<dt>Waiting on</dt><dd>{"<br>".join(E(p["body"]) + ": " + E(p["act"]) + " (" + dlinks([str(p["decision"])]) + ")" for p in t["pending_act"])}</dd>' if t.get("pending_act") else "")
+                  + "</dl>")
+    pend = [(p, t) for t in topics for p in (t.get("pending_act") or [])]
+    seenp, prow = set(), []
+    for p, t in pend:
+        k = (p["body"], p["act"], str(p["decision"]))
+        if k in seenp:
+            continue
+        seenp.add(k)
+        prow.append([dlinks([str(p["decision"])]), E(p["body"]), E(p["act"]), f'<a href="#{t["key"]}">{E(t["title"])}</a>'])
+    ptable = table(["Decision", "Body", "The act awaited", "Topic"], prow)
+    rif = ('<div class="note"><p>Generated from <a href="' + BLOB + 'site/data/decisions.yaml">site/data/decisions.yaml</a>. '
+           'The <a href="' + BLOB + 'design/AFRP-Decisions-Register.md">Decisions Register</a> is the history and outranks this page (D41); '
+           'each statement below quotes or paraphrases the decisions it cites and adds nothing. A build session reads this page, not the chains of decisions (D99).</p></div>'
+           f'<h2 id="waiting">Waiting on a body\'s act</h2><p>{len(prow)} acts. Each decision below is the design record\'s rule now; the act named is what makes it the body\'s.</p>{ptable}'
+           f'<h2 id="topics">The topics</h2>{toc}' + tsect)
+    write("history/rules-in-force.html", "Rules in force", rif, "history", kicker="Evolution · the current rules",
+          lede="The rule in force on each topic, with the decisions behind it, and every decision waiting on a body's act.",
+          crumbs=[("Home", "index.html"), ("Evolution", "history/index.html")], chips=[f"{len(topics)} topics", f"{len(prow)} acts awaited"])
 
     # ------------------------------------------------------------- PROGRAMMES
     def pcard(p):
@@ -690,7 +794,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
 
     # ------------------------------------------------------------- STATUS
     meta, body = md_page("status.md")
-    dec = table(["#", "Decision", "Answer"], [[f'<span id="D{d["n"]}">D{d["n"]}</span>', inline(d["title"]), inline(d["answer"])] for d in decisions.values()])
+    dec = '<p><a href="{root}history/rules-in-force.html">Rules in force</a> states the current rule on each topic and what waits on a body\'s act; the list below is every decision as recorded.</p>' + table(["#", "Decision", "Answer"],[[f'<span id="D{d["n"]}">D{d["n"]}</span>', inline(d["title"]), inline(d["answer"])] for d in decisions.values()])
     qsum = table(["ID", "Question", "Owner"], [[qlink(q), E(q["title"]), E(q["owner"])] for q in open_q])
     sl = table(["Slice", "What", "Stream", "Status"], [[E(s["n"]), E(s["name"]), E(s["stream"]), status_tag(s["status"])] for s in slices])
     lens_rows = [[LENS[k], journey_bar(jstats(lambda r, k=k: r["lens"] == k))] for k in LENS]
@@ -702,7 +806,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
           .replace("<!--FACTS-->", table(["Measure", "Now", "Source"], [
               ["Decisions recorded", str(n_dec), '<a href="' + BLOB + 'design/AFRP-Decisions-Register.md">Decisions Register</a>'],
               ["Open questions", str(len(open_q)), '<a href="{root}history/questions.html">Questions</a>'],
-              ["Build slices done", f"{n_done} of {len(slices)}", '<a href="' + BLOB + 'plan/MASTER-PLAN.md">Master plan</a>, <a href="' + BLOB + 'design/AFRP-Delivery-Status.md">Delivery Status</a>'],
+              ["Build slices", f"{n_done} done; {n_open_slices} open in the queue (§2); {sum(1 for s in slices if s['section'] == '2a' and s['status'] != 'done')} merged, split or retired (§2a)",'<a href="' + BLOB + 'plan/MASTER-PLAN.md">Master plan</a>, <a href="' + BLOB + 'design/AFRP-Delivery-Status.md">Delivery Status</a>'],
               ["Tests green", facts["tests"] or "Not stated", "Delivery Status, latest entry"],
               ["Journeys walked", f'{all_j.get("total",0)}: {all_j.get("meets",0)} meet, {all_j.get("guarded",0)} guarded, {all_j.get("open",0)} open, {all_j.get("not_built",0)} not built, {all_j.get("fails",0)} fail',
                f'Build board, generated {E(board["generated"][:10])}']]))
@@ -751,7 +855,9 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
         shutil.copyfile(SITE / "static" / f, DOCS / "site" / f)
         WRITTEN.append("site/" + f)
     (SITE / "MANIFEST.txt").write_text("\n".join(sorted(set(WRITTEN))) + "\n", encoding="utf-8")
-    print(f"built {len(set(WRITTEN))} files; {n_dec} decisions, {len(open_q)} questions, {len(progs)} programmes, "
+    print(f"built {len(set(WRITTEN))} files; {n_dec} decisions, {len(open_q)} open questions "
+          f"({', '.join(f'{k} {qcount[k]}' for k in ('open', 'for-now', 'in-part', 'pending-act'))}; parked {qcount['parked']}; decided {qcount['decided']}; total {len(questions)}), "
+          f"{len(topics)} rule topics, {len(progs)} programmes, "
           f"{len(workflows)} workflows, {len(exps)} experiences, {len(rows)} crosswalk rows")
 
 

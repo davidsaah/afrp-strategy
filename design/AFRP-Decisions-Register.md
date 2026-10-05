@@ -1,10 +1,19 @@
 # AFRP decisions register
 ### The human decisions the platform design waits on — what has been decided, by whom, and what each one settled
 
-**Maintained:** 8 September 2026. This is the authoritative record of the six blocking decisions
-tracked in `AFRP-Delivery-Status.md`. When a decision is made, it is recorded here in the exact
-words the design will be built on, with the date, the decider, and the consequences that follow
-automatically. Design and planning only — the build hold remains in force.
+**Maintained:** 4 October 2026. This is the authoritative record of the decisions the platform's
+design is built on: Decisions 1 to 99, in seven parts (the first six blocking decisions below;
+Part 2, 20–21 August 2026; Part 3, 8 September; Part 4, 30 September; D53–D67, 30 September to
+1 October; Part 5, 2 October; Part 6, 3 October; Part 7, 4 October). When a decision is made, it is
+recorded here in the exact words the design will be built on, with the date, the decider, and the
+consequences that follow automatically.
+
+**This register is the history.** Topics run through chains of decisions, and an earlier decision
+keeps its text with a pointer to what amended or superseded it. The current rule on each topic,
+with the decisions behind it and every decision still waiting on a body's act, is stated in
+`site/data/decisions.yaml` and rendered as the site's **Rules in force** page
+(`docs/history/rules-in-force.html`) under Decision 99. A build session reads that page; where it
+and this register differ, this register governs (D41) and the page is corrected.
 
 **Status vocabulary**
 
@@ -15,13 +24,16 @@ automatically. Design and planning only — the build hold remains in force.
 | **Partially resolved** | The principal question is answered; a named sub-question remains. |
 | **Open** | Not yet decided; the platform carries a labelled default or a refusal. |
 
-**All six blocking decisions were answered on 20 August 2026, twenty more on 20–21 August (Part 2), and twelve more on 8 September as the family tree became the platform's spine (Part 3).** What remains is not decision-making — it is
-one countersignature, five missing documents, and a package of conforming by-law amendments.
+**The six blocking decisions below were answered on 20 August 2026, twenty more on 20–21 August
+(Part 2), and twelve more on 8 September as the family tree became the platform's spine (Part 3).**
+Ninety-nine decisions are recorded as of 4 October 2026. What is still left is listed under "What
+is actually left" below; the open questions, each with a status under D99, are in
+`site/data/questions.yaml`.
 
 | # | Decision | Answer | Status |
 |---|---|---|---|
 | 1 | Club-collected AFRP dues | **Agency** — AFRP's money at the first dollar | Adopted, CPA countersignature pending |
-| 2 | Endowment Fund entity | **ARFECF** | Adopted; Policy Statement outstanding |
+| 2 | Endowment Fund entity | **ARFECF** | Adopted; Policy Statement found 1 Oct 2026 (status note under D3) |
 | 3 | Scholarship's legal home | **ARFECF** | Adopted; conforming amendment needed |
 | 4 | Digital voting | **Approved as the direction** (already done) | Adopted; ratification to be calendared |
 | 5 | The two 9.1.3 drafts | ⚠ **REOPENED 21 Aug** — recorded in error | Needs an answer |
@@ -278,22 +290,31 @@ before**.
 ---
 
 ## What is actually left, now that the decisions are made
-Not decisions. Three kinds of thing:
+*Brought up to date 4 October 2026 (D99). The list as written on 8 September named one signature,
+five missing documents and one number; three of the documents have since been found.*
 
-**One signature**
-- The CPA countersignature on the agency treatment (Decision 1).
+**Signatures and acts by a body**
+- The CPA countersignature on the agency treatment (Decision 1; Q-3).
+- Every other decision waiting on a body's act (D55, D58, D84, D87, D91, D93, D94, D97 and others)
+  is listed, with the body and the act, on the Rules in force page under "Waiting on a body's act",
+  generated from `site/data/decisions.yaml`.
 
-**Five documents that are cited as governing and have never been produced**
-- Endowment Fund Policy Statement.
-- Scholarship Fund Policy Statement (2015) — needed to settle the 4%/5% question for both funds.
-- ARFECF's exempt-status determination letter — now load-bearing for both endowment and scholarship
-  donor receipting.
-- Board Rules & Regulations — the authority for the dues ladder.
-- A clean, non-redlined copy of the ARFECF 2013 by-laws; and the ARFHSN trustee roster with metro
-  seats and term expirations.
+**Documents cited as governing and still not on file (Q-2)**
+- ARFECF's exempt-status determination letter, load-bearing for endowment and scholarship donor
+  receipting.
+- The Board Rules & Regulations, the authority for the dues tiers.
+- The ARFHSN trustee roster, with seats and term dates.
+
+*Found in October 2026 (Q-2):* the Endowment Fund Policy Statement (2012), the Scholarship Fund
+Policy Statement (revised 2015) and the 2015 ARFECF by-laws; see the status note under Decision 3
+and `design/bylaws/ARFECF-2015-and-the-fund-policies.md`.
 
 **One number**
-- The directory grace parameter. 90 days proposed.
+- The directory grace parameter (Decision 6). 90 days proposed; still unset.
+
+**The open questions** are in `site/data/questions.yaml`, each with a status under D99 (open, for
+now, in part, pending an act, parked) and, where one applies, the cluster whose single ask to its
+owning body would answer it.
 
 ---
 

@@ -3,6 +3,8 @@
 
 **Date:** August 2026
 **Purpose:** one map from everything raised across this project to the screen that covers it.
+**Since 4 October 2026:** the shapes these elements share are built once as the platform primitives of P29 (`AFRP-Platform-Primitives.md`, D99), listed after the P21–P28 table.
+
 **Since 2 October 2026:** the elements raised by the research round and designed in the notes P21–P28 are listed at the end, with the Hub modules each note is written for ("Design notes P21–P28, and their modules"). The mockup screens below predate them, and the prototype evidences a story, never a rule (D41).
 
 ---
@@ -150,6 +152,14 @@ seen from four angles, not four applications.
 | **P28** `AFRP-Family-Tree-Module.md` | The family tree module: the book's look on screen, members proposing and the committee deciding in tiers, the Hub as the record after a parallel run, and the tree reaching membership, the magazine, the directory and Heritage (D68–D74) | `tree`, `member`, `join`, `dues`, `access`, `rules`, `magazine`, `memberdir`, `comms`, `reporting` | T2-0, T2-R, T2a–T2h | Q-262–Q-270 |
 
 The slice rows are in `plan/MASTER-PLAN.md` §2. The note-by-note crosswalk rows are in `AFRP-Strategic-Plan-Crosswalk.md` (design-notes table).
+
+## Design note P29, and its modules (4 October 2026)
+
+P29 raises no element of its own. It names the shapes the elements above share and builds each once (D99).
+
+| Note | Element | Hub modules it is written for | Slices | Its open questions |
+|---|---|---|---|---|
+| **P29** `AFRP-Platform-Primitives.md` | The platform primitives: the refusal (§1), the act and append-only record (§2), the scoped parameter and authority row (§3), the dated role with bodies and seats (§4), consent and its key register (§5), the cycle (§6), the statement run (§7), sending and the letter row (§8), the record on file (§9), the work item (§10), the clock (§11), the snapshot (§12) | `core`, `rules`, `access`, `clubs`, `programs`, `scholarship`, `camp`, `comms`, `ledger`, `funds` | A2 (§1, §12); PR0 (§2, §3, §4's base, §9, §11); then CW1, C2, LT1 with CM1, CR1 with AR2, CY1 and CY2, C3 as each primitive's first user | None of its own; an unset value refuses naming its parameter and question (§1, §3) |
 
 ---
 

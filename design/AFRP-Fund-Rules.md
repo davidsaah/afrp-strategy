@@ -4,6 +4,8 @@
 
 **Design note P9 · 1 October 2026 · for the Hub's `funds`, `ledger`, `scholarship`, `payments`, the institution registry and the `bylaws` register**
 
+*Since 4 October 2026 (D99):* the shared shapes this note draws — the scoped parameter (the valuation date, the waiver authority, a fund's entity) and the statement run (the annual run) — are built once as the platform primitives of `AFRP-Platform-Primitives.md` (P29 §3, §7); this note's rules are carried as their settings.
+
 **What this note rests on.** The crosswalk (rows H3, H5, F16; note P9) asked for the fund rules "as found": the two policy statements and the 2015-revised ARFECF by-laws located in the Federation's drive on 1 October 2026 (`design/bylaws/ARFECF-2015-and-the-fund-policies.md`), the Decisions Register (D2, D3, D7–D10, D40, D55–D58), the rules register rows for the affiliates (`AFRP-ARFECF-ARFHSN-Rulesets.md`), the ledger model (`AFRP-Multi-Entity-Ledger.md`), the `giving-funds` and `remittance-ledger` workflows, the programme register, and the open questions Q-2, Q-3, Q-21 (settled by D56) and Q-35. The intakes of September–October 2026 (the Federation's money folders, the officer archive 2009–2026 and ARFECF's archive) are cited at role level and without figures, as D54 requires. Outside the record: Michigan's enactment of the Uniform Prudent Management of Institutional Funds Act and the IRS forms that report endowments and restricted gifts, cited in the Sources.
 
 This note adds no decision. Where it reads as a rule, the rule is a by-law or policy cited by number, a decision cited by number, a rules-register row, or a *design choice* labelled as such. Where the record is silent it says so and raises a question for the Board that owns it.

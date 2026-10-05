@@ -4,6 +4,8 @@
 
 **Design note P18 · opened and written 1 October 2026 · reviewed (PASS WITH CHANGES, applied) · the Hub builds from §13**
 
+*Since 4 October 2026 (D99):* the shared shapes this note draws — the statement run (the club statement, D57) — are built once as the platform primitives of `AFRP-Platform-Primitives.md` (P29 §7); this note's rules are carried as their settings.
+
 This note is the hand-off for everything a club does on the platform. It joins what the two Breeze documents already settled (`AFRP-Breeze-Club-Parity.md`, `AFRP-Addendum-2-Breeze-Replacement.md` §3) to what the intakes found about how clubs actually run (the club SOP, the 2009 club by-laws template, the affiliation rule, the club presidents' monthly meetings 2020–2026, the convention host agreements), and to the decisions taken on 30 September and 1 October 2026 (D54–D67, D57 and D59 above all). It was written in fourteen half-hour sprints on 1 October 2026; each sprint closed one section and was written back before the next opened. §0 is the record of them.
 
 **Precedence (D41).** Where this note and a by-law text disagree, the text wins. Where it and the Decisions Register disagree, the register wins. The prototype's club screens (`#/club/*`) evidence a story and never a rule. The Hub's `clubs` module shows what is built and never what should be. Where the record is silent this note says so and raises a question; it picks no default.
@@ -247,6 +249,8 @@ One ledger account per club per holding entity, on the funds ledger, with the cl
 The statement is between a club and an entity. Because a club deals with AFRP (dues, convention, grants to clubs, advocacy travel), with ARFECF (camp rebates, Leadership Ramallah and Project Hope travel shares, Arabic volunteers) and with ARFHSN (Care co-funding, Medical Mission club gifts), a club has up to three accounts and sees them on one page, totalled per entity and never across entities. Money never nets between entities: a club owed by ARFECF and owing AFRP settles twice (a design choice of this note, following the one-account-per-entity shape of the Multi-Entity Ledger and D55's per-entity holding; no decision says it). That is the answer to the `club-share` open item "how an amount moves when the paying entity is ARFECF or ARFHSN": the same way, on that entity's account.
 
 ### 5.2 The line types
+
+*Since 4 October 2026 (D99 review), marked unoperated in the manner of P23 §9.7:* four line types below have no written term: the **camp rebate or family aid** (the camp committee's term is not written), **Dabke and Mid-Year youth travel** (minuted case by case; neither a programme term), the **ad-book or sponsorship share** (proposed and not decided) — all three Q-47 — and the **Project Hope and exchange-mission travel share** wherever its programme has written none (Q-30). Each is **designed; not built until its question (Q-47; Q-30) is answered** and the owning committee's term is a register row. The rule of the paragraph after the table already says a line type with no term does not appear on the statement; this note marks those four so. Nothing is deleted.
 
 Each line carries: the programme, the term it arises under (a register row the programme committee sets, with a date and an authority), the direction, the holding entity, the trigger that raised it, who recorded it, the evidence link (drive, D66), and the member or event it concerns where one exists (held, never shown on the club's statement by name where the person is a minor or a donor).
 
