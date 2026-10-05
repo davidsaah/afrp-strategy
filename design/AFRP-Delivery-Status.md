@@ -1405,3 +1405,24 @@ were not touched.
 
 Round 50 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 26 recorded (24 confirmed, 2 refuted, suspected or observed).
 <!-- /findings: round 50 -->
+
+<!-- findings: round 51 -->
+### Slice PR0 — The shared records (5 October 2026)
+
+**Built and pushed; done when the staging deploy is LIVE on its commit**,
+which waits, as R3's, PT1's and A2's do, on the recreation of the staging
+database.
+
+A record that is never deleted refuses deletion on every path the ORM has,
+the cascade included, and the fixture wipe is the one way round (P29-J02); an
+audit or reason value too long for its field refuses rather than being cut
+(P29-J03). The register's parameter is read for exactly one scope, and an
+unset one names its owner and its open question (P29-J04); the authority row
+exists as a shape and takes no seats until CW1. The rates, caps and periods
+typed into camp, the network, reporting, the dues schedule and the named
+award moved onto the register with their values unchanged, graded by where
+the record has them. One "active on this date" for the seven; the record of a
+document on file; the clock, which never fires on a period nobody set.
+
+Round 51 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 44 recorded (42 confirmed, 2 refuted, suspected or observed).
+<!-- /findings: round 51 -->
