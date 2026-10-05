@@ -1166,7 +1166,8 @@ A sixth, D89, answers Q-195: two doors for a life event, the household's own
 and the correspondent's, and it makes an exception to D33's consent pattern.
 A seventh, D90, retires the Emerging Leaders entry (Q-178). An eighth, D91,
 records Senior Living as the Ramallah Foundation's project (Q-203), pending
-the two Boards' confirmation. P26 §1.4 and §3.2, the scholarship specification's §3 and
+the two Boards' confirmation. A ninth, D92, puts a club's gift to the home
+through the Federation on the club's statement (Q-205). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1402,8 +1403,33 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 ### What it does not settle
 - The two Boards' confirmation, which the status names; until it is on file
   the decision is the design record's, as D83 was for the Relief Fund.
-- Receipting gifts passed through (Q-204). A club's gift to the home (Q-205).
+- Receipting gifts passed through (Q-204). A club's gift to the home (Q-205;
+  *later the same day, D92*).
   A written agreement with the Foundation (Q-206).
+
+---
+
+## Decision 92 — a club's gift to the Foundation's home is a club-statement line
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-205 · with the Council of Chapter Club Presidents**
+
+### The adopted wording
+> A club's gift to the Ramallah Foundation's home made through the
+> Federation's pass-through purpose is recorded on the club's statement under
+> Decision 57, with the club as donor and its recognition request carried to
+> the Foundation. A gift a club makes directly to the Foundation is outside
+> the platform.
+
+### What it settles
+- Q-205. RL6 is no longer gated on it: the club-donor line on the club
+  statement with the recognition request builds with C3. P20-I8 meets once
+  the pass-through purpose is published, which waits on Q-204.
+
+### What it does not settle
+- Receipting the gift and publishing the purpose (Q-204). Whether the
+  recognition is a benefit the receipt must disclose (Q-248). Q-203's
+  Boards' confirmation (D91).
+- The Council of Chapter Club Presidents' view, which the question names; no
+  act of the Council is on file.
 
 ---
 

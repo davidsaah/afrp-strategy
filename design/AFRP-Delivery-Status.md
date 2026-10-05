@@ -1280,3 +1280,7 @@ Two Hub-record items for the next build session:
 **Added later on 4 October 2026: D91.** David answered Q-203 (Decisions Register, Part 7), pending the AFRP and ARFECF Boards' confirmation: Senior Living is the Ramallah Foundation's capital project, not a Federation programme; the Foundation is on the partner register under D3's shape and the Federation's part is recorded as agreements. RL5 builds on the Foundation's page; the capital campaign stays marked unoperated.
 
 **Counts after D91 (4 October 2026):** **91 decisions** (D1–D91); **279 question ids** (Q-1–Q-279), of which **241 are open** and 38 carry a decision (Q-203 newly decided); **179 slice rows** in MASTER-PLAN §2, unchanged.
+
+**Added later on 4 October 2026: D92.** David answered Q-205 (Decisions Register, Part 7): a club's gift to the Foundation's home made through the Federation's pass-through purpose is a line on the club's statement under D57, with the club as donor and the recognition request carried to the Foundation; a direct gift is outside the platform. RL6 is no longer gated on Q-205 and builds with C3; P20-I8 waits only on Q-204.
+
+**Counts after D92 (4 October 2026):** **92 decisions** (D1–D92); **279 question ids** (Q-1–Q-279), of which **240 are open** and 39 carry a decision (Q-205 newly decided); **179 slice rows** in MASTER-PLAN §2, unchanged.

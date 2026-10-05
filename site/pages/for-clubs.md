@@ -114,8 +114,6 @@ are the questions in the Council's lap, each with its number on the
   who appoints it and what it sees (Q-131).
 - Whether a club's direct giving to Ramallah projects must go through one
   channel, and how relief drives across the clubs are run (Q-228, Q-180).
-- Whether a club's gift to the Ramallah Foundation's senior home, recognised
-  by signage there, appears on the club's statement (Q-205).
 
 ## What the research of 2 October 2026 found about clubs
 
@@ -147,9 +145,9 @@ where it departs from the record, the question that settles it is named.
   Board answers Q-228 (P23 §5; Q-180 for drives).
 - **Gifts to the senior home.** In 2026 clubs were asked to consider a club
   legacy gift to the Ramallah Foundation's senior home, recognised by signage
-  there. A club gift made through the Federation would be a line on the
-  club's statement; a gift made straight to the Foundation is the club's and
-  the Foundation's business. Which applies is Q-205 (P23 §9.4). Recognition at
+  there. A club gift made through the Federation is a line on the club's
+  statement; a gift made straight to the Foundation is the club's and the
+  Foundation's business (D92, 4 October 2026; P23 §9.4). Recognition at
   the home is the Foundation's to give.
 - **Local action committees.** Government Affairs launched local action
   committees inside the clubs in 2025–26. The platform seats none until Q-131

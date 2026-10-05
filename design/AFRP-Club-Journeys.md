@@ -404,8 +404,8 @@ This note is that detail. Every journey below starts from something a club offic
 - **In Breeze:** a cheque from the club's account; nothing recorded beyond it.
 - **On the platform:** a club gift made **through the Federation's pass-through purpose** is a line on the club's statement with the club as donor and the recognition request (signage) carried to the Foundation with the transfer. Recognition is the Foundation's to give (P23 §9.3–§9.4). A gift the club makes directly to the Foundation is outside the platform.
 - **Tests:** P23 §9.4; D57; Q-205; Q-204 (the receipting entity); Q-248 (recognition and the receipt).
-- **Refuses:** the line before Q-205 says it runs; publishing the purpose before Q-204.
-- **Must reach:** guarded until Q-205 (and Q-204 for the purpose). **Slice:** RL6, with C3.
+- **Refuses:** the line before Q-205 says it runs; publishing the purpose before Q-204. *Since 4 Oct 2026:* D92 says it runs.
+- **Must reach:** guarded until Q-205 (and Q-204 for the purpose). *Since 4 Oct 2026:* guarded on Q-204 only (D92). **Slice:** RL6, with C3.
 
 ---
 

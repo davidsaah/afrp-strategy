@@ -2577,7 +2577,6 @@
   questions:
   - "Is the senior centre memorial fund in the CRM the same purpose as the capital campaign? The sources show it held memorial gifts collected for the Foundation's building"
   - "Which entity receipts a senior-home gift made through the Federation: one path or two? (Q-204)"
-  - "A club's gift to the Foundation's home, recognised by signage: a D57 attribution, a club event, or outside the platform? (Q-205)"
   - "The Foundation's sister-organisation agreement, sought in 2023: does it exist or remain wanted? (Q-206)"
   - "Recognition at the Foundation's home and the receipt (P23 §9.3; Q-248)"
   journeys:
@@ -2607,7 +2606,7 @@
   in_service: "A senior centre memorial fund in the Federation's CRM; the Education Fund account as the pass-through to the Foundation; an ARFECF budget line; an afrp.org page with a cheque instruction; annual-report pages, newsletters and a 2026 flyer."
   entity_evidence: "Program Architecture names the Ramallah Foundation; the Foundation files Form 990-PF as a New York private foundation (ProPublica). The Education Fund's chequebook shows gifts for the senior centre received and transferred to the Foundation and a Convention-voted budget item paid to it; ARFECF's reviewed statements (FY2025) show the purpose received and released. ARFHSN made a grant to a Ramallah senior centre (ARFHSN's reconciliation, 2026)."
   club_role:
-  - "Clubs were asked (July 2026) to share the flyer, encourage memorial gifts and consider a club legacy gift recognised by signage at the home; the Foundation's lead offered to visit clubs; nothing was closed by August (Q-205)"
+  - "Clubs were asked (July 2026) to share the flyer, encourage memorial gifts and consider a club legacy gift recognised by signage at the home; the Foundation's lead offered to visit clubs; nothing was closed by August. A gift through the Federation is a line on the club's statement; a direct gift is outside the platform (D92)"
   - "On the platform: none until the entity is confirmed"
   agreements:
   - partner: "the Ramallah Foundation, Inc."
@@ -2671,7 +2670,7 @@
   - who: "Club"
     wants: "to make a club gift to the Foundation's home and be recognised by signage"
     so_that: "the club's philanthropy is visible in Ramallah"
-    rule: "Not stated (Q-205)"
+    rule: "D92: through the Federation's purpose, a line on the club's statement with the recognition request; direct, outside the platform"
     lens: "club"
   - who: "Foundation board member"
     wants: "to have the Federation's office circulate a flyer and an annual-report page to clubs and members"
