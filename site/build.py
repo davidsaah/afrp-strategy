@@ -96,8 +96,12 @@ def parse_decisions():
 def delivery_facts():
     text = (ROOT / "design/AFRP-Delivery-Status.md").read_text(encoding="utf-8")
     tests = re.findall(r"([\d,]{3,}) tests green", text)
-    done = set(re.findall(r"^#{2,3} Slice ([0-9A-Za-z]+) ", text, re.M))
-    return dict(tests=tests[-1] if tests else None, done=done)
+    done, awaiting = set(), set()
+    # A slice's section opening "**Built and pushed" is built but not done: the Hub's rule is that a
+    # slice is done only when the staging deploy is LIVE on its commit (5 Oct 2026).
+    for m in re.finditer(r"^#{2,3} Slice ([0-9A-Za-z]+) [^\n]*\n+(.{0,200})", text, re.M):
+        (awaiting if m.group(2).lstrip().startswith("**Built and pushed") else done).add(m.group(1))
+    return dict(tests=tests[-1] if tests else None, done=done - awaiting, awaiting=awaiting)
 
 
 def plan_slices(done_extra):
@@ -135,7 +139,7 @@ def board_data():
 
 
 # --------------------------------------------------------------------------- helpers
-STATUS_CLASS = [("not built", "st-notbuilt"), ("partly", "st-partly"), ("built", "st-built"),
+STATUS_CLASS = [("awaiting", "st-partly"), ("not built", "st-notbuilt"), ("partly", "st-partly"), ("built", "st-built"),
                 ("plan only", "st-plan"), ("designed", "st-designed"), ("queued", "st-queued"),
                 ("proposed", "st-proposed"), ("gap", "st-gap"), ("outside", "st-outside"),
                 ("retired", "st-retired"), ("done", "st-built"), ("merged", "st-retired"), ("folded", "st-retired"),
@@ -364,9 +368,11 @@ def main():
         if s["section"] == "2a":
             s["status"] = appendix_status(s, done)
         else:
-            s["status"] = "done" if s["n"] in done else ("design first" if s["n"].startswith("SP") else "queued")
+            s["status"] = ("done" if s["n"] in done else "built, awaiting deploy" if s["n"] in facts["awaiting"]
+                           else ("design first" if s["n"].startswith("SP") else "queued"))
     n_done = sum(1 for s in slices if s["status"] == "done")
-    n_open_slices = sum(1 for s in slices if s["section"] == "2" and s["status"] != "done")
+    n_awaiting = sum(1 for s in slices if s["status"] == "built, awaiting deploy")
+    n_open_slices = sum(1 for s in slices if s["section"] == "2" and s["status"] not in ("done", "built, awaiting deploy"))
     n_dec = len(decisions)
     # D99: a question's status. Open on the site = open, for-now, in-part and pending-act; parked and
     # decided questions are listed separately and never counted as open.
@@ -806,7 +812,7 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
           .replace("<!--FACTS-->", table(["Measure", "Now", "Source"], [
               ["Decisions recorded", str(n_dec), '<a href="' + BLOB + 'design/AFRP-Decisions-Register.md">Decisions Register</a>'],
               ["Open questions", str(len(open_q)), '<a href="{root}history/questions.html">Questions</a>'],
-              ["Build slices", f"{n_done} done; {n_open_slices} open in the queue (§2); {sum(1 for s in slices if s['section'] == '2a' and s['status'] != 'done')} merged, split or retired (§2a)",'<a href="' + BLOB + 'plan/MASTER-PLAN.md">Master plan</a>, <a href="' + BLOB + 'design/AFRP-Delivery-Status.md">Delivery Status</a>'],
+              ["Build slices", f"{n_done} done; {n_awaiting} built, awaiting a live staging deploy; {n_open_slices} open in the queue (§2); {sum(1 for s in slices if s['section'] == '2a' and s['status'] != 'done')} merged, split or retired (§2a)",'<a href="' + BLOB + 'plan/MASTER-PLAN.md">Master plan</a>, <a href="' + BLOB + 'design/AFRP-Delivery-Status.md">Delivery Status</a>'],
               ["Tests green", facts["tests"] or "Not stated", "Delivery Status, latest entry"],
               ["Journeys walked", f'{all_j.get("total",0)}: {all_j.get("meets",0)} meet, {all_j.get("guarded",0)} guarded, {all_j.get("open",0)} open, {all_j.get("not_built",0)} not built, {all_j.get("fails",0)} fail',
                f'Build board, generated {E(board["generated"][:10])}']]))
