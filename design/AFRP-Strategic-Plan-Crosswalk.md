@@ -260,7 +260,7 @@ Role-level, figure-free. Each item names the place in the Doc and the text to pu
    still offered publicly; and Senior Living, which is the Ramallah Foundation's home and may
    not be a Federation programme." *(Since 4 Oct 2026: remove Emerging Leaders from the
    branch table, D90; the Senior Award continues, run by the Scholarship Fund Committee, D82
-   and D85; Senior Living stays under question, Q-203.)*
+   and D85; Senior Living is the Foundation's project, D91, pending the two Boards. No entry stays under question.)*
 5. **Priority 3.** Replace with: "Produce the governing documents the by-laws cite and nobody
    has on file: ARFECF's tax-exemption letter, the Board Rules & Regulations (the authority
    for the dues tiers), the ARFHSN trustee roster and the minutes of the July 2026 General

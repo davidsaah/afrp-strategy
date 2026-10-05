@@ -1276,3 +1276,7 @@ Two Hub-record items for the next build session:
 **Added later on 4 October 2026: D90.** David answered Q-178 (Decisions Register, Part 7): the Emerging Leaders entry is retired, the Leadership branch is entered at whichever programme a person first takes part in, and the Day of Action carries the Youth Summit's history. The programme register drops to twenty entries. One Hub slice follows, T1e, taken with T1d: the `els` programme leaves the seed and the Leadership ladder, with its plan and JP-039.
 
 **Counts after D90 (4 October 2026):** **90 decisions** (D1–D90); **279 question ids** (Q-1–Q-279), of which **242 are open** and 37 carry a decision (Q-178 newly decided); **179 slice rows** in MASTER-PLAN §2 (T1e added).
+
+**Added later on 4 October 2026: D91.** David answered Q-203 (Decisions Register, Part 7), pending the AFRP and ARFECF Boards' confirmation: Senior Living is the Ramallah Foundation's capital project, not a Federation programme; the Foundation is on the partner register under D3's shape and the Federation's part is recorded as agreements. RL5 builds on the Foundation's page; the capital campaign stays marked unoperated.
+
+**Counts after D91 (4 October 2026):** **91 decisions** (D1–D91); **279 question ids** (Q-1–Q-279), of which **241 are open** and 38 carry a decision (Q-203 newly decided); **179 slice rows** in MASTER-PLAN §2, unchanged.

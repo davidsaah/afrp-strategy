@@ -1164,7 +1164,9 @@ tree's master file (Q-201). A fifth, D88, answers Q-260 for now: drive-held
 documents are not served to members; Q-260 stays open for the lasting answer.
 A sixth, D89, answers Q-195: two doors for a life event, the household's own
 and the correspondent's, and it makes an exception to D33's consent pattern.
-A seventh, D90, retires the Emerging Leaders entry (Q-178). P26 §1.4 and §3.2, the scholarship specification's §3 and
+A seventh, D90, retires the Emerging Leaders entry (Q-178). An eighth, D91,
+records Senior Living as the Ramallah Foundation's project (Q-203), pending
+the two Boards' confirmation. P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1379,6 +1381,32 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 91 — Senior Living is the Ramallah Foundation's project
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-203 · pending confirmation by the AFRP and ARFECF Boards**
+
+### The adopted wording
+> The Senior Living Project is the Ramallah Foundation's capital project, not
+> a Federation programme. The Foundation is held on the partner register under
+> Decision 3's shape; the Federation's part (communications, gifts passed
+> through, and any Convention-voted budget grant) is recorded as agreements
+> with it. The register entry becomes a partner project on the Care branch.
+
+### What it settles
+- Q-203, for the design record. RL5 builds on the Foundation's page: its
+  registry row (D3-B, D40) carries the Federation's part. P23 §9.7's marks
+  stand: Program Architecture §3 and §6's capital campaign, and JP-032 for
+  Senior Living, are unoperated.
+- The programme register's `senior-living` entry stays on the Care branch as
+  a partner project, not a Federation programme.
+
+### What it does not settle
+- The two Boards' confirmation, which the status names; until it is on file
+  the decision is the design record's, as D83 was for the Relief Fund.
+- Receipting gifts passed through (Q-204). A club's gift to the home (Q-205).
+  A written agreement with the Foundation (Q-206).
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
@@ -1419,7 +1447,7 @@ marked "research, 2 Oct 2026").
 | The programme register's Senior Award entry: the Scholarship Committee, on an award track, announced at the Convention. **Since 4 Oct 2026:** D85 keeps the Scholarship Fund Committee as the body; the 2013–2020 practice is the register's history | From 2013 to 2020 the award sat with the Leadership Ramallah committee, whose chair requested its budgeted sum from the ARFECF Board and signed the letters; it was announced by newsletter each September | Q-164 (answered by D85; the announcement venue and the budget line stay open) | David · Leadership Ramallah committee |
 | The programme register's Emerging Leaders entry (ages 16 to 24; an entry rung on the Leadership branch); `branches.yaml`; `AFRP-Family-Tree-Integration.md` | No programme by that name exists in any document, mailing, budget line, committee tab or web page; the age band has no source; the one 2021 mention most plausibly refers to the Youth Summit for adults aged 21 to 35, reported from 2023 as the Day of Action | Q-178 (answered by D90, 4 Oct 2026: the entry is retired) | David · Strategic Planning Committee |
 | By-Law 8.10 paragraph (the Young Leader Committee: a chairman and four members, President-appointed with Board approval, all alumni of Project Hope or Leadership Ramallah); `AFRP-Committee-Workspace.md`; `AFRP-Selection-Programmes.md` | A Young Leaders Committee (also called the Youth Outreach Committee) of two co-chairs and members listed by club city, with a filled Board seat and no appointment record or alumni check; its co-chairs run Leadership Ramallah; the directory has no Leadership Ramallah tab | Q-179, Q-175 | AFRP Board · President · Constitution Committee |
-| The programme register's Senior Living entry (a Federation programme, entity to confirm); `AFRP-Program-Architecture.md` §3 (the capital-campaign module: pledges against cash) and §6 (the *Campaign* shape); journey JP-032 | The project is the Ramallah Foundation's: the Foundation owns, built and will operate the home; construction is complete; the Federation's part was communications, gifts passed through and a Convention-voted budget grant; no pledge was ever held in a Federation system | Q-203, Q-204 | David · AFRP Board · ARFECF Board · CPA |
+| The programme register's Senior Living entry (a Federation programme, entity to confirm); `AFRP-Program-Architecture.md` §3 (the capital-campaign module: pledges against cash) and §6 (the *Campaign* shape); journey JP-032 | The project is the Ramallah Foundation's: the Foundation owns, built and will operate the home; construction is complete; the Federation's part was communications, gifts passed through and a Convention-voted budget grant; no pledge was ever held in a Federation system | Q-203 (answered by D91, 4 Oct 2026, pending the AFRP and ARFECF Boards' confirmation: the Foundation's project, a partner row), Q-204 | David · AFRP Board · ARFECF Board · CPA |
 | D3 and D55 (the Scholarship is ARFECF's; the Foundation's role is an agreement) | The public scholarship page says the programme is "managed by the Ramallah Foundation Inc"; the Foundation is a private foundation on its public filings | Q-162 | David · ARFECF Board |
 | D58 (Foundation seats exist only once the ARFECF Board amends the 2015 policy) | The 2026 committee counts its Foundation representatives as votes; the Scholarship Program Overview lists three | Q-29 (answered by D58, conditional on the amendment) | ARFECF Board · Scholarship Fund Committee |
 | ARFECF By-Law 6.4.4 (the Scholarship Fund Committee's exclusive authority over its fund) | The 2023 community report says the AFRP Board approved the year's scholarships; the 2026 committee report "presents recommendations" to the Board and the incoming President | Q-161 | ARFECF Board · Legal Advisor |

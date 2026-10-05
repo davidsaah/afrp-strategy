@@ -40,8 +40,10 @@ leaves the choice to the people named.
   The Federation's part has been communications, gifts passed through and a
   budget grant voted at the Convention. That part is designed in P23 Part B;
   the capital-campaign design is marked as never operated by the Federation
-  (P23 §9.7). Whether Senior Living is a Federation programme at all is for
-  David and the Boards ([Q-203](../history/questions.html#Q-203)).
+  (P23 §9.7). On 4 October 2026 David recorded Senior Living as the
+  Foundation's project, shown on the Care branch as a partner project (D91,
+  answering [Q-203](../history/questions.html#Q-203)), pending the two
+  Boards' confirmation.
 - **The Relief Fund.** It has run since 2020 from a separate bank account,
   with the Board voting emergency support and the Federation's representative
   in Ramallah distributing it. AFRP holds the fund (D83, 3 October 2026,
