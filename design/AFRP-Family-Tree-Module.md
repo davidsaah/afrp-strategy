@@ -183,7 +183,7 @@ register's `family-tree` entry).
 | First key | Committee member (`tree:moderate`) | `tree` | Applies a non-structural item or an own-household life event. On a structural item, records the first approval. |
 | Second key | A different committee member | `tree` | Applies a structural item. The same person cannot be both keys. |
 | Needs information | Any committee member | `tree` | The question goes to the proposer; the item stays open and ages (T1c). |
-| Merge duplicates; attach an orphan tree | Committee, two keys | `tree` | Structural by §6's proposed list; audited; D12 flags every decision that leaned on either record. |
+| Merge duplicates; attach an orphan tree | Committee, two keys | `tree` | Structural by §6's list, the Rules Register's *Structural kinds* row since D81 (3 Oct 2026); audited; D12 flags every decision that leaned on either record. |
 | Fan out | Platform | `tree` → `member`, `magazine` | As built in T1b: offers, never fires. |
 
 ### 4.3 The parallel run and the cutover (D69)
