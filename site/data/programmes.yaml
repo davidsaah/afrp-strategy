@@ -1702,7 +1702,7 @@
   - who: "Vetting subcommittee"
     wants: "to keep interview notes only as a structured score against the template, never free text about an applicant's politics"
     so_that: "D61's rule reaches what the committee writes down"
-    rule: "Not stated (Q-118)"
+    rule: "D94, for now: a summary per applicant, the votes and a decision note; no note of political views (Q-118 stays open)"
     lens: "programme"
   - who: "Executive Committee"
     wants: "to receive the Mission's annual plan (activities, overseas numbers, capacity, reverse-mission guests) before the budget year"
