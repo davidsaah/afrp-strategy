@@ -1175,7 +1175,11 @@ Later the same day David took four more together, to clear the way for the
 build (D95 to D98): deaths keep the family contact's approval (D95, limiting
 D89); SC1 and SC4 are built now and LT1's register goes before CR1 with AR2
 (D96); clan books by standing with no approval step (D97, Q-200); and what
-T2f and T2e do where the record is silent (D98). P26 §1.4 and §3.2, the scholarship specification's §3 and
+T2f and T2e do where the record is silent (D98).
+
+Last, David approved the review of everything designed to date (D99): the
+platform primitives first (P29), the slice queue reshaped, the open questions
+triaged, a generated "Rules in force" view, and the process tooling. P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1580,6 +1584,53 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 ### What it does not settle
 - What, if anything, T2f should add to slice 7's hold. Prompts for FT1, FT2,
   FT3 and FT5, which are to be written later.
+
+---
+
+## Decision 99 — simplify, abstract, expand: the primitives first, the queue reshaped, the questions triaged
+**Status: Adopted · David Saah, 4 October 2026 · from the review of everything designed to date (`AFRP-Hub/ai-memory/cowork/review/2026-10-04-simplify-abstract-expand.md`)**
+
+### The adopted wording
+> 1. The shapes the design notes draw again and again are built once, as the
+>    platform primitives of `AFRP-Platform-Primitives.md` (P29), before the
+>    slices that would otherwise each build their own: A2 (the refusal and the
+>    snapshot) and PR0 (the act and append-only record, the scoped parameter
+>    and authority row, the dated-role base, the record on file, the clock),
+>    then each remaining primitive in the first slice that needs it.
+> 2. The slice queue is reshaped: done rows move to an appendix; rows that
+>    build one mechanism are merged onto it; a row whose gate holds only one
+>    action is a build row; slice 5 is split into 5a (email) and 5b (payments);
+>    R3, T2-R, T1d and T1e are one record slice; rows A2, PR0, PT1, CY1, CY2 and
+>    CM1 are added.
+> 3. The open questions carry a status (open, for now, in part, pending an
+>    act, parked); questions a decision already answers are closed with it;
+>    questions no slice or gate cites are parked; the rest are grouped into
+>    clusters, each put to its owning body as one ask.
+> 4. The register stays the history. A generated "Rules in force" view states
+>    the current rule per topic with the decisions behind it, and a generated
+>    list names every decision waiting on a body's act. A build session reads
+>    those.
+> 5. Process tooling (PT1) generates the counts and records the registry now
+>    only checks, renders each round's findings from one file, and generates
+>    journey stubs from the design notes; the strategy site publishes through
+>    a script that fails on a build error.
+> 6. A slice that only builds a register or a form, and touches none of
+>    voting, payments, by-laws, authority, the tree, scholarships, the
+>    directory or `core.decision`, runs a lighter loop: build, one combined
+>    attack that includes its fix layer, and the hygiene lints. Every other
+>    slice keeps the full four steps.
+
+### What it settles
+- How the Hub is built from here: P29 is the design note for the shared
+  pieces; `plan/MASTER-PLAN.md` carries the reshaped queue and the order.
+- Item 6 relaxes the written four-step rule for register and form slices
+  only, by David's decision.
+
+### What it does not settle
+- Any binding rule, which stands unchanged; any decision's content.
+- The email provider for slice 5a and the staging database's survival past
+  5 October 2026, which wait on David.
+- Each primitive's detail, which its building slice settles within P29.
 
 ---
 
