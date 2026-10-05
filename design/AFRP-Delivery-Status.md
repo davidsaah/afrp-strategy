@@ -1284,3 +1284,7 @@ Two Hub-record items for the next build session:
 **Added later on 4 October 2026: D92.** David answered Q-205 (Decisions Register, Part 7): a club's gift to the Foundation's home made through the Federation's pass-through purpose is a line on the club's statement under D57, with the club as donor and the recognition request carried to the Foundation; a direct gift is outside the platform. RL6 is no longer gated on Q-205 and builds with C3; P20-I8 waits only on Q-204.
 
 **Counts after D92 (4 October 2026):** **92 decisions** (D1–D92); **279 question ids** (Q-1–Q-279), of which **240 are open** and 39 carry a decision (Q-205 newly decided); **179 slice rows** in MASTER-PLAN §2, unchanged.
+
+**Added later on 4 October 2026: D93.** David answered Q-189 apart from the release's text (Decisions Register, Part 7): every oral history needs a written release signed by the narrator, granting the community archive, public web, print, research and excerpts separately, each defaulting to no; a recording without one, including every recording on the 2022 spoken permission, is shown to the Preservation committee's seats only. FT5 builds the consent row; no scope opens until a release on the adopted form is on file.
+
+**Counts after D93 (4 October 2026):** **93 decisions** (D1–D93); **279 question ids** (Q-1–Q-279), of which **239 are open** and 40 carry a decision (Q-189 newly decided); **179 slice rows** in MASTER-PLAN §2, unchanged.

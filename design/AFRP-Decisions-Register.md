@@ -1167,7 +1167,8 @@ and the correspondent's, and it makes an exception to D33's consent pattern.
 A seventh, D90, retires the Emerging Leaders entry (Q-178). An eighth, D91,
 records Senior Living as the Ramallah Foundation's project (Q-203), pending
 the two Boards' confirmation. A ninth, D92, puts a club's gift to the home
-through the Federation on the club's statement (Q-205). P26 §1.4 and §3.2, the scholarship specification's §3 and
+through the Federation on the club's statement (Q-205). A tenth, D93, requires
+a written, scoped release for every oral history (Q-189). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1433,6 +1434,35 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 93 — oral histories need a written, scoped release
+**Status: Adopted · David Saah, 4 October 2026 · answers Q-189 apart from the release's text · the wording pending the Legal Advisor and the Preservation committee · applies D22**
+
+### The adopted wording
+> Decision 22 applies to oral histories through a written release, signed by
+> the narrator and held on the drive, granting each scope separately
+> (community archive, public web, print, research, excerpts), each defaulting
+> to no. A recording without a release on file is shown to the Preservation
+> committee's seats only. A recording made before this decision under a spoken
+> permission is treated the same until the narrator signs a release.
+
+### What it settles
+- Q-189, apart from the release's text. FT5 builds as P27 §6.2 has it: the
+  consent row per recording with the five scopes defaulting to no. P27 §6.3's
+  interim for existing recordings (committee seats only) becomes the rule.
+- P27-J09 to J11 are no longer held by Q-189; they meet once FT5 lands.
+
+### What it does not settle
+- The release's wording, which the Legal Advisor drafts and the Preservation
+  committee adopts. FT5 builds the consent row now; no item reaches a scope
+  until a signed release on the adopted form is on file.
+- Living third parties named in a recording (Q-261): their passages stay
+  withheld until it is answered.
+- A narrator who has died before signing. The record does not say whether
+  next of kin may sign; P27 §6.2's next-of-kin path covers withdrawal, not a
+  first grant.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
@@ -1463,7 +1493,7 @@ marked "research, 2 Oct 2026").
 | D11 (a governed mirror now; the platform becomes the record after one clean annual cycle); the programme register's "GEDCOM database". **Since 2 Oct 2026:** D69 supersedes D11's staging: the Hub becomes the record after a parallel run of 30 to 60 days, the external file then read-only, with a nightly export; the run waits on Q-201 (now carrying who owns the tree data and on what terms) and a production database (P28 §7) | The body of record is a desktop genealogy file not held by the Federation, with a cloud copy; no licence holder, export cadence or second key-holder is written | Q-201 (answered by D87, 4 Oct 2026: the licence and account move into the Federation's name; the committee's acts and the Board's minute on terms are not yet on file) | Family Tree committee · David · Executive Director |
 | D28 (nothing for the living without sign-in). **Since 2 Oct 2026:** D71 leaves D28 unchanged and adds that a signed-in member sees the living in full only inside their own branch, so a book carrying living dates cannot be served to every member by standing (P27 §5, amended) | The clan-book PDFs, like the printed 1982 volume, carry living people's dates and are served to approved requesters rather than to signed-in members by standing | Q-202 | Family Tree committee · Legal Advisor |
 | D66 (the shared drive is the archive of record; the platform links to it). **Since 2 Oct 2026:** D69 makes the Hub the one record of the tree and D68 its one look on every surface; a second viewer of the tree outside the Hub would sit beside both. Where node media lives (D22 against D66) is Q-260 | A volunteer's prototype site (July 2026) holds the archive and the tree with per-person profiles, and the Preservation committee sought volunteers (February 2026) to rebuild its stand-alone website — a third archive beside the drive and the vendor's files, and a further viewer of the tree | Q-190 | David · Preservation committee · Family Tree committee · AFRP Board |
-| D22 (full media, per-item consent held by the subject) | Oral histories are recorded against one spoken permission covering "the Ramallah community and any other projects"; no written release, no separate print or web switch, no takedown rule | Q-189 | Preservation committee · Legal Advisor · David |
+| D22 (full media, per-item consent held by the subject) | Oral histories are recorded against one spoken permission covering "the Ramallah community and any other projects"; no written release, no separate print or web switch, no takedown rule | Q-189 (answered by D93, 4 Oct 2026: a written, scoped release for every recording; the release's text is the Legal Advisor's and the Preservation committee's) | Preservation committee · Legal Advisor · David |
 | D55 (Women to Women is a sub-fund of ARFHSN) | ARFECF's reviewed financial statements show Women to Women gifts as ARFECF's donor-restricted revenue in one year, released the next, with a matching expense line; the Education Fund's chequebook carries a tuition gift matching a Women to Women project | Q-212 | ARFECF Board · ARFHSN Board · CPA |
 | D55 (programmes sit in the fund that budgets them) and `AFRP-Fund-Rules.md` §2 (non-earmarked money never crosses funds) | Women to Women (ARFHSN) pays Arabic Program (ARFECF) fees for member women each term; the Cook Book fund transferred money to the Education Fund for the Federation's systems; the Scholarship's letters go out in AFRP's name for ARFECF's fund | Q-168, Q-173, Q-158 | ARFHSN Board · ARFECF Board · AFRP General Treasurer · CPA |
 | D62 ("The Federation President convenes") | The Federation's programme director issues the monthly ARFHSN invitation and the ARFHSN secretary sets the agenda; the President attends | Q-214 | David · ARFHSN Board |

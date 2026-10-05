@@ -153,7 +153,7 @@ The release itself is a document — written, signed, held on the drive (D66) �
 
 ### 6.3 What has already been recorded
 
-Whether the 2022 spoken permission covers the existing recordings, and for which scopes, is **Q-189**. Until it is answered each existing recording carries the consent class "spoken permission (2022 form); scope not determined (Q-189)" and is shown to the Preservation committee's seats only; nothing is published, printed or linked to a tree profile from it. *R40 (a silent text is flagged, not filled); design choice* The committee may seek a written release from a living narrator at any time, and the new row then governs.
+Whether the 2022 spoken permission covers the existing recordings, and for which scopes, is **Q-189**. Until it is answered each existing recording carries the consent class "spoken permission (2022 form); scope not determined (Q-189)" and is shown to the Preservation committee's seats only; nothing is published, printed or linked to a tree profile from it. *R40 (a silent text is flagged, not filled); design choice* The committee may seek a written release from a living narrator at any time, and the new row then governs. *Since 4 Oct 2026:* **D93** answers Q-189: this is the rule, not an interim; a recording on the spoken permission stays with the committee's seats until the narrator signs a release.
 
 ### 6.4 Photographs and contributed records in the same archive
 
@@ -197,7 +197,7 @@ What carries over from this note: the single-writer lease, the never-delete rule
 6. No tree data, person, node or archive item leaves the platform for another site (Integration §4; D36).
 7. The drive is the archive; the platform's archive index holds locations, titles the committee writes, consent rows and node links, never the files (D66).
 8. An oral-history recording is shown beyond the committee only under a written release's recorded scopes; every scope defaults to no; withdrawal is a new row and cannot recall print (D22, D33, R27).
-9. Existing recordings under the spoken permission are committee-only until Q-189 is answered.
+9. Existing recordings under the spoken permission are committee-only until Q-189 is answered. *Since 4 Oct 2026 (D93):* until the narrator signs a written release.
 10. The deceased are set by the committee on next-of-kin request with the depositor's rights recorded (D22).
 11. A minor's consent runs through the household and is re-asked at eighteen; a minor holds no volunteer interest (D22, D33, R6, P7 §2).
 12. Custody facts are recorded, dated and attributed; the platform holds no credential (*design choice*).
@@ -226,7 +226,7 @@ Carried, not re-asked: Q-52 (quorum), Q-69 (a non-member contact linked to a nod
 | FT2 The committee as a body and the corrections door | The Family Tree Committee on CW1 with its seats and "no appointing text" where none is found; the committee's adoption act for stage 2; the public page's pointer (an office task); the form's notice; nothing reads the form's sheet; decision counts to CW3 and the Heritage outcome line. **In part folded:** the approval tiers into T2c (D72); the label on imports for changes made outside the queue into T2d (D69) | §4 | CW1, CW2, CW3 for the full shape (a committee register row until then); the committee's adoption act to enter stage 2; non-members answered by D70 |
 | FT3 Clan books by the record's rule | The clan books as archive-index items with the living-data flag; access by standing and the grace window, signed in only; books with living details not served by standing (D71), view-only if served under Q-202's answer; the "access by the project's process" page until switched | §5 | **Q-200, Q-202, Q-260** (D88, 4 Oct 2026: not served for now) |
 | FT4 The archive index — **folded into T2h** | Items with drive location, kind, period, committee title and credit, consent row, node links as dated acts; the person page's linked items under standing and consent; no outbound feed | §7.2 | None; the tree's person page (built) |
-| FT5 Oral-history consent | The consent row per recording with the release on-file flag and the five scopes defaulting to no, restrictions, withdrawal, next-of-kin and the minor's path; existing recordings committee-only with Q-189 named | §6 | T2h (FT4 folded into it); **Q-189** for the release wording and the existing recordings; Q-261 for third parties (passages withheld until answered) |
+| FT5 Oral-history consent | The consent row per recording with the release on-file flag and the five scopes defaulting to no, restrictions, withdrawal, next-of-kin and the minor's path; existing recordings committee-only with Q-189 named | §6 | T2h (FT4 folded into it); the release wording (the Legal Advisor and the Preservation committee; Q-189 otherwise answered by D93, 4 Oct 2026); Q-261 for third parties (passages withheld until answered) |
 | FT6 The handover — **folded into T2d** | Superseded by D69: the parallel run, its dated start and end and the freeze are P28's slice T2d; the lease, never-delete and D12 carry over | §8 | P28 §7's gates |
 
 Order: FT1 now; FT2 with CW1; FT3 on its three questions; FT5 after T2h. FT4 and FT6 are folded into P28's T2h and T2d and are not built as slices of their own.

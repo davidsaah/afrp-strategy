@@ -1850,7 +1850,7 @@
   - who: "Oral-history volunteer"
     wants: "to have the interviewee sign a release stating where the recording may be shown before recording"
     so_that: "consent is a record, not a sentence on a video"
-    rule: "Not stated (Q-189)"
+    rule: "D93: a written release, each scope separately, each defaulting to no; the wording is the Legal Advisor's and the committee's"
     lens: "programme"
   - who: "Contributor"
     wants: "to submit a photograph or document through the platform with its consent class and a credit, linked to a tree node"
