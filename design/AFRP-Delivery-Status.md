@@ -1428,3 +1428,24 @@ document on file; the clock, which never fires on a period nobody set.
 
 Round 51 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 44 recorded (42 confirmed, 2 refuted, suspected or observed).
 <!-- /findings: round 51 -->
+
+<!-- findings: round 52 -->
+### Slice CW1 — Bodies and seats (widened) (6 October 2026)
+
+**Built and pushed; done when the staging deploy is LIVE on its commit**,
+which waits, as PR0's does, on how the withdrawn Emerging Leaders row leaves
+the kept staging database.
+
+The register of bodies and their seat rules is on file, read from P1 §2.2's
+table with the numbers on the register of rules; each seat is made with its
+appointing authority's dated act and refused, by name, where the text's test
+is not met — 8.1.2's prior year, 6.2.3, the term limits, the five Young
+Leader seats, one chair — and a lapse after appointment is shown and ends
+nothing (P1-J01–J03). The three seat tables are taken over with no boundary
+moved; grants are derived from seats and end with them (P29-J05); D79's
+tree:moderate holder stays granted by name. The tree's import door refuses
+the change-request form's sheet (D13), and an import names the seat that
+supplied it (P27-J03, J04).
+
+Round 52 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 102 recorded (96 confirmed, 6 refuted, suspected or observed).
+<!-- /findings: round 52 -->
