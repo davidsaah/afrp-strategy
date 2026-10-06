@@ -1200,7 +1200,10 @@ T2f and T2e do where the record is silent (D98).
 
 Last, David approved the review of everything designed to date (D99): the
 platform primitives first (P29), the slice queue reshaped, the open questions
-triaged, a generated "Rules in force" view, and the process tooling. P26 §1.4 and §3.2, the scholarship specification's §3 and
+triaged, a generated "Rules in force" view, and the process tooling.
+
+On 5 October 2026 David put the usable core ahead of programme depth, to build
+faster (D100). P26 §1.4 and §3.2, the scholarship specification's §3 and
 the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
@@ -1652,6 +1655,40 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 - The email provider for slice 5a and the staging database's survival past
   5 October 2026, which wait on David.
 - Each primitive's detail, which its building slice settles within P29.
+
+---
+
+## Decision 100 — the usable core first, and faster sessions
+**Status: Adopted · David Saah, 5 October 2026 · reads D75, D96 and D99**
+
+### The adopted wording
+> 1. After PR0, the build takes the usable core before programme depth, in
+>    this order: FX1 (the six Hub defects the review of 4 October found),
+>    CW1, C1, C2, DIR1, LT1, C3, B2b, DIR2, FR1. Slice 5a is taken as soon as
+>    David supplies the email provider, wherever the queue stands; IR5's
+>    production-and-backup part when David decides production; C6 when Q-275
+>    is answered. Programme depth follows: AR1, CR1 with AR2, CY1, SC1, SC4,
+>    SA1, MG2, MG1, then the rest of §2.
+> 2. A slice that is built and pushed with CI green, and waits only for a
+>    live staging deploy to write its DONE row, does not hold the design
+>    record frozen; the record may change while it waits.
+> 3. A build session may be started with one short prompt that takes the
+>    next slice in this order (the `next-slice` skill), and several slices
+>    may be run one after another, each in a fresh agent, by a chained run
+>    David starts. Each slice keeps its own STARTED row, loop, CI and DONE
+>    row; a chained run stops at the first slice that needs David.
+
+### What it settles
+- The order in `plan/MASTER-PLAN.md` §3 step 2, replacing D99's (P29 §13)
+  after PR0. FX1 becomes a row.
+- The freeze rule (§3 step 7) as applied to slices built and awaiting a deploy:
+  R3, PT1, A2 and PR0 on 5 October 2026.
+
+### What it does not settle
+- The email provider (Q-276), the production database (§1d 9), C6 (Q-275), or
+  how the withdrawn Emerging Leaders row leaves the kept staging database
+  (D90; §1d.8). A slice whose prompt section does not exist builds from its
+  `plan/MASTER-PLAN.md` row and its design note.
 
 ---
 

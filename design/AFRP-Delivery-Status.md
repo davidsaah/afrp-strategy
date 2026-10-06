@@ -1303,6 +1303,8 @@ Six Hub defects found by the review are listed for a fix slice (FX1), among them
 
 **Counts after D99 (4 October 2026, printed by the build):** **99 decisions** (D1–D99); **279 question ids**, of which **43 are decided**, **198 are open** (181 open, 2 for now, 8 in part, 7 pending a body's act) and **38 are parked**; **134 open slice rows** in MASTER-PLAN §2, with 25 done and 28 merged, split or retired in §2a.
 
+**Added 5 October 2026: D100.** After PR0 the build takes the usable core first: FX1 (the six Hub defects of the 4 October review, now a row) → CW1 → C1 → C2 → DIR1 → LT1 → C3 → B2b → DIR2 → FR1, then programme depth (AR1 → CR1 with AR2 → CY1 → SC1 → SC4 → SA1 → MG2 → MG1). A slice built and waiting only for a live deploy does not hold the record frozen. Build sessions may start with one prompt (`next-slice`) and run in chains David starts.
+
 
 ### Slice R3 — the Hub's record catch-up, with T2-R, T1d and T1e (4 October 2026)
 
