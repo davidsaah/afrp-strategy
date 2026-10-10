@@ -95,13 +95,18 @@ def parse_decisions():
 
 def delivery_facts():
     text = (ROOT / "design/AFRP-Delivery-Status.md").read_text(encoding="utf-8")
-    tests = re.findall(r"([\d,]{3,}) tests green", text)
+    tests = list(re.finditer(r"([\d,]{3,}) tests green", text))
+    # Later entries stopped stating a count, so name the slice whose entry last stated one.
+    tests_slice = None
+    if tests:
+        heads = re.findall(r"^#{2,3} Slice ([0-9A-Za-z]+) ", text[:tests[-1].start()], re.M)
+        tests_slice = heads[-1] if heads else None
     done, awaiting = set(), set()
     # A slice's section opening "**Built and pushed" is built but not done: the Hub's rule is that a
     # slice is done only when the staging deploy is LIVE on its commit (5 Oct 2026).
     for m in re.finditer(r"^#{2,3} Slice ([0-9A-Za-z]+) [^\n]*\n+(.{0,200})", text, re.M):
         (awaiting if m.group(2).lstrip().startswith("**Built and pushed") else done).add(m.group(1))
-    return dict(tests=tests[-1] if tests else None, done=done - awaiting, awaiting=awaiting)
+    return dict(tests=tests[-1].group(1) if tests else None, tests_slice=tests_slice, done=done - awaiting, awaiting=awaiting)
 
 
 def plan_slices(done_extra):
@@ -243,6 +248,35 @@ def journey_bar(j):
     return (f'<div class="bar" title="{t} journeys">{seg}</div><span class="small muted">{t} journeys: '
             f'{j.get("meets",0)} meet · {j.get("guarded",0)} guarded · {j.get("open",0)} open · '
             f'{j.get("not_built",0)} not built · {j.get("fails",0)} fail</span>')
+
+
+def stack_bar(parts, noun):
+    """One stacked bar in journey_bar's style: parts is [(count, css class, label)]."""
+    t = sum(n for n, _, _ in parts)
+    if not t:
+        return f'<span class="muted small">No {noun}.</span>'
+    seg = "".join(f'<span class="{c}" style="width:{100*n/t:.2f}%"></span>' for n, c, _ in parts)
+    return (f'<div class="bar" title="{t} {noun}">{seg}</div><span class="small muted">{t} {noun}: '
+            + " · ".join(f"{n} {label}" for n, _, label in parts) + "</span>")
+
+
+MONTHS = {m: i for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july", "august",
+                                      "september", "october", "november", "december"], 1)}
+
+
+def record_date(board_generated):
+    """The newest date the record carries: a decision's Status line, a Delivery Status slice heading, the build board.
+    Read from the sources, never the clock, so an unchanged record rebuilds byte-identical (--check)."""
+    reg = (ROOT / "design/AFRP-Decisions-Register.md").read_text(encoding="utf-8")
+    ds = (ROOT / "design/AFRP-Delivery-Status.md").read_text(encoding="utf-8")
+    lines = re.findall(r"^\*\*Status:.*$", reg, re.M) + re.findall(r"^#{2,3} Slice .*$", ds, re.M)
+    dates = [datetime.date.fromisoformat(board_generated[:10])]
+    for line in lines:
+        for d, mon, y in re.findall(r"\b(\d{1,2}) ([A-Z][a-z]+) (20\d\d)\b", line):
+            if mon.lower() in MONTHS:
+                dates.append(datetime.date(int(y), MONTHS[mon.lower()], int(d)))
+    last = max(dates)
+    return f"{last.day} {last.strftime('%B')} {last.year}"
 
 
 def asset_version():
@@ -808,12 +842,21 @@ function f(){var n=0;document.querySelectorAll('#xw tbody tr').forEach(function(
               [["Across the platform", journey_bar(jstats(lambda r: r["program"] not in P))]]
     pg = table(["Programme", "Branch", "In the Hub", "In service today", "Journeys"], [[plink(p["key"]), btag(p["branch"]), status_tag(p["status"]), f'<span class="small">{E(p.get("in_service") or "Not stated")}</span>', journey_bar(p.get("journeys", {}))] for p in progs])
     blockers = ulist([re.sub(r"\bDavid('s)?\b", lambda m: "the project owner" + ("'s" if m.group(1) else ""), b) for b in board.get("blockers", [])], inline)
+    overall = (f'<p class="small muted">Last updated <b>{record_date(board["generated"])}</b>, the newest date in the Decisions Register, the Delivery Status and the build board.</p>'
+               + table(["Measure", "Overall"], [
+                   ["Build slices", stack_bar([(n_done, "m", "done"), (n_awaiting, "o", "built, awaiting a live staging deploy"),
+                                               (n_open_slices, "n", "open in the queue")], "slices")],
+                   ["Questions", stack_bar([(qcount["decided"], "m", "decided"),
+                                            (qcount["in-part"] + qcount["for-now"] + qcount["pending-act"], "g", "answered in part, for now or awaiting an act"),
+                                            (qcount["open"], "n", "open"), (qcount["parked"], "o", "parked")], "questions")],
+                   ["Journeys", journey_bar(all_j)]]))
     st = (MD(body)
+          .replace("<!--OVERALL-->", overall)
           .replace("<!--FACTS-->", table(["Measure", "Now", "Source"], [
               ["Decisions recorded", str(n_dec), '<a href="' + BLOB + 'design/AFRP-Decisions-Register.md">Decisions Register</a>'],
               ["Open questions", str(len(open_q)), '<a href="{root}history/questions.html">Questions</a>'],
               ["Build slices", f"{n_done} done; {n_awaiting} built, awaiting a live staging deploy; {n_open_slices} open in the queue (§2); {sum(1 for s in slices if s['section'] == '2a' and s['status'] != 'done')} merged, split or retired (§2a)",'<a href="' + BLOB + 'plan/MASTER-PLAN.md">Master plan</a>, <a href="' + BLOB + 'design/AFRP-Delivery-Status.md">Delivery Status</a>'],
-              ["Tests green", facts["tests"] or "Not stated", "Delivery Status, latest entry"],
+              ["Tests green", facts["tests"] or "Not stated", f'Delivery Status, the last entry that states a count (slice {E(facts["tests_slice"])})' if facts["tests_slice"] else "Delivery Status"],
               ["Journeys walked", f'{all_j.get("total",0)}: {all_j.get("meets",0)} meet, {all_j.get("guarded",0)} guarded, {all_j.get("open",0)} open, {all_j.get("not_built",0)} not built, {all_j.get("fails",0)} fail',
                f'Build board, generated {E(board["generated"][:10])}']]))
           .replace("<!--DECISIONS-->", dec).replace("<!--QUESTIONS-->", qsum).replace("<!--SLICES-->", sl)
