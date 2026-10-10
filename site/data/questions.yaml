@@ -2516,3 +2516,27 @@
   source: "design/AFRP-Rules-Register.md R7; design/AFRP-Club-Experience-Plan.md §9.2; Q-281; AFRP-Hub comms/services.py (round 55)"
   decided: "D111"
   status: decided
+- id: Q-288
+  title: "Does a professional listing show when its owner keeps their own row out of the directory?"
+  detail: "P19 §3 shows a listing's place of business under the listing's own consent and never the member's home address. It does not say whether the listing itself, with the owner's name, shows when the owner has withheld their own row from the members' directory. Slice DIR1 (10 Oct 2026) kept the storefront's behaviour before the slice: the listing shows under its own consent, apart from the owner's directory display. That is a design choice of the build."
+  owner: "David · RBPN desk"
+  goal: members
+  branch: all
+  source: "design/AFRP-Directory-Formats.md §3; AFRP-Hub network/services.py (round 56.3)"
+  status: open
+- id: Q-289
+  title: "May a member inside the grace window read the directories?"
+  detail: "D6 keeps a lapsed member's row in the directory for the grace window, a display state rather than an entitlement. Whether that member may still read the members' directory, the relay and the professional storefront during the window is not in the record. Slice DIR1 (10 Oct 2026) lets them, as their own row still shows. That is a design choice of the build."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "D6; design/AFRP-Directory-Formats.md §2, §5; AFRP-Hub memberdir/views.py (round 56.5)"
+  status: open
+- id: Q-290
+  title: "The RBPN taxonomy of professions"
+  detail: "P19 §3 browses the professional directory by the professions in the RBPN taxonomy the desk maintains. No taxonomy is on file. Slice DIR1 (10 Oct 2026) offers as filters the professions present on the page. The list is the RBPN desk's to supply."
+  owner: "RBPN desk"
+  goal: members
+  branch: all
+  source: "design/AFRP-Directory-Formats.md §3; AFRP-Hub network (round 56)"
+  status: open

@@ -27,7 +27,7 @@ Leadership, Heritage, Care), with the family tree on the Heritage branch
 9. **[Library](https://davidsaah.github.io/afrp-strategy/library/index.html)**: the reference documents and the archive.
 
 The site is generated from `site/` (D47); see [`site/README.md`](site/README.md).
-Open questions are numbered Q-1 to Q-287 and kept in
+Open questions are numbered Q-1 to Q-290 and kept in
 [`site/data/questions.yaml`](site/data/questions.yaml); the
 [questions page](https://davidsaah.github.io/afrp-strategy/history/questions.html)
 explains the numbering and how to raise one.
