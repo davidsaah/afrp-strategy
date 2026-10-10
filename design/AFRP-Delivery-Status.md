@@ -1525,3 +1525,45 @@ there.
 
 Round 56 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
 <!-- /findings: round 56 -->
+
+<!-- findings: round 57 -->
+### Slice LT1 — The letters, the renewal sequence and the onboarding letters (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The Federation's letters are on the platform as drafts: a renewal notice to
+every current member on the Membership Committee's date, one reminder at a
+time and none after paying, a notice on the day national dues lapse, a
+welcome on a join with the consents the member set, a welcome package to a
+new Board or committee member read from the registers, the club president's
+letter when the officers form is received, and an out-of-compliance notice
+when a seated member lapses. A letter about a minor goes to the adults
+holding authority, and a letter that cannot be addressed is listed for the
+office. Nothing is sent until the sends are switched on (slice 5a). The
+Membership Committee's 10 May list is read from the paid scopes, by club,
+and a scope current with nothing paid is shown apart.
+
+Round 57 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 29 recorded (29 confirmed).
+<!-- /findings: round 57 -->
+
+<!-- findings: round 58 -->
+### Slice C3 — The club statement on the statement-run base (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+Each club has a statement on the platform: one account per entity it deals
+with (AFRP, ARFECF, ARFHSN), each totalled and settled on its own and never
+netted, every line naming the term or decision it arises under and its
+evidence, and none naming a person. The club treasurer confirms an account
+or queries one line, and the query holds that line while the rest settles.
+The Federation's treasurers record lines, build a run, settle and close it;
+approval is by the seats the Finance Committee names, and refuses by name
+until it names them (Q-47). A closed run never changes; a correction is a
+new line that can take money back, never more than was paid. A club's
+remittance of the dues it collected is a line and an act. A member sees a
+year-end giving statement for each entity they gave to. No money moves.
+
+Round 58 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 23 recorded (23 confirmed).
+<!-- /findings: round 58 -->
