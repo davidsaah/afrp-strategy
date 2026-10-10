@@ -1471,3 +1471,19 @@ weights computed and guarded (Q-37, D5).
 
 Round 53 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 41 recorded (41 confirmed).
 <!-- /findings: round 53 -->
+
+<!-- findings: round 54 -->
+### Slice FX1 — The six Hub defects of the 4 October review (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A person with no birth date on file is a possible minor everywhere the Hub
+reads one, and every screen says "possible minor"; a person's current consent
+is one row; a merged record leaves the club's notice, roll and groups, and a
+merge leaves one live row per group; the journey corpus imports no test
+module; and binding rule 8 is held by the payments service, which names a
+card before a missing half and reads the separators people paste.
+
+Round 54 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 54 -->
