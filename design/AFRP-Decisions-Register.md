@@ -1917,6 +1917,39 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 112 — a professional listing shows under its own consent
+**Status: Adopted · David Saah, 10 October 2026 (option A of the DIR1 decision pack, 10 October) · answers Q-288 · adopts slice DIR1's design choice**
+
+### The adopted wording
+> A professional listing shows under the consent its owner gave for the
+> listing, apart from whether the owner shows their own row in the members'
+> directory. Withholding the row does not withdraw the listing; withdrawing
+> the listing's consent does. The place of business is listing data and is
+> never the member's home address (P19 §3).
+
+### What it settles
+- Q-288. DIR1's storefront behaviour is the rule.
+
+### What it does not settle
+- The RBPN taxonomy of professions (Q-290), and whether paying for a listing
+  on the platform is built (workflow `directory-consent`).
+
+---
+
+## Decision 113 — a member inside the grace window reads the directories
+**Status: Adopted · David Saah, 10 October 2026 (option A of the DIR1 decision pack, 10 October) · answers Q-289 · adopts slice DIR1's design choice**
+
+### The adopted wording
+> A member whose dues have lapsed and who is inside D6's grace window may
+> read the members' directory, the relay and the professional storefront,
+> as their own row still shows. Both end on the same day. The page offers
+> renewal throughout the window.
+
+### What it settles
+- Q-289. Reading and being shown end together at the grace window's end.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

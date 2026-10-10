@@ -346,8 +346,11 @@ topics:
     change, not a member-state change (D6). The directory grace period after a lapse is a
     parameter D6 left unset. A move between clubs is accepted by the receiving club's officers; the
     old club membership ends that day and club standing counts at the new club from the day its
-    dues are paid, a platform rule until the Membership Committee rules (D106).
-  decisions: [D1, D6, D106]
+    dues are paid, a platform rule until the Membership Committee rules (D106). A member inside the
+    grace window still reads the directories, and reading and being shown end on the same day
+    (D113). A professional listing shows under its own consent, apart from the owner's own
+    directory row (D112).
+  decisions: [D1, D6, D106, D112, D113]
   superseded: []
   open_questions: [Q-41, Q-43, Q-64]
   pending_act: []
