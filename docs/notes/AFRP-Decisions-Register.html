@@ -2096,6 +2096,40 @@ what Decision 28 already allows a signed-out visitor.</p>
   <code>plan/MASTER-PLAN.md</code> row and its design note.</li>
 </ul>
 <hr />
+<h2>Decision 101 — a seat recorded twice for one person is settled by the office's act, never by the merge</h2>
+<p><strong>Status: Adopted · David Saah, 10 October 2026 (option A of the decision pack of 10 October, chosen on the project's decision card) · answers the CW1 handoff row "two records of one person who each hold the same seat for overlapping time cannot be merged" (6 October 2026)</strong></p>
+<h3>The adopted wording</h3>
+<blockquote>
+<p>Where two records of one person each hold the same seat for overlapping time
+and both record one service, the office settles the pair by a dated act
+before the merge: it names the row that records the service, citing the
+body's own record (its minutes or the officers form), and the other row is
+marked a duplicate of it. A row marked a duplicate is kept and never
+deleted, points at the row it duplicates, and counts toward no term, no
+limit and no grant. The surviving row's dates are never changed by the
+settling act. Where the body's record does not place the service, the pair
+is not settled and the merge keeps refusing. The merge itself never decides
+which row stands.</p>
+</blockquote>
+<h3>What it settles</h3>
+<ul>
+<li>The CW1 handoff row of 6 October 2026 (<code>identity/services.py</code> <code>merge</code>;
+  <code>committees/services.py</code> <code>seats_collide</code>). A build session adds the
+  duplicate state to the seat, the office's settling act, and lets the merge
+  through once every colliding pair is settled.</li>
+<li>Why it matters: certification refuses while an unresolved probable-duplicate
+  pair touches the electorate (By-Law 8.11; AFRP-Electronic-Voting §2), so an
+  officer recorded twice who cannot be merged held up every election whose
+  electorate they are in. A settled pair no longer does.</li>
+</ul>
+<h3>What it does not settle</h3>
+<ul>
+<li>Which seat in the office holds the act. Until the delegation-of-authority
+  schedule names one, it is whoever works the merge queue today (slice 4g).</li>
+<li>A pair where one row is an old term never closed: that row is ended at its
+  real date on the body's page (CW1), unchanged.</li>
+</ul>
+<hr />
 <h2>Two items for board confirmation rather than decision</h2>
 <p>These are settled in the design and merely need the board to say so out loud:</p>
 <ol>

@@ -1692,6 +1692,39 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 101 — a seat recorded twice for one person is settled by the office's act, never by the merge
+**Status: Adopted · David Saah, 10 October 2026 (option A of the decision pack of 10 October, chosen on the project's decision card) · answers the CW1 handoff row "two records of one person who each hold the same seat for overlapping time cannot be merged" (6 October 2026)**
+
+### The adopted wording
+> Where two records of one person each hold the same seat for overlapping time
+> and both record one service, the office settles the pair by a dated act
+> before the merge: it names the row that records the service, citing the
+> body's own record (its minutes or the officers form), and the other row is
+> marked a duplicate of it. A row marked a duplicate is kept and never
+> deleted, points at the row it duplicates, and counts toward no term, no
+> limit and no grant. The surviving row's dates are never changed by the
+> settling act. Where the body's record does not place the service, the pair
+> is not settled and the merge keeps refusing. The merge itself never decides
+> which row stands.
+
+### What it settles
+- The CW1 handoff row of 6 October 2026 (`identity/services.py` `merge`;
+  `committees/services.py` `seats_collide`). A build session adds the
+  duplicate state to the seat, the office's settling act, and lets the merge
+  through once every colliding pair is settled.
+- Why it matters: certification refuses while an unresolved probable-duplicate
+  pair touches the electorate (By-Law 8.11; AFRP-Electronic-Voting §2), so an
+  officer recorded twice who cannot be merged held up every election whose
+  electorate they are in. A settled pair no longer does.
+
+### What it does not settle
+- Which seat in the office holds the act. Until the delegation-of-authority
+  schedule names one, it is whoever works the merge queue today (slice 4g).
+- A pair where one row is an old term never closed: that row is ended at its
+  real date on the body's page (CW1), unchanged.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
