@@ -552,12 +552,12 @@
   cluster: C
 - id: Q-63
   title: "Who signs the welcome and renewal letters"
-  detail: "The practice is that the Membership Committee chair and the President sign the renewal letter. No text says so. The signatory of each letter is a seat on the register, so the committee and the President should confirm it. Parked 4 Oct 2026 under D99: no slice row of plan/MASTER-PLAN.md and no gate or refusal line of a design note cites it, so it holds no build. It is unparked when one does."
+  detail: "The practice is that the Membership Committee chair and the President sign the renewal letter. No text says so. The signatory of each letter is a seat on the register, so the committee and the President should confirm it. Parked 4 Oct 2026 under D99: no slice row of plan/MASTER-PLAN.md and no gate or refusal line of a design note cites it, so it holds no build. It is unparked when one does. Unparked 10 Oct 2026: slice LT1's letters refuse by the key letter-signatory until it is set."
   owner: "Membership Committee · President"
   goal: members
   branch: all
   source: "design/AFRP-Letters-and-Onboarding.md §8"
-  status: parked
+  status: open
   cluster: C
 - id: Q-64
   title: "The renewal sequence's parameters"
@@ -2541,4 +2541,60 @@
   goal: members
   branch: all
   source: "design/AFRP-Directory-Formats.md §3; AFRP-Hub network (round 56)"
+  status: open
+- id: Q-291
+  title: "Anniversary years or By-Law 5.1's calendar year?"
+  detail: "By-Law 5.1 runs the membership year from 1 January to 31 December, and D6 runs a member's standing to 31 December. The Hub grants a year from the day of joining or renewing (an anniversary year). Slice LT1 (10 Oct 2026) found the difference while building the renewal letter (8.12.2) and the 10 May list. Which the platform follows, and whether a member who joins late in the year is carried into the next, are not in the record. The by-law outranks the code (D41)."
+  owner: "David · AFRP Board"
+  goal: members
+  branch: all
+  source: "By-Laws 2024 5.1, 8.12.2; D6; D41; AFRP-Hub round 57 (LT1)"
+  status: open
+- id: Q-292
+  title: "Is \"community\" in By-Law 8.12.6 the chapter club?"
+  detail: "8.12.6 has the Membership Committee furnish the lists alphabetically per community by 10 May. Slice LT1 (10 Oct 2026) reads community as the chapter club, a design choice: a member of two clubs is on both lists, and one whose club dues lapsed is listed at the club the record last holds them at. Q-41 (which club counts) bears on it."
+  owner: "Membership Committee · Elections Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 8.12.6; Q-41; AFRP-Hub round 57 (LT1)"
+  status: open
+- id: Q-293
+  title: "Does a club's collection count as received at the A.F.R.P.'s office under 5.3?"
+  detail: "5.3 and 8.12.5 enfranchise dues received at the A.F.R.P.'s office, or postmarked, by 30 April. D1 dates standing from a club's collection, not its remittance. Slice LT1 (10 Oct 2026) takes a club-collected payment onto the 10 May list by its collection date, reading D1. Whether that satisfies 5.3's 'received at the office' is not in the record."
+  owner: "AFRP Board · Elections Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 5.3, 8.12.5; D1; AFRP-Hub round 57 (LT1)"
+  status: open
+- id: Q-294
+  title: "Who may read the 10 May list before the Executive Committee releases it?"
+  detail: "8.12.7 makes the Executive Assistant the list's custodian and shares it with Federation and ARFECF members only on the Executive Committee's approval. Slice LT1 (10 Oct 2026) gates the list before release on the Federation's roster:write, which admits the Educational Fund Secretary and the Recording Secretary, and gates the letter list the same way. Both are design choices of the build. Which seats read the list before release is not in the record."
+  owner: "David · Executive Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 8.12.6, 8.12.7; AFRP-Hub round 57 (LT1)"
+  status: open
+- id: Q-295
+  title: "Does a renewal charged back after 30 April remove a member from the list?"
+  detail: "A member's standing on 30 April decides the 10 May list (5.3, 8.12.5). Whether a renewal that was paid by the deadline and charged back afterwards removes the member from the list, when their standing on the deadline stood, is not in the record (slice LT1, round 57)."
+  owner: "Elections Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 5.3, 8.12.4, 8.12.5; AFRP-Hub round 57 (LT1)"
+  status: open
+- id: Q-296
+  title: "Does 8.12.4 certify a complimentary year?"
+  detail: "8.12.4 accepts as valid for voting only dues paid by credit card, check or money order from the applicant's own funds; on a plain reading a complimentary year is not enfranchised (the 2024 divergence analysis, recon Q7). Slice LT1 (10 Oct 2026) shows a member current on the deadline with nothing paid apart from the certified list, and does not certify them. Whether 8.12.4 certifies them is the Elections Committee's to confirm."
+  owner: "Elections Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 8.12.4; design/AFRP-Bylaws-2024-Divergence.md; AFRP-Hub round 57 (LT1)"
+  status: open
+- id: Q-297
+  title: "LT-W3's merged field and LT-B5's 6.3.1 list"
+  detail: "The letters register (P3) names a merged field in LT-W3 and a list under 6.3.1 for LT-B5 that no record defines. Slice LT1 (10 Oct 2026) leaves both letters refusing by name until they are."
+  owner: "Executive Director · Membership Committee"
+  goal: members
+  branch: all
+  source: "design/AFRP-Letters-and-Onboarding.md §2; By-Laws 2024 6.3.1; AFRP-Hub round 57 (LT1)"
   status: open
