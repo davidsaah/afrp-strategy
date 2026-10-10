@@ -1725,6 +1725,32 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 102 — the email provider for slice 5a is Postmark
+**Status: Adopted · David Saah, 10 October 2026 (chosen on the project's decision card, from the decision pack of 10 October) · answers Q-276 in part**
+
+### The adopted wording
+> The Hub's email is sent through Postmark. The account is held in the
+> Federation's name, not a person's, so it outlives a change of volunteer;
+> transactional and bulk mail go on separate message streams, matching the
+> operational and marketing classes the record already keeps apart (R27;
+> P3's class per template). David creates the account, adds its sending
+> records to the Federation's domain beside the existing mail service's, and
+> places its key in the host's environment himself; no build session enters
+> or looks for the key. Slice 5a is then taken ahead of the queue (D100
+> item 1).
+
+### What it settles
+- Q-276's email half: the provider. MASTER-PLAN §1d.6 and slice 5a's gate now
+  wait only on the account and its key being in place.
+- The Hub: slice 5a puts Postmark behind the existing mail interface; the
+  code names no provider outside its configuration.
+
+### What it does not settle
+- The payment account for slice 5b (Authorize.Net): still on hold (Q-276).
+- Who manages the Federation's domain records, and when the account is made.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

@@ -2412,12 +2412,12 @@
   status: open
 - id: Q-276
   title: "The email provider and the payment account for slice 5"
-  detail: "MASTER-PLAN §1d.6 names two credentials only David can supply: an email provider (Postmark, SES or Resend) and an Authorize.Net account. Slice D1 (14 September 2026) recorded that credentials stay on hold. Slice 5 (email provider, then payments-for-real) is gated on them, and so is every row whose gate names slice 5 for a send or for live money. Which provider, when, and whether slice 5 may close on its email half alone are not in the record. 3 Oct 2026: David keeps the hold for now."
+  detail: "MASTER-PLAN §1d.6 names two credentials only David can supply: an email provider (Postmark, SES or Resend) and an Authorize.Net account. Slice D1 (14 September 2026) recorded that credentials stay on hold. Slice 5 (email provider, then payments-for-real) is gated on them, and so is every row whose gate names slice 5 for a send or for live money. Which provider, when, and whether slice 5 may close on its email half alone are not in the record. 3 Oct 2026: David keeps the hold for now. Answered in part 10 Oct 2026 by D102: the email provider is Postmark, the account in the Federation's name. Still open: the Authorize.Net account for slice 5b."
   owner: "David"
   goal: operations
   branch: all
   source: "plan/MASTER-PLAN.md §1d.6 and §2 (slice 5); Delivery Status, Slice D1"
-  status: open
+  status: in-part
 - id: Q-277
   title: "Which entity holds the Preservation Project?"
   detail: "Q-18 asked which entity runs Women to Women, Preservation and Project Hope, and is marked decided by D55. D55's wording names Women to Women and Project Hope and does not name the Preservation Project. The programme register records the evidence: the scanning vendor's credit account carries the Education Fund's tax-exemption certificate (2026), the approved budgets of 2018–2022 carried heritage and preservation on the Education Fund page, and the pilot's scope of work was signed by the AFRP President. The record is silent on which entity holds it; the platform names none until a Board does. Answered in part 4 Oct 2026 under D99: D55's rule (the holding entity is the fund that carries the programme in the approved budget) answers it once the approved 2026–27 budget is read for a Preservation line; the record has read only the 2018–2022 budgets, which carried heritage and preservation on the Education Fund page. Still open: that reading, or a Board's act naming the entity."

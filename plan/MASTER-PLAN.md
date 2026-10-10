@@ -123,7 +123,7 @@ file in one of the two repositories, never only in a chat.**
 4. **Decision 5** (the two 9.1.3 drafts) — genuinely open.
 5. **The grace parameter** (90 days proposed) and directory grace.
 6. **Credentials:** an Authorize.Net account; an email provider
-   (Postmark / SES / Resend). *(On hold since Slice D1, 14 Sep 2026; numbered Q-276 on 2 Oct 2026. Slice 5 waits on it. 3 Oct 2026: David keeps the hold for now.)* *(4 Oct 2026, D99)*: slice 5 is split; **5a (email)** is taken as soon as David supplies the provider, and unblocks the join wizard for strangers and every send; **5b (payments)** follows with the processor account.
+   (Postmark / SES / Resend). *(On hold since Slice D1, 14 Sep 2026; numbered Q-276 on 2 Oct 2026. Slice 5 waits on it. 3 Oct 2026: David keeps the hold for now.)* *(4 Oct 2026, D99)*: slice 5 is split; **5a (email)** is taken as soon as David supplies the provider, and unblocks the join wizard for strangers and every send; **5b (payments)** follows with the processor account. *(10 Oct 2026, D102: the email provider is Postmark, the account in the Federation's name; 5a waits only on David creating it and placing its key.)*
 7. **The public site is built; launching it is not.** The site and its
    admin desk shipped 6–7 Sep (33 pages from afrp.org with their sources,
    the Website desk under `site:edit`, the design layer) — Q1 of
