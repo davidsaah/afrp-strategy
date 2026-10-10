@@ -1586,3 +1586,22 @@ counted as a gift. No message is sent.
 
 Round 59 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 12 recorded (12 confirmed).
 <!-- /findings: round 59 -->
+
+<!-- findings: round 60 -->
+### Slice DX1 — The decisions of 9–10 October (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A membership now runs on the calendar year. The 10 May list is read only by
+the seats the by-laws name. A member states their own birth date, a parent
+states a child's, and the registry corrects one against a document; nothing
+overwrites the history, and every operational message asks a member with no
+date on file to state it. A minor's operational message goes to the adults
+who hold standing. A club accepts or declines a member moving in, and the
+club she left stops reading her that day. A club secretary records a
+household split. The office settles a seat recorded twice before a merge. No
+message is sent.
+
+Round 60 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 19 recorded (19 confirmed).
+<!-- /findings: round 60 -->
