@@ -2544,12 +2544,12 @@
   status: open
 - id: Q-291
   title: "Anniversary years or By-Law 5.1's calendar year?"
-  detail: "By-Law 5.1 runs the membership year from 1 January to 31 December, and D6 runs a member's standing to 31 December. The Hub grants a year from the day of joining or renewing (an anniversary year). Slice LT1 (10 Oct 2026) found the difference while building the renewal letter (8.12.2) and the 10 May list. Which the platform follows, and whether a member who joins late in the year is carried into the next, are not in the record. The by-law outranks the code (D41)."
+  detail: "By-Law 5.1 runs the membership year from 1 January to 31 December, and D6 runs a member's standing to 31 December. The Hub grants a year from the day of joining or renewing (an anniversary year). Slice LT1 (10 Oct 2026) found the difference while building the renewal letter (8.12.2) and the 10 May list. Which the platform follows, and whether a member who joins late in the year is carried into the next, are not in the record. The by-law outranks the code (D41). Answered in part 10 Oct 2026 by D114: the platform follows the calendar year. Still open: whether a late-year join carries into the next year, for the AFRP Board."
   owner: "David · AFRP Board"
   goal: members
   branch: all
   source: "By-Laws 2024 5.1, 8.12.2; D6; D41; AFRP-Hub round 57 (LT1)"
-  status: open
+  status: in-part
 - id: Q-292
   title: "Is \"community\" in By-Law 8.12.6 the chapter club?"
   detail: "8.12.6 has the Membership Committee furnish the lists alphabetically per community by 10 May. Slice LT1 (10 Oct 2026) reads community as the chapter club, a design choice: a member of two clubs is on both lists, and one whose club dues lapsed is listed at the club the record last holds them at. Q-41 (which club counts) bears on it."
@@ -2568,12 +2568,13 @@
   status: open
 - id: Q-294
   title: "Who may read the 10 May list before the Executive Committee releases it?"
-  detail: "8.12.7 makes the Executive Assistant the list's custodian and shares it with Federation and ARFECF members only on the Executive Committee's approval. Slice LT1 (10 Oct 2026) gates the list before release on the Federation's roster:write, which admits the Educational Fund Secretary and the Recording Secretary, and gates the letter list the same way. Both are design choices of the build. Which seats read the list before release is not in the record."
+  detail: "8.12.7 makes the Executive Assistant the list's custodian and shares it with Federation and ARFECF members only on the Executive Committee's approval. Slice LT1 (10 Oct 2026) gates the list before release on the Federation's roster:write, which admits the Educational Fund Secretary and the Recording Secretary, and gates the letter list the same way. Both are design choices of the build. Which seats read the list before release is not in the record. Answered 10 Oct 2026 by D115."
   owner: "David · Executive Committee"
   goal: governance
   branch: all
   source: "By-Laws 2024 8.12.6, 8.12.7; AFRP-Hub round 57 (LT1)"
-  status: open
+  decided: "D115"
+  status: decided
 - id: Q-295
   title: "Does a renewal charged back after 30 April remove a member from the list?"
   detail: "A member's standing on 30 April decides the 10 May list (5.3, 8.12.5). Whether a renewal that was paid by the deadline and charged back afterwards removes the member from the list, when their standing on the deadline stood, is not in the record (slice LT1, round 57)."

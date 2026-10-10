@@ -1950,6 +1950,46 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 114 — the membership year is By-Law 5.1's calendar year
+**Status: Adopted · David Saah, 10 October 2026 (option A of the LT1 decision pack, 10 October) · answers Q-291 in part · corrects the Hub's anniversary years (D41)**
+
+### The adopted wording
+> Every membership runs to 31 December of the year it is paid for, as
+> By-Law 5.1 sets the membership year from 1 January to 31 December. A member
+> who joins during the year is paid through 31 December of that year. Whether
+> a join late in the year also covers the next year is the Board's to set;
+> until it does, there is no carry-over. The platform grants no anniversary
+> year.
+
+### What it settles
+- Q-291's first half. A build session replaces the Hub's anniversary years
+  with the calendar year, and LT1's renewal letter (8.12.2) and the 10 May
+  list read it.
+
+### What it does not settle
+- A late-year carry-over (Q-291's remainder, the AFRP Board under 5.1).
+
+---
+
+## Decision 115 — before release, the 10 May list is read by its custodian and the body that prepares it
+**Status: Adopted · David Saah, 10 October 2026 (option A of the LT1 decision pack, 10 October) · answers Q-294 · narrows slice LT1's design choice**
+
+### The adopted wording
+> Before the Executive Committee releases the 10 May list (By-Law 8.12.7),
+> only the Executive Assistant's seat, as its custodian, and the Membership
+> Committee, which prepares it under 8.12.6, read it; the Executive Committee
+> reads it to approve its release. No other seat reads it before then,
+> whatever its roster rights.
+
+### What it settles
+- Q-294. The build narrows LT1's roster:write gate on the list before release.
+
+### What it does not settle
+- Who reads the letter list, which LT1 also gates on roster:write; that list
+  is not the 8.12.6 list and this decision does not touch it.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
