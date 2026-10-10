@@ -1813,6 +1813,110 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 106 — a move between clubs is accepted by the receiving club
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-41 in part · a platform rule until the Membership Committee rules under By-Law 4.3.1**
+
+### The adopted wording
+> A member asks to move from one club to another; the receiving club's
+> officers accept or decline. The leaving club is told, not asked. The old
+> club membership ends on the day the move is accepted. Club standing under
+> By-Law 4.3.1 counts at the receiving club from the day the member's dues
+> are paid there. The member's national standing is untouched. This is the
+> platform's rule until the Membership Committee rules on moves.
+
+### What it settles
+- The move half of Q-41: C2's "Carry out the move" belongs to the receiving
+  club's officers, as a dated act on the work item in both clubs' queues.
+
+### What it does not settle
+- Whether a member may belong to two clubs at once, and which club's standing
+  then counts for a seat or a vote (Q-41's remainder, with the Membership
+  Committee and the AFRP Board).
+
+---
+
+## Decision 107 — a household split is recorded by the club secretary; the children stay attached to both
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-283 · a platform rule until the Membership Committee rules**
+
+### The adopted wording
+> Either adult of a household may ask for it to be split; the club secretary
+> records the split as a dated act, and each adult then has their own
+> household. Each child is attached to both households, and no record moves.
+> Authority over a minor stays per person (R6 §6), and a minor's club
+> attachment stays OPEN as R6 §6 ratified. A court order is a restriction
+> recorded by staff under R6 §4; it is never inferred from a split.
+
+### What it settles
+- Q-283. C2's "Change the household" proceeds for a split as above.
+
+### What it does not settle
+- A minor's club attachment across two households (R6 §6, with the Membership
+  Committee under By-Law 4.3.1).
+
+---
+
+## Decision 108 — a reported death is found untrue by the registry, or taken back by its reporter
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-284 · adopts slice C2's design choice**
+
+### The adopted wording
+> While a reported death is open, the officer who reported it may take back
+> their own report, and the federation registry may find it untrue. Each is a
+> dated act naming who made it. No one else closes a death report as untrue.
+
+### What it settles
+- Q-284. C2's built behaviour becomes the rule.
+
+### What it does not settle
+- The Magazine's death notice (D95) and R34's gate on the tree (T2f).
+
+---
+
+## Decision 109 — a voided check-in and a group removal keep their fixed words
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-285 · adopts slice C2's design choice**
+
+### The adopted wording
+> A voided check-in is marked "recorded in error", and a removal from a group
+> gives no reason. Neither takes free text (Breeze Parity §4).
+
+### What it settles
+- Q-285.
+
+---
+
+## Decision 110 — a minor's operational message goes to every adult who holds standing for them
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-286 · the by-law notice part waits on the Legal Advisor's confirmation**
+
+### The adopted wording
+> An operational message meant for a minor goes to every adult who holds
+> standing for them under R6 §1, in either household. The child is named in
+> the body, never in the subject line. A minor is still never an audience
+> member (P18 §9.2). Where a by-law notice is owed to every member, it also
+> goes to the minor's own address if one is on file, once the Legal Advisor
+> confirms that reading.
+
+### What it settles
+- Q-286's first half. The comms audience writes to the standing holders in
+  the minor's place.
+
+### What it does not settle
+- Whether a by-law notice must also reach the minor: the Legal Advisor
+  confirms (Q-286 stays in part).
+
+---
+
+## Decision 111 — a member with no birth date gets operational messages, and no marketing until they state one
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-287 · adopts slice C2's design choice**
+
+### The adopted wording
+> A member with no birth date on file receives every operational message.
+> Marketing and programme invitations wait until a birth date is stated under
+> Decision 104. The next operational message asks the member to state it.
+
+### What it settles
+- Q-287.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

@@ -207,10 +207,15 @@ topics:
     no birth date on file is a possible minor, on the tree as everywhere else (D105); one nobody
     holds standing for is not released at an event door by anyone (D103). A birth date is stated by
     the person, or for a minor by a standing holder, and corrected by the registry only against a
-    cited document (D104).
-  decisions: [D33, D34, D35, D37, D103, D104, D105]
+    cited document (D104). Either adult may ask for a household to be split; the club secretary
+    records it, and each child stays attached to both households, with authority per person and
+    club attachment OPEN (D107). A minor's operational message goes to every adult holding standing
+    for them, the child named in the body and never the subject line (D110). A member with no birth
+    date gets every operational message and no marketing or invitation until one is stated (D111).
+    A voided check-in reads "recorded in error" and a group removal gives no reason (D109).
+  decisions: [D33, D34, D35, D37, D103, D104, D105, D107, D109, D110, D111]
   superseded: []
-  open_questions: [Q-8, Q-191, Q-283, Q-286, Q-287]
+  open_questions: [Q-8, Q-191, Q-286]
   pending_act: []
 
 - key: life-events
@@ -223,7 +228,9 @@ topics:
     exception to D33 (D89, as limited by D95). A death printed in the Magazine needs the approval
     of the named family contact: the person who reported the death cannot be that contact and no
     role overrides the hold; a correspondent may enter a death, which waits for the contact (D95).
-  decisions: [D14, D31, D33, D89, D95]
+    While a reported death is open, its reporter may take it back and the federation registry may
+    find it untrue; no one else closes it as untrue (D108).
+  decisions: [D14, D31, D33, D89, D95, D108]
   superseded: ["D89's reach to deaths, by D95"]
   open_questions: [Q-193]
   pending_act: []
@@ -337,8 +344,10 @@ topics:
     Standing starts at collection, not remittance (D1). When a club goes dormant mid-year, dues its
     members have paid stay valid for the remainder of the membership year; dormancy is a club-state
     change, not a member-state change (D6). The directory grace period after a lapse is a
-    parameter D6 left unset.
-  decisions: [D1, D6]
+    parameter D6 left unset. A move between clubs is accepted by the receiving club's officers; the
+    old club membership ends that day and club standing counts at the new club from the day its
+    dues are paid, a platform rule until the Membership Committee rules (D106).
+  decisions: [D1, D6, D106]
   superseded: []
   open_questions: [Q-41, Q-43, Q-64]
   pending_act: []
