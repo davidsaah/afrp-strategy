@@ -1449,3 +1449,41 @@ supplied it (P27-J03, J04).
 
 Round 52 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 102 recorded (96 confirmed, 6 refuted, suspected or observed).
 <!-- /findings: round 52 -->
+
+<!-- findings: round 53 -->
+### Slice C1 — Club experience 1 — the officer year (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The officers form is the By-Law 3.2 filing: started from the seats held on
+last year's last day, filed by the club's president, its offices seated for
+the club's own officer year. The office's receipt derives the president's
+Council and Board seats and the club's Membership Committee seat; a club
+whose form is not received shows its president as "not seated: Article III".
+The president's seat refuses a member not in good standing of club and
+Federation (6.2.2, 6.2.3, 4.3.1); every other office is shown with its
+standing (3.1), unless the club's own switch applies the president's test.
+A mid-year change is a dated line; derived seats and grants end with their
+source, and a hand-over the register already holds is a dated change when it
+begins. The delegation is the club's dated act from the certified roll, its
+weights computed and guarded (Q-37, D5).
+
+Round 53 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 41 recorded (41 confirmed).
+<!-- /findings: round 53 -->
+
+<!-- findings: round 54 -->
+### Slice FX1 — The six Hub defects of the 4 October review (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A person with no birth date on file is a possible minor everywhere the Hub
+reads one, and every screen says "possible minor"; a person's current consent
+is one row; a merged record leaves the club's notice, roll and groups, and a
+merge leaves one live row per group; the journey corpus imports no test
+module; and binding rule 8 is held by the payments service, which names a
+card before a missing half and reads the separators people paste.
+
+Round 54 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 54 -->

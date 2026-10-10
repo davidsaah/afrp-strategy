@@ -42,8 +42,10 @@ topics:
     governance gate (D96). The queue is reshaped: done rows move to an appendix, rows that build one
     mechanism are merged onto it, a row whose gate holds only one action is a build row, slice 5 is
     split into 5a (email) and 5b (payments), R3, T2-R, T1d and T1e are one record slice, and rows
-    A2, PR0, PT1, CY1, CY2 and CM1 are added (D99).
-  decisions: [D75, D96, D99]
+    A2, PR0, PT1, CY1, CY2 and CM1 are added (D99). The Hub's email goes through Postmark, on an
+    account in the Federation's name whose key David places himself; slice 5a is then taken ahead
+    of the queue (D102).
+  decisions: [D75, D96, D99, D102]
   superseded: []
   open_questions: [Q-276, Q-275, Q-15]
   pending_act: []
@@ -60,8 +62,11 @@ topics:
     journey stubs from the design notes. A slice that only builds a register or a form, and touches
     none of voting, payments, by-laws, authority, the tree, scholarships, the directory or
     core.decision, runs a lighter loop (build, one combined attack that includes its fix layer, the
-    hygiene lints); every other slice keeps the full four steps (D99).
-  decisions: [D99]
+    hygiene lints); every other slice keeps the full four steps (D99). Where two records of one
+    person each hold the same seat for overlapping time and both record one service, the office
+    settles the pair by a dated act before the merge, citing the body's own record; the other row is
+    marked a duplicate, kept, and counts toward no term, limit or grant (D101).
+  decisions: [D99, D101]
   superseded: []
   open_questions: []
   pending_act: []
@@ -198,10 +203,19 @@ topics:
     joining a household has nothing over the children in it until a standing holder names them
     (D34). Where two standing holders disagree, the more protective answer wins (D35). An
     announcement of a birth or baptism follows D22's pattern: the household consents, withdrawably,
-    and it is re-asked at eighteen (D33), except on the Magazine's assisted door (D89).
-  decisions: [D33, D34, D35, D37]
+    and it is re-asked at eighteen (D33), except on the Magazine's assisted door (D89). A person with
+    no birth date on file is a possible minor, on the tree as everywhere else (D105); one nobody
+    holds standing for is not released at an event door by anyone (D103). A birth date is stated by
+    the person, or for a minor by a standing holder, and corrected by the registry only against a
+    cited document (D104). Either adult may ask for a household to be split; the club secretary
+    records it, and each child stays attached to both households, with authority per person and
+    club attachment OPEN (D107). A minor's operational message goes to every adult holding standing
+    for them, the child named in the body and never the subject line (D110). A member with no birth
+    date gets every operational message and no marketing or invitation until one is stated (D111).
+    A voided check-in reads "recorded in error" and a group removal gives no reason (D109).
+  decisions: [D33, D34, D35, D37, D103, D104, D105, D107, D109, D110, D111]
   superseded: []
-  open_questions: [Q-8, Q-191]
+  open_questions: [Q-8, Q-191, Q-286]
   pending_act: []
 
 - key: life-events
@@ -214,7 +228,9 @@ topics:
     exception to D33 (D89, as limited by D95). A death printed in the Magazine needs the approval
     of the named family contact: the person who reported the death cannot be that contact and no
     role overrides the hold; a correspondent may enter a death, which waits for the contact (D95).
-  decisions: [D14, D31, D33, D89, D95]
+    While a reported death is open, its reporter may take it back and the federation registry may
+    find it untrue; no one else closes it as untrue (D108).
+  decisions: [D14, D31, D33, D89, D95, D108]
   superseded: ["D89's reach to deaths, by D95"]
   open_questions: [Q-193]
   pending_act: []
@@ -328,8 +344,13 @@ topics:
     Standing starts at collection, not remittance (D1). When a club goes dormant mid-year, dues its
     members have paid stay valid for the remainder of the membership year; dormancy is a club-state
     change, not a member-state change (D6). The directory grace period after a lapse is a
-    parameter D6 left unset.
-  decisions: [D1, D6]
+    parameter D6 left unset. A move between clubs is accepted by the receiving club's officers; the
+    old club membership ends that day and club standing counts at the new club from the day its
+    dues are paid, a platform rule until the Membership Committee rules (D106). A member inside the
+    grace window still reads the directories, and reading and being shown end on the same day
+    (D113). A professional listing shows under its own consent, apart from the owner's own
+    directory row (D112).
+  decisions: [D1, D6, D106, D112, D113]
   superseded: []
   open_questions: [Q-41, Q-43, Q-64]
   pending_act: []

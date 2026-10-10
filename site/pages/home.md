@@ -40,7 +40,7 @@ As of 3 October 2026:
   P10, the club share and settlement, sits inside P18. P1 to P20 were written on 1 October. P21 to
   P27 came from the research round of 2 October, and P28, the family tree
   module, from D68 to D74.
-- **Questions.** Questions are numbered Q-1 to Q-279. The open count in the
+- **Questions.** Questions are numbered Q-1 to Q-290. The open count in the
   figures at the top of this page is worked out afresh each time the site is
   built. Answered questions keep their numbers.
 - **The build.** AFRP-Hub is built and tested in part. It is not in service:
