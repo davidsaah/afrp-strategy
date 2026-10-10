@@ -349,8 +349,9 @@ topics:
     dues are paid, a platform rule until the Membership Committee rules (D106). A member inside the
     grace window still reads the directories, and reading and being shown end on the same day
     (D113). A professional listing shows under its own consent, apart from the owner's own
-    directory row (D112).
-  decisions: [D1, D6, D106, D112, D113]
+    directory row (D112). Every membership runs to 31 December, By-Law 5.1's calendar year; there is
+    no anniversary year, and a late-year carry-over is the Board's to set (D114).
+  decisions: [D1, D6, D106, D112, D113, D114]
   superseded: []
   open_questions: [Q-41, Q-43, Q-64]
   pending_act: []
@@ -487,9 +488,11 @@ topics:
     Full digital voting is the approved direction; until the conforming amendment to By-Law 9.2 is
     ratified the 2024 text is the law, and the platform runs it in full as the transitional channel
     (D4). Whether either 9.1.3 amendment draft goes to the floor is undecided (D5, reopened).
-  decisions: [D4, D5]
+    Before the Executive Committee releases the 10 May list, only its custodian (the Executive
+    Assistant) and the Membership Committee read it (D115).
+  decisions: [D4, D5, D115]
   superseded: []
-  open_questions: [Q-1, Q-10, Q-33]
+  open_questions: [Q-1, Q-10, Q-33, Q-292, Q-293, Q-295, Q-296]
   pending_act:
   - {body: AFRP Board · Constitution Committee, act: "put the conforming 9.2 amendment to a Convention (which Convention, and who drafts it, are not yet set)", decision: D4}
 
