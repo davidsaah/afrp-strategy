@@ -1567,3 +1567,22 @@ year-end giving statement for each entity they gave to. No money moves.
 
 Round 58 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 23 recorded (23 confirmed).
 <!-- /findings: round 58 -->
+
+<!-- findings: round 59 -->
+### Slice B2b — Volunteers and the door, completed (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A club officer adds volunteer roles to an event and assigns or invites the
+club's members; each member answers on their own record, and the club sees
+who said yes and how many slots are open, never who said no. A member sets
+the days they are not available, and a club cannot assign them on those days
+or see why. A role that touches minors waits on Q-86. Reminders are drafts
+for the office. At the door, a kiosk lets a member check themselves and their
+children in with their own code, and says nothing about anyone else; the
+door keeps a headcount beside the names. A seat bought at an event is never
+counted as a gift. No message is sent.
+
+Round 59 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 12 recorded (12 confirmed).
+<!-- /findings: round 59 -->
