@@ -361,12 +361,12 @@
   status: open
 - id: Q-41
   title: Two clubs at once, and moving between clubs
-  detail: 'By-Law 4.3.1 keys good standing to "his/her AFRP and Local Club (if any)" dues, one club; the platform allows several club memberships (J02). Which club''s standing counts for a seat or a vote, whether a member may hold two, and who decides a move between clubs are not written. The minor-in-two-households attachment is the same question (Rules Register R4).'
+  detail: 'By-Law 4.3.1 keys good standing to "his/her AFRP and Local Club (if any)" dues, one club; the platform allows several club memberships (J02). Which club''s standing counts for a seat or a vote, whether a member may hold two, and who decides a move between clubs are not written. The minor-in-two-households attachment is the same question (Rules Register R4). 10 Oct 2026: slice C2 built the move as a work item in both clubs'' queues; a club''s "Carry out the move" refuses naming this question, and until it is answered a member can only withdraw from one club and join another. Answered in part 10 Oct 2026 by D106: the receiving club''s officers accept a move, as a platform rule until the Membership Committee rules. Still open: whether a member may hold two clubs at once, and which club''s standing then counts for a seat or a vote.'
   owner: Membership Committee · AFRP Board
   goal: clubs
   branch: all
   source: By-Laws 2024 (4.3.1, 6.2.3, 9.1.3); Club Experience Plan §6.3
-  status: open
+  status: in-part
 - id: Q-42
   title: The Council's monthly meeting and its attendance expectation
   detail: By-Law 10.5.1 requires the Council of Chapter Club Presidents to meet at least twice a year; in practice it meets monthly, and the 2020 letters to presidents set an attendance expectation that no record tallies and no by-law or Board rule holds. The platform can count attendance; it does not enforce a rule that is not written.
@@ -2412,12 +2412,12 @@
   status: open
 - id: Q-276
   title: "The email provider and the payment account for slice 5"
-  detail: "MASTER-PLAN §1d.6 names two credentials only David can supply: an email provider (Postmark, SES or Resend) and an Authorize.Net account. Slice D1 (14 September 2026) recorded that credentials stay on hold. Slice 5 (email provider, then payments-for-real) is gated on them, and so is every row whose gate names slice 5 for a send or for live money. Which provider, when, and whether slice 5 may close on its email half alone are not in the record. 3 Oct 2026: David keeps the hold for now."
+  detail: "MASTER-PLAN §1d.6 names two credentials only David can supply: an email provider (Postmark, SES or Resend) and an Authorize.Net account. Slice D1 (14 September 2026) recorded that credentials stay on hold. Slice 5 (email provider, then payments-for-real) is gated on them, and so is every row whose gate names slice 5 for a send or for live money. Which provider, when, and whether slice 5 may close on its email half alone are not in the record. 3 Oct 2026: David keeps the hold for now. Answered in part 10 Oct 2026 by D102: the email provider is Postmark, the account in the Federation's name. Still open: the Authorize.Net account for slice 5b."
   owner: "David"
   goal: operations
   branch: all
   source: "plan/MASTER-PLAN.md §1d.6 and §2 (slice 5); Delivery Status, Slice D1"
-  status: open
+  status: in-part
 - id: Q-277
   title: "Which entity holds the Preservation Project?"
   detail: "Q-18 asked which entity runs Women to Women, Preservation and Project Hope, and is marked decided by D55. D55's wording names Women to Women and Project Hope and does not name the Preservation Project. The programme register records the evidence: the scanning vendor's credit account carries the Education Fund's tax-exemption certificate (2026), the approved budgets of 2018–2022 carried heritage and preservation on the Education Fund page, and the pilot's scope of work was signed by the AFRP President. The record is silent on which entity holds it; the platform names none until a Board does. Answered in part 4 Oct 2026 under D99: D55's rule (the holding entity is the fund that carries the programme in the approved budget) answers it once the approved 2026–27 budget is read for a Preservation line; the record has read only the 2018–2022 budgets, which carried heritage and preservation on the Education Fund page. Still open: that reading, or a Board's act naming the entity."
@@ -2445,3 +2445,100 @@
   source: "D77; D68; design/AFRP-Family-Tree-Module.md §3.2; plan/MASTER-PLAN.md §2 (T2a)"
   decided: "D80"
   status: decided
+- id: Q-280
+  title: "Who may release at the door a possible minor nobody holds standing for?"
+  detail: "Binding rule 3 and R7 read a person with no birth date on file as a possible minor, and slice FX1 (10 Oct 2026) made that the one reading everywhere, the event door included. R6 §3 lets only a standing holder (P1 to P3) put anyone on a minor's release list, and Camp Ramallah asked for no exception when R6 was ratified. So an adult whose birth date was never taken, with no parent link or guardianship on file, can never be checked out: nobody can write their release list. The door now refuses, naming this gap (round 54). Whether such a person may leave the event's record, and on whose word, is not in the record. The platform keeps refusing until it is answered. Answered 10 Oct 2026 by D103."
+  owner: "David · Membership Committee · Camp Ramallah · Legal Advisor"
+  goal: members
+  branch: all
+  source: "design/AFRP-R6-Minor-Authority.md §3, §5 and Provenance; design/AFRP-Rules-Register.md R7; AFRP-Hub events/attendance.py (round 54)"
+  decided: "D103"
+  status: decided
+- id: Q-281
+  title: "Who records a birth date for a person already on file, and on what evidence?"
+  detail: "Every possible minor that binding rule 3 makes is resolved by a birth date. The federation registry takes a birth date only when it adds a person, and no screen records one for a member already on the rolls. By-Law 8.12.2 has an application carry the applicant's age, and R6 §1 gives a standing holder authority over a minor's record. Who may record a birth date for an existing person (the person, a household's standing holder, the club secretary, the federation registry), on what evidence, and how a wrong one is corrected are not in the record. Until answered, a possible minor already on file stays one. Answered 10 Oct 2026 by D104."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "By-Law 8.12.2; design/AFRP-R6-Minor-Authority.md §1; design/AFRP-Rules-Register.md R7; AFRP-Hub reporting/registry.py (round 54)"
+  decided: "D104"
+  status: decided
+- id: Q-282
+  title: "Is a living family-tree entry with no birth year a possible minor?"
+  detail: "The tree's own under-eighteen label reads a living entry with no birth year as an adult, while R7 and binding rule 3 read a person with no birth date as a possible minor. R7 governs the directory payload; the tree hides the living from the signed-out (D22, D28, D33) and shows a member the living in full inside their own branch, minors included (D71, answer 22; Q-268 asks whether to revisit that). Slice FX1 named the difference in its plan and did not change it. Whether the tree reads a missing birth year as a possible minor is not in the record. Answered 10 Oct 2026 by D105."
+  owner: "David · Family Tree Committee"
+  goal: heritage
+  branch: heritage
+  source: "design/AFRP-Rules-Register.md R7; design/AFRP-Family-Tree-Module.md §5; Q-268; AFRP-Hub tree/models.py (FX1 STARTED row)"
+  decided: "D105"
+  status: decided
+- id: Q-283
+  title: "Who records a household split, and where do the children's records go?"
+  detail: "A household on the register is confirmed by the club's officers (R4; Club Experience Plan §8). When two adults separate, nothing in the record says who records the split, on what evidence, or where the children's records go. R6 §6 (ratified 8 Sep 2026) holds authority per person, not per household, and leaves a minor's club attachment OPEN when they are in two households. Slice C2 (10 Oct 2026) refuses \"Change the household\" for a split, citing R6 §6, until this is answered. Answered 10 Oct 2026 by D107."
+  owner: "David · Membership Committee"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-R6-Minor-Authority.md §4, §6; design/AFRP-Rules-Register.md R4; AFRP-Hub clubs/queue.py (round 55)"
+  decided: "D107"
+  status: decided
+- id: Q-284
+  title: "Who may find a reported death untrue?"
+  detail: "A death reported by an officer waits as a work item before the record is closed (R34; binding rule 6). Slice C2 (10 Oct 2026) lets the federation registry (the registry page, roster:write) find a reported death untrue, and lets the officer who reported it take back their own report while it is open. Both are design choices of the build; the record names no one. D95 governs the Magazine's death notice and does not cover the member record. Answered 10 Oct 2026 by D108."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "D89; D95; design/AFRP-Rules-Register.md R34; AFRP-Hub clubs/queue.py (round 55)"
+  decided: "D108"
+  status: decided
+- id: Q-285
+  title: "What reasons may a voided check-in or a group removal give?"
+  detail: "Breeze Parity §4 allows no free-text note about a person. Slice C2 (10 Oct 2026) gives a voided check-in the fixed words \"recorded in error\" and a removal from a group no reason at all. Whether the record wants a short list of reasons for either, and which, is not in the record. Answered 10 Oct 2026 by D109."
+  owner: "David"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Breeze-Club-Parity.md §4; AFRP-Hub events/attendance.py, clubs/queue.py (round 55)"
+  decided: "D109"
+  status: decided
+- id: Q-286
+  title: "Who receives an operational message meant for a minor?"
+  detail: "P18 §9.2: a minor is never an audience member, and a message to a household about a child goes to the adult who holds authority (R6). Writing to that adult in the minor's place is not built, so a minor who is a national member receives no Federation operational notice and nobody receives it for them (slice C2, round 55). A by-law notice may be owed to every member, and the by-laws outrank P18. Who receives a minor's operational message, and whether a by-law notice goes to the minor as well, are not in the record. Answered in part 10 Oct 2026 by D110: the standing holders receive it. Still open: whether a by-law notice must also reach the minor, for the Legal Advisor."
+  owner: "David · Membership Committee · Legal Advisor"
+  goal: members
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §9.2; design/AFRP-R6-Minor-Authority.md §1, §2; AFRP-Hub comms/services.py (round 55)"
+  status: in-part
+- id: Q-287
+  title: "Is a member with no birth date on file written to?"
+  detail: "After slice FX1 a person with no birth date is a possible minor (binding rule 3). Slice C2 (10 Oct 2026) withholds possible minors from marketing and programme invitations and never from an operational message, a design choice. Whether a member with no birth date receives marketing and invitations, and whether their operational messages go to them or to a household adult (Q-286), are not in the record. Q-281 (who records a birth date) resolves each case one at a time. Answered 10 Oct 2026 by D111."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "design/AFRP-Rules-Register.md R7; design/AFRP-Club-Experience-Plan.md §9.2; Q-281; AFRP-Hub comms/services.py (round 55)"
+  decided: "D111"
+  status: decided
+- id: Q-288
+  title: "Does a professional listing show when its owner keeps their own row out of the directory?"
+  detail: "P19 §3 shows a listing's place of business under the listing's own consent and never the member's home address. It does not say whether the listing itself, with the owner's name, shows when the owner has withheld their own row from the members' directory. Slice DIR1 (10 Oct 2026) kept the storefront's behaviour before the slice: the listing shows under its own consent, apart from the owner's directory display. That is a design choice of the build. Answered 10 Oct 2026 by D112."
+  owner: "David · RBPN desk"
+  goal: members
+  branch: all
+  source: "design/AFRP-Directory-Formats.md §3; AFRP-Hub network/services.py (round 56.3)"
+  decided: "D112"
+  status: decided
+- id: Q-289
+  title: "May a member inside the grace window read the directories?"
+  detail: "D6 keeps a lapsed member's row in the directory for the grace window, a display state rather than an entitlement. Whether that member may still read the members' directory, the relay and the professional storefront during the window is not in the record. Slice DIR1 (10 Oct 2026) lets them, as their own row still shows. That is a design choice of the build. Answered 10 Oct 2026 by D113."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "D6; design/AFRP-Directory-Formats.md §2, §5; AFRP-Hub memberdir/views.py (round 56.5)"
+  decided: "D113"
+  status: decided
+- id: Q-290
+  title: "The RBPN taxonomy of professions"
+  detail: "P19 §3 browses the professional directory by the professions in the RBPN taxonomy the desk maintains. No taxonomy is on file. Slice DIR1 (10 Oct 2026) offers as filters the professions present on the page. The list is the RBPN desk's to supply."
+  owner: "RBPN desk"
+  goal: members
+  branch: all
+  source: "design/AFRP-Directory-Formats.md §3; AFRP-Hub network (round 56)"
+  status: open

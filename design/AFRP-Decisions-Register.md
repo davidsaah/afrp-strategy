@@ -1692,6 +1692,264 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 101 — a seat recorded twice for one person is settled by the office's act, never by the merge
+**Status: Adopted · David Saah, 10 October 2026 (option A of the decision pack of 10 October, chosen on the project's decision card) · answers the CW1 handoff row "two records of one person who each hold the same seat for overlapping time cannot be merged" (6 October 2026)**
+
+### The adopted wording
+> Where two records of one person each hold the same seat for overlapping time
+> and both record one service, the office settles the pair by a dated act
+> before the merge: it names the row that records the service, citing the
+> body's own record (its minutes or the officers form), and the other row is
+> marked a duplicate of it. A row marked a duplicate is kept and never
+> deleted, points at the row it duplicates, and counts toward no term, no
+> limit and no grant. The surviving row's dates are never changed by the
+> settling act. Where the body's record does not place the service, the pair
+> is not settled and the merge keeps refusing. The merge itself never decides
+> which row stands.
+
+### What it settles
+- The CW1 handoff row of 6 October 2026 (`identity/services.py` `merge`;
+  `committees/services.py` `seats_collide`). A build session adds the
+  duplicate state to the seat, the office's settling act, and lets the merge
+  through once every colliding pair is settled.
+- Why it matters: certification refuses while an unresolved probable-duplicate
+  pair touches the electorate (By-Law 8.11; AFRP-Electronic-Voting §2), so an
+  officer recorded twice who cannot be merged held up every election whose
+  electorate they are in. A settled pair no longer does.
+
+### What it does not settle
+- Which seat in the office holds the act. Until the delegation-of-authority
+  schedule names one, it is whoever works the merge queue today (slice 4g).
+- A pair where one row is an old term never closed: that row is ended at its
+  real date on the body's page (CW1), unchanged.
+
+---
+
+## Decision 102 — the email provider for slice 5a is Postmark
+**Status: Adopted · David Saah, 10 October 2026 (chosen on the project's decision card, from the decision pack of 10 October) · answers Q-276 in part**
+
+### The adopted wording
+> The Hub's email is sent through Postmark. The account is held in the
+> Federation's name, not a person's, so it outlives a change of volunteer;
+> transactional and bulk mail go on separate message streams, matching the
+> operational and marketing classes the record already keeps apart (R27;
+> P3's class per template). David creates the account, adds its sending
+> records to the Federation's domain beside the existing mail service's, and
+> places its key in the host's environment himself; no build session enters
+> or looks for the key. Slice 5a is then taken ahead of the queue (D100
+> item 1).
+
+### What it settles
+- Q-276's email half: the provider. MASTER-PLAN §1d.6 and slice 5a's gate now
+  wait only on the account and its key being in place.
+- The Hub: slice 5a puts Postmark behind the existing mail interface; the
+  code names no provider outside its configuration.
+
+### What it does not settle
+- The payment account for slice 5b (Authorize.Net): still on hold (Q-276).
+- Who manages the Federation's domain records, and when the account is made.
+
+---
+
+## Decision 103 — a possible minor nobody holds standing for is not released at the door
+**Status: Adopted · David Saah, 10 October 2026 (option A of the FX1 decision pack, 10 October) · answers Q-280**
+
+### The adopted wording
+> A person the record reads as a possible minor, for whom no one holds
+> standing under R6 §1, is not released at an event door by anyone. R6 §3
+> stands as ratified on 8 September 2026, with no exception. The door's
+> refusal names the route that resolves it: a birth date recorded under
+> Decision 104. Until then the attendance record shows the person checked in
+> and not checked out.
+
+### What it settles
+- Q-280. The door's refusal of round 54 is the rule, not a gap; it now names
+  D104 as the way out rather than a missing record.
+
+### What it does not settle
+- Nothing about a person someone does hold standing for: R6 §3's release list
+  is unchanged.
+
+---
+
+## Decision 104 — a birth date is stated by its subject, or for a minor by a standing holder
+**Status: Adopted · David Saah, 10 October 2026 (option A of the FX1 decision pack, 10 October) · answers Q-281**
+
+### The adopted wording
+> A birth date for a person already on file is recorded by the person, signed
+> in, or for a minor by an adult who holds standing for them under R6 §1. It
+> is recorded as stated, with who stated it and when. The federation registry
+> may correct it only against a document it cites. Every entry and correction
+> is a dated act; none overwrites the history. No one else records a birth
+> date, and the platform never infers one.
+
+### What it settles
+- Q-281. A build session adds the screen for a signed-in person and for a
+  standing holder, and the registry's correction against a cited document.
+- Most cases behind D103, D105 and Q-287 resolve one person at a time, as
+  dates are stated.
+
+### What it does not settle
+- Whether a self-stated date that turns a recorded minor into an adult needs
+  the registry's confirmation. Not adopted; the decision pack named it as a
+  possible guard.
+
+---
+
+## Decision 105 — the tree reads a missing birth year as the Hub does: a possible minor
+**Status: Adopted · David Saah, 10 October 2026 (option A of the FX1 decision pack, 10 October) · answers Q-282**
+
+### The adopted wording
+> A living person in the family tree with no birth year on file is a possible
+> minor, as R7 and binding rule 3 read a missing birth date everywhere else in
+> the Hub. A birth year recorded by the subject or a standing holder
+> (Decision 104), or by the Family Tree Committee, resolves it.
+
+### What it settles
+- Q-282. The tree's own under-eighteen label takes the Hub's one reading.
+
+### What it does not settle
+- Q-268: whether minors' dates show inside one's own branch. Unchanged.
+
+---
+
+## Decision 106 — a move between clubs is accepted by the receiving club
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-41 in part · a platform rule until the Membership Committee rules under By-Law 4.3.1**
+
+### The adopted wording
+> A member asks to move from one club to another; the receiving club's
+> officers accept or decline. The leaving club is told, not asked. The old
+> club membership ends on the day the move is accepted. Club standing under
+> By-Law 4.3.1 counts at the receiving club from the day the member's dues
+> are paid there. The member's national standing is untouched. This is the
+> platform's rule until the Membership Committee rules on moves.
+
+### What it settles
+- The move half of Q-41: C2's "Carry out the move" belongs to the receiving
+  club's officers, as a dated act on the work item in both clubs' queues.
+
+### What it does not settle
+- Whether a member may belong to two clubs at once, and which club's standing
+  then counts for a seat or a vote (Q-41's remainder, with the Membership
+  Committee and the AFRP Board).
+
+---
+
+## Decision 107 — a household split is recorded by the club secretary; the children stay attached to both
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-283 · a platform rule until the Membership Committee rules**
+
+### The adopted wording
+> Either adult of a household may ask for it to be split; the club secretary
+> records the split as a dated act, and each adult then has their own
+> household. Each child is attached to both households, and no record moves.
+> Authority over a minor stays per person (R6 §6), and a minor's club
+> attachment stays OPEN as R6 §6 ratified. A court order is a restriction
+> recorded by staff under R6 §4; it is never inferred from a split.
+
+### What it settles
+- Q-283. C2's "Change the household" proceeds for a split as above.
+
+### What it does not settle
+- A minor's club attachment across two households (R6 §6, with the Membership
+  Committee under By-Law 4.3.1).
+
+---
+
+## Decision 108 — a reported death is found untrue by the registry, or taken back by its reporter
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-284 · adopts slice C2's design choice**
+
+### The adopted wording
+> While a reported death is open, the officer who reported it may take back
+> their own report, and the federation registry may find it untrue. Each is a
+> dated act naming who made it. No one else closes a death report as untrue.
+
+### What it settles
+- Q-284. C2's built behaviour becomes the rule.
+
+### What it does not settle
+- The Magazine's death notice (D95) and R34's gate on the tree (T2f).
+
+---
+
+## Decision 109 — a voided check-in and a group removal keep their fixed words
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-285 · adopts slice C2's design choice**
+
+### The adopted wording
+> A voided check-in is marked "recorded in error", and a removal from a group
+> gives no reason. Neither takes free text (Breeze Parity §4).
+
+### What it settles
+- Q-285.
+
+---
+
+## Decision 110 — a minor's operational message goes to every adult who holds standing for them
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-286 · the by-law notice part waits on the Legal Advisor's confirmation**
+
+### The adopted wording
+> An operational message meant for a minor goes to every adult who holds
+> standing for them under R6 §1, in either household. The child is named in
+> the body, never in the subject line. A minor is still never an audience
+> member (P18 §9.2). Where a by-law notice is owed to every member, it also
+> goes to the minor's own address if one is on file, once the Legal Advisor
+> confirms that reading.
+
+### What it settles
+- Q-286's first half. The comms audience writes to the standing holders in
+  the minor's place.
+
+### What it does not settle
+- Whether a by-law notice must also reach the minor: the Legal Advisor
+  confirms (Q-286 stays in part).
+
+---
+
+## Decision 111 — a member with no birth date gets operational messages, and no marketing until they state one
+**Status: Adopted · David Saah, 10 October 2026 (option A of the C2 decision pack, 10 October) · answers Q-287 · adopts slice C2's design choice**
+
+### The adopted wording
+> A member with no birth date on file receives every operational message.
+> Marketing and programme invitations wait until a birth date is stated under
+> Decision 104. The next operational message asks the member to state it.
+
+### What it settles
+- Q-287.
+
+---
+
+## Decision 112 — a professional listing shows under its own consent
+**Status: Adopted · David Saah, 10 October 2026 (option A of the DIR1 decision pack, 10 October) · answers Q-288 · adopts slice DIR1's design choice**
+
+### The adopted wording
+> A professional listing shows under the consent its owner gave for the
+> listing, apart from whether the owner shows their own row in the members'
+> directory. Withholding the row does not withdraw the listing; withdrawing
+> the listing's consent does. The place of business is listing data and is
+> never the member's home address (P19 §3).
+
+### What it settles
+- Q-288. DIR1's storefront behaviour is the rule.
+
+### What it does not settle
+- The RBPN taxonomy of professions (Q-290), and whether paying for a listing
+  on the platform is built (workflow `directory-consent`).
+
+---
+
+## Decision 113 — a member inside the grace window reads the directories
+**Status: Adopted · David Saah, 10 October 2026 (option A of the DIR1 decision pack, 10 October) · answers Q-289 · adopts slice DIR1's design choice**
+
+### The adopted wording
+> A member whose dues have lapsed and who is inside D6's grace window may
+> read the members' directory, the relay and the professional storefront,
+> as their own row still shows. Both end on the same day. The page offers
+> renewal throughout the window.
+
+### What it settles
+- Q-289. Reading and being shown end together at the grace window's end.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 
