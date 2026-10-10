@@ -1525,3 +1525,24 @@ there.
 
 Round 56 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
 <!-- /findings: round 56 -->
+
+<!-- findings: round 57 -->
+### Slice LT1 — The letters, the renewal sequence and the onboarding letters (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The Federation's letters are on the platform as drafts: a renewal notice to
+every current member on the Membership Committee's date, one reminder at a
+time and none after paying, a notice on the day national dues lapse, a
+welcome on a join with the consents the member set, a welcome package to a
+new Board or committee member read from the registers, the club president's
+letter when the officers form is received, and an out-of-compliance notice
+when a seated member lapses. A letter about a minor goes to the adults
+holding authority, and a letter that cannot be addressed is listed for the
+office. Nothing is sent until the sends are switched on (slice 5a). The
+Membership Committee's 10 May list is read from the paid scopes, by club,
+and a scope current with nothing paid is shown apart.
+
+Round 57 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 29 recorded (29 confirmed).
+<!-- /findings: round 57 -->
