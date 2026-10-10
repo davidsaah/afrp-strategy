@@ -1487,3 +1487,41 @@ card before a missing half and reads the separators people paste.
 
 Round 54 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
 <!-- /findings: round 54 -->
+
+<!-- findings: round 55 -->
+### Slice C2 — The secretary's queue, the member's club view, and the work item (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+Follow-ups, the tree's change requests and the merge queue are work items:
+owned, dated, resolved by an act, never deleted, never rewritten. Each club
+has a secretary's queue for a join, a move, a reported death, a household
+split and a person it met, closed from fixed lists and carrying no note
+about anyone; a death reported in error is closed by the register or taken
+back by its reporter. A club can switch on a welcome call and a first-visit
+call. A member mutes a club, the Federation or email, and sees both
+standings, their attendance and their move request on their own club page.
+A minor is in no audience.
+
+Round 55 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 55 -->
+
+<!-- findings: round 56 -->
+### Slice DIR1 — The directory with membership identified, at club scale, and professional services (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+Every directory row says "AFRP member" and names its clubs. A club's name
+finds its members, and each club page links to its own filtered directory;
+the roster stays the officers'. Professional services lists members'
+professions under their own field choices and the practices listed with the
+RBPN, each with its place of business and "licence not verified", browsable
+by profession and by city. Both directories, the relay and the storefront are
+for members. A lapse past the window drops the row and the practice on the
+same day, a paid year that runs out ends its listing, and a minor is never
+there.
+
+Round 56 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 56 -->
