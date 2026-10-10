@@ -361,7 +361,7 @@
   status: open
 - id: Q-41
   title: Two clubs at once, and moving between clubs
-  detail: 'By-Law 4.3.1 keys good standing to "his/her AFRP and Local Club (if any)" dues, one club; the platform allows several club memberships (J02). Which club''s standing counts for a seat or a vote, whether a member may hold two, and who decides a move between clubs are not written. The minor-in-two-households attachment is the same question (Rules Register R4).'
+  detail: 'By-Law 4.3.1 keys good standing to "his/her AFRP and Local Club (if any)" dues, one club; the platform allows several club memberships (J02). Which club''s standing counts for a seat or a vote, whether a member may hold two, and who decides a move between clubs are not written. The minor-in-two-households attachment is the same question (Rules Register R4). 10 Oct 2026: slice C2 built the move as a work item in both clubs'' queues; a club''s "Carry out the move" refuses naming this question, and until it is answered a member can only withdraw from one club and join another.'
   owner: Membership Committee · AFRP Board
   goal: clubs
   branch: all
@@ -2468,4 +2468,44 @@
   goal: heritage
   branch: heritage
   source: "design/AFRP-Rules-Register.md R7; design/AFRP-Family-Tree-Module.md §5; Q-268; AFRP-Hub tree/models.py (FX1 STARTED row)"
+  status: open
+- id: Q-283
+  title: "Who records a household split, and where do the children's records go?"
+  detail: "A household on the register is confirmed by the club's officers (R4; Club Experience Plan §8). When two adults separate, nothing in the record says who records the split, on what evidence, or where the children's records go. R6 §6 (ratified 8 Sep 2026) holds authority per person, not per household, and leaves a minor's club attachment OPEN when they are in two households. Slice C2 (10 Oct 2026) refuses \"Change the household\" for a split, citing R6 §6, until this is answered."
+  owner: "David · Membership Committee"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-R6-Minor-Authority.md §4, §6; design/AFRP-Rules-Register.md R4; AFRP-Hub clubs/queue.py (round 55)"
+  status: open
+- id: Q-284
+  title: "Who may find a reported death untrue?"
+  detail: "A death reported by an officer waits as a work item before the record is closed (R34; binding rule 6). Slice C2 (10 Oct 2026) lets the federation registry (the registry page, roster:write) find a reported death untrue, and lets the officer who reported it take back their own report while it is open. Both are design choices of the build; the record names no one. D95 governs the Magazine's death notice and does not cover the member record."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "D89; D95; design/AFRP-Rules-Register.md R34; AFRP-Hub clubs/queue.py (round 55)"
+  status: open
+- id: Q-285
+  title: "What reasons may a voided check-in or a group removal give?"
+  detail: "Breeze Parity §4 allows no free-text note about a person. Slice C2 (10 Oct 2026) gives a voided check-in the fixed words \"recorded in error\" and a removal from a group no reason at all. Whether the record wants a short list of reasons for either, and which, is not in the record."
+  owner: "David"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Breeze-Club-Parity.md §4; AFRP-Hub events/attendance.py, clubs/queue.py (round 55)"
+  status: open
+- id: Q-286
+  title: "Who receives an operational message meant for a minor?"
+  detail: "P18 §9.2: a minor is never an audience member, and a message to a household about a child goes to the adult who holds authority (R6). Writing to that adult in the minor's place is not built, so a minor who is a national member receives no Federation operational notice and nobody receives it for them (slice C2, round 55). A by-law notice may be owed to every member, and the by-laws outrank P18. Who receives a minor's operational message, and whether a by-law notice goes to the minor as well, are not in the record."
+  owner: "David · Membership Committee · Legal Advisor"
+  goal: members
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §9.2; design/AFRP-R6-Minor-Authority.md §1, §2; AFRP-Hub comms/services.py (round 55)"
+  status: open
+- id: Q-287
+  title: "Is a member with no birth date on file written to?"
+  detail: "After slice FX1 a person with no birth date is a possible minor (binding rule 3). Slice C2 (10 Oct 2026) withholds possible minors from marketing and programme invitations and never from an operational message, a design choice. Whether a member with no birth date receives marketing and invitations, and whether their operational messages go to them or to a household adult (Q-286), are not in the record. Q-281 (who records a birth date) resolves each case one at a time."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "design/AFRP-Rules-Register.md R7; design/AFRP-Club-Experience-Plan.md §9.2; Q-281; AFRP-Hub comms/services.py (round 55)"
   status: open
