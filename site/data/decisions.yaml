@@ -42,8 +42,10 @@ topics:
     governance gate (D96). The queue is reshaped: done rows move to an appendix, rows that build one
     mechanism are merged onto it, a row whose gate holds only one action is a build row, slice 5 is
     split into 5a (email) and 5b (payments), R3, T2-R, T1d and T1e are one record slice, and rows
-    A2, PR0, PT1, CY1, CY2 and CM1 are added (D99).
-  decisions: [D75, D96, D99]
+    A2, PR0, PT1, CY1, CY2 and CM1 are added (D99). The Hub's email goes through Postmark, on an
+    account in the Federation's name whose key David places himself; slice 5a is then taken ahead
+    of the queue (D102).
+  decisions: [D75, D96, D99, D102]
   superseded: []
   open_questions: [Q-276, Q-275, Q-15]
   pending_act: []
@@ -60,8 +62,11 @@ topics:
     journey stubs from the design notes. A slice that only builds a register or a form, and touches
     none of voting, payments, by-laws, authority, the tree, scholarships, the directory or
     core.decision, runs a lighter loop (build, one combined attack that includes its fix layer, the
-    hygiene lints); every other slice keeps the full four steps (D99).
-  decisions: [D99]
+    hygiene lints); every other slice keeps the full four steps (D99). Where two records of one
+    person each hold the same seat for overlapping time and both record one service, the office
+    settles the pair by a dated act before the merge, citing the body's own record; the other row is
+    marked a duplicate, kept, and counts toward no term, limit or grant (D101).
+  decisions: [D99, D101]
   superseded: []
   open_questions: []
   pending_act: []
@@ -198,10 +203,14 @@ topics:
     joining a household has nothing over the children in it until a standing holder names them
     (D34). Where two standing holders disagree, the more protective answer wins (D35). An
     announcement of a birth or baptism follows D22's pattern: the household consents, withdrawably,
-    and it is re-asked at eighteen (D33), except on the Magazine's assisted door (D89).
-  decisions: [D33, D34, D35, D37]
+    and it is re-asked at eighteen (D33), except on the Magazine's assisted door (D89). A person with
+    no birth date on file is a possible minor, on the tree as everywhere else (D105); one nobody
+    holds standing for is not released at an event door by anyone (D103). A birth date is stated by
+    the person, or for a minor by a standing holder, and corrected by the registry only against a
+    cited document (D104).
+  decisions: [D33, D34, D35, D37, D103, D104, D105]
   superseded: []
-  open_questions: [Q-8, Q-191]
+  open_questions: [Q-8, Q-191, Q-283, Q-286, Q-287]
   pending_act: []
 
 - key: life-events

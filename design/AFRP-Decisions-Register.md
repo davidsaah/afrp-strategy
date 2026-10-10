@@ -1751,6 +1751,68 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 
 ---
 
+## Decision 103 — a possible minor nobody holds standing for is not released at the door
+**Status: Adopted · David Saah, 10 October 2026 (option A of the FX1 decision pack, 10 October) · answers Q-280**
+
+### The adopted wording
+> A person the record reads as a possible minor, for whom no one holds
+> standing under R6 §1, is not released at an event door by anyone. R6 §3
+> stands as ratified on 8 September 2026, with no exception. The door's
+> refusal names the route that resolves it: a birth date recorded under
+> Decision 104. Until then the attendance record shows the person checked in
+> and not checked out.
+
+### What it settles
+- Q-280. The door's refusal of round 54 is the rule, not a gap; it now names
+  D104 as the way out rather than a missing record.
+
+### What it does not settle
+- Nothing about a person someone does hold standing for: R6 §3's release list
+  is unchanged.
+
+---
+
+## Decision 104 — a birth date is stated by its subject, or for a minor by a standing holder
+**Status: Adopted · David Saah, 10 October 2026 (option A of the FX1 decision pack, 10 October) · answers Q-281**
+
+### The adopted wording
+> A birth date for a person already on file is recorded by the person, signed
+> in, or for a minor by an adult who holds standing for them under R6 §1. It
+> is recorded as stated, with who stated it and when. The federation registry
+> may correct it only against a document it cites. Every entry and correction
+> is a dated act; none overwrites the history. No one else records a birth
+> date, and the platform never infers one.
+
+### What it settles
+- Q-281. A build session adds the screen for a signed-in person and for a
+  standing holder, and the registry's correction against a cited document.
+- Most cases behind D103, D105 and Q-287 resolve one person at a time, as
+  dates are stated.
+
+### What it does not settle
+- Whether a self-stated date that turns a recorded minor into an adult needs
+  the registry's confirmation. Not adopted; the decision pack named it as a
+  possible guard.
+
+---
+
+## Decision 105 — the tree reads a missing birth year as the Hub does: a possible minor
+**Status: Adopted · David Saah, 10 October 2026 (option A of the FX1 decision pack, 10 October) · answers Q-282**
+
+### The adopted wording
+> A living person in the family tree with no birth year on file is a possible
+> minor, as R7 and binding rule 3 read a missing birth date everywhere else in
+> the Hub. A birth year recorded by the subject or a standing holder
+> (Decision 104), or by the Family Tree Committee, resolves it.
+
+### What it settles
+- Q-282. The tree's own under-eighteen label takes the Hub's one reading.
+
+### What it does not settle
+- Q-268: whether minors' dates show inside one's own branch. Unchanged.
+
+---
+
 ## Two items for board confirmation rather than decision
 These are settled in the design and merely need the board to say so out loud:
 

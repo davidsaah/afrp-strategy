@@ -2447,28 +2447,31 @@
   status: decided
 - id: Q-280
   title: "Who may release at the door a possible minor nobody holds standing for?"
-  detail: "Binding rule 3 and R7 read a person with no birth date on file as a possible minor, and slice FX1 (10 Oct 2026) made that the one reading everywhere, the event door included. R6 §3 lets only a standing holder (P1 to P3) put anyone on a minor's release list, and Camp Ramallah asked for no exception when R6 was ratified. So an adult whose birth date was never taken, with no parent link or guardianship on file, can never be checked out: nobody can write their release list. The door now refuses, naming this gap (round 54). Whether such a person may leave the event's record, and on whose word, is not in the record. The platform keeps refusing until it is answered."
+  detail: "Binding rule 3 and R7 read a person with no birth date on file as a possible minor, and slice FX1 (10 Oct 2026) made that the one reading everywhere, the event door included. R6 §3 lets only a standing holder (P1 to P3) put anyone on a minor's release list, and Camp Ramallah asked for no exception when R6 was ratified. So an adult whose birth date was never taken, with no parent link or guardianship on file, can never be checked out: nobody can write their release list. The door now refuses, naming this gap (round 54). Whether such a person may leave the event's record, and on whose word, is not in the record. The platform keeps refusing until it is answered. Answered 10 Oct 2026 by D103."
   owner: "David · Membership Committee · Camp Ramallah · Legal Advisor"
   goal: members
   branch: all
   source: "design/AFRP-R6-Minor-Authority.md §3, §5 and Provenance; design/AFRP-Rules-Register.md R7; AFRP-Hub events/attendance.py (round 54)"
-  status: open
+  decided: "D103"
+  status: decided
 - id: Q-281
   title: "Who records a birth date for a person already on file, and on what evidence?"
-  detail: "Every possible minor that binding rule 3 makes is resolved by a birth date. The federation registry takes a birth date only when it adds a person, and no screen records one for a member already on the rolls. By-Law 8.12.2 has an application carry the applicant's age, and R6 §1 gives a standing holder authority over a minor's record. Who may record a birth date for an existing person (the person, a household's standing holder, the club secretary, the federation registry), on what evidence, and how a wrong one is corrected are not in the record. Until answered, a possible minor already on file stays one."
+  detail: "Every possible minor that binding rule 3 makes is resolved by a birth date. The federation registry takes a birth date only when it adds a person, and no screen records one for a member already on the rolls. By-Law 8.12.2 has an application carry the applicant's age, and R6 §1 gives a standing holder authority over a minor's record. Who may record a birth date for an existing person (the person, a household's standing holder, the club secretary, the federation registry), on what evidence, and how a wrong one is corrected are not in the record. Until answered, a possible minor already on file stays one. Answered 10 Oct 2026 by D104."
   owner: "David · Membership Committee"
   goal: members
   branch: all
   source: "By-Law 8.12.2; design/AFRP-R6-Minor-Authority.md §1; design/AFRP-Rules-Register.md R7; AFRP-Hub reporting/registry.py (round 54)"
-  status: open
+  decided: "D104"
+  status: decided
 - id: Q-282
   title: "Is a living family-tree entry with no birth year a possible minor?"
-  detail: "The tree's own under-eighteen label reads a living entry with no birth year as an adult, while R7 and binding rule 3 read a person with no birth date as a possible minor. R7 governs the directory payload; the tree hides the living from the signed-out (D22, D28, D33) and shows a member the living in full inside their own branch, minors included (D71, answer 22; Q-268 asks whether to revisit that). Slice FX1 named the difference in its plan and did not change it. Whether the tree reads a missing birth year as a possible minor is not in the record."
+  detail: "The tree's own under-eighteen label reads a living entry with no birth year as an adult, while R7 and binding rule 3 read a person with no birth date as a possible minor. R7 governs the directory payload; the tree hides the living from the signed-out (D22, D28, D33) and shows a member the living in full inside their own branch, minors included (D71, answer 22; Q-268 asks whether to revisit that). Slice FX1 named the difference in its plan and did not change it. Whether the tree reads a missing birth year as a possible minor is not in the record. Answered 10 Oct 2026 by D105."
   owner: "David · Family Tree Committee"
   goal: heritage
   branch: heritage
   source: "design/AFRP-Rules-Register.md R7; design/AFRP-Family-Tree-Module.md §5; Q-268; AFRP-Hub tree/models.py (FX1 STARTED row)"
-  status: open
+  decided: "D105"
+  status: decided
 - id: Q-283
   title: "Who records a household split, and where do the children's records go?"
   detail: "A household on the register is confirmed by the club's officers (R4; Club Experience Plan §8). When two adults separate, nothing in the record says who records the split, on what evidence, or where the children's records go. R6 §6 (ratified 8 Sep 2026) holds authority per person, not per household, and leaves a minor's club attachment OPEN when they are in two households. Slice C2 (10 Oct 2026) refuses \"Change the household\" for a split, citing R6 §6, until this is answered."
