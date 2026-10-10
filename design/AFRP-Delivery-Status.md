@@ -1546,3 +1546,24 @@ and a scope current with nothing paid is shown apart.
 
 Round 57 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 29 recorded (29 confirmed).
 <!-- /findings: round 57 -->
+
+<!-- findings: round 58 -->
+### Slice C3 — The club statement on the statement-run base (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+Each club has a statement on the platform: one account per entity it deals
+with (AFRP, ARFECF, ARFHSN), each totalled and settled on its own and never
+netted, every line naming the term or decision it arises under and its
+evidence, and none naming a person. The club treasurer confirms an account
+or queries one line, and the query holds that line while the rest settles.
+The Federation's treasurers record lines, build a run, settle and close it;
+approval is by the seats the Finance Committee names, and refuses by name
+until it names them (Q-47). A closed run never changes; a correction is a
+new line that can take money back, never more than was paid. A club's
+remittance of the dues it collected is a line and an act. A member sees a
+year-end giving statement for each entity they gave to. No money moves.
+
+Round 58 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 23 recorded (23 confirmed).
+<!-- /findings: round 58 -->
