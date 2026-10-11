@@ -2607,3 +2607,51 @@
   branch: all
   source: "design/AFRP-Fund-Rules.md §2, §6; D7; D8; AFRP-Hub round 62 (FR1)"
   status: open
+- id: Q-299
+  title: "How is a published Arabic term amended?"
+  detail: "P12 §3.1 has the committee open a term with its classes, details and rates, and says nothing about changing them once the term is published. Slice AR1 (11 Oct 2026) freezes a published term's rates and refuses every change to its classes and details. Whether a correction is a new dated act naming the one it corrects (R43's shape) or a re-publication, and who may make it, are for the committee with ARFECF."
+  owner: "Arabic Committee · ARFECF"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; design/AFRP-Rules-Register.md R43; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-300
+  title: "When must an Arabic term's registration windows fall?"
+  detail: "P12 §3.1 gives a term a priority window for past learners and waitlisted prospects before general registration (24 hours in 2026's practice), as two dates. It does not say whether both windows must open before the term's first session. Slice AR1 checks only that the priority window opens first."
+  owner: "Arabic Committee"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-301
+  title: "Does the Arabic term move onto the cycle engine?"
+  detail: "P29 §6 (adopted by D99) lists AR1's terms among the cycle's users, while slice CY2 names only camp, the scholarship and programme invitations as moving onto it, and P12 §3.3 calls the term's placement form 'not an application'. Whether the term becomes a cycle when CY1 lands, or stays its own object with P29 §6 corrected, is for the record to settle."
+  owner: "Project owner (the design record)"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Platform-Primitives.md §6; design/AFRP-Selection-Programmes.md §3.3; plan/MASTER-PLAN.md CY1, CY2; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-302
+  title: "Under what instrument does the Arabic committee set its rates?"
+  detail: "P12 §3.1 makes the member and public rates register rows set by 'the committee's dated act'. Slice AR1 reads that as a committee minute and accepts one as authority only for a row the catalogue marks as that committee's. Whether a minute is the instrument, or the rates need an ARFECF Board or budget act (D55 places the programme in ARFECF), is for the committee with the ARFECF Board."
+  owner: "Arabic Committee · ARFECF Board"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; D55; D60; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-303
+  title: "Which funds carry an annual valuation?"
+  detail: "P9 §3 and §4 tie the valuation to the annual distribution run of ARFECF's Endowment and Scholarship Funds, entered by the ARFECF Treasurer. Slice FR1's valuation parameter can be set on any fund row. Whether other funds (the Magazine's assets, which practice values separately since 2022, or the camp endowment) carry a valuation, and under whose act, is not stated."
+  owner: "ARFECF Board · ARFECF Treasurer · CPA"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Fund-Rules.md §2, §3, §4; AFRP-Hub round 62 (FR1)"
+  status: open
+- id: Q-304
+  title: "May the public site say gifts are tax deductible, and call a fund the Endowed Fund?"
+  detail: "The Hub's public site carries afrp.org's own words: the giving page and footer say 'Donations are tax deductible', and a page and menu item name the 'Endowed Fund'. The deductibility statement is the CPA's to confirm per entity, and P9-J18 lets a donor-facing page call a fund an endowment only where its instrument is cited (Q-95). Whether those lines stay, change or come down until both are settled is for the Executive Director with the CPA."
+  owner: "Executive Director · CPA"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Fund-Rules.md P9-J18; Q-95; AFRP-Hub round 62 (FR1)"
+  status: open
