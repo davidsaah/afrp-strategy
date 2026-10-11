@@ -1638,3 +1638,19 @@ No money moves.
 
 Round 62 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
 <!-- /findings: round 62 -->
+
+<!-- findings: round 63 -->
+### Slice AR1 — The Arabic term (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The Arabic committee opens a term, records its tracks, levels and classes,
+sets the member and public rates by its own minute for that term alone, and
+publishes it once nothing is missing; the refusal names what is. The public
+reads a published term's classes and the rates it published with, the
+teacher as the partner's role, and no person. Nobody registers and no money
+moves (AR2).
+
+Round 63 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 10 recorded (10 confirmed).
+<!-- /findings: round 63 -->
