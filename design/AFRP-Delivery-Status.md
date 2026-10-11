@@ -1654,3 +1654,20 @@ moves (AR2).
 
 Round 63 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 10 recorded (10 confirmed).
 <!-- /findings: round 63 -->
+
+<!-- findings: round 64 -->
+### Slice CR1 with AR2 — The contact record, consent v2 and Arabic registration (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A non-member registers for an Arabic class at the public rate: they verify
+their address with a code, state they are an adult, consent to be written to
+about their own classes, and pay; they are a learner on their own contact
+record, never a member, with no directory row, standing or vote. A member
+registers at the member rate. The receipt names ARFECF and calls the fee a
+purchase; the close excludes it with a warning until its account is mapped.
+Consent carries its role, scope and wording on every row, read one way.
+
+Round 64 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 21 recorded (21 confirmed).
+<!-- /findings: round 64 -->
