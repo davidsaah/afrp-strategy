@@ -2719,3 +2719,43 @@
   branch: all
   source: "By-Laws 2024 6.2.2; Q-192; AFRP-Hub round 61 (DIR2)"
   status: open
+- id: Q-313
+  title: "When must a candidate be in good standing?"
+  detail: "By-Law 9.3.1 asks for good standing \"immediately after the election and throughout their term\". Read literally, a non-member could be elected and then attain standing. The divergence note's item 13 records a provisional reading (AFRP-OV-13): good standing at nomination for every office, with \"after\" read as a continuing obligation. Slice CY1's eligibility row reads standing now, and reads undetermined short of current, citing this question until the Constitution Committee settles the reading."
+  owner: "Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.1; design/AFRP-Bylaws-2024-Divergence.md item 13 (AFRP-OV-13); AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-314
+  title: "How are the Deputy President's three prior years of standing read?"
+  detail: "By-Law 9.3.4(1) asks a Deputy President candidate for three prior years of good standing. Slice CY1 reads three membership years before the deadline's year and, short of all three on file, reads undetermined, because it cannot tell a year unpaid from a year not on file. The Selection Committee certifies (9.3.5). Whether that is the reading, and how a year missing from the records is evidenced, is the committee's to confirm."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.4(1), 9.3.5; AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-315
+  title: "Where are files uploaded to an application stored?"
+  detail: "D94 and P12 §2.2 let an applicant attach documents to an application. No file store exists or is named in the record, so slice CY1 refuses an upload as NOT BUILT. Which store holds the files (a hosting choice with retention and access consequences, and for the Scholarship bounded by binding rule 2: the packet never enters the Hub) is for David."
+  owner: "David"
+  goal: operations
+  branch: all
+  source: "D94; design/AFRP-Selection-Programmes.md §2.2; AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-316
+  title: "Does a scholarship application record how it arrived?"
+  detail: "The cycle engine records an arrival path for an application (for example, a club president's recommendation). P26 names none for the Scholarship, so the field stays empty for a scholarship application. Whether ARFECF wants one recorded, and which paths, is not stated."
+  owner: "ARFECF Scholarship Fund Committee"
+  goal: next-generation
+  branch: all
+  source: "design/AFRP-Scholarship-Awards.md; AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-317
+  title: "Is a cycle's office the position the call is for?"
+  detail: "P5 §3.2 speaks of \"the position\" a call is for. Slice CY1 makes the office a field of the cycle as a design choice, which is what ties 9.3.4(3)'s test to the Deputy President's call. A call for several vacancies at once waits on slice SC1. The Selection Committee confirms the reading."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §3.2; By-Laws 2024 9.3.4(3); AFRP-Hub round 65 (CY1)"
+  status: open
