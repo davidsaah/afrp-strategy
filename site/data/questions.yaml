@@ -2599,3 +2599,11 @@
   branch: all
   source: "design/AFRP-Letters-and-Onboarding.md §2; By-Laws 2024 6.3.1; AFRP-Hub round 57 (LT1)"
   status: open
+- id: Q-298
+  title: "Where does a gift go whose purpose is linked to no fund?"
+  detail: "P9 makes a gift draw on a fund object of its §2 and inherit that fund's entity, kind and restriction, but names no fallback for a purpose the catalogue links to no fund. Slice FR1 (the register of funds, 11 Oct 2026) refuses such a gift by name. Whether each entity's operating fund takes it, and how the giving page tells the donor before payment (as D7 requires for a surplus), is for the record to settle."
+  owner: "AFRP Board · ARFECF Board · ARFHSN Board"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Fund-Rules.md §2, §6; D7; D8; AFRP-Hub round 62 (FR1)"
+  status: open
