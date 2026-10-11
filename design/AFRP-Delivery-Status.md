@@ -1621,3 +1621,20 @@ a person's own. No message is sent.
 
 Round 61 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 15 recorded (15 confirmed).
 <!-- /findings: round 61 -->
+
+<!-- findings: round 62 -->
+### Slice FR1 — The register of funds (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The office reads every fund the record names, with who holds it, what
+governs it, its kind where the record states one, and the questions that
+hold its gaps. A gift posts only into a fund whose entity, governing text and
+kind are stated, and only through a purpose linked to it; a gift that cannot
+post refuses before a card is charged, naming the gap. The 1% and the
+emergency transfer are agreements that read register rows nobody has set.
+No money moves.
+
+Round 62 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
+<!-- /findings: round 62 -->
