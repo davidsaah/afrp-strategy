@@ -1567,3 +1567,57 @@ year-end giving statement for each entity they gave to. No money moves.
 
 Round 58 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 23 recorded (23 confirmed).
 <!-- /findings: round 58 -->
+
+<!-- findings: round 59 -->
+### Slice B2b — Volunteers and the door, completed (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A club officer adds volunteer roles to an event and assigns or invites the
+club's members; each member answers on their own record, and the club sees
+who said yes and how many slots are open, never who said no. A member sets
+the days they are not available, and a club cannot assign them on those days
+or see why. A role that touches minors waits on Q-86. Reminders are drafts
+for the office. At the door, a kiosk lets a member check themselves and their
+children in with their own code, and says nothing about anyone else; the
+door keeps a headcount beside the names. A seat bought at an event is never
+counted as a gift. No message is sent.
+
+Round 59 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 12 recorded (12 confirmed).
+<!-- /findings: round 59 -->
+
+<!-- findings: round 60 -->
+### Slice DX1 — The decisions of 9–10 October (10 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A membership now runs on the calendar year. The 10 May list is read only by
+the seats the by-laws name. A member states their own birth date, a parent
+states a child's, and the registry corrects one against a document; nothing
+overwrites the history, and every operational message asks a member with no
+date on file to state it. A minor's operational message goes to the adults
+who hold standing. A club accepts or declines a member moving in, and the
+club she left stops reading her that day. A club secretary records a
+household split. The office settles a seat recorded twice before a merge. No
+message is sent.
+
+Round 60 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 19 recorded (19 confirmed).
+<!-- /findings: round 60 -->
+
+<!-- findings: round 61 -->
+### Slice DIR2 — The leadership directory (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+Members signed in read who holds each seat of the Federation's bodies and of
+their club, and whether the seat votes, with the by-law that says so. The
+Board is composed as 6.2.2 composes it, a Past President's and an officer's
+Board seat following from the seat that makes it. A new officer succeeds the
+old on the day they take office. The office sets each body's contact, never
+a person's own. No message is sent.
+
+Round 61 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 15 recorded (15 confirmed).
+<!-- /findings: round 61 -->

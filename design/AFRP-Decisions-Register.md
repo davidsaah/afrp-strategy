@@ -2,7 +2,7 @@
 ### The human decisions the platform design waits on — what has been decided, by whom, and what each one settled
 
 **Maintained:** 4 October 2026. This is the authoritative record of the decisions the platform's
-design is built on: Decisions 1 to 99, in seven parts (the first six blocking decisions below;
+design is built on: Decisions 1 to 115, in seven parts and the decisions of 9 and 10 October (D100 to D115) (the first six blocking decisions below;
 Part 2, 20–21 August 2026; Part 3, 8 September; Part 4, 30 September; D53–D67, 30 September to
 1 October; Part 5, 2 October; Part 6, 3 October; Part 7, 4 October). When a decision is made, it is
 recorded here in the exact words the design will be built on, with the date, the decider, and the
