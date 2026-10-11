@@ -1605,3 +1605,19 @@ message is sent.
 
 Round 60 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 19 recorded (19 confirmed).
 <!-- /findings: round 60 -->
+
+<!-- findings: round 61 -->
+### Slice DIR2 — The leadership directory (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+Members signed in read who holds each seat of the Federation's bodies and of
+their club, and whether the seat votes, with the by-law that says so. The
+Board is composed as 6.2.2 composes it, a Past President's and an officer's
+Board seat following from the seat that makes it. A new officer succeeds the
+old on the day they take office. The office sets each body's contact, never
+a person's own. No message is sent.
+
+Round 61 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 15 recorded (15 confirmed).
+<!-- /findings: round 61 -->
