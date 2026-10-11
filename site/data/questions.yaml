@@ -2655,3 +2655,67 @@
   branch: all
   source: "design/AFRP-Fund-Rules.md P9-J18; Q-95; AFRP-Hub round 62 (FR1)"
   status: open
+- id: Q-305
+  title: "May a member with no birth date on file attest they are an adult at the class door?"
+  detail: "D104 treats a person with no birth date on file as a possible minor. At the Arabic class door slice AR2 asks such a member to state their birth date and does not register them meanwhile, while a non-member contact states they are an adult instead, as P21 §12 allows (a contact carries no birth date). Whether a member may attest adulthood as a contact does, or must state the date, is not in the record. Raised by round 64 (CR1 with AR2, 11 Oct 2026)."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "D104; design/AFRP-Contact-Record.md §12; design/AFRP-Selection-Programmes.md §3.1; AFRP-Hub round 64 (CR1/AR2)"
+  status: open
+- id: Q-306
+  title: "Does a term not yet begun make someone a past learner?"
+  detail: "P12 §3.1 gives past learners a priority window. The record does not say whether a place held in a term that has not yet begun counts. Slice AR2 counts a place held in a term that began before the one being registered for, and refuses, naming the missing date, when a term has no first session date."
+  owner: "Arabic Committee"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; AFRP-Hub round 64 (CR1/AR2)"
+  status: open
+- id: Q-307
+  title: "Do member-to-member merges wait for CR3 when one record holds a contact role?"
+  detail: "P21 §7.3 sets how two contact records are merged, and slice CR3 builds it. Since round 64 the member merge refuses any record held under a contact role, which also blocks two member records for one person where one took an Arabic class while lapsed. Whether such member-to-member merges wait for CR3, or follow the member merge with the role carried as §7.4 describes, is not stated."
+  owner: "Project owner (the design record)"
+  goal: members
+  branch: all
+  source: "design/AFRP-Contact-Record.md §7.3, §7.4; plan/MASTER-PLAN.md CR3; AFRP-Hub round 64 (CR1/AR2)"
+  status: open
+- id: Q-308
+  title: "Do the 7.1.1 seats outside the Executive Committee read the 10 May list?"
+  detail: "D115 lets the Executive Committee's seats read the 10 May list before its release. By-Law 7.1.1 also places the ARFECF Scholarship Fund Secretary, the ARFECF President and the Executive Director on that list's distribution. Whether those three read it before release is not stated. Raised by round 61 (DIR2)."
+  owner: "David"
+  goal: governance
+  branch: all
+  source: "D115; By-Laws 2024 7.1.1; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-309
+  title: "Is a re-elected officer a new seat each year for the term limit?"
+  detail: "By-Law 9.3.3 limits consecutive terms. The platform seats an officer at each election and counts each seat toward the limit. Whether an officer re-elected holds a new seat each year or one seat held on is not stated in the record."
+  owner: "Constitution Committee · Selection Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.3; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-310
+  title: "How long a gap ends a run of consecutive terms?"
+  detail: "Under By-Law 9.3.3 a vacancy between two of an officer's terms, with no one else elected to the seat, may or may not end the consecutive run. The record does not size the gap, so the platform refuses and names this question."
+  owner: "Constitution Committee · Selection Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.3; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-311
+  title: "Who seats an outgoing President on the Council of Past Presidents?"
+  detail: "When a President's term ends, the platform does not seat them on the Council of Past Presidents itself: the office does, and the Board seat follows from it. The record does not say whether the seat is automatic at the end of the term or an act of the office or the Council."
+  owner: "AFRP Board · Executive Director"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 6.3.1; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-312
+  title: "How are the RBPN, Magazine and Foundation members succeeded?"
+  detail: "The RBPN, Magazine and Foundation members of the Board hold one-year terms. The record says nothing of their succession, so the platform ends each seat on its date and seats no successor until one is entered. The Magazine's appointing body is Q-192."
+  owner: "AFRP Board · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 6.2.2; Q-192; AFRP-Hub round 61 (DIR2)"
+  status: open
