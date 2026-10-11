@@ -1671,3 +1671,19 @@ Consent carries its role, scope and wording on every row, read one way.
 
 Round 64 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 21 recorded (21 confirmed).
 <!-- /findings: round 64 -->
+
+<!-- findings: round 65 -->
+### Slice CY1 — The cycle engine (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+One engine runs every programme's call. Two cycles from the record run on
+it side by side: the Selection Committee's Deputy President call (members
+only, letters judged by postmark against 28 February, a drive link only)
+and the Scholarship Committee's (open to any descendant, nothing held,
+lateness left to the committee). The register page shows each with its
+citations and counts, and no applicant by name.
+
+Round 65 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 65 -->
