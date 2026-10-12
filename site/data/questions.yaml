@@ -2847,3 +2847,91 @@
   branch: all
   source: "By-Laws 2024 7.9.4, 7.9.7, 7.9.8, Article XVII; AFRP-Hub round 66 (SC1)"
   status: open
+- id: Q-329
+  title: "How does the list read 8.12.4's tender and own-funds limbs?"
+  detail: "By-Law 8.12.4 accepts for voting only dues paid by credit card, check or money order from the member's own funds. P5 §3.8 and D1 do not carry either limb, and the payment record can tell neither cash from a cheque nor whose funds paid. Slice SC4 (round 67) lists a club's collection, or a join taken offline, flagged \"payment channel not recorded (8.12.4)\" and \"own funds not recorded\" for the Selection Committee, and removes no one on either limb. What the platform must record at the payment door, and what the committee does with a flagged row, is not in the record."
+  owner: "Selection Committee · AFRP General Treasurer"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 8.12.4; D1; design/AFRP-Selection-Committee-Workflow.md §3.8; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-330
+  title: "What does a merge do to a certified roll?"
+  detail: "The electronic voting note (§2) holds certification until the merge queue before it is cleared, and says nothing of a merge after. Slice SC4 refuses a merge whose closing record is on this year's certified roll, a later year's, or one a draft election names. It lets a stub merged into a certified member go through and clear its pair. Whether a certified roll may change by a merge, and how, is not stated."
+  owner: "Selection Committee · Project owner (the design record)"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Electronic-Voting.md §2; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-331
+  title: "Is the year's certification one act, or one per community?"
+  detail: "P5 §3.8 says \"a community's list cannot be certified while a probable duplicate in it is unresolved\", which reads as certification per community. Slice SC4 certifies once for the year, so one unresolved pair holds every community. A pair whose records hold a verification change can be merged neither way (Q-322). Which reading holds is the Selection Committee's."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §3.8; Q-322; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-332
+  title: "Is a member with no birth date on file in the franchise?"
+  detail: "By-Law 4.1.1 sets the age of membership, and binding rule 3 (D104) treats a record with no birth date as a possible minor. Slice SC4 lists and certifies such a member, flagged \"birth date not on file: the record is incomplete\" for the Selection Committee, and shows no date, age or minor status beside the name. Whether they vote until the date is stated is not in the record."
+  owner: "Membership Committee · Selection Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 4.1.1; D104; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-333
+  title: "Who links an election to the year's certification?"
+  detail: "The record does not say who ties an election to the Selection Committee's certified roll, or when. Slice SC4 makes the link the election console's recorded act by the holder of ballot:certify, labelled interim, until slice CW4. Which text governs the election is read from the corpus (Q-33, D96)."
+  owner: "Selection Committee · Executive Committee"
+  goal: governance
+  branch: all
+  source: "D96; Q-33; plan/MASTER-PLAN.md CW4; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-334
+  title: "Which text governs once a later constitution is on file?"
+  detail: "The election console reads the text in force as the ratified reading of the 2024 text, else the 2024 text by name (Q-33, D96). The record does not say which text governs once a later constitution is on file, whether by an adoption date or a ratified reading of another text, nor whether the Selection Committee's certification under 9.3.5 carries into a restatement. The console and certification refuse, naming D41 and Q-33."
+  owner: "Constitution Committee · AFRP Board"
+  goal: governance
+  branch: all
+  source: "D41; D96; Q-33; By-Laws 2024 9.3.5; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-335
+  title: "Which certification serves an election held before the year's certification?"
+  detail: "An election whose record date falls between January and the year's certification (May) has no certified roll for its year. Slice SC4 refuses the link and refuses a certification of a year other than the record date's. Whether the prior year's roll serves, or no such election runs, is not stated."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 8.12.5, 9.3.5; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-336
+  title: "May a family-tier record under the age of membership challenge the list?"
+  detail: "P5 §3.8 lets \"a member\" challenge the list. Whether a record under the age of membership that holds a national row through a family tier is a member for that purpose, and so whether a record with no birth date (a possible minor, binding rule 3) may file, is not stated. Slice SC4 refuses both, names no child on any committee page, and reads standing to challenge as national standing current on the filing date (Q-78)."
+  owner: "Membership Committee · Selection Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §3.8; By-Laws 2024 4.1.1; Q-78; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-337
+  title: "How is a postmark recorded under 5.3?"
+  detail: "By-Law 5.3 enfranchises dues postmarked by 30 April as well as dues received by then. The payment record holds no postmark, so slice SC4 holds a payment received after the deadline and shows it so. Who records a postmark, and on what evidence, is not stated. Q-293 asks whether a club's collection counts as received at the office."
+  owner: "Executive Director · AFRP General Treasurer"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 5.3, 8.12.5; Q-293; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-338
+  title: "Dues paid by another, and a household payer under 9.5.5"
+  detail: "8.12.4 accepts dues from the member's own funds. Whether dues paid by another person disqualify the vote, and whether a household payer is family for 9.5.5, is not stated. Slice SC4 flags such a payment as a reading for the Selection Committee and never decides it."
+  owner: "Selection Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 8.12.4, 9.5.5; AFRP-Hub round 67 (SC4)"
+  status: open
+- id: Q-339
+  title: "Who reads the list after the 8.12.7 release?"
+  detail: "8.12.7 shares the list with \"members of the Federation and ARFECF\" on the Executive Committee's approval, and names no seats. D115 settles who reads before release. Slice SC4 opens no new read at release. Who reads the list after release, and how, is not stated."
+  owner: "Executive Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 8.12.7; D115; AFRP-Hub round 67 (SC4)"
+  status: open
