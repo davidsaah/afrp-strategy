@@ -3007,3 +3007,91 @@
   branch: all
   source: "design/AFRP-Scholarship-Awards.md §2.2; AFRP-Hub round 68 (SA1)"
   status: open
+- id: Q-349
+  title: "Who appoints the Magazine's subscriptions manager and treasurer?"
+  detail: "P24 §4 says the two staff seats that sign the reconciliation are \"appointed by the Magazine\" and names no appointing seat. Whose body the Magazine's staff is, AFRP's or ARFECF's, is Q-192; this asks who makes the appointment. Slice MG2 (round 69) refuses every signature until both are answered."
+  owner: "The Magazine · AFRP Board"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Magazine-Operations.md §4, §5.2; Q-192; AFRP-Hub round 69 (MG2)"
+  status: open
+- id: Q-350
+  title: "May a lapsed member keep a Magazine subscription?"
+  detail: "Slice MG2 records a former member's subscription, flags it \"membership lapsed\" on the desk and never drops it. No rule says whether a lapsed member may keep subscribing, at which price, or whether the subscription ends with the membership."
+  owner: "The Magazine · Membership Committee"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Magazine-Operations.md §5.1; AFRP-Hub round 69 (MG2)"
+  status: open
+- id: Q-351
+  title: "A deceased subscriber's copy and past payments"
+  detail: "Slice MG2 keys nothing for a subscriber recorded as dead and leaves them off the print list, reading the database (binding rule 6). The reconciliation also refuses a line for a dead subscriber's past payments. Whether a household continues the copy, and whether the reconciliation keys the past payments for the record, is not written."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Magazine-Operations.md §5.1, §5.2; AFRP-Hub round 69 (MG2)"
+  status: open
+- id: Q-352
+  title: "Which consent governs the Magazine's mailing?"
+  detail: "The consent key magazine.print speaks of \"the mail run\" (P21 rule 10), and P24 §5.1 adds its own subscription-address consent, which also speaks of the mail run. Which governs the mailing, and whether the older wording is withdrawn, is not settled."
+  owner: "Project owner (the design record)"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Contact-Record.md §12 rule 10; design/AFRP-Magazine-Operations.md §5.1; AFRP-Hub round 69 (MG2)"
+  status: open
+- id: Q-353
+  title: "May a payment system's reference hold a long number?"
+  detail: "Binding rule 8 keeps card numbers out, and slice MG2 also refuses a cheque's account and routing numbers. A reference another system issued (the payment portal's, a terminal's, the registration system's) may itself be a long run of digits. After its audit, MG2 holds such references to the card test and to a cheque's MICR shape, and holds a cheque's or cash reference and every note to an eight-digit test. Whether a system's reference may hold a long number, and whether the MICR shape is the right line, is for the record to confirm."
+  owner: "AFRP General Treasurer · Project owner (the design record)"
+  goal: voice
+  branch: all
+  source: "Binding rule 8; design/AFRP-Magazine-Operations.md §5.1, §5.2; AFRP-Hub round 69 (MG2 fix layer and audit)"
+  status: open
+- id: Q-354
+  title: "What does a bounced cheque make a subscriber?"
+  detail: "When a cheque bounces, slice MG2 voids the payment, including one the opening list counted, and status reads the corrected rows. Whether the subscriber is then in grace on last year's term or lapsed at once is not written; the desk and the member's page say so."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Magazine-Operations.md §5.1; AFRP-Hub round 69 (MG2)"
+  status: open
+- id: Q-355
+  title: "Does a payment received before a subscription opened count for it?"
+  detail: "P24 §5.1 does not say. Slice MG2 refuses such a payment on the desk and on the reconciliation alike. As a result, a cheque received between the reconciliation period's end and the day the manager opened the subscription cannot be recorded, and its subscriber reads lapsed and drops off the print list until this is answered."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Magazine-Operations.md §5.1, §5.2; AFRP-Hub round 69 (MG2 fix layer and audit)"
+  status: open
+- id: Q-356
+  title: "May a club line answered \"stands\" be queried again before settlement?"
+  detail: "P18 §5.3 does not say whether a reconciliation line a club answered \"stands\" may be queried again on the same run. Slice C3's database allows one query per line per run, and slice MG2 now names that rule when it refuses. If a second query should be allowed, that is a change to C3."
+  owner: "Project owner (the design record)"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §5.3; AFRP-Hub round 69 (MG2 fix layer)"
+  status: open
+- id: Q-357
+  title: "How far back may a Magazine subscription's opening be dated?"
+  detail: "The desk's opening day is the manager's dated act, and the record does not say how far back it may reach. Slice MG2 accepts a day before the member's membership began, and before the subscriber turned eighteen: adulthood is read on the day of the act only, because checking the opening day against a birth date made the desk a way to learn a person's birthday. Whether an opening may reach before the membership began, or before the subscriber's eighteenth birthday, knowing that refusing the second would reveal an age to a desk holder with no roster access, is not decided."
+  owner: "David · The Magazine · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "Binding rule 3; D104; design/AFRP-Magazine-Operations.md §5.1; AFRP-Hub round 69 (MG2 audit)"
+  status: open
+- id: Q-358
+  title: "Should the card-number guard be narrowed for system identifiers?"
+  detail: "Binding rule 8's card test reads about one identifier in 900 of the registration system's kind (a GUID) as a valid card number across its dashes, so such a line is refused as a card number. Changing the guard changes what may cross the payment boundary, which binding rule 8 reserves to the Board."
+  owner: "AFRP Board"
+  goal: operations
+  branch: all
+  source: "Binding rule 8; design/AFRP-Magazine-Operations.md §1; AFRP-Hub round 69 (MG2 audit)"
+  status: open
+- id: Q-359
+  title: "Does undoing an opening-list void need a second signature?"
+  detail: "Slice MG2 corrects a void of an opening-list term with a new row, on the same desk and under the same permission as the void, with a reason and evidence on file. The term was reconciled under two signatures, and the record names no second signature for undoing its void."
+  owner: "The Magazine · AFRP General Treasurer"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Magazine-Operations.md §5.2; R24; AFRP-Hub round 69 (MG2 audit)"
+  status: open
