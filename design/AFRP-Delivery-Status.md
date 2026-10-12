@@ -1654,3 +1654,56 @@ moves (AR2).
 
 Round 63 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 10 recorded (10 confirmed).
 <!-- /findings: round 63 -->
+
+<!-- findings: round 64 -->
+### Slice CR1 with AR2 — The contact record, consent v2 and Arabic registration (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A non-member registers for an Arabic class at the public rate: they verify
+their address with a code, state they are an adult, consent to be written to
+about their own classes, and pay; they are a learner on their own contact
+record, never a member, with no directory row, standing or vote. A member
+registers at the member rate. The receipt names ARFECF and calls the fee a
+purchase; the close excludes it with a warning until its account is mapped.
+Consent carries its role, scope and wording on every row, read one way.
+
+Round 64 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 21 recorded (21 confirmed).
+<!-- /findings: round 64 -->
+
+<!-- findings: round 65 -->
+### Slice CY1 — The cycle engine (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+One engine runs every programme's call. Two cycles from the record run on
+it side by side: the Selection Committee's Deputy President call (members
+only, letters judged by postmark against 28 February, a drive link only)
+and the Scholarship Committee's (open to any descendant, nothing held,
+lateness left to the committee). The register page shows each with its
+citations and counts, and no applicant by name.
+
+Round 65 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 65 -->
+
+<!-- findings: round 66 -->
+### Slice SC1 — Selection Committee 1, the committee and the cycle, and the programme cycles (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The Selection Committee's seats now come from the record's own acts: a club
+president recommends one or two members, the President submits them, the
+Executive Committee makes a slate counted against two per city over the
+whole term, and the Board chooses from it; a member sitting before the
+platform is loaded from the committee's sheet once the platform's first day
+is set. A member applies to a call on the platform, or the committee records
+a letter or a delivery in person with its postmark or day; nothing is
+refused for the cycle's state, and each person sees only what P5 §5 gives
+their seat. The programme profiles stand on the cycle engine with their
+entities from D55, and no money is raised where none is stated.
+
+Round 66 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 26 recorded (26 confirmed).
+<!-- /findings: round 66 -->
