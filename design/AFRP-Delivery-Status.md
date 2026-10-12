@@ -1707,3 +1707,23 @@ entities from D55, and no money is raised where none is stated.
 
 Round 66 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 26 recorded (26 confirmed).
 <!-- /findings: round 66 -->
+
+<!-- findings: round 67 -->
+### Slice SC4 — Selection Committee 4, certification of members and delegates (12 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The 10 May list is now taken once by the Membership Committee chair and
+released by its date; the Selection Committee verifies each community,
+every change citing its clause and keeping a member in their own club,
+and certifies the year's roll. An election under the 2024 text is linked
+to that certification on its page and writes its roll from it and nothing
+else, and the clubs' counts and delegations read only its rows. A
+chargeback after 30 April annotates and never removes; a cash collection
+and a missing birth date are flagged for the committee, never decided; no
+committee page names a minor; and a merge that would put a closed record
+on a certified roll refuses, naming what the record has not written.
+
+Round 67 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 24 recorded (24 confirmed).
+<!-- /findings: round 67 -->
