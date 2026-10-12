@@ -1687,3 +1687,23 @@ citations and counts, and no applicant by name.
 
 Round 65 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
 <!-- /findings: round 65 -->
+
+<!-- findings: round 66 -->
+### Slice SC1 — Selection Committee 1, the committee and the cycle, and the programme cycles (11 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The Selection Committee's seats now come from the record's own acts: a club
+president recommends one or two members, the President submits them, the
+Executive Committee makes a slate counted against two per city over the
+whole term, and the Board chooses from it; a member sitting before the
+platform is loaded from the committee's sheet once the platform's first day
+is set. A member applies to a call on the platform, or the committee records
+a letter or a delivery in person with its postmark or day; nothing is
+refused for the cycle's state, and each person sees only what P5 §5 gives
+their seat. The programme profiles stand on the cycle engine with their
+entities from D55, and no money is raised where none is stated.
+
+Round 66 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 26 recorded (26 confirmed).
+<!-- /findings: round 66 -->
