@@ -2607,3 +2607,243 @@
   branch: all
   source: "design/AFRP-Fund-Rules.md §2, §6; D7; D8; AFRP-Hub round 62 (FR1)"
   status: open
+- id: Q-299
+  title: "How is a published Arabic term amended?"
+  detail: "P12 §3.1 has the committee open a term with its classes, details and rates, and says nothing about changing them once the term is published. Slice AR1 (11 Oct 2026) freezes a published term's rates and refuses every change to its classes and details. Whether a correction is a new dated act naming the one it corrects (R43's shape) or a re-publication, and who may make it, are for the committee with ARFECF."
+  owner: "Arabic Committee · ARFECF"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; design/AFRP-Rules-Register.md R43; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-300
+  title: "When must an Arabic term's registration windows fall?"
+  detail: "P12 §3.1 gives a term a priority window for past learners and waitlisted prospects before general registration (24 hours in 2026's practice), as two dates. It does not say whether both windows must open before the term's first session. Slice AR1 checks only that the priority window opens first."
+  owner: "Arabic Committee"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-301
+  title: "Does the Arabic term move onto the cycle engine?"
+  detail: "P29 §6 (adopted by D99) lists AR1's terms among the cycle's users, while slice CY2 names only camp, the scholarship and programme invitations as moving onto it, and P12 §3.3 calls the term's placement form 'not an application'. Whether the term becomes a cycle when CY1 lands, or stays its own object with P29 §6 corrected, is for the record to settle."
+  owner: "Project owner (the design record)"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Platform-Primitives.md §6; design/AFRP-Selection-Programmes.md §3.3; plan/MASTER-PLAN.md CY1, CY2; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-302
+  title: "Under what instrument does the Arabic committee set its rates?"
+  detail: "P12 §3.1 makes the member and public rates register rows set by 'the committee's dated act'. Slice AR1 reads that as a committee minute and accepts one as authority only for a row the catalogue marks as that committee's. Whether a minute is the instrument, or the rates need an ARFECF Board or budget act (D55 places the programme in ARFECF), is for the committee with the ARFECF Board."
+  owner: "Arabic Committee · ARFECF Board"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; D55; D60; AFRP-Hub round 63 (AR1)"
+  status: open
+- id: Q-303
+  title: "Which funds carry an annual valuation?"
+  detail: "P9 §3 and §4 tie the valuation to the annual distribution run of ARFECF's Endowment and Scholarship Funds, entered by the ARFECF Treasurer. Slice FR1's valuation parameter can be set on any fund row. Whether other funds (the Magazine's assets, which practice values separately since 2022, or the camp endowment) carry a valuation, and under whose act, is not stated."
+  owner: "ARFECF Board · ARFECF Treasurer · CPA"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Fund-Rules.md §2, §3, §4; AFRP-Hub round 62 (FR1)"
+  status: open
+- id: Q-304
+  title: "May the public site say gifts are tax deductible, and call a fund the Endowed Fund?"
+  detail: "The Hub's public site carries afrp.org's own words: the giving page and footer say 'Donations are tax deductible', and a page and menu item name the 'Endowed Fund'. The deductibility statement is the CPA's to confirm per entity, and P9-J18 lets a donor-facing page call a fund an endowment only where its instrument is cited (Q-95). Whether those lines stay, change or come down until both are settled is for the Executive Director with the CPA."
+  owner: "Executive Director · CPA"
+  goal: funding
+  branch: all
+  source: "design/AFRP-Fund-Rules.md P9-J18; Q-95; AFRP-Hub round 62 (FR1)"
+  status: open
+- id: Q-305
+  title: "May a member with no birth date on file attest they are an adult at the class door?"
+  detail: "D104 treats a person with no birth date on file as a possible minor. At the Arabic class door slice AR2 asks such a member to state their birth date and does not register them meanwhile, while a non-member contact states they are an adult instead, as P21 §12 allows (a contact carries no birth date). Whether a member may attest adulthood as a contact does, or must state the date, is not in the record. Raised by round 64 (CR1 with AR2, 11 Oct 2026)."
+  owner: "David · Membership Committee"
+  goal: members
+  branch: all
+  source: "D104; design/AFRP-Contact-Record.md §12; design/AFRP-Selection-Programmes.md §3.1; AFRP-Hub round 64 (CR1/AR2)"
+  status: open
+- id: Q-306
+  title: "Does a term not yet begun make someone a past learner?"
+  detail: "P12 §3.1 gives past learners a priority window. The record does not say whether a place held in a term that has not yet begun counts. Slice AR2 counts a place held in a term that began before the one being registered for, and refuses, naming the missing date, when a term has no first session date."
+  owner: "Arabic Committee"
+  goal: heritage
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §3.1; AFRP-Hub round 64 (CR1/AR2)"
+  status: open
+- id: Q-307
+  title: "Do member-to-member merges wait for CR3 when one record holds a contact role?"
+  detail: "P21 §7.3 sets how two contact records are merged, and slice CR3 builds it. Since round 64 the member merge refuses any record held under a contact role, which also blocks two member records for one person where one took an Arabic class while lapsed. Whether such member-to-member merges wait for CR3, or follow the member merge with the role carried as §7.4 describes, is not stated."
+  owner: "Project owner (the design record)"
+  goal: members
+  branch: all
+  source: "design/AFRP-Contact-Record.md §7.3, §7.4; plan/MASTER-PLAN.md CR3; AFRP-Hub round 64 (CR1/AR2)"
+  status: open
+- id: Q-308
+  title: "Do the 7.1.1 seats outside the Executive Committee read the 10 May list?"
+  detail: "D115 lets the Executive Committee's seats read the 10 May list before its release. By-Law 7.1.1 also places the ARFECF Scholarship Fund Secretary, the ARFECF President and the Executive Director on that list's distribution. Whether those three read it before release is not stated. Raised by round 61 (DIR2)."
+  owner: "David"
+  goal: governance
+  branch: all
+  source: "D115; By-Laws 2024 7.1.1; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-309
+  title: "Is a re-elected officer a new seat each year for the term limit?"
+  detail: "By-Law 9.3.3 limits consecutive terms. The platform seats an officer at each election and counts each seat toward the limit. Whether an officer re-elected holds a new seat each year or one seat held on is not stated in the record."
+  owner: "Constitution Committee · Selection Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.3; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-310
+  title: "How long a gap ends a run of consecutive terms?"
+  detail: "Under By-Law 9.3.3 a vacancy between two of an officer's terms, with no one else elected to the seat, may or may not end the consecutive run. The record does not size the gap, so the platform refuses and names this question."
+  owner: "Constitution Committee · Selection Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.3; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-311
+  title: "Who seats an outgoing President on the Council of Past Presidents?"
+  detail: "When a President's term ends, the platform does not seat them on the Council of Past Presidents itself: the office does, and the Board seat follows from it. The record does not say whether the seat is automatic at the end of the term or an act of the office or the Council."
+  owner: "AFRP Board · Executive Director"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 6.3.1; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-312
+  title: "How are the RBPN, Magazine and Foundation members succeeded?"
+  detail: "The RBPN, Magazine and Foundation members of the Board hold one-year terms. The record says nothing of their succession, so the platform ends each seat on its date and seats no successor until one is entered. The Magazine's appointing body is Q-192."
+  owner: "AFRP Board · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 6.2.2; Q-192; AFRP-Hub round 61 (DIR2)"
+  status: open
+- id: Q-313
+  title: "When must a candidate be in good standing?"
+  detail: "By-Law 9.3.1 asks for good standing \"immediately after the election and throughout their term\". Read literally, a non-member could be elected and then attain standing. The divergence note's item 13 records a provisional reading (AFRP-OV-13): good standing at nomination for every office, with \"after\" read as a continuing obligation. Slice CY1's eligibility row reads standing now, and reads undetermined short of current, citing this question until the Constitution Committee settles the reading."
+  owner: "Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.1; design/AFRP-Bylaws-2024-Divergence.md item 13 (AFRP-OV-13); AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-314
+  title: "How are the Deputy President's three prior years of standing read?"
+  detail: "By-Law 9.3.4(1) asks a Deputy President candidate for three prior years of good standing. Slice CY1 reads three membership years before the deadline's year and, short of all three on file, reads undetermined, because it cannot tell a year unpaid from a year not on file. The Selection Committee certifies (9.3.5). Whether that is the reading, and how a year missing from the records is evidenced, is the committee's to confirm."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 9.3.4(1), 9.3.5; AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-315
+  title: "Where are files uploaded to an application stored?"
+  detail: "D94 and P12 §2.2 let an applicant attach documents to an application. No file store exists or is named in the record, so slice CY1 refuses an upload as NOT BUILT. Which store holds the files (a hosting choice with retention and access consequences, and for the Scholarship bounded by binding rule 2: the packet never enters the Hub) is for David."
+  owner: "David"
+  goal: operations
+  branch: all
+  source: "D94; design/AFRP-Selection-Programmes.md §2.2; AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-316
+  title: "Does a scholarship application record how it arrived?"
+  detail: "The cycle engine records an arrival path for an application (for example, a club president's recommendation). P26 names none for the Scholarship, so the field stays empty for a scholarship application. Whether ARFECF wants one recorded, and which paths, is not stated."
+  owner: "ARFECF Scholarship Fund Committee"
+  goal: next-generation
+  branch: all
+  source: "design/AFRP-Scholarship-Awards.md; AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-317
+  title: "Is a cycle's office the position the call is for?"
+  detail: "P5 §3.2 speaks of \"the position\" a call is for. Slice CY1 makes the office a field of the cycle as a design choice, which is what ties 9.3.4(3)'s test to the Deputy President's call. A call for several vacancies at once waits on slice SC1. Slice SC1 (round 66) prints each vacancy's own clause (8.1.2 for a committee seat, 9.3.1 for an elective office, 9.3.4(1) for the Deputy President) and makes a call's vacancies share one clause and one office. The Selection Committee confirms both readings."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §3.2; By-Laws 2024 9.3.4(3); AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-318
+  title: "What is the platform's first day, and who sets it?"
+  detail: "P5 §2's first load records seats held before the platform, and the record states no first day. Slice SC1 holds it as a register row with no value (platform-first-day), owned by the project owner until Q-15 names who maintains the platform. The first load refuses until the value is set."
+  owner: "David"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §2; Q-15; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-319
+  title: "How is a seat the Board filled by its minutes after the first day recorded?"
+  detail: "The first load is only for seats held before the platform, and the three acts of slice SC1 (call, slate, choice) cannot record a seat that has already begun. A member the Board seats by its minutes after the platform's first day therefore has no way onto the record. How such a seat is recorded is not stated."
+  owner: "Selection Committee · AFRP Board"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §2; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-320
+  title: "A successor club president, and one person presiding over two clubs"
+  detail: "By-Law 17.1.3 lets local club presidents make one or two recommendations, and P5 §2 counts them per club president. Whether a successor president in the same selection year submits afresh or shares the club's count, and whether a person presiding over two clubs submits for each, is not written. Both refuse as undetermined."
+  owner: "Selection Committee · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 17.1.3; design/AFRP-Selection-Committee-Workflow.md §2; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-321
+  title: "What does a Selection call do with an application recorded after its decision?"
+  detail: "P29 §6 and P5 §3.3 leave open what a deciding body does with an application recorded after it has decided, including a timely 9.3.4(3) letter or one delivered in person. The platform keeps it and labels it \"after the decision\". Q-117 asks the same for a programme; this asks it for a Selection call."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Platform-Primitives.md §6; design/AFRP-Selection-Committee-Workflow.md §3.3; Q-117; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-322
+  title: "When two member records merge, where do recommendations and applications go?"
+  detail: "P29 §2 makes recommendations and applications append-only. Whether, on a merge, they follow the record kept, stay on the closed record, or the merge waits is not stated. The merge refuses naming this gap, so a duplicate record of a member the Board chose cannot be merged. Q-307 asks the like question for a contact role."
+  owner: "Project owner (the design record)"
+  goal: members
+  branch: all
+  source: "design/AFRP-Platform-Primitives.md §2; Q-307; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-323
+  title: "Whose city counts under 17.1.2?"
+  detail: "P5 §2 tests 17.1.2 against \"the city of the member's record\", and the record holds no residence. Slice SC1 reads the recommending club's city for a chosen seat and the member's own club for a seat on the first load, each labelled as a reading, so a member of two clubs (Q-41) is never asked about on that path. Which city counts is for the committee to confirm or decide."
+  owner: "Selection Committee · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 17.1.2; design/AFRP-Selection-Committee-Workflow.md §2; Q-41; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-324
+  title: "Who records the interim slate and the Board's choice, and what the Executive Director sees"
+  detail: "Until slice CW4, slice SC1 lets any acting seat of the body, the non-voting 7.1.1 seats included, record the Executive Committee's interim slate and the Board's choice with the minute's link. The Executive Director holds such a seat, which opens the slates page with every candidate's name, while P5 §5 gives the office counts only. Who records these acts, and which lens governs the Executive Director here, is not stated."
+  owner: "David · Executive Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 7.1.1; design/AFRP-Selection-Committee-Workflow.md §5; plan/MASTER-PLAN.md CW4; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-325
+  title: "Which year is \"this year's Convention\"?"
+  detail: "The selection year accepts last year's Convention while its refusal says \"this year's Convention or a later one\". Whether the year is the Federation year (July to July) or the calendar year is not stated for the Selection cycle."
+  owner: "Selection Committee · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-326
+  title: "Does a member in grace receive the Selection call?"
+  detail: "P5 §3.2 sends the call to \"members only\". Slice SC1 sends it to members paid through today, so a member in grace is not sent it. Whether a member in grace is a member for the call is the committee's to say."
+  owner: "Selection Committee · Membership Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §3.2; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-327
+  title: "Who chooses the Exchange Mission's chair?"
+  detail: "In the 2020 practice (P12 §2.1) the Exchange Mission's committee chooses its chair and the President ratifies. No constituting text says so, and slice SC1 shows it as practice. Whether it stands as the rule is not stated."
+  owner: "President · Exchange Mission committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §2.1; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-328
+  title: "Is the Board Selection Committee of 7.9 a separate body?"
+  detail: "By-Laws 7.9.4, 7.9.7 and 7.9.8 give a Board Selection Committee the Executive Director's selection. Slice SC1 keeps it a separate body that nothing of Article XVII reaches. Whether that is the reading is for the Constitution Committee to confirm."
+  owner: "Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 7.9.4, 7.9.7, 7.9.8, Article XVII; AFRP-Hub round 66 (SC1)"
+  status: open
