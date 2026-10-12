@@ -1707,3 +1707,47 @@ entities from D55, and no money is raised where none is stated.
 
 Round 66 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 26 recorded (26 confirmed).
 <!-- /findings: round 66 -->
+
+<!-- findings: round 67 -->
+### Slice SC4 — Selection Committee 4, certification of members and delegates (12 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+The 10 May list is now taken once by the Membership Committee chair and
+released by its date; the Selection Committee verifies each community,
+every change citing its clause and keeping a member in their own club,
+and certifies the year's roll. An election under the 2024 text is linked
+to that certification on its page and writes its roll from it and nothing
+else, and the clubs' counts and delegations read only its rows. A
+chargeback after 30 April annotates and never removes; a cash collection
+and a missing birth date are flagged for the committee, never decided; no
+committee page names a minor; and a merge that would put a closed record
+on a certified roll refuses, naming what the record has not written.
+
+Round 67 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 24 recorded (24 confirmed).
+<!-- /findings: round 67 -->
+
+<!-- findings: round 68 -->
+### Slice SA1 — Scholarship awards 1, instalments, verification and release (12 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+An award's track and the day its scholar accepted are each the office's
+dated act, recorded once; the instalments are made by the office's act
+from the schedule rows in force on that day, never rescheduled, and a
+silent track says which question holds it. An instalment falls due on the
+office's dated "term ended" act, each term after the one before and never
+in a year an earlier award year names, and is released by the office under
+the committee's decision once its three content-free rows are recorded:
+no amount, no document, no figure. Nothing is acted on for a scholar
+recorded as dead; a forfeit or a withdrawal stops the clock and the year
+shows forfeited; only P26 §2.2's readers read an instalment. **Two limits
+are the record's, not the code's:** the US schedule rows are unset (Q-159),
+so no US award is scheduled until the owner sets them, and the exit test
+waits on that act; and with no term calendar on the record a US semester
+scholar's second year refuses.
+
+Round 68 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 19 recorded (19 confirmed).
+<!-- /findings: round 68 -->
