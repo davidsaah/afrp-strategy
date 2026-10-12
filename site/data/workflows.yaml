@@ -2479,8 +2479,8 @@
   - D58
   - ARFECF By-Laws 6.4.4
   status: Designed
-  status_note: The committee engine (slices 4, 4b) verifies enrolment before disbursement; the letters, the document chase,
-    the instalment release and named-scholarship assignment are designed in P26 (`AFRP-Scholarship-Awards.md`, SA1–SA7); not
+  status_note: Enrolment verification is not built (no code verifies enrolment or disburses; slice SA1 builds it); the letters,
+    the document chase, the instalment release and named-scholarship assignment are designed in P26 (`AFRP-Scholarship-Awards.md`, SA1–SA7); not
     built. Written from the committee's 2026 report and the 2026 award letter.
   hands_to:
   - scholarship-cycle
