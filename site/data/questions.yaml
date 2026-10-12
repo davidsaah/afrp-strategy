@@ -2753,9 +2753,97 @@
   status: open
 - id: Q-317
   title: "Is a cycle's office the position the call is for?"
-  detail: "P5 §3.2 speaks of \"the position\" a call is for. Slice CY1 makes the office a field of the cycle as a design choice, which is what ties 9.3.4(3)'s test to the Deputy President's call. A call for several vacancies at once waits on slice SC1. The Selection Committee confirms the reading."
+  detail: "P5 §3.2 speaks of \"the position\" a call is for. Slice CY1 makes the office a field of the cycle as a design choice, which is what ties 9.3.4(3)'s test to the Deputy President's call. A call for several vacancies at once waits on slice SC1. Slice SC1 (round 66) prints each vacancy's own clause (8.1.2 for a committee seat, 9.3.1 for an elective office, 9.3.4(1) for the Deputy President) and makes a call's vacancies share one clause and one office. The Selection Committee confirms both readings."
   owner: "Selection Committee"
   goal: governance
   branch: all
   source: "design/AFRP-Selection-Committee-Workflow.md §3.2; By-Laws 2024 9.3.4(3); AFRP-Hub round 65 (CY1)"
+  status: open
+- id: Q-318
+  title: "What is the platform's first day, and who sets it?"
+  detail: "P5 §2's first load records seats held before the platform, and the record states no first day. Slice SC1 holds it as a register row with no value (platform-first-day), owned by the project owner until Q-15 names who maintains the platform. The first load refuses until the value is set."
+  owner: "David"
+  goal: operations
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §2; Q-15; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-319
+  title: "How is a seat the Board filled by its minutes after the first day recorded?"
+  detail: "The first load is only for seats held before the platform, and the three acts of slice SC1 (call, slate, choice) cannot record a seat that has already begun. A member the Board seats by its minutes after the platform's first day therefore has no way onto the record. How such a seat is recorded is not stated."
+  owner: "Selection Committee · AFRP Board"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §2; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-320
+  title: "A successor club president, and one person presiding over two clubs"
+  detail: "By-Law 17.1.3 lets local club presidents make one or two recommendations, and P5 §2 counts them per club president. Whether a successor president in the same selection year submits afresh or shares the club's count, and whether a person presiding over two clubs submits for each, is not written. Both refuse as undetermined."
+  owner: "Selection Committee · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 17.1.3; design/AFRP-Selection-Committee-Workflow.md §2; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-321
+  title: "What does a Selection call do with an application recorded after its decision?"
+  detail: "P29 §6 and P5 §3.3 leave open what a deciding body does with an application recorded after it has decided, including a timely 9.3.4(3) letter or one delivered in person. The platform keeps it and labels it \"after the decision\". Q-117 asks the same for a programme; this asks it for a Selection call."
+  owner: "Selection Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Platform-Primitives.md §6; design/AFRP-Selection-Committee-Workflow.md §3.3; Q-117; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-322
+  title: "When two member records merge, where do recommendations and applications go?"
+  detail: "P29 §2 makes recommendations and applications append-only. Whether, on a merge, they follow the record kept, stay on the closed record, or the merge waits is not stated. The merge refuses naming this gap, so a duplicate record of a member the Board chose cannot be merged. Q-307 asks the like question for a contact role."
+  owner: "Project owner (the design record)"
+  goal: members
+  branch: all
+  source: "design/AFRP-Platform-Primitives.md §2; Q-307; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-323
+  title: "Whose city counts under 17.1.2?"
+  detail: "P5 §2 tests 17.1.2 against \"the city of the member's record\", and the record holds no residence. Slice SC1 reads the recommending club's city for a chosen seat and the member's own club for a seat on the first load, each labelled as a reading, so a member of two clubs (Q-41) is never asked about on that path. Which city counts is for the committee to confirm or decide."
+  owner: "Selection Committee · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 17.1.2; design/AFRP-Selection-Committee-Workflow.md §2; Q-41; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-324
+  title: "Who records the interim slate and the Board's choice, and what the Executive Director sees"
+  detail: "Until slice CW4, slice SC1 lets any acting seat of the body, the non-voting 7.1.1 seats included, record the Executive Committee's interim slate and the Board's choice with the minute's link. The Executive Director holds such a seat, which opens the slates page with every candidate's name, while P5 §5 gives the office counts only. Who records these acts, and which lens governs the Executive Director here, is not stated."
+  owner: "David · Executive Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 7.1.1; design/AFRP-Selection-Committee-Workflow.md §5; plan/MASTER-PLAN.md CW4; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-325
+  title: "Which year is \"this year's Convention\"?"
+  detail: "The selection year accepts last year's Convention while its refusal says \"this year's Convention or a later one\". Whether the year is the Federation year (July to July) or the calendar year is not stated for the Selection cycle."
+  owner: "Selection Committee · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-326
+  title: "Does a member in grace receive the Selection call?"
+  detail: "P5 §3.2 sends the call to \"members only\". Slice SC1 sends it to members paid through today, so a member in grace is not sent it. Whether a member in grace is a member for the call is the committee's to say."
+  owner: "Selection Committee · Membership Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Committee-Workflow.md §3.2; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-327
+  title: "Who chooses the Exchange Mission's chair?"
+  detail: "In the 2020 practice (P12 §2.1) the Exchange Mission's committee chooses its chair and the President ratifies. No constituting text says so, and slice SC1 shows it as practice. Whether it stands as the rule is not stated."
+  owner: "President · Exchange Mission committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §2.1; AFRP-Hub round 66 (SC1)"
+  status: open
+- id: Q-328
+  title: "Is the Board Selection Committee of 7.9 a separate body?"
+  detail: "By-Laws 7.9.4, 7.9.7 and 7.9.8 give a Board Selection Committee the Executive Director's selection. Slice SC1 keeps it a separate body that nothing of Article XVII reaches. Whether that is the reading is for the Constitution Committee to confirm."
+  owner: "Constitution Committee"
+  goal: governance
+  branch: all
+  source: "By-Laws 2024 7.9.4, 7.9.7, 7.9.8, Article XVII; AFRP-Hub round 66 (SC1)"
   status: open
