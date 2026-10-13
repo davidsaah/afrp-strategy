@@ -1751,3 +1751,25 @@ scholar's second year refuses.
 
 Round 68 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 19 recorded (19 confirmed).
 <!-- /findings: round 68 -->
+
+<!-- findings: round 69 -->
+### Slice MG2 — Magazine 2, the subscriber ledger (12 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+A subscription is a member's, one of a format at a time, opened and closed
+by dated acts; its payments are keyed by channel inside its window, once,
+and corrected by a new row naming the old; a cheque's account number never
+enters a reference, and a system's own reference is keyed. The
+reconciliation is the statement-run base's third kind, keyed line by line,
+a difference resolved by a dated note; the opening list and the print list
+at each freeze hold who, never where; status is "not computed (Q-249)"
+while the rows are unset; the desk gives one refusal for every record it
+cannot subscribe. **One limit is the record's, not the code's:** whose
+body the Magazine's staff is (Q-192) is open, so the reconciliation's
+signing refuses naming Q-192 and R39, the ledger never opens, and no
+payment is keyed until it is answered.
+
+Round 69 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
+<!-- /findings: round 69 -->
