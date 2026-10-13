@@ -2630,7 +2630,8 @@
   goal: heritage
   branch: all
   source: "design/AFRP-Platform-Primitives.md §6; design/AFRP-Selection-Programmes.md §3.3; plan/MASTER-PLAN.md CY1, CY2; AFRP-Hub round 63 (AR1)"
-  status: open
+  decided: "D116"
+  status: decided
 - id: Q-302
   title: "Under what instrument does the Arabic committee set its rates?"
   detail: "P12 §3.1 makes the member and public rates register rows set by 'the committee's dated act'. Slice AR1 reads that as a committee minute and accepts one as authority only for a row the catalogue marks as that committee's. Whether a minute is the instrument, or the rates need an ARFECF Board or budget act (D55 places the programme in ARFECF), is for the committee with the ARFECF Board."
