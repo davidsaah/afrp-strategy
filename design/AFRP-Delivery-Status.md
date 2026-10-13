@@ -1773,3 +1773,28 @@ payment is keyed until it is answered.
 
 Round 69 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
 <!-- /findings: round 69 -->
+
+<!-- findings: round 70 -->
+### Slice MG1 — Magazine 1, announcements as they arrive (13 October 2026)
+
+**Built and pushed on a branch and a draft PR; done when the staging deploy is
+LIVE on its commit**, which waits on David.
+
+An announcement is on the member's record, written once and corrected by
+a new row naming the old. D89's attestation prints the one announcement
+it is recorded on, and a recorded no wins over it. A graduation prints on
+the graduate's own consent, or for a minor a standing household adult's,
+and the grown graduate is asked again at eighteen. The correspondent's
+door is derived from C1's seat at its club's scope, opens no club lens,
+and, like the editor's, checks every input before the subject. The
+exceptions report is taken at the freeze and never stops it. A death
+prints only once the Family Tree Committee has accepted it and the named
+contact has approved (D95, unchanged), in the issue the family ordered,
+from the current contact's order; the fee is held against ARFECF and
+posted nowhere, and the family sees only what stands. **What the record
+leaves open is refused, not defaulted:** an assisted wedding or birth is
+UNDETERMINED (D89 against UC-2 and D14/D31), and the fee's
+classification waits on Q-193.
+
+Round 70 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
+<!-- /findings: round 70 -->
