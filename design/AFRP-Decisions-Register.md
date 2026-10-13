@@ -2,7 +2,7 @@
 ### The human decisions the platform design waits on — what has been decided, by whom, and what each one settled
 
 **Maintained:** 4 October 2026. This is the authoritative record of the decisions the platform's
-design is built on: Decisions 1 to 115, in seven parts and the decisions of 9 and 10 October (D100 to D115) (the first six blocking decisions below;
+design is built on: Decisions 1 to 116, in seven parts and the decisions of 9 to 13 October (D100 to D116) (the first six blocking decisions below;
 Part 2, 20–21 August 2026; Part 3, 8 September; Part 4, 30 September; D53–D67, 30 September to
 1 October; Part 5, 2 October; Part 6, 3 October; Part 7, 4 October). When a decision is made, it is
 recorded here in the exact words the design will be built on, with the date, the decider, and the
@@ -1987,6 +1987,27 @@ the by-law notes that cited Q-273 keep their text, each with a pointer here.
 ### What it does not settle
 - Who reads the letter list, which LT1 also gates on roster:write; that list
   is not the 8.12.6 list and this decision does not touch it.
+
+---
+
+## Decision 116 — the Arabic term moves onto the cycle engine
+**Status: Adopted · David Saah, 13 October 2026 (decision card, option A) · answers Q-301 · widens slice CY2**
+
+### The adopted wording
+> The Arabic Program's term joins the migration onto the cycle engine
+> (P29 §6, as D99 adopted it) in slice CY2, beside camp, the scholarship and
+> programme invitations. Its windows, its cap and its waitlist become the
+> cycle's settings.
+
+### What it settles
+- Q-301. P29 §6 stands as written: AR1's terms are among the cycle's users,
+  and CY2 moves them onto it once CY1 is proven.
+
+### What it does not settle
+- The placement form. P12 §3.3 says it is not an application, and the move
+  keeps it so, as a setting of the term's cycle; the cycle's states do not
+  turn it into one.
+- The rates and their instrument (Q-302), which stay where AR1 put them.
 
 ---
 

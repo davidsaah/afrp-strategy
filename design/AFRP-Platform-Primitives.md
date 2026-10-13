@@ -88,7 +88,7 @@
 
 **Used by.** P5, P8, P12, P14, P17, P25 (the Senior Award), P26; SEL1–SEL3 with SC1–SC3; AR1's terms; the Day of Action.
 
-**Replaces, later.** `camp` Season and Application, `scholarship` Cycle and Application, `programs` Invitation and Enrollment move onto it once it is proven (CY2).
+**Replaces, later.** `camp` Season and Application, `scholarship` Cycle and Application, `programs` Invitation and Enrollment, and AR1's Arabic term (D116), move onto it once it is proven (CY2).
 
 **Built in.** CY1, before SC1.
 
