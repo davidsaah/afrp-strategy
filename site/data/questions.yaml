@@ -3096,3 +3096,179 @@
   branch: all
   source: "design/AFRP-Magazine-Operations.md §5.2; R24; AFRP-Hub round 69 (MG2 audit)"
   status: open
+- id: Q-360
+  title: "Does an attestation print a wedding or a birth the Family Tree Committee has not accepted?"
+  detail: "D89 says a correspondent's or editor's recorded attestation that the family agreed is enough to print a wedding, birth or graduation. UC-2 and D14 with D31 print only a verified life event the Family Tree Committee accepted, and an assisted entry cannot reach the committee's queue (R6 §1; D70). Slice MG1 holds every assisted wedding or birth, attested or confirmed, as UNDETERMINED and lists it in the exceptions report. Which governs is not decided."
+  owner: "David · The Magazine · Family Tree Committee"
+  goal: voice
+  branch: all
+  source: "D89; D14; D31; D70; design/AFRP-Magazine-Bookstore-Use-Cases.md UC-2; design/AFRP-Magazine-Operations.md §3; P28 §8; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-361
+  title: "Does a graduation go through the family tree's queue?"
+  detail: "D31's table queues a graduation on the tree and fans it out (D39's milestone), while P24 §3.1 makes a graduation an announcement on the member record with no place in the tree's queue. Slice MG1 stopped printing a graduation that comes from the tree's queue and lists it in the exceptions report; nothing in the tree changed. The two texts need reconciling."
+  owner: "Family Tree Committee · The Magazine"
+  goal: voice
+  branch: all
+  source: "D31; D39; design/AFRP-Magazine-Operations.md §3.1; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-362
+  title: "How does a death a correspondent or the editor enters reach the family contact?"
+  detail: "D95 lets a correspondent enter a death, but the hold that waits for the named family contact is keyed to a family-tree request. Slice MG1 holds such an entry, never prints it and leaves its work item open; the bridge to the hold is not built (T2f; P28 §8; D98). How the entry reaches the named family contact is not stated."
+  owner: "The Magazine · Family Tree Committee"
+  goal: voice
+  branch: all
+  source: "D95; D98; P28 §8; plan/MASTER-PLAN.md T2f; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-363
+  title: "Who declares another adult's death into the Magazine's hold?"
+  detail: "The tree's own declaration refuses an event about another adult, and the club's death report (slice C2) does not raise a death notice, so the Magazine's death hold is reached only through a staged tree request. Which seat declares an adult member's death so that the hold opens is not stated."
+  owner: "Family Tree Committee · The Magazine · Membership Committee"
+  goal: voice
+  branch: all
+  source: "D95; R34; P28 §8; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-364
+  title: "May an announcement be withdrawn, before or after it is printed?"
+  detail: "D89 does not say how an attested announcement is withdrawn, or how a graduation a household agreed to is re-asked of the graduate at eighteen once it has been printed or has missed its issue. Slice MG1 builds neither and says so on the door. Whether a grown graduate may withdraw a printed entry from the archive or from a later reprint is not decided."
+  owner: "The Magazine · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "D89; binding rule 7; design/AFRP-Magazine-Operations.md §3.2; AFRP-Hub round 70 (MG1 and its audit)"
+  status: open
+- id: Q-365
+  title: "What may a Magazine-wide correspondent enter?"
+  detail: "Slice MG1 builds the correspondent's door only for a club's correspondent seat, scoped to its own club. Whether the Magazine has correspondents beyond the clubs' seats, and what such a correspondent may enter, is not stated. Who appoints a correspondent stays with Q-45 and Q-192."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "D89; D95; Q-195 (decided); design/AFRP-Magazine-Operations.md §3.2; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-366
+  title: "What sizes and rates does an obituary placement come in?"
+  detail: "P24 §3.3 has a placement order taken with a fee, and the register row for placement sizes is unset. Slice MG1 takes an order with no size, refuses a typed size naming the row, and computes nothing. Who sets the sizes and rates, and by what act, is not recorded."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "D54; design/AFRP-Magazine-Operations.md §3.3; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-367
+  title: "Does an announcement or order that misses an issue's freeze roll to the next issue?"
+  detail: "Copy and listings roll forward (R37). Slice MG1 refuses a placement order for an issue already frozen, and an entry whose attestation came after its issue's freeze does not roll; the door and the household's page say 'missed issue' with why. UC-2 A2 bars a late consent; D89 is silent on a late attestation and on a late order."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "R37; D89; design/AFRP-Magazine-Bookstore-Use-Cases.md UC-2 A2; AFRP-Hub round 70 (MG1 and its fix layer)"
+  status: open
+- id: Q-368
+  title: "May the editor key an obituary order a family sent by email?"
+  detail: "Slice MG1 takes a placement order only on the named family contact's own page and refuses one the editor keys from a family's email. Whether the editor may key an order on the family's behalf, and on what evidence, is not stated."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "D95; design/AFRP-Magazine-Operations.md §3.3; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-369
+  title: "Does the placement order cover consent for the deceased's photograph?"
+  detail: "Slice MG1 holds a photograph's link as a record on file, shows it on no page, and reads a head shot of the deceased as covered by the placement order, with no consent row of its own (P24 §3.3). Whether that reading is right is not confirmed. Where the photograph lives and how it reaches the agency stays with Q-260."
+  owner: "The Magazine · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "D88; Q-260; design/AFRP-Magazine-Operations.md §3.3; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-370
+  title: "Must a graduate be in good standing for the announcement?"
+  detail: "Slice MG1 requires the graduate to have a membership row and does not read standing. Whether a graduation is announced only for a member in good standing, and on which day standing is read, is not stated."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "design/AFRP-Magazine-Operations.md §3.1; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-371
+  title: "What does the Magazine's ask for announcements say, and how often is it sent?"
+  detail: "Slice MG1 shows the ask once, on the member's page. Sending it waits on the email slice (5a), and no register row says when or how often it goes out (P29 §11). The message and its period are not set."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "P29 §11; design/AFRP-Magazine-Operations.md §3; AFRP-Hub round 70 (MG1)"
+  status: open
+- id: Q-372
+  title: "May an attestation outrank a refusal on record?"
+  detail: "D89 says an attestation that the family agreed is enough to print, and is silent on one recorded after the graduate, or for a minor the household, said no. Slice MG1 reads a refusal on record as winning under binding rule 7, and a correction (a new row) does not launder it; the corrected row's proof is asked once of the graduate or household, and their answer governs, reading P24 §3.2's 'asked once' as once per row. Both readings need confirming."
+  owner: "The Magazine · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "D89; binding rule 7; R24; design/AFRP-Magazine-Operations.md §3.2; AFRP-Hub round 70 (MG1 fix layer and audit)"
+  status: open
+- id: Q-373
+  title: "A minor's announcement at eighteen: the household's answer and the award years"
+  detail: "Slice MG1 keeps a household's 'no', given while the graduate was a child, until the grown graduate answers for themselves; a household's 'yes' stops printing at eighteen until they answer. A minor's award years, which the register line and P24 §3.1 put on the recipient's consent, are never read from the household and wait for the recipient at eighteen. Each reading needs confirming."
+  owner: "The Magazine · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "Binding rule 7; D33; design/AFRP-Magazine-Operations.md §3.1; AFRP-Hub round 70 (MG1 fix layer)"
+  status: open
+- id: Q-374
+  title: "Does restricting a parent void their earlier consent everywhere?"
+  detail: "Slice MG1's reader counts a consent only from someone who holds standing for the minor on the day read (R6 §4), so a grant from an adult since restricted, or whose household link has ended, no longer counts there. The platform's shared consent reader, used by the tree's announcements and others, still counts such a grant. Whether a restriction voids a holder's earlier grant everywhere is not stated."
+  owner: "Legal Advisor · Membership Committee"
+  goal: members
+  branch: all
+  source: "R6 §4; binding rule 7; AFRP-Hub round 70 (MG1 fix layer)"
+  status: open
+- id: Q-375
+  title: "Which issue carries a death that has a placement?"
+  detail: "Slice MG1 prints a placement only in the issue its order names. When the death's tree request fell in an earlier issue's window, that issue carries the bare 'In memoriam' line and the ordered issue carries it again with the placement. Whether the ordered issue alone carries the death is not stated."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "D95; R34; design/AFRP-Magazine-Operations.md §3.3; AFRP-Hub round 70 (MG1 fix layer)"
+  status: open
+- id: Q-376
+  title: "What happens to a fee paid on an obituary order that was set aside?"
+  detail: "When the family contact is re-named, slice MG1 sets aside the order the earlier contact placed and never prints it. No new fee is keyed against it; a fee already keyed stays with it and may be corrected or voided. Whether such a fee is returned to the payer or moved to the new contact's order is not stated. What the fee is stays with Q-193."
+  owner: "The Magazine · AFRP General Treasurer"
+  goal: voice
+  branch: all
+  source: "D95; Q-193; R24; AFRP-Hub round 70 (MG1 fix layer and audit)"
+  status: open
+- id: Q-377
+  title: "What may a family's tribute carry?"
+  detail: "Binding rule 8's guard refuses a run of digits that could be an account, so a telephone number in a tribute or a list of survivors refuses. Slice MG1 reads out only a span of years standing alone, with no account word nearby and the second year within a lifetime of the first; those limits are the build's reading, not the record's. Whether a telephone number belongs in a tribute, and what else it may carry, is not stated."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "Binding rule 8; design/AFRP-Magazine-Operations.md §3.3; AFRP-Hub round 70 (MG1 fix layer and audit)"
+  status: open
+- id: Q-378
+  title: "Should a death entered at the Magazine's door be checked against the member record?"
+  detail: "A death entered at a correspondent's or the editor's door for a member the register shows living is taken and held. Nothing checks it against the club's death report (slice C2). Whether it should be checked, and who resolves a mismatch, is not stated."
+  owner: "The Magazine · Membership Committee"
+  goal: voice
+  branch: all
+  source: "D95; Q-284 (decided); binding rule 6; AFRP-Hub round 70 (MG1 fix layer)"
+  status: open
+- id: Q-379
+  title: "May a family contact approve a death before the Family Tree Committee accepts it?"
+  detail: "A death reaches the Magazine as a verified life event through the committee's queue (D14, D31, R34) and on the named contact's approval (D95). Slice MG1 now prints a death or placement only when both hold, but the contact's approval is still recorded while the committee's request is open, and the page says the approval waits. Whether the approval should wait for the committee, and what becomes of a notice and order whose declaration the committee dismissed, is not stated."
+  owner: "Family Tree Committee · The Magazine"
+  goal: voice
+  branch: all
+  source: "D14; D31; D95; R34; AFRP-Hub round 70 (MG1 audit)"
+  status: open
+- id: Q-380
+  title: "May the family contact be re-named after they approved?"
+  detail: "Slice MG1 refuses re-naming the family contact once they have approved a death (D95). Whether a re-naming after approval is ever allowed and, if so, whether it voids the approval so the new contact must approve, is not stated."
+  owner: "The Magazine"
+  goal: voice
+  branch: all
+  source: "D95; AFRP-Hub round 70 (MG1 audit)"
+  status: open
+- id: Q-381
+  title: "May a successor correspondent act on a predecessor's entries?"
+  detail: "An attestation is recorded by whoever holds the club's correspondent door today, which includes a successor who did not make the entry, and that successor is told the household's answer. Whether a successor may attest, or learn the household's answer on, an entry their predecessor made is not stated."
+  owner: "The Magazine · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "D89; Q-195 (decided); binding rule 7; AFRP-Hub round 70 (MG1 audit)"
+  status: open
