@@ -1798,3 +1798,34 @@ classification waits on Q-193.
 
 Round 70 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
 <!-- /findings: round 70 -->
+
+<!-- findings: round 71 -->
+### Slice C4 — Club experience 4, the club's seat in a programme (31 October 2026)
+
+**Built on a branch and a draft PR; done when CI is green on GitHub on
+its commit and the staging deploy is LIVE on it**, both of which wait on
+David: no CI run has started on GitHub, because the runner stops every
+job before its first step.
+
+A club's programme seat is a seat on the club's officers body, one rule
+per programme P18 §7.1 gives a seat, made either on the club's officers
+form or by the programme's committee, each appointment naming which path
+made it and who (Q-45 stays open; a second holder by the other path is
+refused). It ends with the officer year, RBPN's ambassador on the earlier
+of that and a two-year term recorded as a proposal, and the form's path
+can now record a vacancy, bring one forward, or withdraw a seat declined
+before its year. Its one grant, derived only and contained by no other
+scope, opens one view: the club's own camp season as counts suppressed
+by partition, so no hidden count can be worked out from the shown ones,
+and the club's statement lines for the programme by reference; a holder
+who has left the club reads nothing. A programme seat opens no club lens.
+The Magazine's feed no longer names a held death, or a child's life
+event the household has not agreed to, to anyone the record does not
+give it. **What the record leaves open is refused, not defaulted:** who
+appoints (Q-45), the floor for a club's own seat, whether a move ends a
+seat, and who beyond the editor sees a held notice. One finding is held,
+not fixed: a ballot's day bucket is UTC's, and moving it changes a
+locked voting test, which waits for David's word.
+
+Round 71 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 15 recorded (15 confirmed).
+<!-- /findings: round 71 -->
