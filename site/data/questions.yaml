@@ -3272,3 +3272,91 @@
   branch: all
   source: "D89; Q-195 (decided); binding rule 7; AFRP-Hub round 70 (MG1 audit)"
   status: open
+- id: Q-382
+  title: "Which programmes have a club seat: P18 §3.4 or §7.1?"
+  detail: "P18 §3.4 names a scholarship outreach contact and a Day of Action travel coordinator in each club, while §7.1 says neither programme has a club seat. Slice C4 refuses both on the officers form and at the committee's door, naming both texts. The dabke lead and the Mid-Year sponsor-outreach lead (§3.4) have no §7.1 row and no programme on the register. The two sections need reconciling."
+  owner: "AFRP Board · programme committees"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §3.4, §7.1; Q-45; AFRP-Hub round 71 (C4)"
+  status: open
+- id: Q-383
+  title: "What floor suppresses the counts a club's own programme seat sees?"
+  detail: "S7 and R43 set the suppression floor for the Federation's roll-up only. Slice C4 applies the same floor, with complementary suppression, to the camp liaison's counts of their own club's campers, which is the refusing direction. Whether a club's own seat uses that floor, another, or none is not stated."
+  owner: "AFRP Board · Camp Ramallah"
+  goal: clubs
+  branch: all
+  source: "S7; R43; design/AFRP-Club-Experience-Plan.md §3.4; AFRP-Hub round 71 (C4)"
+  status: open
+- id: Q-384
+  title: "Must a club's programme seat holder be in good standing?"
+  detail: "Slice C4 requires membership of the club for a programme seat on either path and shows standing without testing it, as slice C1 reads By-Law 3.1 for offices other than the president's. Whether standing is required, and on which day it is read, is not stated."
+  owner: "AFRP Board · programme committees"
+  goal: clubs
+  branch: all
+  source: "By-Law 3.1; design/AFRP-Club-Experience-Plan.md §3.4; Q-45; AFRP-Hub round 71 (C4)"
+  status: open
+- id: Q-385
+  title: "How many hold a club's programme seat at once, and who may end one?"
+  detail: "The record gives RBPN one ambassador per club and says nothing for the other programme seats. Slice C4 allows one holder on a date and refuses a second; a seat is ended only by the path that made it (the officers form or the programme committee) or by the officer year's end. Whether a seat may have several holders, and whether one path may end a seat the other made, is not stated."
+  owner: "AFRP Board · programme committees"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §3.4, §7; Q-45; AFRP-Hub round 71 (C4)"
+  status: open
+- id: Q-386
+  title: "What is the RBPN ambassador's term?"
+  detail: "Slice C4 seeds a two-year term for the RBPN ambassador as a proposal owned by the RBPN Committee, and ends the seat on the earlier of that term and the officer year, a labelled reading. The term, and how it sits with the officer year, are not adopted."
+  owner: "RBPN Committee"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §3.4; Q-45; AFRP-Hub round 71 (C4)"
+  status: open
+- id: Q-387
+  title: "Who may open the Federation's programme pages and the Magazine's feed?"
+  detail: "A club president's bundle carries programme read access at any scope, so club presidents and programme chairs open the Federation's programme pages, which hold no person (Four-Lens §6.2). They also open the Magazine's feed, whose live sections name members in weddings, births and graduations. Whether a club bundle should carry that access at all, and whether the feed is the Federation's read at the Magazine's scope only, is not stated."
+  owner: "AFRP Board · The Magazine"
+  goal: clubs
+  branch: all
+  source: "D28; design/AFRP-Four-Lens-Architecture.md §6.2; design/AFRP-Magazine-Operations.md §3; AFRP-Hub round 71 (C4 and its fix layer)"
+  status: open
+- id: Q-388
+  title: "May a club's programme seat send messages?"
+  detail: "P18 §3.4 says the seat passes news both ways between the club and the programme. Slice C4 gives the seat no right to send a message and names the email slice (5a) as not built. Whether the seat sends, to whom, and under which consent, is not stated."
+  owner: "AFRP Board · programme committees"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §3.4; MASTER-PLAN 5a; AFRP-Hub round 71 (C4)"
+  status: open
+- id: Q-389
+  title: "Does a move between clubs end the seats held in the old club?"
+  detail: "D106 ends the old club's membership when a move is accepted and says nothing of the person's seats there. Slice C4 stops a programme seat's access from the day after the membership ends, while the seat itself stands; a club officer who moved keeps the officer seat and the club's access. Whether the move ends programme seats and officer seats, and whether the day a move is accepted is still a member day of the old club, is not stated."
+  owner: "Membership Committee · AFRP Board"
+  goal: clubs
+  branch: all
+  source: "D106; By-Law 3.2; Q-41; AFRP-Hub round 71 (C4 fix layer and audit)"
+  status: open
+- id: Q-390
+  title: "Who sees a death notice the Magazine is holding?"
+  detail: "UC-2 A1 lists an unverified event in the editor's exceptions report and names no other reader. Slice C4's fixes show every held notice to the editor, the ones the Family Tree Committee accepted to the Federation's Magazine read, and none to anyone else, who sees only a count naming nobody. Whether anyone beyond the editor sees a held death, whether the Federation's read should, and whether even the count is anyone else's to see, is not stated."
+  owner: "The Magazine · Family Tree Committee"
+  goal: voice
+  branch: all
+  source: "D95; design/AFRP-Magazine-Bookstore-Use-Cases.md UC-2 A1; AFRP-Hub round 71 (C4 fix layer and audit)"
+  status: open
+- id: Q-391
+  title: "May the platform administrator end a programme seat's access directly?"
+  detail: "Every programme seat now has an ending on its own path (a dated vacancy on the officers form, or the committee ending its seat). Ending the access it gives directly needs a grant at the seat's exact scope, which nobody holds. Whether the platform administrator may end, never make, such access as a recorded break-glass act is not stated."
+  owner: "AFRP Board · Project owner (the design record)"
+  goal: operations
+  branch: all
+  source: "P29; design/AFRP-Club-Experience-Plan.md §3.4; AFRP-Hub round 71 (C4 fix layer)"
+  status: open
+- id: Q-392
+  title: "Who sees a minor's life event the household has not consented to?"
+  detail: "D33 has the household consent to an announcement about a minor, and UC-2 A1 lists an unverified event in the editor's exceptions report; neither names anyone else who sees a held one. Slice C4's audit shows it to the editor alone and drops it, uncounted, for everyone else, the household included, because a count of one held birth can name the child. Who, if anyone beyond the editor, sees it is not stated."
+  owner: "The Magazine · Legal Advisor"
+  goal: voice
+  branch: all
+  source: "D33; binding rule 7; design/AFRP-Magazine-Bookstore-Use-Cases.md UC-2 A1; AFRP-Hub round 71 (C4 audit)"
+  status: open
