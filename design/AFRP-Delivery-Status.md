@@ -1861,3 +1861,34 @@ another slice, which waits for David's word.
 
 Round 72 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
 <!-- /findings: round 72 -->
+
+<!-- findings: round 73 -->
+### Slice CW2 — Committees 2, the workspace (31 October 2026)
+
+**Built on a branch and a draft PR; done when CI is green on GitHub on
+its commit and the staging deploy is LIVE on it**, both of which wait on
+David: no CI run has started on GitHub, because the runner stops every
+job before its first step.
+
+Each body on the register has a workspace, opened to the seats it
+holds that day, the President ex officio, the Executive Director for
+appointed committees and the Deputy President for the bodies they
+chair, and never to a grant; the office reads the register. Meetings sit
+on the one event rail and on no list; holding one opens a minutes-due
+item, shown overdue from day thirty-one on the body and on the register
+with no scheduler; attendance is marked per seat by the chair, and other
+readers see totals under the small-cell floor. The decisions queue takes
+the platform's routings by R40 once each, a seat's own items and every
+cycle decision, which is dated the day it is recorded, its meeting kept
+as its own. A committee seat's third unexcused absence in one Federation
+year opens a review for the chair, shown to no one else, closed if the
+member dies, and never raised for a Board seat (Q-53). No title or line
+holds a card number, and only what a person typed is checked for names
+on the register. **What the record leaves open is refused, not
+defaulted:** quorum (Q-52), the Board's attendance rule (Q-53), co-chairs
+(Q-51), the staff liaison (Q-56), the Federation year's first day, how
+the tree book's silence on a family is read, and where the Deputy
+President reads a review they own.
+
+Round 73 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
+<!-- /findings: round 73 -->
