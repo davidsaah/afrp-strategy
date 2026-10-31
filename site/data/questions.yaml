@@ -3360,3 +3360,59 @@
   branch: all
   source: "D33; binding rule 7; design/AFRP-Magazine-Bookstore-Use-Cases.md UC-2 A1; AFRP-Hub round 71 (C4 audit)"
   status: open
+- id: Q-393
+  title: "What does the Council's view show of other clubs' rows?"
+  detail: "P18 §10.1 shows each president their own club's row in full and the other rows as counts, and does not define either. Slice C5 reads it as the president's own row with every column group and the other clubs' rows with the count groups only, without money. Every count under the floor stays hidden for everyone, the president's own row included. The reading needs confirming."
+  owner: "AFRP Board · Council of Club Presidents"
+  goal: clubs
+  branch: all
+  source: "design/AFRP-Club-Experience-Plan.md §10.1; S7; R43; AFRP-Hub round 72 (C5)"
+  status: open
+- id: Q-394
+  title: "Whom do the Federation's club counts count?"
+  detail: "The Federation's reporting counts adults with a birth date on file, a choice in code with no rule behind it, and slice C5 carries it onto the clubs page. D67's camper counts count children, as slice C4's do. Which people a club's membership count includes, and whether a person with no birth date is counted, is not stated."
+  owner: "AFRP Board · Membership Committee"
+  goal: clubs
+  branch: all
+  source: "D67; D104; S7; design/AFRP-Club-Experience-Plan.md §10; AFRP-Hub round 72 (C5)"
+  status: open
+- id: Q-395
+  title: "How is money shown when its count is under the floor?"
+  detail: "S7 hides counts under the floor and says nothing of money. Slice C5 hides a gift total whose gift or donor count is under the floor, holds dues with their count, and shows statement balances unhidden on a club's own row while withholding them from other clubs' rows on the Council's view. Whether money follows its count, and how a balance is treated, is not stated."
+  owner: "AFRP Board · AFRP General Treasurer"
+  goal: clubs
+  branch: all
+  source: "S7; R43; design/AFRP-Club-Experience-Plan.md §10; AFRP-Hub round 72 (C5)"
+  status: open
+- id: Q-396
+  title: "Who takes the clubs page's annual snapshot, and as of which day?"
+  detail: "P18 §10 freezes a yearly snapshot of the clubs page (S7). Slice C5 proposes a register row for who takes it, with no value, owned by the Executive Director's office and P15's custodian (Q-137), and refuses the take until it is set. It reads the snapshot as of 31 December (D114). Both the taker and the day need setting."
+  owner: "Executive Director · AFRP Board"
+  goal: clubs
+  branch: all
+  source: "S7; D114; Q-137; design/AFRP-Club-Experience-Plan.md §10; AFRP-Hub round 72 (C5)"
+  status: open
+- id: Q-397
+  title: "Does the counts floor guard against comparing counts over time?"
+  detail: "S7 governs each cell on its own. A live count one higher than last year's frozen count tells anyone who knows the club that one person joined. Slice C5 records this as a known limit and does not defend against it. Whether the record wants a defence, and of what kind, is not stated."
+  owner: "AFRP Board"
+  goal: clubs
+  branch: all
+  source: "S7; R43; design/AFRP-Club-Experience-Plan.md §10; AFRP-Hub round 72 (C5)"
+  status: open
+- id: Q-398
+  title: "Which camp season do the club pages read?"
+  detail: "The clubs page reads the camp season of the current calendar year, and the club's camp seat page (slice C4) reads the latest season. The two agree except between a new season's creation and 1 January. Which season a club's camp counts read is not stated."
+  owner: "Camp Ramallah"
+  goal: clubs
+  branch: all
+  source: "D67; design/AFRP-Club-Experience-Plan.md §3.4, §10; AFRP-Hub round 72 (C5)"
+  status: open
+- id: Q-399
+  title: "Which family-tree links does the clubs page count?"
+  detail: "Slice C5 counts only the links between members and tree entries that the Family Tree Committee made, as a labelled reading. Whether a club's tree-link count should include other links, such as ones a member proposed, is not stated."
+  owner: "Family Tree Committee"
+  goal: heritage
+  branch: all
+  source: "D30; D31; design/AFRP-Club-Experience-Plan.md §10; AFRP-Hub round 72 (C5)"
+  status: open
