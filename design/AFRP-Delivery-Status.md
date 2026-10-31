@@ -1798,3 +1798,66 @@ classification waits on Q-193.
 
 Round 70 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
 <!-- /findings: round 70 -->
+
+<!-- findings: round 71 -->
+### Slice C4 — Club experience 4, the club's seat in a programme (31 October 2026)
+
+**Built on a branch and a draft PR; done when CI is green on GitHub on
+its commit and the staging deploy is LIVE on it**, both of which wait on
+David: no CI run has started on GitHub, because the runner stops every
+job before its first step.
+
+A club's programme seat is a seat on the club's officers body, one rule
+per programme P18 §7.1 gives a seat, made either on the club's officers
+form or by the programme's committee, each appointment naming which path
+made it and who (Q-45 stays open; a second holder by the other path is
+refused). It ends with the officer year, RBPN's ambassador on the earlier
+of that and a two-year term recorded as a proposal, and the form's path
+can now record a vacancy, bring one forward, or withdraw a seat declined
+before its year. Its one grant, derived only and contained by no other
+scope, opens one view: the club's own camp season as counts suppressed
+by partition, so no hidden count can be worked out from the shown ones,
+and the club's statement lines for the programme by reference; a holder
+who has left the club reads nothing. A programme seat opens no club lens.
+The Magazine's feed no longer names a held death, or a child's life
+event the household has not agreed to, to anyone the record does not
+give it. **What the record leaves open is refused, not defaulted:** who
+appoints (Q-45), the floor for a club's own seat, whether a move ends a
+seat, and who beyond the editor sees a held notice. One finding is held,
+not fixed: a ballot's day bucket is UTC's, and moving it changes a
+locked voting test, which waits for David's word.
+
+Round 71 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 15 recorded (15 confirmed).
+<!-- /findings: round 71 -->
+
+<!-- findings: round 72 -->
+### Slice C5 — Club experience 5, the clubs page (31 October 2026)
+
+**Built on a branch and a draft PR; done when CI is green on GitHub on
+its commit and the staging deploy is LIVE on it**, both of which wait on
+David: no CI run has started on GitHub, because the runner stops every
+job before its first step.
+
+The clubs page reads every club the register holds in P18 §10.1's six
+groups (standing, membership, club life, the Federation's work in the
+club per programme, the money between the club and the Federation, and
+the move), as counts and never names, and is drawn three ways: the
+Federation's view at `/operations/clubs/`, the Council of Chapter Club
+Presidents' view (a president's own club in full, every other club as
+counts with no money), and a club's own row on its dashboard beside the
+Federation's median. Every count of people is suppressed under one rule,
+so no hidden count can be worked out from the shown ones, across rows,
+pages or the median; a hidden cell reads one word, which does not say
+whether it is the small one; the club's own pages show no gift amount.
+Each page reads every club in a fixed number of queries (the club's
+dashboard from about ten seconds to under one). **What the record leaves
+open is refused, not defaulted:** the By-Law 7.9.3 read of a club's
+people (Q-44), who approves affiliation (Q-40), who takes the annual
+snapshot (Q-137), and each per-programme count that has no record
+behind it. One finding is held, not fixed: the Federation's registry
+still shows a check-in count beside a hidden attendee count, which names
+a lone attendee to Federation staff; moving it changes locked tests of
+another slice, which waits for David's word.
+
+Round 72 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 72 -->
