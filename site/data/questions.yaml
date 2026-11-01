@@ -69,12 +69,12 @@
   status: parked
 - id: Q-8
   title: Which club does a child in two households belong to?
-  detail: "Pickup and directory choices are answered. Club attachment is ratified as staying open, because it carries dues and voting consequences and By-Law 4.3.1 is silent. Parked 4 Oct 2026 under D99: no slice row of plan/MASTER-PLAN.md and no gate or refusal line of a design note cites it, so it holds no build. It is unparked when one does."
+  detail: "Pickup and directory choices are answered. Club attachment is ratified as staying open, because it carries dues and voting consequences and By-Law 4.3.1 is silent. Parked 4 Oct 2026 under D99: no slice row of plan/MASTER-PLAN.md and no gate or refusal line of a design note cites it, so it holds no build. It is unparked when one does. Unparked 31 Oct 2026: slice CW2 routes R4's case to the Membership Committee citing this question (AFRP-Hub round 73); who on the committee may know such a case is Q-403."
   owner: Membership Committee
   goal: members
   branch: education
-  source: Design Status; AFRP-R6-Minor-Authority.md
-  status: parked
+  source: Design Status; AFRP-R6-Minor-Authority.md; AFRP-Hub round 73 (CW2)
+  status: open
 - id: Q-9
   title: Adoption
   detail: "An adopted child may be wholly family socially and not a descendant genealogically. Until this is answered the platform records an adoptive link as non-lineage and infers nothing. Parked 4 Oct 2026 under D99: no slice row of plan/MASTER-PLAN.md and no gate or refusal line of a design note cites it, so it holds no build. It is unparked when one does."
@@ -3415,4 +3415,108 @@
   goal: heritage
   branch: all
   source: "D30; D31; design/AFRP-Club-Experience-Plan.md §10; AFRP-Hub round 72 (C5)"
+  status: open
+- id: Q-400
+  title: "How is By-Law 4.1.1's reference to Shaheen 1982 read?"
+  detail: "By-Law 4.1.1 makes eligibility turn on Shaheen 1982, and the text supports two readings of how a family the book attaches to a clan qualifies. The platform returns UNDETERMINED and slice CW2 routes the finding to the Membership Committee, naming the Legal Advisor; the question had no number (D43). Which reading governs is not decided."
+  owner: "Membership Committee · Legal Advisor"
+  goal: members
+  branch: all
+  source: "By-Law 4.1.1; D43; R40; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-401
+  title: "Is a family Shaheen 1982 does not name one question or one per family?"
+  detail: "When the book is silent on a family, slice CW2 first routed every such family to one item, which made the committee's first answer a default for all later families, and an item per family would have to hold the family's name as typed. The tree book's referral now refuses for the silence, citing R40, and the finding stays undetermined. Whether the Membership Committee decides the silence once or family by family, and how a family is named on a queue that holds no typed text, is not decided."
+  owner: "Membership Committee · Legal Advisor"
+  goal: members
+  branch: all
+  source: "By-Law 4.1.1; R40; Q-400; AFRP-Hub round 73 (CW2 red-team fixes and audit)"
+  status: open
+- id: Q-402
+  title: "How is By-Law 8.1.2's 'in Good Standing during the prior year of appointment' read?"
+  detail: "By-Law 8.1.2's phrase supports two readings. Slice CW2 routes the finding to the Constitution Committee, naming the Legal Advisor; the question had no number (D43). Which reading governs is not decided."
+  owner: "Constitution Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "By-Law 8.1.2; D43; R40; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-403
+  title: "Who on the Membership Committee may know a minor's case?"
+  detail: "Slice CW2 routes R4's case (a child in two households, Q-8) to the Membership Committee as an item naming no child, no age and no club. Every club president holds a seat on that committee. Who on it may know the case, whether the households' clubs are shown, and who opens the record behind it, is not stated."
+  owner: "Membership Committee · Legal Advisor"
+  goal: members
+  branch: all
+  source: "R4; Q-8; binding rule 3; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-404
+  title: "Does the office read a committee's workspace?"
+  detail: "P1 §3 names who opens a body's workspace and names no read for the office. Slice CW2 lets the office read the register of bodies and its two new columns, never a workspace. Whether the office, or which seat in it, reads a workspace is not stated."
+  owner: "AFRP Board · Executive Director"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §3; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-405
+  title: "May a body decline an item referred to it?"
+  detail: "Slice CW2 opens a referred item on the receiving body's queue. Whether the receiving body may decline it, and what becomes of it if so, is not stated."
+  owner: "AFRP Board"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §3.4; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-406
+  title: "Which committee items are confidential?"
+  detail: "The record does not say which of a body's items are confidential. Slice CW2 shows every open item on the register by its title only. Which items are confidential, and who reads them, is not stated."
+  owner: "AFRP Board"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Committee-Workspace.md §3; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-407
+  title: "May a recorded vote count exceed the seats marked present?"
+  detail: "Slice CW2 refuses a vote count higher than the seats marked present at the meeting, a design choice. Whether that bound is right, for example where proxies or absentee votes are allowed, is not confirmed."
+  owner: "AFRP Board · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "Q-52; design/AFRP-Committee-Workspace.md §3; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-408
+  title: "May the Scholarship Fund Committee's minutes be linked on the platform?"
+  detail: "Binding rule 2 keeps scholarship applicant data out of the platform. Slice CW2 refuses a link to the Scholarship Fund Committee's minutes and shows the item as held off the platform. Whether such a link may ever be held, and under what conditions, is not stated."
+  owner: "Scholarship Fund Committee · Legal Advisor"
+  goal: next-generation
+  branch: all
+  source: "Binding rule 2; design/AFRP-Committee-Workspace.md §3; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-409
+  title: "Are the committee workspace's readings of 6.4.1, 7.2.1, 7.3.3, 7.4.1, 7.9.2 and 7.10.2 right?"
+  detail: "Slice CW2 labels several readings: 7.2.1 covers every AFRP committee; 7.9.2's appointed committees are the 8.1.3 bodies and created committees; the Deputy President chairs the bodies 6.4.1 and 7.3.3 name; the Executive Secretary takes the Board's and the Executive Committee's minutes when the Executive Assistant is absent or the seat is vacant (7.4.1, 7.10.2); and FED2 §E's attendance review reaches AFRP committees only. Each needs confirming or correcting."
+  owner: "Constitution Committee · Legal Advisor"
+  goal: governance
+  branch: all
+  source: "By-Laws 6.4.1, 7.2.1, 7.3.3, 7.4.1, 7.9.2, 7.10.2; FED2 §E; AFRP-Hub round 73 (CW2)"
+  status: open
+- id: Q-410
+  title: "Who reads a committee's attendance marks?"
+  detail: "The chair gives the marks and sees each seat's (P1 §3.5); slice CW2 shows every other reader each meeting's totals only, hidden under the small-cell floor (S7), a labelled reading since S7 sets the floor for reports, not a body's marks. Whether a member may read their own marks, whether the President and the Deputy President read everyone's, and which floor applies, is not stated."
+  owner: "AFRP Board"
+  goal: governance
+  branch: all
+  source: "S7; Q-53; Q-56; design/AFRP-Committee-Workspace.md §3.5; AFRP-Hub round 73 (CW2 fixes and audit)"
+  status: open
+- id: Q-411
+  title: "Which day is a committee decision dated, and may a past meeting's business be recorded?"
+  detail: "Slice CW2 dates a decision and its item on the day they are recorded and keeps the meeting's own date beside it ('taken at the meeting of'), reading P12 §2.5's 'when the body's decision item closes' as the recording day. An outcome cannot be taken at a meeting held before the item reached the body, so a body cannot record an earlier meeting's business afterwards. Whether the reading is right, and whether such a record may be kept, is not stated."
+  owner: "AFRP Board · Constitution Committee"
+  goal: governance
+  branch: all
+  source: "design/AFRP-Selection-Programmes.md §2.5; design/AFRP-Committee-Workspace.md §3; AFRP-Hub round 73 (CW2 fixes and audit)"
+  status: open
+- id: Q-412
+  title: "Where does the Deputy President read an attendance review, and may they resolve it?"
+  detail: "P1 §3.5 opens every FED2 §E attendance review to the chair and the Deputy President, while P1 §3 opens a workspace to the Deputy President only for the bodies they chair. Slice CW2 removed a page it had built for this, which the record does not describe; the workspace's refusal names the gap and the review stays on the body's queue with its chair. Where the Deputy President reads such a review, and whether they resolve it beside the chair, is not stated."
+  owner: "AFRP Board"
+  goal: governance
+  branch: all
+  source: "FED2 §E; Q-46; design/AFRP-Committee-Workspace.md §3, §3.5; AFRP-Hub round 73 (CW2 fixes and audit)"
   status: open
