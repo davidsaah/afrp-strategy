@@ -1892,3 +1892,42 @@ President reads a review they own.
 
 Round 73 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
 <!-- /findings: round 73 -->
+
+<!-- findings: round 74 -->
+### Slice CW3 — Committees 3, reports (10 November 2026)
+
+**Built on a branch and a draft PR; not done.** No deploy is claimed.
+CI runs the suite; its one red test compares each round's findings
+file with this document on the strategy repository's main branch, and
+stays red until the rounds held on the open strategy pull request are
+merged.
+
+A committee's report is generated from what its workspace and the
+ledger already hold, and is never typed: its meetings and attendance
+totals, its decision items, the seats, a programme's counts, and money
+summed from the ledger's closed days. No money figure can be typed on
+any report. The chair files, which freezes the report as it stood that
+day beside two typed fields; a correction is a new report. The
+affiliates' standing reports are shown on the owing body's workspace
+with their day, or as not on file. A minor seat holder is counted and
+never named, on the day the page is served. A title that now reads as
+the full name of a person on the register is withheld in fixed words,
+whoever the person is. Counts of people's outcomes are shown for each
+whole, ended quarter and never for a range the reader chooses, so two
+readings cannot be subtracted. Nobody resolves a follow-up about
+themselves, and a follow-up a person is not shown answers as one that
+does not exist. **What the record leaves open is refused, not
+defaulted:** the reporting quarters (Q-54), so no quarter, due day or
+outcome count is shown yet; which bodies hold a budget line and who
+records one (Q-55); the days a report is due after a quarter; co-chairs
+signing (Q-51); the six-monthly dates; and a year whose due day was
+moved to one already past. **Held for a decision, and unchanged:** the
+design note's journey exempts the two typed report fields from the
+no-narrative rule and its rule 8 does not; as built, an ordinary word
+that is also a given name on the register stops a filing. **For a
+Board:** three affiliate bodies have no seat rule and the Family Tree
+Committee has no chair rule, so nobody can sign or record a report for
+them. The last layer of fixes has not itself been audited.
+
+Round 74 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 29 recorded (24 confirmed, 5 refuted, suspected or observed).
+<!-- /findings: round 74 -->
