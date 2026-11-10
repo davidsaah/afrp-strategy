@@ -1798,3 +1798,136 @@ classification waits on Q-193.
 
 Round 70 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
 <!-- /findings: round 70 -->
+
+<!-- findings: round 71 -->
+### Slice C4 — Club experience 4, the club's seat in a programme (31 October 2026)
+
+**Built on a branch and a draft PR; done when CI is green on GitHub on
+its commit and the staging deploy is LIVE on it**, both of which wait on
+David: no CI run has started on GitHub, because the runner stops every
+job before its first step.
+
+A club's programme seat is a seat on the club's officers body, one rule
+per programme P18 §7.1 gives a seat, made either on the club's officers
+form or by the programme's committee, each appointment naming which path
+made it and who (Q-45 stays open; a second holder by the other path is
+refused). It ends with the officer year, RBPN's ambassador on the earlier
+of that and a two-year term recorded as a proposal, and the form's path
+can now record a vacancy, bring one forward, or withdraw a seat declined
+before its year. Its one grant, derived only and contained by no other
+scope, opens one view: the club's own camp season as counts suppressed
+by partition, so no hidden count can be worked out from the shown ones,
+and the club's statement lines for the programme by reference; a holder
+who has left the club reads nothing. A programme seat opens no club lens.
+The Magazine's feed no longer names a held death, or a child's life
+event the household has not agreed to, to anyone the record does not
+give it. **What the record leaves open is refused, not defaulted:** who
+appoints (Q-45), the floor for a club's own seat, whether a move ends a
+seat, and who beyond the editor sees a held notice. One finding is held,
+not fixed: a ballot's day bucket is UTC's, and moving it changes a
+locked voting test, which waits for David's word.
+
+Round 71 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 15 recorded (15 confirmed).
+<!-- /findings: round 71 -->
+
+<!-- findings: round 72 -->
+### Slice C5 — Club experience 5, the clubs page (31 October 2026)
+
+**Built on a branch and a draft PR; done when CI is green on GitHub on
+its commit and the staging deploy is LIVE on it**, both of which wait on
+David: no CI run has started on GitHub, because the runner stops every
+job before its first step.
+
+The clubs page reads every club the register holds in P18 §10.1's six
+groups (standing, membership, club life, the Federation's work in the
+club per programme, the money between the club and the Federation, and
+the move), as counts and never names, and is drawn three ways: the
+Federation's view at `/operations/clubs/`, the Council of Chapter Club
+Presidents' view (a president's own club in full, every other club as
+counts with no money), and a club's own row on its dashboard beside the
+Federation's median. Every count of people is suppressed under one rule,
+so no hidden count can be worked out from the shown ones, across rows,
+pages or the median; a hidden cell reads one word, which does not say
+whether it is the small one; the club's own pages show no gift amount.
+Each page reads every club in a fixed number of queries (the club's
+dashboard from about ten seconds to under one). **What the record leaves
+open is refused, not defaulted:** the By-Law 7.9.3 read of a club's
+people (Q-44), who approves affiliation (Q-40), who takes the annual
+snapshot (Q-137), and each per-programme count that has no record
+behind it. One finding is held, not fixed: the Federation's registry
+still shows a check-in count beside a hidden attendee count, which names
+a lone attendee to Federation staff; moving it changes locked tests of
+another slice, which waits for David's word.
+
+Round 72 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 17 recorded (17 confirmed).
+<!-- /findings: round 72 -->
+
+<!-- findings: round 73 -->
+### Slice CW2 — Committees 2, the workspace (31 October 2026)
+
+**Built on a branch and a draft PR; done when CI is green on GitHub on
+its commit and the staging deploy is LIVE on it**, both of which wait on
+David: no CI run has started on GitHub, because the runner stops every
+job before its first step.
+
+Each body on the register has a workspace, opened to the seats it
+holds that day, the President ex officio, the Executive Director for
+appointed committees and the Deputy President for the bodies they
+chair, and never to a grant; the office reads the register. Meetings sit
+on the one event rail and on no list; holding one opens a minutes-due
+item, shown overdue from day thirty-one on the body and on the register
+with no scheduler; attendance is marked per seat by the chair, and other
+readers see totals under the small-cell floor. The decisions queue takes
+the platform's routings by R40 once each, a seat's own items and every
+cycle decision, which is dated the day it is recorded, its meeting kept
+as its own. A committee seat's third unexcused absence in one Federation
+year opens a review for the chair, shown to no one else, closed if the
+member dies, and never raised for a Board seat (Q-53). No title or line
+holds a card number, and only what a person typed is checked for names
+on the register. **What the record leaves open is refused, not
+defaulted:** quorum (Q-52), the Board's attendance rule (Q-53), co-chairs
+(Q-51), the staff liaison (Q-56), the Federation year's first day, how
+the tree book's silence on a family is read, and where the Deputy
+President reads a review they own.
+
+Round 73 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 20 recorded (20 confirmed).
+<!-- /findings: round 73 -->
+
+<!-- findings: round 74 -->
+### Slice CW3 — Committees 3, reports (10 November 2026)
+
+**Built on a branch and a draft PR; not done.** No deploy is claimed.
+CI runs the suite; its one red test compares each round's findings
+file with this document on the strategy repository's main branch, and
+stays red until the rounds held on the open strategy pull request are
+merged.
+
+A committee's report is generated from what its workspace and the
+ledger already hold, and is never typed: its meetings and attendance
+totals, its decision items, the seats, a programme's counts, and money
+summed from the ledger's closed days. No money figure can be typed on
+any report. The chair files, which freezes the report as it stood that
+day beside two typed fields; a correction is a new report. The
+affiliates' standing reports are shown on the owing body's workspace
+with their day, or as not on file. A minor seat holder is counted and
+never named, on the day the page is served. A title that now reads as
+the full name of a person on the register is withheld in fixed words,
+whoever the person is. Counts of people's outcomes are shown for each
+whole, ended quarter and never for a range the reader chooses, so two
+readings cannot be subtracted. Nobody resolves a follow-up about
+themselves, and a follow-up a person is not shown answers as one that
+does not exist. **What the record leaves open is refused, not
+defaulted:** the reporting quarters (Q-54), so no quarter, due day or
+outcome count is shown yet; which bodies hold a budget line and who
+records one (Q-55); the days a report is due after a quarter; co-chairs
+signing (Q-51); the six-monthly dates; and a year whose due day was
+moved to one already past. **Held for a decision, and unchanged:** the
+design note's journey exempts the two typed report fields from the
+no-narrative rule and its rule 8 does not; as built, an ordinary word
+that is also a given name on the register stops a filing. **For a
+Board:** three affiliate bodies have no seat rule and the Family Tree
+Committee has no chair rule, so nobody can sign or record a report for
+them. The last layer of fixes has not itself been audited.
+
+Round 74 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 29 recorded (24 confirmed, 5 refuted, suspected or observed).
+<!-- /findings: round 74 -->
