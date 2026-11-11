@@ -1931,3 +1931,48 @@ them. The last layer of fixes has not itself been audited.
 
 Round 74 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 29 recorded (24 confirmed, 5 refuted, suspected or observed).
 <!-- /findings: round 74 -->
+
+<!-- findings: round 75 -->
+### Slice CW4 — Committees 4, the Board, the Executive Committee and the packet (10 November 2026)
+
+**Built on a branch and a draft PR; not done.** No deploy is claimed.
+
+The Board and the Executive Committee have workspaces. The President
+presides at the Board, and the Deputy President only where the
+President's seat is vacant; nobody presides at the Executive
+Committee on the platform, because no text says who does. The office
+enters the standing meetings, and no shortfall is computed. A poll of
+the Board is placed with a deadline and a roll of seats frozen that
+day; the platform takes no reply and holds no count while the poll is
+open, and an item under a poll takes its outcome from the poll's
+result and from nothing else. The slate, the Board's choice, the two
+releases and a challenge now stand as items on their bodies' queues.
+The packet is assembled in the design note's order from what the
+platform holds, with money from the ledger's closed days and no
+figure typed, frozen once, and read from what was frozen; a ledger
+entry after the freeze changes nothing. ARFHSN's six-monthly
+statement is its financial half only. The Past Presidents' active
+list is a draft the President adopts; nothing is applied to any seat.
+A seat that is suspended does not act, and nobody acts in its place.
+**What the record leaves open is refused, not defaulted:** who
+presides at the Executive Committee; who is designated to poll the
+Board besides the Executive Assistant; whether a frozen packet is a
+record without its drive copy (Q-57), so distribution without the
+copy refuses; ARFHSN's report dates (Q-58), so nothing is due; and
+ARFHSN's Chairman, for whom no seat rule exists, so nobody can
+approve its report. **Readings taken until the record says, each
+labelled:** the packet reads AFRP's funds only; a packet freezes only
+on an approved agenda; a poll takes no reply on the platform; a
+frozen packet stops showing the report of a body later held off; and
+a standing item with no meeting named is entered once for a kind and
+a day. **Left open:** a poll placed by an Executive Assistant whose
+seat then ends cannot be closed by anyone until someone is
+designated, and its pages say so; a poll has no longest time and
+cannot be extended or withdrawn; and a body's workspace still shows a title as
+it was written, where the reports, the packet, the polls pages and
+the office's register withhold one that has come to read as a
+person's full name. The last layer of fixes has not itself been
+audited.
+
+Round 75 in `AFRP-Hub/ai-memory/04-FINDINGS-LEDGER.md`: 43 recorded (38 confirmed, 5 refuted, suspected or observed).
+<!-- /findings: round 75 -->
